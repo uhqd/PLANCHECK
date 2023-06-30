@@ -1,0 +1,121 @@
+﻿
+
+
+
+A faire------------------------------------------------------------
+ CT
+	orientation FF/HF
+	MAR ? 
+	4DCT 3ph ? Ave ? 6 Ph
+	DIBH ?
+
+prescription
+	accord avec les standards ? 
+	accord avec un essai ?
+	
+BEAM Pondération 
+	
+	
+Plan replanif ??? 
+	
+ 
+ - OPTIMISEUR : 
+	- valeurs des obj ? existe il une dose moyenne vessie et rectum  ? (il faut l'ajouter systemeatiquement pour les prostates)
+	- existe t il un volume chauffe ? ((il faut l'ajouter systemeatiquement pour les prostates)
+
+Faiscaux
+	Technique et Energie check (STEC RA = 6x dca 10fff)
+	Blocage ? 
+	Mode SRS
+	Nova SBRT/NOVA
+	Mode (DSP pour les elecs....)
+	Bras (pour les tangentiels, pour les ptv latéralisés)
+	DOSE RATE
+	Delivery time
+	Bolus ? 
+	180E ?
+	DRR
+	Telemetre visible ? 
+	MLC		MLC minimal ? 		Facteur de moculation ? 
+	présence kv/cbct
+
+ 
+Fait ------------------------------------------------------------
+- intersection avec body --> 		FAIT
+- Nom du plan = nom de la prescription = commentaire du course  --> FAIT
+- Il est facile d'oublier de mettre une table de tolérance sur le setup a l'halcyon (car ajouté a posteriori) ---> FAIT
+ - couleurs isodoses ---> FAIT
+- Calcul en AAA et calcul du PDIP aussi en AAA à l'Halcyon !! --> FAIT
+- Au NOVA il est facile de ne pas ajuster les machoires ; il faut vérifier si les X/Y sont plus grands que le PTV --> FAIT
+
+
+CONTOURS
+	approuvé ?				ok
+	existent ils ?				ok
+	volume cohérent ? 			ok
+	plus ? (un morceau/deux morceaux...	ok (bof)
+	Table ? 				ok
+	Contours opt : existent ils ? 		ok
+	le OAR Gauche est il a gauche ? 	ok
+	Cohérence nbre de ctv vs ptv		ok
+traitements antérieurs 			OK
+
+Plan 	Enable gating ? 			OK
+	machoiresjaw tracking activé   --> OK
+	 valeurs NTO ?   --> FAIT
+	 si possible verifier les options : air cavity ; on (parametres du PO) OK
+CT	Densité forcée ? 			OK
+
+Finalisation	Plan CQ préparé ?    			OK
+
+
+
+Pas possible ou Bof ---------------------------------------------------------------
+Documents? 
+suppression ORFIT TETE			NON FAIT
+ - Body bien fait (voir table)
+ - structure de contentions : 	est elle bien positionné ? 		IMPOSSIBLE	
+ - injection vesssie ; ce n'est pas tjs le cas pour les prostate. --> BOF
+ - si le Dr a mal nommé le PTV  les OAR-PTv et les overlaps seront mauvais ou vides.  --> BOF 
+ - Lors du choix du template de plan il est possible de choisir un template Halcyon et puis a la derniere étape prendre une machine nova. --> BOF
+ - Le volume cible est en pricnipe le PTV HD OPT --> BOF
+ - Position ISO : si le PTV TOTAL existe on doit être au milieu --> BOF
+
+---------------
+
+
+
+
+
+
+	
+
+
+
+tests prostate
+202110200
+202212029
+202212216
+201319168
+202206917
+201511748
+201100903
+202212520
+202212642
+202207818
+202208672
+202212024
+201319168
+Jawtrack ??? 
+
+
+
+
+
+
+
+
+
+
+
+ 
