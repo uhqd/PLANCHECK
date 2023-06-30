@@ -11,4 +11,4 @@ Work in progress (inspired from the brazilian workshop at Fortaleza, Brazil http
 Recommanded .NET version > 6.2
 
 
-Please find user guide (excuse my french) [here].(https://github.com/uhqd/PLANCHECK/tree/main/Plancheck/doc).
+Please find user guide (excuse my french) [here].(https://github.com/uhqd/PLANCHECK/tree/main/Plancheck/doc/plancheckhelp.pdf).
