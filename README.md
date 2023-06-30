@@ -1,4 +1,4 @@
-<img src="teachMan4.png" width="500" align="right">
+<img src="teachMan.png" width="500" align="right">
 
 # PlanCheck_IUCT
 Script for Varian Eclipse v15.6 to check plans
