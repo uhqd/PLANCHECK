@@ -68,6 +68,23 @@
 
                     </DockPanel>
                 </StackPanel>
+
+                <DockPanel Style="{x:Null}" Width="980" Height="32">
+                    
+                        <Grid Style="{x:Null}" Width="980">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="730" />
+                            <ColumnDefinition Width="250" />
+                            <!-- ColumnDefinition Width="30" /-->
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                        </Grid.RowDefinitions>
+                        <ComboBox Name="UserMode" Width="240"  Grid.Column ="1"  Grid.Row="0" HorizontalAlignment="Right" SelectionChanged="UserMode_SelectionChanged" FontFamily="Arial" FontSize="14" BorderBrush="#FF232020" Foreground="#FF252121" Background="#FFA29898" />
+
+                    </Grid>
+                </DockPanel>
+
                 <DockPanel Style="{x:Null}" Width="980">
                     <Border Style="{x:Null}" CornerRadius="3" BorderBrush="LightBlue" Background="White" BorderThickness="3" DockPanel.Dock="Top">
                         <Grid Style="{x:Null}" Width="980">

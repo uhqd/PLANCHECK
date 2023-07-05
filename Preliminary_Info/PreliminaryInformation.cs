@@ -59,7 +59,7 @@ namespace PlanCheck
         private bool doseCheckReportFound;
         private bool positionReportFound;
         private int returnCode;
-  
+        public bool _advancedUserMode;
         public bool isARecentDocument(DateTime t)
         {
             int recent = 30;   // number of days 
@@ -75,7 +75,7 @@ namespace PlanCheck
         }
         public int isTheCorrectTomoReport(String s)  // 0 not a tomo report, 1 tomo report not the good one, 2 the good tomo report
         {
-            
+
 
             String saveFilePathTemp = Directory.GetCurrentDirectory() + @"\__temp__.pdf";
             int startBinary = s.IndexOf("\"BinaryContent\"") + 17;
@@ -83,7 +83,7 @@ namespace PlanCheck
             string binaryContent2 = s.Substring(startBinary, endBinary - startBinary);
             binaryContent2 = binaryContent2.Replace("\\", "");  // the \  makes the string a non valid base64 string                       
             File.WriteAllBytes(saveFilePathTemp, Convert.FromBase64String(binaryContent2));
-            
+
             _tprd = new TomotherapyPdfReportReader(saveFilePathTemp);
 
             if (_tprd.itIsATomoReport == false)
@@ -96,7 +96,7 @@ namespace PlanCheck
                 if (Math.Abs(_tprd.Trd.maxDose - planDoseMax) < 0.11) // < 0.11 Gy
                 {
                     returnCode = 2;
-                   // MessageBox.Show("Extraction des données de plan depuis la Dosimétrie Tomo dans Aria Documents");
+                    // MessageBox.Show("Extraction des données de plan depuis la Dosimétrie Tomo dans Aria Documents");
                 }
                 else
                     returnCode = 1;
@@ -137,7 +137,7 @@ namespace PlanCheck
         {
 
             #region declaration of variables and deserialize response
-            
+
             DocSettings docSet = DocSettings.ReadSettings();
             ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
             string apiKeyDoc = docSet.DocKey;
@@ -190,7 +190,7 @@ namespace PlanCheck
                 if (typeloc > 0)
                 {
                     thisDocType = response_docdetails.Substring(typeloc + 15, enteredloc - typeloc - 18);
-                    
+
                 }
                 int nameloc = response_docdetails.IndexOf("PatientLastName");
                 int dobloc = response_docdetails.IndexOf("PreviewText");
@@ -213,7 +213,7 @@ namespace PlanCheck
                     {
                         trashDoc = true;
                     }
-                    
+
                 }
                 #endregion
 
@@ -225,7 +225,7 @@ namespace PlanCheck
                     if (!isARecentDocument(dtDateTime))
                         trashDoc = true;
 
-                    
+
                 }
                 #endregion
 
@@ -235,7 +235,7 @@ namespace PlanCheck
                     if ((thisDocType != doc1) && (thisDocType != doc2) && (thisDocType != doc3))
                         trashDoc = true;
 
-                    
+
                 }
                 #endregion
 
@@ -261,10 +261,10 @@ namespace PlanCheck
 
                     }
 
-              
+
                 }
                 #endregion
-               
+
                 #region store index
                 if (!trashDoc)
                 {
@@ -298,12 +298,12 @@ namespace PlanCheck
                 positionReportFound = false;
             else
                 positionReportFound = true;
-            
+
             if (dosimetrie.Count == 0)
                 planReportFound = false;
             else
-                planReportFound = true;               
-            
+                planReportFound = true;
+
 
             #endregion
 
@@ -406,15 +406,15 @@ namespace PlanCheck
 
             #region get ARIA documents infos
 
-            
+
             String response = connectToAriaDocuments(ctx);
-            
-            if (response != null) 
+
+            if (response != null)
             {
                 getTheAriaDocuments(response, ctx); // check if documents exists and get info from tomo report if needed
             }
 
-            if((isTOMO)&&(!tomoReportIsFound))
+            if ((isTOMO) && (!tomoReportIsFound))
                 MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents");
 
             #endregion
@@ -636,10 +636,10 @@ namespace PlanCheck
             get { return _tprd; }
         }
 
-       /* public string tomoReportPathFile
-        {
-            get { return tomoReportPath; }
-        }*/
+        /* public string tomoReportPathFile
+         {
+             get { return tomoReportPath; }
+         }*/
         public bool tomoReportIsFound
         {
             get { return planReportFound; }
@@ -652,7 +652,11 @@ namespace PlanCheck
         {
             get { return positionReportFound; }
         }
-
+        public bool advancedUserMode
+        {
+            get { return _advancedUserMode; }
+            set { _advancedUserMode = value; }
+        }
         #endregion
 
     }

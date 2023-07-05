@@ -57,6 +57,8 @@ namespace PlanCheck
         public string OptimizationModel { get; set; }
         public List<UserControl> ListChecks { get; set; }
 
+       
+
         private String setProtocolDisplay(String filename)
         {
             String protocol = "Check-protocol: ";  // theProtocol is not a file name. It s a string that display the file name with no extension
@@ -165,7 +167,16 @@ namespace PlanCheck
             theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
 
+           
+
             InitializeComponent(); // read the xaml
+
+
+            // fill combo box for user mode
+            UserMode.Items.Add("Basique");
+            UserMode.Items.Add("Avancé");
+            UserMode.SelectedIndex = 0;
+
             // MessageBox.Show("Componrtnt inited");
 
             //OK_button.color BackColor = SystemColors.ButtonFace;
@@ -793,6 +804,14 @@ d3.ToString("0.##");   //24
             pdfRenderer.PdfDocument.Save(pdfFile);
             System.Diagnostics.Process.Start(pdfFile);
 
+
+        }
+        private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserMode.SelectedValue.ToString() == "Basique")
+               _pinfo.advancedUserMode = false;
+            if (UserMode.SelectedValue.ToString() == "Avancé")
+                _pinfo.advancedUserMode = true;
 
         }
     }
