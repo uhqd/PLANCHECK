@@ -47,7 +47,7 @@ namespace PlanCheck
             }
 
 
-            if (umplan1 != umplan2) return (false);
+            if (Math.Abs(umplan1 - umplan2) > 0.1) return (false);
             else return (true);
 
         }
