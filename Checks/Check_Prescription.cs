@@ -204,7 +204,7 @@ namespace PlanCheck
                 normalisation.Infobulle = "Le mode de normalisation (onglet Dose) doit être en accord avec le check-protocol. Cet item est en WARNING si Aucune normalisation";
                 //normalisation.Infobulle += "\nPour la TOMO l'item est mis en INFO";
 
-                this._result.Add(normalisation);
+                
             }
             else // tomo
             {
