@@ -1,131 +1,126 @@
 Accuray Precision® Plan Overview
 Plan Name:
 Plan Type:
-SeinDgg2
+ParoiGgg
 Standard
-Plan Saved Date: 23 Jun 2023, 12:03:56 PM 
-(hr:min:sec)
+Plan Saved Date: 10 Jul 2023, 5:08:45 PM (hr:min:sec)
 Treatment Machine / Serial No.: 0210462 850 MU/min, rev 175 / 
 210462
-Prescription: Median of PTV boost, 63.80 Gy
-Prescribed Dose per Fraction (Gy): 2.20
-Planned Fractions: 29
-Maximum Dose (Gy): 66.04
+Prescription: Median of PTV paroi, 50.00 Gy
+Prescribed Dose per Fraction (Gy): 2.00
+Planned Fractions: 25
+Maximum Dose (Gy): 54.47
 Plan Status: Approved
-MU Planned / MU per Fraction: 268453.6 / 9257.0
+MU Planned / MU per Fraction: 230131.9 / 9205.3
 Field Width (cm): 2.5, Dynamic
 Pitch: 0.287
-Modulation Factor / Actual: 3.000 / 1.7
+Modulation Factor / Actual: 2.500 / 1.4
 Gantry Period (sec):
 Gantry Rotations:
-20.1
-31.6
-Sinogram Segments: 10.6
+16.8
+37.6
+Sinogram Segments: 12.5
 Couch Travel (mm):
 Couch Speed (mm/sec):
-228.7
+272.1
 0.4
-Red Lasers Offset (IECf, mm): X: 14.50 Y: -67.01 Z: -38.87
-Beam On Time (sec): 637.7
+Red Lasers Offset (IECf, mm): X: -11.58 Y: -98.91 Z: -49.91
+Beam On Time (sec): 634.1
 Plan Delivery Type / Mode: Helical / IMRT
 Dose Calculation Algorithm:
 Dose Calculation Resolution / Type: High / Final
 Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
-Size (IECp, voxel) X: 512 Y: 167 Z: 512
-Reference Dose (Gy): 66.04
-X: -143.5 Y: 72.5 Z: 100.3 Reference Point (IECp, mm): Tracking Method: None
+Size (IECp, voxel) X: 512 Y: 204 Z: 512
+Reference Dose (Gy): 54.47
+X: 8.9 Y: 105.0 Z: 90.1 Reference Point (IECp, mm): Tracking Method: None
 Image Angles (deg):
 Tracking Target VOI:
 Planning Method: Classic
 Patient Name:
 Medical ID:
-TOME, ISABELLE
-202210490 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 17 Jun 1962
-Gender: Female Patient Key: 409530
+FERRIER, CAMILLE
+202211417 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 16 Nov 1992
+Gender: Female Patient Key: 409570
 Plan Overview
-Page 1 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)DVH: Absolute Dose
+Page 1 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)DVH: Absolute Dose
 Plan Overview
-Page 2 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3VOI List
+Page 2 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)
+Patient Name: FERRIER, CAMILLE; Medical ID: 202211417; Plan Name: ParoiGgg; Version: Accuray Precision 3.3.1.3VOI List
 VOI Volume 
 (cm³)
 Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
 %
 Beam Inter.
-Canal Med 84.49 0.32 3.31 13.72 n/a n/a n/a n/a Exit Only
-Coeur 613.71 1.42 7.09 40.86 n/a n/a n/a n/a Exit Only
-Foie 1449.83 0.49 5.28 44.63 n/a n/a n/a n/a Exit Only
-IVA 4.11 2.48 6.12 9.27 n/a n/a n/a n/a Allowed
-Larynx 11.45 1.15 1.77 3.08 n/a n/a n/a n/a Allowed
-Oesophage 27.28 3.20 11.49 30.34 n/a n/a n/a n/a Allowed
-Plexus Dt 13.77 1.24 38.47 56.27 n/a n/a n/a n/a Allowed
-Plexus Gche 12.58 0.83 4.87 9.24 n/a n/a n/a n/a Allowed
-PoumonDt 969.15 1.38 10.10 54.44 n/a n/a n/a n/a Exit Only
-PoumonGche 696.06 1.33 4.37 15.46 n/a n/a n/a n/a Exit Only
-Poumons 1623.63 1.33 7.62 53.76 n/a n/a n/a n/a Allowed
-Sein contro 1094.76 0.86 4.37 20.08 n/a n/a n/a n/a Exit Only
-TetehumeraleDte 64.55 0.65 12.02 30.41 n/a n/a n/a n/a Allowed
-TetehumeraleGche 61.56 0.33 2.08 5.38 n/a n/a n/a n/a Allowed
-Thyroide 9.34 2.67 23.33 53.78 n/a n/a n/a n/a Allowed
-Trachee 21.74 3.38 25.86 47.08 n/a n/a n/a n/a Allowed
-BODY 30103.13 0.10 7.86 66.04 n/a n/a n/a n/a Allowed
-Boost lit T 52.56 60.76 64.00 65.79 n/a n/a n/a n/a Allowed
-Clips 1.37 56.26 63.34 65.29 n/a n/a n/a n/a Allowed
-CTV cmi 11.79 50.05 52.83 56.74 n/a n/a n/a n/a Allowed
-CTV sein 1015.72 25.72 53.55 66.04 n/a n/a n/a n/a Allowed
-CTV sous clav 97.23 47.11 53.07 57.12 n/a n/a n/a n/a Allowed
-CTV sus clav 22.29 49.97 52.53 55.80 n/a n/a n/a n/a Allowed
-PTV boost 104.12 53.42 63.47 66.04 1.00 2.21 1.04 45.29 n/a
-PTV cmi 31.74 42.58 52.20 56.74 0.00 0.00 1.04 0.00 n/a
-PTV sein 1098.00 34.07 53.81 66.04 1.00 23.30 1.04 4.29 n/a
-PTV sous clav 200.58 36.25 52.28 57.40 0.00 0.00 1.04 0.00 n/a
-PTV sus clav 61.70 41.87 52.34 56.40 0.00 0.00 1.04 0.00 n/a
-TetehumeraleD+10 217.88 0.52 10.94 37.22 n/a n/a n/a n/a Allowed
+Canal Med 96.44 0.14 2.80 10.26 n/a n/a n/a n/a Exit Only
+Coeur 548.17 2.30 7.70 44.63 n/a n/a n/a n/a Exit Only
+Foie 1112.66 0.13 3.23 36.83 n/a n/a n/a n/a Exit Only
+IVA 5.39 4.31 12.38 32.38 n/a n/a n/a n/a Allowed
+Larynx 9.77 0.36 0.51 0.71 n/a n/a n/a n/a Allowed
+Oesophage 21.87 0.68 10.73 46.63 n/a n/a n/a n/a Allowed
+PlexusDt 12.78 0.22 2.39 6.15 n/a n/a n/a n/a Allowed
+PlexusGche 11.66 0.27 25.92 52.07 n/a n/a n/a n/a Allowed
+PoumonDt 1689.83 1.22 4.78 24.63 n/a n/a n/a n/a Exit Only
+PoumonGche 1480.21 1.71 11.84 51.55 n/a n/a n/a n/a Exit Only
+Poumons 3170.04 1.22 8.08 51.55 n/a n/a n/a n/a Allowed
+Sein contro 567.21 1.83 3.91 18.67 n/a n/a n/a n/a Exit Only
+TetehumeraleDte 59.83 0.17 0.59 2.50 n/a n/a n/a n/a Allowed
+TetehumeraleGche 57.26 0.25 6.95 24.87 n/a n/a n/a n/a Allowed
+Thyroide 9.52 0.45 1.36 15.70 n/a n/a n/a n/a Allowed
+Trachee 32.37 0.61 14.10 42.80 n/a n/a n/a n/a Allowed
+BODY 18732.39 0.03 6.90 54.47 n/a n/a n/a n/a Allowed
+CTV cmi 19.91 40.86 49.54 53.09 n/a n/a n/a n/a Allowed
+CTV paroi 203.20 45.82 50.14 54.47 n/a n/a n/a n/a Allowed
+CTV sous clav 31.56 47.82 50.12 52.34 n/a n/a n/a n/a Allowed
+CTV sus clav 13.48 46.67 50.13 53.39 n/a n/a n/a n/a Allowed
+Prothese sein 401.83 24.42 46.63 52.36 n/a n/a n/a n/a Allowed
+PTV cmi 42.48 35.15 49.12 53.60 19.47 59.34 1.09 32.81 n/a
+PTV paroi 383.56 38.53 49.81 54.47 1.40 2.76 1.09 50.65 n/a
+PTV sous clav 79.61 39.12 49.52 52.34 8.29 20.15 1.09 41.13 n/a
+PTV sus clav 40.44 41.62 49.45 53.60 17.11 43.63 1.09 39.21 n/a
+TetehumeraleD+10 211.32 0.14 0.64 3.19 n/a n/a n/a n/a Allowed
+TetehumeraleG+10 204.78 0.21 6.54 35.40 n/a n/a n/a n/a Allowed
+Prothese sein1 401.83 24.42 46.63 52.36 n/a n/a n/a n/a Allowed
 VOI
 Plan Overview
-Page 3 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3CanalMed+5 229.24 0.29 3.42 16.57 n/a n/a n/a n/a Exit Only
-PTVTOTAL 1367.63 34.07 53.50 66.04 n/a n/a n/a n/a Allowed
-RingPTVgg 377.12 7.84 40.10 56.01 n/a n/a n/a n/a Allowed
-RingPTVSein 813.26 6.76 36.77 64.34 n/a n/a n/a n/a Allowed
-Portacath 10.54 1.76 2.72 4.80 n/a n/a n/a n/a Exit Only
-manque 50.66 42.74 52.31 57.57 0.00 0.00 1.04 0.00 n/a
-All Target Regions n/a 34.07 53.50 66.04 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.10 7.94 66.04 0.00 0.00 0.00 0.00 n/a
-Soft Tissue n/a 0.09 1.86 30.91 0.00 0.00 0.00 0.00 n/a
-Plan Overview
-Page 4 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3DVH Dose (Gy) Dose (% of 63.80 
+Page 3 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)
+Patient Name: FERRIER, CAMILLE; Medical ID: 202211417; Plan Name: ParoiGgg; Version: Accuray Precision 3.3.1.3CanalMed+5 260.61 0.13 2.99 14.80 n/a n/a n/a n/a Exit Only
+Portacath 24.56 1.97 3.05 4.33 n/a n/a n/a n/a Exit Only
+Prothese-PTV 225.53 24.42 44.02 51.99 n/a n/a n/a n/a Allowed
+PTVTOTAL 535.17 35.15 49.69 54.47 n/a n/a n/a n/a Allowed
+RingPTVgg 341.59 5.77 37.56 51.46 n/a n/a n/a n/a Allowed
+RingPTVParoi 737.72 7.56 34.95 51.99 n/a n/a n/a n/a Allowed
+MANQUE 105.59 39.01 49.60 54.47 5.38 11.26 1.09 47.78 n/a
+All Target Regions n/a 35.15 49.69 54.47 0.00 0.00 0.00 0.00 n/a
+All Critical Regions n/a 0.03 7.15 54.47 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.05 1.46 39.00 0.00 0.00 0.00 0.00 n/a
+DVH Dose (Gy) Dose (% of 50.00 
 Gy Rx Dose)
 Volume (cm³) Volume (%) Criteria Value
-PTV boost 61.52 96.4 98.92 95.0 Dose (Gy) >= 60.61, Min: 57.42 61.52
-PTV sein 50.11 78.5 1043.10 95.0 Dose (Gy) >= 49.59, Min: 46.98 50.11
-PTV sous clav 47.83 75.0 190.55 95.0 Dose (Gy) >= 49.59, Min: 46.98 47.83
-PTV sus clav 50.39 79.0 58.62 95.0 Dose (Gy) >= 49.59, Min: 46.98 50.39
-PTV cmi 49.25 77.2 30.16 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.25
-Canal Med 10.00 15.7 3.43 4.1 Volume (%) <= 10.0 4.1
-Coeur 15.00 23.5 45.44 7.4 Volume (%) <= 5.0, Max: 10.0 7.4
-Coeur 25.00 39.2 8.52 1.4 Volume (%) <= 0.0, Max: 5.0 1.4
-PoumonGche 5.00 7.8 220.65 31.7 Volume (%) <= 20.0, Max: 30.0 31.7
-PoumonDt 5.00 7.8 618.82 63.9 Volume (%) <= 65.0, Max: 70.0 63.9
-PoumonDt 20.00 31.3 127.22 13.1 Volume (%) <= 15.0, Max: 18.0 13.1
-Poumons 5.00 7.8 819.35 50.5 Volume (%) <= 42.0, Max: 50.0 50.5
-Poumons 20.00 31.3 119.62 7.4 Volume (%) <= 10.0, Max: 15.0 7.4
-Sein contro 5.00 7.8 308.56 28.2 Volume (%) <= 15.0, Max: 25.0 28.2
-TetehumeraleDte 30.41 47.7 0.00 0.0 Dose (Gy) <= 45.00, Max: 47.50 30.41
-Canal Med 13.72 21.5 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 13.72
-CanalMed+5 16.57 26.0 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 16.57
-Coeur -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 7.00, Max: 8.00 7.09
-PTV boost 65.00 101.9 2.08 2.0 Dose (Gy) <= 68.26 65.00
-PTV sous clav 55.51 87.0 4.01 2.0 Dose (Gy) <= 55.85 55.51
-PTV sus clav 54.85 86.0 1.23 2.0 Dose (Gy) <= 55.85 54.85
-PTV cmi 54.91 86.1 0.63 2.0 Dose (Gy) <= 55.85 54.91
-manque 48.94 76.7 48.13 95.0
+PTV paroi 47.51 95.0 364.38 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.51
+PTV sus clav 46.14 92.3 38.42 95.0 Dose (Gy) >= 47.50, Min: 45.00 46.14
+PTV sous clav 46.05 92.1 75.63 95.0 Dose (Gy) >= 47.50, Min: 45.00 46.05
+PTV cmi 45.00 90.0 40.35 95.0 Dose (Gy) >= 47.50, Min: 45.00 45.00
+Canal Med 10.00 20.0 0.06 0.1 Volume (%) <= 10.0 0.1
+Coeur 15.00 30.0 46.32 8.5 Volume (%) <= 5.0, Max: 10.0 8.5
+Coeur 25.00 50.0 7.46 1.4 Volume (%) <= 0.0, Max: 5.0 1.4
+PoumonDt 5.00 10.0 582.99 34.5 Volume (%) <= 20.0, Max: 30.0 34.5
+PoumonGche 5.00 10.0 988.64 66.8 Volume (%) <= 65.0, Max: 70.0 66.8
+PoumonGche 20.00 40.0 289.05 19.5 Volume (%) <= 15.0, Max: 18.0 19.5
+Poumons 5.00 10.0 1572.23 49.6 Volume (%) <= 42.0, Max: 50.0 49.6
+Poumons 20.00 40.0 290.64 9.2 Volume (%) <= 10.0, Max: 15.0 9.2
+Sein contro 5.00 10.0 105.55 18.6 Volume (%) <= 15.0, Max: 25.0 18.6
+TetehumeraleGche 24.87 49.7 0.00 0.0 Dose (Gy) <= 45.00, Max: 47.50 24.87
+Canal Med 10.26 20.5 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 10.26
+CanalMed+5 14.80 29.6 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 14.80
+PTV paroi 51.66 103.3 7.67 2.0 Dose (Gy) <= 53.50 51.66
+PTV sus clav 51.88 103.8 0.81 2.0 Dose (Gy) <= 53.50 51.88
+PTV sous clav 51.51 103.0 1.59 2.0 Dose (Gy) <= 53.50 51.51
+PTV cmi 51.57 103.1 0.85 2.0 Dose (Gy) <= 53.50 51.57
 Dx Vx Values
 Plan Overview
-Page 5 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+Page 4 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)
+Patient Name: FERRIER, CAMILLE; Medical ID: 202211417; Plan Name: ParoiGgg; Version: Accuray Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
 -939 * 0.001
 -672 * 0.290
 -509 * 0.480
@@ -138,10 +133,10 @@ Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Versio
 Density
 Density Model: IUC-120kV
 Plan Overview
-Page 6 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3Name: Dalmasso, Celine
-23 Jun 2023, 12:04:47 PM (hr:min:sec)
-User ID: dalmasso
+Page 5 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)
+Patient Name: FERRIER, CAMILLE; Medical ID: 202211417; Plan Name: ParoiGgg; Version: Accuray Precision 3.3.1.3Name: CHIRA, Ciprian
+10 Jul 2023, 5:08:19 PM (hr:min:sec)
+User ID: chira
 Approval Date:
 Approved by: Specialists
 Radiation Oncologist:
@@ -155,36 +150,36 @@ Additional Sites: IUC-TOULOUSE
 Created in Version: Accuray Precision 3.3.1.3 [2]
 Plan Key:
 Last Modified by:
-420640/3
-Tournier, Aurelie
-Saved Deliverable by: CAIGNET, Frederique
+420861/2
+LANASPEZE, Christelle
+Saved Deliverable by: MODESTO, Anouchka
 Approval and ICD
 Auto Generated Results:
 Not Applicable
-Patient Position: HFS Delivery Signature: Ah7Ws 5SkYA 
+Patient Position: HFS Delivery Signature: fAFT1 Ff7kA 
 Plan Overview
-Page 7 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3Report Snapshots
+Page 6 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)
+Patient Name: FERRIER, CAMILLE; Medical ID: 202211417; Plan Name: ParoiGgg; Version: Accuray Precision 3.3.1.3Report Snapshots
 Plan Overview
-Page 8 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3Imaging Series
+Page 7 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)
+Patient Name: FERRIER, CAMILLE; Medical ID: 202211417; Plan Name: ParoiGgg; Version: Accuray Precision 3.3.1.3Imaging Series
 X Y Z
-Origin (IECp, mm) -325.000 -122.500 325.000
-Size (IECp, voxel) 512 167 512
+Origin (IECp, mm) -325.000 -152.500 325.000
+Size (IECp, voxel) 512 204 512
 Spacing (IECp, mm) 1.27 2.50 1.27
 Primary Series:
 Modality:
 Scan Date: Number of Slices:
 Yes
 CT
-13 Jun 2023, 10:44:44 AM (hr:min:sec) 167
+29 Jun 2023, 12:34:55 PM (hr:min:sec) 204
 Scanner Model:
 Patient Position:
 Optima CT580
 HFS
 Series UID/Description Study UID/Description:
-1.2.840.113619.2.278.3.3523880722.535.1686632928.890 1.2.840.113619.2.278.3.3523880722.535.1686632928.885
-SEIN Droit Tomo TDM therapie SPC
+1.2.840.113619.2.278.3.3523880722.327.1688014159.155 1.2.840.113619.2.278.3.3523880722.327.1688014159.150
+SEIN Gauche Tomo TDM therapie SPC
 Plan Overview
-Page 9 of 9 23 Jun 2023, 2:29:45 PM (hr:min:sec)
-Patient Name: TOME, ISABELLE; Medical ID: 202210490; Plan Name: SeinDgg2; Version: Accuray Precision 3.3.1.3
+Page 8 of 8 10 Jul 2023, 5:29:01 PM (hr:min:sec)
+Patient Name: FERRIER, CAMILLE; Medical ID: 202211417; Plan Name: ParoiGgg; Version: Accuray Precision 3.3.1.3

@@ -262,194 +262,199 @@ namespace PlanCheck
         public void Check()
         {
             #region turquoise isodose
-            Item_Result turquoiseIsodose = new Item_Result();
-            turquoiseIsodose.Label = "Isodose Turquoise";
-            turquoiseIsodose.ExpectedValue = "EN COURS";
-            turquoiseIsodose.Infobulle = "L'isodose turquoise doit avoir la valeur de 95% ou 100% d'une prescription";
-            Isodose i = _ctx.PlanSetup.Dose.Isodoses.FirstOrDefault(x => x.Color.ToString() == "#FF80FFFF");
-
-            if (i == null)
+            if (_pinfo.advancedUserMode)
             {
-                turquoiseIsodose.MeasuredValue = "Pas d'isodose turquoise";
-                turquoiseIsodose.setToWARNING();
-            }
-            else
-            {
-                bool foundIt = false;
-                double levelMatch = 0.0;
+                Item_Result turquoiseIsodose = new Item_Result();
+                turquoiseIsodose.Label = "Isodose Turquoise";
+                turquoiseIsodose.ExpectedValue = "EN COURS";
+                turquoiseIsodose.Infobulle = "L'isodose turquoise doit avoir la valeur de 95% ou 100% d'une prescription";
+                Isodose i = _ctx.PlanSetup.Dose.Isodoses.FirstOrDefault(x => x.Color.ToString() == "#FF80FFFF");
 
-                List<double> possibleValue = new List<double>();
-                possibleValue.Add(95.0);
-                try
+                if (i == null)
                 {
-                    foreach (var target in _ctx.PlanSetup.RTPrescription.Targets)
-                    {
-                        double d = (target.NumberOfFractions * target.DosePerFraction.Dose) / (_ctx.PlanSetup.TotalDose.Dose);
-                        possibleValue.Add(d);
-                    }
-                    foreach (double d in possibleValue)
-                    {
-                        if (i.Level.Dose - d < 0.00001)
-                        {
-                            foundIt = true;
-                            levelMatch = d;
-                        }
-                    }
-                }
-                catch { foundIt = false; }
-
-
-
-                if (foundIt)
-                {
-                    turquoiseIsodose.MeasuredValue = levelMatch.ToString("0.00");
-                    turquoiseIsodose.setToTRUE();
+                    turquoiseIsodose.MeasuredValue = "Pas d'isodose turquoise";
+                    turquoiseIsodose.setToWARNING();
                 }
                 else
                 {
-                    turquoiseIsodose.setToWARNING();
-                    turquoiseIsodose.MeasuredValue = "Isodose turquoise sans rapport avec la prescription";
-                }
-            }
-            this._result.Add(turquoiseIsodose);
+                    bool foundIt = false;
+                    double levelMatch = 0.0;
 
+                    List<double> possibleValue = new List<double>();
+                    possibleValue.Add(95.0);
+                    try
+                    {
+                        foreach (var target in _ctx.PlanSetup.RTPrescription.Targets)
+                        {
+                            double d = (target.NumberOfFractions * target.DosePerFraction.Dose) / (_ctx.PlanSetup.TotalDose.Dose);
+                            possibleValue.Add(d);
+                        }
+                        foreach (double d in possibleValue)
+                        {
+                            if (i.Level.Dose - d < 0.00001)
+                            {
+                                foundIt = true;
+                                levelMatch = d;
+                            }
+                        }
+                    }
+                    catch { foundIt = false; }
+
+
+
+                    if (foundIt)
+                    {
+                        turquoiseIsodose.MeasuredValue = levelMatch.ToString("0.00");
+                        turquoiseIsodose.setToTRUE();
+                    }
+                    else
+                    {
+                        turquoiseIsodose.setToWARNING();
+                        turquoiseIsodose.MeasuredValue = "Isodose turquoise sans rapport avec la prescription";
+                    }
+                }
+                this._result.Add(turquoiseIsodose);
+            }
 
             #endregion
 
-            #region Objectives to reach             
-            Item_Result dd = new Item_Result();
-            dd.Label = "Objectifs de dose";
-            dd.ExpectedValue = "EN COURS";
-            List<string> successList = new List<string>();
-            List<string> failedList = new List<string>();
-            dd.setToINFO();
-            dd.MeasuredValue = "en cours";
-            double result = 0.0;
-            foreach (DOstructure dos in _rcp.myDOStructures) // loop on list structures with > 0 objectives in check-protocol
+            #region Objectives to reach 
+            if (_pinfo.advancedUserMode)
             {
-                string structName = dos.Name.ToUpper();
-                if (dos.Name.ToUpper().Contains("HOMO"))
-                    structName = replaceHomoIn(dos.Name);
-                if (dos.Name.ToUpper().Contains("CONTRO"))
-                    structName = replaceControIn(dos.Name);
-
-                if (structName != null)
+                Item_Result dd = new Item_Result();
+                dd.Label = "Objectifs de dose";
+                dd.ExpectedValue = "EN COURS";
+                List<string> successList = new List<string>();
+                List<string> failedList = new List<string>();
+                dd.setToINFO();
+                dd.MeasuredValue = "en cours";
+                double result = 0.0;
+                foreach (DOstructure dos in _rcp.myDOStructures) // loop on list structures with > 0 objectives in check-protocol
                 {
-                    Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper() == structName.ToUpper()); // get the chosen structure
-                    structName = null;
-                    DVHData dvh = null;
+                    string structName = dos.Name.ToUpper();
+                    if (dos.Name.ToUpper().Contains("HOMO"))
+                        structName = replaceHomoIn(dos.Name);
+                    if (dos.Name.ToUpper().Contains("CONTRO"))
+                        structName = replaceControIn(dos.Name);
 
-                    if (s != null) // get the dvh once per struct
+                    if (structName != null)
                     {
-                        dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
-                        structName = s.Id;
-                    }
-                    if (dvh != null)
-                        foreach (string obj in dos.listOfObjectives) // loop on list of objectives in check-protocol. 
+                        Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper() == structName.ToUpper()); // get the chosen structure
+                        structName = null;
+                        DVHData dvh = null;
+
+                        if (s != null) // get the dvh once per struct
                         {
-                            //----------------------------------
-                            //  Ex. of objective V20.0Gy<33.1%
-                            //----------------------------------
-
-                            //MessageBox.Show("start processing " + obj);
-
-                            string theObjective = "";
-                            string theValue = "";
-                            double theValueDouble = 0.0;
-                            string theValueWithUnit = "";//0.0;
-                            string theUnit = "";
-                            string[] elementI = null;
-                            string[] elementS = null;
-                            bool isInfObj = false;
-                            bool isSupObj = false;
-
-                            elementS = obj.Split('>');  // split around > or <   Get V20.0Gy an 33.1%
-                            elementI = obj.Split('<');
-
-                            if (elementS.Length > 1)
+                            dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
+                            structName = s.Id;
+                        }
+                        if (dvh != null)
+                            foreach (string obj in dos.listOfObjectives) // loop on list of objectives in check-protocol. 
                             {
-                                isSupObj = true; // it is a sup obective
-                                theObjective = elementS[0];
-                                theValueWithUnit = elementS[1];
-                            }
-                            else if (elementI.Length > 1)
-                            {
-                                isInfObj = true; // it is a inf obective
-                                theObjective = elementI[0];
-                                theValueWithUnit = elementI[1];
-                            }
-                            else
-                            {
-                                MessageBox.Show("This objective is not correct " + obj + "(must contain < or >). It will be ignored");
-                                break;
-                            }
+                                //----------------------------------
+                                //  Ex. of objective V20.0Gy<33.1%
+                                //----------------------------------
 
-                            if (isInfObj || isSupObj)
-                            {
-                                theUnit = getTheUnit(theValueWithUnit); // extract Gy from 20.4Gy
-                                if (theUnit != "failed")
+                                //MessageBox.Show("start processing " + obj);
+
+                                string theObjective = "";
+                                string theValue = "";
+                                double theValueDouble = 0.0;
+                                string theValueWithUnit = "";//0.0;
+                                string theUnit = "";
+                                string[] elementI = null;
+                                string[] elementS = null;
+                                bool isInfObj = false;
+                                bool isSupObj = false;
+
+                                elementS = obj.Split('>');  // split around > or <   Get V20.0Gy an 33.1%
+                                elementI = obj.Split('<');
+
+                                if (elementS.Length > 1)
                                 {
-                                    theValue = theValueWithUnit.Replace(theUnit, "");// extract 20.4 from 20.4Gy
-                                    theValueDouble = Convert.ToDouble(theValue);
-                                    result = getValueForThisObjective(s, dvh, theObjective, theUnit); // no need to pass the value, just the indicator and the output unit
-                                    if (isInfObj)
-                                    {
-                                        if (result <= theValueDouble)//success
-                                            successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                        else // failed
-                                            failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-
-                                    }
-                                    else if (isSupObj)
-                                    {
-                                        if (result >= theValueDouble)//success
-                                            successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                        else // failed
-                                            failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                    }
+                                    isSupObj = true; // it is a sup obective
+                                    theObjective = elementS[0];
+                                    theValueWithUnit = elementS[1];
+                                }
+                                else if (elementI.Length > 1)
+                                {
+                                    isInfObj = true; // it is a inf obective
+                                    theObjective = elementI[0];
+                                    theValueWithUnit = elementI[1];
                                 }
                                 else
-                                    MessageBox.Show("error in this objective: wrong unit: " + structName + " " + obj + "It will be ignored.");
+                                {
+                                    MessageBox.Show("This objective is not correct " + obj + "(must contain < or >). It will be ignored");
+                                    break;
+                                }
+
+                                if (isInfObj || isSupObj)
+                                {
+                                    theUnit = getTheUnit(theValueWithUnit); // extract Gy from 20.4Gy
+                                    if (theUnit != "failed")
+                                    {
+                                        theValue = theValueWithUnit.Replace(theUnit, "");// extract 20.4 from 20.4Gy
+                                        theValueDouble = Convert.ToDouble(theValue);
+                                        result = getValueForThisObjective(s, dvh, theObjective, theUnit); // no need to pass the value, just the indicator and the output unit
+                                        if (isInfObj)
+                                        {
+                                            if (result <= theValueDouble)//success
+                                                successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                                            else // failed
+                                                failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+
+                                        }
+                                        else if (isSupObj)
+                                        {
+                                            if (result >= theValueDouble)//success
+                                                successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                                            else // failed
+                                                failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                                        }
+                                    }
+                                    else
+                                        MessageBox.Show("error in this objective: wrong unit: " + structName + " " + obj + "It will be ignored.");
 
 
-                                // MessageBox.Show("End of process for " + obj + " Result : " + result.ToString("0.00") + " " + theUnit);
+                                    // MessageBox.Show("End of process for " + obj + " Result : " + result.ToString("0.00") + " " + theUnit);
+                                }
+
                             }
+                    }
 
-                        }
+                }
+                dd.setToINFO();
+                dd.MeasuredValue = "Aucun test réalisé sur des indicateurs de dose";
+                dd.Infobulle = "Aucun test réalisé sur des indicateurs de dose. Soit il n'en est spécifié aucun dans le check-protocol, soit les structures requises sont absentes.";
+                if ((successList.Count > 0) || (failedList.Count > 0))
+                {
+                    if (failedList.Count > 0)
+                    {
+                        dd.setToWARNING();
+                        dd.MeasuredValue = "Au moins un objectif non atteint (voir détail)";
+                    }
+                    else
+                    {
+                        dd.setToTRUE();
+                        dd.MeasuredValue = "Tous les objectifs atteints";
+                    }
+                    dd.Infobulle = "";
+                    if (failedList.Count > 0)
+                    {
+                        dd.Infobulle += "Echecs : \n";
+                        foreach (string s in failedList)
+                            dd.Infobulle += "  - " + s + "\n";
+                    }
+                    if (successList.Count > 0)
+                    {
+                        dd.Infobulle += "Succès : \n";
+                        foreach (string s in successList)
+                            dd.Infobulle += "  - " + s + "\n";
+                    }
                 }
 
+                this._result.Add(dd);
             }
-            dd.setToINFO();
-            dd.MeasuredValue = "Aucun test réalisé sur des indicateurs de dose";
-            dd.Infobulle = "Aucun test réalisé sur des indicateurs de dose. Soit il n'en est spécifié aucun dans le check-protocol, soit les structures requises sont absentes.";
-            if ((successList.Count > 0) || (failedList.Count > 0))
-            {
-                if (failedList.Count > 0)
-                {
-                    dd.setToWARNING();
-                    dd.MeasuredValue = "Au moins un objectif non atteint (voir détail)";
-                }
-                else
-                {
-                    dd.setToTRUE();
-                    dd.MeasuredValue = "Tous les objectifs atteints";
-                }
-                dd.Infobulle = "";
-                if (failedList.Count > 0)
-                {
-                    dd.Infobulle += "Echecs : \n";
-                    foreach (string s in failedList)
-                        dd.Infobulle += "  - " + s + "\n";
-                }
-                if (successList.Count > 0)
-                {
-                    dd.Infobulle += "Succès : \n";
-                    foreach (string s in successList)
-                        dd.Infobulle += "  - " + s + "\n";
-                }
-            }
-
-            this._result.Add(dd);
             #endregion
 
         }

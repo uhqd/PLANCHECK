@@ -175,7 +175,7 @@ namespace PlanCheck
             // fill combo box for user mode
             UserMode.Items.Add("Basique");
             UserMode.Items.Add("Avancé");
-            UserMode.SelectedIndex = 0;
+            UserMode.SelectedIndex = 1;
 
             // MessageBox.Show("Componrtnt inited");
 
@@ -463,61 +463,88 @@ d3.ToString("0.##");   //24
             #region THE CHECKS
 
             Check_Course c_course = new Check_Course(_pinfo, _pcontext);
-            var check_point_course = new CheckScreen_Global(c_course.Title, c_course.Result);
-            this.AddCheck(check_point_course);
-
+            if (c_course.Result.Count > 0)
+            {
+                var check_point_course = new CheckScreen_Global(c_course.Title, c_course.Result);
+                this.AddCheck(check_point_course);
+            }
 
             if (_pcontext.PlanSetup.RTPrescription != null) // faire ce check seulement si il y a une prescription
             {
                 Check_Prescription c_prescri = new Check_Prescription(_pinfo, _pcontext, rcp);
-                var check_point_prescription = new CheckScreen_Global(c_prescri.Title, c_prescri.Result);
-                this.AddCheck(check_point_prescription);
+                if (c_prescri.Result.Count > 0)
+                {
+                    var check_point_prescription = new CheckScreen_Global(c_prescri.Title, c_prescri.Result);
+                    this.AddCheck(check_point_prescription);
+                }
             }
 
 
             Check_CT c_CT = new Check_CT(_pinfo, _pcontext, rcp);
-            var check_point_ct = new CheckScreen_Global(c_CT.Title, c_CT.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_ct);
-
+            if (c_CT.Result.Count > 0)
+            {
+                var check_point_ct = new CheckScreen_Global(c_CT.Title, c_CT.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_ct);
+            }
 
             Check_contours c_Contours = new Check_contours(_pinfo, _pcontext, rcp);
-            var check_point_contours = new CheckScreen_Global(c_Contours.Title, c_Contours.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_contours);
-            
+            if (c_Contours.Result.Count > 0)
+            {
+                var check_point_contours = new CheckScreen_Global(c_Contours.Title, c_Contours.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_contours);
+            }
 
             Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext);
-            var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_iso);
-
+            if (c_Isocenter.Result.Count > 0)
+            {
+                var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_iso);
+            }
+            
             Check_Plan c_Plan = new Check_Plan(_pinfo, _pcontext, rcp);
-            var check_point_plan = new CheckScreen_Global(c_Plan.Title, c_Plan.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_plan);
+            if (c_Plan.Result.Count > 0)
+            {
+                var check_point_plan = new CheckScreen_Global(c_Plan.Title, c_Plan.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_plan);
+            }
 
-
+            
             Check_Model c_algo = new Check_Model(_pinfo, _pcontext, rcp);
-            var check_point_model = new CheckScreen_Global(c_algo.Title, c_algo.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_model);
-
+            if (c_algo.Result.Count > 0)
+            {
+                var check_point_model = new CheckScreen_Global(c_algo.Title, c_algo.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_model);
+            }
 
             Check_beams c_Beams = new Check_beams(_pinfo, _pcontext, rcp);
-            var check_point_beams = new CheckScreen_Global(c_Beams.Title, c_Beams.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_beams);
+            if (c_Beams.Result.Count > 0)
+            {
+                var check_point_beams = new CheckScreen_Global(c_Beams.Title, c_Beams.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_beams);
+            }
 
-
-            Check_UM c_UM = new Check_UM(_pinfo, _pcontext);
-            var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_um);
-
+            
+                Check_UM c_UM = new Check_UM(_pinfo, _pcontext);
+            if (c_UM.Result.Count > 0)
+            {
+                var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_um);
+            }
 
             Check_doseDistribution c_doseDistribution = new Check_doseDistribution(_pinfo, _pcontext, rcp);
-            var check_point_dose_distribution = new CheckScreen_Global(c_doseDistribution.Title, c_doseDistribution.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_dose_distribution);
+            if (c_doseDistribution.Result.Count > 0)
+            {
+                var check_point_dose_distribution = new CheckScreen_Global(c_doseDistribution.Title, c_doseDistribution.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_dose_distribution);
+            }
 
 
             Check_finalisation c_Finalisation = new Check_finalisation(_pinfo, _pcontext, rcp);
-            var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-            this.AddCheck(check_point_finalisation);
-
+            if (c_Finalisation.Result.Count > 0)
+            {
+                var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_finalisation);
+            }
             #endregion
             //int i = 0;
 

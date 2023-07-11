@@ -46,8 +46,8 @@ namespace PlanCheck
             int nWarning = 0;
             int nInfo = 0;
 
-             _globalresult_status = res.True;
-            foreach (Item_Result i in _items)                                 
+            _globalresult_status = res.True;
+            foreach (Item_Result i in _items)
             {
                 if (i.ResultStatus.Item1 == "X") nFalse++;
                 if (i.ResultStatus.Item1 == "WARNING") nWarning++;
@@ -65,10 +65,11 @@ namespace PlanCheck
                 _globalresult_status = res.INFO;
 
             //Fill user control list to display it
-            foreach (Item_Result item in _items)
-            {
-                _listchecks_item.Add(new CheckScreen_Item(item));
-            }
+            
+                foreach (Item_Result item in _items)
+                {
+                    _listchecks_item.Add(new CheckScreen_Item(item));
+                }
 
             //Set class attributes
             _resultcolor = _globalresult_status.Item2;

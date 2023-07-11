@@ -89,15 +89,15 @@ namespace PlanCheck
             #region days since CT
             Item_Result CT_age = new Item_Result();
             CT_age.Label = "Ancienneté du CT (jours)";
-            CT_age.ExpectedValue = "10";
+            CT_age.ExpectedValue = "12";
             DateTime myToday = DateTime.Today;
             int nDays = (myToday - (DateTime)_context.Image.Series.HistoryDateTime).Days;
             CT_age.MeasuredValue = nDays.ToString();
             //CT_age.Comparator = "<";
-            CT_age.Infobulle = "Le CT doit avoir moins de 10 jours. Warning si > 10 jours, ERREUR si > 30";
+            CT_age.Infobulle = "Le CT doit avoir moins de 12 jours. Warning si > 10 jours, ERREUR si > 30";
             //CT_age.ResultStatus = testing.CompareDatas(CT_age.ExpectedValue, CT_age.MeasuredValue, CT_age.Comparator);
             CT_age.setToTRUE();
-            if (nDays > 10)
+            if (nDays > 12)
                 CT_age.setToWARNING();
             if (nDays > 30)
                 CT_age.setToFALSE();
@@ -107,24 +107,27 @@ namespace PlanCheck
             #endregion
 
             #region Origine placée
-            Item_Result origin = new Item_Result();
-            origin.Label = "Origine modifiée";
-            origin.ExpectedValue = "sans objet";
-            var image = _context.PlanSetup.StructureSet.Image;
-            if (!image.HasUserOrigin)
+            if (_pinfo.advancedUserMode)
             {
-                origin.setToWARNING();
-                origin.MeasuredValue = "Origine non modifiée";
-                origin.Infobulle = "L'origine est confondue avec l'origine DICOM. Ce qui peut signifier que l'origine n'a pas été placée. A vérifier.";
-            }
-            else
-            {
-                origin.setToTRUE();
-                origin.MeasuredValue = "Origine modifiée";
-                origin.Infobulle = "L'origine n'est pas confondue avec l'origine DICOM. Dans le cas contraire cela peut signifier que l'origine n'a pas été placée";
-            }
+                Item_Result origin = new Item_Result();
+                origin.Label = "Origine modifiée";
+                origin.ExpectedValue = "sans objet";
+                var image = _context.PlanSetup.StructureSet.Image;
+                if (!image.HasUserOrigin)
+                {
+                    origin.setToWARNING();
+                    origin.MeasuredValue = "Origine non modifiée";
+                    origin.Infobulle = "L'origine est confondue avec l'origine DICOM. Ce qui peut signifier que l'origine n'a pas été placée. A vérifier.";
+                }
+                else
+                {
+                    origin.setToTRUE();
+                    origin.MeasuredValue = "Origine modifiée";
+                    origin.Infobulle = "L'origine n'est pas confondue avec l'origine DICOM. Dans le cas contraire cela peut signifier que l'origine n'a pas été placée";
+                }
 
-            this._result.Add(origin);
+                this._result.Add(origin);
+            }
             #endregion
 
             #region Epaisseur de coupes
@@ -181,20 +184,22 @@ namespace PlanCheck
             #endregion
 
             #region CT series number
+            if (_pinfo.advancedUserMode)
+            {
+                Item_Result deviceName = new Item_Result();
+                String CT = _context.Image.Series.ImagingDeviceManufacturer + " ";
+                CT = CT + _context.Image.Series.ImagingDeviceModel;
+                CT = CT + _context.Image.Series.ImagingDeviceSerialNo;
 
-            Item_Result deviceName = new Item_Result();
-            String CT = _context.Image.Series.ImagingDeviceManufacturer + " ";
-            CT = CT + _context.Image.Series.ImagingDeviceModel;
-            CT = CT + _context.Image.Series.ImagingDeviceSerialNo;
 
-
-            deviceName.Label = "CT series number";
-            deviceName.ExpectedValue = "GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
-            deviceName.MeasuredValue = CT;
-            deviceName.Comparator = "=";
-            deviceName.Infobulle = "Vérification du modèle et du numéro de série du CT";
-            deviceName.ResultStatus = testing.CompareDatas(deviceName.ExpectedValue, deviceName.MeasuredValue, deviceName.Comparator);
-            this._result.Add(deviceName);
+                deviceName.Label = "CT series number";
+                deviceName.ExpectedValue = "GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
+                deviceName.MeasuredValue = CT;
+                deviceName.Comparator = "=";
+                deviceName.Infobulle = "Vérification du modèle et du numéro de série du CT";
+                deviceName.ResultStatus = testing.CompareDatas(deviceName.ExpectedValue, deviceName.MeasuredValue, deviceName.Comparator);
+                this._result.Add(deviceName);
+            }
             #endregion
 
             #region date dans le nom imaged 3d
@@ -296,53 +301,54 @@ namespace PlanCheck
             #region AVE3 or AVE6 is only for lung SBRT  (option)
 
 
-
-
-            Item_Result averageForSBRT = new Item_Result();
-            averageForSBRT.Label = "Image Average";
-            averageForSBRT.ExpectedValue = "none";
-            averageForSBRT.Infobulle = "Les scanners AVERAGE doivent être utilisés pour les STEC poumons uniquement (avec enable Gating)";
-            averageForSBRT.MeasuredValue = _context.Image.Id;
-
-
-            if (_context.Image.Id.ToUpper().Contains("AVE") || _context.Image.Id.ToUpper().Contains("AVG"))
+            if (_pinfo.advancedUserMode)
             {
-                averageForSBRT.setToTRUE();
 
-                if (!_context.PlanSetup.UseGating)
+                Item_Result averageForSBRT = new Item_Result();
+                averageForSBRT.Label = "Image Average";
+                averageForSBRT.ExpectedValue = "none";
+                averageForSBRT.Infobulle = "Les scanners AVERAGE doivent être utilisés pour les STEC poumons uniquement (avec enable Gating)";
+                averageForSBRT.MeasuredValue = _context.Image.Id;
+
+
+                if (_context.Image.Id.ToUpper().Contains("AVE") || _context.Image.Id.ToUpper().Contains("AVG"))
                 {
-                    averageForSBRT.setToFALSE();
+                    averageForSBRT.setToTRUE();
+
+                    if (!_context.PlanSetup.UseGating)
+                    {
+                        averageForSBRT.setToFALSE();
+
+                    }
+
+
+                    if (!_rcp.protocolName.ToUpper().Contains("STEC POUMON"))
+                    {
+
+                        averageForSBRT.setToFALSE();
+                    }
+
+
 
                 }
-
-
-                if (!_rcp.protocolName.ToUpper().Contains("STEC POUMON"))
+                else
                 {
+                    averageForSBRT.setToTRUE();
+                    if (_rcp.protocolName.ToUpper().Contains("STEC poumon"))
+                    {
+                        averageForSBRT.setToFALSE();
 
-                    averageForSBRT.setToFALSE();
+                    }
+                    if (_context.PlanSetup.UseGating)
+                    {
+                        averageForSBRT.setToFALSE();
+
+                    }
                 }
 
-
+                this._result.Add(averageForSBRT);
 
             }
-            else
-            {
-                averageForSBRT.setToTRUE();
-                if (_rcp.protocolName.ToUpper().Contains("STEC poumon"))
-                {
-                    averageForSBRT.setToFALSE();
-
-                }
-                if (_context.PlanSetup.UseGating)
-                {
-                    averageForSBRT.setToFALSE();
-
-                }
-            }
-
-            this._result.Add(averageForSBRT);
-
-
 
 
             #endregion
@@ -361,7 +367,7 @@ namespace PlanCheck
                     tomoReportCT_date.setToTRUE();
                 else
                     tomoReportCT_date.setToFALSE();
-                tomoReportCT_date.Infobulle = "Comparaison de la date du CT ("+parsedDate.ToString()+") dans le rapport Tomo et de la date du scanner ("+ _context.Image.Series.HistoryDateTime.ToString()+")";
+                tomoReportCT_date.Infobulle = "Comparaison de la date du CT (" + parsedDate.ToString() + ") dans le rapport Tomo et de la date du scanner (" + _context.Image.Series.HistoryDateTime.ToString() + ")";
                 this._result.Add(tomoReportCT_date);
             }
             #endregion

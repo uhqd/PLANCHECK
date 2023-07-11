@@ -412,30 +412,30 @@ namespace PlanCheck
                 if (_pinfo.tprd.Trd.fieldWidth == 5.0)
                     tomoParamsFieldWidth.setToTRUE();
                 else
-                    tomoParamsFieldWidth.setToWARNING();
+                    tomoParamsFieldWidth.setToINFO();
 
                 tomoParamsFieldWidth.Infobulle = "Attendu : 5.0 cm";
 
 
-                if ((_pinfo.tprd.Trd.gantryPeriod < 22.0) && (_pinfo.tprd.Trd.gantryPeriod > 12.0))
+                if ((_pinfo.tprd.Trd.gantryPeriod < 52.0) && (_pinfo.tprd.Trd.gantryPeriod > 12.0))
                     tomoParamsGantryPeriod.setToTRUE();
                 else
                     tomoParamsGantryPeriod.setToWARNING();
 
-                tomoParamsGantryPeriod.Infobulle = "Attendu (s) : 12 < x < 21 ";
+                tomoParamsGantryPeriod.Infobulle = "Attendu (s) : 12 < x < 52 ";
 
 
                 if ((_pinfo.tprd.Trd.pitch < 0.44) && (_pinfo.tprd.Trd.pitch > 0.4))
                     tomoParamsPitch.setToTRUE();
                 else
-                    tomoParamsPitch.setToWARNING();
+                    tomoParamsPitch.setToINFO();
 
                 tomoParamsPitch.Infobulle = "Attendu : 0.4 < x < 0.44";
 
                 if ((_pinfo.tprd.Trd.modulationFactor < 3.5) && (_pinfo.tprd.Trd.modulationFactor > 2.0))
                     tomoParamsModulationFactor.setToTRUE();
                 else
-                    tomoParamsModulationFactor.setToWARNING();
+                    tomoParamsModulationFactor.setToINFO();
 
                 tomoParamsModulationFactor.Infobulle = "Attendu : 2 < x < 3.5";
 
