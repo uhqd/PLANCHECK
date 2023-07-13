@@ -76,32 +76,34 @@ namespace PlanCheck
         public int isTheCorrectTomoReport(String s)  // 0 not a tomo report, 1 tomo report not the good one, 2 the good tomo report
         {
 
-
+           // MessageBox.Show("s " + s + " " );
             String saveFilePathTemp = Directory.GetCurrentDirectory() + @"\__temp__.pdf";
             int startBinary = s.IndexOf("\"BinaryContent\"") + 17;
             int endBinary = s.IndexOf("\"Certifier\"") - 2;
             string binaryContent2 = s.Substring(startBinary, endBinary - startBinary);
             binaryContent2 = binaryContent2.Replace("\\", "");  // the \  makes the string a non valid base64 string                       
             File.WriteAllBytes(saveFilePathTemp, Convert.FromBase64String(binaryContent2));
-
-            _tprd = new TomotherapyPdfReportReader(saveFilePathTemp);
-
-            if (_tprd.itIsATomoReport == false)
+            TomotherapyPdfReportReader _tempTprd = new TomotherapyPdfReportReader(saveFilePathTemp);
+          
+            if (_tempTprd.itIsATomoReport == false)
                 returnCode = 0;
             else
             {
                 _ctx.PlanSetup.DoseValuePresentation = DoseValuePresentation.Absolute; // set dose value to absolute presentation
                 double planDoseMax = _ctx.PlanSetup.Dose.DoseMax3D.Dose;
 
-                if (Math.Abs(_tprd.Trd.maxDose - planDoseMax) < 0.11) // < 0.11 Gy
+                if (Math.Abs(_tempTprd.Trd.maxDose - planDoseMax) < 0.11) // < 0.11 Gy
                 {
+
                     returnCode = 2;
+                    _tprd = _tempTprd;
                     // MessageBox.Show("Extraction des données de plan depuis la Dosimétrie Tomo dans Aria Documents");
                 }
                 else
                     returnCode = 1;
 
             }
+            
             File.Delete(saveFilePathTemp);
 
             return returnCode;
@@ -241,13 +243,16 @@ namespace PlanCheck
 
                 #region dismiss if plan report is not ok 
                 int tomoReportReturnCode = -1; // 0 not a tomo report, 1 tomo report not the good one, 2 the good tomo report
+
+               
                 if (!trashDoc)
                 {
                     if (thisDocType == doc1)
                     {
+                        
                         tomoReportReturnCode = isTheCorrectTomoReport(response_docdetails); // check that is a TOMO report and has the same dose max than the plan
                                                                                             // fill _tprd
-
+                       // MessageBox.Show("two " + tomoReportReturnCode);
                         if (_TOMO)
                         {
                             if (tomoReportReturnCode != 2)
@@ -264,7 +269,7 @@ namespace PlanCheck
 
                 }
                 #endregion
-
+                //MessageBox.Show("one " + thisDocType + " " + trashDoc );
                 #region store index
                 if (!trashDoc)
                 {

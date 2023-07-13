@@ -42,6 +42,9 @@ namespace PlanCheck
 
         public bool CompareNTO(OptimizationNormalTissueParameter planNTO, NTO protocolNTO)
         {
+
+            //if (protocolNTO == null) MessageBox.Show("proto null");
+            //if (planNTO == null) MessageBox.Show("planNTO null");
             bool result = true;
 
 
@@ -272,11 +275,22 @@ namespace PlanCheck
                     OptimizationNormalTissueParameter ontp = _pcontext.PlanSetup.OptimizationSetup.Parameters.FirstOrDefault(x => x.GetType().Name == "OptimizationNormalTissueParameter") as OptimizationNormalTissueParameter;
 
                     // OptimizationNormalTissueParameter ontp = op as OptimizationNormalTissueParameter;
-                    bool NTOparamsOk = CompareNTO(ontp, _rcp.NTOparams);
+                    bool noNTOuse = false;
+                    bool NTOparamsOk = false;
+                    if (ontp != null)
+                        NTOparamsOk = CompareNTO(ontp, _rcp.NTOparams);
+                    else
+                        noNTOuse = true;
 
                     Item_Result NTO = new Item_Result();
                     NTO.Label = "NTO";
-                    if (NTOparamsOk)
+                    if(noNTOuse)
+                    {
+                        NTO.MeasuredValue = "NTO désactivé";
+                        NTO.Infobulle = "NTO désactivé";
+                        NTO.setToWARNING();
+                    }
+                    else if (NTOparamsOk)
                     {
                         NTO.MeasuredValue = "Paramètres NTO conformes au protocole";
                         NTO.Infobulle = "Paramètres NTO conformes au protocole " + _rcp.protocolName;
@@ -286,23 +300,28 @@ namespace PlanCheck
                     {
                         NTO.MeasuredValue = "Paramètres NTO non conformes au protocole";
                         NTO.Infobulle = "Paramètres NTO non conformes au protocole " + _rcp.protocolName;
-
-
-
                         NTO.setToFALSE();
                     }
+                    
+                    
                     NTO.Infobulle += "\n Paramètres NTO du plan :";
-                    NTO.Infobulle += "\n Distance : " + ontp.DistanceFromTargetBorderInMM;
-                    NTO.Infobulle += "\n Fall off : " + ontp.FallOff;
-                    NTO.Infobulle += "\n Start Dose : " + ontp.StartDosePercentage;
-                    NTO.Infobulle += "\n End Dose : " + ontp.EndDosePercentage;
-                    NTO.Infobulle += "\n Priority : " + ontp.Priority;
-                    NTO.Infobulle += "\n Auto Mode : " + ontp.IsAutomatic;
-                    if (ontp.IsAutomatic)
-                        NTO.Infobulle += " (Auto)";
+                    if (noNTOuse)
+                    {
+                        NTO.Infobulle += "\n Pas de NTO";
+                    }
                     else
-                        NTO.Infobulle += " (Manual)";
-
+                    {
+                        NTO.Infobulle += "\n Distance : " + ontp.DistanceFromTargetBorderInMM;
+                        NTO.Infobulle += "\n Fall off : " + ontp.FallOff;
+                        NTO.Infobulle += "\n Start Dose : " + ontp.StartDosePercentage;
+                        NTO.Infobulle += "\n End Dose : " + ontp.EndDosePercentage;
+                        NTO.Infobulle += "\n Priority : " + ontp.Priority;
+                        NTO.Infobulle += "\n Auto Mode : " + ontp.IsAutomatic;
+                        if (ontp.IsAutomatic)
+                            NTO.Infobulle += " (Auto)";
+                        else
+                            NTO.Infobulle += " (Manual)";
+                    }
                     NTO.Infobulle += "\n Paramètres NTO du protocole :";
                     NTO.Infobulle += "\n Distance : " + _rcp.NTOparams.distanceTotTarget;
                     NTO.Infobulle += "\n Fall off : " + _rcp.NTOparams.theFalloff;
