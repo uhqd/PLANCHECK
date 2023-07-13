@@ -103,7 +103,7 @@ namespace PlanCheck
             _itisaTomoReport = true;
             trd = new tomoReportData();
             #region convert pdf 2 text file
-            string outpath = Directory.GetCurrentDirectory() + @"\..\pdfReader\tomoReportData.txt";
+            string outpath = Directory.GetCurrentDirectory() + @"\plancheck_data\temp\tomoReportData.txt";
             PdfReader pdfReader = new PdfReader(pathToPdf);
             PdfDocument pdfDoc = new PdfDocument(pdfReader);
             String pageContent = null;
@@ -127,7 +127,7 @@ namespace PlanCheck
             {
 
                 #region read text file in a list of strings
-                System.IO.StreamReader file = new System.IO.StreamReader(Directory.GetCurrentDirectory() + @"\..\pdfReader\tomoReportData.txt");
+                System.IO.StreamReader file = new System.IO.StreamReader(Directory.GetCurrentDirectory() + @"\plancheck_data\temp\tomoReportData.txt");
                 String line = null;
                 List<string> lines = new List<string>();
 

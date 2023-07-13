@@ -1,203 +1,334 @@
-Accuray Precision® Plan Overview
-Plan Name:
-Plan Type:
-ParoiDggHypo1
-Standard
-Plan Saved Date: 10 Jul 2023, 5:17:29 PM (hr:min:sec)
-Treatment Machine / Serial No.: 0210462 850 MU/min, rev 175 / 
-210462
-Prescription: Median of PTV paroi, 40.00 Gy
-Prescribed Dose per Fraction (Gy): 2.67
-Planned Fractions: 15
-Maximum Dose (Gy): 47.37
-Plan Status: Approved
-MU Planned / MU per Fraction: 142126.3 / 9475.1
-Field Width (cm): 5.0, Dynamic
-Pitch: 0.287
-Modulation Factor / Actual: 3.500 / 2.1
-Gantry Period (sec):
-Gantry Rotations:
-35.3
-18.5
-Sinogram Segments: 6.2
-Couch Travel (mm):
-Couch Speed (mm/sec):
-267.9
-0.4
-Red Lasers Offset (IECf, mm): X: 14.91 Y: -72.50 Z: -44.58
-Beam On Time (sec): 652.7
-Plan Delivery Type / Mode: Helical / IMRT
-Dose Calculation Algorithm:
-Dose Calculation Resolution / Type: High / Final
-Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
-Size (IECp, voxel) X: 512 Y: 159 Z: 512
-Reference Dose (Gy): 47.37
-X: -44.4 Y: 80.0 Z: 139.6 Reference Point (IECp, mm): Tracking Method: None
-Image Angles (deg):
-Tracking Target VOI:
-Planning Method: Classic
-Patient Name:
-Medical ID:
-HURST, YVETTE
-201602545 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 27 Nov 1933
-Gender: Female Patient Key: 409572
-Plan Overview
-Page 1 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)DVH: Relative Dose
-Plan Overview
-Page 2 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3DVH: Absolute Dose
-Plan Overview
-Page 3 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3VOI List
-VOI Volume 
-(cm³)
-Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
-%
-Beam Inter.
-Canal Med 86.39 0.15 1.91 10.84 n/a n/a n/a n/a Exit Only
-IVA 5.73 2.92 4.34 6.52 n/a n/a n/a n/a Allowed
-Plexus Dt 12.56 0.88 31.89 43.36 n/a n/a n/a n/a Allowed
-Plexus Gche 12.38 0.61 2.37 11.90 n/a n/a n/a n/a Allowed
-PoumonDt 1109.04 1.26 8.19 41.82 n/a n/a n/a n/a Exit Only
-PoumonGche 898.00 0.83 3.18 19.70 n/a n/a n/a n/a Exit Only
-TetehumeraleDte 79.01 0.32 9.91 28.62 n/a n/a n/a n/a Allowed
-TetehumeraleGche 74.72 0.20 0.69 2.03 n/a n/a n/a n/a Allowed
-Thyroide 3.73 10.10 29.89 42.39 n/a n/a n/a n/a Allowed
-BODY 24124.97 0.08 5.81 47.37 n/a n/a n/a n/a Allowed
-Foie 1245.65 0.19 5.64 38.27 n/a n/a n/a n/a Exit Only
-Larynx 9.44 0.92 4.01 18.29 n/a n/a n/a n/a Allowed
-Oesophage 28.39 1.23 8.11 32.99 n/a n/a n/a n/a Allowed
-Poumons 2007.04 0.83 5.95 41.82 n/a n/a n/a n/a Allowed
-Sein contro 959.13 0.59 3.22 12.78 n/a n/a n/a n/a Exit Only
-Trachee 28.28 1.70 19.20 38.79 n/a n/a n/a n/a Allowed
-Coeur 649.12 1.20 3.97 24.40 n/a n/a n/a n/a Exit Only
-Dose 20[Gy] 4693.57 0.42 3.61 42.67 n/a n/a n/a n/a Allowed
-Dose 30[Gy] 2854.94 0.50 3.81 36.73 n/a n/a n/a n/a Allowed
-Dose 40[Gy] 2060.12 0.59 3.81 33.67 n/a n/a n/a n/a Allowed
-Dose 50[Gy] 1304.97 0.65 3.54 28.35 n/a n/a n/a n/a Allowed
-CTV axillaire 49.43 37.92 39.96 42.29 n/a n/a n/a n/a Allowed
-CTV paroi 515.01 24.67 39.79 47.37 n/a n/a n/a n/a Allowed
-CTV sous clav 45.92 38.55 40.81 44.03 n/a n/a n/a n/a Allowed
-CTV sus clav 20.51 38.44 40.92 43.35 n/a n/a n/a n/a Allowed
-Plexus Brachial 24.14 0.63 17.25 43.36 n/a n/a n/a n/a Allowed
-PTV Axillaire 105.71 30.03 39.67 42.29 12.06 33.90 1.18 35.59 n/a
-PTV paroi 628.66 27.41 39.94 47.37 1.46 2.95 1.18 49.48 n/a
-PTV sous clav 104.30 32.68 40.19 44.03 7.44 12.71 1.18 58.51 n/a
-VOI
-Plan Overview
-Page 4 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3PTV sus clav 53.99 32.03 40.23 43.35 15.03 26.87 1.18 55.93 n/a
-TetehumeraleD+10 264.34 0.27 8.87 35.64 n/a n/a n/a n/a Allowed
-TetehumeraleG+10 251.47 0.17 0.71 2.55 n/a n/a n/a n/a Allowed
-CanalMed+5 243.64 0.15 2.02 15.02 n/a n/a n/a n/a Exit Only
-PTVTOTAL 857.40 27.41 39.95 47.37 n/a n/a n/a n/a Allowed
-RingPTVgg 339.62 8.17 32.60 43.46 n/a n/a n/a n/a Allowed
-RingPTVParoi 788.40 7.65 27.44 47.37 n/a n/a n/a n/a Allowed
-chauffe 9.22 23.99 36.62 43.46 n/a n/a n/a n/a Allowed
-menton 159.66 0.44 1.45 3.95 n/a n/a n/a n/a Exit Only
-All Target Regions n/a 27.41 39.95 47.37 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.15 9.17 47.37 0.00 0.00 0.00 0.00 n/a
-Soft Tissue n/a 0.08 3.22 39.86 0.00 0.00 0.00 0.00 n/a
-Plan Overview
-Page 5 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3DVH Dose (Gy) Dose (% of 40.00 
-Gy Rx Dose)
-Volume (cm³) Volume (%) Criteria Value
-PTV paroi 37.80 94.5 597.23 95.0 Dose (Gy) >= 38.00, Min: 36.00 37.80
-PTV sus clav 37.93 94.8 51.29 95.0 Dose (Gy) >= 38.00, Min: 36.00 37.93
-PTV sous clav 37.79 94.5 99.09 95.0 Dose (Gy) >= 38.00, Min: 36.00 37.79
-PTV Axillaire 38.24 95.6 100.42 95.0 Dose (Gy) >= 38.00, Min: 36.00 38.24
-Coeur 16.00 40.0 3.67 0.6 Volume (%) <= 5.0 0.6
-Coeur 20.00 50.0 0.83 0.1 Volume (%) <= 5.0 0.1
-Coeur 25.00 62.5 0.00 0.0 Volume (%) <= 0.0 0.0
-PoumonGche 4.00 10.0 259.57 28.9 Volume (%) <= 20.0, Max: 30.0 28.9
-PoumonDt 8.00 20.0 377.03 34.0 Volume (%) <= 35.0, Max: 40.0 34.0
-PoumonDt 16.00 40.0 184.92 16.7 Volume (%) <= 15.0, Max: 20.0 16.7
-Poumons 4.00 10.0 837.26 41.7 Volume (%) <= 42.0, Max: 50.0 41.7
-Poumons 16.00 40.0 186.04 9.3 Volume (%) <= 10.0, Max: 15.0 9.3
-Sein contro 4.00 10.0 261.45 27.3 Volume (%) <= 15.0, Max: 25.0 27.3
-TetehumeraleDte 28.62 71.5 0.00 0.0 Dose (Gy) <= 36.00, Max: 38.00 28.62
-Canal Med 10.84 27.1 0.00 0.0 Dose (Gy) <= 12.00, Max: 15.00 10.84
-CanalMed+5 15.02 37.5 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 15.02
-PTV sus clav 42.61 106.5 1.08 2.0 Dose (Gy) <= 42.80 42.61
-PTV sous clav 42.66 106.6 2.09 2.0 Dose (Gy) <= 42.80 42.66
-PTV Axillaire 41.30 103.3 2.11 2.0 Dose (Gy) <= 42.80 41.30
-Plexus Gche 11.90 29.8 0.00 0.0 Dose (Gy) <= 8.00 11.90
-Dose 30[Gy] 36.73 91.8 0.00 0.0 Dose (Gy) <= 40.00 36.73
-Dose 40[Gy] 33.67 84.2 0.00 0.0 Dose (Gy) <= 30.00 33.67
-Dx Vx Values
-Plan Overview
-Page 6 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
--939 * 0.001
--672 * 0.290
--509 * 0.480
-13 * 1.000
-226 * 1.146
-455 * 1.331
-837 * 1.558
-1214 * 1.822
-30884 * 22.599
-Density
-Density Model: IUC-120kV
-Plan Overview
-Page 7 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3Name: GLEMAREC, Gauthier
-10 Jul 2023, 5:17:01 PM (hr:min:sec)
-User ID: glemarec
-Approval Date:
-Approved by: Specialists
-Radiation Oncologist:
-Surgeon:
-Referring Physician:
-Physicist:
-Treatment Site ICD: IUC-TOULOUSE
-IUC-TOULOUSE Treatment Site:
-Additional Site Codes: IUC-TOULOUSE
-Additional Sites: IUC-TOULOUSE
-Created in Version: Accuray Precision 3.3.1.3 [2]
-Plan Key:
-Last Modified by:
-420864/4
-Simon, Luc
-Saved Deliverable by: MODESTO, Anouchka
-Approval and ICD
-Auto Generated Results:
-Not Applicable
-Patient Position: HFS Delivery Signature: G1WLH 3Xi4A 
-Plan Overview
-Page 8 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3Report Snapshots
-Plan Overview
-Page 9 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3Imaging Series
-X Y Z
-Origin (IECp, mm) -325.000 -122.500 325.000
-Size (IECp, voxel) 512 159 512
-Spacing (IECp, mm) 1.27 2.50 1.27
-Primary Series:
-Modality:
-Scan Date: Number of Slices:
-Yes
-CT
-05 Jul 2023, 10:30:54 AM (hr:min:sec) 159
-Scanner Model:
-Patient Position:
-Optima CT580
-HFS
-Series UID/Description Study UID/Description:
-1.2.840.113619.2.278.3.3523880722.301.1688532471.188 1.2.840.113619.2.278.3.3523880722.301.1688532471.183
-SEIN Droit Tomo TDM therapie SPC
-Plan Overview
-Page 10 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
-Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
-3.3.1.3
+Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+PATIENT
+Nom : CHAPELLE, JEAN PHILIPPE ID : 202305648 Date de naissance : mercredi 20 juin 1984 Sexe : Masculin
+Plan
+ID plan : Parotide G1
+ID dossier de traitement : C1
+ID image : TDMRTE060623
+Modalité de l'image : CT
+Système d'imagerie : TDMRT
+Orientation de traitement : Tête devant- Décubitus dorsal
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.13cm, 0.25cm, 0.25cm)
+Prescription de dose
+Volume cible : PTV_HDOPT
+Valeur de normalisation du plan : 100.6 %
+Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
+Point de référence principal : PTV_HDOPTORL
+Point de normalisation du plan : -, -, -
+Pourcentage de dose prescrite : 100.0 %
+Fractionnement : 
+Dose prescrite : 63.000 Gy (2.100 Gy / fraction)
+Dose au point de référence principal : 63.000 Gy (2.100 Gy / fraction)
+Nombre de fractions : 30
+Options de calcul
+Algorithme photon : AAA_15605New
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc0.125
+FieldNormalizationType 100% to isocenter
+HeterogeneityCorrection ON
+Approbations
+Plan créé : mercredi 14 juin 2023 13:29:09 par Lanaspeze Christelle
+Approbation du plan : jeudi 15 juin 2023 09:05:46 par Dalmasso Celine
+Patient : CHAPELLE, JEAN PHILIPPE  (202305648) Imprimé le 15/06/2023 11:03 par admin\stadler
+Dernière modification le jeudi 15 juin 2023 09:06:00 par Dalmasso Celine
+Dossier de traitement : C1
+Plan : Parotide G1  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Champs
+ID champ
+ID machine
+Énergie
+Débit de dose
+Taille de champ
+X1
+X2
+Y1
+Y2
+Angle du bras
+Sens de rotation du bras
+Angle d'arrêt du bras
+Rot. collimateur
+Rot. de table
+Filtre en coin
+Facteur de filtre
+MLC
+Bloc
+Plaque
+Bolus
+DSP bolus
+Isocentre X
+Isocentre Y
+Isocentre Z
+DSP
+Pondération
+Refdose (Gy)
+Point de référence
+Dose par fraction
+Profondeur physique
+Profondeur effective
+UM
+  kVCBCT  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+4.98 cm
+-1.57 cm
+5.79 cm
+93.4 cm
+0.000
+-
+PTV_HDOPTORL
+-
+-
+-
+-
+  RA1  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+179.0 °
+SAH
+0.0 °
+315.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+4.98 cm
+-1.57 cm
+5.79 cm
+93.6 cm
+0.589
+-
+PTV_HDOPTORL
+0.566 Gy
+-
+-
+123.0 UM
+  RA2  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+0.0 °
+SH
+179.0 °
+45.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+4.98 cm
+-1.57 cm
+5.79 cm
+93.4 cm
+0.533
+-
+PTV_HDOPTORL
+0.512 Gy
+-
+-
+111.3 UM
+  RA3  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+179.0 °
+SAH
+0.0 °
+315.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+4.98 cm
+-1.57 cm
+5.79 cm
+93.6 cm
+0.532
+-
+PTV_HDOPTORL
+0.511 Gy
+-
+-
+111.0 UM
+  RA4  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+0.0 °
+SH
+179.0 °
+45.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+4.98 cm
+-1.57 cm
+5.79 cm
+93.4 cm
+0.532
+-
+PTV_HDOPTORL
+0.511 Gy
+-
+-
+111.1 UM
+Patient : CHAPELLE, JEAN PHILIPPE  (202305648) Imprimé le 15/06/2023 11:03 par admin\stadler
+Dernière modification le jeudi 15 juin 2023 09:06:00 par Dalmasso Celine
+Dossier de traitement : C1
+Plan : Parotide G1  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Décalage de la table
+AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
+AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.13cm, 0.25cm, 0.25cm)
+Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
+Champs de l'isocentre :  RA1  RA2  RA3  RA4  kVCBCT  
+Décalage de la table par rapport à la position de référence :
+Décaler [cm] : 5.0 1.6 5.8
+Direction : Gauche Bas Sortie [Out]
+ 
+ 
+Erreurs et avertissements concernant le calcul :
+Patient : CHAPELLE, JEAN PHILIPPE  (202305648) Imprimé le 15/06/2023 11:03 par admin\stadler
+Dernière modification le jeudi 15 juin 2023 09:06:00 par Dalmasso Celine
+Dossier de traitement : C1
+Plan : Parotide G1  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient: CHAPELLE, JEAN PHILIPPE  
+Patient IDs: 202305648
+Comment:
+Plan Plan Course Plan History
+Parotide G1 C1 Last Modified: jeudi 15 juin 2023 09:06:00 by Dalmasso Celine
+Planification approuvée: jeudi 15 juin 2023 09:05:46 by Dalmasso Celine
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+CristallinGche Approuvée 100.0 / 99.2 0.1 cm³ 4.8 Gy 5.8 Gy 5.4 Gy 5.5 Gy 5.4 Gy 0.2 Gy
+NS_Prosthesis Approuvée 100.0 / 99.9 0.1 cm³ 6.3 Gy 20.6 Gy 12.8 Gy 11.3 Gy 11.5 Gy 2.7 Gy
+CristallinDt Approuvée 100.0 / 100.5 0.1 cm³ 4.2 Gy 5.6 Gy 4.8 Gy 4.8 Gy 4.8 Gy 0.3 Gy
+Patient: CHAPELLE, JEAN PHILIPPE    (202305648) Printed jeudi 15 juin 2023 11:03:58 by Stadler Marine
+Course: C1
+Plan: Parotide G1  -  Planification approuvée Page: 1/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+cochlée gauche Approuvée 100.0 / 100.4 0.1 cm³ 9.6 Gy 17.1 Gy 12.1 Gy 10.1 Gy 11.9 Gy 1.4 Gy
+CN_VII_L Approuvée 100.0 / 99.8 0.2 cm³ 57.0 Gy 64.4 Gy 62.4 Gy 62.3 Gy 62.6 Gy 1.2 Gy
+NerfOptiqueDt Approuvée 100.0 / 98.7 0.3 cm³ 3.2 Gy 5.1 Gy 4.1 Gy 3.8 Gy 4.0 Gy 0.4 Gy
+NerfOptiqueGche Approuvée 100.0 / 100.8 0.4 cm³ 4.7 Gy 6.5 Gy 5.4 Gy 5.2 Gy 5.3 Gy 0.3 Gy
+OreilleIntDte Approuvée 100.0 / 99.4 0.8 cm³ 3.9 Gy 6.5 Gy 5.1 Gy 5.1 Gy 5.1 Gy 0.5 Gy
+Chiasma Approuvée 100.0 / 100.0 0.9 cm³ 3.4 Gy 5.6 Gy 4.6 Gy 4.6 Gy 4.7 Gy 0.4 Gy
+OreilleIntGche Approuvée 100.0 / 101.1 0.9 cm³ 6.5 Gy 18.2 Gy 10.7 Gy 11.2 Gy 10.6 Gy 2.5 Gy
+Artefacts Approuvée 100.0 / 99.9 0.9 cm³ 9.8 Gy 55.8 Gy 30.6 Gy 17.8 Gy 26.5 Gy 12.9 Gy
+CristallinGche+5 Approuvée 100.0 / 100.8 2.2 cm³ 0.0 Gy 6.1 Gy 5.1 Gy 5.3 Gy 5.3 Gy 0.8 Gy
+ATMGche Approuvée 100.0 / 99.7 2.4 cm³ 38.7 Gy 63.5 Gy 53.4 Gy 53.3 Gy 53.6 Gy 5.2 Gy
+NerfOptGche+3 Approuvée 100.0 / 99.9 2.6 cm³ 4.5 Gy 7.5 Gy 5.7 Gy 5.4 Gy 5.6 Gy 0.6 Gy
+CristallinDt+5 Approuvée 100.0 / 100.2 2.6 cm³ 0.3 Gy 6.8 Gy 4.7 Gy 4.9 Gy 4.7 Gy 0.8 Gy
+NerfOptDt+3 Approuvée 100.0 / 99.5 2.7 cm³ 2.7 Gy 6.1 Gy 4.1 Gy 3.3 Gy 4.0 Gy 0.8 Gy
+ATMDte Approuvée 100.0 / 100.0 2.7 cm³ 5.0 Gy 10.2 Gy 7.0 Gy 6.2 Gy 6.9 Gy 1.0 Gy
+GTVpréop Approuvée 100.0 / 100.8 3.3 cm³ 0.0 Gy 66.7 Gy 57.5 Gy 0.0 Gy 62.8 Gy 13.7 Gy
+Chiasma+3 Approuvée 100.0 / 100.5 4.1 cm³ 3.2 Gy 6.8 Gy 4.9 Gy 5.3 Gy 4.9 Gy 0.7 Gy
+PlexusDt Approuvée 100.0 / 99.6 6.1 cm³ 0.2 Gy 0.8 Gy 0.3 Gy 0.2 Gy 0.3 Gy 0.1 Gy
+OeilGche Approuvée 100.0 / 99.4 7.8 cm³ 4.2 Gy 7.5 Gy 5.8 Gy 5.7 Gy 5.8 Gy 0.6 Gy
+OeilDt Approuvée 100.0 / 99.7 8.0 cm³ 2.1 Gy 7.3 Gy 4.5 Gy 2.7 Gy 4.5 Gy 1.2 Gy
+SousMaxDte Approuvée 100.0 / 99.7 8.6 cm³ 0.8 Gy 6.8 Gy 1.8 Gy 1.1 Gy 1.2 Gy 1.3 Gy
+SousMaxGche-PTVs Approuvée 100.0 / 100.2 9.5 cm³ 1.1 Gy 53.4 Gy 7.0 Gy 1.3 Gy 2.1 Gy 10.2 Gy
+SousMaxGche Approuvée 100.0 / 100.2 10.0 cm³ 1.1 Gy 56.4 Gy 9.3 Gy 1.3 Gy 2.3 Gy 14.2 Gy
+PlexusGche Approuvée 100.0 / 100.0 11.3 cm³ 0.1 Gy 0.9 Gy 0.3 Gy 0.1 Gy 0.2 Gy 0.1 Gy
+Thyroide Approuvée 100.0 / 100.3 14.4 cm³ 0.2 Gy 0.7 Gy 0.4 Gy 0.3 Gy 0.3 Gy 0.1 Gy
+Oesophage Approuvée 100.0 / 100.1 14.4 cm³ 0.0 Gy 0.4 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+ParoDte Approuvée 100.0 / 99.4 16.7 cm³ 3.7 Gy 8.0 Gy 5.3 Gy 5.0 Gy 5.2 Gy 0.7 Gy
+Larynx Approuvée 100.0 / 99.9 18.5 cm³ 0.4 Gy 1.0 Gy 0.7 Gy 0.5 Gy 0.7 Gy 0.1 Gy
+Levres Approuvée 100.0 / 100.0 18.8 cm³ 2.6 Gy 17.9 Gy 6.0 Gy 3.9 Gy 5.5 Gy 2.2 Gy
+PlexusDt+3 Approuvée 100.0 / 99.6 21.8 cm³ 0.2 Gy 0.8 Gy 0.3 Gy 0.2 Gy 0.3 Gy 0.2 Gy
+CTV HD Approuvée 100.0 / 100.1 22.9 cm³ 0.0 Gy 66.7 Gy 61.0 Gy 63.6 Gy 63.1 Gy 7.2 Gy
+Tronc Cerebral Approuvée 100.0 / 100.0 24.1 cm³ 4.1 Gy 16.8 Gy 9.2 Gy 9.9 Gy 9.2 Gy 2.7 Gy
+ConsPharynx-PTVs Approuvée 100.0 / 99.2 25.1 cm³ 0.4 Gy 53.9 Gy 11.0 Gy 0.5 Gy 3.2 Gy 13.9 Gy
+Const Pharynx Approuvée 100.0 / 99.1 26.0 cm³ 0.4 Gy 55.2 Gy 12.4 Gy 0.5 Gy 4.5 Gy 15.6 Gy
+PTV_HDOPT Approuvée 100.0 / 99.9 32.7 cm³ 54.5 Gy 66.7 Gy 62.9 Gy 63.4 Gy 63.0 Gy 1.3 Gy
+PTV HD Approuvée 100.0 / 99.7 33.0 cm³ 54.6 Gy 66.7 Gy 62.9 Gy 63.4 Gy 63.0 Gy 1.3 Gy
+PlexusGche+3 Approuvée 100.0 / 99.8 40.5 cm³ 0.1 Gy 1.0 Gy 0.3 Gy 0.2 Gy 0.2 Gy 0.2 Gy
+TroncCerebral+3 Approuvée 100.0 / 100.0 42.6 cm³ 4.1 Gy 18.5 Gy 9.4 Gy 8.7 Gy 9.2 Gy 2.9 Gy
+PTVBDIsole Approuvée 100.0 / 99.8 43.9 cm³ 48.7 Gy 58.2 Gy 54.2 Gy 53.9 Gy 54.1 Gy 1.1 Gy
+Trachee Approuvée 100.0 / 100.2 45.3 cm³ 0.1 Gy 0.5 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+Canal Med Approuvée 100.0 / 100.2 57.7 cm³ 0.0 Gy 21.1 Gy 3.6 Gy 0.0 Gy 0.3 Gy 6.1 Gy
+PTV_BD-PTV_HD Approuvée 100.0 / 99.8 64.0 cm³ 48.7 Gy 64.2 Gy 55.2 Gy 53.9 Gy 54.6 Gy 2.2 Gy
+CTV BD Approuvée 100.0 / 99.9 64.1 cm³ 0.0 Gy 66.7 Gy 57.8 Gy 0.0 Gy 58.9 Gy 7.3 Gy
+Mandibule-PTVs Approuvée 100.0 / 99.9 90.1 cm³ 0.6 Gy 61.2 Gy 12.6 Gy 0.8 Gy 6.3 Gy 15.2 Gy
+Mandibule Approuvée 100.0 / 100.0 92.6 cm³ 0.6 Gy 63.6 Gy 13.8 Gy 0.8 Gy 6.5 Gy 16.6 Gy
+Cav Buc Approuvée 100.0 / 100.3 95.6 cm³ 1.7 Gy 48.8 Gy 12.9 Gy 8.5 Gy 11.9 Gy 6.8 Gy
+PTV_BDOPT Approuvée 100.0 / 99.9 98.1 cm³ 48.7 Gy 66.7 Gy 57.8 Gy 53.9 Gy 56.4 Gy 4.1 Gy
+PTVTotal Approuvée 100.0 / 99.9 98.6 cm³ 48.7 Gy 66.7 Gy 57.8 Gy 53.9 Gy 56.4 Gy 4.1 Gy
+PTV BD Approuvée 100.0 / 99.9 98.8 cm³ 48.7 Gy 66.7 Gy 57.8 Gy 53.9 Gy 56.4 Gy 4.1 Gy
+CanalMed+3 Approuvée 100.0 / 100.3 109.1 cm³ 0.0 Gy 22.2 Gy 3.6 Gy 0.0 Gy 0.3 Gy 6.1 Gy
+Patient: CHAPELLE, JEAN PHILIPPE    (202305648) Printed jeudi 15 juin 2023 11:03:58 by Stadler Marine
+Course: C1
+Plan: Parotide G1  -  Planification approuvée Page: 2/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+RingPTVBD Approuvée 100.0 / 100.0 298.4 cm³ 0.0 Gy 65.0 Gy 31.4 Gy 0.0 Gy 37.2 Gy 19.7 Gy
+PoumonDt Approuvée 100.0 / 101.0 552.8 cm³ 0.0 Gy 0.2 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+PoumonGche Approuvée 100.0 / 100.9 596.2 cm³ 0.0 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.0 Gy
+Poumons Approuvée 100.0 / 101.0 1149.0 cm³ 0.0 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.0 Gy
+BODY Approuvée 100.0 / 100.3 12043.9 cm³ 0.0 Gy 66.7 Gy 3.4 Gy 0.0 Gy 0.2 Gy 8.8 Gy
+Plan prescription
+Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
+Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
+- - - Parotide G1 C1 63.000 Gy 2.100 Gy 30 63.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.6 %
+Patient: CHAPELLE, JEAN PHILIPPE    (202305648) Printed jeudi 15 juin 2023 11:03:58 by Stadler Marine
+Course: C1
+Plan: Parotide G1  -  Planification approuvée Page: 3/3Institut Claudius Regaud, Toulouse Imprimé(e) sur jeudi 15 juin 2023 11:04:06 par Stadler Marine (admin\stadler)
+CHAPELLE, JEAN PHILIPPE (202305648)

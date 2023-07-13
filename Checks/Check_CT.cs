@@ -35,7 +35,7 @@ namespace PlanCheck
         private read_check_protocol _rcp;
 
         private string _title = "CT";
-
+        //test
         private bool checAVEcomposition(String comment, int expectedPhase)
         {
             // if exepected phase is 3, comment must contains these values and only these values : 33% 50% 66%

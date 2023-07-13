@@ -1,0 +1,6 @@
+Pour mettre en prod. 
+Fermer Eclipse. 
+Generer solution avec iun nouveau nom. 
+Copier la dll généré (.....esapi.dll) et le dossier plancheck_data dans le repertoire des scripts
+
+Le rapport pdf ne marche pas...

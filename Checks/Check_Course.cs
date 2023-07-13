@@ -267,11 +267,19 @@ namespace PlanCheck
                         }
 
                         if (validPlan)
+                        {
                             if (p.ApprovalStatus.ToString() == "TreatmentApproved")
                             {
                                 var theDateTime = DateTime.Parse(p.TreatmentApprovalDate.ToString(), cultureInfo);
                                 anteriorTraitementList.Add(theDateTime.ToString("d") + "\t" + p.Id);
                             }
+                        }
+                        else
+                        {
+                            anteriorTraitementList.Add("Ancien plan corompu, vérifier " + p.Id);
+
+                        }
+
                     }
                 }
             }

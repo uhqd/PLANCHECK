@@ -9,6 +9,8 @@
         WindowState="Maximized"
         Style="{x:Null}" >
     <!-- Title="PlanCheck " Height="900" Width="1400" /-->
+    
+    
     <!-- Background="#331122ff" /-->
         <Grid Style="{x:Null}" >
         <!-- Grid.Background>

@@ -18,7 +18,7 @@ namespace PlanCheck.Users
             #region open and read xlsx file with users 
 
 
-            string userListFilePath = Directory.GetCurrentDirectory() + @"\users\Users-IUCT.xlsx";
+            string userListFilePath = Directory.GetCurrentDirectory() + @"\plancheck_data\users\Users-IUCT.xlsx";
             // This command find the dir where the dll is executed. Better than getcurrentidir
             //string userListFilePath = Assembly.GetExecutingAssembly().GetDirectoryPath() + @"\users\Users-IUCT.xlsx";
            
