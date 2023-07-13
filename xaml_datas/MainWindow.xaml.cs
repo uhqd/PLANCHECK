@@ -57,7 +57,7 @@ namespace PlanCheck
         public string OptimizationModel { get; set; }
         public List<UserControl> ListChecks { get; set; }
 
-       
+
 
         private String setProtocolDisplay(String filename)
         {
@@ -72,55 +72,60 @@ namespace PlanCheck
             String fileName = @"\check_protocol\defaut.xlsx";
             String planName = _pcontext.PlanSetup.Id.ToUpper();
             String nFractions = _pcontext.PlanSetup.NumberOfFractions.ToString();
+            bool isORL = false;
+            String courseName = _pinfo.CourseName.ToUpper();
+            if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE"))
+                isORL = true;
+
+
+            if (courseName.Contains("CAVUM") || courseName.Contains("ORL") || courseName.Contains("PHARYNX") || courseName.Contains("PAROTIDE"))
+                isORL = true; 
+            
+            
+            
             if (planName.Contains("SEIN"))
             {
                 bool gg = false;
-              //  bool hypo = false;
+                //  bool hypo = false;
                 if (planName.Contains("GG"))
                     gg = true;
                 //if (_pcontext.PlanSetup.NumberOfFractions == 15)
-                  //  hypo = true;
+                //  hypo = true;
 
                 if (gg)
                 {
                     //if (hypo)
-                      //  fileName = @"\check_protocol\sein ganglions hypo.xlsx";
-                   // else
-                        fileName = @"\check_protocol\sein ganglions.xlsx";
+                    //  fileName = @"\check_protocol\sein ganglions hypo.xlsx";
+                    // else
+                    fileName = @"\check_protocol\sein ganglions.xlsx";
                 }
                 else
                 {
                     //if (hypo)
-                      //  fileName = @"\check_protocol\sein hypo.xlsx";
+                    //  fileName = @"\check_protocol\sein hypo.xlsx";
                     //else
-                        fileName = @"\check_protocol\sein.xlsx";
+                    fileName = @"\check_protocol\sein.xlsx";
                 }
 
 
             }
-            if (planName.Contains("PAROI"))
+            else if (isORL)
+                fileName = @"\check_protocol\ORL.xlsx";
+            else if (planName.Contains("PAROI"))
             {
 
                 fileName = @"\check_protocol\paroi ganglions.xlsx";
             }
-            if (planName.Contains("LOGE") || planName.Contains("PROST"))
+            else if (planName.Contains("LOGE") || planName.Contains("PROST"))
                 fileName = @"\check_protocol\prostate.xlsx";
-
-            //  String FirstFieldName = _pcontext.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false).Id;
-            //if (FirstFieldName.Contains("HA"))
-            if (_pinfo.isHyperArc)
-            {
-
-                //fileName = @"\check_protocol\hyperarc" + nFractions + "F.xlsx";
+            else if (_pinfo.isHyperArc)
                 fileName = @"\check_protocol\hyperarc.xlsx";
-            }
-
-            if (planName.ToUpper().Contains("STEC"))
+            else if (planName.ToUpper().Contains("STEC"))
             {
                 if (planName.ToUpper().Contains("FOIE"))
                 {
                     //fileName = @"\check_protocol\STEC foie" + nFractions + "F.xlsx";
-                    if(_pinfo.treatmentType == "VMAT")
+                    if (_pinfo.treatmentType == "VMAT")
                         fileName = @"\check_protocol\STEC foie RA.xlsx";
                     else
                         fileName = @"\check_protocol\STEC foie DCA.xlsx";
@@ -144,7 +149,7 @@ namespace PlanCheck
                 fullname = Directory.GetCurrentDirectory() + @"\check_protocol\prostate.xlsx";
             }
             if (!File.Exists(fullname))
-                MessageBox.Show(fullname + "\nFichier introuvable");
+                MessageBox.Show(fullname + "\nFichiers check-protocol introuvables");
 
             return fullname;
         }
@@ -167,7 +172,7 @@ namespace PlanCheck
             theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
 
-           
+
 
             InitializeComponent(); // read the xaml
 
@@ -177,31 +182,17 @@ namespace PlanCheck
             UserMode.Items.Add("Avancé");
             UserMode.SelectedIndex = 1;
 
-            // MessageBox.Show("Componrtnt inited");
+            // fill combo box for Check Protocol
+            /*string path = Directory.GetCurrentDirectory() + @"\check_protocol\";
+            String[] fileNamesWithoutExtention = Directory.GetFiles(path).Select(fileName => Path.GetFileNameWithoutExtension(fileName)).ToArray();
+            foreach (string s in fileNamesWithoutExtention)
+            {
+                cbCheckProtocol.Items.Add(s);
+            }
 
-            //OK_button.color BackColor = SystemColors.ButtonFace;
-            //OK_button.ForeColor = default(Color);
-            //OK_button.UseVisualStyleBackColor = true;
-            // OK_button.Background = SystemColors.GrayTextBrush;
-            // OK_button.Foreground = SystemColors.ScrollBarBrush;
-            //OK_button.Background = new SolidColorBrush(Color.FromArgb(200, 255, 50, 50));// "#FFFFFF00";// SystemColors.GrayTextBrush;// buttonface;
-            //OK_button.Foreground = new SolidColorBrush(Color.FromArgb(200, 255, 50, 50)); //SystemColors.ScrollBarBrush;
-            // OK_button.
-            /*OK_button.Opacity = 0.50;
-            OK_button.OpacityMask = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0));
-            OK_button.Background = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));// "#FFFFFF00";// SystemColors.GrayTextBrush;// buttonface;
-            OK_button.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0)); //SystemColors.ScrollBarBrush;
-            HELP_button.Opacity = 1;
-            HELP_button.OpacityMask = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-            HELP_button.Background = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));// "#FFFFFF00";// SystemColors.GrayTextBrush;// buttonface;
-            HELP_button.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0)); //SystemColors.ScrollBarBrush;
+            cbCheckProtocol.SelectedIndex = 1;
             */
-            /* Verif_button.Opacity = 0.25;
-             Verif_button.OpacityMask = new SolidColorBrush(Color.FromArgb(255, 0, 255, 255));
-             Verif_button.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 0));// "#FFFFFF00";// SystemColors.GrayTextBrush;// buttonface;
-                                                                                             // Verif_button.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 255)); //SystemColors.ScrollBarBrush;
-             Verif_button.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));//"#FFEF0E0E");// ;
-             //OK_button.OverridesDefaultStyle;*/
+
         }
         public void FillHeaderInfos()
         {
@@ -500,7 +491,7 @@ d3.ToString("0.##");   //24
                 var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_iso);
             }
-            
+
             Check_Plan c_Plan = new Check_Plan(_pinfo, _pcontext, rcp);
             if (c_Plan.Result.Count > 0)
             {
@@ -508,7 +499,7 @@ d3.ToString("0.##");   //24
                 this.AddCheck(check_point_plan);
             }
 
-            
+
             Check_Model c_algo = new Check_Model(_pinfo, _pcontext, rcp);
             if (c_algo.Result.Count > 0)
             {
@@ -523,8 +514,8 @@ d3.ToString("0.##");   //24
                 this.AddCheck(check_point_beams);
             }
 
-            
-                Check_UM c_UM = new Check_UM(_pinfo, _pcontext);
+
+            Check_UM c_UM = new Check_UM(_pinfo, _pcontext);
             if (c_UM.Result.Count > 0)
             {
                 var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
@@ -836,10 +827,20 @@ d3.ToString("0.##");   //24
         private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (UserMode.SelectedValue.ToString() == "Basique")
-               _pinfo.advancedUserMode = false;
+                _pinfo.advancedUserMode = false;
             if (UserMode.SelectedValue.ToString() == "Avancé")
                 _pinfo.advancedUserMode = true;
 
         }
+        /*
+         private void CheckProtocol_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserMode.SelectedValue.ToString() == "Basique")
+                _pinfo.advancedUserMode = false;
+            if (UserMode.SelectedValue.ToString() == "Avancé")
+                _pinfo.advancedUserMode = true;
+
+        }
+        */
     }
 }

@@ -1,434 +1,203 @@
-Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-PATIENT
-Nom : ROUTOU, ALINE ID : 202306227 Date de naissance : mercredi 14 décembre 1960Sexe : Féminin
-Plan
-ID plan : STEC Foie
-ID dossier de traitement : C1
-ID image : CT50_030723
-Modalité de l'image : CT
-Système d'imagerie : TDMRT
-Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.05cm, 0.23cm, 0.25cm)
-Prescription de dose
-Volume cible : PTV
-Valeur de normalisation du plan : 200.0 %
-Méthode de normalisation du plan: 100% au point de référence ICRUPTVFOIE
-Point de référence principal : ICRUPTVFOIE
-Point de normalisation du plan : -6.5 cm, 5.1 cm, -4.5 cm
-Pourcentage de dose prescrite : 80.0 %
-Fractionnement : 
-Dose prescrite : 50.000 Gy (10.000 Gy / fraction)
-Dose au point de référence principal : 62.500 Gy (12.500 Gy / fraction)
-Nombre de fractions : 5
-Options de calcul
-Algorithme photon : AAA_15605New
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc0.125
-FieldNormalizationType 100% to isocenter
-HeterogeneityCorrection ON
-Approbations
-Plan créé : jeudi 6 juillet 2023 11:14:56 par Recordon Frederique
-Approbation du plan : lundi 10 juillet 2023 16:48:06 par Modesto Anouchka
-Patient : ROUTOU, ALINE  (202306227) Imprimé le 11/07/2023 12:12 par admin\recordon
-Dernière modification le lundi 10 juillet 2023 16:48:07 par Pasquier Corentin
-Dossier de traitement : C1
-Plan : STEC Foie  -  Planification approuvée Page : 1/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Champs
-ID champ
-ID machine
-Énergie
-Débit de dose
-Taille de champ
-X1
-X2
-Y1
-Y2
-Angle du bras
-Sens de rotation du bras
-Angle d'arrêt du bras
-Rot. collimateur
-Rot. de table
-Filtre en coin
-Facteur de filtre
-MLC
-Bloc
-Plaque
-Bolus
-DSP bolus
-Isocentre X
-Isocentre Y
-Isocentre Z
-DSP
-Pondération
-Refdose (Gy)
-Point de référence
-Dose par fraction
-Profondeur physique
-Profondeur effective
-UM
-  ARCSTE  
-  NOVA5  
-10X-FFF 
-2400 UM/min
-6.7 cm x 6.7 cm
-X1: +2.9 cm 
-X2: +3.8 cm 
-Y1: +3.2 cm 
-Y2: +3.5 cm 
-14.0 °
-SAH
-280.0 °
-0.0 °
-0.0 °
- -
- -
-0364
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-77.5 cm
-1.000
--
-ICRUPTVFOIE
-6.250 Gy
-15.5 cm
-16.0 cm
-946.6 UM
-  ARCSTE1  
-  NOVA5  
-10X-FFF 
-2400 UM/min
-6.6 cm x 6.7 cm
-X1: +3.8 cm 
-X2: +2.8 cm 
-Y1: +3.2 cm 
-Y2: +3.5 cm 
-260.0 °
-SAH
-181.0 °
-0.0 °
-0.0 °
- -
- -
-0364
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-90.7 cm
-1.000
--
-ICRUPTVFOIE
-6.250 Gy
-7.9 cm
-9.3 cm
-754.7 UM
-  ant_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-79.1 cm
-0.000
--
-ICRUPTVFOIE
--
--
--
--
-  cbct  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-90.9 cm
-0.000
--
-ICRUPTVFOIE
--
--
--
--
-  latdt_ciné  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-90.9 cm
-0.000
--
-ICRUPTVFOIE
--
--
--
--
-  latdt_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-90.9 cm
-0.000
--
-ICRUPTVFOIE
--
--
--
--
-  latg_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-78.0 cm
-0.000
--
-ICRUPTVFOIE
--
--
--
--
-  post_ciné  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-93.8 cm
-0.000
--
-ICRUPTVFOIE
--
--
--
--
-  post_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.53 cm
-5.12 cm
--4.45 cm
-93.8 cm
-0.000
--
-ICRUPTVFOIE
--
--
--
--
-Patient : ROUTOU, ALINE  (202306227) Imprimé le 11/07/2023 12:12 par admin\recordon
-Dernière modification le lundi 10 juillet 2023 16:48:07 par Pasquier Corentin
-Dossier de traitement : C1
-Plan : STEC Foie  -  Planification approuvée Page : 2/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Décalage de la table
-AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
-AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.05cm, 0.23cm, 0.25cm)
-Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  ARCSTE  ARCSTE1  ant_setup  latdt_setup  post_ciné  latdt_ciné  cbct  post_setup  latg_setup  
-Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 6.53 5.12 4.45
-Direction : Droite Haut Entrée [In]
- 
- 
-Erreurs et avertissements concernant le calcul :
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   ARCSTE  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   ARCSTE  )
- éventail et la surface du porte-patient. (Avertissement :   ARCSTE  )
-The field exits the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   ARCSTE  )
- calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   ARCSTE  )
- the patient support device. (Avertissement :   ARCSTE  )
-Patient : ROUTOU, ALINE  (202306227) Imprimé le 11/07/2023 12:12 par admin\recordon
-Dernière modification le lundi 10 juillet 2023 16:48:07 par Pasquier Corentin
-Dossier de traitement : C1
-Plan : STEC Foie  -  Planification approuvée Page : 3/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: ROUTOU, ALINE  
-Patient IDs: 202306227
-Comment:
-Plan Plan Course Plan History
-STEC Foie C1 Last Modified: lundi 10 juillet 2023 16:48:07 by Pasquier Corentin
-Planification approuvée: lundi 10 juillet 2023 16:48:06 by Modesto Anouchka
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-ParoiThoracique Approuvée 100.0 / 100.0 1359.4 cm³ 0.1 Gy 61.3 Gy 6.4 Gy 0.2 Gy 0.9 Gy 9.4 Gy
-QueueDeCheval Approuvée 100.0 / 100.4 8.7 cm³ 0.0 Gy 0.2 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.1 Gy
-VesiculeBiliaire Approuvée 100.0 / 100.3 10.7 cm³ 0.3 Gy 12.6 Gy 2.1 Gy 0.5 Gy 0.7 Gy 2.9 Gy
-Patient: ROUTOU, ALINE    (202306227) Printed mardi 11 juillet 2023 12:13:22 by Recordon Frederique
-Course: C1
-Plan: STEC Foie  -  Planification approuvée Page: 1/2Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Oesophage Approuvée 100.0 / 100.3 10.7 cm³ 0.3 Gy 8.1 Gy 2.4 Gy 0.4 Gy 1.1 Gy 2.5 Gy
-GTV Approuvée 100.0 / 100.0 19.7 cm³ 54.4 Gy 64.0 Gy 60.4 Gy 61.8 Gy 60.7 Gy 2.0 Gy
-Canal biliaire Approuvée 100.0 / 99.9 21.6 cm³ 3.4 Gy 21.7 Gy 11.9 Gy 14.5 Gy 12.2 Gy 4.4 Gy
-CTV Approuvée 100.0 / 100.0 36.3 cm³ 53.0 Gy 64.0 Gy 60.1 Gy 62.0 Gy 60.4 Gy 2.4 Gy
-Duodenum Approuvée 100.0 / 100.1 48.4 cm³ 0.2 Gy 5.0 Gy 0.7 Gy 0.2 Gy 0.6 Gy 0.6 Gy
-Canal Med Approuvée 100.0 / 100.0 48.5 cm³ 0.2 Gy 10.9 Gy 2.5 Gy 0.3 Gy 0.8 Gy 3.0 Gy
-D2cm Approuvée 100.0 / 99.9 50.6 cm³ 1.3 Gy 33.4 Gy 16.1 Gy 1.6 Gy 18.2 Gy 9.5 Gy
-Pancreas Approuvée 100.0 / 100.1 60.7 cm³ 0.3 Gy 4.7 Gy 1.6 Gy 0.5 Gy 0.8 Gy 1.3 Gy
-PTV Approuvée 100.0 / 100.0 83.8 cm³ 42.9 Gy 64.0 Gy 57.6 Gy 58.6 Gy 57.8 Gy 3.6 Gy
-Canal+5 Approuvée 100.0 / 100.0 125.6 cm³ 0.2 Gy 12.9 Gy 2.6 Gy 0.3 Gy 0.8 Gy 3.2 Gy
-Aorte/v.cave Approuvée 100.0 / 100.1 137.5 cm³ 0.1 Gy 20.9 Gy 3.6 Gy 0.3 Gy 0.8 Gy 4.6 Gy
-Estomac Approuvée 100.0 / 100.0 157.3 cm³ 0.3 Gy 6.3 Gy 2.3 Gy 0.4 Gy 2.5 Gy 1.6 Gy
-ReinDt-PTV Approuvée 100.0 / 100.0 183.6 cm³ 0.1 Gy 55.2 Gy 3.2 Gy 0.3 Gy 0.7 Gy 7.8 Gy
-ReinDt Approuvée 100.0 / 100.0 185.5 cm³ 0.1 Gy 57.9 Gy 3.7 Gy 0.3 Gy 0.7 Gy 9.2 Gy
-ReinGche Approuvée 100.0 / 100.0 212.5 cm³ 0.1 Gy 5.4 Gy 0.6 Gy 0.1 Gy 0.2 Gy 0.9 Gy
-Colon Approuvée 100.0 / 100.0 314.3 cm³ 0.1 Gy 4.0 Gy 1.0 Gy 0.3 Gy 0.4 Gy 1.0 Gy
-Reins Approuvée 100.0 / 100.0 398.0 cm³ 0.1 Gy 58.0 Gy 2.0 Gy 0.2 Gy 0.4 Gy 6.5 Gy
-Rate Approuvée 100.0 / 100.0 403.1 cm³ 0.1 Gy 5.1 Gy 1.4 Gy 0.2 Gy 1.2 Gy 1.0 Gy
-PoumonGche Approuvée 100.0 / 100.0 476.3 cm³ 0.1 Gy 5.3 Gy 0.5 Gy 0.2 Gy 0.3 Gy 0.5 Gy
-Coeur Approuvée 100.0 / 100.0 560.8 cm³ 0.1 Gy 3.1 Gy 0.4 Gy 0.2 Gy 0.3 Gy 0.2 Gy
-PoumonDt Approuvée 100.0 / 100.0 648.1 cm³ 0.1 Gy 53.8 Gy 1.9 Gy 0.4 Gy 0.6 Gy 5.4 Gy
-Poumons Approuvée 100.0 / 100.0 1124.4 cm³ 0.1 Gy 53.8 Gy 1.3 Gy 0.3 Gy 0.5 Gy 4.1 Gy
-Grele Approuvée 100.0 / 100.8 1425.6 cm³ 0.0 Gy 0.5 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.1 Gy
-Foie-GTV Approuvée 100.0 / 100.0 1583.6 cm³ 0.1 Gy 64.0 Gy 10.7 Gy 0.2 Gy 6.5 Gy 12.3 Gy
-Foie Approuvée 100.0 / 100.0 1603.2 cm³ 0.1 Gy 64.0 Gy 11.3 Gy 0.2 Gy 6.7 Gy 13.4 Gy
-BODY Approuvée 100.0 / 100.3 22960.4 cm³ 0.0 Gy 64.0 Gy 2.3 Gy 0.0 Gy 0.3 Gy 6.1 Gy
-Plan prescription
-Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
-Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - STEC Foie C1 50.000 Gy 10.000 Gy 5 62.500 Gy   80.0 % 100% au point de référence ICRUPTVFOIE 200.0 %
-Patient: ROUTOU, ALINE    (202306227) Printed mardi 11 juillet 2023 12:13:22 by Recordon Frederique
-Course: C1
-Plan: STEC Foie  -  Planification approuvée Page: 2/2
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+ParoiDggHypo1
+Standard
+Plan Saved Date: 10 Jul 2023, 5:17:29 PM (hr:min:sec)
+Treatment Machine / Serial No.: 0210462 850 MU/min, rev 175 / 
+210462
+Prescription: Median of PTV paroi, 40.00 Gy
+Prescribed Dose per Fraction (Gy): 2.67
+Planned Fractions: 15
+Maximum Dose (Gy): 47.37
+Plan Status: Approved
+MU Planned / MU per Fraction: 142126.3 / 9475.1
+Field Width (cm): 5.0, Dynamic
+Pitch: 0.287
+Modulation Factor / Actual: 3.500 / 2.1
+Gantry Period (sec):
+Gantry Rotations:
+35.3
+18.5
+Sinogram Segments: 6.2
+Couch Travel (mm):
+Couch Speed (mm/sec):
+267.9
+0.4
+Red Lasers Offset (IECf, mm): X: 14.91 Y: -72.50 Z: -44.58
+Beam On Time (sec): 652.7
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
+Size (IECp, voxel) X: 512 Y: 159 Z: 512
+Reference Dose (Gy): 47.37
+X: -44.4 Y: 80.0 Z: 139.6 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: Classic
+Patient Name:
+Medical ID:
+HURST, YVETTE
+201602545 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 27 Nov 1933
+Gender: Female Patient Key: 409572
+Plan Overview
+Page 1 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)DVH: Relative Dose
+Plan Overview
+Page 2 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3DVH: Absolute Dose
+Plan Overview
+Page 3 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+Canal Med 86.39 0.15 1.91 10.84 n/a n/a n/a n/a Exit Only
+IVA 5.73 2.92 4.34 6.52 n/a n/a n/a n/a Allowed
+Plexus Dt 12.56 0.88 31.89 43.36 n/a n/a n/a n/a Allowed
+Plexus Gche 12.38 0.61 2.37 11.90 n/a n/a n/a n/a Allowed
+PoumonDt 1109.04 1.26 8.19 41.82 n/a n/a n/a n/a Exit Only
+PoumonGche 898.00 0.83 3.18 19.70 n/a n/a n/a n/a Exit Only
+TetehumeraleDte 79.01 0.32 9.91 28.62 n/a n/a n/a n/a Allowed
+TetehumeraleGche 74.72 0.20 0.69 2.03 n/a n/a n/a n/a Allowed
+Thyroide 3.73 10.10 29.89 42.39 n/a n/a n/a n/a Allowed
+BODY 24124.97 0.08 5.81 47.37 n/a n/a n/a n/a Allowed
+Foie 1245.65 0.19 5.64 38.27 n/a n/a n/a n/a Exit Only
+Larynx 9.44 0.92 4.01 18.29 n/a n/a n/a n/a Allowed
+Oesophage 28.39 1.23 8.11 32.99 n/a n/a n/a n/a Allowed
+Poumons 2007.04 0.83 5.95 41.82 n/a n/a n/a n/a Allowed
+Sein contro 959.13 0.59 3.22 12.78 n/a n/a n/a n/a Exit Only
+Trachee 28.28 1.70 19.20 38.79 n/a n/a n/a n/a Allowed
+Coeur 649.12 1.20 3.97 24.40 n/a n/a n/a n/a Exit Only
+Dose 20[Gy] 4693.57 0.42 3.61 42.67 n/a n/a n/a n/a Allowed
+Dose 30[Gy] 2854.94 0.50 3.81 36.73 n/a n/a n/a n/a Allowed
+Dose 40[Gy] 2060.12 0.59 3.81 33.67 n/a n/a n/a n/a Allowed
+Dose 50[Gy] 1304.97 0.65 3.54 28.35 n/a n/a n/a n/a Allowed
+CTV axillaire 49.43 37.92 39.96 42.29 n/a n/a n/a n/a Allowed
+CTV paroi 515.01 24.67 39.79 47.37 n/a n/a n/a n/a Allowed
+CTV sous clav 45.92 38.55 40.81 44.03 n/a n/a n/a n/a Allowed
+CTV sus clav 20.51 38.44 40.92 43.35 n/a n/a n/a n/a Allowed
+Plexus Brachial 24.14 0.63 17.25 43.36 n/a n/a n/a n/a Allowed
+PTV Axillaire 105.71 30.03 39.67 42.29 12.06 33.90 1.18 35.59 n/a
+PTV paroi 628.66 27.41 39.94 47.37 1.46 2.95 1.18 49.48 n/a
+PTV sous clav 104.30 32.68 40.19 44.03 7.44 12.71 1.18 58.51 n/a
+VOI
+Plan Overview
+Page 4 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3PTV sus clav 53.99 32.03 40.23 43.35 15.03 26.87 1.18 55.93 n/a
+TetehumeraleD+10 264.34 0.27 8.87 35.64 n/a n/a n/a n/a Allowed
+TetehumeraleG+10 251.47 0.17 0.71 2.55 n/a n/a n/a n/a Allowed
+CanalMed+5 243.64 0.15 2.02 15.02 n/a n/a n/a n/a Exit Only
+PTVTOTAL 857.40 27.41 39.95 47.37 n/a n/a n/a n/a Allowed
+RingPTVgg 339.62 8.17 32.60 43.46 n/a n/a n/a n/a Allowed
+RingPTVParoi 788.40 7.65 27.44 47.37 n/a n/a n/a n/a Allowed
+chauffe 9.22 23.99 36.62 43.46 n/a n/a n/a n/a Allowed
+menton 159.66 0.44 1.45 3.95 n/a n/a n/a n/a Exit Only
+All Target Regions n/a 27.41 39.95 47.37 0.00 0.00 0.00 0.00 n/a
+All Critical Regions n/a 0.15 9.17 47.37 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.08 3.22 39.86 0.00 0.00 0.00 0.00 n/a
+Plan Overview
+Page 5 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3DVH Dose (Gy) Dose (% of 40.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV paroi 37.80 94.5 597.23 95.0 Dose (Gy) >= 38.00, Min: 36.00 37.80
+PTV sus clav 37.93 94.8 51.29 95.0 Dose (Gy) >= 38.00, Min: 36.00 37.93
+PTV sous clav 37.79 94.5 99.09 95.0 Dose (Gy) >= 38.00, Min: 36.00 37.79
+PTV Axillaire 38.24 95.6 100.42 95.0 Dose (Gy) >= 38.00, Min: 36.00 38.24
+Coeur 16.00 40.0 3.67 0.6 Volume (%) <= 5.0 0.6
+Coeur 20.00 50.0 0.83 0.1 Volume (%) <= 5.0 0.1
+Coeur 25.00 62.5 0.00 0.0 Volume (%) <= 0.0 0.0
+PoumonGche 4.00 10.0 259.57 28.9 Volume (%) <= 20.0, Max: 30.0 28.9
+PoumonDt 8.00 20.0 377.03 34.0 Volume (%) <= 35.0, Max: 40.0 34.0
+PoumonDt 16.00 40.0 184.92 16.7 Volume (%) <= 15.0, Max: 20.0 16.7
+Poumons 4.00 10.0 837.26 41.7 Volume (%) <= 42.0, Max: 50.0 41.7
+Poumons 16.00 40.0 186.04 9.3 Volume (%) <= 10.0, Max: 15.0 9.3
+Sein contro 4.00 10.0 261.45 27.3 Volume (%) <= 15.0, Max: 25.0 27.3
+TetehumeraleDte 28.62 71.5 0.00 0.0 Dose (Gy) <= 36.00, Max: 38.00 28.62
+Canal Med 10.84 27.1 0.00 0.0 Dose (Gy) <= 12.00, Max: 15.00 10.84
+CanalMed+5 15.02 37.5 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 15.02
+PTV sus clav 42.61 106.5 1.08 2.0 Dose (Gy) <= 42.80 42.61
+PTV sous clav 42.66 106.6 2.09 2.0 Dose (Gy) <= 42.80 42.66
+PTV Axillaire 41.30 103.3 2.11 2.0 Dose (Gy) <= 42.80 41.30
+Plexus Gche 11.90 29.8 0.00 0.0 Dose (Gy) <= 8.00 11.90
+Dose 30[Gy] 36.73 91.8 0.00 0.0 Dose (Gy) <= 40.00 36.73
+Dose 40[Gy] 33.67 84.2 0.00 0.0 Dose (Gy) <= 30.00 33.67
+Dx Vx Values
+Plan Overview
+Page 6 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-939 * 0.001
+-672 * 0.290
+-509 * 0.480
+13 * 1.000
+226 * 1.146
+455 * 1.331
+837 * 1.558
+1214 * 1.822
+30884 * 22.599
+Density
+Density Model: IUC-120kV
+Plan Overview
+Page 7 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3Name: GLEMAREC, Gauthier
+10 Jul 2023, 5:17:01 PM (hr:min:sec)
+User ID: glemarec
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+420864/4
+Simon, Luc
+Saved Deliverable by: MODESTO, Anouchka
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Patient Position: HFS Delivery Signature: G1WLH 3Xi4A 
+Plan Overview
+Page 8 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3Report Snapshots
+Plan Overview
+Page 9 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) -325.000 -122.500 325.000
+Size (IECp, voxel) 512 159 512
+Spacing (IECp, mm) 1.27 2.50 1.27
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+05 Jul 2023, 10:30:54 AM (hr:min:sec) 159
+Scanner Model:
+Patient Position:
+Optima CT580
+HFS
+Series UID/Description Study UID/Description:
+1.2.840.113619.2.278.3.3523880722.301.1688532471.188 1.2.840.113619.2.278.3.3523880722.301.1688532471.183
+SEIN Droit Tomo TDM therapie SPC
+Plan Overview
+Page 10 of 10 11 Jul 2023, 10:03:44 AM (hr:min:sec)
+Patient Name: HURST, YVETTE; Medical ID: 201602545; Plan Name: ParoiDggHypo1; Version: Accuray Precision 
+3.3.1.3

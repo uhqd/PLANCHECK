@@ -107,7 +107,7 @@ namespace PlanCheck
             #endregion
 
             #region Origine placée
-            if (_pinfo.advancedUserMode)
+            if ((_pinfo.advancedUserMode)&&(_pinfo.isTOMO))
             {
                 Item_Result origin = new Item_Result();
                 origin.Label = "Origine modifiée";

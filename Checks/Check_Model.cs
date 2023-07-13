@@ -126,7 +126,7 @@ namespace PlanCheck
                 {
                     string tomoAlgo = _pinfo.tprd.Trd.algorithm;
                     string planningMethod = _pinfo.tprd.Trd.planningMethod;
-                    algo_name.MeasuredValue = tomoAlgo + " (" + planningMethod + ")";
+                    algo_name.MeasuredValue = tomoAlgo + ":" + planningMethod;
 
                     if ((tomoAlgo.Contains("Convolution-Superposition")) && (planningMethod.Contains("Classic")))  // Change to VOLO Ultra
                         algo_name.setToTRUE();

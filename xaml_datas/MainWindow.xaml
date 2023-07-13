@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlanCheck"
         mc:Ignorable="d"
-        Title="PlanCheck"        
+        Title="PlanCheck"                
         WindowState="Maximized"
         Style="{x:Null}" >
-    <!--  Background="Aquamarine" -->
     <!-- Title="PlanCheck " Height="900" Width="1400" /-->
-
-    <Grid Style="{x:Null}" >
+    <!-- Background="#331122ff" /-->
+        <Grid Style="{x:Null}" >
         <!-- Grid.Background>
             <ImageBrush ImageSource="\\srv015\SF_COM\SIMON_LU\scriptsEclipse\00004-plancheck\xaml_datas\logo.png" Stretch="Uniform" />
         </Grid.Background -->
@@ -73,17 +72,29 @@
                     
                         <Grid Style="{x:Null}" Width="980">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="730" />
+                            
+                            <ColumnDefinition Width="240" />
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="240" />
                             <ColumnDefinition Width="250" />
                             <!-- ColumnDefinition Width="30" /-->
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
-                        <ComboBox Name="UserMode" Width="240"  Grid.Column ="1"  Grid.Row="0" HorizontalAlignment="Right" SelectionChanged="UserMode_SelectionChanged" FontFamily="Arial" FontSize="14" BorderBrush="#FF232020" Foreground="#FF252121" Background="#FFA29898" />
+                        <!-->
+                        <TextBlock Style="{x:Null}" x:Name="cpName" Grid.Row="0" Grid.Column ="0" FontSize="16"  Background="White"  Foreground="DarkBlue"  ToolTip="Nom du check protocol" VerticalAlignment="Center" Text="Check-Protocol :" HorizontalAlignment="Right"></TextBlock>                            
+                        <ComboBox Name="cbCheckProtocol" Width="240"  Grid.Column ="1"  Grid.Row="0" HorizontalContentAlignment="Center" HorizontalAlignment="Right" SelectionChanged="CheckProtocol_SelectionChanged" FontFamily="Arial" FontWeight="Bold" FontSize="14" BorderBrush="#FF232020" Foreground="#FF0000cc" Background="#ffffffff" />
+                         </-->
+
+                        <TextBlock Style="{x:Null}" x:Name="modeName" Grid.Row="0" Grid.Column ="2" FontSize="16"  Background="White" Foreground="DarkBlue"  ToolTip="Nom du mode" VerticalAlignment="Center" Text="Mode :" HorizontalAlignment="Right"></TextBlock>
+
+                        <ComboBox Name="UserMode" Width="242"  Grid.Column ="3"  Grid.Row="0" HorizontalContentAlignment="Center" HorizontalAlignment="Right" SelectionChanged="UserMode_SelectionChanged" FontFamily="Arial" FontWeight="Bold" FontSize="14" BorderBrush="#FF232020" Foreground="#FF0000cc" Background="#ffffffff" />
 
                     </Grid>
                 </DockPanel>
+
+               
 
                 <DockPanel Style="{x:Null}" Width="980">
                     <Border Style="{x:Null}" CornerRadius="3" BorderBrush="LightBlue" Background="White" BorderThickness="3" DockPanel.Dock="Top">

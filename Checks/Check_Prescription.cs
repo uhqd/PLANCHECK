@@ -111,7 +111,7 @@ namespace PlanCheck
 
                 diffDose = Math.Abs(nPrescribedDosePerFraction - myDosePerFraction);
                 fractionation.MeasuredValue = "Plan : " + nFraction + " x " + myDosePerFraction.ToString("0.00") + " Gy - Prescrits : " + nPrescribedNFractions + " x " + nPrescribedDosePerFraction.ToString("0.00") + " Gy";
-                if ((nPrescribedNFractions == nFraction) && (diffDose < 0.0001))
+                if ((nPrescribedNFractions == nFraction) && (diffDose < 0.005))
                     fractionation.setToTRUE();
                 else
                     fractionation.setToFALSE();
