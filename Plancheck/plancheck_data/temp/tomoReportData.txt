@@ -1,26 +1,26 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : MASSOL, XAVIER ID : 201910334 Date de naissance : jeudi 10 mars 1988 Sexe : Masculin
+Nom : ARAGON, MICHEL ID : 202306492 Date de naissance : jeudi 8 août 1946 Sexe : Masculin
 Plan
-ID plan : ENCEPHALE
-ID dossier de traitement : C2
-ID image : TDMMAR110723
+ID plan : ProstateHypo
+ID dossier de traitement : C1
+ID image : TDMRTE070723
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.29cm, 0.12cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.63cm, 1.40cm, 0.75cm)
 Prescription de dose
-Volume cible : PTV Pinckle
-Valeur de normalisation du plan : 101.3 %
+Volume cible : PTV_HDOPT
+Valeur de normalisation du plan : 100.8 %
 Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV Pinckle
+Point de référence principal : PTV_HDOPT
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 16.000 Gy (2.000 Gy / fraction)
-Dose au point de référence principal : 16.000 Gy (2.000 Gy / fraction)
-Nombre de fractions : 8
+Dose prescrite : 60.000 Gy (3.000 Gy / fraction)
+Dose au point de référence principal : 60.000 Gy (3.000 Gy / fraction)
+Nombre de fractions : 20
 Options de calcul
 Algorithme photon : AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -28,12 +28,12 @@ CalculationGridSizeInCMForSRSAndHyperArc0.125
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
 Approbations
-Plan créé : jeudi 13 juillet 2023 08:01:43 par Lacaze Thierry
-Approbation du plan : jeudi 13 juillet 2023 15:09:10 par Ducassou Anne
-Patient : MASSOL, XAVIER  (201910334) Imprimé le 13/07/2023 15:10 par admin\parent
-Dernière modification le jeudi 13 juillet 2023 15:09:13 par Ducassou Anne
-Dossier de traitement : C2
-Plan : ENCEPHALE  -  Planification approuvée Page : 1/4Planification de radiothérapie
+Plan créé : jeudi 13 juillet 2023 09:42:06 par Lacaze Thierry
+Approbation du plan : lundi 17 juillet 2023 09:23:51 par Pouedras Juliette
+Patient : ARAGON, MICHEL  (202306492) Imprimé le 17/07/2023 11:41 par admin\barbier
+Dernière modification le lundi 17 juillet 2023 09:23:58 par Pouedras Juliette
+Dossier de traitement : C1
+Plan : ProstateHypo  -  Planification approuvée Page : 1/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -69,14 +69,14 @@ Profondeur physique
 Profondeur effective
 UM
   RA1  
-  NOVA3  
+  NOVA SBRT  
 6X 
 600 UM/min
-19.4 cm x 18.9 cm
-X1: +9.8 cm 
-X2: +9.6 cm 
-Y1: +11.0 cm 
-Y2: +7.9 cm 
+8.3 cm x 8.8 cm
+X1: +3.8 cm 
+X2: +4.6 cm 
+Y1: +4.3 cm 
+Y2: +4.5 cm 
 181.0 °
 SH
 179.0 °
@@ -89,26 +89,26 @@ SH
 -
 -
 -
-0.19 cm
-1.94 cm
-0.93 cm
-90.5 cm
-0.687
+-0.17 cm
+2.90 cm
+-4.42 cm
+88.3 cm
+1.780
 -
-PTV Pinckle
-1.029 Gy
+PTV_HDOPT
+1.508 Gy
 -
 -
-135.6 UM
+529.8 UM
   RA2  
-  NOVA3  
+  NOVA SBRT  
 6X 
 600 UM/min
-19.7 cm x 18.9 cm
-X1: +10.0 cm 
-X2: +9.7 cm 
-Y1: +11.0 cm 
-Y2: +7.9 cm 
+8.4 cm x 8.8 cm
+X1: +4.8 cm 
+X2: +3.6 cm 
+Y1: +4.3 cm 
+Y2: +4.5 cm 
 179.0 °
 SAH
 181.0 °
@@ -121,49 +121,17 @@ SAH
 -
 -
 -
-0.19 cm
-1.94 cm
-0.93 cm
-90.5 cm
-0.648
+-0.17 cm
+2.90 cm
+-4.42 cm
+88.3 cm
+1.760
 -
-PTV Pinckle
-0.971 Gy
--
--
-128.1 UM
-  antsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-0.0 °
+PTV_HDOPT
+1.492 Gy
 -
 -
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-0.19 cm
-1.94 cm
-0.93 cm
-89.2 cm
-0.000
--
-PTV Pinckle
--
--
--
--
+523.9 UM
   latdtsetup  
   NOVA3  
 6X 
@@ -185,45 +153,13 @@ Y2: +5.0 cm
 -
 -
 -
-0.19 cm
-1.94 cm
-0.93 cm
-91.9 cm
+-0.17 cm
+2.90 cm
+-4.42 cm
+78.1 cm
 0.000
 -
-PTV Pinckle
--
--
--
--
-  latgsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-0.19 cm
-1.94 cm
-0.93 cm
-91.8 cm
-0.000
--
-PTV Pinckle
+PTV_HDOPT
 -
 -
 -
@@ -249,13 +185,45 @@ Y2: +5.0 cm
 -
 -
 -
-0.19 cm
-1.94 cm
-0.93 cm
-90.5 cm
+-0.17 cm
+2.90 cm
+-4.42 cm
+88.3 cm
 0.000
 -
-PTV Pinckle
+PTV_HDOPT
+-
+-
+-
+-
+  antsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-0.17 cm
+2.90 cm
+-4.42 cm
+85.6 cm
+0.000
+-
+PTV_HDOPT
 -
 -
 -
@@ -281,95 +249,100 @@ Y2: +5.0 cm
 -
 -
 -
-0.19 cm
-1.94 cm
-0.93 cm
-90.5 cm
+-0.17 cm
+2.90 cm
+-4.42 cm
+88.3 cm
 0.000
 -
-PTV Pinckle
+PTV_HDOPT
 -
 -
 -
 -
-Patient : MASSOL, XAVIER  (201910334) Imprimé le 13/07/2023 15:10 par admin\parent
-Dernière modification le jeudi 13 juillet 2023 15:09:13 par Ducassou Anne
-Dossier de traitement : C2
-Plan : ENCEPHALE  -  Planification approuvée Page : 2/4Planification de radiothérapie
+  latgsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-0.17 cm
+2.90 cm
+-4.42 cm
+79.1 cm
+0.000
+-
+PTV_HDOPT
+-
+-
+-
+-
+Patient : ARAGON, MICHEL  (202306492) Imprimé le 17/07/2023 11:41 par admin\barbier
+Dernière modification le lundi 17 juillet 2023 09:23:58 par Pouedras Juliette
+Dossier de traitement : C1
+Plan : ProstateHypo  -  Planification approuvée Page : 2/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.29cm, 0.12cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.63cm, 1.40cm, 0.75cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
 Champs de l'isocentre :  RA1  RA2  postsetup  latdtsetup  antsetup  latgsetup  cbct  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 0.19 1.94 0.93
-Direction : Gauche Haut Sortie [Out]
+Décaler [cm] : 0.17 2.90 4.42
+Direction : Droite Haut Entrée [In]
  
  
 Erreurs et avertissements concernant le calcul :
-Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA1  )
- l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA1  )
- lignes en éventail et la surface du porte-patient. (Avertissement :   RA1  )
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA1  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA1  )
- éventail et la surface du porte-patient. (Avertissement :   RA1  )
-The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA1  )
- calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA1  )
- the patient support device. (Avertissement :   RA1  )
-The field exits the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA1  )
- calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA1  )
- the patient support device. (Avertissement :   RA1  )
-Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA2  )
-Patient : MASSOL, XAVIER  (201910334) Imprimé le 13/07/2023 15:10 par admin\parent
-Dernière modification le jeudi 13 juillet 2023 15:09:13 par Ducassou Anne
-Dossier de traitement : C2
-Plan : ENCEPHALE  -  Planification approuvée Page : 3/4Planification de radiothérapie
+Patient : ARAGON, MICHEL  (202306492) Imprimé le 17/07/2023 11:41 par admin\barbier
+Dernière modification le lundi 17 juillet 2023 09:23:58 par Pouedras Juliette
+Dossier de traitement : C1
+Plan : ProstateHypo  -  Planification approuvée Page : 3/3Institut Claudius Regaud, Toulouse Imprimé(e) sur lundi 17 juillet 2023 11:43:04 par Barbier Aurélie (admin\barbier)
+ARAGON, MICHEL (202306492)Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
- l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA2  )
- lignes en éventail et la surface du porte-patient. (Avertissement :   RA2  )
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA2  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA2  )
- éventail et la surface du porte-patient. (Avertissement :   RA2  )
-The field exits the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA2  )
- calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA2  )
- the patient support device. (Avertissement :   RA2  )
-Patient : MASSOL, XAVIER  (201910334) Imprimé le 13/07/2023 15:10 par admin\parent
-Dernière modification le jeudi 13 juillet 2023 15:09:13 par Ducassou Anne
-Dossier de traitement : C2
-Plan : ENCEPHALE  -  Planification approuvée Page : 4/4Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: MASSOL, XAVIER  
-Patient IDs: 201910334
+Patient: ARAGON, MICHEL  
+Patient IDs: 202306492
 Comment:
 Plan Plan Course Plan History
-ENCEPHALE C2 Last Modified: jeudi 13 juillet 2023 15:09:13 by Ducassou Anne
-Planification approuvée: jeudi 13 juillet 2023 15:09:10 by Ducassou Anne
+ProstateHypo C1 Last Modified: lundi 17 juillet 2023 09:23:58 by Pouedras Juliette
+Planification approuvée: lundi 17 juillet 2023 09:23:51 by Pouedras Juliette
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-CristallinDt Approuvée 100.0 / 100.3 0.1 cm³ 3.5 Gy 4.1 Gy 3.8 Gy 3.7 Gy 3.7 Gy 0.1 Gy
-CristallinGche Approuvée 100.0 / 100.1 0.1 cm³ 3.8 Gy 4.2 Gy 4.0 Gy 4.0 Gy 4.0 Gy 0.1 Gy
-OeilDt Approuvée 100.0 / 99.8 9.0 cm³ 3.2 Gy 10.7 Gy 5.8 Gy 4.4 Gy 5.2 Gy 1.8 Gy
-Patient: MASSOL, XAVIER    (201910334) Printed jeudi 13 juillet 2023 15:10:25 by Parent Laure
-Course: C2
-Plan: ENCEPHALE  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Rectum Approuvée 100.0 / 99.8 57.8 cm³ 1.8 Gy 59.9 Gy 18.4 Gy 2.4 Gy 9.1 Gy 17.6 Gy
+TeteFemorDte Approuvée 100.0 / 100.0 180.8 cm³ 1.9 Gy 27.2 Gy 13.2 Gy 17.1 Gy 13.9 Gy 5.6 Gy
+TeteFemorGche Approuvée 100.0 / 100.1 187.6 cm³ 1.3 Gy 25.4 Gy 11.7 Gy 10.7 Gy 11.6 Gy 5.3 Gy
+Patient: ARAGON, MICHEL    (202306492) Printed lundi 17 juillet 2023 11:43:16 by Barbier Aurélie
+Course: C1
+Plan: ProstateHypo  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-OeilGche Approuvée 100.0 / 100.0 9.1 cm³ 3.1 Gy 10.8 Gy 5.7 Gy 4.4 Gy 5.2 Gy 1.6 Gy
-PTV Pinckle Approuvée 100.0 / 100.0 1704.9 cm³ 14.0 Gy 16.6 Gy 16.0 Gy 16.1 Gy 16.0 Gy 0.1 Gy
-Tronc Cerebral Approuvée 100.0 / 100.2 22.8 cm³ 15.7 Gy 16.3 Gy 16.0 Gy 16.0 Gy 16.0 Gy 0.1 Gy
-RetineGche Approuvée 100.0 / 100.8 2.0 cm³ 3.6 Gy 10.8 Gy 6.6 Gy 4.5 Gy 6.2 Gy 1.8 Gy
-RetineDt Approuvée 100.0 / 100.6 2.1 cm³ 3.6 Gy 10.7 Gy 6.7 Gy 4.1 Gy 6.5 Gy 1.9 Gy
-NerfOptiqueGche Approuvée 100.0 / 101.7 0.4 cm³ 10.3 Gy 16.1 Gy 14.5 Gy 15.3 Gy 15.1 Gy 1.5 Gy
-NerfOptiqueDt Approuvée 100.0 / 100.6 0.5 cm³ 10.1 Gy 16.1 Gy 14.1 Gy 15.6 Gy 14.6 Gy 1.6 Gy
-CochleeGche Approuvée 100.0 / 99.7 0.0 cm³ 15.6 Gy 16.0 Gy 15.8 Gy 15.7 Gy 15.8 Gy 0.1 Gy
-CochleeDte Approuvée 100.0 / 100.0 0.0 cm³ 15.7 Gy 15.8 Gy 15.7 Gy 15.7 Gy 15.7 Gy 0.0 Gy
-Chiasma Approuvée 100.0 / 100.6 0.9 cm³ 15.7 Gy 16.2 Gy 16.0 Gy 16.1 Gy 16.0 Gy 0.1 Gy
+Vessie Approuvée 100.0 / 100.0 489.1 cm³ 0.5 Gy 61.3 Gy 8.2 Gy 0.9 Gy 2.5 Gy 12.9 Gy
+Sigmoide Approuvée 100.0 / 100.1 78.2 cm³ 0.2 Gy 2.3 Gy 0.7 Gy 0.3 Gy 0.6 Gy 0.4 Gy
+QueueDeCheval Approuvée 100.0 / 100.1 23.3 cm³ 0.0 Gy 0.7 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.2 Gy
+Grele Approuvée 100.0 / 100.0 3553.3 cm³ 0.0 Gy 0.9 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.2 Gy
+Bulbe Penien Approuvée 100.0 / 99.8 3.5 cm³ 6.3 Gy 60.7 Gy 28.2 Gy 6.7 Gy 23.7 Gy 17.4 Gy
+Uretre Approuvée 100.0 / 100.4 2.1 cm³ 59.2 Gy 62.1 Gy 60.9 Gy 61.2 Gy 61.0 Gy 0.6 Gy
+Sacro iliaques Approuvée 100.0 / 100.0 361.3 cm³ 0.2 Gy 1.3 Gy 0.6 Gy 0.4 Gy 0.6 Gy 0.2 Gy
+PTV HD Approuvée 100.0 / 100.0 130.2 cm³ 54.1 Gy 62.4 Gy 60.0 Gy 60.0 Gy 60.0 Gy 0.7 Gy
+PTV_HDOPT Approuvée 100.0 / 100.0 129.1 cm³ 51.3 Gy 62.4 Gy 60.0 Gy 60.0 Gy 60.0 Gy 0.7 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - ENCEPHALE C2 16.000 Gy 2.000 Gy 8 16.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 101.3 %
-Patient: MASSOL, XAVIER    (201910334) Printed jeudi 13 juillet 2023 15:10:25 by Parent Laure
-Course: C2
-Plan: ENCEPHALE  -  Planification approuvée Page: 2/2Institut Claudius Regaud, Toulouse Imprimé(e) sur jeudi 13 juillet 2023 15:10:33 par Parent Laure (admin\parent)
-MASSOL, XAVIER (201910334)
+- - - ProstateHypo C1 60.000 Gy 3.000 Gy 20 60.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.8 %
+Patient: ARAGON, MICHEL    (202306492) Printed lundi 17 juillet 2023 11:43:16 by Barbier Aurélie
+Course: C1
+Plan: ProstateHypo  -  Planification approuvée Page: 2/2

@@ -1,4 +1,4 @@
-﻿PlanCheck_Beta_0006_0036.esapi
+﻿PlanCheck_Beta_0006_0039.esapi
 
 
 library
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 3-527801679
 
-30-1892072099
+3261906549
 156709714514
 xaml_datas\CheckScreen_Global.xaml;xaml_datas\CheckScreen_Item.xaml;xaml_datas\MainWindow.xaml;
 
-False
+True
 

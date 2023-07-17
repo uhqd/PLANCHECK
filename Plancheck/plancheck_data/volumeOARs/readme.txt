@@ -1,0 +1,1 @@
+Based on more  150-400 patients for each organ. Get the min and max value after have removing the 10 smallest and 10 biggest

@@ -60,6 +60,10 @@ namespace PlanCheck
         private bool positionReportFound;
         private int returnCode;
         public bool _advancedUserMode;
+
+        private List<OARvolume> referenceManOARVolume = new List<OARvolume>();
+        private List<OARvolume> referenceWomanOARVolume = new List<OARvolume>();
+
         public bool isARecentDocument(DateTime t)
         {
             int recent = 30;   // number of days 
@@ -325,7 +329,70 @@ namespace PlanCheck
             #endregion
 
         }
+        private IUCT_User GetUser(string searchtype, IUCT_Users iuct_users)
+        {
+            string tocheck;
+            switch (searchtype)
+            {
+                case "doctor":
+                    tocheck = _ctx.PlanSetup.RTPrescription.HistoryUserName;
+                    break;
+                case "creator":
+                    tocheck = _ctx.PlanSetup.CreationUserName;
+                    break;
+                default:
+                    tocheck = _ctx.CurrentUser.Name;
+                    break;
+            }
 
+
+            //Generate Users list
+            //IUCT_Users iuct_users = new IUCT_Users();
+
+            IUCT_User user = new IUCT_User();
+            user = iuct_users.UsersList.Where(name => name.UserFamilyName == "indefini").FirstOrDefault();
+            foreach (IUCT_User user_tmp in iuct_users.UsersList)
+            {
+
+
+                if (tocheck.ToLower().Contains(user_tmp.UserFamilyName.ToLower()))
+                {
+                    user = user_tmp;
+
+                }
+            }
+
+
+
+            return user;
+        }
+        private string Check_mlc_type(PlanSetup plan)
+        {
+            string technique = "Technique non reconnue (ni RA, ni DCA)";
+
+            if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.ArcDynamic)))
+            {
+                technique = "Arctherapie dynamique (DCA)";
+            }
+            if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.VMAT)))
+            {
+                technique = "Modulation d'intensite";
+            }
+            if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.Static)))
+            {
+                technique = "RTC";
+            }
+
+            return technique;
+        }
+
+        private void getOARreferenceVolumes()
+        {
+            OARvolume volumeone = new OARvolume();
+            volumeone.volumeName = "toto";
+            volumeone.volumeMax = 10.0;
+            volumeone.volumeMin = 5.0;
+        }
 
         // -------------------------------------------------------------------------------------------------------------------------------
 
@@ -374,6 +441,11 @@ namespace PlanCheck
             int n = ctx.PlanSetup.GetCalculationOptions("PO_15605New").Values.Count;
             _POoptions = new string[n];
             _POoptions = ctx.PlanSetup.GetCalculationOptions("PO_15605New").Values.ToArray();
+
+
+
+
+
             #endregion
 
 
@@ -481,64 +553,6 @@ namespace PlanCheck
 
         }
 
-
-        private IUCT_User GetUser(string searchtype, IUCT_Users iuct_users)
-        {
-            string tocheck;
-            switch (searchtype)
-            {
-                case "doctor":
-                    tocheck = _ctx.PlanSetup.RTPrescription.HistoryUserName;
-                    break;
-                case "creator":
-                    tocheck = _ctx.PlanSetup.CreationUserName;
-                    break;
-                default:
-                    tocheck = _ctx.CurrentUser.Name;
-                    break;
-            }
-
-
-            //Generate Users list
-            //IUCT_Users iuct_users = new IUCT_Users();
-
-            IUCT_User user = new IUCT_User();
-            user = iuct_users.UsersList.Where(name => name.UserFamilyName == "indefini").FirstOrDefault();
-            foreach (IUCT_User user_tmp in iuct_users.UsersList)
-            {
-
-
-                if (tocheck.ToLower().Contains(user_tmp.UserFamilyName.ToLower()))
-                {
-                    user = user_tmp;
-
-                }
-            }
-
-
-
-            return user;
-        }
-
-        private string Check_mlc_type(PlanSetup plan)
-        {
-            string technique = "Technique non reconnue (ni RA, ni DCA)";
-
-            if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.ArcDynamic)))
-            {
-                technique = "Arctherapie dynamique (DCA)";
-            }
-            if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.VMAT)))
-            {
-                technique = "Modulation d'intensite";
-            }
-            if (plan.Beams.Any(b => (b.MLCPlanType == VMS.TPS.Common.Model.Types.MLCPlanType.Static)))
-            {
-                technique = "RTC";
-            }
-
-            return technique;
-        }
 
         #region GETS/SETS
         public string PatientName
