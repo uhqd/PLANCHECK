@@ -619,7 +619,7 @@ namespace PlanCheck
 
             #endregion
 
-            #region Shape analyser (number of parts of a structure)
+            #region Number of expected parts of the structures
             /* Check if a structrure has the expected number of parts e.g. if a slice is missing */
             if (_pinfo.advancedUserMode)
             {
@@ -679,7 +679,7 @@ namespace PlanCheck
                     shapeAnalyser.setToTRUE();
 
                     shapeAnalyser.MeasuredValue = correctStructs.Count + " structures vérifiées";
-                    shapeAnalyser.Infobulle = "Ces structures suivantes ont un de nombre de parties conforme ou aucun nombre particulier de parties n'est attendu\n";
+                    shapeAnalyser.Infobulle = "Les structures ont un de nombre de parties conforme ou aucun nombre particulier de parties n'est attendu\n";
                     //                   foreach (string s in correctStructs)
                     //                     shapeAnalyser.Infobulle += s + "\n";
 
@@ -697,7 +697,7 @@ namespace PlanCheck
             }
             #endregion
 
-            #region missing slices
+            #region Missing slices
             if (_pinfo.advancedUserMode)
             {
                 Item_Result missingSlicesItem = new Item_Result();
@@ -709,7 +709,8 @@ namespace PlanCheck
                 List<string> structureswithAGap = new List<string>();
                 foreach (Structure s in _ctx.StructureSet.Structures)
                 {
-                    if ((s.Id != "Plombs") && (!s.IsEmpty)) // do no check marker structures
+                    string structName = s.Id.ToUpper();
+                    if ((!structName.Contains("PLOMB")) && (!structName.Contains("-")) && (!structName.Contains("OVERLA")) && (!s.IsEmpty)) // do no check marker structures
                     {
                         nAnalysedStructures++;
                         m = getNumberOfMissingSlices(s, _ctx.StructureSet);
@@ -822,7 +823,7 @@ namespace PlanCheck
             this._result.Add(laterality);
             #endregion
 
-            #region A PTV for EACH CTV/GTV
+            #region A PTV for each CTV/GTV
             Item_Result aPTVforEveryone = new Item_Result();
             aPTVforEveryone.Label = "GTV/CTV/ITV sans PTV";
             aPTVforEveryone.ExpectedValue = "wip...";

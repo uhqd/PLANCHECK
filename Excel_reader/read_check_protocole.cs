@@ -102,14 +102,15 @@ namespace PlanCheck
             {
                 string temp2 = r.Cells[row, 2].Text; // column 2
                 string temp3 = r.Cells[row, 3].Text; // column 3
-                string temp4 = r.Cells[row, 4].Text; // column 4
-                string temp5 = r.Cells[row, 5].Text; // column 5
-                string temp6 = r.Cells[row, 6].Text; // column 6
-                string temp7 = r.Cells[row, 7].Text; // column 7
+                //string temp4 = r.Cells[row, 4].Text; // column 4
+                //string temp5 = r.Cells[row, 5].Text; // column 5
+                //string temp6 = r.Cells[row, 6].Text; // column 6
+                //string temp7 = r.Cells[row, 7].Text; // column 7
 
                 es.Name = (r.Cells[row, 1].Value2).ToString();
                 //es.Name = es.Name.ToUpper();
                 es.HU = giveMeTheDouble(temp2, row, 2, r.Worksheet.Name);
+               /*
                 es.volMin = giveMeTheDouble(temp3, row, 3, r.Worksheet.Name);
                 es.volMax = giveMeTheDouble(temp4, row, 4, r.Worksheet.Name);
                 es.expectedNumberOfPart = giveMeTheInt(temp5, row, 5, r.Worksheet.Name);
@@ -119,9 +120,10 @@ namespace PlanCheck
                     es.laterality = "L";
                 else
                     es.laterality = "NONE"; // laterality cell is simply ignored if it is not L or R
-
+               */
                 es.isMandatory = false;
-                if ((temp7.ToUpper() == "OUI") || (temp7.ToUpper() == "Y") || (temp7.ToUpper() == "YES") || (temp7.ToUpper() == "1")) es.isMandatory = true;
+//                if ((temp7.ToUpper() == "OUI") || (temp7.ToUpper() == "Y") || (temp7.ToUpper() == "YES") || (temp7.ToUpper() == "1")) es.isMandatory = true;
+                if ((temp3.ToUpper() == "OUI") || (temp3.ToUpper() == "Y") || (temp3.ToUpper() == "YES") || (temp3.ToUpper() == "1")) es.isMandatory = true;
 
             }
             if ((temp1 != null) && (temp1 != ""))
