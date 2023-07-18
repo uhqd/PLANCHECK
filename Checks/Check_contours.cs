@@ -131,6 +131,38 @@ namespace PlanCheck
             return result;
 
         }
+
+        private string getExpectedLaterality(string volumeName, string sex)
+        {// L left   R right  N none
+            string result = "N";
+            if (sex == "Female")
+            {
+                foreach (OARvolume oar in _pinfo.womanOARVolumes)
+                {
+                    if (volumeName.ToUpper() == oar.volumeName.ToUpper())
+                    {
+                        result = oar.laterality;
+
+                    }
+                }
+            }
+            else // is male
+            {
+                foreach (OARvolume oar in _pinfo.womanOARVolumes)
+                {
+                    if (volumeName.ToUpper() == oar.volumeName.ToUpper())
+                    {
+                        result = oar.laterality;
+
+                    }
+
+                }
+            }
+
+            return result;
+
+        }
+
         public double getXcenter()
         {
             double xCenter = 0.0;
@@ -620,10 +652,10 @@ namespace PlanCheck
                             bool nExpectedPartsisOk = nPartsIsOk(struct1.Id, n, _ctx.Patient.Sex);
 
                             //if (n != es.expectedNumberOfPart)
-                            if(nExpectedPartsisOk)
+                            if (nExpectedPartsisOk)
                             {
                                 correctStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
-//                                uncorrectStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                                //                                uncorrectStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
                             }
                             else
                             {
@@ -647,9 +679,9 @@ namespace PlanCheck
                     shapeAnalyser.setToTRUE();
 
                     shapeAnalyser.MeasuredValue = correctStructs.Count + " structures vérifiées";
-                 shapeAnalyser.Infobulle = "Ces structures suivantes ont un de nombre de parties conforme ou aucun nombre particulier de parties n'est attendu\n";
- //                   foreach (string s in correctStructs)
-   //                     shapeAnalyser.Infobulle += s + "\n";
+                    shapeAnalyser.Infobulle = "Ces structures suivantes ont un de nombre de parties conforme ou aucun nombre particulier de parties n'est attendu\n";
+                    //                   foreach (string s in correctStructs)
+                    //                     shapeAnalyser.Infobulle += s + "\n";
 
                 }
                 else
@@ -724,12 +756,15 @@ namespace PlanCheck
             */
             double bodyXcenter = getXcenter();
 
-
-            foreach (expectedStructure es in allStructures)
+            foreach (Structure s in _ctx.StructureSet.Structures)
             {
-                if (es.laterality != "NONE")
+                //    foreach (expectedStructure es in allStructures)
+                // {
+                string expectedLateralty = getExpectedLaterality(s.Id, _ctx.Patient.Sex);
+                //if (es.laterality != "NONE")
+                if (expectedLateralty != "N")  // if a laterality is expected, i.e. left lung should be left
                 {
-                    Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
+//                    Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
                     double xpos = 0.0;
                     if (s != null)
                         if (!s.IsEmpty)
@@ -741,17 +776,17 @@ namespace PlanCheck
                             //MessageBox.Show("body " + bodyXcenter + " x " + xpos + " " + es.Name);
                             if (xpos > bodyXcenter) // THIS IS LEFT,  if Supine HF but also Prone HF, Supine FF...
                             {
-                                if (es.laterality == "L")
-                                    goodLaterality.Add(es.Name);
-                                else if (es.laterality == "R")
-                                    badLaterality.Add(es.Name);
+                                if (expectedLateralty == "L")
+                                    goodLaterality.Add(s.Id);
+                                else if (expectedLateralty == "R")
+                                    badLaterality.Add(s.Id);
                             }
                             else
                             {
-                                if (es.laterality == "R")
-                                    goodLaterality.Add(es.Name);
-                                else if (es.laterality == "L")
-                                    badLaterality.Add(es.Name);
+                                if (expectedLateralty == "R")
+                                    goodLaterality.Add(s.Id);
+                                else if (expectedLateralty == "L")
+                                    badLaterality.Add(s.Id);
 
                             }
                         }
