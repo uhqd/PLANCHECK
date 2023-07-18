@@ -99,6 +99,10 @@ namespace PlanCheck
                     // else
                     fileName = @"\plancheck_data\check_protocol\sein ganglions.xlsx";
                 }
+                else if (planName.ToUpper().Contains("DIBH"))
+                {
+                    fileName = @"\plancheck_data\check_protocol\sein DIBH.xlsx";
+                }
                 else
                 {
                     //if (hypo)
@@ -108,7 +112,7 @@ namespace PlanCheck
                 }
 
 
-            }
+            }            
             else if (isORL)
                 fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
             else if (planName.Contains("PAROI"))
@@ -140,7 +144,10 @@ namespace PlanCheck
                 }
 
             }
-
+            else if (_pinfo.treatmentType.Contains("RTC"))
+            {
+                fileName = @"\plancheck_data\check_protocol\defaut RTC.xlsx";
+            }
 
             String fullname = Directory.GetCurrentDirectory() + fileName;
             if (!File.Exists(fullname))
@@ -724,6 +731,12 @@ d3.ToString("0.##");   //24
             cell.AddParagraph("Imprimé par :");
             cell = row.Cells[1];
             cell.AddParagraph(CurrentUserName);
+
+            row = table.AddRow();
+            cell = row.Cells[0];
+            cell.AddParagraph("Check Protocol :");
+            cell = row.Cells[1];
+            cell.AddParagraph();// le mettre dans pinfo
 
 
 

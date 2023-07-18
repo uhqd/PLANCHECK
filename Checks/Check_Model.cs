@@ -304,24 +304,26 @@ namespace PlanCheck
                     }
                     
                     
-                    NTO.Infobulle += "\n Paramètres NTO du plan :";
+                    NTO.Infobulle += "\n Paramètres NTO du plan vs. protocole :";
                     if (noNTOuse)
                     {
                         NTO.Infobulle += "\n Pas de NTO";
                     }
                     else
                     {
-                        NTO.Infobulle += "\n Distance : " + ontp.DistanceFromTargetBorderInMM;
-                        NTO.Infobulle += "\n Fall off : " + ontp.FallOff;
-                        NTO.Infobulle += "\n Start Dose : " + ontp.StartDosePercentage;
-                        NTO.Infobulle += "\n End Dose : " + ontp.EndDosePercentage;
-                        NTO.Infobulle += "\n Priority : " + ontp.Priority;
-                        NTO.Infobulle += "\n Auto Mode : " + ontp.IsAutomatic;
+                        NTO.Infobulle += "\n Distance : " + ontp.DistanceFromTargetBorderInMM + " vs. " + _rcp.NTOparams.distanceTotTarget;
+                        NTO.Infobulle += "\n Fall off : " + ontp.FallOff + " vs. " + _rcp.NTOparams.theFalloff;
+                        NTO.Infobulle += "\n Start Dose : " + ontp.StartDosePercentage + " vs. " + _rcp.NTOparams.startPercentageDose;
+                        NTO.Infobulle += "\n End Dose : " + ontp.EndDosePercentage + " vs. " + _rcp.NTOparams.stopPercentageDose;
+                        NTO.Infobulle += "\n Priority : " + ontp.Priority + " vs. " + _rcp.NTOparams.priority;
+                        NTO.Infobulle += "\n Auto Mode : " + ontp.IsAutomatic;// + " vs. " +
                         if (ontp.IsAutomatic)
-                            NTO.Infobulle += " (Auto)";
+                            NTO.Infobulle += " (Auto) vs. ";
                         else
-                            NTO.Infobulle += " (Manual)";
+                            NTO.Infobulle += " (Manual) vs. ";
+                        NTO.Infobulle += _rcp.NTOparams.mode;
                     }
+                    /*
                     NTO.Infobulle += "\n Paramètres NTO du protocole :";
                     NTO.Infobulle += "\n Distance : " + _rcp.NTOparams.distanceTotTarget;
                     NTO.Infobulle += "\n Fall off : " + _rcp.NTOparams.theFalloff;
@@ -329,6 +331,7 @@ namespace PlanCheck
                     NTO.Infobulle += "\n End Dose : " + _rcp.NTOparams.stopPercentageDose;
                     NTO.Infobulle += "\n Priority : " + _rcp.NTOparams.priority;
                     NTO.Infobulle += "\n Auto Mode : " + _rcp.NTOparams.mode;
+                    */
                     this._result.Add(NTO);
 
                     //OptimizationIMRTBeamParameter oibp = _pcontext.PlanSetup.OptimizationSetup.Parameters.FirstOrDefault(x => x.GetType().Name == "OptimizationIMRTBeamParameter") as OptimizationIMRTBeamParameter;

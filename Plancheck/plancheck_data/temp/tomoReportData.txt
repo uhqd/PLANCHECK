@@ -1,15 +1,15 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : ARAGON, MICHEL ID : 202306492 Date de naissance : jeudi 8 août 1946 Sexe : Masculin
+Nom : CHARLES, VALERIE ID : 202306741 Date de naissance : vendredi 9 avril 1965 Sexe : Féminin
 Plan
-ID plan : ProstateHypo
+ID plan : ColVagin
 ID dossier de traitement : C1
-ID image : TDMRTE070723
+ID image : TDMRTE060723
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.63cm, 1.40cm, 0.75cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.80cm, 0.00cm)
 Prescription de dose
 Volume cible : PTV_HDOPT
 Valeur de normalisation du plan : 100.8 %
@@ -18,9 +18,9 @@ Point de référence principal : PTV_HDOPT
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 60.000 Gy (3.000 Gy / fraction)
-Dose au point de référence principal : 60.000 Gy (3.000 Gy / fraction)
-Nombre de fractions : 20
+Dose prescrite : 45.000 Gy (1.800 Gy / fraction)
+Dose au point de référence principal : 45.000 Gy (1.800 Gy / fraction)
+Nombre de fractions : 25
 Options de calcul
 Algorithme photon : AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -28,12 +28,12 @@ CalculationGridSizeInCMForSRSAndHyperArc0.125
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
 Approbations
-Plan créé : jeudi 13 juillet 2023 09:42:06 par Lacaze Thierry
-Approbation du plan : lundi 17 juillet 2023 09:23:51 par Pouedras Juliette
-Patient : ARAGON, MICHEL  (202306492) Imprimé le 17/07/2023 11:41 par admin\barbier
-Dernière modification le lundi 17 juillet 2023 09:23:58 par Pouedras Juliette
+Plan créé : lundi 17 juillet 2023 13:23:17 par Lanaspeze Christelle
+Approbation du plan : lundi 17 juillet 2023 15:08:19 par Ducassou Anne
+Patient : CHARLES, VALERIE  (202306741) Imprimé le 17/07/2023 15:12 par admin\lanaspeze
+Dernière modification le lundi 17 juillet 2023 15:08:26 par Ducassou Anne
 Dossier de traitement : C1
-Plan : ProstateHypo  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Plan : ColVagin  -  Planification approuvée Page : 1/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -68,281 +68,223 @@ Dose par fraction
 Profondeur physique
 Profondeur effective
 UM
-  RA1  
-  NOVA SBRT  
-6X 
-600 UM/min
-8.3 cm x 8.8 cm
-X1: +3.8 cm 
-X2: +4.6 cm 
-Y1: +4.3 cm 
-Y2: +4.5 cm 
-181.0 °
-SH
-179.0 °
-15.0 °
+  kVCBCT  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+0.0 °
+-
+-
+0.0 °
 0.0 °
  -
  -
-0367
 -
 -
 -
 -
--0.17 cm
-2.90 cm
--4.42 cm
-88.3 cm
-1.780
+-
+-0.62 cm
+0.20 cm
+6.49 cm
+85.5 cm
+0.000
 -
 PTV_HDOPT
-1.508 Gy
 -
 -
-529.8 UM
-  RA2  
-  NOVA SBRT  
-6X 
-600 UM/min
-8.4 cm x 8.8 cm
-X1: +4.8 cm 
-X2: +3.6 cm 
-Y1: +4.3 cm 
-Y2: +4.5 cm 
+-
+-
+  RA1  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
 179.0 °
 SAH
 181.0 °
-345.0 °
+315.0 °
 0.0 °
  -
  -
-0367
+SX2 MLC
 -
 -
 -
 -
--0.17 cm
-2.90 cm
--4.42 cm
-88.3 cm
-1.760
+-0.62 cm
+0.20 cm
+6.49 cm
+87.4 cm
+1.192
 -
 PTV_HDOPT
-1.492 Gy
+0.463 Gy
 -
 -
-523.9 UM
-  latdtsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
+212.9 UM
+  RA2  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+181.0 °
+SH
+179.0 °
+45.0 °
 0.0 °
  -
  -
+SX2 MLC
 -
 -
 -
 -
--
--0.17 cm
-2.90 cm
--4.42 cm
-78.1 cm
-0.000
+-0.62 cm
+0.20 cm
+6.49 cm
+87.4 cm
+1.211
 -
 PTV_HDOPT
+0.471 Gy
 -
 -
--
--
-  postsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
+216.2 UM
+  RA3  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+179.0 °
+SAH
+181.0 °
+315.0 °
 0.0 °
  -
  -
+SX2 MLC
 -
 -
 -
 -
--
--0.17 cm
-2.90 cm
--4.42 cm
-88.3 cm
-0.000
+-0.62 cm
+0.20 cm
+6.49 cm
+87.4 cm
+1.165
 -
 PTV_HDOPT
+0.453 Gy
 -
 -
--
--
-  antsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-0.0 °
--
--
-0.0 °
+208.0 UM
+  RA4  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+181.0 °
+SH
+179.0 °
+45.0 °
 0.0 °
  -
  -
+SX2 MLC
 -
 -
 -
 -
--
--0.17 cm
-2.90 cm
--4.42 cm
-85.6 cm
-0.000
+-0.62 cm
+0.20 cm
+6.49 cm
+87.4 cm
+1.063
 -
 PTV_HDOPT
+0.413 Gy
 -
 -
--
--
-  cbct  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--0.17 cm
-2.90 cm
--4.42 cm
-88.3 cm
-0.000
--
-PTV_HDOPT
--
--
--
--
-  latgsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--0.17 cm
-2.90 cm
--4.42 cm
-79.1 cm
-0.000
--
-PTV_HDOPT
--
--
--
--
-Patient : ARAGON, MICHEL  (202306492) Imprimé le 17/07/2023 11:41 par admin\barbier
-Dernière modification le lundi 17 juillet 2023 09:23:58 par Pouedras Juliette
+189.9 UM
+Patient : CHARLES, VALERIE  (202306741) Imprimé le 17/07/2023 15:12 par admin\lanaspeze
+Dernière modification le lundi 17 juillet 2023 15:08:26 par Ducassou Anne
 Dossier de traitement : C1
-Plan : ProstateHypo  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Plan : ColVagin  -  Planification approuvée Page : 2/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.63cm, 1.40cm, 0.75cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.80cm, 0.00cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  postsetup  latdtsetup  antsetup  latgsetup  cbct  
+Champs de l'isocentre :  RA1  RA2  RA3  RA4  kVCBCT  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 0.17 2.90 4.42
-Direction : Droite Haut Entrée [In]
+Décaler [cm] : 0.6 0.2 6.5
+Direction : Droite Haut Sortie [Out]
  
  
 Erreurs et avertissements concernant le calcul :
-Patient : ARAGON, MICHEL  (202306492) Imprimé le 17/07/2023 11:41 par admin\barbier
-Dernière modification le lundi 17 juillet 2023 09:23:58 par Pouedras Juliette
+Patient : CHARLES, VALERIE  (202306741) Imprimé le 17/07/2023 15:12 par admin\lanaspeze
+Dernière modification le lundi 17 juillet 2023 15:08:26 par Ducassou Anne
 Dossier de traitement : C1
-Plan : ProstateHypo  -  Planification approuvée Page : 3/3Institut Claudius Regaud, Toulouse Imprimé(e) sur lundi 17 juillet 2023 11:43:04 par Barbier Aurélie (admin\barbier)
-ARAGON, MICHEL (202306492)Planification de radiothérapie
+Plan : ColVagin  -  Planification approuvée Page : 3/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: ARAGON, MICHEL  
-Patient IDs: 202306492
+Patient: CHARLES, VALERIE  
+Patient IDs: 202306741
 Comment:
 Plan Plan Course Plan History
-ProstateHypo C1 Last Modified: lundi 17 juillet 2023 09:23:58 by Pouedras Juliette
-Planification approuvée: lundi 17 juillet 2023 09:23:51 by Pouedras Juliette
+ColVagin C1 Last Modified: lundi 17 juillet 2023 15:08:26 by Ducassou Anne
+Planification approuvée: lundi 17 juillet 2023 15:08:19 by Ducassou Anne
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Rectum Approuvée 100.0 / 99.8 57.8 cm³ 1.8 Gy 59.9 Gy 18.4 Gy 2.4 Gy 9.1 Gy 17.6 Gy
-TeteFemorDte Approuvée 100.0 / 100.0 180.8 cm³ 1.9 Gy 27.2 Gy 13.2 Gy 17.1 Gy 13.9 Gy 5.6 Gy
-TeteFemorGche Approuvée 100.0 / 100.1 187.6 cm³ 1.3 Gy 25.4 Gy 11.7 Gy 10.7 Gy 11.6 Gy 5.3 Gy
-Patient: ARAGON, MICHEL    (202306492) Printed lundi 17 juillet 2023 11:43:16 by Barbier Aurélie
+OverlapSigmoide Approuvée 100.0 / 100.0 14.6 cm³ 41.9 Gy 46.3 Gy 44.5 Gy 44.6 Gy 44.6 Gy 0.4 Gy
+OverlapRectum Approuvée 100.0 / 99.8 17.3 cm³ 40.3 Gy 47.2 Gy 44.6 Gy 44.8 Gy 44.7 Gy 0.7 Gy
+Canal med Approuvée 100.0 / 100.2 32.3 cm³ 0.0 Gy 1.4 Gy 0.5 Gy 0.0 Gy 0.5 Gy 0.4 Gy
+Patient: CHARLES, VALERIE    (202306741) Printed lundi 17 juillet 2023 15:13:21 by Lanaspeze Christelle
 Course: C1
-Plan: ProstateHypo  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Plan: ColVagin  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Vessie Approuvée 100.0 / 100.0 489.1 cm³ 0.5 Gy 61.3 Gy 8.2 Gy 0.9 Gy 2.5 Gy 12.9 Gy
-Sigmoide Approuvée 100.0 / 100.1 78.2 cm³ 0.2 Gy 2.3 Gy 0.7 Gy 0.3 Gy 0.6 Gy 0.4 Gy
-QueueDeCheval Approuvée 100.0 / 100.1 23.3 cm³ 0.0 Gy 0.7 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.2 Gy
-Grele Approuvée 100.0 / 100.0 3553.3 cm³ 0.0 Gy 0.9 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.2 Gy
-Bulbe Penien Approuvée 100.0 / 99.8 3.5 cm³ 6.3 Gy 60.7 Gy 28.2 Gy 6.7 Gy 23.7 Gy 17.4 Gy
-Uretre Approuvée 100.0 / 100.4 2.1 cm³ 59.2 Gy 62.1 Gy 60.9 Gy 61.2 Gy 61.0 Gy 0.6 Gy
-Sacro iliaques Approuvée 100.0 / 100.0 361.3 cm³ 0.2 Gy 1.3 Gy 0.6 Gy 0.4 Gy 0.6 Gy 0.2 Gy
-PTV HD Approuvée 100.0 / 100.0 130.2 cm³ 54.1 Gy 62.4 Gy 60.0 Gy 60.0 Gy 60.0 Gy 0.7 Gy
-PTV_HDOPT Approuvée 100.0 / 100.0 129.1 cm³ 51.3 Gy 62.4 Gy 60.0 Gy 60.0 Gy 60.0 Gy 0.7 Gy
+OverlapVessie Approuvée 100.0 / 99.7 38.0 cm³ 41.4 Gy 46.9 Gy 44.7 Gy 45.0 Gy 44.8 Gy 0.6 Gy
+Sigmoide Approuvée 100.0 / 100.0 45.9 cm³ 21.4 Gy 46.8 Gy 41.1 Gy 44.6 Gy 43.8 Gy 5.4 Gy
+OverlapGrele Approuvée 100.0 / 99.9 58.8 cm³ 39.7 Gy 46.9 Gy 44.6 Gy 44.7 Gy 44.7 Gy 0.6 Gy
+Rectum Approuvée 100.0 / 100.0 79.3 cm³ 2.8 Gy 47.2 Gy 25.8 Gy 44.8 Gy 26.3 Gy 15.3 Gy
+CanalMed+5 Approuvée 100.0 / 100.0 90.8 cm³ 0.0 Gy 1.5 Gy 0.5 Gy 0.0 Gy 0.5 Gy 0.4 Gy
+TeteFemorGche Approuvée 100.0 / 99.9 129.8 cm³ 1.3 Gy 38.3 Gy 11.6 Gy 1.7 Gy 10.0 Gy 8.7 Gy
+TeteFemorDte Approuvée 100.0 / 100.0 131.6 cm³ 1.3 Gy 36.5 Gy 11.2 Gy 1.7 Gy 10.8 Gy 7.9 Gy
+ReinGche Approuvée 100.0 / 99.9 139.2 cm³ 0.1 Gy 1.4 Gy 0.5 Gy 0.2 Gy 0.5 Gy 0.3 Gy
+Vessie Approuvée 100.0 / 100.0 150.1 cm³ 8.1 Gy 46.9 Gy 28.6 Gy 44.9 Gy 28.9 Gy 13.6 Gy
+ReinDt Approuvée 100.0 / 100.0 153.1 cm³ 0.2 Gy 1.5 Gy 0.7 Gy 0.6 Gy 0.6 Gy 0.3 Gy
+Sacrum Approuvée 100.0 / 99.8 247.5 cm³ 9.6 Gy 48.2 Gy 30.4 Gy 21.8 Gy 28.9 Gy 7.4 Gy
+Reins Approuvée 100.0 / 100.0 292.1 cm³ 0.1 Gy 1.5 Gy 0.6 Gy 0.5 Gy 0.6 Gy 0.3 Gy
+OGE Approuvée 100.0 / 100.0 356.6 cm³ 0.6 Gy 6.1 Gy 2.2 Gy 1.9 Gy 2.0 Gy 0.7 Gy
+PTV_45 Approuvée 100.0 / 100.0 1220.2 cm³ 39.0 Gy 48.3 Gy 44.9 Gy 44.9 Gy 45.0 Gy 0.9 Gy
+Foie Approuvée 100.0 / 100.0 1255.2 cm³ 0.0 Gy 0.9 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.1 Gy
+Grele Approuvée 100.0 / 100.0 3299.0 cm³ 0.3 Gy 46.9 Gy 9.7 Gy 0.8 Gy 2.5 Gy 11.7 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - ProstateHypo C1 60.000 Gy 3.000 Gy 20 60.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.8 %
-Patient: ARAGON, MICHEL    (202306492) Printed lundi 17 juillet 2023 11:43:16 by Barbier Aurélie
+- - - ColVagin C1 45.000 Gy 1.800 Gy 25 45.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.8 %
+Patient: CHARLES, VALERIE    (202306741) Printed lundi 17 juillet 2023 15:13:21 by Lanaspeze Christelle
 Course: C1
-Plan: ProstateHypo  -  Planification approuvée Page: 2/2
+Plan: ColVagin  -  Planification approuvée Page: 2/2

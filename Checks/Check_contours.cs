@@ -45,7 +45,92 @@ namespace PlanCheck
                 return null;
 
         }
+        private int volumeIsOk(String volumeName, double volumeValue, String sex)
+        { // return 2 if nor ref volume, 1 if volume inside reference range, 2 if outside
+            int result = 2;
+            bool found = false;
+            bool isok = false;
+            if (sex == "Female")
+            {
+                foreach (OARvolume oar in _pinfo.womanOARVolumes)
+                {
+                    if (volumeName == oar.volumeName)
+                    {
+                        found = true;
+                        if ((volumeValue < oar.volumeMax) && (volumeValue > oar.volumeMin))
+                            isok = true;
+                    }
 
+                }
+            }
+            else // is male
+            {
+                foreach (OARvolume oar in _pinfo.manOARVolumes)
+                {
+                    if (volumeName == oar.volumeName)
+                    {
+                        found = true;
+                        if ((volumeValue < oar.volumeMax) && (volumeValue > oar.volumeMin))
+                            isok = true;
+                    }
+
+                }
+
+            }
+
+            if (isok)
+                result = 1;
+            else if (found)
+                result = 2;
+            else
+                result = 0;
+
+            return result;
+
+        }
+
+        private bool nPartsIsOk(String volumeName, int nParts, String sex)
+        {
+            bool result = true;
+
+            if (sex == "Female")
+            {
+                foreach (OARvolume oar in _pinfo.womanOARVolumes)
+                {
+                    if (volumeName.ToUpper() == oar.volumeName.ToUpper())
+                    {
+                        if (oar.nExpectedPart == -1) // no expected number of parts is specified
+                            result = true;
+                        else if (nParts == oar.nExpectedPart)
+                            result = true;
+                        else
+                            result = false;
+                    }
+                }
+            }
+            else // is male
+            {
+                foreach (OARvolume oar in _pinfo.manOARVolumes)
+                {
+                    if (volumeName.ToUpper() == oar.volumeName.ToUpper())
+                    {
+
+                        if (oar.nExpectedPart == -1) // no expected number of parts is specified
+                            result = true;
+                        else if (nParts == oar.nExpectedPart)
+                            result = true;
+                        else
+                            result = false;
+                    }
+
+                }
+
+            }
+
+
+            return result;
+
+        }
         public double getXcenter()
         {
             double xCenter = 0.0;
@@ -434,7 +519,7 @@ namespace PlanCheck
 
             #region  Anormal Volume values (cc)
             if (_pinfo.advancedUserMode)
-            {// entre -3sigma et +3sigma >99.9% des cas
+            {
                 List<string> anormalVolumeList = new List<string>();
                 List<string> normalVolumeList = new List<string>();
                 Item_Result anormalVolumeItem = new Item_Result();
@@ -442,28 +527,39 @@ namespace PlanCheck
                 anormalVolumeItem.ExpectedValue = "EN COURS";
 
                 //foreach (expectedStructure es in _rcp.myClinicalExpectedStructures)
-                foreach (expectedStructure es in allStructures)
+                // foreach (expectedStructure es in allStructures)
+                foreach (Structure struct1 in _ctx.StructureSet.Structures)
                 {
 
-                    Structure struct1 = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
+                    // Structure struct1 = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
                     if (struct1 != null) // if structure  exist 
                         if (!struct1.IsEmpty) //  and if not empty 
-                            if (es.volMin != 9999) // and if a volume min is defined in protocol
-                            {
-                                if ((struct1.Volume > es.volMin) && (struct1.Volume < es.volMax)) //if volume ok
-                                    normalVolumeList.Add(es.Name);
-                                else
-                                    anormalVolumeList.Add(es.Name + " (" + struct1.Volume.ToString("F2") + " cc). Attendu: " + es.volMin.ToString("F2") + " - " + es.volMax.ToString("F2") + " cc");
+                        {
+                            double volume = struct1.Volume;
+                            int isOk = volumeIsOk(struct1.Id, volume, _ctx.Patient.Sex);
+                            if (isOk == 1)
+                                normalVolumeList.Add(struct1.Id);
+                            else if (isOk == 2)
+                                anormalVolumeList.Add(struct1.Id + " (" + volume.ToString("F2") + " cc)");//. Attendu: " + es.volMin.ToString("F2") + " - " + es.volMax.ToString("F2") + " cc");
 
-                            }
+                        }
+
+                    /*if (es.volMin != 9999) // and if a volume min is defined in protocol
+                    {
+                        if ((struct1.Volume > es.volMin) && (struct1.Volume < es.volMax)) //if volume ok
+                            normalVolumeList.Add(es.Name);
+                        else
+                            anormalVolumeList.Add(es.Name + " (" + struct1.Volume.ToString("F2") + " cc). Attendu: " + es.volMin.ToString("F2") + " - " + es.volMax.ToString("F2") + " cc");
+
+                    }*/
 
 
                 }
                 if (anormalVolumeList.Count > 0)
                 {
                     anormalVolumeItem.setToWARNING();
-                    anormalVolumeItem.MeasuredValue = "Volumes anormaux détectés";
-                    anormalVolumeItem.Infobulle = "Les volumes des structures suivantes ne sont\npas dans l'intervalle 6 sigma des volumes habituels\n";
+                    anormalVolumeItem.MeasuredValue = anormalVolumeList.Count.ToString() + " volumes anormaux détectés";
+                    anormalVolumeItem.Infobulle = "Les volumes des structures suivantes ne sont\npas dans l'intervalle habituel\n";
                     foreach (string avs in anormalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
 
@@ -472,8 +568,8 @@ namespace PlanCheck
                 else if (normalVolumeList.Count > 0)
                 {
                     anormalVolumeItem.setToTRUE();
-                    anormalVolumeItem.MeasuredValue = "Volumes des structures OK";
-                    anormalVolumeItem.Infobulle = "Les volumes des structures suivantes sont\ndans l'intervalle 6 sigma des volumes habituels\n";
+                    anormalVolumeItem.MeasuredValue = normalVolumeList.Count + " volumes de structures vérifiés";
+                    anormalVolumeItem.Infobulle = "Les volumes des structures suivantes sont\ndans l'intervalle habituel\n";
                     foreach (string avs in normalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
 
@@ -483,7 +579,7 @@ namespace PlanCheck
                 {
                     anormalVolumeItem.setToINFO();
                     anormalVolumeItem.MeasuredValue = "Aucune analyse de volumes de structures";
-                    anormalVolumeItem.Infobulle = "Les structures présentes n'ont pas une valeur de volume (cc) attendu dans le check-protocol\n";
+                    anormalVolumeItem.Infobulle = "Les structures présentes n'ont pas une valeur de volume (cc) attendu\n";
                 }
 
                 this._result.Add(anormalVolumeItem);
@@ -505,40 +601,44 @@ namespace PlanCheck
 
 
 
-
-
-                foreach (expectedStructure es in allStructures)
+                foreach (Structure struct1 in _ctx.StructureSet.Structures)
+                {
+                    /*
+                    foreach (expectedStructure es in allStructures)
                 {
 
                     Structure struct1 = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
-
+                        */
 
                     if (struct1 != null)
                         if (!struct1.IsEmpty)
-                            if (es.expectedNumberOfPart != 9999) // expected number of parts exists
+                        {
+
+                            // if (es.expectedNumberOfPart != 9999) // expected number of parts exists
+                            //{
+                            int n = struct1.GetNumberOfSeparateParts();
+                            bool nExpectedPartsisOk = nPartsIsOk(struct1.Id, n, _ctx.Patient.Sex);
+
+                            //if (n != es.expectedNumberOfPart)
+                            if(nExpectedPartsisOk)
                             {
-                                int n = struct1.GetNumberOfSeparateParts();
-
-
-                                if (n != es.expectedNumberOfPart)
-                                {
-
-                                    uncorrectStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
-
-                                }
-                                else
-                                {
-
-                                    correctStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
-                                }
+                                correctStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
+//                                uncorrectStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
                             }
+                            else
+                            {
+                                uncorrectStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
+                                //correctStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                            }
+                            //}
 
+                        }
                 }
                 if (uncorrectStructs.Count > 0)
                 {
                     shapeAnalyser.setToWARNING();
                     shapeAnalyser.MeasuredValue = " Nombres de parties des structures incorrects";
-                    shapeAnalyser.Infobulle = "Les structures suivantes ont un de nombre de parties non-conforme au check-protocol :\n";
+                    shapeAnalyser.Infobulle = "Les structures suivantes ont un de nombre de parties non-conforme :\n";
                     foreach (string s in uncorrectStructs)
                         shapeAnalyser.Infobulle += s + "\n";
                 }
@@ -546,10 +646,10 @@ namespace PlanCheck
                 {
                     shapeAnalyser.setToTRUE();
 
-                    shapeAnalyser.MeasuredValue = " Nombres de parties des structures corrects";
-                    shapeAnalyser.Infobulle = "Les structures suivantes ont un de nombre de parties conforme au check-protocol :\n";
-                    foreach (string s in correctStructs)
-                        shapeAnalyser.Infobulle += s + "\n";
+                    shapeAnalyser.MeasuredValue = correctStructs.Count + " structures vérifiées";
+                 shapeAnalyser.Infobulle = "Ces structures suivantes ont un de nombre de parties conforme ou aucun nombre particulier de parties n'est attendu\n";
+ //                   foreach (string s in correctStructs)
+   //                     shapeAnalyser.Infobulle += s + "\n";
 
                 }
                 else
@@ -601,7 +701,7 @@ namespace PlanCheck
                 }
                 this._result.Add(missingSlicesItem);
             }
-                #endregion
+            #endregion
 
             #region Laterality
             Item_Result laterality = new Item_Result();

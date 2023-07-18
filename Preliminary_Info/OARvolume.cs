@@ -11,7 +11,8 @@ namespace PlanCheck
         string _volumeName;
         double _volMin;
         double _volMax;
-
+        int _nExpextedPart;
+        string _laterality;
         public OARvolume() // constructor
         {
 
@@ -33,6 +34,19 @@ namespace PlanCheck
             get { return _volMax; }
             set { _volMax = value; }
         }
+
+        public int nExpectedPart
+        {
+            get { return _nExpextedPart; }
+            set { _nExpextedPart = value; }
+        }
+        public string laterality
+        {
+            get { return _laterality; }
+            set { _laterality = value; }
+        }
+
+
     }
 
 

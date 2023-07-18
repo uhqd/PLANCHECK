@@ -61,8 +61,8 @@ namespace PlanCheck
         private int returnCode;
         public bool _advancedUserMode;
 
-        private List<OARvolume> referenceManOARVolume = new List<OARvolume>();
-        private List<OARvolume> referenceWomanOARVolume = new List<OARvolume>();
+        public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
+        public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
 
         public bool isARecentDocument(DateTime t)
         {
@@ -80,7 +80,7 @@ namespace PlanCheck
         public int isTheCorrectTomoReport(String s)  // 0 not a tomo report, 1 tomo report not the good one, 2 the good tomo report
         {
 
-           // MessageBox.Show("s " + s + " " );
+            // MessageBox.Show("s " + s + " " );
             String saveFilePathTemp = Directory.GetCurrentDirectory() + @"\__temp__.pdf";
             int startBinary = s.IndexOf("\"BinaryContent\"") + 17;
             int endBinary = s.IndexOf("\"Certifier\"") - 2;
@@ -88,7 +88,7 @@ namespace PlanCheck
             binaryContent2 = binaryContent2.Replace("\\", "");  // the \  makes the string a non valid base64 string                       
             File.WriteAllBytes(saveFilePathTemp, Convert.FromBase64String(binaryContent2));
             TomotherapyPdfReportReader _tempTprd = new TomotherapyPdfReportReader(saveFilePathTemp);
-          
+
             if (_tempTprd.itIsATomoReport == false)
                 returnCode = 0;
             else
@@ -107,7 +107,7 @@ namespace PlanCheck
                     returnCode = 1;
 
             }
-            
+
             File.Delete(saveFilePathTemp);
 
             return returnCode;
@@ -248,15 +248,15 @@ namespace PlanCheck
                 #region dismiss if plan report is not ok 
                 int tomoReportReturnCode = -1; // 0 not a tomo report, 1 tomo report not the good one, 2 the good tomo report
 
-               
+
                 if (!trashDoc)
                 {
                     if (thisDocType == doc1)
                     {
-                        
+
                         tomoReportReturnCode = isTheCorrectTomoReport(response_docdetails); // check that is a TOMO report and has the same dose max than the plan
                                                                                             // fill _tprd
-                       // MessageBox.Show("two " + tomoReportReturnCode);
+                                                                                            // MessageBox.Show("two " + tomoReportReturnCode);
                         if (_TOMO)
                         {
                             if (tomoReportReturnCode != 2)
@@ -388,10 +388,38 @@ namespace PlanCheck
 
         private void getOARreferenceVolumes()
         {
-            OARvolume volumeone = new OARvolume();
-            volumeone.volumeName = "toto";
-            volumeone.volumeMax = 10.0;
-            volumeone.volumeMin = 5.0;
+
+            referenceManOARVolume = new List<OARvolume>();
+            referenceWomanOARVolume = new List<OARvolume>();
+            
+            String pathOAR_W = Directory.GetCurrentDirectory() + @"\plancheck_data\volumeOARs\OAR-woman.csv";
+            String pathOAR_M = Directory.GetCurrentDirectory() + @"\plancheck_data\volumeOARs\OAR-man.csv";
+            string[] OARlinesW = File.ReadAllLines(pathOAR_W);
+            string[] OARlinesM = File.ReadAllLines(pathOAR_M);
+
+            foreach (string line in OARlinesW)
+            {
+                OARvolume volumeone = new OARvolume();
+                string[] partline = line.Split(';');
+                volumeone.volumeName = partline[0];
+                volumeone.volumeMin = Convert.ToDouble(partline[1]);
+                volumeone.volumeMax = Convert.ToDouble(partline[2]);
+                volumeone.nExpectedPart = Convert.ToInt32(partline[3]);
+                volumeone.laterality = partline[4];
+                referenceWomanOARVolume.Add(volumeone);
+            }
+
+            foreach (string line in OARlinesM)
+            {
+                OARvolume volumeone = new OARvolume();
+                string[] partline = line.Split(';');
+                volumeone.volumeName = partline[0];
+                volumeone.volumeMin = Convert.ToDouble(partline[1]);
+                volumeone.volumeMax = Convert.ToDouble(partline[2]);
+                volumeone.nExpectedPart = Convert.ToInt32(partline[3]);
+                volumeone.laterality = partline[4];
+                referenceManOARVolume.Add(volumeone);
+            }
         }
 
         // -------------------------------------------------------------------------------------------------------------------------------
@@ -443,7 +471,7 @@ namespace PlanCheck
             _POoptions = ctx.PlanSetup.GetCalculationOptions("PO_15605New").Values.ToArray();
 
 
-
+            getOARreferenceVolumes();
 
 
             #endregion
@@ -676,6 +704,16 @@ namespace PlanCheck
             get { return _advancedUserMode; }
             set { _advancedUserMode = value; }
         }
+        public List<OARvolume> manOARVolumes
+        {
+            get { return referenceManOARVolume; }
+        }
+        public List<OARvolume> womanOARVolumes
+        {
+            get { return referenceWomanOARVolume; }
+        }
+
+
         #endregion
 
     }
