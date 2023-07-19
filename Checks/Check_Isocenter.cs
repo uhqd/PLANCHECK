@@ -201,6 +201,7 @@ namespace PlanCheck
                 this._result.Add(distanceToOrigin);
             }
             #endregion
+
             #region position iso tomo
             // impossible to get green laser position in the pdf report
             // there is the red laser, the dose max position (ref point)

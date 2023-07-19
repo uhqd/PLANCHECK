@@ -839,6 +839,7 @@ d3.ToString("0.##");   //24
         }
         private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            OK_button.IsEnabled = true;
             if (UserMode.SelectedValue.ToString() == "Basique")
                 _pinfo.advancedUserMode = false;
             if (UserMode.SelectedValue.ToString() == "Avancé")

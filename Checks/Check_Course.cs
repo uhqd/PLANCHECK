@@ -129,8 +129,8 @@ namespace PlanCheck
                 }
 
             }
-
-            this._result.Add(approve);
+            if (_pinfo.advancedUserMode)
+                this._result.Add(approve);
             #endregion
 
             #region other courses
@@ -306,18 +306,18 @@ namespace PlanCheck
             #region Tomo report approved ?  
             if (_pinfo.isTOMO)
             {
-             
+
                 Item_Result tomoReportApproved = new Item_Result();
                 tomoReportApproved.Label = "Approbation du rapport Tomo";
                 tomoReportApproved.ExpectedValue = "";
 
                 if (_pinfo.positionReportIsFound)
                 {
-                    if(_pinfo.tprd.Trd.approvalStatus == "Approved")
+                    if (_pinfo.tprd.Trd.approvalStatus == "Approved")
                     {
                         string str = _pinfo.tprd.Trd.approverID.Trim();
                         string str2 = char.ToUpper(str[0]) + str.Substring(1);
-                        tomoReportApproved.MeasuredValue = "Rapport de Dosimétrie Tomotherapy approuvé par Dr " +  str2; // Dr Dalmasso
+                        tomoReportApproved.MeasuredValue = "Rapport de Dosimétrie Tomotherapy approuvé par Dr " + str2; // Dr Dalmasso
                         tomoReportApproved.setToTRUE();
                     }
                     else
@@ -325,7 +325,7 @@ namespace PlanCheck
                         tomoReportApproved.MeasuredValue = "Rapport de Dosimétrie Tomotherapy non approuvé";
                         tomoReportApproved.setToFALSE();
                     }
-                        
+
 
 
                 }

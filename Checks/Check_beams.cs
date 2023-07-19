@@ -330,7 +330,7 @@ namespace PlanCheck
 
             #endregion
 
-            #region NOVA SBRT 
+             #region NOVA SBRT 
             if (_pinfo.isNOVA)
             {
                 Item_Result novaSBRT = new Item_Result();
@@ -341,15 +341,18 @@ namespace PlanCheck
 
 
                     novaSBRT.Infobulle = "Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée pour les champs < 7x7 cm2";
+                    novaSBRT.Infobulle += "\nLa machine NOVA doit être utilisée pour les champs > 13.5x13.5 cm2";
+                    novaSBRT.Infobulle += "\nLes deux machines sont autorisées entres les deux valeurs";
+
                     Beam b = _ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
                     ControlPoint cp = b.ControlPoints.First();
                     double meanJawsXY = 0.5 * (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2)) + (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
                     double limit = 70.0;
-
+                    double limithigh = 135.0;
                     if (_pinfo.machine == "NOVA SBRT")
                     {
                         novaSBRT.MeasuredValue = "NOVA SBRT (jaws moy. = " + meanJawsXY + ")";
-                        if (meanJawsXY < limit)
+                        if (meanJawsXY < limithigh)
                         {
                             novaSBRT.setToTRUE();
                         }
