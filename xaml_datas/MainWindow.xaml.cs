@@ -10,17 +10,24 @@ using System.IO;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
+using Microsoft.Office.Interop.Word;
+//using PdfSharp.Pdf;
 
-using PdfSharp.Pdf;
+/*using iText.Forms;
+using iText.Forms.Fields;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout;
+*/
 //using System.Windows.Forms;
 
-
+// C:\WINDOWS\assembly\GAC_MSIL\
 namespace PlanCheck
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         #region Declarations
 
@@ -57,7 +64,7 @@ namespace PlanCheck
         public string OptimizationModel { get; set; }
         public List<UserControl> ListChecks { get; set; }
 
-
+        #endregion
 
         private String setProtocolDisplay(String filename)
         {
@@ -115,7 +122,7 @@ namespace PlanCheck
             }
             else if (isORL)
                 fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
-            else if ( planName.ToUpper().Contains("VAGIN") || planName.ToUpper().Contains("VULVE") || planName.ToUpper().Contains("COL"))
+            else if (planName.ToUpper().Contains("VAGIN") || planName.ToUpper().Contains("VULVE") || planName.ToUpper().Contains("COL"))
             {
                 fileName = @"\plancheck_data\check_protocol\gyneco.xlsx";
 
@@ -165,8 +172,6 @@ namespace PlanCheck
 
             return fullname;
         }
-        #endregion
-
         public MainWindow(PreliminaryInformation pinfo, ScriptContext pcontext) //Constructeur
         {
 
@@ -183,7 +188,7 @@ namespace PlanCheck
             // myFullFilename = Directory.GetCurrentDirectory() + @"\check_protocol\prostate.xlsx";
             theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
-
+            _pinfo.lastUsedCheckProtocol = theProtocol;
 
 
             InitializeComponent(); // read the xaml
@@ -454,7 +459,7 @@ d3.ToString("0.##");   //24
             theProtocol = setProtocolDisplay(myFullFilename);
             //theProtocol = "Check-protocol: " + Path.GetFileNameWithoutExtension(myFullFilename);// a method to get the file name only (no extension)
             defaultProtocol.Text = theProtocol; // refresh display of default value
-            
+
             _pinfo.lastUsedCheckProtocol = theProtocol;
         }
         private void OK_button_click(object sender, RoutedEventArgs e)
@@ -462,6 +467,7 @@ d3.ToString("0.##");   //24
             this.cleanList();
             OK_button.IsEnabled = false;// Visibility.Collapsed;
             exportPDF_button.Visibility = Visibility.Visible;
+            createCheckListWord_button.Visibility = Visibility.Visible;
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
 
 
@@ -668,28 +674,37 @@ d3.ToString("0.##");   //24
             */
             #endregion
         }
+        private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            OK_button.IsEnabled = true;
+            if (UserMode.SelectedValue.ToString() == "Basique")
+                _pinfo.advancedUserMode = false;
+            if (UserMode.SelectedValue.ToString() == "Avancé")
+                _pinfo.advancedUserMode = true;
+
+        }
         private void exportPDF_button_Click(object sender, RoutedEventArgs e)
         {
 
 
 
-            Document migraDoc = new Document();
-            Section section = migraDoc.AddSection();
+            MigraDoc.DocumentObjectModel.Document migraDoc = new MigraDoc.DocumentObjectModel.Document();
+            MigraDoc.DocumentObjectModel.Section section = migraDoc.AddSection();
             section.PageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Portrait;
 
 
             #region header
-            Table table = new Table();
+            MigraDoc.DocumentObjectModel.Tables.Table table = new MigraDoc.DocumentObjectModel.Tables.Table();
             table.Borders.Width = 1;
             table.Borders.Color = MigraDoc.DocumentObjectModel.Colors.White;
             table.AddColumn(Unit.FromCentimeter(6));
             table.AddColumn(Unit.FromCentimeter(10));
 
-            Row row = table.AddRow();
-            Cell cell = row.Cells[0];
+            MigraDoc.DocumentObjectModel.Tables.Row row = table.AddRow();
+            MigraDoc.DocumentObjectModel.Tables.Cell cell = row.Cells[0];
             cell.AddParagraph("Patient :");
             cell = row.Cells[1];
-            Paragraph paragraph = cell.AddParagraph();
+            MigraDoc.DocumentObjectModel.Paragraph paragraph = cell.AddParagraph();
             paragraph.AddFormattedText(PatientFullName, TextFormat.Bold);
 
 
@@ -754,7 +769,7 @@ d3.ToString("0.##");   //24
             #region pdf body
 
 
-            Paragraph paragraph2 = section.AddParagraph("\n\n");
+            MigraDoc.DocumentObjectModel.Paragraph paragraph2 = section.AddParagraph("\n\n");
             paragraph2.AddFormattedText("\n", TextFormat.Bold);
 
 
@@ -765,11 +780,11 @@ d3.ToString("0.##");   //24
             {
 
 
-                Paragraph paragraph1 = section.AddParagraph("\n\n" + csg._title + "\n\n");
+                MigraDoc.DocumentObjectModel.Paragraph paragraph1 = section.AddParagraph("\n\n" + csg._title + "\n\n");
                 paragraph1.Format.Font.Bold = true;
                 paragraph1.Format.Font.Size = 14;
 
-                Table table1 = new Table();
+                MigraDoc.DocumentObjectModel.Tables.Table table1 = new MigraDoc.DocumentObjectModel.Tables.Table();
                 table1.Borders.Width = 1;
                 table1.Borders.Color = MigraDoc.DocumentObjectModel.Colors.Olive;
 
@@ -844,15 +859,389 @@ d3.ToString("0.##");   //24
             #endregion
 
         }
-        private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void createCheckListWord_button_Click(object sender, RoutedEventArgs e)
         {
-            OK_button.IsEnabled = true;
-            if (UserMode.SelectedValue.ToString() == "Basique")
-                _pinfo.advancedUserMode = false;
-            if (UserMode.SelectedValue.ToString() == "Avancé")
-                _pinfo.advancedUserMode = true;
+
+
+            Microsoft.Office.Interop.Word.Application winword = new Microsoft.Office.Interop.Word.Application();
+            winword.ShowAnimation = false;
+            winword.Visible = false;
+            object missing = System.Reflection.Missing.Value;
+            Microsoft.Office.Interop.Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+            DateTime myToday = DateTime.Now;
+            // header
+            foreach (Microsoft.Office.Interop.Word.Section section in document.Sections)
+            {
+                Microsoft.Office.Interop.Word.Range headerRange = section.Headers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+                headerRange.Fields.Add(headerRange, Microsoft.Office.Interop.Word.WdFieldType.wdFieldPage);
+                headerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                headerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdBlue;
+                headerRange.Font.Size = 15;
+                headerRange.Text = "Analyse Plancheck";
+            }
+
+            //the footers into the document  
+            foreach (Microsoft.Office.Interop.Word.Section wordSection in document.Sections)
+            {
+                //Get the footer range and add the footer details.  
+                Microsoft.Office.Interop.Word.Range footerRange = wordSection.Footers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+                footerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdBlack;
+                footerRange.Font.Size = 10;
+                footerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                string footText = "Analyse réalisée le " + myToday + " par " + _pinfo.CurrentUser.UserFirstName + " " + _pinfo.CurrentUser.UserFamilyName;
+                footerRange.Text = footText;// "Footer text goes here";
+            }
+
+            //adding text to document  
+            document.Content.SetRange(0, 0);
+            /*string headerstring = "Patient : " + PatientFullName + Environment.NewLine;
+            headerstring += "Oncologue : " + DoctorName + Environment.NewLine;
+            headerstring += "Commentaire : " + prescriptionComment + Environment.NewLine;
+            headerstring += "Plan (Course) : " + PlanAndCourseID + Environment.NewLine;
+            headerstring += "Plan créé par : " + PlanCreatorName + Environment.NewLine;
+            headerstring += "Machine : " + theMachine + Environment.NewLine;
+            headerstring += "Technique : " + theFields + Environment.NewLine;
+            headerstring += "Imprimé par : " + CurrentUserName + Environment.NewLine;
+            string[] protocolOk = _pinfo.lastUsedCheckProtocol.Split(':');
+            headerstring += "Check Protocol : " + protocolOk[1] + Environment.NewLine;
+            document.Content.Text = headerstring + Environment.NewLine;
+            */
+
+            Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
+            para1.Range.Font.Size = 12;
+            Microsoft.Office.Interop.Word.Table table1 = document.Tables.Add(para1.Range, 9, 2, ref missing, ref missing);
+            table1.PreferredWidth = 300.0f;
+            table1.Borders.Enable = 0;
+            foreach (Microsoft.Office.Interop.Word.Row row in table1.Rows)
+            {
+                foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
+                {
+                    cell.Range.Font.Bold = 1;
+                    cell.Range.Font.Size = 8;
+                    cell.Shading.BackgroundPatternColor = WdColor.wdColorLightGreen;
+                    cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                    cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight; 
+                }
+            }
+
+
+            table1.Rows[1].Cells[1].Range.Text = "Patient : ";
+            table1.Rows[1].Cells[2].Range.Text = PatientFullName;
+            table1.Rows[2].Cells[1].Range.Text = "Oncologue : ";
+            table1.Rows[2].Cells[2].Range.Text = DoctorName;
+            table1.Rows[3].Cells[1].Range.Text = "Commentaire : ";
+            table1.Rows[3].Cells[2].Range.Text = prescriptionComment;
+            table1.Rows[4].Cells[1].Range.Text = "Plan (Course) : ";
+            table1.Rows[4].Cells[2].Range.Text = PlanAndCourseID;
+            table1.Rows[5].Cells[1].Range.Text = "Plan créé par : ";
+            table1.Rows[5].Cells[2].Range.Text = PlanCreatorName;
+            table1.Rows[6].Cells[1].Range.Text = "Machine : ";
+            table1.Rows[6].Cells[2].Range.Text = theMachine;
+            table1.Rows[7].Cells[1].Range.Text = "Technique : ";
+            table1.Rows[7].Cells[2].Range.Text = theFields;
+            table1.Rows[8].Cells[1].Range.Text = "Imprimé par : ";
+            table1.Rows[8].Cells[2].Range.Text = CurrentUserName;
+            string[] protocolOk = _pinfo.lastUsedCheckProtocol.Split(':');
+            table1.Rows[9].Cells[1].Range.Text = "Check Protocol : ";
+            table1.Rows[9].Cells[2].Range.Text = protocolOk[1];
+
+            table1.Rows[1].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[2].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[3].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[4].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[5].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[6].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[7].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[8].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            table1.Rows[9].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+            
+            ///////////////////////
+            
+            Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
+            para2.Range.Text = "Points vérifiés par Plancheck";
+            para2.Range.InsertParagraphAfter();
+            Microsoft.Office.Interop.Word.Table table2 = document.Tables.Add(para1.Range, 1, 3, ref missing, ref missing);
+            table1.Rows[1].Cells[1].Range.Text = "Test";
+            table1.Rows[1].Cells[2].Range.Text = "Résultats";
+            table1.Rows[1].Cells[3].Range.Text = "Check";
+
+
+            //            table2.Rows[1].Cells[1].Range.Text = "Patient : ";
+            foreach (CheckScreen_Global csg in ListChecks)
+            {
+
+
+                foreach (Item_Result ir in csg.Items)
+                {
+                    if (ir.ResultStatus.Item1 == "OK")
+                    { 
+                    table1.Rows.Add(ir);
+                    
+                    }
+                }
+            }
+
+
+                        /*foreach (Microsoft.Office.Interop.Word.Row row in table1.Rows)
+                        {
+                            foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
+                            {
+                                //Header row  
+                                if (cell.RowIndex == 1)
+                                {
+                                    cell.Range.Text = "Column " + cell.ColumnIndex.ToString();
+                                    cell.Range.Font.Bold = 1;
+                                    //other format properties goes here  
+                                    cell.Range.Font.Name = "verdana";
+                                    cell.Range.Font.Size = 10;
+                                    //cell.Range.Font.ColorIndex = WdColorIndex.wdGray25;                              
+                                    cell.Shading.BackgroundPatternColor = WdColor.wdColorGray25;
+                                    //Center alignment for the Header cells  
+                                    cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                                    cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                }
+                                //Data row  
+                                else
+                                {
+                                    cell.Range.Text = (cell.RowIndex - 2 + cell.ColumnIndex).ToString();
+                                }
+                            }
+                        }*/
+
+                        //Add paragraph with Heading 1 style  
+                        /*            Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
+                                    para1.Range.Font.Size = 8;
+                                    para1.SpaceAfter = 10.0f;
+                                    para1.SpaceBefore = 10.0f;
+                                    //object styleHeading1 = "Heading 1";
+                                   // para1.Range.set_Style(styleHeading1);
+                                    para1.Range.Text = headerstring;
+                                    //para1.Range.InsertParagraphAfter();
+                        */
+                        //Add paragraph with Heading 2 style  
+                        //Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
+                        //object styleHeading2 = "Heading 2";
+                        //para2.Range.set_Style(ref styleHeading2);
+                        //para2.Range.Text = "Para 2 text";
+                        //para2.Range.InsertParagraphAfter();
+
+                        //Create a 5X5 table and insert some dummy record  
+                        /* Microsoft.Office.Interop.Word.Table table1 = document.Tables.Add(para1.Range, 5, 5, ref missing, ref missing);
+
+                         table1.Borders.Enable = 1;
+                         foreach (Microsoft.Office.Interop.Word.Row row in table1.Rows)
+                         {
+                             foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
+                             {
+                                 //Header row  
+                                 if (cell.RowIndex == 1)
+                                 {
+                                     cell.Range.Text = "Column " + cell.ColumnIndex.ToString();
+                                     cell.Range.Font.Bold = 1;
+                                     //other format properties goes here  
+                                     cell.Range.Font.Name = "verdana";
+                                     cell.Range.Font.Size = 10;
+                                     //cell.Range.Font.ColorIndex = WdColorIndex.wdGray25;                              
+                                     cell.Shading.BackgroundPatternColor = WdColor.wdColorGray25;
+                                     //Center alignment for the Header cells  
+                                     cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                                     cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+
+                                 }
+                                 //Data row  
+                                 else
+                                 {
+                                     cell.Range.Text = (cell.RowIndex - 2 + cell.ColumnIndex).ToString();
+                                 }
+                             }
+                         }*/
+
+                        //Save the document  
+                        string textfilename = @"\\srv015\sf_com\simon_lu\temp\";
+            textfilename += myToday.ToString();
+            textfilename += "_temp1.docx";
+            textfilename = textfilename.Replace(":", "_");
+            textfilename = textfilename.Replace(" ", "_");
+            textfilename = textfilename.Replace("/", "_");
+            MessageBox.Show(textfilename);
+            object filename = textfilename;
+            document.SaveAs2(ref filename);
+            document.Close(ref missing, ref missing, ref missing);
+            document = null;
+            winword.Quit(ref missing, ref missing, ref missing);
+            winword = null;
+            //  MessageBox.Show("Document created successfully !");
 
         }
+
+        /* private void createCheckListWord_button_Click(object sender, RoutedEventArgs e)
+     {
+
+         Document migraDoc = new Document();
+         Section section = migraDoc.AddSection();
+         section.PageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Portrait;
+
+
+         #region header
+         Table table = new Table();
+         table.Borders.Width = 1;
+         table.Borders.Color = MigraDoc.DocumentObjectModel.Colors.White;
+         table.AddColumn(Unit.FromCentimeter(6));
+         table.AddColumn(Unit.FromCentimeter(10));
+
+         Row row = table.AddRow();
+         Cell cell = row.Cells[0];
+         cell.AddParagraph("Patient :");
+         cell = row.Cells[1];
+         Paragraph paragraph = cell.AddParagraph();
+         paragraph.AddFormattedText(PatientFullName, TextFormat.Bold);
+
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Oncologue :");
+         cell = row.Cells[1];
+         paragraph = cell.AddParagraph();
+         paragraph.AddFormattedText(DoctorName, TextFormat.Bold);
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Commentaire : ");
+         cell = row.Cells[1];
+         cell.AddParagraph(prescriptionComment);
+
+
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Plan (Course) :");
+         cell = row.Cells[1];
+         cell.AddParagraph(PlanAndCourseID);
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Plan créé par :");
+         cell = row.Cells[1];
+         paragraph = cell.AddParagraph();
+         paragraph.AddFormattedText(PlanCreatorName, TextFormat.Bold);
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Machine : ");
+         cell = row.Cells[1];
+         cell.AddParagraph(theMachine);
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Technique :");
+         cell = row.Cells[1];
+         cell.AddParagraph(theFields);
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Imprimé par :");
+         cell = row.Cells[1];
+         cell.AddParagraph(CurrentUserName);
+
+         row = table.AddRow();
+         cell = row.Cells[0];
+         cell.AddParagraph("Check Protocol :");
+         cell = row.Cells[1];
+         cell.AddParagraph(_pinfo.lastUsedCheckProtocol);
+
+
+
+         section.Add(table);
+         #endregion
+
+
+         #region pdf body
+
+
+         Paragraph paragraph2 = section.AddParagraph("\n\n");
+         paragraph2.AddFormattedText("\n", TextFormat.Bold);
+
+
+         Paragraph paragraph1 = section.AddParagraph("\n\n" + "Liste des points vérifiés par Plancheck" + "\n\n");
+         paragraph1.Format.Font.Bold = true;
+         paragraph1.Format.Font.Size = 14;
+
+         Table table1 = new Table();
+         table1.Borders.Width = 1;
+         table1.Borders.Color = MigraDoc.DocumentObjectModel.Colors.Olive;
+
+         table1.AddColumn(Unit.FromCentimeter(4.0));
+         table1.AddColumn(Unit.FromCentimeter(10));
+         table1.AddColumn(Unit.FromCentimeter(2.0));
+
+         row = table1.AddRow();
+         row.Shading.Color = MigraDoc.DocumentObjectModel.Colors.PaleGoldenrod;
+         row.Format.Font.Size = 8;
+         row.Format.Font.Bold = true;
+
+         cell = row.Cells[0];
+         cell.AddParagraph("Item");
+         cell = row.Cells[1];
+         cell.AddParagraph("Explication");
+         cell = row.Cells[2];
+         cell.AddParagraph("Check");
+
+         //string msg1 = null;
+         foreach (CheckScreen_Global csg in ListChecks)
+         {
+
+
+             foreach (Item_Result ir in csg.Items)
+             {
+                 if (ir.ResultStatus.Item1 == "OK")
+                 {
+                     row = table1.AddRow();
+                     row.Format.Font.Size = 6;
+                     row.Cells[0].AddParagraph("\n" + ir.Label + "\n");
+                     row.Cells[1].AddParagraph("\n" + ir.MeasuredValue + "\n" + ir.Infobulle + "\n\n");
+                     Paragraph paragraph8 = row.Cells[2].AddParagraph("");
+                     paragraph8.Format.Font.Size = 14; 
+                     paragraph8.AddFormattedText("\u00fe", new Font("Wingdings"));
+
+
+                     //paragraph.AddFormattedText(value ? "\u00fe" : "\u00A8", new Font("Wingdings"));
+
+
+                 }
+
+
+
+             }
+         }
+         section.Add(table1);
+         //   section.AddPageBreak();
+
+
+         #endregion
+
+         #region write pdf
+
+         PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
+
+         string pdfFile = @"\\srv015\sf_com\simon_lu\temp\test.pdf";
+//            pdfFile += "PlanCheck_" + _pcontext.Patient.Id + "_" + _pcontext.Patient.LastName + "_" + _pcontext.Patient.FirstName + "_" + _pcontext.PlanSetup.Id;
+//          pdfFile += Path.GetFileNameWithoutExtension(myFullFilename) + "_" + DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".pdf";
+         pdfRenderer.Document = migraDoc;
+         pdfRenderer.RenderDocument();
+         MessageBox.Show("Rapport PDF sauvegardé :\n" + pdfFile);
+         pdfRenderer.PdfDocument.Save(pdfFile);
+         System.Diagnostics.Process.Start(pdfFile);
+         #endregion
+
+
+
+
+
+     }
+
+     */
+
         /*
          private void CheckProtocol_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
