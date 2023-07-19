@@ -330,7 +330,7 @@ namespace PlanCheck
 
             #endregion
 
-             #region NOVA SBRT 
+            #region NOVA SBRT 
             if (_pinfo.isNOVA)
             {
                 Item_Result novaSBRT = new Item_Result();
@@ -401,6 +401,7 @@ namespace PlanCheck
                 Item_Result tomoParamsPitch = new Item_Result();
                 Item_Result tomoParamsModulationFactor = new Item_Result();
 
+
                 tomoParamsFieldWidth.Label = "Field Width";
                 tomoParamsGantryPeriod.Label = "Gantry period";
                 tomoParamsPitch.Label = "Pitch";
@@ -411,6 +412,7 @@ namespace PlanCheck
                 tomoParamsGantryPeriod.MeasuredValue = _pinfo.tprd.Trd.gantryPeriod.ToString();
                 tomoParamsPitch.MeasuredValue = _pinfo.tprd.Trd.pitch.ToString();
                 tomoParamsModulationFactor.MeasuredValue = _pinfo.tprd.Trd.modulationFactor.ToString();
+
 
                 if (_pinfo.tprd.Trd.fieldWidth == 5.0)
                     tomoParamsFieldWidth.setToTRUE();
@@ -442,7 +444,15 @@ namespace PlanCheck
 
                 tomoParamsModulationFactor.Infobulle = "Attendu : 2 < x < 3.5";
 
+                Item_Result blockedOAR = new Item_Result();
+                blockedOAR.Label = "Blocage OAR";
+                blockedOAR.MeasuredValue = _pinfo.tprd.Trd.blockedOAR.Count + " OAR bloqués (voir détail)";
+                blockedOAR.setToINFO();
+                blockedOAR.Infobulle = "Liste des OAR bloqués en EXIT ONLY\n";
+                foreach (string blocOAR in _pinfo.tprd.Trd.blockedOAR)
+                    blockedOAR.Infobulle += "\n" + blocOAR;
 
+                this._result.Add(blockedOAR);
                 this._result.Add(tomoParamsFieldWidth);
                 this._result.Add(tomoParamsGantryPeriod);
                 this._result.Add(tomoParamsPitch);

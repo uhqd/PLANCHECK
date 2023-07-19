@@ -80,13 +80,14 @@ namespace PlanCheck
         public double originZ;
         public double maxDose;
         public string CTDate;
+        public List<String> blockedOAR;// = new List<String>();
         //public int numberOfCTslices;
 
         
 
         public tomoReportData()  //Constructor. 
         {
-
+            blockedOAR = new List<String>();
 
         }
     }

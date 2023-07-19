@@ -79,10 +79,10 @@ namespace PlanCheck
 
 
             if (courseName.Contains("CAVUM") || courseName.Contains("ORL") || courseName.Contains("PHARYNX") || courseName.Contains("PAROTIDE"))
-                isORL = true; 
-            
-            
-            
+                isORL = true;
+
+
+
             if (planName.Contains("SEIN"))
             {
                 bool gg = false;
@@ -112,9 +112,14 @@ namespace PlanCheck
                 }
 
 
-            }            
+            }
             else if (isORL)
                 fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
+            else if ( planName.ToUpper().Contains("VAGIN") || planName.ToUpper().Contains("VULVE") || planName.ToUpper().Contains("COL"))
+            {
+                fileName = @"\plancheck_data\check_protocol\gyneco.xlsx";
+
+            }
             else if (planName.Contains("PAROI"))
             {
 
@@ -822,11 +827,11 @@ d3.ToString("0.##");   //24
             }
             #endregion
 
-
+            #region write pdf
 
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
 
-            string pdfFile = @"\\srv015\sf_com\simon_lu\";
+            string pdfFile = @"\\srv015\sf_com\simon_lu\temp\";
             pdfFile += "PlanCheck_" + _pcontext.Patient.Id + "_" + _pcontext.Patient.LastName + "_" + _pcontext.Patient.FirstName + "_" + _pcontext.PlanSetup.Id;
             pdfFile += Path.GetFileNameWithoutExtension(myFullFilename) + "_" + DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".pdf";
             pdfRenderer.Document = migraDoc;
@@ -834,7 +839,7 @@ d3.ToString("0.##");   //24
             MessageBox.Show("Rapport PDF sauvegardé :\n" + pdfFile);
             pdfRenderer.PdfDocument.Save(pdfFile);
             System.Diagnostics.Process.Start(pdfFile);
-
+            #endregion
 
         }
         private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)

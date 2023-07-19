@@ -1,290 +1,196 @@
-Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-PATIENT
-Nom : CHARLES, VALERIE ID : 202306741 Date de naissance : vendredi 9 avril 1965 Sexe : Féminin
-Plan
-ID plan : ColVagin
-ID dossier de traitement : C1
-ID image : TDMRTE060723
-Modalité de l'image : CT
-Système d'imagerie : TDMRT
-Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.80cm, 0.00cm)
-Prescription de dose
-Volume cible : PTV_HDOPT
-Valeur de normalisation du plan : 100.8 %
-Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV_HDOPT
-Point de normalisation du plan : -, -, -
-Pourcentage de dose prescrite : 100.0 %
-Fractionnement : 
-Dose prescrite : 45.000 Gy (1.800 Gy / fraction)
-Dose au point de référence principal : 45.000 Gy (1.800 Gy / fraction)
-Nombre de fractions : 25
-Options de calcul
-Algorithme photon : AAA_15605New
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc0.125
-FieldNormalizationType 100% to isocenter
-HeterogeneityCorrection ON
-Approbations
-Plan créé : lundi 17 juillet 2023 13:23:17 par Lanaspeze Christelle
-Approbation du plan : lundi 17 juillet 2023 15:08:19 par Ducassou Anne
-Patient : CHARLES, VALERIE  (202306741) Imprimé le 17/07/2023 15:12 par admin\lanaspeze
-Dernière modification le lundi 17 juillet 2023 15:08:26 par Ducassou Anne
-Dossier de traitement : C1
-Plan : ColVagin  -  Planification approuvée Page : 1/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Champs
-ID champ
-ID machine
-Énergie
-Débit de dose
-Taille de champ
-X1
-X2
-Y1
-Y2
-Angle du bras
-Sens de rotation du bras
-Angle d'arrêt du bras
-Rot. collimateur
-Rot. de table
-Filtre en coin
-Facteur de filtre
-MLC
-Bloc
-Plaque
-Bolus
-DSP bolus
-Isocentre X
-Isocentre Y
-Isocentre Z
-DSP
-Pondération
-Refdose (Gy)
-Point de référence
-Dose par fraction
-Profondeur physique
-Profondeur effective
-UM
-  kVCBCT  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--0.62 cm
-0.20 cm
-6.49 cm
-85.5 cm
-0.000
--
-PTV_HDOPT
--
--
--
--
-  RA1  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-179.0 °
-SAH
-181.0 °
-315.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--0.62 cm
-0.20 cm
-6.49 cm
-87.4 cm
-1.192
--
-PTV_HDOPT
-0.463 Gy
--
--
-212.9 UM
-  RA2  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-181.0 °
-SH
-179.0 °
-45.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--0.62 cm
-0.20 cm
-6.49 cm
-87.4 cm
-1.211
--
-PTV_HDOPT
-0.471 Gy
--
--
-216.2 UM
-  RA3  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-179.0 °
-SAH
-181.0 °
-315.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--0.62 cm
-0.20 cm
-6.49 cm
-87.4 cm
-1.165
--
-PTV_HDOPT
-0.453 Gy
--
--
-208.0 UM
-  RA4  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-181.0 °
-SH
-179.0 °
-45.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--0.62 cm
-0.20 cm
-6.49 cm
-87.4 cm
-1.063
--
-PTV_HDOPT
-0.413 Gy
--
--
-189.9 UM
-Patient : CHARLES, VALERIE  (202306741) Imprimé le 17/07/2023 15:12 par admin\lanaspeze
-Dernière modification le lundi 17 juillet 2023 15:08:26 par Ducassou Anne
-Dossier de traitement : C1
-Plan : ColVagin  -  Planification approuvée Page : 2/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Décalage de la table
-AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
-AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.80cm, 0.00cm)
-Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  RA3  RA4  kVCBCT  
-Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 0.6 0.2 6.5
-Direction : Droite Haut Sortie [Out]
- 
- 
-Erreurs et avertissements concernant le calcul :
-Patient : CHARLES, VALERIE  (202306741) Imprimé le 17/07/2023 15:12 par admin\lanaspeze
-Dernière modification le lundi 17 juillet 2023 15:08:26 par Ducassou Anne
-Dossier de traitement : C1
-Plan : ColVagin  -  Planification approuvée Page : 3/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: CHARLES, VALERIE  
-Patient IDs: 202306741
-Comment:
-Plan Plan Course Plan History
-ColVagin C1 Last Modified: lundi 17 juillet 2023 15:08:26 by Ducassou Anne
-Planification approuvée: lundi 17 juillet 2023 15:08:19 by Ducassou Anne
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-OverlapSigmoide Approuvée 100.0 / 100.0 14.6 cm³ 41.9 Gy 46.3 Gy 44.5 Gy 44.6 Gy 44.6 Gy 0.4 Gy
-OverlapRectum Approuvée 100.0 / 99.8 17.3 cm³ 40.3 Gy 47.2 Gy 44.6 Gy 44.8 Gy 44.7 Gy 0.7 Gy
-Canal med Approuvée 100.0 / 100.2 32.3 cm³ 0.0 Gy 1.4 Gy 0.5 Gy 0.0 Gy 0.5 Gy 0.4 Gy
-Patient: CHARLES, VALERIE    (202306741) Printed lundi 17 juillet 2023 15:13:21 by Lanaspeze Christelle
-Course: C1
-Plan: ColVagin  -  Planification approuvée Page: 1/2Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-OverlapVessie Approuvée 100.0 / 99.7 38.0 cm³ 41.4 Gy 46.9 Gy 44.7 Gy 45.0 Gy 44.8 Gy 0.6 Gy
-Sigmoide Approuvée 100.0 / 100.0 45.9 cm³ 21.4 Gy 46.8 Gy 41.1 Gy 44.6 Gy 43.8 Gy 5.4 Gy
-OverlapGrele Approuvée 100.0 / 99.9 58.8 cm³ 39.7 Gy 46.9 Gy 44.6 Gy 44.7 Gy 44.7 Gy 0.6 Gy
-Rectum Approuvée 100.0 / 100.0 79.3 cm³ 2.8 Gy 47.2 Gy 25.8 Gy 44.8 Gy 26.3 Gy 15.3 Gy
-CanalMed+5 Approuvée 100.0 / 100.0 90.8 cm³ 0.0 Gy 1.5 Gy 0.5 Gy 0.0 Gy 0.5 Gy 0.4 Gy
-TeteFemorGche Approuvée 100.0 / 99.9 129.8 cm³ 1.3 Gy 38.3 Gy 11.6 Gy 1.7 Gy 10.0 Gy 8.7 Gy
-TeteFemorDte Approuvée 100.0 / 100.0 131.6 cm³ 1.3 Gy 36.5 Gy 11.2 Gy 1.7 Gy 10.8 Gy 7.9 Gy
-ReinGche Approuvée 100.0 / 99.9 139.2 cm³ 0.1 Gy 1.4 Gy 0.5 Gy 0.2 Gy 0.5 Gy 0.3 Gy
-Vessie Approuvée 100.0 / 100.0 150.1 cm³ 8.1 Gy 46.9 Gy 28.6 Gy 44.9 Gy 28.9 Gy 13.6 Gy
-ReinDt Approuvée 100.0 / 100.0 153.1 cm³ 0.2 Gy 1.5 Gy 0.7 Gy 0.6 Gy 0.6 Gy 0.3 Gy
-Sacrum Approuvée 100.0 / 99.8 247.5 cm³ 9.6 Gy 48.2 Gy 30.4 Gy 21.8 Gy 28.9 Gy 7.4 Gy
-Reins Approuvée 100.0 / 100.0 292.1 cm³ 0.1 Gy 1.5 Gy 0.6 Gy 0.5 Gy 0.6 Gy 0.3 Gy
-OGE Approuvée 100.0 / 100.0 356.6 cm³ 0.6 Gy 6.1 Gy 2.2 Gy 1.9 Gy 2.0 Gy 0.7 Gy
-PTV_45 Approuvée 100.0 / 100.0 1220.2 cm³ 39.0 Gy 48.3 Gy 44.9 Gy 44.9 Gy 45.0 Gy 0.9 Gy
-Foie Approuvée 100.0 / 100.0 1255.2 cm³ 0.0 Gy 0.9 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.1 Gy
-Grele Approuvée 100.0 / 100.0 3299.0 cm³ 0.3 Gy 46.9 Gy 9.7 Gy 0.8 Gy 2.5 Gy 11.7 Gy
-Plan prescription
-Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
-Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - ColVagin C1 45.000 Gy 1.800 Gy 25 45.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.8 %
-Patient: CHARLES, VALERIE    (202306741) Printed lundi 17 juillet 2023 15:13:21 by Lanaspeze Christelle
-Course: C1
-Plan: ColVagin  -  Planification approuvée Page: 2/2
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+ParoiDgg2
+Standard
+Plan Saved Date: 23 Jun 2023, 11:57:12 AM 
+(hr:min:sec)
+Treatment Machine / Serial No.: 0210471 850 MU/min, rev 137 / 
+210471
+Prescription: Median of PTV sein, 50.00 Gy
+Prescribed Dose per Fraction (Gy): 2.00
+Planned Fractions: 25
+Maximum Dose (Gy): 55.52
+Plan Status: Approved
+MU Planned / MU per Fraction: 264966.3 / 10598.7
+Field Width (cm): 2.5, Dynamic
+Pitch: 0.287
+Modulation Factor / Actual: 2.500 / 1.6
+Gantry Period (sec):
+Gantry Rotations:
+18.5
+39.6
+Sinogram Segments: 13.2
+Couch Travel (mm):
+Couch Speed (mm/sec):
+285.8
+0.4
+Red Lasers Offset (IECf, mm): X: 17.80 Y: -65.00 Z: -49.66
+Beam On Time (sec): 733.5
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
+Size (IECp, voxel) X: 512 Y: 175 Z: 512
+Reference Dose (Gy): 55.52
+X: -26.7 Y: 62.5 Z: 82.5 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: Classic
+Patient Name:
+Medical ID:
+LUCAS, MELANIE
+202211027 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 04 Mar 1986
+Gender: Female Patient Key: 409531
+Plan Overview
+Page 1 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)DVH: Absolute Dose
+Plan Overview
+Page 2 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+Canal Med 81.44 0.21 4.49 14.06 n/a n/a n/a n/a Exit Only
+Coeur 623.30 1.32 6.02 37.16 n/a n/a n/a n/a Exit Only
+Foie 1364.30 0.32 7.37 44.86 n/a n/a n/a n/a Exit Only
+IVA 4.11 1.97 4.47 6.04 n/a n/a n/a n/a Allowed
+Larynx 10.63 1.74 13.02 39.29 n/a n/a n/a n/a Allowed
+Oesophage 17.03 2.82 10.21 23.91 n/a n/a n/a n/a Allowed
+Plexus Dt 13.14 3.55 47.81 53.60 n/a n/a n/a n/a Allowed
+Plexus Gche 15.11 0.98 4.83 9.05 n/a n/a n/a n/a Allowed
+PoumonDt 1204.15 2.98 10.93 52.88 n/a n/a n/a n/a Exit Only
+PoumonGche 919.48 1.03 4.15 15.83 n/a n/a n/a n/a Exit Only
+Poumons 2123.63 1.03 8.00 52.88 n/a n/a n/a n/a Allowed
+Sein contro 809.05 0.94 4.40 17.37 n/a n/a n/a n/a Exit Only
+TetehumeraleDte 66.62 0.89 10.87 33.07 n/a n/a n/a n/a Allowed
+TetehumeraleGche 65.44 0.27 1.23 4.11 n/a n/a n/a n/a Allowed
+Thyroide 11.06 6.98 31.03 52.30 n/a n/a n/a n/a Allowed
+Trachee 27.29 11.46 22.89 38.87 n/a n/a n/a n/a Allowed
+BODY 23375.39 0.06 7.90 55.52 n/a n/a n/a n/a Allowed
+CTV cmi 7.87 48.11 50.93 55.52 n/a n/a n/a n/a Allowed
+CTV sein 429.71 27.61 48.64 54.13 n/a n/a n/a n/a Allowed
+CTV sous clav 44.00 47.80 50.16 53.28 n/a n/a n/a n/a Allowed
+CTV sus clav 61.22 47.10 50.13 54.34 n/a n/a n/a n/a Allowed
+Prothese sein 327.77 23.06 45.25 52.82 n/a n/a n/a n/a Allowed
+PTV cmi 23.16 42.46 50.01 55.52 31.37 58.67 1.11 53.46 n/a
+PTV sein 519.35 26.72 49.56 54.13 1.81 4.36 1.11 41.40 n/a
+PTV sous clav 102.66 39.48 49.76 53.30 8.48 19.02 1.11 44.60 n/a
+PTV sus clav 147.06 38.32 49.84 54.93 5.48 11.36 1.11 48.22 n/a
+TetehumeraleD+10 230.66 0.64 10.87 43.77 n/a n/a n/a n/a Allowed
+CanalMed+5 226.01 0.20 4.69 17.00 n/a n/a n/a n/a Exit Only
+Portacath 14.76 1.40 2.55 4.51 n/a n/a n/a n/a Exit Only
+VOI
+Plan Overview
+Page 3 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3Prothese-PTV 221.13 23.06 43.18 51.71 n/a n/a n/a n/a Allowed
+PTVTOTAL 781.90 26.72 49.64 55.52 n/a n/a n/a n/a Allowed
+RingPTVgg 460.38 6.10 39.39 54.51 n/a n/a n/a n/a Allowed
+RingPTVSein 876.35 8.53 36.97 53.95 n/a n/a n/a n/a Allowed
+bras 1533.33 0.17 2.66 36.31 n/a n/a n/a n/a Exit Only
+manque 117.10 38.13 49.44 53.27 9.25 25.81 1.11 35.85 n/a
+PTV inf 21.09 26.72 44.10 51.28 838.1
+5
+3813
+9.37
+1.11 2.20 n/a
+menton 94.70 0.65 2.41 7.41 n/a n/a n/a n/a Exit Only
+ptv sein-inf 498.26 38.13 49.79 54.13 n/a n/a n/a n/a Allowed
+All Target Regions n/a 26.72 49.64 55.52 0.00 0.00 0.00 0.00 n/a
+All Critical Regions n/a 0.06 7.99 55.52 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.07 1.97 42.40 0.00 0.00 0.00 0.00 n/a
+Plan Overview
+Page 4 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3DVH Dose (Gy) Dose (% of 50.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV sein 46.86 93.7 493.38 95.0 Dose (Gy) >= 47.50, Min: 45.00 46.86
+PTV sus clav 47.89 95.8 139.70 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.89
+PTV sous clav 47.37 94.7 97.53 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.37
+PTV cmi 47.17 94.3 22.00 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.17
+Canal Med 10.00 20.0 6.30 7.7 Volume (%) <= 10.0 7.7
+Coeur 15.00 30.0 27.43 4.4 Volume (%) <= 5.0, Max: 10.0 4.4
+Coeur 25.00 50.0 2.71 0.4 Volume (%) <= 0.0, Max: 5.0 0.4
+PoumonGche 5.00 10.0 278.68 30.3 Volume (%) <= 20.0, Max: 30.0 30.3
+PoumonDt 5.00 10.0 1007.67 83.7 Volume (%) <= 65.0, Max: 70.0 83.7
+PoumonDt 20.00 40.0 164.74 13.7 Volume (%) <= 15.0, Max: 18.0 13.7
+Poumons 5.00 10.0 1286.57 60.6 Volume (%) <= 42.0, Max: 50.0 60.6
+Poumons 20.00 40.0 164.72 7.8 Volume (%) <= 10.0, Max: 15.0 7.8
+Sein contro 5.00 10.0 236.34 29.2 Volume (%) <= 15.0, Max: 25.0 29.2
+TetehumeraleDte 33.07 66.1 0.00 0.0 Dose (Gy) <= 45.00, Max: 47.50 33.07
+Canal Med 14.06 28.1 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 14.06
+CanalMed+5 17.00 34.0 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 17.00
+PTV sus clav 51.89 103.8 2.94 2.0 Dose (Gy) <= 53.50 51.89
+PTV sous clav 51.89 103.8 2.05 2.0 Dose (Gy) <= 53.50 51.89
+PTV cmi 53.01 106.0 0.46 2.0 Dose (Gy) <= 53.50 53.01
+PTV sein 51.77 103.5 10.39 2.0
+manque 46.90 93.8 111.24 95.0
+ptv sein-inf 48.13 96.3 473.35 95.0
+Dx Vx Values
+Plan Overview
+Page 5 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-939 * 0.001
+-672 * 0.290
+-509 * 0.480
+13 * 1.000
+226 * 1.146
+455 * 1.331
+837 * 1.558
+1214 * 1.822
+30884 * 22.599
+Density
+Density Model: IUC-120kV
+Plan Overview
+Page 6 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3Name: Dalmasso, Celine
+23 Jun 2023, 11:58:04 AM (hr:min:sec)
+User ID: dalmasso
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+420639/4
+CAIGNET, Frederique
+Saved Deliverable by: CAIGNET, Frederique
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Patient Position: HFS Delivery Signature: uDH8Z YXbwA 
+Plan Overview
+Page 7 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3Report Snapshots
+Plan Overview
+Page 8 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) -325.000 -152.500 325.000
+Size (IECp, voxel) 512 175 512
+Spacing (IECp, mm) 1.27 2.50 1.27
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+15 Jun 2023, 10:56:04 AM (hr:min:sec) 175
+Scanner Model:
+Patient Position:
+Optima CT580
+HFS
+Series UID/Description Study UID/Description:
+1.2.840.113619.2.278.3.3523880722.317.1686804342.321 1.2.840.113619.2.278.3.3523880722.317.1686804342.316
+SEIN Droit Tomo + GG TDM therapie SPC
+Plan Overview
+Page 9 of 9 23 Jun 2023, 2:50:29 PM (hr:min:sec)
+Patient Name: LUCAS, MELANIE; Medical ID: 202211027; Plan Name: ParoiDgg2; Version: Accuray Precision 3.3.1.3

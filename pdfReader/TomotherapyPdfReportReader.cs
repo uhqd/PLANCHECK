@@ -271,6 +271,13 @@ namespace PlanCheck
                         trd.redLaserZoffset = Convert.ToDouble(sub5[0]);
                     }
 
+
+                    if (lines[i].Contains("Exit Only"))
+                    {
+                        string[] sub2 = lines[i].Split(' ');
+                        trd.blockedOAR.Add(sub2[0]);
+                    }
+
                     if (lines[i].Contains("Beam On Time"))
                     {
                         string[] sub2 = lines[i].Split(':');

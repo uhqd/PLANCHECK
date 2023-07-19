@@ -116,7 +116,7 @@ namespace PlanCheck {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PlanCheck_Beta_0006_0065.esapi;component/xaml_datas/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PlanCheck_Beta_0006_0073.esapi;component/xaml_datas/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\xaml_datas\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
