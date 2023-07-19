@@ -454,6 +454,8 @@ d3.ToString("0.##");   //24
             theProtocol = setProtocolDisplay(myFullFilename);
             //theProtocol = "Check-protocol: " + Path.GetFileNameWithoutExtension(myFullFilename);// a method to get the file name only (no extension)
             defaultProtocol.Text = theProtocol; // refresh display of default value
+            
+            _pinfo.lastUsedCheckProtocol = theProtocol;
         }
         private void OK_button_click(object sender, RoutedEventArgs e)
         {
@@ -741,7 +743,7 @@ d3.ToString("0.##");   //24
             cell = row.Cells[0];
             cell.AddParagraph("Check Protocol :");
             cell = row.Cells[1];
-            cell.AddParagraph();// le mettre dans pinfo
+            cell.AddParagraph(_pinfo.lastUsedCheckProtocol);
 
 
 

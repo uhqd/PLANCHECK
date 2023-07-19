@@ -60,7 +60,7 @@ namespace PlanCheck
         private bool positionReportFound;
         private int returnCode;
         public bool _advancedUserMode;
-
+        public string _lastUsedCheckProtocol;
         public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
         public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
 
@@ -714,7 +714,12 @@ namespace PlanCheck
         {
             get { return referenceWomanOARVolume; }
         }
-
+        public string lastUsedCheckProtocol
+        {
+            get { return _lastUsedCheckProtocol; }
+            set { _lastUsedCheckProtocol = value; }
+        }
+        
 
         #endregion
 
