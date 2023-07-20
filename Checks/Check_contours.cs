@@ -738,7 +738,7 @@ namespace PlanCheck
 
             #region Laterality
             Item_Result laterality = new Item_Result();
-            laterality.Label = "Lateralité";
+            laterality.Label = "Latéralité";
             laterality.ExpectedValue = "wip...";
 
             List<string> goodLaterality = new List<string>();
