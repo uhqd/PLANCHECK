@@ -864,8 +864,39 @@ d3.ToString("0.##");   //24
         private void createCheckListWord_button_Click(object sender, RoutedEventArgs e)
         {
 
-            //try
-            // {
+            #region loop on results count results of tests
+            int testOK = 0;
+            int testWarn = 0;
+            int testError = 0;
+            int testInfo = 0;
+            foreach (CheckScreen_Global csg in ListChecks)
+            {
+
+
+                foreach (Item_Result ir in csg.Items)
+                {
+                    if (ir.ResultStatus.Item1 == "OK")
+                    {
+                        testOK++;
+                    }
+                    if (ir.ResultStatus.Item1 == "X")
+                    {
+                        testError++;
+                    }
+                    if (ir.ResultStatus.Item1 == "INFO")
+                    {
+                        testInfo++;
+                    }
+                    if (ir.ResultStatus.Item1 == "WARNING")
+                    {
+                        testWarn++;
+                    }
+                }
+            }
+
+            #endregion
+
+           
             Microsoft.Office.Interop.Word.Application winword = new Microsoft.Office.Interop.Word.Application();
             winword.ShowAnimation = false;
             winword.Visible = false;
@@ -873,7 +904,7 @@ d3.ToString("0.##");   //24
             Microsoft.Office.Interop.Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
             DateTime myToday = DateTime.Now;
 
-            #region header
+            #region header of the document
             foreach (Microsoft.Office.Interop.Word.Section section in document.Sections)
             {
                 Microsoft.Office.Interop.Word.Range headerRange = section.Headers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
@@ -885,7 +916,7 @@ d3.ToString("0.##");   //24
             }
             #endregion
 
-            #region the footers into the document  
+            #region footers of the document  
             foreach (Microsoft.Office.Interop.Word.Section wordSection in document.Sections)
             {
                 //Get the footer range and add the footer details.  
@@ -898,14 +929,11 @@ d3.ToString("0.##");   //24
             }
             #endregion
 
-
+            #region first table general info 
             document.Content.SetRange(0, 0);
             Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
             para1.Range.Font.Size = 12;
             para1.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-
-
-            #region first table header 
 
             Microsoft.Office.Interop.Word.Table table1 = document.Tables.Add(para1.Range, 4, 4, ref missing, ref missing);
             table1.PreferredWidth = 450.0f;
@@ -963,269 +991,21 @@ d3.ToString("0.##");   //24
               */
             #endregion
 
-
-            #region loop on results count results of tests
-            int testOK = 0;
-            int testWarn = 0;
-            int testError = 0;
-            int testInfo = 0;
-            foreach (CheckScreen_Global csg in ListChecks)
-            {
-
-
-                foreach (Item_Result ir in csg.Items)
-                {
-                    if (ir.ResultStatus.Item1 == "OK")
-                    {
-                        testOK++;
-                    }
-                    if (ir.ResultStatus.Item1 == "X")
-                    {
-                        testError++;
-                    }
-                    if (ir.ResultStatus.Item1 == "INFO")
-                    {
-                        testInfo++;
-                    }
-                    if (ir.ResultStatus.Item1 == "WARNING")
-                    {
-                        testWarn++;
-                    }
-                }
-            }
-
+            #region result tables
+            drawTable("X", document, testError, WdColor.wdColorRed,false);
+            drawTable("WARNING", document,testWarn, WdColor.wdColorOrange,false);
+            drawTable("INFO", document, testInfo, WdColor.wdColorGray05,false);
+            drawTable("OK", document, testOK, WdColor.wdColorAqua,true);
             #endregion
 
-            #region error red table
-            if (testError > 0)
-            {
-                Microsoft.Office.Interop.Word.Paragraph para3 = document.Content.Paragraphs.Add(ref missing);
-                para3.Range.Text = "\n\nErreurs détéctés par Plancheck";
-                para3.Range.InsertParagraphAfter();
-                Microsoft.Office.Interop.Word.Table table3 = document.Tables.Add(para3.Range, testError + 1, 3, ref missing, ref missing);
-                table3.Borders.Enable = 1; // Enable table borders
-                table3.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
-
-                foreach (Microsoft.Office.Interop.Word.Row row in table3.Rows)
-                {
-                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
-                    {
-                        cell.Range.Font.Bold = 1;
-                        cell.Range.Font.Size = 8;
-                        cell.Shading.BackgroundPatternColor = WdColor.wdColorRed;
-                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-                    }
-                }
-
-
-                table3.Rows[1].Cells[1].Range.Text = "Test";
-                table3.Rows[1].Cells[2].Range.Text = "Résultats";
-                table3.Rows[1].Cells[3].Range.Text = "Check";
-
-                int testX = 1;
-                foreach (CheckScreen_Global csg in ListChecks)
-                {
-                    foreach (Item_Result ir in csg.Items)
-                    {
-                        if (ir.ResultStatus.Item1 == "X")
-                        {
-                            testX++;
-                            // column 1
-                            table3.Rows[testX].Cells[1].Range.Text = csg._title + " -> " + ir.Label;
-
-                            // column 2
-                            table3.Rows[testX].Cells[2].Range.Text = ir.MeasuredValue;/// + "\n"+ir.Infobulle;// Label;
-
-                            //column 3
-                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table3.Rows[testX].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
-                            checkboxControlN.Checked = false;
-                            checkboxControlN.Title = csg._title;
-                        }
-                    }
-                }
-            }
-            #endregion
-
-            #region warning orange table
-            if (testWarn > 0)
-            {
-                Microsoft.Office.Interop.Word.Paragraph para4 = document.Content.Paragraphs.Add(ref missing);
-                para4.Range.Text = "\n\nWARNING détectés par Plancheck";
-                para4.Range.InsertParagraphAfter();
-                Microsoft.Office.Interop.Word.Table table4 = document.Tables.Add(para4.Range, testWarn + 1, 3, ref missing, ref missing);
-                table4.Borders.Enable = 1; // Enable table borders
-                table4.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
-
-                foreach (Microsoft.Office.Interop.Word.Row row in table4.Rows)
-                {
-                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
-                    {
-                        cell.Range.Font.Bold = 1;
-                        cell.Range.Font.Size = 8;
-                        cell.Shading.BackgroundPatternColor = WdColor.wdColorOrange;
-                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-                    }
-                }
-
-
-                table4.Rows[1].Cells[1].Range.Text = "Test";
-                table4.Rows[1].Cells[2].Range.Text = "Résultats";
-                table4.Rows[1].Cells[3].Range.Text = "Check";
-
-                testWarn = 1;
-                foreach (CheckScreen_Global csg in ListChecks)
-                {
-                    foreach (Item_Result ir in csg.Items)
-                    {
-                        if (ir.ResultStatus.Item1 == "WARNING")
-                        {
-                            testWarn++;
-                            // column 1
-                            table4.Rows[testWarn].Cells[1].Range.Text = csg._title + " -> " + ir.Label;
-
-                            // column 2
-                            table4.Rows[testWarn].Cells[2].Range.Text = ir.MeasuredValue;// + "\n" + ir.Infobulle;// Label;
-
-                            //column 3
-                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table4.Rows[testWarn].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
-                            checkboxControlN.Checked = false;
-                            checkboxControlN.Title = csg._title;
-                        }
-                    }
-                }
-            }
-            #endregion
-
-            #region info grey table
-            if (testInfo > 0)
-            {
-                Microsoft.Office.Interop.Word.Paragraph para7 = document.Content.Paragraphs.Add(ref missing);
-                para7.Range.Text = "\n\nPoints INFO de Plancheck";
-                para7.Range.InsertParagraphAfter();
-                Microsoft.Office.Interop.Word.Table table7 = document.Tables.Add(para7.Range, testInfo + 1, 3, ref missing, ref missing);
-                table7.Borders.Enable = 1; // Enable table borders
-                table7.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
-
-                foreach (Microsoft.Office.Interop.Word.Row row in table7.Rows)
-                {
-                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
-                    {
-                        cell.Range.Font.Bold = 1;
-                        cell.Range.Font.Size = 8;
-                        cell.Range.ParagraphFormat.SpaceAfter = 0;
-                        cell.Shading.BackgroundPatternColor = WdColor.wdColorGray10;
-                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-                    }
-                }
-
-
-                table7.Rows[1].Cells[1].Range.Text = "Test";
-                table7.Rows[1].Cells[2].Range.Text = "Résultats";
-                table7.Rows[1].Cells[3].Range.Text = "Check";
-
-                testInfo = 1;
-                foreach (CheckScreen_Global csg in ListChecks)
-                {
-                    foreach (Item_Result ir in csg.Items)
-                    {
-                        if (ir.ResultStatus.Item1 == "INFO")
-                        {
-                            testInfo++;
-                            // column 1
-                            table7.Rows[testInfo].Cells[1].Range.Text = csg._title + " -> " + ir.Label;
-
-                            // column 2
-                            table7.Rows[testInfo].Cells[2].Range.Text = ir.MeasuredValue + "\n";// + ir.Infobulle;// Label;
-
-                            //column 3
-                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table7.Rows[testInfo].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
-                            checkboxControlN.Checked = false;
-                            checkboxControlN.Title = csg._title;
-                        }
-                    }
-                }
-            }
-            #endregion
-
-            #region green table
-            if (testOK > 0)
-            {
-                Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
-                para2.Range.Text = "\nPoints vérifiés par Plancheck";
-                para2.Range.InsertParagraphAfter();
-                Microsoft.Office.Interop.Word.Table table2 = document.Tables.Add(para2.Range, testOK + 1, 3, ref missing, ref missing);
-                table2.Borders.Enable = 1; // Enable table borders
-                table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
-
-                foreach (Microsoft.Office.Interop.Word.Row row in table2.Rows)
-                {
-                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
-                    {
-                        cell.Range.Font.Bold = 1;
-                        cell.Range.Font.Size = 8;
-                        cell.Shading.BackgroundPatternColor = WdColor.wdColorLightGreen;
-                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-                    }
-                }
-
-
-                table2.Rows[1].Cells[1].Range.Text = "Test";
-                table2.Rows[1].Cells[2].Range.Text = "Résultats";
-                table2.Rows[1].Cells[3].Range.Text = "Check";
-
-                testOK = 1;
-                foreach (CheckScreen_Global csg in ListChecks)
-                {
-                    foreach (Item_Result ir in csg.Items)
-                    {
-                        if (ir.ResultStatus.Item1 == "OK")
-                        {
-                            testOK++;
-                            // column 1
-                            table2.Rows[testOK].Cells[1].Range.Text = csg._title + " -> " + ir.Label;
-
-                            // column 2
-                            table2.Rows[testOK].Cells[2].Range.Text = ir.MeasuredValue;/// + "\n"+ir.Infobulle;// Label;
-
-                            //column 3
-                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table2.Rows[testOK].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
-                            checkboxControlN.Checked = true;
-                            checkboxControlN.Title = csg._title;
-                        }
-                    }
-                }
-            }
-            #endregion
-
-
+            #region cosmetic
             foreach (Microsoft.Office.Interop.Word.Paragraph paragraph in document.Paragraphs)
-            {
-                // Set the space after the paragraph to 0 (remove the space)
-                paragraph.SpaceAfter = 0;
+            {                
+                paragraph.SpaceAfter = 0; // Set the space after the paragraph to 0 (remove the space)
             }
-
-            #region exemple to add a checkbox
-
-            // Get the range to insert the checkbox
-            //            Range range = document.Range(0, 0);
-
-            // Add the checkbox content control
-            //          Microsoft.Office.Interop.Word.ContentControl checkboxControl = range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
-
-            // Set checkbox properties
-            //        checkboxControl.Checked = false;
-            //      checkboxControl.Title = "My Checkbox";
-
             #endregion
 
-
-
-
-            #region Save the document word  
+            #region Save the  word  document
             string textfilename = @"\\srv015\sf_com\simon_lu\temp\";
             textfilename += myToday.ToString();
             textfilename += "_temp1.docx";
@@ -1249,12 +1029,68 @@ d3.ToString("0.##");   //24
             //System.Runtime.InteropServices.Marshal.ReleaseComObject(winword);
 
             #endregion
-            /*}
-            catch
-            {
-                MessageBox.Show("Impossible d'ouvrir Microsoft word");
+            
 
-            }*/
+        }
+        private bool drawTable(string resultType, Microsoft.Office.Interop.Word.Document document,int nTests, WdColor color, bool checkboxStatus)
+        {
+            bool ok = true;
+            if (nTests == 0)
+                ok = false;
+            else
+            {
+                object missing = System.Reflection.Missing.Value;
+                Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
+                para2.Range.Text = "\nRésultats " + resultType + " Plancheck";
+                para2.Range.InsertParagraphAfter();
+                Microsoft.Office.Interop.Word.Table table2 = document.Tables.Add(para2.Range, nTests + 1, 3, ref missing, ref missing);
+                table2.Borders.Enable = 1; // Enable table borders
+                //table2.PreferredWidth = 450.0f; 
+                table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
+
+                foreach (Microsoft.Office.Interop.Word.Row row in table2.Rows)
+                {
+                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
+                    {
+                        cell.Range.Font.Bold = 1;
+                        cell.Range.Font.Size = 8;
+                        cell.Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
+                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+                    }
+                }
+
+
+                table2.Rows[1].Cells[1].Range.Text = "Test";
+                table2.Rows[1].Cells[2].Range.Text = "Résultats";
+                table2.Rows[1].Cells[3].Range.Text = "Check";
+
+                int testOK = 1;
+                foreach (CheckScreen_Global csg in ListChecks)
+                {
+                    foreach (Item_Result ir in csg.Items)
+                    {
+                        if (ir.ResultStatus.Item1 == resultType)
+                        {
+                            testOK++;
+                            // column 1
+                            table2.Rows[testOK].Cells[1].Range.Text = ir.Label; //csg._title + " -> " + ir.Label;
+
+                            // column 2
+                            table2.Rows[testOK].Cells[2].Range.Text = ir.MeasuredValue;/// + "\n"+ir.Infobulle;// Label;
+
+                            //column 3
+                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table2.Rows[testOK].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
+                            checkboxControlN.Checked = checkboxStatus;
+                            checkboxControlN.Title = csg._title;
+                        }
+                    }
+                }
+            }
+            return ok;
         }
     }
+
+
+   
 }
