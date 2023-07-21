@@ -103,7 +103,7 @@ namespace PlanCheck
 
             if (!_pinfo.doseCheckReportIsFound)
             {
-                if (!_pinfo.isHyperArc)
+                if (_pinfo.doseCheckIsNeeded)
                 {
                     allisgood = false;
                     ariaDocuments.MeasuredValue += "Dosecheck, ";

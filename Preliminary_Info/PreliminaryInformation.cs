@@ -47,7 +47,7 @@ namespace PlanCheck
         private bool _isModulated;
         private string _machine;
         private TomotherapyPdfReportReader _tprd;
-
+        private bool _dosecheckIsNeeded;
         private List<DateTime> dosimetrie = new List<DateTime>();
         private List<DateTime> dosecheck = new List<DateTime>();
         private List<DateTime> ficheDePosition = new List<DateTime>();
@@ -389,11 +389,11 @@ namespace PlanCheck
         private void getOARreferenceVolumes()
         {
 
-           
+
 
             referenceManOARVolume = new List<OARvolume>();
             referenceWomanOARVolume = new List<OARvolume>();
-            
+
             String pathOAR_W = Directory.GetCurrentDirectory() + @"\plancheck_data\volumeOARs\OAR-woman.csv";
             String pathOAR_M = Directory.GetCurrentDirectory() + @"\plancheck_data\volumeOARs\OAR-man.csv";
             string[] OARlinesW = File.ReadAllLines(pathOAR_W);
@@ -579,6 +579,26 @@ namespace PlanCheck
                 else
                     _treatmentType = "Technique non statique inconnue : pas de MLC !";
             }
+
+            #region dosecheck is needed ?
+            _dosecheckIsNeeded = true;
+            if (isHyperArc)
+                _dosecheckIsNeeded = false;
+            if (isTOMO && _ctx.Image.ImagingOrientation.ToString() == "Feet first")
+                _dosecheckIsNeeded = false;
+            string energy = "";
+            foreach (Beam be in ctx.PlanSetup.Beams)
+            {
+                if (!be.IsSetupField)
+                {
+                    energy = be.EnergyModeDisplayName;
+                }
+            }
+
+            if (isNOVA && isModulated && energy.Contains("6FFF"))
+                _dosecheckIsNeeded = false;
+            #endregion
+
             #endregion
 
         }
@@ -676,6 +696,10 @@ namespace PlanCheck
         {
             get { return _HYPERARC; }
         }
+        public bool doseCheckIsNeeded
+        {
+            get { return _dosecheckIsNeeded; }
+        }
         public string machine
         {
             get { return _machine; }
@@ -719,7 +743,7 @@ namespace PlanCheck
             get { return _lastUsedCheckProtocol; }
             set { _lastUsedCheckProtocol = value; }
         }
-        
+
 
         #endregion
 

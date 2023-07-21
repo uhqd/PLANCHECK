@@ -558,6 +558,14 @@ d3.ToString("0.##");   //24
                 var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_finalisation);
             }
+
+            Check_Uncheck_Test c_Uncheck = new Check_Uncheck_Test(_pinfo, _pcontext, rcp);
+            if (c_Uncheck.Result.Count > 0)
+            {
+                var check_point_uncheck = new CheckScreen_Global(c_Uncheck.Title, c_Uncheck.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                check_point_uncheck.Visibility = Visibility.Collapsed;
+                this.AddCheck(check_point_uncheck);
+            }
             #endregion
             //int i = 0;
 
@@ -869,6 +877,7 @@ d3.ToString("0.##");   //24
             int testWarn = 0;
             int testError = 0;
             int testInfo = 0;
+            int uncheckedTest = 0;
             foreach (CheckScreen_Global csg in ListChecks)
             {
 
@@ -891,12 +900,16 @@ d3.ToString("0.##");   //24
                     {
                         testWarn++;
                     }
+                    if (ir.ResultStatus.Item1 == "UNCHECK")
+                    {
+                        uncheckedTest++;
+                    }
                 }
             }
 
             #endregion
 
-           
+
             Microsoft.Office.Interop.Word.Application winword = new Microsoft.Office.Interop.Word.Application();
             winword.ShowAnimation = false;
             winword.Visible = false;
@@ -947,7 +960,10 @@ d3.ToString("0.##");   //24
                     cell.Range.Font.Size = 8;
                     cell.Shading.BackgroundPatternColor = WdColor.wdColorLightYellow;
                     cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                    cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+                    if (cell.ColumnIndex % 2 != 0)
+                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+                    else
+                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                 }
             }
 
@@ -979,28 +995,25 @@ d3.ToString("0.##");   //24
             temp = CurrentUserName.Replace(" ", "");
             table1.Rows[4].Cells[4].Range.Text = protocolOk[1];
 
-            /*   table1.Rows[1].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[2].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[3].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[4].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[5].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[6].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[7].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[8].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-               table1.Rows[9].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-              */
+
+
+
             #endregion
 
+
+
+
             #region result tables
-            drawTable("X", document, testError, WdColor.wdColorRed,false);
-            drawTable("WARNING", document,testWarn, WdColor.wdColorOrange,false);
-            drawTable("INFO", document, testInfo, WdColor.wdColorGray05,false);
-            drawTable("OK", document, testOK, WdColor.wdColorAqua,true);
+            drawTable("UNCHECK", document,uncheckedTest, WdColor.wdColorLightBlue, false);
+            drawTable("X", document, testError, WdColor.wdColorRed, false);
+            drawTable("WARNING", document, testWarn, WdColor.wdColorOrange, false);
+            drawTable("INFO", document, testInfo, WdColor.wdColorGray05, false);
+            drawTable("OK", document, testOK, WdColor.wdColorAqua, true);
             #endregion
 
             #region cosmetic
             foreach (Microsoft.Office.Interop.Word.Paragraph paragraph in document.Paragraphs)
-            {                
+            {
                 paragraph.SpaceAfter = 0; // Set the space after the paragraph to 0 (remove the space)
             }
             #endregion
@@ -1025,14 +1038,14 @@ d3.ToString("0.##");   //24
 
             // System.Runtime.InteropServices.Marshal.ReleaseComObject(checkboxControlN);
             //System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(document);
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(winword);
+        //    System.Runtime.InteropServices.Marshal.ReleaseComObject(document);
+          //  System.Runtime.InteropServices.Marshal.ReleaseComObject(winword);
 
             #endregion
-            
+
 
         }
-        private bool drawTable(string resultType, Microsoft.Office.Interop.Word.Document document,int nTests, WdColor color, bool checkboxStatus)
+        private bool drawTable(string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
         {
             bool ok = true;
             if (nTests == 0)
@@ -1077,7 +1090,8 @@ d3.ToString("0.##");   //24
                             table2.Rows[testOK].Cells[1].Range.Text = ir.Label; //csg._title + " -> " + ir.Label;
 
                             // column 2
-                            table2.Rows[testOK].Cells[2].Range.Text = ir.MeasuredValue;/// + "\n"+ir.Infobulle;// Label;
+                            table2.Rows[testOK].Cells[2].Range.Text = formatThatString(ir.MeasuredValue);// + "\n"+formatThisStringForTheCheckList(ir.Infobulle);// Label;
+
 
                             //column 3
                             Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table2.Rows[testOK].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
@@ -1089,8 +1103,23 @@ d3.ToString("0.##");   //24
             }
             return ok;
         }
-    }
+        private string formatThatString(string s)
+        {
+            s = s.Replace("\n", "");
+            s = s.Replace("  ", " ");
 
 
-   
-}
+            return s;
+
+        }
+
+
+
+
+
+
+    }// end class
+
+
+
+}/// end namespace

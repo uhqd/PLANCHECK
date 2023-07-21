@@ -45,7 +45,7 @@ namespace PlanCheck
             int nFalse = 0;
             int nWarning = 0;
             int nInfo = 0;
-
+            int nUncheck = 0;
             _globalresult_status = res.True;
             foreach (Item_Result i in _items)
             {
@@ -53,6 +53,7 @@ namespace PlanCheck
                 if (i.ResultStatus.Item1 == "WARNING") nWarning++;
                 if (i.ResultStatus.Item1 == "OK") nTrue++;
                 if (i.ResultStatus.Item1 == "INFO") nInfo++;
+                if (i.ResultStatus.Item1 == "UNCHECK") nUncheck++;// nInfo++;
 
             }
             if (nFalse > 0)  // si un item faux, global faux
@@ -61,12 +62,13 @@ namespace PlanCheck
                 _globalresult_status = res.Variation;
             else if (nTrue > 0)
                 _globalresult_status = res.True;
-            else
+            else if(nInfo > 0)
                 _globalresult_status = res.INFO;
-
+            else
+                _globalresult_status = res.UNCHECK;
             //Fill user control list to display it
-            
-                foreach (Item_Result item in _items)
+
+            foreach (Item_Result item in _items)
                 {
                     _listchecks_item.Add(new CheckScreen_Item(item));
                 }

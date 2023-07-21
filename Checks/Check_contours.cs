@@ -337,20 +337,20 @@ namespace PlanCheck
                     else
                     {
                         couchStructExist.setToWARNING();
-                        couchStructExist.MeasuredValue = "Absentes, vides ou UH incorrectes (voir infobulle)";
+                        couchStructExist.MeasuredValue = missingCouchStructures.Count + " struct. absentes, vides ou UH incorrectes (voir infobulle)";
                         if (missingCouchStructures.Count > 0)
-                            couchStructExist.Infobulle = "Structures attendues pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
+                            couchStructExist.Infobulle = missingCouchStructures.Count + " structures attendues pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
                         foreach (string ms in missingCouchStructures)
                             couchStructExist.Infobulle += " - " + ms + "\n";
                         if (wrongHUCouchStructures.Count > 0)
-                            couchStructExist.Infobulle += "Structures avec UH incorrectes :\n";
+                            couchStructExist.Infobulle += wrongHUCouchStructures + " structures avec UH incorrectes :\n";
                         foreach (string ms in wrongHUCouchStructures)
                             couchStructExist.Infobulle += " - " + ms + "\n";
 
                         if (mandatoryMissingCouchStructures.Count > 0)
                         {
                             couchStructExist.setToFALSE();
-                            couchStructExist.Infobulle += "\nAu moins une structure de table obligatoire est absente : \n";
+                            couchStructExist.Infobulle += "\n"+mandatoryMissingCouchStructures.Count+ " structure(s) de table obligatoire(s) absente(s) : \n";
                             foreach (string ms in mandatoryMissingCouchStructures)
                                 couchStructExist.Infobulle += " - " + ms + "\n";
                         }
@@ -444,20 +444,20 @@ namespace PlanCheck
                     if (wrongHUClinicalStructures.Count > 0)
                         clinicalStructuresItem.setToWARNING();
 
-                    clinicalStructuresItem.MeasuredValue = "Absentes, vides ou UH incorrectes (voir infobulle)";
+                    clinicalStructuresItem.MeasuredValue = missingClinicalStructures.Count+ " struct. absentes, vides ou UH incorrectes (voir infobulle)";
                     if (missingClinicalStructures.Count > 0)
-                        clinicalStructuresItem.Infobulle = "Structures attendues pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
+                        clinicalStructuresItem.Infobulle = missingClinicalStructures.Count+ "structure(s) attendue(s) pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
                     foreach (string ms in missingClinicalStructures)
                         clinicalStructuresItem.Infobulle += " - " + ms + "\n";
                     if (wrongHUClinicalStructures.Count > 0)
-                        clinicalStructuresItem.Infobulle += "Structures avec UH incorrectes :\n";
+                        clinicalStructuresItem.Infobulle += wrongHUClinicalStructures.Count + " structure(s) avec UH incorrectes :\n";
                     foreach (string ms in wrongHUClinicalStructures)
                         clinicalStructuresItem.Infobulle += " - " + ms + "\n";
 
                     if (mandatoryMissingClinicalStructures.Count > 0)
                     {
                         clinicalStructuresItem.setToFALSE();
-                        clinicalStructuresItem.Infobulle += "Structures obligatoires manquantes :\n";
+                        clinicalStructuresItem.Infobulle += mandatoryMissingClinicalStructures + " structure(s) obligatoire(s) manquante(s) :\n";
                         foreach (string ms in mandatoryMissingClinicalStructures)
                             clinicalStructuresItem.Infobulle += " - " + ms + "\n";
                     }
@@ -525,20 +525,20 @@ namespace PlanCheck
                 else
                 {
                     optStructuresItem.setToINFO();
-                    optStructuresItem.MeasuredValue = "Absentes, vides ou UH incorrectes (voir infobulle)";
+                    optStructuresItem.MeasuredValue = missingOptStructures.Count + " struct. absentes, vides ou UH incorrectes (voir infobulle)";
                     if (missingOptStructures.Count > 0)
-                        optStructuresItem.Infobulle = "Structures attendues pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
+                        optStructuresItem.Infobulle = missingOptStructures.Count + " structure(s) attendue(s) pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
                     foreach (string ms in missingOptStructures)
                         optStructuresItem.Infobulle += " - " + ms + "\n";
                     if (wrongHUOptStructures.Count > 0)
-                        optStructuresItem.Infobulle += "Structures avec UH incorrectes :\n";
+                        optStructuresItem.Infobulle += wrongHUOptStructures.Count + " structure(s) avec UH incorrectes :\n";
                     foreach (string ms in wrongHUOptStructures)
                         optStructuresItem.Infobulle += " - " + ms + "\n";
 
                     if (mandatoryMissingOptStructures.Count > 0)
                     {
                         optStructuresItem.setToFALSE();
-                        optStructuresItem.Infobulle += "Structures obligatoires manquantes : \n";
+                        optStructuresItem.Infobulle += mandatoryMissingOptStructures.Count + "structure(s) obligatoire(s) manquante(s) : \n";
                         foreach (string ms in mandatoryMissingOptStructures)
                             optStructuresItem.Infobulle += " - " + ms + "\n";
                     }
@@ -591,7 +591,7 @@ namespace PlanCheck
                 {
                     anormalVolumeItem.setToWARNING();
                     anormalVolumeItem.MeasuredValue = anormalVolumeList.Count.ToString() + " volumes anormaux détectés";
-                    anormalVolumeItem.Infobulle = "Les volumes des structures suivantes ne sont\npas dans l'intervalle habituel\n";
+                    anormalVolumeItem.Infobulle = "Les volumes de ces " + anormalVolumeList.Count + " structures ne sont\npas dans l'intervalle habituel\n";
                     foreach (string avs in anormalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
 
@@ -601,7 +601,7 @@ namespace PlanCheck
                 {
                     anormalVolumeItem.setToTRUE();
                     anormalVolumeItem.MeasuredValue = normalVolumeList.Count + " volumes de structures vérifiés";
-                    anormalVolumeItem.Infobulle = "Les volumes des structures suivantes sont\ndans l'intervalle habituel\n";
+                    anormalVolumeItem.Infobulle = "Les volumes de ces " + normalVolumeList.Count + " structures sont\ndans l'intervalle habituel\n";
                     foreach (string avs in normalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
 
@@ -669,8 +669,8 @@ namespace PlanCheck
                 if (uncorrectStructs.Count > 0)
                 {
                     shapeAnalyser.setToWARNING();
-                    shapeAnalyser.MeasuredValue = " Nombres de parties des structures incorrects";
-                    shapeAnalyser.Infobulle = "Les structures suivantes ont un de nombre de parties non-conforme :\n";
+                    shapeAnalyser.MeasuredValue = uncorrectStructs.Count + " structures avec un nombres de parties incorrect";
+                    shapeAnalyser.Infobulle = "Les " + uncorrectStructs.Count + " structures suivantes ont un de nombre de parties non-conforme :\n";
                     foreach (string s in uncorrectStructs)
                         shapeAnalyser.Infobulle += s + "\n";
                 }
@@ -720,7 +720,7 @@ namespace PlanCheck
                 }
                 if (structureswithAGap.Count > 0)
                 {
-                    missingSlicesItem.MeasuredValue = "Certaines structures présentent des contours manquants";
+                    missingSlicesItem.MeasuredValue = structureswithAGap.Count + " structures présentent des contours manquants";
                     missingSlicesItem.setToWARNING();
                     foreach (string s in structureswithAGap)
                         missingSlicesItem.Infobulle += s + "\n";
@@ -765,7 +765,7 @@ namespace PlanCheck
                 //if (es.laterality != "NONE")
                 if (expectedLateralty != "N")  // if a laterality is expected, i.e. left lung should be left
                 {
-//                    Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
+                    //                    Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
                     double xpos = 0.0;
                     if (s != null)
                         if (!s.IsEmpty)
@@ -796,10 +796,10 @@ namespace PlanCheck
 
             if (badLaterality.Count > 0)
             {
-                laterality.MeasuredValue = "Mauvaise latéralité (voir détail)";
+                laterality.MeasuredValue = badLaterality.Count + " struct. avec mauvaise latéralité (voir détail)";
                 laterality.setToFALSE();
 
-                laterality.Infobulle = "Ces structures sont attendues à gauche ou à droite et semblent du mauvais côté : \n";
+                laterality.Infobulle = badLaterality.Count + " structure(s) sont attendues à gauche ou à droite et semblent du mauvais côté : \n";
                 foreach (string s in badLaterality)
                     laterality.Infobulle += " - " + s + "\n";
             }
@@ -808,7 +808,7 @@ namespace PlanCheck
                 laterality.MeasuredValue = "Vérifiée pour " + goodLaterality.Count() + " structure(s)";
                 laterality.setToTRUE();
 
-                laterality.Infobulle = "Ces structures sont attendues à gauche ou à droite et semblent du bon côté : \n";
+                laterality.Infobulle = goodLaterality.Count() + " structures sont attendues à gauche ou à droite et semblent du bon côté : \n";
                 foreach (string s in goodLaterality)
                     laterality.Infobulle += " - " + s + "\n";
 
@@ -901,7 +901,7 @@ namespace PlanCheck
             {
                 aPTVforEveryone.setToFALSE();
                 aPTVforEveryone.MeasuredValue = CTVwithoutAnyPTV.Count.ToString() + " GTV/CTV/ITV(s) n'ont pas de PTV (ou un PTV trop petit)";
-                aPTVforEveryone.Infobulle = "Ces GTV/CTV n'ont pas de PTV : \n";
+                aPTVforEveryone.Infobulle = "Ces " + CTVwithoutAnyPTV.Count + " GTV/CTV n'ont pas de PTV : \n";
                 foreach (string s in CTVwithoutAnyPTV)
                     aPTVforEveryone.Infobulle += " - " + s + "\n";
             }
@@ -909,7 +909,7 @@ namespace PlanCheck
             {
                 aPTVforEveryone.setToTRUE();
                 aPTVforEveryone.MeasuredValue = CTVwithPTV.Count.ToString() + " GTV/CTV/ITV(s) détectés avec PTV";
-                aPTVforEveryone.Infobulle = "Ces GTV/CTV/ITV(s) ont tous un PTV : \n";
+                aPTVforEveryone.Infobulle = "Ces " + CTVwithPTV.Count + " GTV/CTV/ITV(s) ont tous un PTV : \n";
                 foreach (string s in CTVwithPTV)
                     aPTVforEveryone.Infobulle += " - " + s + "\n";
             }

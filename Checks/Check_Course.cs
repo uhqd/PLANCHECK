@@ -286,7 +286,7 @@ namespace PlanCheck
             if (anteriorTraitementList.Count > 0)
             {
                 anteriorTraitement.setToWARNING();
-                anteriorTraitement.MeasuredValue = anteriorTraitementList.Count.ToString() + " traitements antérieurs détéctés";
+                anteriorTraitement.MeasuredValue = anteriorTraitementList.Count.ToString() + " traitements antérieurs détectés";
                 anteriorTraitement.Infobulle = "Les plans suivants sont à l'état TreatmentApproved";
                 anteriorTraitement.Infobulle += "\nIl peut s'agir de traitements concomitants ou de traitements antérieurs :\n";
                 foreach (string s in anteriorTraitementList)
@@ -296,7 +296,7 @@ namespace PlanCheck
             else
             {
                 anteriorTraitement.setToTRUE();
-                anteriorTraitement.MeasuredValue = anteriorTraitementList.Count.ToString() + " traitement antérieur détécté";
+                anteriorTraitement.MeasuredValue = anteriorTraitementList.Count.ToString() + " traitement antérieur détecté";
                 anteriorTraitement.Infobulle = "Aucun Plan au status TreatmentApproved dans les courses du patient";
             }
 

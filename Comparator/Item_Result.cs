@@ -57,6 +57,10 @@ namespace PlanCheck
         {
             this.ResultStatus = ("OK", new SolidColorBrush(Colors.LightGreen));
         }
+        public void setToUNCHECK()
+        {
+            this.ResultStatus = ("UNCHECK", new SolidColorBrush(Colors.LightBlue));
+        }
         public void setToFALSE()
         {
             this.ResultStatus = ("X", new SolidColorBrush(Color.FromArgb(200, 255, 50, 50)));// .Red ?  fx -- LightSalmon
