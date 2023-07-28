@@ -76,17 +76,22 @@ namespace PlanCheck
                         um.setToFALSE();
 
                     //MessageBox.Show("IMRT " + n_um_per_gray);
+
+                    um.Infobulle = "En VMAT/IMRT warning si > 4.5 et ERREUR si > 5.";
+
                 }
                 else
                 {
-                    if (n_um_per_gray > 1.5)
+                    if (n_um_per_gray > 2)
                         um.setToFALSE();
+                    else if (n_um_per_gray > 1.5)
+                        um.setToWARNING();
                     else
                         um.setToTRUE();
+                    um.Infobulle = "En RTC/DCA  warning si > 1.5 et ERREUR si > 2.";
 
                 }
-                um.Infobulle = "Le nombre d'UM par cGy doit être < 1.5 en RT. En VMAT/IMRT warning si > 4.5 et ERREUR si > 5.";
-
+               
             }
             else // tomo
             {

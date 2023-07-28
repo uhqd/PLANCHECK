@@ -31,7 +31,7 @@ namespace PlanCheck
     /// </summary>
     public partial class MainWindow : System.Windows.Window
     {
-        #region Declarations
+        #region Variable Declarations of the class
 
         private PlanSetup _plan;
 
@@ -66,6 +66,7 @@ namespace PlanCheck
         public string OptimizationModel { get; set; }
         public List<UserControl> ListChecks { get; set; }
 
+        public static int resulTableRowIndex = 0;
         #endregion
 
         private String setProtocolDisplay(String filename)
@@ -878,6 +879,7 @@ d3.ToString("0.##");   //24
             int testError = 0;
             int testInfo = 0;
             int uncheckedTest = 0;
+            int nTests = 0;
             foreach (CheckScreen_Global csg in ListChecks)
             {
 
@@ -906,6 +908,7 @@ d3.ToString("0.##");   //24
                     }
                 }
             }
+            nTests = testOK + testError + testInfo + testWarn + uncheckedTest;
 
             #endregion
 
@@ -924,8 +927,8 @@ d3.ToString("0.##");   //24
                 headerRange.Fields.Add(headerRange, Microsoft.Office.Interop.Word.WdFieldType.wdFieldPage);
                 headerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
                 headerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdBlue;
-                headerRange.Font.Size = 18;
-                headerRange.Text = "Résultats Plancheck";
+                headerRange.Font.Size = 12;
+                headerRange.Text = "Checklist générée par Plancheck";
             }
             #endregion
 
@@ -947,6 +950,9 @@ d3.ToString("0.##");   //24
             Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
             para1.Range.Font.Size = 12;
             para1.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            para1.Range.Text = Environment.NewLine;
+            para1.Range.Text = Environment.NewLine;
+
 
             Microsoft.Office.Interop.Word.Table table1 = document.Tables.Add(para1.Range, 4, 4, ref missing, ref missing);
             table1.PreferredWidth = 450.0f;
@@ -958,7 +964,9 @@ d3.ToString("0.##");   //24
                 {
                     cell.Range.Font.Bold = 1;
                     cell.Range.Font.Size = 8;
-                    cell.Shading.BackgroundPatternColor = WdColor.wdColorLightYellow;
+
+                    var wdc = (WdColor)(229 + 0x100 * 243 + 0x10000 * 229); // pale green
+                    cell.Shading.BackgroundPatternColor = wdc;//WdColor.wdColorLightYellow;  // 229 243 229
                     cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
                     if (cell.ColumnIndex % 2 != 0)
                         cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
@@ -1000,16 +1008,38 @@ d3.ToString("0.##");   //24
 
             #endregion
 
-
+            para1.Range.Text = Environment.NewLine;  // line return
+            para1.Range.Text = Environment.NewLine;
+            para1.Range.Text = Environment.NewLine;  // line return
+            para1.Range.Text = Environment.NewLine;
 
 
             #region result tables
-            drawTable("UNCHECK", document,uncheckedTest, WdColor.wdColorLightBlue, false);
-            drawTable("X", document, testError, WdColor.wdColorRed, false);
-            drawTable("WARNING", document, testWarn, WdColor.wdColorOrange, false);
-            drawTable("INFO", document, testInfo, WdColor.wdColorGray05, false);
-            drawTable("OK", document, testOK, WdColor.wdColorAqua, true);
+            /*
+             drawTable("UNCHECK", document,uncheckedTest, WdColor.wdColorLightYellow, false);
+             drawTable("X", document, testError, WdColor.wdColorRed, false);
+             drawTable("WARNING", document, testWarn, WdColor.wdColorOrange, false);
+             drawTable("INFO", document, testInfo, WdColor.wdColorGray05, false);
+             drawTable("OK", document, resulTableRowIndex, WdColor.wdColorAqua, true);
+            */
             #endregion
+
+
+
+
+            // object missing = System.Reflection.Missing.Value;
+            Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
+            para2.Range.InsertParagraphAfter();
+            Microsoft.Office.Interop.Word.Table table2 = document.Tables.Add(para2.Range, nTests, 3, ref missing, ref missing);
+            table2.Borders.Enable = 1; // Enable table borders
+            table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
+
+            addToResultTable(table2, "UNCHECK", document, uncheckedTest, WdColor.wdColorLightYellow, false);
+            addToResultTable(table2, "X", document, testError, WdColor.wdColorRed, false);
+            addToResultTable(table2, "WARNING", document, testWarn, WdColor.wdColorOrange, false);
+            addToResultTable(table2, "INFO", document, testInfo, WdColor.wdColorGray05, false);
+            addToResultTable(table2, "OK", document, resulTableRowIndex, WdColor.wdColorAqua, true);
+
 
             #region cosmetic
             foreach (Microsoft.Office.Interop.Word.Paragraph paragraph in document.Paragraphs)
@@ -1025,7 +1055,7 @@ d3.ToString("0.##");   //24
             textfilename = textfilename.Replace(":", "_");
             textfilename = textfilename.Replace(" ", "_");
             textfilename = textfilename.Replace("/", "_");
-            MessageBox.Show(textfilename);
+            MessageBox.Show("Checklist préparée et  partiellement préremplie par Plancheck: \n" + textfilename);
             object filename = textfilename;
             document.SaveAs2(ref filename);
             document.Close(ref missing, ref missing, ref missing);
@@ -1038,13 +1068,92 @@ d3.ToString("0.##");   //24
 
             // System.Runtime.InteropServices.Marshal.ReleaseComObject(checkboxControlN);
             //System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
-        //    System.Runtime.InteropServices.Marshal.ReleaseComObject(document);
-          //  System.Runtime.InteropServices.Marshal.ReleaseComObject(winword);
+            //    System.Runtime.InteropServices.Marshal.ReleaseComObject(document);
+            try
+            {
 
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(winword);
+                //System.Runtime.InteropServices.Marshal.ReleaseComObject(checkboxControlN);
+
+                //System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(document);
+            }
+            catch
+            {
+                ;
+            }
             #endregion
 
 
         }
+        private bool addToResultTable(Microsoft.Office.Interop.Word.Table table2, string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
+        {
+            MessageBox.Show(resultType + " " + resulTableRowIndex.ToString());
+            bool ok = true;
+            if (nTests == 0)
+                ok = false;
+            else
+            {
+
+
+            /*    foreach (Microsoft.Office.Interop.Word.Row row in table2.Rows)
+                {
+                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
+                    {
+                        cell.Range.Font.Bold = 1;
+                        cell.Range.Font.Size = 8;
+                        cell.Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
+                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+                    }
+                }*/
+
+
+                foreach (CheckScreen_Global csg in ListChecks)
+                {
+                    foreach (Item_Result ir in csg.Items)
+                    {
+                        if (ir.ResultStatus.Item1 == resultType)
+                        {
+                            resulTableRowIndex++;
+                            // column 1
+                            table2.Rows[resulTableRowIndex].Cells[1].Range.Text = ir.Label; //csg._title + " -> " + ir.Label;
+                            table2.Rows[resulTableRowIndex].Cells[1].Range.Font.Bold = 1;
+                            table2.Rows[resulTableRowIndex].Cells[1].Range.Font.Size = 8;
+                            table2.Rows[resulTableRowIndex].Cells[1].Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
+                            table2.Rows[resulTableRowIndex].Cells[1].VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                            table2.Rows[resulTableRowIndex].Cells[1].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+
+                            // column 2
+                            table2.Rows[resulTableRowIndex].Cells[2].Range.Text = formatThatString(ir.MeasuredValue);// + "\n"+formatThisStringForTheCheckList(ir.Infobulle);// Label;
+                            table2.Rows[resulTableRowIndex].Cells[2].Range.Font.Bold = 0;
+                            table2.Rows[resulTableRowIndex].Cells[2].Range.Font.Size = 8;
+                            table2.Rows[resulTableRowIndex].Cells[2].Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
+                            table2.Rows[resulTableRowIndex].Cells[2].VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                            table2.Rows[resulTableRowIndex].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+
+                            //column 3
+                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table2.Rows[resulTableRowIndex].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
+                            table2.Rows[resulTableRowIndex].Cells[3].Range.Font.Bold = 0;
+                            table2.Rows[resulTableRowIndex].Cells[3].Range.Font.Size = 8;
+                            table2.Rows[resulTableRowIndex].Cells[3].Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
+                            table2.Rows[resulTableRowIndex].Cells[3].VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                            table2.Rows[resulTableRowIndex].Cells[3].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+
+
+
+                            checkboxControlN.Checked = checkboxStatus;
+                            checkboxControlN.Title = csg._title;
+                        }
+                    }
+                }
+            }
+            return ok;
+        }
+
         private bool drawTable(string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
         {
             bool ok = true;
@@ -1105,12 +1214,8 @@ d3.ToString("0.##");   //24
         }
         private string formatThatString(string s)
         {
-            s = s.Replace("\n", "");
             s = s.Replace("  ", " ");
-
-
             return s;
-
         }
 
 

@@ -311,7 +311,7 @@ namespace PlanCheck
                 averageForSBRT.MeasuredValue = _context.Image.Id;
 
 
-                if (_context.Image.Id.ToUpper().Contains("AVE") || _context.Image.Id.ToUpper().Contains("AVG"))
+                if (_context.Image.Id.ToUpper().Contains("AV"))
                 {
                     averageForSBRT.setToTRUE();
 
