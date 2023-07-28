@@ -1014,7 +1014,7 @@ d3.ToString("0.##");   //24
             para1.Range.Text = Environment.NewLine;
 
 
-            #region result tables
+            #region result tables (old)
             /*
              drawTable("UNCHECK", document,uncheckedTest, WdColor.wdColorLightYellow, false);
              drawTable("X", document, testError, WdColor.wdColorRed, false);
@@ -1034,11 +1034,18 @@ d3.ToString("0.##");   //24
             table2.Borders.Enable = 1; // Enable table borders
             table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
 
-            addToResultTable(table2, "UNCHECK", document, uncheckedTest, WdColor.wdColorLightYellow, false);
-            addToResultTable(table2, "X", document, testError, WdColor.wdColorRed, false);
-            addToResultTable(table2, "WARNING", document, testWarn, WdColor.wdColorOrange, false);
-            addToResultTable(table2, "INFO", document, testInfo, WdColor.wdColorGray05, false);
-            addToResultTable(table2, "OK", document, resulTableRowIndex, WdColor.wdColorAqua, true);
+
+            var wdcUncheck = (WdColor)(255 + 0x100 * 255 + 0x10000 * 213); // pale yellow
+            var wdcX = (WdColor)(252 + 0x100 * 85 + 0x10000 * 62); // pale red
+            var wdcWarn = (WdColor)(255 + 0x100 * 188 + 0x10000 * 143); // pale orange
+            var wdcInfo = WdColor.wdColorGray05;//pale gray
+            var wdcOk = (WdColor)(183 + 0x100 * 255 + 0x10000 * 183); // pale yellow
+
+            addToResultTable(table2, "UNCHECK", document, uncheckedTest, wdcUncheck, false);
+            addToResultTable(table2, "X", document, testError, wdcX, false);
+            addToResultTable(table2, "WARNING", document, testWarn, wdcWarn, false);
+            addToResultTable(table2, "INFO", document, testInfo, wdcInfo, false);
+            addToResultTable(table2, "OK", document, resulTableRowIndex, wdcOk, true);
 
 
             #region cosmetic
@@ -1088,7 +1095,7 @@ d3.ToString("0.##");   //24
         }
         private bool addToResultTable(Microsoft.Office.Interop.Word.Table table2, string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
         {
-            MessageBox.Show(resultType + " " + resulTableRowIndex.ToString());
+            //MessageBox.Show(resultType + " " + resulTableRowIndex.ToString());
             bool ok = true;
             if (nTests == 0)
                 ok = false;
