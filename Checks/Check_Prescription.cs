@@ -240,7 +240,12 @@ namespace PlanCheck
             Item_Result prescriptionName = new Item_Result();
             prescriptionName.Label = "Nom de la prescription";
             prescriptionName.MeasuredValue = _ctx.PlanSetup.RTPrescription.Id;
-            if (_ctx.PlanSetup.Id == _ctx.PlanSetup.RTPrescription.Id)
+            
+            String planName =  String.Concat(_ctx.PlanSetup.Id.Where(c => !Char.IsWhiteSpace(c))); // remove spaces
+            planName = planName.ToUpper();
+            String prescriptionId = String.Concat(_ctx.PlanSetup.RTPrescription.Id.Where(c => !Char.IsWhiteSpace(c)));
+            prescriptionId = prescriptionId.ToUpper();
+            if (planName == prescriptionId)
             {
                 //prescriptionName.MeasuredValue ="OK";
                 prescriptionName.setToTRUE();

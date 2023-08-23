@@ -1,26 +1,26 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : BARRIENDOS, FRANCOIS ID : 202302154 Date de naissance : mercredi 5 novembre 1941 Sexe : Masculin
+Nom : LEFFET, DANIEL ID : 202306750 Date de naissance : vendredi 20 juillet 1951 Sexe : Masculin
 Plan
-ID plan : STECPoumLSD
+ID plan : PoumonLSD_R1
 ID dossier de traitement : C1
-ID image : TDM Av6 190723
+ID image : TDM180823_AVG6
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.00cm, 0.00cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.00cm, -0.00cm, 0.25cm)
 Prescription de dose
-Volume cible : ITV 6 ph
-Valeur de normalisation du plan : 95.6 %
+Volume cible : PTV replan
+Valeur de normalisation du plan : 100.2 %
 Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : ITV 6 ph
+Point de référence principal : PTV HD
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 66.000 Gy (13.200 Gy / fraction)
-Dose au point de référence principal : 66.000 Gy (13.200 Gy / fraction)
-Nombre de fractions : 5
+Dose prescrite : 66.000 Gy (2.000 Gy / fraction)
+Dose au point de référence principal : 66.000 Gy (2.000 Gy / fraction)
+Nombre de fractions : 33
 Options de calcul
 Algorithme photon : Acuros_15605New
 AutomaticHighDensityMaterial__ Bone
@@ -33,12 +33,12 @@ MaximumAutomaticHighDensityVolumeInCM3__ 0.50
 PlanDoseCalculation OFF
 UseGPU Yes
 Approbations
-Plan créé : lundi 24 juillet 2023 16:18:58 par Lacaze Thierry
-Approbation du plan : mardi 25 juillet 2023 10:29:56 par Keller Audrey
-Patient : BARRIENDOS, FRANCOIS  (202302154) Imprimé le 25/07/2023 11:32 par admin\arnaud
-Dernière modification le mardi 25 juillet 2023 10:29:58 par Keller Audrey
+Plan créé : mardi 22 août 2023 09:43:49 par Lacaze Thierry
+Approbation du plan : mardi 22 août 2023 12:03:34 par Massabeau Carole
+Patient : LEFFET, DANIEL  (202306750) Imprimé le 22/08/2023 15:06 par admin\carillo
+Dernière modification le mardi 22 août 2023 12:03:38 par Massabeau Carole
 Dossier de traitement : C1
-Plan : STECPoumLSD  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Plan : PoumonLSD_R1  -  Planification approuvée Page : 1/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -73,168 +73,136 @@ Dose par fraction
 Profondeur physique
 Profondeur effective
 UM
-  ARCSTE  
-  NOVA5  
-6X-FFF 
-1400 UM/min
-3.0 cm x 3.7 cm
-X1: +1.5 cm 
-X2: +1.5 cm 
-Y1: +1.9 cm 
-Y2: +1.8 cm 
+  RA1  
+  NOVA3  
+6X 
+600 UM/min
+14.2 cm x 11.8 cm
+X1: +6.6 cm 
+X2: +7.6 cm 
+Y1: +6.3 cm 
+Y2: +5.5 cm 
+181.0 °
+SH
+0.0 °
+15.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-7.09 cm
+3.52 cm
+-0.23 cm
+92.6 cm
+0.661
+-
+PTV HD
+0.483 Gy
+-
+-
+131.9 UM
+  RA2  
+  NOVA3  
+6X 
+600 UM/min
+13.2 cm x 11.5 cm
+X1: +6.1 cm 
+X2: +7.1 cm 
+Y1: +6.0 cm 
+Y2: +5.5 cm 
 0.0 °
 SAH
 181.0 °
-0.0 °
+345.0 °
 0.0 °
  -
  -
-0364
+0367
 -
 -
 -
 -
--6.67 cm
-5.64 cm
-9.04 cm
-84.8 cm
-1.000
+-7.09 cm
+3.52 cm
+-0.23 cm
+90.6 cm
+0.673
 -
-ITV 6 ph
-13.200 Gy
+PTV HD
+0.492 Gy
 -
 -
-2130.8 UM
-  antsetup  
-  NOVA5  
+134.4 UM
+  RA3  
+  NOVA3  
 6X 
 600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
+11.4 cm x 14.0 cm
+X1: +6.0 cm 
+X2: +5.4 cm 
+Y1: +7.5 cm 
+Y2: +6.5 cm 
+181.0 °
+SH
 0.0 °
--
--
-0.0 °
+105.0 °
 0.0 °
  -
  -
+0367
 -
 -
 -
 -
+-7.09 cm
+3.52 cm
+-0.23 cm
+92.6 cm
+0.676
 -
--6.67 cm
-5.64 cm
-9.04 cm
-84.8 cm
-0.000
--
-ITV 6 ph
--
--
+PTV HD
+0.495 Gy
 -
 -
-  cbct  
-  NOVA5  
+135.0 UM
+  RA4  
+  NOVA3  
 6X 
 600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
+11.5 cm x 14.5 cm
+X1: +5.9 cm 
+X2: +5.6 cm 
+Y1: +8.0 cm 
+Y2: +6.5 cm 
 0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.67 cm
-5.64 cm
-9.04 cm
-87.2 cm
-0.000
--
-ITV 6 ph
--
--
--
--
-  latdtsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
+SAH
+181.0 °
+75.0 °
 0.0 °
  -
  -
+0367
 -
 -
 -
 -
+-7.09 cm
+3.52 cm
+-0.23 cm
+90.6 cm
+0.724
 -
--6.67 cm
-5.64 cm
-9.04 cm
-87.2 cm
-0.000
--
-ITV 6 ph
--
--
+PTV HD
+0.529 Gy
 -
 -
-  latgsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.67 cm
-5.64 cm
-9.04 cm
-73.1 cm
-0.000
--
-ITV 6 ph
--
--
--
--
+144.5 UM
   postsetup  
-  NOVA5  
+  NOVA3  
 6X 
 600 UM/min
 10.0 cm x 10.0 cm
@@ -254,69 +222,216 @@ Y2: +5.0 cm
 -
 -
 -
--6.67 cm
-5.64 cm
-9.04 cm
-92.5 cm
+-7.09 cm
+3.52 cm
+-0.23 cm
+92.6 cm
 0.000
 -
-ITV 6 ph
+PTV HD
 -
 -
 -
 -
-Patient : BARRIENDOS, FRANCOIS  (202302154) Imprimé le 25/07/2023 11:32 par admin\arnaud
-Dernière modification le mardi 25 juillet 2023 10:29:58 par Keller Audrey
+  latdtsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+270.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.09 cm
+3.52 cm
+-0.23 cm
+86.7 cm
+0.000
+-
+PTV HD
+-
+-
+-
+-
+  antsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.09 cm
+3.52 cm
+-0.23 cm
+90.6 cm
+0.000
+-
+PTV HD
+-
+-
+-
+-
+  latgsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.09 cm
+3.52 cm
+-0.23 cm
+73.1 cm
+0.000
+-
+PTV HD
+-
+-
+-
+-
+  cbct  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.09 cm
+3.52 cm
+-0.23 cm
+92.6 cm
+0.000
+-
+PTV HD
+-
+-
+-
+-
+Patient : LEFFET, DANIEL  (202306750) Imprimé le 22/08/2023 15:06 par admin\carillo
+Dernière modification le mardi 22 août 2023 12:03:38 par Massabeau Carole
 Dossier de traitement : C1
-Plan : STECPoumLSD  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Plan : PoumonLSD_R1  -  Planification approuvée Page : 2/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.00cm, 0.00cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.00cm, -0.00cm, 0.25cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  ARCSTE  antsetup  latgsetup  postsetup  latdtsetup  cbct  
+Champs de l'isocentre :  RA1  RA2  RA3  RA4  postsetup  latdtsetup  antsetup  latgsetup  cbct  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 6.67 5.64 9.04
-Direction : Droite Haut Sortie [Out]
+Décaler [cm] : 7.09 3.52 0.23
+Direction : Droite Haut Entrée [In]
  
  
 Erreurs et avertissements concernant le calcul :
-Patient : BARRIENDOS, FRANCOIS  (202302154) Imprimé le 25/07/2023 11:32 par admin\arnaud
-Dernière modification le mardi 25 juillet 2023 10:29:58 par Keller Audrey
+Patient : LEFFET, DANIEL  (202306750) Imprimé le 22/08/2023 15:06 par admin\carillo
+Dernière modification le mardi 22 août 2023 12:03:38 par Massabeau Carole
 Dossier de traitement : C1
-Plan : STECPoumLSD  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Plan : PoumonLSD_R1  -  Planification approuvée Page : 3/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: BARRIENDOS, FRANCOIS  
-Patient IDs: 202302154
+Patient: LEFFET, DANIEL  
+Patient IDs: 202306750
 Comment:
 Plan Plan Course Plan History
-STECPoumLSD C1 Last Modified: mardi 25 juillet 2023 10:29:58 by Keller Audrey
-Planification approuvée: mardi 25 juillet 2023 10:29:56 by Keller Audrey
+PoumonLSD_R1 C1 Last Modified: mardi 22 août 2023 12:03:38 by Massabeau Carole
+Planification approuvée: mardi 22 août 2023 12:03:34 by Massabeau Carole
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-ITV 6 ph Approuvée 100.0 / 100.6 1.4 cm³ 61.6 Gy 69.2 Gy 66.0 Gy 66.1 Gy 66.0 Gy 1.6 Gy
-PTV 6ph Approuvée 100.0 / 99.9 7.5 cm³ 52.5 Gy 69.2 Gy 61.2 Gy 59.5 Gy 61.1 Gy 3.5 Gy
-D2cm Approuvée 100.0 / 100.2 23.4 cm³ 0.9 Gy 24.3 Gy 11.7 Gy 1.0 Gy 14.0 Gy 7.3 Gy
-Patient: BARRIENDOS, FRANCOIS    (202302154) Printed mardi 25 juillet 2023 11:33:30 by Arnaud Francois Xavier
+PlexusGche Approuvée 100.0 / 99.9 11.1 cm³ 0.5 Gy 11.9 Gy 5.7 Gy 6.3 Gy 6.3 Gy 2.3 Gy
+PlexusDt Approuvée 100.0 / 99.8 11.2 cm³ 0.7 Gy 60.2 Gy 35.2 Gy 1.8 Gy 46.0 Gy 19.8 Gy
+Canal Med Approuvée 100.0 / 99.9 64.5 cm³ 0.0 Gy 43.7 Gy 7.1 Gy 0.1 Gy 0.6 Gy 11.2 Gy
+Patient: LEFFET, DANIEL    (202306750) Printed mardi 22 août 2023 15:06:48 by Carillo Fabienne
 Course: C1
-Plan: STECPoumLSD  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Plan: PoumonLSD_R1  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PBT Approuvée 100.0 / 99.7 29.2 cm³ 0.1 Gy 0.6 Gy 0.3 Gy 0.1 Gy 0.3 Gy 0.1 Gy
-Oesophage Approuvée 100.0 / 99.9 39.0 cm³ 0.0 Gy 6.3 Gy 0.7 Gy 0.0 Gy 0.1 Gy 1.6 Gy
-Canal Med Approuvée 100.0 / 100.2 86.3 cm³ 0.0 Gy 7.4 Gy 0.6 Gy 0.0 Gy 0.1 Gy 1.5 Gy
-Canal+5 Approuvée 100.0 / 100.0 222.3 cm³ 0.0 Gy 8.3 Gy 0.6 Gy 0.0 Gy 0.1 Gy 1.5 Gy
-Gros vaisseaux Approuvée 100.0 / 100.0 238.5 cm³ 0.0 Gy 5.8 Gy 0.6 Gy 0.0 Gy 0.2 Gy 1.2 Gy
-Estomac Approuvée 100.0 / 100.0 410.8 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Coeur Approuvée 100.0 / 100.0 745.0 cm³ 0.0 Gy 0.3 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.0 Gy
-PoumonDt Approuvée 100.0 / 100.0 2642.8 cm³ 0.0 Gy 69.2 Gy 2.3 Gy 0.1 Gy 0.2 Gy 6.4 Gy
-PoumonGche Approuvée 100.0 / 100.0 2658.7 cm³ 0.0 Gy 5.5 Gy 0.5 Gy 0.1 Gy 0.1 Gy 0.8 Gy
-ParoiThoracique Approuvée 100.0 / 100.0 2908.6 cm³ 0.0 Gy 52.6 Gy 1.1 Gy 0.0 Gy 0.1 Gy 3.4 Gy
-Poumons-PTV Approuvée 100.0 / 100.0 5293.9 cm³ 0.0 Gy 61.3 Gy 1.3 Gy 0.1 Gy 0.1 Gy 4.0 Gy
+CanalMed+5 Approuvée 100.0 / 100.2 197.4 cm³ 0.0 Gy 64.9 Gy 7.5 Gy 0.1 Gy 0.7 Gy 12.3 Gy
+PTV replan Approuvée 100.0 / 100.0 370.0 cm³ 56.3 Gy 71.9 Gy 66.0 Gy 65.9 Gy 66.0 Gy 0.8 Gy
+Coeur Approuvée 100.0 / 100.0 557.2 cm³ 0.2 Gy 1.3 Gy 0.5 Gy 0.3 Gy 0.4 Gy 0.2 Gy
+PoumonDt Approuvée 100.0 / 100.0 2736.0 cm³ 0.1 Gy 69.8 Gy 8.1 Gy 0.4 Gy 0.8 Gy 17.1 Gy
+Poumons-PTV Approuvée 100.0 / 100.0 4983.8 cm³ 0.1 Gy 67.7 Gy 5.1 Gy 0.4 Gy 0.8 Gy 11.1 Gy
+Poumons-GTV Approuvée 100.0 / 100.0 5057.0 cm³ 0.1 Gy 69.7 Gy 6.0 Gy 0.4 Gy 0.8 Gy 13.2 Gy
+BODY Approuvée 100.0 / 100.1 27669.9 cm³ 0.0 Gy 71.9 Gy 5.2 Gy 0.0 Gy 0.4 Gy 12.4 Gy
+iGTV N replan Approuvée 100.0 / 100.6 0.4 cm³ 64.6 Gy 68.2 Gy 66.0 Gy 65.7 Gy 65.9 Gy 0.6 Gy
+CTV N replan Approuvée 100.0 / 100.3 2.5 cm³ 63.7 Gy 68.9 Gy 66.3 Gy 65.9 Gy 66.2 Gy 0.8 Gy
+iGTVnodule Approuvée 100.0 / 99.7 5.0 cm³ 63.5 Gy 68.4 Gy 65.9 Gy 65.7 Gy 65.8 Gy 0.6 Gy
+PAC Approuvée 100.0 / 99.8 13.4 cm³ 0.0 Gy 23.0 Gy 9.5 Gy 0.0 Gy 11.1 Gy 5.0 Gy
+Larynx Approuvée 100.0 / 99.8 16.5 cm³ 0.4 Gy 7.1 Gy 2.1 Gy 1.3 Gy 1.5 Gy 1.4 Gy
+Thyroide Approuvée 100.0 / 100.2 21.7 cm³ 3.3 Gy 31.7 Gy 18.5 Gy 17.2 Gy 18.3 Gy 5.5 Gy
+CTV nodule Approuvée 100.0 / 100.1 23.5 cm³ 58.4 Gy 70.2 Gy 66.0 Gy 65.9 Gy 66.0 Gy 0.6 Gy
+Trachee Approuvée 100.0 / 100.0 43.9 cm³ 1.4 Gy 44.9 Gy 18.6 Gy 2.0 Gy 16.7 Gy 11.0 Gy
+Oesophage Approuvée 100.0 / 100.2 44.0 cm³ 0.2 Gy 55.3 Gy 12.3 Gy 0.2 Gy 2.2 Gy 14.9 Gy
+Duodenum Approuvée 100.0 / 100.6 65.4 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+iGTV T replan Approuvée 100.0 / 100.0 107.9 cm³ 62.9 Gy 69.9 Gy 65.9 Gy 65.9 Gy 65.9 Gy 0.6 Gy
+Estomac Approuvée 100.0 / 100.0 185.1 cm³ 0.1 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
+CTVparoi Approuvée 100.0 / 100.0 212.7 cm³ 58.2 Gy 70.7 Gy 66.0 Gy 65.9 Gy 66.0 Gy 0.7 Gy
+CTV total replan Approuvée 100.0 / 100.0 228.8 cm³ 58.2 Gy 70.7 Gy 66.0 Gy 65.9 Gy 66.0 Gy 0.7 Gy
+PTV HD Approuvée 100.0 / 100.0 370.0 cm³ 56.3 Gy 71.9 Gy 66.0 Gy 65.9 Gy 66.0 Gy 0.8 Gy
+RingPTVHD Approuvée 100.0 / 100.0 443.2 cm³ 5.5 Gy 69.4 Gy 50.7 Gy 64.1 Gy 54.3 Gy 13.0 Gy
+Ring2 Approuvée 100.0 / 100.0 615.2 cm³ 0.0 Gy 61.5 Gy 30.7 Gy 0.0 Gy 32.0 Gy 15.4 Gy
+ParoiThoraciqueD Approuvée 100.0 / 100.0 1060.4 cm³ 0.0 Gy 71.9 Gy 9.6 Gy 0.1 Gy 0.4 Gy 21.1 Gy
+ParoiThoraciqueG Approuvée 100.0 / 100.0 1079.7 cm³ 0.0 Gy 29.5 Gy 2.3 Gy 0.1 Gy 0.4 Gy 4.1 Gy
+Foie Approuvée 100.0 / 100.1 1440.9 cm³ 0.0 Gy 0.4 Gy 0.2 Gy 0.0 Gy 0.1 Gy 0.1 Gy
+PoumonGche Approuvée 100.0 / 100.0 2320.3 cm³ 0.1 Gy 36.1 Gy 3.6 Gy 0.3 Gy 0.7 Gy 5.5 Gy
+PoumonDt-PTV+1 Approuvée 100.0 / 100.0 2537.1 cm³ 0.1 Gy 61.4 Gy 4.1 Gy 0.4 Gy 0.7 Gy 9.5 Gy
+Poumons Approuvée 100.0 / 100.0 5056.3 cm³ 0.1 Gy 69.8 Gy 6.0 Gy 0.4 Gy 0.8 Gy 13.3 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - STECPoumLSD C1 66.000 Gy 13.200 Gy 5 66.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 95.6 %
-Patient: BARRIENDOS, FRANCOIS    (202302154) Printed mardi 25 juillet 2023 11:33:30 by Arnaud Francois Xavier
+- - - PoumonLSD_R1C1 66.000 Gy 2.000 Gy 33 66.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.2 %
+Patient: LEFFET, DANIEL    (202306750) Printed mardi 22 août 2023 15:06:48 by Carillo Fabienne
 Course: C1
-Plan: STECPoumLSD  -  Planification approuvée Page: 2/2
+Plan: PoumonLSD_R1  -  Planification approuvée Page: 2/2

@@ -13,10 +13,13 @@ namespace PlanCheck
     {
         private ScriptContext _ctx;
         private PreliminaryInformation _pinfo;
-        public Check_UM(PreliminaryInformation pinfo, ScriptContext ctx)  //Constructor
+
+        private read_check_protocol _rcp;
+        public Check_UM(PreliminaryInformation pinfo, ScriptContext ctx, read_check_protocol rcp)  //Constructor
         {
             _ctx = ctx;
             _pinfo = pinfo;
+            _rcp = rcp;
             Check();
 
         }
@@ -24,6 +27,8 @@ namespace PlanCheck
         private List<Item_Result> _result = new List<Item_Result>();
         // private PreliminaryInformation _pinfo;
         private string _title = "UM";
+        double n_um = 0.0;
+        double n_um_per_gray = 0.0;
 
         public void Check()
         {
@@ -38,8 +43,8 @@ namespace PlanCheck
             if (!_pinfo.isTOMO)
             {
 
-                double n_um = 0.0;
-                double n_um_per_gray = 0.0;
+                n_um = 0.0;
+                n_um_per_gray = 0.0;
                 String myMLCType = null;
 
                 foreach (Beam b in _ctx.PlanSetup.Beams)
@@ -91,7 +96,7 @@ namespace PlanCheck
                     um.Infobulle = "En RTC/DCA  warning si > 1.5 et ERREUR si > 2.";
 
                 }
-               
+
             }
             else // tomo
             {
@@ -115,6 +120,59 @@ namespace PlanCheck
 
             this._result.Add(um);
 
+            #endregion
+
+            #region UM fluence etendue ?
+            if ((_ctx.PlanSetup.Id.Contains("FE"))&& (_rcp.protocolName == "sein"))
+            {
+                Item_Result FE = new Item_Result();
+                FE.Label = "Fluence étendue";
+                FE.ExpectedValue = "EN COURS";
+                double nUmWithNoFE = 0.0;
+
+                string planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
+
+                #region get UM of the plan without FE in name
+                foreach (PlanSetup p in _ctx.Course.PlanSetups)
+                {
+                    if (p.Id == planIdwithoutFE)
+                    {
+
+                        foreach (Beam b in p.Beams)
+                        {
+                            if (!b.IsSetupField)
+                            {
+
+
+
+                                nUmWithNoFE += Math.Round(b.Meterset.Value, 1);
+                            }
+                        }
+
+                    }
+
+                }
+                #endregion
+                double diff = 100 * Math.Abs(n_um - nUmWithNoFE) / nUmWithNoFE;
+                FE.MeasuredValue = n_um.ToString() + " UM vs. " + nUmWithNoFE.ToString() + " UM (" + diff.ToString("F2") + "%)";
+                FE.Infobulle = " La différence d'UM avec le plan " + planIdwithoutFE + " doit être < 10%";
+                if (diff > 10)
+                {
+
+                    FE.setToFALSE();
+
+
+                }
+                else
+                {
+
+                    FE.setToTRUE();
+
+
+                }
+
+                this._result.Add(FE);
+            }
             #endregion
 
             #region UM Champs filtrés ?

@@ -230,7 +230,7 @@ namespace PlanCheck
                         if (outputUnit == "%")
                         {
                             myDrel_something = _ctx.PlanSetup.GetDoseAtVolume(s, myD, VolumePresentation.AbsoluteCm3, DoseValuePresentation.Relative);
-                            result = myDrel_something.Dose / _rcp.prescriptionPercentageDouble; 
+                            result = myDrel_something.Dose / _rcp.prescriptionPercentageDouble;
                         }
                         else if (outputUnit == "Gy")
                         {
@@ -398,14 +398,21 @@ namespace PlanCheck
                                         result = getValueForThisObjective(s, dvh, theObjective, theUnit); // no need to pass the value, just the indicator and the output unit
                                         if (isInfObj)
                                         {
-                                            if (result <= theValueDouble)//success
-                                                successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                            else // failed
-                                                failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
 
+                                            if (result <= theValueDouble)//success
+                                            {
+                                                successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                                               // MessageBox.Show("INF " + s.Id + " " + result + " " + theValueDouble + " success");
+                                            }
+                                            else // failed
+                                            {
+                                                failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                                                //MessageBox.Show("INF " + s.Id + " " + result + " " + theValueDouble + " success");
+                                            }
                                         }
                                         else if (isSupObj)
                                         {
+                                            //MessageBox.Show("SUP " + s.Id + " " + result + " " + theValueDouble);
                                             if (result >= theValueDouble)//success
                                                 successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
                                             else // failed

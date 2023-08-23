@@ -457,7 +457,7 @@ namespace PlanCheck
                     if (mandatoryMissingClinicalStructures.Count > 0)
                     {
                         clinicalStructuresItem.setToFALSE();
-                        clinicalStructuresItem.Infobulle += mandatoryMissingClinicalStructures + " structure(s) obligatoire(s) manquante(s) :\n";
+                        clinicalStructuresItem.Infobulle += mandatoryMissingClinicalStructures.Count + " structure(s) obligatoire(s) manquante(s) :\n";
                         foreach (string ms in mandatoryMissingClinicalStructures)
                             clinicalStructuresItem.Infobulle += " - " + ms + "\n";
                     }
@@ -648,20 +648,29 @@ namespace PlanCheck
 
                             // if (es.expectedNumberOfPart != 9999) // expected number of parts exists
                             //{
-                            int n = struct1.GetNumberOfSeparateParts();
-                            bool nExpectedPartsisOk = nPartsIsOk(struct1.Id, n, _ctx.Patient.Sex);
+                            //                            MessageBox.Show("analyse du nombre de parties de " + struct1.Id);
+                            try
+                            {
+                                int n = struct1.GetNumberOfSeparateParts();
+                                bool nExpectedPartsisOk = nPartsIsOk(struct1.Id, n, _ctx.Patient.Sex);
 
-                            //if (n != es.expectedNumberOfPart)
-                            if (nExpectedPartsisOk)
-                            {
-                                correctStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
-                                //                                uncorrectStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                                //if (n != es.expectedNumberOfPart)
+                                if (nExpectedPartsisOk)
+                                {
+                                    correctStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
+                                    //                                uncorrectStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                                }
+                                else
+                                {
+                                    uncorrectStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
+                                    //correctStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                                }
                             }
-                            else
+                            catch
                             {
-                                uncorrectStructs.Add(struct1.Id + " :\t\t" + n + " parties)");
-                                //correctStructs.Add(es.Name + " comporte " + n + " parties (attendu : " + es.expectedNumberOfPart + ")");
+                                //none
                             }
+
                             //}
 
                         }

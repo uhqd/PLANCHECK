@@ -60,6 +60,88 @@ namespace PlanCheck
 
             #endregion
 
+            #region Sens des arcs
+            if (_pinfo.treatmentType == "VMAT")
+            {
+                Item_Result RAdirection = new Item_Result();
+                RAdirection.Label = "Sens des arcs";
+
+                RAdirection.ExpectedValue = "none";
+                int nbeams = 0;
+                bool isOk = true;
+                string temp = "";
+                foreach (Beam b in _ctx.PlanSetup.Beams)
+                {
+                    if (!b.IsSetupField)
+                    {
+                        nbeams++;
+                        string directionOfThisOne = b.GantryDirection.ToString().ToUpper();
+
+                        if (directionOfThisOne == temp)
+                            isOk = false;
+
+                        if (directionOfThisOne == "CLOCKWISE")
+                            RAdirection.MeasuredValue += "CC, ";
+                        else
+                            RAdirection.MeasuredValue += "CCW, ";
+
+                        temp = directionOfThisOne;
+
+                    }
+
+
+                }
+
+                RAdirection.MeasuredValue = nbeams.ToString() + " arcs: " + RAdirection.MeasuredValue;
+                if (isOk)
+                    RAdirection.setToTRUE();
+                else
+                    RAdirection.setToWARNING();
+                RAdirection.Infobulle = "Les arcs doivent être alternativement dans le sens horaire (CW) et antihoraire (CCW)";
+                this._result.Add(RAdirection);
+            }
+            #endregion
+
+            #region Colli non nul en VMAT
+            if (_pinfo.treatmentType == "VMAT")
+            {
+                Item_Result colli = new Item_Result();
+                colli.Label = "Collimateur RA";
+
+                colli.ExpectedValue = "none";
+                int nbeams = 0;
+                bool isOk = true;
+                foreach (Beam b in _ctx.PlanSetup.Beams)
+                {
+                    if (!b.IsSetupField)
+                    {
+                        nbeams++;
+                        foreach (ControlPoint cp in b.ControlPoints)
+                        {
+                            if (cp.CollimatorAngle == 0.0)
+                                isOk = false;
+                        }
+
+                    }
+
+
+                }
+
+                
+                if (isOk)
+                {
+                    colli.MeasuredValue = "Pas de collimateur à 0° pour les " + nbeams + " champs RA";
+                    colli.setToTRUE();
+                }
+                else
+                {
+                    colli.MeasuredValue = "Au moins un CP avec collimateur à 0°";
+                    colli.setToFALSE();
+                }
+                colli.Infobulle = "Le collimateur ne doit pas être à 0° pour les champs RA ";
+                this._result.Add(colli);
+            }
+            #endregion
 
         }
 

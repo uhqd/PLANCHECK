@@ -538,7 +538,7 @@ d3.ToString("0.##");   //24
             }
 
 
-            Check_UM c_UM = new Check_UM(_pinfo, _pcontext);
+            Check_UM c_UM = new Check_UM(_pinfo, _pcontext,rcp);
             if (c_UM.Result.Count > 0)
             {
                 var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
