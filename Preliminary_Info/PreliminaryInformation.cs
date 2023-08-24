@@ -18,7 +18,7 @@ using System.Drawing;
 using System.Net.Http;
 using VMS.OIS.ARIAExternal.WebServices.Documents.Contracts;
 using VMS.TPS.Common.Model.Types;
-
+using PlanCheck.xaml_datas;
 
 namespace PlanCheck
 {
@@ -337,7 +337,7 @@ namespace PlanCheck
             string tocheck;
 
 
-           
+
             switch (searchtype)
             {
                 case "doctor":
@@ -575,7 +575,7 @@ namespace PlanCheck
                     {
                         _treatmentType = "Tomotherapy";
                         _isModulated = true;
-                       
+
                     }
                     else if (b.EnergyModeDisplayName.Contains("E"))
                         _treatmentType = "Electrons";
@@ -600,19 +600,20 @@ namespace PlanCheck
                     }
 
                 }
-                if(!_findNonFEplan)
+                if (!_findNonFEplan)
                 {
                     // wip : open  a window to select the plan manually
-                  //  var myChoiceWindow = new chooseNonFEplanWindow(); // create window
-                   // myChoiceWindow.ShowDialog(); // display window, next lines not executed until it is closed
+                     var myChoiceWindow = new chooseNonFEplanWindow(_ctx,this); // create window
+                     myChoiceWindow.ShowDialog(); // display window,
                 }
 
             }
-                #endregion
+            #endregion
+            //var myChoiceWindow = new chooseNonFEplanWindow(_ctx,this); // create window
+            //myChoiceWindow.ShowDialog(); // display window,
 
-
-                #region dosecheck is needed ?
-                _dosecheckIsNeeded = true;
+            #region dosecheck is needed ?
+            _dosecheckIsNeeded = true;
             if (isHyperArc)
                 _dosecheckIsNeeded = false;
             if (isTOMO && _ctx.Image.ImagingOrientation.ToString() == "Feet first")
@@ -669,6 +670,7 @@ namespace PlanCheck
         public string planIdwithoutFE
         {
             get { return _planIdwithoutFE; }
+            set { _planIdwithoutFE = value; }
         }
         public bool fondNonFEPlan
         {
