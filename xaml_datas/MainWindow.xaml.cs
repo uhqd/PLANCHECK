@@ -85,14 +85,10 @@ namespace PlanCheck
             bool isORL = false;
             bool isCranial = false;
             String courseName = _pinfo.CourseName.ToUpper();
-            if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE"))
+            if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE") || planName.Contains("BUC"))
                 isORL = true;
 
-
-            if (courseName.Contains("CAVUM") || courseName.Contains("ORL") || courseName.Contains("PHARYNX") || courseName.Contains("PAROTIDE"))
-                isORL = true;
-
-            if (planName.ToUpper().Contains("ASTRO") || planName.Contains("GLI")) 
+            if (planName.Contains("ASTRO") || planName.Contains("GLI")) 
                 isCranial = true;
 
 
@@ -128,7 +124,7 @@ namespace PlanCheck
             }
             else if (isORL)
                 fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
-            else if (planName.ToUpper().Contains("VAGIN") || planName.ToUpper().Contains("VULVE") || planName.ToUpper().Contains("COL"))
+            else if (planName.Contains("VAGIN") || planName.Contains("VULVE") || planName.Contains("COL"))
             {
                 fileName = @"\plancheck_data\check_protocol\gynecologie.xlsx";
 
@@ -142,9 +138,9 @@ namespace PlanCheck
                 fileName = @"\plancheck_data\check_protocol\prostate.xlsx";
             else if (_pinfo.isHyperArc)
                 fileName = @"\plancheck_data\check_protocol\hyperarc.xlsx";
-            else if (planName.ToUpper().Contains("STEC"))
+            else if (planName.Contains("STEC"))
             {
-                if (planName.ToUpper().Contains("FOIE"))
+                if (planName.Contains("FOIE"))
                 {
                     //fileName = @"\plancheck_data\check_protocol\STEC foie" + nFractions + "F.xlsx";
                     if (_pinfo.treatmentType == "VMAT")
@@ -152,7 +148,7 @@ namespace PlanCheck
                     else
                         fileName = @"\plancheck_data\check_protocol\STEC foie DCA.xlsx";
                 }
-                if (planName.ToUpper().Contains("POUM"))
+                if (planName.Contains("POUM"))
                 {
                     //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
                     if (_pinfo.treatmentType == "VMAT")
@@ -195,15 +191,13 @@ namespace PlanCheck
             // an intelligent default protocol is chosen
             myFullFilename = getIntelligentDefaultProtocol();
 
-            //old : 
-            // myFullFilename = Directory.GetCurrentDirectory() + @"\check_protocol\prostate.xlsx";
+           
             theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
             _pinfo.lastUsedCheckProtocol = theProtocol;
 
 
             InitializeComponent(); // read the xaml
-
 
             // fill combo box for user mode
             UserMode.Items.Add("Basique");

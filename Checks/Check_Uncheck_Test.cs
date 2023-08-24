@@ -184,7 +184,7 @@ namespace PlanCheck
             if (!_pinfo.isTOMO)
             {
                 Item_Result refPoint = new Item_Result();
-                refPoint.Label = "Points de référnce";
+                refPoint.Label = "Points de référence";
                 refPoint.ExpectedValue = "dumb";
                 refPoint.MeasuredValue = "Limites de dose";
                 if (!_pinfo.isModulated)

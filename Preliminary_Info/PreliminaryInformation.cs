@@ -391,7 +391,6 @@ namespace PlanCheck
 
             return technique;
         }
-
         private void getOARreferenceVolumes()
         {
 
@@ -604,6 +603,8 @@ namespace PlanCheck
                 if(!_findNonFEplan)
                 {
                     // wip : open  a window to select the plan manually
+                  //  var myChoiceWindow = new chooseNonFEplanWindow(); // create window
+                   // myChoiceWindow.ShowDialog(); // display window, next lines not executed until it is closed
                 }
 
             }

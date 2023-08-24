@@ -28,8 +28,6 @@ namespace PlanCheck
             var imageRes = SS.Image.ZRes;
             return Convert.ToInt32((z - SS.Image.Origin.z) / imageRes);
         }
-
-
         private Structure isExistAndNotEmpty(String id)
         {
 
@@ -45,6 +43,63 @@ namespace PlanCheck
                 return null;
 
         }
+        private double volumeMin(String volumeName, double volumeValue, String sex)
+        {
+            double result = -1.0;
+            if (sex == "Female")
+            {
+                foreach (OARvolume oar in _pinfo.womanOARVolumes)
+                {
+                    if (volumeName == oar.volumeName)
+                    {
+                        result = oar.volumeMin;
+                    }
+
+                }
+            }
+            else // is male
+            {
+                foreach (OARvolume oar in _pinfo.manOARVolumes)
+                {
+                    if (volumeName == oar.volumeName)
+                    {
+                        result = oar.volumeMin;
+                    }
+
+                }
+
+            }
+            return result;
+        }
+        private double volumeMax(String volumeName, double volumeValue, String sex)
+        {
+            double result = -1.0;
+            if (sex == "Female")
+            {
+                foreach (OARvolume oar in _pinfo.womanOARVolumes)
+                {
+                    if (volumeName == oar.volumeName)
+                    {
+                        result = oar.volumeMax;
+                    }
+
+                }
+            }
+            else // is male
+            {
+                foreach (OARvolume oar in _pinfo.manOARVolumes)
+                {
+                    if (volumeName == oar.volumeName)
+                    {
+                        result = oar.volumeMax;
+                    }
+
+                }
+
+            }
+            return result;
+        }
+        /*
         private int volumeIsOk(String volumeName, double volumeValue, String sex)
         { // return 2 if nor ref volume, 1 if volume inside reference range, 2 if outside
             int result = 2;
@@ -88,7 +143,7 @@ namespace PlanCheck
             return result;
 
         }
-
+        */
         private bool nPartsIsOk(String volumeName, int nParts, String sex)
         {
             bool result = true;
@@ -131,7 +186,6 @@ namespace PlanCheck
             return result;
 
         }
-
         private string getExpectedLaterality(string volumeName, string sex)
         {// L left   R right  N none
             string result = "N";
@@ -162,7 +216,6 @@ namespace PlanCheck
             return result;
 
         }
-
         public double getXcenter()
         {
             double xCenter = 0.0;
@@ -350,7 +403,7 @@ namespace PlanCheck
                         if (mandatoryMissingCouchStructures.Count > 0)
                         {
                             couchStructExist.setToFALSE();
-                            couchStructExist.Infobulle += "\n"+mandatoryMissingCouchStructures.Count+ " structure(s) de table obligatoire(s) absente(s) : \n";
+                            couchStructExist.Infobulle += "\n" + mandatoryMissingCouchStructures.Count + " structure(s) de table obligatoire(s) absente(s) : \n";
                             foreach (string ms in mandatoryMissingCouchStructures)
                                 couchStructExist.Infobulle += " - " + ms + "\n";
                         }
@@ -444,9 +497,9 @@ namespace PlanCheck
                     if (wrongHUClinicalStructures.Count > 0)
                         clinicalStructuresItem.setToWARNING();
 
-                    clinicalStructuresItem.MeasuredValue = missingClinicalStructures.Count+ " struct. absentes, vides ou UH incorrectes (voir infobulle)";
+                    clinicalStructuresItem.MeasuredValue = missingClinicalStructures.Count + " struct. absentes, vides ou UH incorrectes (voir infobulle)";
                     if (missingClinicalStructures.Count > 0)
-                        clinicalStructuresItem.Infobulle = missingClinicalStructures.Count+ "structure(s) attendue(s) pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
+                        clinicalStructuresItem.Infobulle = missingClinicalStructures.Count + "structure(s) attendue(s) pour le protocole " + _rcp.protocolName + " absentes ou vides dans le plan :\n";
                     foreach (string ms in missingClinicalStructures)
                         clinicalStructuresItem.Infobulle += " - " + ms + "\n";
                     if (wrongHUClinicalStructures.Count > 0)
@@ -558,34 +611,36 @@ namespace PlanCheck
                 anormalVolumeItem.Label = "Volume des structures";
                 anormalVolumeItem.ExpectedValue = "EN COURS";
 
-                //foreach (expectedStructure es in _rcp.myClinicalExpectedStructures)
-                // foreach (expectedStructure es in allStructures)
+
                 foreach (Structure struct1 in _ctx.StructureSet.Structures)
                 {
-
-                    // Structure struct1 = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == es.Name); // find a structure in ss with the same name
                     if (struct1 != null) // if structure  exist 
                         if (!struct1.IsEmpty) //  and if not empty 
                         {
                             double volume = struct1.Volume;
-                            int isOk = volumeIsOk(struct1.Id, volume, _ctx.Patient.Sex);
-                            if (isOk == 1)
+                            double volumeMinimum = volumeMin(struct1.Id, volume, _ctx.Patient.Sex);
+                            double volumeMaximum = volumeMax(struct1.Id, volume, _ctx.Patient.Sex);
+                            //                            int isOk = volumeIsOk(struct1.Id, volume, _ctx.Patient.Sex);
+
+                            if ((volumeMinimum != -1) && (volumeMaximum != -1)) // found in list
+                            {
+                                if ((volumeMinimum < volume) && (volumeMaximum > volume))
+                                {
+                                    normalVolumeList.Add(struct1.Id);
+                                }
+                                else
+                                {
+                                    anormalVolumeList.Add(struct1.Id + " (" + volume.ToString("F2") + " cc. Attendu: " + volumeMinimum + "-" + volumeMaximum + ")");
+
+                                }
+                            }
+
+                            /*    if (isOk == 1)
                                 normalVolumeList.Add(struct1.Id);
                             else if (isOk == 2)
                                 anormalVolumeList.Add(struct1.Id + " (" + volume.ToString("F2") + " cc)");//. Attendu: " + es.volMin.ToString("F2") + " - " + es.volMax.ToString("F2") + " cc");
-
+                            */
                         }
-
-                    /*if (es.volMin != 9999) // and if a volume min is defined in protocol
-                    {
-                        if ((struct1.Volume > es.volMin) && (struct1.Volume < es.volMax)) //if volume ok
-                            normalVolumeList.Add(es.Name);
-                        else
-                            anormalVolumeList.Add(es.Name + " (" + struct1.Volume.ToString("F2") + " cc). Attendu: " + es.volMin.ToString("F2") + " - " + es.volMax.ToString("F2") + " cc");
-
-                    }*/
-
-
                 }
                 if (anormalVolumeList.Count > 0)
                 {
@@ -594,8 +649,6 @@ namespace PlanCheck
                     anormalVolumeItem.Infobulle = "Les volumes de ces " + anormalVolumeList.Count + " structures ne sont\npas dans l'intervalle habituel\n";
                     foreach (string avs in anormalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
-
-
                 }
                 else if (normalVolumeList.Count > 0)
                 {
@@ -604,8 +657,6 @@ namespace PlanCheck
                     anormalVolumeItem.Infobulle = "Les volumes de ces " + normalVolumeList.Count + " structures sont\ndans l'intervalle habituel\n";
                     foreach (string avs in normalVolumeList)
                         anormalVolumeItem.Infobulle += " - " + avs + "\n";
-
-
                 }
                 else
                 {
