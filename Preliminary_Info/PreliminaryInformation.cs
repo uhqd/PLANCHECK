@@ -332,6 +332,9 @@ namespace PlanCheck
         private IUCT_User GetUser(string searchtype, IUCT_Users iuct_users)
         {
             string tocheck;
+
+
+           
             switch (searchtype)
             {
                 case "doctor":
