@@ -9,6 +9,7 @@ namespace PlanCheck
 {
     public class IUCT_User
     {
+        private string _userID;
         private string _userfamilyname;
         private string _userfirstname;
         private string _function;
@@ -17,6 +18,11 @@ namespace PlanCheck
         private SolidColorBrush _userforegroundcolor;
         private SolidColorBrush _doctorBackgroundColor;
         private SolidColorBrush _doctorForegroundColor;
+        public string userId
+        {
+            get { return _userID; }
+            set { _userID = value; }
+        }
         public string Gender
         {
             get { return _gender; }

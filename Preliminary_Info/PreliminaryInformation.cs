@@ -355,7 +355,7 @@ namespace PlanCheck
             {
 
 
-                if (tocheck.ToLower().Contains(user_tmp.UserFamilyName.ToLower()))
+                if (tocheck.ToLower().Contains(user_tmp.userId.ToLower()))
                 {
                     user = user_tmp;
 

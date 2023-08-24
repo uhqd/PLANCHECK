@@ -78,7 +78,7 @@ namespace PlanCheck.Users
 
                 if ((id != "") && (id != null))
                 {
-                    IUCT_User myUser = new IUCT_User() { UserFirstName = firstname, UserFamilyName = lastname, Gender = sex, Function = function, UserBackgroundColor = mybgcolor, UserForeGroundColor = myfgcolor };
+                    IUCT_User myUser = new IUCT_User() { userId=id, UserFirstName = firstname, UserFamilyName = lastname, Gender = sex, Function = function, UserBackgroundColor = mybgcolor, UserForeGroundColor = myfgcolor };
                     _users_list.Add(myUser);
                 }
             }
