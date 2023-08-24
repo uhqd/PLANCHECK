@@ -93,7 +93,7 @@ namespace PlanCheck
             ariaDocuments.Infobulle = "Le système vérifie la présence dans Aria Documents de trois documents récents (<30 j) : \n";
             ariaDocuments.Infobulle += "  -  Dosecheck\n";
             ariaDocuments.Infobulle += "  -  Fiche de position\n";
-            ariaDocuments.Infobulle += "  -  Fiche de position\n\n";
+            ariaDocuments.Infobulle += "  -  Rapport de dosimétrie\n\n";
             ariaDocuments.Infobulle += "Le système peut détecter une absence de ces documents mais ne peut pas vérifier qu'ils sont corrects\n";
             ariaDocuments.Infobulle += "(sauf la dosimétrie Tomotherapy, pour lequel la dose max du plan est comparée à la dose max indiquée dans le rapport pdf\n";
 

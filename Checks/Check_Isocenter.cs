@@ -13,11 +13,13 @@ namespace PlanCheck
     {
         private ScriptContext _ctx;
         private PreliminaryInformation _pinfo;
-
-        public Check_Isocenter(PreliminaryInformation pinfo, ScriptContext ctx)  //Constructor
+        private read_check_protocol _rcp;
+        public Check_Isocenter(PreliminaryInformation pinfo, ScriptContext ctx, read_check_protocol rcp)  //Constructor
         {
             _ctx = ctx;
             _pinfo = pinfo;
+            _rcp = rcp;
+
             Check();
         }
 
@@ -77,6 +79,10 @@ namespace PlanCheck
             {
                 if (!_pinfo.isTOMO)
                 {
+
+                    double tolerance = 0.15; // 0.1 means that we expect the isocenter in a region  from + or -10% around the center of PTV
+                    if (_rcp.protocolName.ToUpper().Contains("SEIN"))
+                        tolerance = 0.25;
                     Item_Result isoAtCenterOfPTV = new Item_Result();
 
                     isoAtCenterOfPTV.Label = "Position de l'isocentre";
@@ -107,7 +113,7 @@ namespace PlanCheck
                         // looking if isocenter is close to the ptv center
                         // Coordinates are in DICOM ref 
 
-                        double tolerance = 0.15; // 0.1 means that we expect the isocenter in a region  from + or -10% around the center of PTV
+
 
                         double centerPTVxmin = ptvTarget.MeshGeometry.Bounds.X + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeX);
                         double centerPTVymin = ptvTarget.MeshGeometry.Bounds.Y + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeY);
@@ -154,7 +160,7 @@ namespace PlanCheck
                         isoAtCenterOfPTV.Infobulle += "\navec une tolérance de " + (tolerance * 100).ToString("N1") + "% dans chaque direction.";
                         isoAtCenterOfPTV.Infobulle += "\n\nPosition relative de l'isoscentre sur les axes x y et z:\n" + Math.Round(fractionX, 2) + "\t" + Math.Round(fractionY, 2) + "\t" + Math.Round(fractionZ, 2);
                         isoAtCenterOfPTV.Infobulle += "\n\n0 et 1 = limites du PTV";
-                        isoAtCenterOfPTV.Infobulle += "\nValeures attendues entre " + tolmin + " et " + tolmax;
+                        isoAtCenterOfPTV.Infobulle += "\nValeures attendues (selon check-protocol) entre " + tolmin + " et " + tolmax;
                     }
                     else
                     {

@@ -327,7 +327,7 @@ namespace PlanCheck
                     if ((wrongHUCouchStructures.Count == 0) && (missingCouchStructures.Count == 0))
                     {
                         couchStructExist.setToTRUE();
-                        couchStructExist.MeasuredValue = "Présentes et UH corectes " + _rcp.myCouchExpectedStructures.Count.ToString() + "/" + _rcp.myCouchExpectedStructures.Count.ToString();
+                        couchStructExist.MeasuredValue = "Présentes et UH correctes " + _rcp.myCouchExpectedStructures.Count.ToString() + "/" + _rcp.myCouchExpectedStructures.Count.ToString();
                         couchStructExist.Infobulle = "Structures de tables attendues pour le protocole " + _rcp.protocolName + " :\n";
                         foreach (expectedStructure es in _rcp.myCouchExpectedStructures) // foreach couch element in the xls protocol file
                         {
@@ -343,7 +343,7 @@ namespace PlanCheck
                         foreach (string ms in missingCouchStructures)
                             couchStructExist.Infobulle += " - " + ms + "\n";
                         if (wrongHUCouchStructures.Count > 0)
-                            couchStructExist.Infobulle += wrongHUCouchStructures + " structures avec UH incorrectes :\n";
+                            couchStructExist.Infobulle += wrongHUCouchStructures.Count + " structures avec UH incorrectes :\n";
                         foreach (string ms in wrongHUCouchStructures)
                             couchStructExist.Infobulle += " - " + ms + "\n";
 
@@ -431,7 +431,7 @@ namespace PlanCheck
                 if ((wrongHUClinicalStructures.Count == 0) && (missingClinicalStructures.Count == 0))
                 {
                     clinicalStructuresItem.setToTRUE();
-                    clinicalStructuresItem.MeasuredValue = "Présentes et UH corectes " + _rcp.myClinicalExpectedStructures.Count.ToString() + "/" + _rcp.myClinicalExpectedStructures.Count.ToString();
+                    clinicalStructuresItem.MeasuredValue = "Présentes et UH correctes " + _rcp.myClinicalExpectedStructures.Count.ToString() + "/" + _rcp.myClinicalExpectedStructures.Count.ToString();
                     clinicalStructuresItem.Infobulle = "Structures attendues pour le protocole " + _rcp.protocolName + " :\n";
                     foreach (expectedStructure es in _rcp.myClinicalExpectedStructures)
                     {
@@ -515,7 +515,7 @@ namespace PlanCheck
                 if ((wrongHUOptStructures.Count == 0) && (missingOptStructures.Count == 0))
                 {
                     optStructuresItem.setToTRUE();
-                    optStructuresItem.MeasuredValue = "Présentes et UH corectes " + _rcp.myOptExpectedStructures.Count.ToString() + "/" + _rcp.myOptExpectedStructures.Count.ToString();
+                    optStructuresItem.MeasuredValue = "Présentes et UH correctes " + _rcp.myOptExpectedStructures.Count.ToString() + "/" + _rcp.myOptExpectedStructures.Count.ToString();
                     optStructuresItem.Infobulle = "Structures attendues pour le protocole " + _rcp.protocolName + " :\n";
                     foreach (expectedStructure es in _rcp.myOptExpectedStructures)
                     {
@@ -719,7 +719,7 @@ namespace PlanCheck
                 foreach (Structure s in _ctx.StructureSet.Structures)
                 {
                     string structName = s.Id.ToUpper();
-                    if ((!structName.Contains("PLOMB")) && (!structName.Contains("-")) && (!structName.Contains("OVERLA")) && (!s.IsEmpty)) // do no check marker structures
+                    if ((!structName.Contains("PLOMB")) && (!structName.Contains("-")) && (!structName.Contains("OVERLA")) && (!structName.ToUpper().Contains("DOSE")) && (!s.IsEmpty)) // do no check marker structures
                     {
                         nAnalysedStructures++;
                         m = getNumberOfMissingSlices(s, _ctx.StructureSet);

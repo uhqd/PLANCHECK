@@ -123,19 +123,19 @@ namespace PlanCheck
             #endregion
 
             #region UM fluence etendue ?
-            if ((_ctx.PlanSetup.Id.Contains("FE"))&& (_rcp.protocolName == "sein"))
+           if(_pinfo.isFE)
             {
                 Item_Result FE = new Item_Result();
                 FE.Label = "Fluence étendue";
                 FE.ExpectedValue = "EN COURS";
                 double nUmWithNoFE = 0.0;
 
-                string planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
+               // string planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
 
                 #region get UM of the plan without FE in name
                 foreach (PlanSetup p in _ctx.Course.PlanSetups)
                 {
-                    if (p.Id == planIdwithoutFE)
+                    if (p.Id == _pinfo.planIdwithoutFE)
                     {
 
                         foreach (Beam b in p.Beams)
@@ -155,7 +155,7 @@ namespace PlanCheck
                 #endregion
                 double diff = 100 * Math.Abs(n_um - nUmWithNoFE) / nUmWithNoFE;
                 FE.MeasuredValue = n_um.ToString() + " UM vs. " + nUmWithNoFE.ToString() + " UM (" + diff.ToString("F2") + "%)";
-                FE.Infobulle = " La différence d'UM avec le plan " + planIdwithoutFE + " doit être < 10%";
+                FE.Infobulle = " La différence d'UM avec le plan " + _pinfo.planIdwithoutFE + " doit être < 10%";
                 if (diff > 10)
                 {
 

@@ -45,7 +45,10 @@ namespace PlanCheck
         private bool _HALCYON;
         private bool _HYPERARC;
         private bool _isModulated;
+        private bool _isFE;
         private string _machine;
+        private string _planIdwithoutFE;
+        private bool _findNonFEplan;
         private TomotherapyPdfReportReader _tprd;
         private bool _dosecheckIsNeeded;
         private List<DateTime> dosimetrie = new List<DateTime>();
@@ -573,6 +576,7 @@ namespace PlanCheck
                     {
                         _treatmentType = "Tomotherapy";
                         _isModulated = true;
+                       
                     }
                     else if (b.EnergyModeDisplayName.Contains("E"))
                         _treatmentType = "Electrons";
@@ -583,8 +587,31 @@ namespace PlanCheck
                     _treatmentType = "Technique non statique inconnue : pas de MLC !";
             }
 
-            #region dosecheck is needed ?
-            _dosecheckIsNeeded = true;
+            #region extended fluence
+            if (_ctx.PlanSetup.Id.Contains("FE"))
+            {
+                _isFE = true;
+                _planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
+                _findNonFEplan = false;
+                foreach (PlanSetup p in _ctx.Course.PlanSetups)
+                {
+                    if (p.Id == _planIdwithoutFE)
+                    {
+                        _findNonFEplan = true;
+                    }
+
+                }
+                if(!_findNonFEplan)
+                {
+                    // wip : open  a window to select the plan manually
+                }
+
+            }
+                #endregion
+
+
+                #region dosecheck is needed ?
+                _dosecheckIsNeeded = true;
             if (isHyperArc)
                 _dosecheckIsNeeded = false;
             if (isTOMO && _ctx.Image.ImagingOrientation.ToString() == "Feet first")
@@ -638,6 +665,14 @@ namespace PlanCheck
         {
             get { return _coursename; }
         }
+        public string planIdwithoutFE
+        {
+            get { return _planIdwithoutFE; }
+        }
+        public bool fondNonFEPlan
+        {
+            get { return _findNonFEplan; }
+        }
         public string PlanName
         {
             get { return _planname; }
@@ -686,6 +721,10 @@ namespace PlanCheck
         public bool isTOMO
         {
             get { return _TOMO; }
+        }
+        public bool isFE
+        {
+            get { return _isFE; }
         }
         public bool isNOVA
         {

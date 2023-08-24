@@ -83,6 +83,7 @@ namespace PlanCheck
             String planName = _pcontext.PlanSetup.Id.ToUpper();
             String nFractions = _pcontext.PlanSetup.NumberOfFractions.ToString();
             bool isORL = false;
+            bool isCranial = false;
             String courseName = _pinfo.CourseName.ToUpper();
             if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE"))
                 isORL = true;
@@ -91,6 +92,8 @@ namespace PlanCheck
             if (courseName.Contains("CAVUM") || courseName.Contains("ORL") || courseName.Contains("PHARYNX") || courseName.Contains("PAROTIDE"))
                 isORL = true;
 
+            if (planName.ToUpper().Contains("ASTRO") || planName.Contains("GLI")) 
+                isCranial = true;
 
 
             if (planName.Contains("SEIN"))
@@ -163,6 +166,11 @@ namespace PlanCheck
             {
                 fileName = @"\plancheck_data\check_protocol\defaut RTC.xlsx";
             }
+            else if (isCranial)
+            {
+                fileName = @"\plancheck_data\check_protocol\intracranien-non-stereo.xlsx";
+            }
+
 
             String fullname = Directory.GetCurrentDirectory() + fileName;
             if (!File.Exists(fullname))
@@ -308,7 +316,7 @@ d3.ToString("0.##");   //24
                 prescriptionComment = listOfDoses;
 
                 if (_pcontext.PlanSetup.RTPrescription.Notes.Length == 0)
-                    prescriptionComment += "Pas de commentaire dans la presciption)";
+                    prescriptionComment += "Pas de commentaire dans la prescription)";
                 else
                 {
                     string noEndline = _pcontext.PlanSetup.RTPrescription.Notes.Replace("\n", "").Replace("\r", " - "); // replace newline by -
@@ -508,7 +516,7 @@ d3.ToString("0.##");   //24
                 this.AddCheck(check_point_contours);
             }
 
-            Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext);
+            Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext,rcp);
             if (c_Isocenter.Result.Count > 0)
             {
                 var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite

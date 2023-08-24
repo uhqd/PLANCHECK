@@ -1,36 +1,347 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: GIBIER, MICHEL  
-Patient IDs: 202010177
+PATIENT
+Nom : FAUCHIER, CHANTAL ID : 202305368 Date de naissance : dimanche 1 janvier 1950 Sexe : Féminin
+Plan
+ID plan : SeinGHypoFE
+ID dossier de traitement : C1
+ID image : tdmrte110823
+Modalité de l'image : CT
+Système d'imagerie : TDMRT
+Orientation de traitement : Tête devant- Décubitus dorsal
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-1.95cm, 0.43cm, 0.25cm)
+Prescription de dose
+Volume cible : PTV sein
+Valeur de normalisation du plan : 101.4 %
+Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
+Point de référence principal : PTV sein
+Point de normalisation du plan : -, -, -
+Pourcentage de dose prescrite : 100.0 %
+Fractionnement : 
+Dose prescrite : 40.000 Gy (2.667 Gy / fraction)
+Dose au point de référence principal : 40.000 Gy (2.667 Gy / fraction)
+Nombre de fractions : 15
+Options de calcul
+Algorithme photon : AAA_15605New
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc0.125
+FieldNormalizationType 100% to isocenter
+HeterogeneityCorrection ON
+Approbations
+Plan créé : mardi 22 août 2023 14:45:12 par Recordon Frederique
+Approbation du plan : jeudi 24 août 2023 08:09:45 par Pouedras Juliette
+Patient : FAUCHIER, CHANTAL  (202305368) Imprimé le 24/08/2023 09:51 par admin\recordon
+Dernière modification le jeudi 24 août 2023 08:09:46 par Pouedras Juliette
+Dossier de traitement : C1
+Plan : SeinGHypoFE  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Champs
+ID champ
+ID machine
+Énergie
+Débit de dose
+Taille de champ
+X1
+X2
+Y1
+Y2
+Angle du bras
+Sens de rotation du bras
+Angle d'arrêt du bras
+Rot. collimateur
+Rot. de table
+Filtre en coin
+Facteur de filtre
+MLC
+Bloc
+Plaque
+Bolus
+DSP bolus
+Isocentre X
+Isocentre Y
+Isocentre Z
+DSP
+Pondération
+Refdose (Gy)
+Point de référence
+Dose par fraction
+Profondeur physique
+Profondeur effective
+UM
+  kVCBCT  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+11.85 cm
+-7.78 cm
+9.81 cm
+98.0 cm
+0.000
+-
+PTV sein
+-
+-
+-
+-
+  MAMINT GH  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+307.0 °
+-
+-
+10.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+11.85 cm
+-7.78 cm
+9.81 cm
+95.1 cm
+1.000
+-
+PTV sein
+0.444 Gy
+-
+-
+126.6 UM
+  MAMINT GH1  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+300.0 °
+-
+-
+10.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+11.85 cm
+-7.78 cm
+9.81 cm
+93.7 cm
+1.000
+-
+PTV sein
+0.444 Gy
+-
+-
+228.9 UM
+  MAMINT GH2  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+314.0 °
+-
+-
+10.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+11.85 cm
+-7.78 cm
+9.81 cm
+96.0 cm
+1.000
+-
+PTV sein
+0.444 Gy
+-
+-
+144.2 UM
+  MAMEXT GH  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+132.0 °
+-
+-
+350.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+11.85 cm
+-7.78 cm
+9.81 cm
+95.2 cm
+1.000
+-
+PTV sein
+0.444 Gy
+-
+-
+118.1 UM
+  MAMEXT GH1  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+139.0 °
+-
+-
+350.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+11.85 cm
+-7.78 cm
+9.81 cm
+94.6 cm
+1.000
+-
+PTV sein
+0.444 Gy
+-
+-
+212.6 UM
+  MAMEXT GH2  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+125.0 °
+-
+-
+350.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+11.85 cm
+-7.78 cm
+9.81 cm
+95.5 cm
+1.000
+-
+PTV sein
+0.444 Gy
+-
+-
+116.0 UM
+Patient : FAUCHIER, CHANTAL  (202305368) Imprimé le 24/08/2023 09:51 par admin\recordon
+Dernière modification le jeudi 24 août 2023 08:09:46 par Pouedras Juliette
+Dossier de traitement : C1
+Plan : SeinGHypoFE  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Décalage de la table
+AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
+AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-1.95cm, 0.43cm, 0.25cm)
+Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
+Champs de l'isocentre :  MAMINT GH  MAMINT GH1  MAMINT GH2  MAMEXT GH  MAMEXT GH1  MAMEXT GH2  kVCBCT  
+Décalage de la table par rapport à la position de référence :
+Décaler [cm] : 11.9 7.8 9.8
+Direction : Gauche Bas Sortie [Out]
+ 
+ 
+Erreurs et avertissements concernant le calcul :
+Patient : FAUCHIER, CHANTAL  (202305368) Imprimé le 24/08/2023 09:51 par admin\recordon
+Dernière modification le jeudi 24 août 2023 08:09:46 par Pouedras Juliette
+Dossier de traitement : C1
+Plan : SeinGHypoFE  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient: FAUCHIER, CHANTAL  
+Patient IDs: 202305368
 Comment:
 Plan Plan Course Plan History
-Prostate C2 Last Modified: mardi 22 août 2023 14:34:07 by Barbier Aurélie
-Traitement approuvé: mardi 22 août 2023 14:34:07 by Barbier Aurélie
-Planning Approved: lundi 21 août 2023 16:44:58 by Piram Lucie
+SeinGHypoFE C1 Last Modified: jeudi 24 août 2023 08:09:46 by Pouedras Juliette
+Planification approuvée: jeudi 24 août 2023 08:09:45 by Pouedras Juliette
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Bulbe Penien Approuvée 100.0 / 99.9 3.3 cm³ 7.5 Gy 74.7 Gy 31.3 Gy 8.4 Gy 23.8 Gy 21.2 Gy
-PTV MD Approuvée 100.0 / 100.1 82.0 cm³ 54.3 Gy 77.2 Gy 69.1 Gy 74.9 Gy 70.2 Gy 5.4 Gy
-Patient: GIBIER, MICHEL    (202010177) Printed mardi 22 août 2023 14:37:11 by Barbier Aurélie
-Course: C2
-Plan: Prostate  -  Traitement approuvé Page: 1/2Planification de radiothérapie
+PTV sein1 Approuvée 100.0 / 100.1 417.0 cm³ 23.8 Gy 43.3 Gy 40.0 Gy 40.4 Gy 40.1 Gy 1.0 Gy
+PTV sein Approuvée 100.0 / 100.1 480.2 cm³ 23.8 Gy 43.3 Gy 39.9 Gy 40.4 Gy 40.0 Gy 1.2 Gy
+Sein contro Approuvée 100.0 / 100.2 483.6 cm³ 0.0 Gy 1.6 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.2 Gy
+Patient: FAUCHIER, CHANTAL    (202305368) Printed jeudi 24 août 2023 09:52:28 by Recordon Frederique
+Course: C1
+Plan: SeinGHypoFE  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PTV HD Approuvée 100.0 / 100.0 94.8 cm³ 60.9 Gy 77.4 Gy 74.1 Gy 74.9 Gy 74.7 Gy 2.1 Gy
-PTV BD Approuvée 100.0 / 100.0 516.1 cm³ 43.3 Gy 65.0 Gy 54.6 Gy 54.2 Gy 54.4 Gy 1.6 Gy
-Grele Approuvée 100.0 / 100.0 1196.5 cm³ 0.9 Gy 66.0 Gy 17.7 Gy 1.3 Gy 12.1 Gy 17.7 Gy
-QueueDeCheval Approuvée 100.0 / 99.8 21.2 cm³ 0.6 Gy 30.1 Gy 6.4 Gy 0.7 Gy 2.2 Gy 8.5 Gy
-Rectum Approuvée 100.0 / 100.0 55.5 cm³ 5.1 Gy 73.7 Gy 38.7 Gy 71.9 Gy 34.7 Gy 20.1 Gy
-Sigmoide Approuvée 100.0 / 100.0 47.0 cm³ 10.3 Gy 72.3 Gy 39.6 Gy 54.2 Gy 42.5 Gy 14.4 Gy
-TeteFemorDte Approuvée 100.0 / 99.9 152.0 cm³ 1.8 Gy 30.9 Gy 13.3 Gy 12.6 Gy 13.9 Gy 6.1 Gy
-TeteFemorGche Approuvée 100.0 / 100.1 140.7 cm³ 2.2 Gy 30.7 Gy 14.7 Gy 3.7 Gy 16.7 Gy 6.8 Gy
-Vessie Approuvée 100.0 / 100.0 202.3 cm³ 9.3 Gy 75.3 Gy 35.2 Gy 29.4 Gy 32.2 Gy 16.0 Gy
-Sacro iliaques Approuvée 100.0 / 100.0 329.6 cm³ 3.9 Gy 58.5 Gy 32.3 Gy 53.8 Gy 32.2 Gy 14.4 Gy
-Uretre Approuvée 100.0 / 98.4 1.2 cm³ 72.8 Gy 76.9 Gy 74.6 Gy 74.7 Gy 74.6 Gy 0.8 Gy
-PTV_HDOPT1 Approuvée 100.0 / 100.0 88.2 cm³ 64.1 Gy 77.4 Gy 74.4 Gy 74.9 Gy 74.8 Gy 1.6 Gy
+Coeur Approuvée 100.0 / 100.0 835.1 cm³ 0.0 Gy 26.1 Gy 0.9 Gy 0.1 Gy 0.4 Gy 2.0 Gy
+PoumonGche Approuvée 100.0 / 100.0 1113.9 cm³ 0.2 Gy 40.2 Gy 4.8 Gy 0.6 Gy 1.3 Gy 8.6 Gy
+TetehumeraleDte Approuvée 100.0 / 100.0 56.3 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+TetehumeraleGche Approuvée 100.0 / 99.9 54.4 cm³ 0.1 Gy 0.5 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.1 Gy
+Poumons Approuvée 100.0 / 100.0 2448.6 cm³ 0.0 Gy 40.2 Gy 2.2 Gy 0.0 Gy 0.1 Gy 6.3 Gy
+PoumonDt Approuvée 100.0 / 100.0 1334.7 cm³ 0.0 Gy 0.3 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+Canal Med Approuvée 100.0 / 100.1 88.8 cm³ 0.0 Gy 0.3 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.1 Gy
+Larynx Approuvée 100.0 / 100.0 14.2 cm³ 0.1 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
+Oesophage Approuvée 100.0 / 100.3 27.2 cm³ 0.2 Gy 0.5 Gy 0.3 Gy 0.3 Gy 0.3 Gy 0.1 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - Prostate C2 74.800 Gy 2.200 Gy 34 74.800 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.6 %
-Patient: GIBIER, MICHEL    (202010177) Printed mardi 22 août 2023 14:37:11 by Barbier Aurélie
-Course: C2
-Plan: Prostate  -  Traitement approuvé Page: 2/2
+- - - SeinGHypoFE C1 40.000 Gy 2.667 Gy 15 40.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 101.4 %
+Patient: FAUCHIER, CHANTAL    (202305368) Printed jeudi 24 août 2023 09:52:28 by Recordon Frederique
+Course: C1
+Plan: SeinGHypoFE  -  Planification approuvée Page: 2/2
