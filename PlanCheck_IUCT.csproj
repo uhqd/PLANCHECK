@@ -7,7 +7,7 @@
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanCheck</RootNamespace>
-    <AssemblyName>PlanCheck_Beta_0008_0006.esapi</AssemblyName>
+    <AssemblyName>PlanCheck_Beta_0008_0022.esapi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -188,6 +188,7 @@
     <Compile Include="pdfReader\tomoReportData.cs" />
     <Compile Include="pdfReader\TomotherapyPdfReportReader.cs" />
     <Compile Include="Preliminary_Info\OARvolume.cs" />
+    <Compile Include="timer\timer.cs" />
     <Compile Include="Users\IUCT_Users.cs" />
     <Compile Include="Users\IUCT_User.cs" />
     <Compile Include="xaml_datas\CheckScreen_Global.xaml.cs">

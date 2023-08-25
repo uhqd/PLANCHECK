@@ -12,6 +12,7 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using Microsoft.Office.Interop.Word;
+using PlanCheck;
 //using Microsoft.Office.Tools;
 //using PdfSharp.Pdf;
 
@@ -34,10 +35,9 @@ namespace PlanCheck
         #region Variable Declarations of the class
 
         private PlanSetup _plan;
-
         private PreliminaryInformation _pinfo;
-
         private ScriptContext _pcontext;
+        private timer myTimer;
         public string PatientFullName { get; set; }
         public string strPatientDOB { get; set; }
         public string PlanAndCourseID { get; set; }
@@ -73,7 +73,7 @@ namespace PlanCheck
         {
             String protocol = "Check-protocol: ";  // theProtocol is not a file name. It s a string that display the file name with no extension
             protocol += Path.GetFileNameWithoutExtension(filename);
-
+            
             return protocol;
         }
         private String getIntelligentDefaultProtocol()
@@ -186,7 +186,7 @@ namespace PlanCheck
             _pinfo = pinfo;
             _plan = pcontext.PlanSetup;
             _pcontext = pcontext;
-
+            myTimer = new timer();
 
             // an intelligent default protocol is chosen
             myFullFilename = getIntelligentDefaultProtocol();
@@ -194,10 +194,13 @@ namespace PlanCheck
            
             theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
+            myTimer.durationSinceLastCall("fill header");
+
             _pinfo.lastUsedCheckProtocol = theProtocol;
 
 
             InitializeComponent(); // read the xaml
+            myTimer.durationSinceLastCall("Initialize component");
 
             // fill combo box for user mode
             UserMode.Items.Add("Basique");
@@ -474,9 +477,12 @@ d3.ToString("0.##");   //24
             exportPDF_button.Visibility = Visibility.Visible;
             createCheckListWord_button.Visibility = Visibility.Visible;
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
+            // timer myTimer = new timer();
+            // myTimer.durationSinceLastCall("start");
 
 
             #region THE CHECKS
+            myTimer.durationSinceLastCall("user click");
 
             Check_Course c_course = new Check_Course(_pinfo, _pcontext);
             if (c_course.Result.Count > 0)
@@ -484,7 +490,6 @@ d3.ToString("0.##");   //24
                 var check_point_course = new CheckScreen_Global(c_course.Title, c_course.Result);
                 this.AddCheck(check_point_course);
             }
-
             if (_pcontext.PlanSetup.RTPrescription != null) // faire ce check seulement si il y a une prescription
             {
                 Check_Prescription c_prescri = new Check_Prescription(_pinfo, _pcontext, rcp);
@@ -494,6 +499,7 @@ d3.ToString("0.##");   //24
                     this.AddCheck(check_point_prescription);
                 }
             }
+            myTimer.durationSinceLastCall("Check course");
 
 
             Check_CT c_CT = new Check_CT(_pinfo, _pcontext, rcp);
@@ -502,6 +508,8 @@ d3.ToString("0.##");   //24
                 var check_point_ct = new CheckScreen_Global(c_CT.Title, c_CT.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_ct);
             }
+            myTimer.durationSinceLastCall("CT");
+
 
             Check_contours c_Contours = new Check_contours(_pinfo, _pcontext, rcp);
             if (c_Contours.Result.Count > 0)
@@ -509,6 +517,7 @@ d3.ToString("0.##");   //24
                 var check_point_contours = new CheckScreen_Global(c_Contours.Title, c_Contours.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_contours);
             }
+            myTimer.durationSinceLastCall("contours");
 
             Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext,rcp);
             if (c_Isocenter.Result.Count > 0)
@@ -516,6 +525,7 @@ d3.ToString("0.##");   //24
                 var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_iso);
             }
+            myTimer.durationSinceLastCall("isocenter");
 
             Check_Plan c_Plan = new Check_Plan(_pinfo, _pcontext, rcp);
             if (c_Plan.Result.Count > 0)
@@ -523,7 +533,7 @@ d3.ToString("0.##");   //24
                 var check_point_plan = new CheckScreen_Global(c_Plan.Title, c_Plan.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_plan);
             }
-
+            myTimer.durationSinceLastCall("plan");
 
             Check_Model c_algo = new Check_Model(_pinfo, _pcontext, rcp);
             if (c_algo.Result.Count > 0)
@@ -531,6 +541,7 @@ d3.ToString("0.##");   //24
                 var check_point_model = new CheckScreen_Global(c_algo.Title, c_algo.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_model);
             }
+            myTimer.durationSinceLastCall("model");
 
             Check_beams c_Beams = new Check_beams(_pinfo, _pcontext, rcp);
             if (c_Beams.Result.Count > 0)
@@ -538,7 +549,7 @@ d3.ToString("0.##");   //24
                 var check_point_beams = new CheckScreen_Global(c_Beams.Title, c_Beams.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_beams);
             }
-
+            myTimer.durationSinceLastCall("beams");
 
             Check_UM c_UM = new Check_UM(_pinfo, _pcontext,rcp);
             if (c_UM.Result.Count > 0)
@@ -546,6 +557,7 @@ d3.ToString("0.##");   //24
                 var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_um);
             }
+            myTimer.durationSinceLastCall("UM");
 
             Check_doseDistribution c_doseDistribution = new Check_doseDistribution(_pinfo, _pcontext, rcp);
             if (c_doseDistribution.Result.Count > 0)
@@ -553,7 +565,7 @@ d3.ToString("0.##");   //24
                 var check_point_dose_distribution = new CheckScreen_Global(c_doseDistribution.Title, c_doseDistribution.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_dose_distribution);
             }
-
+            myTimer.durationSinceLastCall("dose distribution");
 
             Check_finalisation c_Finalisation = new Check_finalisation(_pinfo, _pcontext, rcp);
             if (c_Finalisation.Result.Count > 0)
@@ -561,6 +573,7 @@ d3.ToString("0.##");   //24
                 var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
                 this.AddCheck(check_point_finalisation);
             }
+            myTimer.durationSinceLastCall("finalisation");
 
             Check_Uncheck_Test c_Uncheck = new Check_Uncheck_Test(_pinfo, _pcontext, rcp);
             if (c_Uncheck.Result.Count > 0)
@@ -569,8 +582,10 @@ d3.ToString("0.##");   //24
                 check_point_uncheck.Visibility = Visibility.Collapsed;
                 this.AddCheck(check_point_uncheck);
             }
+            myTimer.durationSinceLastCall("uncheck");
+            myTimer.close();
             #endregion
-            //int i = 0;
+            
 
             CheckList.Visibility = Visibility.Visible;
 
