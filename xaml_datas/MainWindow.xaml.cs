@@ -13,6 +13,8 @@ using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using Microsoft.Office.Interop.Word;
 using PlanCheck;
+using PlanCheck.createWordPrefilledCheckList;
+using PlanCheck.pdfreport;
 //using Microsoft.Office.Tools;
 //using PdfSharp.Pdf;
 
@@ -65,120 +67,9 @@ namespace PlanCheck
         public IEnumerable<string> CalculationOptions { get; set; }
         public string OptimizationModel { get; set; }
         public List<UserControl> ListChecks { get; set; }
-
-        public static int resulTableRowIndex = 0;
+       
         #endregion
 
-        private String setProtocolDisplay(String filename)
-        {
-            String protocol = "Check-protocol: ";  // theProtocol is not a file name. It s a string that display the file name with no extension
-            protocol += Path.GetFileNameWithoutExtension(filename);
-            
-            return protocol;
-        }
-        private String getIntelligentDefaultProtocol()
-        {
-
-            String fileName = @"\plancheck_data\check_protocol\defaut.xlsx";
-            String planName = _pcontext.PlanSetup.Id.ToUpper();
-            String nFractions = _pcontext.PlanSetup.NumberOfFractions.ToString();
-            bool isORL = false;
-            bool isCranial = false;
-            String courseName = _pinfo.CourseName.ToUpper();
-            if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE") || planName.Contains("BUC"))
-                isORL = true;
-
-            if (planName.Contains("ASTRO") || planName.Contains("GLI")) 
-                isCranial = true;
-
-
-            if (planName.Contains("SEIN"))
-            {
-                bool gg = false;
-                //  bool hypo = false;
-                if (planName.Contains("GG"))
-                    gg = true;
-                //if (_pcontext.PlanSetup.NumberOfFractions == 15)
-                //  hypo = true;
-
-                if (gg)
-                {
-                    //if (hypo)
-                    //  fileName = @"\plancheck_data\check_protocol\sein ganglions hypo.xlsx";
-                    // else
-                    fileName = @"\plancheck_data\check_protocol\sein ganglions.xlsx";
-                }
-                else if (planName.ToUpper().Contains("DIBH"))
-                {
-                    fileName = @"\plancheck_data\check_protocol\sein DIBH.xlsx";
-                }
-                else
-                {
-                    //if (hypo)
-                    //  fileName = @"\check_protocol\sein hypo.xlsx";
-                    //else
-                    fileName = @"\plancheck_data\check_protocol\sein.xlsx";
-                }
-
-
-            }
-            else if (isORL)
-                fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
-            else if (planName.Contains("VAGIN") || planName.Contains("VULVE") || planName.Contains("COL"))
-            {
-                fileName = @"\plancheck_data\check_protocol\gynecologie.xlsx";
-
-            }
-            else if (planName.Contains("PAROI"))
-            {
-
-                fileName = @"\plancheck_data\check_protocol\paroi ganglions.xlsx";
-            }
-            else if (planName.Contains("LOGE") || planName.Contains("PROST"))
-                fileName = @"\plancheck_data\check_protocol\prostate.xlsx";
-            else if (_pinfo.isHyperArc)
-                fileName = @"\plancheck_data\check_protocol\hyperarc.xlsx";
-            else if (planName.Contains("STEC"))
-            {
-                if (planName.Contains("FOIE"))
-                {
-                    //fileName = @"\plancheck_data\check_protocol\STEC foie" + nFractions + "F.xlsx";
-                    if (_pinfo.treatmentType == "VMAT")
-                        fileName = @"\plancheck_data\check_protocol\STEC foie RA.xlsx";
-                    else
-                        fileName = @"\plancheck_data\check_protocol\STEC foie DCA.xlsx";
-                }
-                if (planName.Contains("POUM"))
-                {
-                    //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
-                    if (_pinfo.treatmentType == "VMAT")
-                        fileName = @"\plancheck_data\check_protocol\STEC poumon RA.xlsx";
-                    else
-                        fileName = @"\plancheck_data\check_protocol\STEC poumon DCA.xlsx";
-                }
-
-            }
-            else if (_pinfo.treatmentType.Contains("RTC"))
-            {
-                fileName = @"\plancheck_data\check_protocol\defaut RTC.xlsx";
-            }
-            else if (isCranial)
-            {
-                fileName = @"\plancheck_data\check_protocol\intracranien-non-stereo.xlsx";
-            }
-
-
-            String fullname = Directory.GetCurrentDirectory() + fileName;
-            if (!File.Exists(fullname))
-            {
-                MessageBox.Show("Le check-protcol est introuvable :\n" + fullname + "\nUtilisation du fichier par défaut : prostate");
-                fullname = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\prostate.xlsx";
-            }
-            if (!File.Exists(fullname))
-                MessageBox.Show(fullname + "\nFichiers check-protocol introuvables");
-
-            return fullname;
-        }
         public MainWindow(PreliminaryInformation pinfo, ScriptContext pcontext) //Constructeur
         {
 
@@ -191,13 +82,11 @@ namespace PlanCheck
             // an intelligent default protocol is chosen
             myFullFilename = getIntelligentDefaultProtocol();
 
-           
             theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
             myTimer.durationSinceLastCall("fill header");
 
             _pinfo.lastUsedCheckProtocol = theProtocol;
-
 
             InitializeComponent(); // read the xaml
             myTimer.durationSinceLastCall("Initialize component");
@@ -206,25 +95,12 @@ namespace PlanCheck
             UserMode.Items.Add("Basique");
             UserMode.Items.Add("Avancé");
             UserMode.SelectedIndex = 1;
-
-            // fill combo box for Check Protocol
-            /*string path = Directory.GetCurrentDirectory() + @"\check_protocol\";
-            String[] fileNamesWithoutExtention = Directory.GetFiles(path).Select(fileName => Path.GetFileNameWithoutExtension(fileName)).ToArray();
-            foreach (string s in fileNamesWithoutExtention)
-            {
-                cbCheckProtocol.Items.Add(s);
-            }
-
-            cbCheckProtocol.SelectedIndex = 1;
-            */
-
         }
         public void FillHeaderInfos()
         {
             //Patient, plan and others infos to bind to xml
 
             #region PATIENT NAME, SEX AND AGE
-
             DateTime PatientDOB = (DateTime)_pinfo.PatientDOB_dt;// .Patient.DateOfBirth;         
             DateTime zeroTime = new DateTime(1, 1, 1);
             DateTime myToday = DateTime.Today;
@@ -233,18 +109,14 @@ namespace PlanCheck
             String sex;
             if (_pcontext.Patient.Sex == "Female")
             {
-                sex = "F";
-                //sexBackgroundColor = System.Windows.Media.Brushes.DeepPink;
-                sexBackgroundColor = System.Windows.Media.Brushes.Wheat;
-                // sexForegroundColor = System.Windows.Media.Brushes.White;
+                sex = "F";                
+                sexBackgroundColor = System.Windows.Media.Brushes.Wheat;          
                 sexForegroundColor = System.Windows.Media.Brushes.DeepPink;
                 strPatientDOB = "Née le " + _pinfo.PatientDOB; // for tooltip only
             }
             else
             {
                 sex = "H";
-                //sexBackgroundColor = System.Windows.Media.Brushes.Blue;
-                //sexForegroundColor = System.Windows.Media.Brushes.White;
                 sexBackgroundColor = System.Windows.Media.Brushes.Wheat;
                 sexForegroundColor = System.Windows.Media.Brushes.Blue;
                 strPatientDOB = "Né le " + _pinfo.PatientDOB; // for tooltip only
@@ -464,10 +336,8 @@ d3.ToString("0.##");   //24
                 MessageBox.Show(string.Format("Le check-protocol '{0}'  n'existe pas ", theProtocol));
                 return;
             }
-            theProtocol = setProtocolDisplay(myFullFilename);
-            //theProtocol = "Check-protocol: " + Path.GetFileNameWithoutExtension(myFullFilename);// a method to get the file name only (no extension)
+            theProtocol = setProtocolDisplay(myFullFilename);            
             defaultProtocol.Text = theProtocol; // refresh display of default value
-
             _pinfo.lastUsedCheckProtocol = theProtocol;
         }
         private void OK_button_click(object sender, RoutedEventArgs e)
@@ -477,11 +347,8 @@ d3.ToString("0.##");   //24
             exportPDF_button.Visibility = Visibility.Visible;
             createCheckListWord_button.Visibility = Visibility.Visible;
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
-            // timer myTimer = new timer();
-            // myTimer.durationSinceLastCall("start");
-
-
-            #region THE CHECKS
+           
+            #region PERFORM THE CHECK
             myTimer.durationSinceLastCall("user click");
 
             Check_Course c_course = new Check_Course(_pinfo, _pcontext);
@@ -519,7 +386,7 @@ d3.ToString("0.##");   //24
             }
             myTimer.durationSinceLastCall("contours");
 
-            Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext,rcp);
+            Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext, rcp);
             if (c_Isocenter.Result.Count > 0)
             {
                 var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
@@ -551,7 +418,7 @@ d3.ToString("0.##");   //24
             }
             myTimer.durationSinceLastCall("beams");
 
-            Check_UM c_UM = new Check_UM(_pinfo, _pcontext,rcp);
+            Check_UM c_UM = new Check_UM(_pinfo, _pcontext, rcp);
             if (c_UM.Result.Count > 0)
             {
                 var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
@@ -585,7 +452,7 @@ d3.ToString("0.##");   //24
             myTimer.durationSinceLastCall("uncheck");
             myTimer.close();
             #endregion
-            
+
 
             CheckList.Visibility = Visibility.Visible;
 
@@ -714,534 +581,127 @@ d3.ToString("0.##");   //24
         private void exportPDF_button_Click(object sender, RoutedEventArgs e)
         {
 
-
-
-            MigraDoc.DocumentObjectModel.Document migraDoc = new MigraDoc.DocumentObjectModel.Document();
-            MigraDoc.DocumentObjectModel.Section section = migraDoc.AddSection();
-            section.PageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Portrait;
-
-
-            #region header
-            MigraDoc.DocumentObjectModel.Tables.Table table = new MigraDoc.DocumentObjectModel.Tables.Table();
-            table.Borders.Width = 1;
-            table.Borders.Color = MigraDoc.DocumentObjectModel.Colors.White;
-            table.AddColumn(Unit.FromCentimeter(6));
-            table.AddColumn(Unit.FromCentimeter(10));
-
-            MigraDoc.DocumentObjectModel.Tables.Row row = table.AddRow();
-            MigraDoc.DocumentObjectModel.Tables.Cell cell = row.Cells[0];
-            cell.AddParagraph("Patient :");
-            cell = row.Cells[1];
-            MigraDoc.DocumentObjectModel.Paragraph paragraph = cell.AddParagraph();
-            paragraph.AddFormattedText(PatientFullName, TextFormat.Bold);
-
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Oncologue :");
-            cell = row.Cells[1];
-            paragraph = cell.AddParagraph();
-            paragraph.AddFormattedText(DoctorName, TextFormat.Bold);
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Commentaire : ");
-            cell = row.Cells[1];
-            cell.AddParagraph(prescriptionComment);
-
-
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Plan (Course) :");
-            cell = row.Cells[1];
-            cell.AddParagraph(PlanAndCourseID);
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Plan créé par :");
-            cell = row.Cells[1];
-            paragraph = cell.AddParagraph();
-            paragraph.AddFormattedText(PlanCreatorName, TextFormat.Bold);
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Machine : ");
-            cell = row.Cells[1];
-            cell.AddParagraph(theMachine);
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Technique :");
-            cell = row.Cells[1];
-            cell.AddParagraph(theFields);
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Imprimé par :");
-            cell = row.Cells[1];
-            cell.AddParagraph(CurrentUserName);
-
-            row = table.AddRow();
-            cell = row.Cells[0];
-            cell.AddParagraph("Check Protocol :");
-            cell = row.Cells[1];
-            cell.AddParagraph(_pinfo.lastUsedCheckProtocol);
-
-
-
-            section.Add(table);
-            #endregion
-
-
-            #region pdf body
-
-
-            MigraDoc.DocumentObjectModel.Paragraph paragraph2 = section.AddParagraph("\n\n");
-            paragraph2.AddFormattedText("\n", TextFormat.Bold);
-
-
-
-
-            //string msg1 = null;
-            foreach (CheckScreen_Global csg in ListChecks)
-            {
-
-
-                MigraDoc.DocumentObjectModel.Paragraph paragraph1 = section.AddParagraph("\n\n" + csg._title + "\n\n");
-                paragraph1.Format.Font.Bold = true;
-                paragraph1.Format.Font.Size = 14;
-
-                MigraDoc.DocumentObjectModel.Tables.Table table1 = new MigraDoc.DocumentObjectModel.Tables.Table();
-                table1.Borders.Width = 1;
-                table1.Borders.Color = MigraDoc.DocumentObjectModel.Colors.Olive;
-
-                table1.AddColumn(Unit.FromCentimeter(4.0));
-                table1.AddColumn(Unit.FromCentimeter(2.8));
-                table1.AddColumn(Unit.FromCentimeter(10.0));
-                row = table1.AddRow();
-                row.Shading.Color = MigraDoc.DocumentObjectModel.Colors.PaleGoldenrod;
-                row.Format.Font.Size = 8;
-                row.Format.Font.Bold = true;
-
-                cell = row.Cells[0];
-                cell.AddParagraph("Item");
-                cell = row.Cells[1];
-                cell.AddParagraph("Valeur du plan");
-                cell = row.Cells[2];
-                cell.AddParagraph("Info");
-
-                foreach (Item_Result ir in csg.Items)
-                {
-                    row = table1.AddRow();
-                    row.Format.Font.Size = 6;
-                    //row.Shading.Color = MigraDoc.DocumentObjectModel.Color.FromCmyk(ir.ResultStatus.Item2.Color.ScB, ir.ResultStatus.Item2.Color.ScR, ir.ResultStatus.Item2.Color.ScB, 0.0);
-                    if (ir.ResultStatus.Item1 == "X")
-                    {
-                        row.Shading.Color = MigraDoc.DocumentObjectModel.Colors.Red;
-                        row.Format.Font.Color = MigraDoc.DocumentObjectModel.Colors.AntiqueWhite;
-                    }
-                    if (ir.ResultStatus.Item1 == "OK")
-                    {
-                        row.Shading.Color = MigraDoc.DocumentObjectModel.Colors.LightGreen;
-                        row.Format.Font.Color = MigraDoc.DocumentObjectModel.Colors.Black;
-
-                    }
-                    if (ir.ResultStatus.Item1 == "WARNING")
-                    {
-                        row.Shading.Color = MigraDoc.DocumentObjectModel.Colors.Orange;
-                        row.Format.Font.Color = MigraDoc.DocumentObjectModel.Colors.DarkBlue;
-                    }
-                    if (ir.ResultStatus.Item1 == "INFO")
-                    {
-                        row.Shading.Color = MigraDoc.DocumentObjectModel.Colors.AntiqueWhite;
-                        row.Format.Font.Color = MigraDoc.DocumentObjectModel.Colors.Black;
-                    }
-
-
-                    row.Cells[0].AddParagraph("\n\n" + ir.Label + "\n\n");
-
-
-                    row.Cells[1].AddParagraph("\n\n" + ir.MeasuredValue + "\n\n");
-                    row.Cells[2].AddParagraph("\n\n" + ir.Infobulle + "\n\n");
-
-                }
-                section.Add(table1);
-                section.AddPageBreak();
-
-            }
-            #endregion
-
-            #region write pdf
-
-            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
-
-            string pdfFile = @"\\srv015\sf_com\simon_lu\temp\";
-            pdfFile += "PlanCheck_" + _pcontext.Patient.Id + "_" + _pcontext.Patient.LastName + "_" + _pcontext.Patient.FirstName + "_" + _pcontext.PlanSetup.Id;
-            pdfFile += Path.GetFileNameWithoutExtension(myFullFilename) + "_" + DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".pdf";
-            pdfRenderer.Document = migraDoc;
-            pdfRenderer.RenderDocument();
-            MessageBox.Show("Rapport PDF sauvegardé :\n" + pdfFile);
-            pdfRenderer.PdfDocument.Save(pdfFile);
-            System.Diagnostics.Process.Start(pdfFile);
-            #endregion
+            createPDFreport myPDF_report = new createPDFreport(_pinfo, _pcontext, ListChecks, this);
+            string dirname = @"\\srv015\sf_com\simon_lu\temp\";
+            myPDF_report.saveInDirectory(dirname);
 
         }
         private void createCheckListWord_button_Click(object sender, RoutedEventArgs e)
         {
+            wordPrefilledCheckList wpcl = new wordPrefilledCheckList(_pinfo, _pcontext, ListChecks, this);
+            string dirname = @"\\srv015\sf_com\simon_lu\temp\";
+            wpcl.saveInDirectory(dirname);
+        }    
+        private String setProtocolDisplay(String filename)
+        {
+            String protocol = "Check-protocol: ";  // theProtocol is not a file name. It s a string that display the file name with no extension
+            protocol += Path.GetFileNameWithoutExtension(filename);
 
-            #region loop on results count results of tests
-            int testOK = 0;
-            int testWarn = 0;
-            int testError = 0;
-            int testInfo = 0;
-            int uncheckedTest = 0;
-            int nTests = 0;
-            foreach (CheckScreen_Global csg in ListChecks)
+            return protocol;
+        }
+        private String getIntelligentDefaultProtocol()
+        {
+
+            String fileName = @"\plancheck_data\check_protocol\defaut.xlsx";
+            String planName = _pcontext.PlanSetup.Id.ToUpper();
+            String nFractions = _pcontext.PlanSetup.NumberOfFractions.ToString();
+            bool isORL = false;
+            bool isCranial = false;
+            String courseName = _pinfo.CourseName.ToUpper();
+            if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE") || planName.Contains("BUC"))
+                isORL = true;
+
+            if (planName.Contains("ASTRO") || planName.Contains("GLI"))
+                isCranial = true;
+
+
+            if (planName.Contains("SEIN"))
             {
+                bool gg = false;
+                //  bool hypo = false;
+                if (planName.Contains("GG"))
+                    gg = true;
+                //if (_pcontext.PlanSetup.NumberOfFractions == 15)
+                //  hypo = true;
 
-
-                foreach (Item_Result ir in csg.Items)
+                if (gg)
                 {
-                    if (ir.ResultStatus.Item1 == "OK")
-                    {
-                        testOK++;
-                    }
-                    if (ir.ResultStatus.Item1 == "X")
-                    {
-                        testError++;
-                    }
-                    if (ir.ResultStatus.Item1 == "INFO")
-                    {
-                        testInfo++;
-                    }
-                    if (ir.ResultStatus.Item1 == "WARNING")
-                    {
-                        testWarn++;
-                    }
-                    if (ir.ResultStatus.Item1 == "UNCHECK")
-                    {
-                        uncheckedTest++;
-                    }
+                    //if (hypo)
+                    //  fileName = @"\plancheck_data\check_protocol\sein ganglions hypo.xlsx";
+                    // else
+                    fileName = @"\plancheck_data\check_protocol\sein ganglions.xlsx";
                 }
-            }
-            nTests = testOK + testError + testInfo + testWarn + uncheckedTest;
-
-            #endregion
-
-
-            Microsoft.Office.Interop.Word.Application winword = new Microsoft.Office.Interop.Word.Application();
-            winword.ShowAnimation = false;
-            winword.Visible = false;
-            object missing = System.Reflection.Missing.Value;
-            Microsoft.Office.Interop.Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
-            DateTime myToday = DateTime.Now;
-
-            #region header of the document
-            foreach (Microsoft.Office.Interop.Word.Section section in document.Sections)
-            {
-                Microsoft.Office.Interop.Word.Range headerRange = section.Headers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
-                headerRange.Fields.Add(headerRange, Microsoft.Office.Interop.Word.WdFieldType.wdFieldPage);
-                headerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-                headerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdBlue;
-                headerRange.Font.Size = 12;
-                headerRange.Text = "Checklist générée par Plancheck";
-            }
-            #endregion
-
-            #region footers of the document  
-            foreach (Microsoft.Office.Interop.Word.Section wordSection in document.Sections)
-            {
-                //Get the footer range and add the footer details.  
-                Microsoft.Office.Interop.Word.Range footerRange = wordSection.Footers[Microsoft.Office.Interop.Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
-                footerRange.Font.ColorIndex = Microsoft.Office.Interop.Word.WdColorIndex.wdBlack;
-                footerRange.Font.Size = 10;
-                footerRange.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
-                string footText = "Analyse réalisée le " + myToday + " par " + _pinfo.CurrentUser.UserFirstName + " " + _pinfo.CurrentUser.UserFamilyName;
-                footerRange.Text = footText;// "Footer text goes here";
-            }
-            #endregion
-
-            #region first table general info 
-            document.Content.SetRange(0, 0);
-            Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
-            para1.Range.Font.Size = 12;
-            para1.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-            para1.Range.Text = Environment.NewLine;
-            para1.Range.Text = Environment.NewLine;
-
-
-            Microsoft.Office.Interop.Word.Table table1 = document.Tables.Add(para1.Range, 4, 4, ref missing, ref missing);
-            table1.PreferredWidth = 450.0f;
-            table1.Borders.Enable = 1;
-            table1.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
-            foreach (Microsoft.Office.Interop.Word.Row row in table1.Rows)
-            {
-                foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
+                else if (planName.ToUpper().Contains("DIBH"))
                 {
-                    cell.Range.Font.Bold = 1;
-                    cell.Range.Font.Size = 8;
+                    fileName = @"\plancheck_data\check_protocol\sein DIBH.xlsx";
+                }
+                else
+                {
+                    //if (hypo)
+                    //  fileName = @"\check_protocol\sein hypo.xlsx";
+                    //else
+                    fileName = @"\plancheck_data\check_protocol\sein.xlsx";
+                }
 
-                    var wdc = (WdColor)(229 + 0x100 * 243 + 0x10000 * 229); // pale green
-                    cell.Shading.BackgroundPatternColor = wdc;//WdColor.wdColorLightYellow;  // 229 243 229
-                    cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                    if (cell.ColumnIndex % 2 != 0)
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+
+            }
+            else if (isORL)
+                fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
+            else if (planName.Contains("VAGIN") || planName.Contains("VULVE") || planName.Contains("COL"))
+            {
+                fileName = @"\plancheck_data\check_protocol\gynecologie.xlsx";
+
+            }
+            else if (planName.Contains("PAROI"))
+            {
+
+                fileName = @"\plancheck_data\check_protocol\paroi ganglions.xlsx";
+            }
+            else if (planName.Contains("LOGE") || planName.Contains("PROST"))
+                fileName = @"\plancheck_data\check_protocol\prostate.xlsx";
+            else if (_pinfo.isHyperArc)
+                fileName = @"\plancheck_data\check_protocol\hyperarc.xlsx";
+            else if (planName.Contains("STEC"))
+            {
+                if (planName.Contains("FOIE"))
+                {
+                    //fileName = @"\plancheck_data\check_protocol\STEC foie" + nFractions + "F.xlsx";
+                    if (_pinfo.treatmentType == "VMAT")
+                        fileName = @"\plancheck_data\check_protocol\STEC foie RA.xlsx";
                     else
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                        fileName = @"\plancheck_data\check_protocol\STEC foie DCA.xlsx";
                 }
-            }
-
-
-            table1.Rows[1].Cells[1].Range.Text = "Patient : ";
-            string temp = PatientFullName.Replace("    ", "");
-            table1.Rows[1].Cells[2].Range.Text = temp;
-            table1.Rows[1].Cells[3].Range.Text = "Oncologue : ";
-            temp = DoctorName.Replace("    ", "");
-            table1.Rows[1].Cells[4].Range.Text = temp;
-            table1.Rows[2].Cells[1].Range.Text = "Commentaire : ";
-            temp = prescriptionComment.Replace("    ", "");
-            table1.Rows[2].Cells[2].Range.Text = temp;
-            table1.Rows[2].Cells[3].Range.Text = "Plan (Course) : ";
-            temp = PlanAndCourseID.Replace("    ", "");
-            table1.Rows[2].Cells[4].Range.Text = temp;
-            table1.Rows[3].Cells[1].Range.Text = "Plan créé par : ";
-            temp = PlanCreatorName.Replace("    ", "");
-            table1.Rows[3].Cells[2].Range.Text = temp;
-            table1.Rows[3].Cells[3].Range.Text = "Machine : ";
-            temp = theMachine.Replace("    ", "");
-            string temp2 = theFields.Replace("    ", "");
-            table1.Rows[3].Cells[4].Range.Text = temp + " (" + temp2 + ")";
-            table1.Rows[4].Cells[1].Range.Text = "Imprimé par : ";
-            temp = CurrentUserName.Replace("    ", "");
-            table1.Rows[4].Cells[2].Range.Text = temp;
-            string[] protocolOk = _pinfo.lastUsedCheckProtocol.Split(':');
-            table1.Rows[4].Cells[3].Range.Text = "Check Protocol : ";
-            temp = CurrentUserName.Replace(" ", "");
-            table1.Rows[4].Cells[4].Range.Text = protocolOk[1];
-
-
-
-
-            #endregion
-
-            para1.Range.Text = Environment.NewLine;  // line return
-            para1.Range.Text = Environment.NewLine;
-            para1.Range.Text = Environment.NewLine;  // line return
-            para1.Range.Text = Environment.NewLine;
-
-
-            #region result tables (old)
-            /*
-             drawTable("UNCHECK", document,uncheckedTest, WdColor.wdColorLightYellow, false);
-             drawTable("X", document, testError, WdColor.wdColorRed, false);
-             drawTable("WARNING", document, testWarn, WdColor.wdColorOrange, false);
-             drawTable("INFO", document, testInfo, WdColor.wdColorGray05, false);
-             drawTable("OK", document, resulTableRowIndex, WdColor.wdColorAqua, true);
-            */
-            #endregion
-
-
-
-
-            // object missing = System.Reflection.Missing.Value;
-            Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
-            para2.Range.InsertParagraphAfter();
-            Microsoft.Office.Interop.Word.Table table2 = document.Tables.Add(para2.Range, nTests, 3, ref missing, ref missing);
-            table2.Borders.Enable = 1; // Enable table borders
-            table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
-
-
-            var wdcUncheck = (WdColor)(255 + 0x100 * 255 + 0x10000 * 213); // pale yellow
-            var wdcX = (WdColor)(252 + 0x100 * 85 + 0x10000 * 62); // pale red
-            var wdcWarn = (WdColor)(255 + 0x100 * 188 + 0x10000 * 143); // pale orange
-            var wdcInfo = WdColor.wdColorGray05;//pale gray
-            var wdcOk = (WdColor)(183 + 0x100 * 255 + 0x10000 * 183); // pale yellow
-
-            addToResultTable(table2, "UNCHECK", document, uncheckedTest, wdcUncheck, false);
-            addToResultTable(table2, "X", document, testError, wdcX, false);
-            addToResultTable(table2, "WARNING", document, testWarn, wdcWarn, false);
-            addToResultTable(table2, "INFO", document, testInfo, wdcInfo, false);
-            addToResultTable(table2, "OK", document, resulTableRowIndex, wdcOk, true);
-
-
-            #region cosmetic
-            foreach (Microsoft.Office.Interop.Word.Paragraph paragraph in document.Paragraphs)
-            {
-                paragraph.SpaceAfter = 0; // Set the space after the paragraph to 0 (remove the space)
-            }
-            #endregion
-
-            #region Save the  word  document
-            string textfilename = @"\\srv015\sf_com\simon_lu\temp\";
-            textfilename += myToday.ToString();
-            textfilename += "_temp1.docx";
-            textfilename = textfilename.Replace(":", "_");
-            textfilename = textfilename.Replace(" ", "_");
-            textfilename = textfilename.Replace("/", "_");
-            MessageBox.Show("Checklist préparée et  partiellement préremplie par Plancheck: \n" + textfilename);
-            object filename = textfilename;
-            document.SaveAs2(ref filename);
-            document.Close(ref missing, ref missing, ref missing);
-            document = null;
-            winword.Quit(ref missing, ref missing, ref missing);
-            winword = null;
-            #endregion
-
-            #region proposed by chatGPT to avoid memory leak
-
-            // System.Runtime.InteropServices.Marshal.ReleaseComObject(checkboxControlN);
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
-            //    System.Runtime.InteropServices.Marshal.ReleaseComObject(document);
-            try
-            {
-
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(winword);
-                //System.Runtime.InteropServices.Marshal.ReleaseComObject(checkboxControlN);
-
-                //System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(document);
-            }
-            catch
-            {
-                ;
-            }
-            #endregion
-
-
-        }
-        private bool addToResultTable(Microsoft.Office.Interop.Word.Table table2, string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
-        {
-            //MessageBox.Show(resultType + " " + resulTableRowIndex.ToString());
-            bool ok = true;
-            if (nTests == 0)
-                ok = false;
-            else
-            {
-
-
-            /*    foreach (Microsoft.Office.Interop.Word.Row row in table2.Rows)
+                if (planName.Contains("POUM"))
                 {
-                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
-                    {
-                        cell.Range.Font.Bold = 1;
-                        cell.Range.Font.Size = 8;
-                        cell.Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
-                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-                    }
-                }*/
-
-
-                foreach (CheckScreen_Global csg in ListChecks)
-                {
-                    foreach (Item_Result ir in csg.Items)
-                    {
-                        if (ir.ResultStatus.Item1 == resultType)
-                        {
-                            resulTableRowIndex++;
-                            // column 1
-                            table2.Rows[resulTableRowIndex].Cells[1].Range.Text = ir.Label; //csg._title + " -> " + ir.Label;
-                            table2.Rows[resulTableRowIndex].Cells[1].Range.Font.Bold = 1;
-                            table2.Rows[resulTableRowIndex].Cells[1].Range.Font.Size = 8;
-                            table2.Rows[resulTableRowIndex].Cells[1].Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
-                            table2.Rows[resulTableRowIndex].Cells[1].VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                            table2.Rows[resulTableRowIndex].Cells[1].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-
-
-                            // column 2
-                            table2.Rows[resulTableRowIndex].Cells[2].Range.Text = formatThatString(ir.MeasuredValue);// + "\n"+formatThisStringForTheCheckList(ir.Infobulle);// Label;
-                            table2.Rows[resulTableRowIndex].Cells[2].Range.Font.Bold = 0;
-                            table2.Rows[resulTableRowIndex].Cells[2].Range.Font.Size = 8;
-                            table2.Rows[resulTableRowIndex].Cells[2].Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
-                            table2.Rows[resulTableRowIndex].Cells[2].VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                            table2.Rows[resulTableRowIndex].Cells[2].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-
-
-                            //column 3
-                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table2.Rows[resulTableRowIndex].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
-                            table2.Rows[resulTableRowIndex].Cells[3].Range.Font.Bold = 0;
-                            table2.Rows[resulTableRowIndex].Cells[3].Range.Font.Size = 8;
-                            table2.Rows[resulTableRowIndex].Cells[3].Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
-                            table2.Rows[resulTableRowIndex].Cells[3].VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                            table2.Rows[resulTableRowIndex].Cells[3].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-
-
-
-
-                            checkboxControlN.Checked = checkboxStatus;
-                            checkboxControlN.Title = csg._title;
-                        }
-                    }
-                }
-            }
-            return ok;
-        }
-
-        private bool drawTable(string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
-        {
-            bool ok = true;
-            if (nTests == 0)
-                ok = false;
-            else
-            {
-                object missing = System.Reflection.Missing.Value;
-                Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
-                para2.Range.Text = "\nRésultats " + resultType + " Plancheck";
-                para2.Range.InsertParagraphAfter();
-                Microsoft.Office.Interop.Word.Table table2 = document.Tables.Add(para2.Range, nTests + 1, 3, ref missing, ref missing);
-                table2.Borders.Enable = 1; // Enable table borders
-                //table2.PreferredWidth = 450.0f; 
-                table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
-
-                foreach (Microsoft.Office.Interop.Word.Row row in table2.Rows)
-                {
-                    foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
-                    {
-                        cell.Range.Font.Bold = 1;
-                        cell.Range.Font.Size = 8;
-                        cell.Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
-                        cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                        cell.Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
-                    }
+                    //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
+                    if (_pinfo.treatmentType == "VMAT")
+                        fileName = @"\plancheck_data\check_protocol\STEC poumon RA.xlsx";
+                    else
+                        fileName = @"\plancheck_data\check_protocol\STEC poumon DCA.xlsx";
                 }
 
-
-                table2.Rows[1].Cells[1].Range.Text = "Test";
-                table2.Rows[1].Cells[2].Range.Text = "Résultats";
-                table2.Rows[1].Cells[3].Range.Text = "Check";
-
-                int testOK = 1;
-                foreach (CheckScreen_Global csg in ListChecks)
-                {
-                    foreach (Item_Result ir in csg.Items)
-                    {
-                        if (ir.ResultStatus.Item1 == resultType)
-                        {
-                            testOK++;
-                            // column 1
-                            table2.Rows[testOK].Cells[1].Range.Text = ir.Label; //csg._title + " -> " + ir.Label;
-
-                            // column 2
-                            table2.Rows[testOK].Cells[2].Range.Text = formatThatString(ir.MeasuredValue);// + "\n"+formatThisStringForTheCheckList(ir.Infobulle);// Label;
-
-
-                            //column 3
-                            Microsoft.Office.Interop.Word.ContentControl checkboxControlN = table2.Rows[testOK].Cells[3].Range.ContentControls.Add(WdContentControlType.wdContentControlCheckBox);
-                            checkboxControlN.Checked = checkboxStatus;
-                            checkboxControlN.Title = csg._title;
-                        }
-                    }
-                }
             }
-            return ok;
-        }
-        private string formatThatString(string s)
-        {
-            s = s.Replace("  ", " ");
-            return s;
-        }
+            else if (_pinfo.treatmentType.Contains("RTC"))
+            {
+                fileName = @"\plancheck_data\check_protocol\defaut RTC.xlsx";
+            }
+            else if (isCranial)
+            {
+                fileName = @"\plancheck_data\check_protocol\intracranien-non-stereo.xlsx";
+            }
 
+
+            String fullname = Directory.GetCurrentDirectory() + fileName;
+            if (!File.Exists(fullname))
+            {
+                MessageBox.Show("Le check-protcol est introuvable :\n" + fullname + "\nUtilisation du fichier par défaut : prostate");
+                fullname = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\prostate.xlsx";
+            }
+            if (!File.Exists(fullname))
+                MessageBox.Show(fullname + "\nFichiers check-protocol introuvables");
+
+            return fullname;
+        }
 
 
 

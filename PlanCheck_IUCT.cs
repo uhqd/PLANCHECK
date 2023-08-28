@@ -19,7 +19,7 @@ using System.Windows.Navigation;
 using Excel = Microsoft.Office.Interop.Excel;
 // Do "Add reference" in reference manager --> COM tab --> Microsoft Excel 16 object...
 
-[assembly: AssemblyVersion("1.0.0.8")]
+[assembly: AssemblyVersion("1.0.0.9")]
 namespace VMS.TPS
 {
     public class Script
@@ -31,12 +31,9 @@ namespace VMS.TPS
         [MethodImpl(MethodImplOptions.NoInlining)]
         public void Execute(ScriptContext context)
         {
-           
-
-
-
+         
             #region check if a plan with dose is loaded, no verification plan allowed
-            // a new vbv
+    
 
 
             if (context == null)
@@ -61,8 +58,7 @@ namespace VMS.TPS
                 return;
             }
 
-            //if (context.PlanSetup.RTPrescription == null)
-              //  MessageBox.Show("Ce plan n'est lié à aucune prescription"); // run anyway even if there is no prescription
+            
             #endregion
             
             string fullPath = Assembly.GetExecutingAssembly().Location; //get the full location of the assembly          

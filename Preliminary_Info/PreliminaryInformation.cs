@@ -609,8 +609,7 @@ namespace PlanCheck
 
             }
             #endregion
-            //var myChoiceWindow = new chooseNonFEplanWindow(_ctx,this); // create window
-            //myChoiceWindow.ShowDialog(); // display window,
+            
 
             #region dosecheck is needed ?
             _dosecheckIsNeeded = true;
@@ -752,12 +751,7 @@ namespace PlanCheck
         public TomotherapyPdfReportReader tprd
         {
             get { return _tprd; }
-        }
-
-        /* public string tomoReportPathFile
-         {
-             get { return tomoReportPath; }
-         }*/
+        }       
         public bool tomoReportIsFound
         {
             get { return planReportFound; }
