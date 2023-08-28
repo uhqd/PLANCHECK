@@ -1,275 +1,191 @@
-Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-PATIENT
-Nom : BLAISON, PASCAL ID : 202301686 Date de naissance : lundi 11 décembre 1950 Sexe : Masculin
-Plan
-ID plan : T12-L5
-ID dossier de traitement : C3
-ID image : TDMRTE220823
-Modalité de l'image : CT
-Système d'imagerie : TDMRT
-Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.13cm, -0.00cm, -0.00cm)
-Prescription de dose
-Volume cible : PTV T12-L5
-Valeur de normalisation du plan : 100.5 %
-Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV T12-L5
-Point de normalisation du plan : -, -, -
-Pourcentage de dose prescrite : 100.0 %
-Fractionnement : 
-Dose prescrite : 8.000 Gy (8.000 Gy / fraction)
-Dose au point de référence principal : 8.000 Gy (8.000 Gy / fraction)
-Nombre de fractions : 1
-Options de calcul
-Algorithme photon : AAA_15605New
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc0.125
-FieldNormalizationType 100% to isocenter
-HeterogeneityCorrection ON
-Approbations
-Plan créé : jeudi 24 août 2023 13:51:47 par Lacaze Thierry
-Approbation du plan : jeudi 24 août 2023 16:53:03 par Hernandez Ludovic
-Patient : BLAISON, PASCAL  (202301686) Imprimé le 25/08/2023 11:42 par admin\defour
-Dernière modification le jeudi 24 août 2023 16:53:10 par Hernandez Ludovic
-Dossier de traitement : C3
-Plan : T12-L5  -  Planification approuvée Page : 1/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Champs
-ID champ
-ID machine
-Énergie
-Débit de dose
-Taille de champ
-X1
-X2
-Y1
-Y2
-Angle du bras
-Sens de rotation du bras
-Angle d'arrêt du bras
-Rot. collimateur
-Rot. de table
-Filtre en coin
-Facteur de filtre
-MLC
-Bloc
-Plaque
-Bolus
-DSP bolus
-Isocentre X
-Isocentre Y
-Isocentre Z
-DSP
-Pondération
-Refdose (Gy)
-Point de référence
-Dose par fraction
-Profondeur physique
-Profondeur effective
-UM
-  kVCBCT  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-0.54 cm
-2.65 cm
-14.04 cm
-83.3 cm
-0.000
--
-PTV T12-L5
--
--
--
--
-  RA1  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-179.0 °
-SAH
-181.0 °
-315.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
-0.54 cm
-2.65 cm
-14.04 cm
-94.1 cm
-0.922
--
-PTV T12-L5
-1.886 Gy
--
--
-734.4 UM
-  RA2  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-181.0 °
-SH
-179.0 °
-45.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
-0.54 cm
-2.65 cm
-14.04 cm
-94.1 cm
-1.121
--
-PTV T12-L5
-2.293 Gy
--
--
-892.7 UM
-  RA3  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-179.0 °
-SAH
-181.0 °
-315.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
-0.54 cm
-2.65 cm
-14.04 cm
-94.1 cm
-0.924
--
-PTV T12-L5
-1.890 Gy
--
--
-735.9 UM
-  RA4  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-181.0 °
-SH
-179.0 °
-45.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
-0.54 cm
-2.65 cm
-14.04 cm
-94.1 cm
-0.945
--
-PTV T12-L5
-1.931 Gy
--
--
-752.1 UM
-Patient : BLAISON, PASCAL  (202301686) Imprimé le 25/08/2023 11:42 par admin\defour
-Dernière modification le jeudi 24 août 2023 16:53:10 par Hernandez Ludovic
-Dossier de traitement : C3
-Plan : T12-L5  -  Planification approuvée Page : 2/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Décalage de la table
-AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
-AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.13cm, -0.00cm, -0.00cm)
-Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  RA3  RA4  kVCBCT  
-Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 0.5 2.6 14.0
-Direction : Gauche Haut Sortie [Out]
- 
- 
-Erreurs et avertissements concernant le calcul :
-Patient : BLAISON, PASCAL  (202301686) Imprimé le 25/08/2023 11:42 par admin\defour
-Dernière modification le jeudi 24 août 2023 16:53:10 par Hernandez Ludovic
-Dossier de traitement : C3
-Plan : T12-L5  -  Planification approuvée Page : 3/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: BLAISON, PASCAL  
-Patient IDs: 202301686
-Comment:
-Plan Plan Course Plan History
-T12-L5 C3 Last Modified: jeudi 24 août 2023 16:53:10 by Hernandez Ludovic
-Planification approuvée: jeudi 24 août 2023 16:53:03 by Hernandez Ludovic
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Oesophage Approuvée 100.0 / 100.1 28.3 cm³ 0.0 Gy 2.9 Gy 0.6 Gy 0.1 Gy 0.3 Gy 0.7 Gy
-Canal Med Approuvée 100.0 / 99.7 47.9 cm³ 0.1 Gy 8.3 Gy 4.0 Gy 0.1 Gy 1.1 Gy 3.8 Gy
-Coeur Approuvée 100.0 / 100.0 670.8 cm³ 0.2 Gy 2.5 Gy 0.9 Gy 0.2 Gy 0.7 Gy 0.6 Gy
-Patient: BLAISON, PASCAL    (202301686) Printed vendredi 25 août 2023 11:43:02 by Defour Nathalie
-Course: C3
-Plan: T12-L5  -  Planification approuvée Page: 1/2Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PTV T12-L5 Approuvée 100.0 / 100.0 894.2 cm³ 6.9 Gy 8.5 Gy 8.0 Gy 8.0 Gy 8.0 Gy 0.1 Gy
-Plan prescription
-Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
-Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - T12-L5 C3 8.000 Gy 8.000 Gy 1 8.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.5 %
-Patient: BLAISON, PASCAL    (202301686) Printed vendredi 25 août 2023 11:43:02 by Defour Nathalie
-Course: C3
-Plan: T12-L5  -  Planification approuvée Page: 2/2
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+paroi dte GG
+Standard
+Plan Saved Date: 25 Aug 2023, 12:46:32 PM 
+(hr:min:sec)
+Treatment Machine / Serial No.: 4010012_1000MU 1180 MU/min, rev 
+30 / 4010012
+Prescription: Median of PTV paroi, 50.00 Gy
+Prescribed Dose per Fraction (Gy): 2.00
+Planned Fractions: 25
+Maximum Dose (Gy): 54.51
+Plan Status: Approved
+MU Planned / MU per Fraction: 180294.8 / 7211.8
+Field Width (cm): 5.0, Dynamic
+Pitch: 0.287
+Modulation Factor / Actual: 3.500 / 1.8
+Gantry Period (sec):
+Gantry Rotations:
+22.1
+18.7
+Sinogram Segments: 6.2
+Couch Travel (mm):
+Couch Speed (mm/sec):
+273.3
+0.7
+Red Lasers Offset (IECf, mm): X: 17.52 Y: -109.45 Z: -57.78
+Beam On Time (sec): 416.9
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
+Size (IECp, voxel) X: 512 Y: 193 Z: 512
+Reference Dose (Gy): 54.51
+X: -81.3 Y: 92.5 Z: 120.6 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: Classic
+Patient Name:
+Medical ID:
+DOUGNAC GALANT, BERNARD
+201812028 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 22 Dec 1954
+Gender: Male Patient Key: 409669
+Plan Overview
+Page 1 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)DVH: Absolute Dose
+Plan Overview
+Page 2 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)
+Patient Name: DOUGNAC GALANT, BERNARD; Medical ID: 201812028; Plan Name: paroi dte GG; Version: Accuray 
+Precision 3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+Canal Med 101.02 0.13 2.75 10.84 n/a n/a n/a n/a Exit Only
+Coeur 1240.37 0.98 3.52 32.81 n/a n/a n/a n/a Exit Only
+Foie 1693.83 0.18 2.93 29.80 n/a n/a n/a n/a Exit Only
+Larynx 23.85 0.93 3.18 15.22 n/a n/a n/a n/a Allowed
+Oesophage 40.76 1.36 8.15 35.35 n/a n/a n/a n/a Allowed
+PoumonDt 2173.26 1.36 8.55 53.57 n/a n/a n/a n/a Exit Only
+PoumonGche 1415.43 0.70 3.00 11.45 n/a n/a n/a n/a Exit Only
+Poumons 3588.69 0.70 6.36 53.57 n/a n/a n/a n/a Allowed
+Sein contro 537.19 1.18 3.92 10.68 n/a n/a n/a n/a Exit Only
+TetehumeraleDte 106.80 0.25 2.19 11.48 n/a n/a n/a n/a Allowed
+TetehumeraleGche 116.31 0.20 1.79 5.75 n/a n/a n/a n/a Allowed
+Thyroide 39.57 1.29 17.25 50.91 n/a n/a n/a n/a Allowed
+Trachee 47.62 8.59 19.46 41.60 n/a n/a n/a n/a Allowed
+BODY 44283.24 0.05 4.63 54.51 n/a n/a n/a n/a Allowed
+CTV cmi 10.88 46.88 50.67 54.17 n/a n/a n/a n/a Allowed
+CTV paroi 501.98 32.20 49.65 54.51 n/a n/a n/a n/a Allowed
+CTV sus clav 22.35 46.78 50.04 53.13 n/a n/a n/a n/a Allowed
+PTV cmi 32.84 45.47 50.05 54.17 22.63 45.80 1.09 49.40 n/a
+PTV paroi 647.79 42.01 49.87 54.51 1.22 2.61 1.09 46.61 n/a
+PTV sus clav 55.50 43.67 49.95 53.84 13.29 26.70 1.09 49.77 n/a
+TetehumeraleD+10 315.48 0.22 2.47 15.63 n/a n/a n/a n/a Allowed
+TetehumeraleG+10 342.66 0.17 1.60 6.63 n/a n/a n/a n/a Allowed
+Plombs 0.49 0.57 10.36 25.94 n/a n/a n/a n/a Allowed
+RingPTVParoi 835.10 10.80 35.23 53.70 n/a n/a n/a n/a Allowed
+Seuillage 642.01 0.22 7.11 53.98 n/a n/a n/a n/a Allowed
+CanalMed+5 270.31 0.12 2.84 12.97 n/a n/a n/a n/a Exit Only
+PTVTotal 734.00 42.01 49.87 54.51 n/a n/a n/a n/a Allowed
+RingPTVgg 228.74 8.73 40.02 54.11 n/a n/a n/a n/a Allowed
+All Target Regions n/a 42.01 49.87 54.51 0.00 0.00 0.00 0.00 n/a
+VOI
+Plan Overview
+Page 3 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)
+Patient Name: DOUGNAC GALANT, BERNARD; Medical ID: 201812028; Plan Name: paroi dte GG; Version: Accuray 
+Precision 3.3.1.3All Critical Regions n/a 0.05 4.74 54.51 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.05 1.41 39.59 0.00 0.00 0.00 0.00 n/a
+DVH Dose (Gy) Dose (% of 50.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV paroi 47.83 95.7 615.40 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.83
+PTV sus clav 47.89 95.8 52.72 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.89
+PTV cmi 47.54 95.1 31.20 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.54
+Canal Med 10.00 20.0 0.44 0.4 Volume (%) <= 10.0 0.4
+Coeur 15.00 30.0 10.69 0.9 Volume (%) <= 5.0, Max: 10.0 0.9
+Coeur 25.00 50.0 0.60 0.0 Volume (%) <= 0.0, Max: 5.0 0.0
+PoumonGche 5.00 10.0 291.01 20.6 Volume (%) <= 20.0, Max: 30.0 20.6
+PoumonDt 5.00 10.0 956.51 44.0 Volume (%) <= 65.0, Max: 70.0 44.0
+PoumonDt 20.00 40.0 260.78 12.0 Volume (%) <= 15.0, Max: 18.0 12.0
+Poumons 5.00 10.0 1247.48 34.8 Volume (%) <= 42.0, Max: 50.0 34.8
+Poumons 20.00 40.0 260.73 7.3 Volume (%) <= 10.0, Max: 15.0 7.3
+Sein contro 5.00 10.0 81.62 15.2 Volume (%) <= 15.0, Max: 25.0 15.2
+TetehumeraleDte 11.48 23.0 0.00 0.0 Dose (Gy) <= 45.00, Max: 47.50 11.48
+Canal Med 10.84 21.7 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 10.84
+CanalMed+5 12.97 25.9 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 12.97
+PTV paroi 52.29 104.6 12.96 2.0 Dose (Gy) <= 53.50 52.29
+PTV sus clav 52.52 105.0 1.11 2.0 Dose (Gy) <= 53.50 52.52
+PTV cmi 53.08 106.2 0.66 2.0 Dose (Gy) <= 53.50 53.08
+Dx Vx Values
+Plan Overview
+Page 4 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)
+Patient Name: DOUGNAC GALANT, BERNARD; Medical ID: 201812028; Plan Name: paroi dte GG; Version: Accuray 
+Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-939 * 0.001
+-672 * 0.290
+-509 * 0.480
+13 * 1.000
+226 * 1.146
+455 * 1.331
+837 * 1.558
+1214 * 1.822
+30884 * 22.599
+Density
+Density Model: IUC-120kV
+Density Overrides
+Priority VOI Name
+Relative Electron 
+Density
+Mass Density 
+(g/cm³)
+1 Plombs n/a 0.900
+Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
+Plan Overview
+Page 5 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)
+Patient Name: DOUGNAC GALANT, BERNARD; Medical ID: 201812028; Plan Name: paroi dte GG; Version: Accuray 
+Precision 3.3.1.3Name: MASSABEAU, Carole
+25 Aug 2023, 12:47:10 PM (hr:min:sec)
+User ID: massabeau
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+421197/6
+CAIGNET, Frederique
+Saved Deliverable by: GLEMAREC, Gauthier
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Patient Position: HFS Delivery Signature: AjuRz NPRMA 
+Plan Overview
+Page 6 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)
+Patient Name: DOUGNAC GALANT, BERNARD; Medical ID: 201812028; Plan Name: paroi dte GG; Version: Accuray 
+Precision 3.3.1.3Report Snapshots
+Plan Overview
+Page 7 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)
+Patient Name: DOUGNAC GALANT, BERNARD; Medical ID: 201812028; Plan Name: paroi dte GG; Version: Accuray 
+Precision 3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) -325.000 -195.000 325.000
+Size (IECp, voxel) 512 193 512
+Spacing (IECp, mm) 1.27 2.50 1.27
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+17 Aug 2023, 01:46:34 PM (hr:min:sec) 193
+Scanner Model:
+Patient Position:
+Optima CT580
+HFS
+Series UID/Description Study UID/Description:
+1.2.840.113619.2.278.3.3523880722.637.1692248576.728 1.2.840.113619.2.278.3.3523880722.637.1692248576.598
+SEIN Droit Tomo TDM therapie SPC
+Plan Overview
+Page 8 of 8 25 Aug 2023, 4:07:11 PM (hr:min:sec)
+Patient Name: DOUGNAC GALANT, BERNARD; Medical ID: 201812028; Plan Name: paroi dte GG; Version: Accuray 
+Precision 3.3.1.3

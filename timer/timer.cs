@@ -16,7 +16,15 @@ namespace PlanCheck
                                                //        public static FileStyleUriParser 
         public timer()  //Constructor
         {
-            outputFile = new StreamWriter("./logTime.txt");
+           
+
+            string myfilename = @"\\srv015\sf_com\simon_lu\temp\";
+            myfilename += "PlanCheck_Timer_" ;
+            myfilename +=DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".txt";
+
+
+
+            outputFile = new StreamWriter(myfilename);
             watch = System.Diagnostics.Stopwatch.StartNew();
 
             t1 = 0;
