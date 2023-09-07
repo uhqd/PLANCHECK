@@ -36,8 +36,9 @@ namespace PlanCheck
                 // if(_ctx.PlanSetup.RTPrescription.Id.ToLower().Contains("gche"))
 
                 Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper().Contains("PTV"));
-                if (s.MeshGeometry.Bounds.X > 0)
+                if (s.MeshGeometry.Bounds.X + (0.5 * s.MeshGeometry.Bounds.SizeX) > 0)
                     itisleft = true;
+               // MessageBox.Show("it is left " + itisleft.ToString() + s.Id + " "+s.MeshGeometry.Bounds.X.ToString("")+" " + s.MeshGeometry.Bounds.SizeX.ToString(""));
             }
             else
             {
@@ -46,6 +47,8 @@ namespace PlanCheck
                     itisleft = true;
             }
 
+
+         
             return itisleft;
 
 

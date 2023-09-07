@@ -173,7 +173,7 @@ namespace PlanCheck
                     foreach (String qa in _rcp.listQAplans) // loop on required QAplans
                     {
                         bool found = false;
-                        if (qa == "PDIP") // protocol wants a pdip qa
+                        if ((qa == "PDIP")&&(_pinfo.isModulated)) // protocol wants a pdip qa
                         {
 
 

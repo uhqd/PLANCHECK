@@ -16,6 +16,7 @@ namespace PlanCheck
         private ScriptContext _ctx;
         private PreliminaryInformation _pinfo;
         private read_check_protocol _rcp;
+        private static bool done = false;
         public Check_beams(PreliminaryInformation pinfo, ScriptContext ctx, read_check_protocol rcp)  //Constructor
         {
             _ctx = ctx;
@@ -278,9 +279,23 @@ namespace PlanCheck
                         foreach (ControlPoint cp in b.ControlPoints)
                         {
                             int leafnumber = 0;
+
+                            //                            for(int i = 0; i < cp.LeafPositions.Length; i++)
+
+                            if (!done)
+                            {
+                                done = true;
+                            //    MessageBox.Show(cp.LeafPositions.Length.ToString());
+                            }
                             foreach (float f in cp.LeafPositions)
                             {
+                                //float g = cp.LeafPositions[28 + leafnumber];
+
                                 leafnumber++;
+                                
+                                
+                                //MessageBox.Show()
+                                
                                 if ((f > 105) || (f < -105))
                                 {
                                     allLeavesOK = false; // break loop on leaves
@@ -290,7 +305,7 @@ namespace PlanCheck
                                     totalNumberofCP = b.ControlPoints.Count;
                                     beamNotOk = b.Id;
                                     leafNumbernotOK = leafnumber;
-                                    //MessageBox.Show("NOT GOOD " + f + " beam " + b.Id + " cp " + cp.Index.ToString());
+                                   
                                     break;
                                 }
                             }

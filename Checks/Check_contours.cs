@@ -915,21 +915,38 @@ namespace PlanCheck
             {
                 Structure myCTV = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == CTV_ID); // get the CTV
                 double CTV_xmin = myCTV.MeshGeometry.Bounds.X;
-                double CTV_xmax = myCTV.MeshGeometry.Bounds.SizeX;
+                double CTV_xmax = CTV_xmin + myCTV.MeshGeometry.Bounds.SizeX;
                 double CTV_ymin = myCTV.MeshGeometry.Bounds.Y;
-                double CTV_ymax = myCTV.MeshGeometry.Bounds.SizeY;
+                double CTV_ymax = CTV_ymin + myCTV.MeshGeometry.Bounds.SizeY;
                 double CTV_zmin = myCTV.MeshGeometry.Bounds.Z;
-                double CTV_zmax = myCTV.MeshGeometry.Bounds.SizeZ;
+                double CTV_zmax = CTV_zmin + myCTV.MeshGeometry.Bounds.SizeZ;
+
+                /*                double CTV_xmin = myCTV.MeshGeometry.Bounds.X;
+                                double CTV_xmax = myCTV.MeshGeometry.Bounds.SizeX;
+                                double CTV_ymin = myCTV.MeshGeometry.Bounds.Y;
+                                double CTV_ymax = myCTV.MeshGeometry.Bounds.SizeY;
+                                double CTV_zmin = myCTV.MeshGeometry.Bounds.Z;
+                                double CTV_zmax = myCTV.MeshGeometry.Bounds.SizeZ;
+                */
+
                 bool found = false;
                 foreach (string PTV_ID in PTVs)
                 {
                     Structure myPTV = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == PTV_ID); // loop on PTV
                     double PTV_xmin = myPTV.MeshGeometry.Bounds.X;
-                    double PTV_xmax = myPTV.MeshGeometry.Bounds.SizeX;
+                    double PTV_xmax = PTV_xmin + myPTV.MeshGeometry.Bounds.SizeX;
                     double PTV_ymin = myPTV.MeshGeometry.Bounds.Y;
-                    double PTV_ymax = myPTV.MeshGeometry.Bounds.SizeY;
+                    double PTV_ymax = PTV_ymin + myPTV.MeshGeometry.Bounds.SizeY;
                     double PTV_zmin = myPTV.MeshGeometry.Bounds.Z;
-                    double PTV_zmax = myPTV.MeshGeometry.Bounds.SizeZ;
+                    double PTV_zmax = PTV_zmin + myPTV.MeshGeometry.Bounds.SizeZ;
+
+                    /*                    double PTV_xmin = myPTV.MeshGeometry.Bounds.X;
+                                        double PTV_xmax = myPTV.MeshGeometry.Bounds.SizeX;
+                                        double PTV_ymin = myPTV.MeshGeometry.Bounds.Y;
+                                        double PTV_ymax = myPTV.MeshGeometry.Bounds.SizeY;
+                                        double PTV_zmin = myPTV.MeshGeometry.Bounds.Z;
+                                        double PTV_zmax = myPTV.MeshGeometry.Bounds.SizeZ;
+                    */
 
                     if ((PTV_xmin < CTV_xmin) && ((PTV_xmax > CTV_xmax)))
                         if ((PTV_ymin < CTV_ymin) && ((PTV_ymax > CTV_ymax)))

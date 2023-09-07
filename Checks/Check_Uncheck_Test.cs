@@ -218,7 +218,7 @@ namespace PlanCheck
 
             #region documents dosi
 
-            if (_pinfo.isTOMO)
+            if (!_pinfo.isTOMO)
             {
                 Item_Result dosiReport = new Item_Result();
                 dosiReport.Label = "Rapport de dosimétrie";
