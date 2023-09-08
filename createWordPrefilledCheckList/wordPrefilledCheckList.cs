@@ -20,6 +20,7 @@ namespace PlanCheck.createWordPrefilledCheckList
         private Microsoft.Office.Interop.Word.Application winword;
         public static int resulTableRowIndex = 0;
         private List<UserControl> _ListChecks;
+        private string textfilename;
         private bool addToResultTable(Microsoft.Office.Interop.Word.Table table2, string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
         {
             //MessageBox.Show(resultType + " " + resulTableRowIndex.ToString());
@@ -342,11 +343,10 @@ namespace PlanCheck.createWordPrefilledCheckList
           
 
         }
-
         public void saveInDirectory(string dirname)
         {
             #region Save the  word  document
-            string textfilename = dirname;
+             textfilename = dirname;
             textfilename += myToday.ToString();
             textfilename += "_temp1.docx";
             textfilename = textfilename.Replace(":", "_");
@@ -383,6 +383,12 @@ namespace PlanCheck.createWordPrefilledCheckList
 
         }
 
+
+        public void saveToAria()
+        {
+            AriaSender asender = new AriaSender(_ctx, textfilename,document);
+
+        }
 
 
     }

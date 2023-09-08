@@ -1,39 +1,44 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : DE SOUSA TEIXEIRA, MARIA ID : 202305092 Date de naissance : vendredi 18 juin 1976 Sexe : Féminin
+Nom : SOURZAT, MATTHIEU ID : 202308559 Date de naissance : mardi 22 mars 1983 Sexe : Masculin
 Plan
-ID plan : SeinGdibhboFE
+ID plan : PoumonLSD
 ID dossier de traitement : C1
-ID image : TDMRTE010923DIBH
+ID image : TDM240823_AVG6
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-1.90cm, 0.63cm, 0.25cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, -0.00cm, 0.50cm)
 Prescription de dose
-Volume cible : PTV boost
+Volume cible : PTV
 Valeur de normalisation du plan : 99.7 %
 Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV boost
+Point de référence principal : PTV
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 63.800 Gy (2.200 Gy / fraction)
-Dose au point de référence principal : 63.800 Gy (2.200 Gy / fraction)
-Nombre de fractions : 29
+Dose prescrite : 66.000 Gy (2.000 Gy / fraction)
+Dose au point de référence principal : 66.000 Gy (2.000 Gy / fraction)
+Nombre de fractions : 33
 Options de calcul
-Algorithme photon : AAA_15605New
+Algorithme photon : Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc0.125
+DoseReportingMode Dose to medium
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
 Approbations
-Plan créé : mercredi 6 septembre 2023 16:04:12 par Carillo Fabienne
-Approbation du plan : jeudi 7 septembre 2023 11:29:44 par Glemarec Gauthier
-Patient : DE SOUSA TEIXEIRA, MARIA  (202305092) Imprimé le 07/09/2023 14:24 par admin\lacaze
-Dernière modification le jeudi 7 septembre 2023 11:29:48 par Glemarec Gauthier
+Plan créé : mardi 5 septembre 2023 09:41:55 par Stadler Marine
+Approbation du plan : jeudi 7 septembre 2023 10:31:33 par Khalifa Jonathan
+Patient : SOURZAT, MATTHIEU  (202308559) Imprimé le 07/09/2023 15:48 par admin\lacaze
+Dernière modification le jeudi 7 septembre 2023 10:31:36 par Khalifa Jonathan
 Dossier de traitement : C1
-Plan : SeinGdibhboFE  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Plan : PoumonLSD  -  Planification approuvée Page : 1/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -68,16 +73,144 @@ Dose par fraction
 Profondeur physique
 Profondeur effective
 UM
-  kVCBCT  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
+  RA1  
+  NOVA5  
+6X 
+600 UM/min
+14.0 cm x 16.4 cm
+X1: +7.4 cm 
+X2: +6.6 cm 
+Y1: +7.5 cm 
+Y2: +8.9 cm 
+181.0 °
+SH
 0.0 °
+15.0 °
+0.0 °
+ -
+ -
+0364
+-
+-
+-
+-
+-2.51 cm
+-2.58 cm
+10.16 cm
+88.9 cm
+0.900
+-
+PTV
+0.562 Gy
+-
+-
+180.7 UM
+  RA2  
+  NOVA5  
+6X 
+600 UM/min
+11.0 cm x 17.0 cm
+X1: +5.2 cm 
+X2: +5.9 cm 
+Y1: +7.5 cm 
+Y2: +9.5 cm 
+0.0 °
+SAH
+181.0 °
+345.0 °
+0.0 °
+ -
+ -
+0364
+-
+-
+-
+-
+-2.51 cm
+-2.58 cm
+10.16 cm
+90.9 cm
+0.812
+-
+PTV
+0.506 Gy
+-
+-
+162.9 UM
+  RA3  
+  NOVA5  
+6X 
+600 UM/min
+15.5 cm x 14.4 cm
+X1: +7.1 cm 
+X2: +8.4 cm 
+Y1: +7.0 cm 
+Y2: +7.4 cm 
+181.0 °
+SH
+0.0 °
+105.0 °
+0.0 °
+ -
+ -
+0364
+-
+-
+-
+-
+-2.51 cm
+-2.58 cm
+10.16 cm
+88.9 cm
+0.722
+-
+PTV
+0.451 Gy
+-
+-
+145.0 UM
+  RA4  
+  NOVA5  
+6X 
+600 UM/min
+15.5 cm x 11.5 cm
+X1: +6.9 cm 
+X2: +8.6 cm 
+Y1: +6.5 cm 
+Y2: +5.0 cm 
+0.0 °
+SAH
+181.0 °
+75.0 °
+0.0 °
+ -
+ -
+0364
+-
+-
+-
+-
+-2.51 cm
+-2.58 cm
+10.16 cm
+90.9 cm
+0.772
+-
+PTV
+0.481 Gy
+-
+-
+154.9 UM
+  postsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
 -
 -
 0.0 °
@@ -89,266 +222,214 @@ Y2: +14.0 cm
 -
 -
 -
-10.94 cm
--13.36 cm
-11.82 cm
-96.8 cm
+-2.51 cm
+-2.58 cm
+10.16 cm
+88.9 cm
 0.000
 -
-PTV boost
+PTV
 -
 -
 -
 -
-  MAMINT GH  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-309.0 °
+  latdtsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+270.0 °
 -
 -
-7.0 °
+0.0 °
 0.0 °
  -
  -
-SX2 MLC
 -
 -
 -
 -
-10.94 cm
--13.36 cm
-11.82 cm
-93.3 cm
-1.000
 -
-PTV boost
-0.367 Gy
+-2.51 cm
+-2.58 cm
+10.16 cm
+84.2 cm
+0.000
 -
--
-162.8 UM
-  MAMINT GH1  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-302.0 °
+PTV
 -
 -
-7.0 °
+-
+-
+  antsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
 0.0 °
  -
  -
-SX2 MLC
 -
 -
 -
 -
-10.94 cm
--13.36 cm
-11.82 cm
-92.2 cm
-1.000
 -
-PTV boost
-0.367 Gy
+-2.51 cm
+-2.58 cm
+10.16 cm
+90.9 cm
+0.000
 -
--
-145.3 UM
-  MAMINT GH2  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-316.0 °
+PTV
 -
 -
-7.0 °
+-
+-
+  latgsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
+0.0 °
 0.0 °
  -
  -
-SX2 MLC
 -
 -
 -
 -
-10.94 cm
--13.36 cm
-11.82 cm
-94.3 cm
-1.000
 -
-PTV boost
-0.367 Gy
+-2.51 cm
+-2.58 cm
+10.16 cm
+79.2 cm
+0.000
 -
--
-139.4 UM
-  MAMEXT  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-135.0 °
+PTV
 -
 -
-353.0 °
+-
+-
+  cbct  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
 0.0 °
  -
  -
-SX2 MLC
 -
 -
 -
 -
-10.94 cm
--13.36 cm
-11.82 cm
-92.4 cm
-1.000
 -
-PTV boost
-0.367 Gy
+-2.51 cm
+-2.58 cm
+10.16 cm
+88.9 cm
+0.000
 -
--
-155.9 UM
-  MAMEXT1  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-142.0 °
--
--
-353.0 °
-0.0 °
- -
- -
-SX2 MLC
+PTV
 -
 -
 -
 -
-10.94 cm
--13.36 cm
-11.82 cm
-90.5 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-139.2 UM
-  MAMEXT2  
-  HALCYON8  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-128.0 °
--
--
-353.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
-10.94 cm
--13.36 cm
-11.82 cm
-92.9 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-136.4 UM
-Patient : DE SOUSA TEIXEIRA, MARIA  (202305092) Imprimé le 07/09/2023 14:24 par admin\lacaze
-Dernière modification le jeudi 7 septembre 2023 11:29:48 par Glemarec Gauthier
+Patient : SOURZAT, MATTHIEU  (202308559) Imprimé le 07/09/2023 15:48 par admin\lacaze
+Dernière modification le jeudi 7 septembre 2023 10:31:36 par Khalifa Jonathan
 Dossier de traitement : C1
-Plan : SeinGdibhboFE  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Plan : PoumonLSD  -  Planification approuvée Page : 2/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-1.90cm, 0.63cm, 0.25cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, -0.00cm, 0.50cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  MAMINT GH  MAMINT GH1  MAMINT GH2  MAMEXT  MAMEXT1  MAMEXT2  kVCBCT  
+Champs de l'isocentre :  RA1  RA2  RA3  RA4  postsetup  latdtsetup  antsetup  latgsetup  cbct  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 10.9 13.4 11.8
-Direction : Gauche Bas Sortie [Out]
+Décaler [cm] : 2.51 2.58 10.16
+Direction : Droite Bas Sortie [Out]
  
  
 Erreurs et avertissements concernant le calcul :
-Patient : DE SOUSA TEIXEIRA, MARIA  (202305092) Imprimé le 07/09/2023 14:24 par admin\lacaze
-Dernière modification le jeudi 7 septembre 2023 11:29:48 par Glemarec Gauthier
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA1  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA1  )
+ éventail et la surface du porte-patient. (Avertissement :   RA1  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA2  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA2  )
+ éventail et la surface du porte-patient. (Avertissement :   RA2  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA3  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA3  )
+ éventail et la surface du porte-patient. (Avertissement :   RA3  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA4  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA4  )
+ éventail et la surface du porte-patient. (Avertissement :   RA4  )
+Patient : SOURZAT, MATTHIEU  (202308559) Imprimé le 07/09/2023 15:48 par admin\lacaze
+Dernière modification le jeudi 7 septembre 2023 10:31:36 par Khalifa Jonathan
 Dossier de traitement : C1
-Plan : SeinGdibhboFE  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Plan : PoumonLSD  -  Planification approuvée Page : 3/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: DE SOUSA TEIXEIRA, MARIA  
-Patient IDs: 202305092
+Patient : SOURZAT, MATTHIEU  (202308559) Imprimé le 07/09/2023 15:48 par admin\lacaze
+Dernière modification le jeudi 7 septembre 2023 10:31:36 par Khalifa Jonathan
+Dossier de traitement : C1
+Plan : PoumonLSD  -  Planification approuvée Page : 4/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient: SOURZAT, MATTHIEU  
+Patient IDs: 202308559
 Comment:
 Plan Plan Course Plan History
-SeinGdibhboFE C1 Last Modified: jeudi 7 septembre 2023 11:29:48 by Glemarec Gauthier
-Planification approuvée: jeudi 7 septembre 2023 11:29:44 by Glemarec Gauthier
+PoumonLSD C1 Last Modified: jeudi 7 septembre 2023 10:31:36 by Khalifa Jonathan
+Planification approuvée: jeudi 7 septembre 2023 10:31:33 by Khalifa Jonathan
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-IVA Approuvée 100.0 / 100.1 3.3 cm³ 1.6 Gy 22.3 Gy 6.5 Gy 2.0 Gy 5.6 Gy 3.7 Gy
-Larynx Approuvée 100.0 / 100.1 5.4 cm³ 0.4 Gy 0.5 Gy 0.5 Gy 0.5 Gy 0.5 Gy 0.0 Gy
-Thyroide Approuvée 100.0 / 100.1 9.8 cm³ 0.3 Gy 0.8 Gy 0.5 Gy 0.4 Gy 0.5 Gy 0.1 Gy
-Patient: DE SOUSA TEIXEIRA, MARIA    (202305092) Printed jeudi 7 septembre 2023 14:25:26 by Lacaze Thierry
+PlexusGche Approuvée 100.0 / 100.2 13.6 cm³ 0.7 Gy 17.4 Gy 4.6 Gy 1.2 Gy 4.1 Gy 3.1 Gy
+Oesophage Approuvée 100.0 / 100.4 33.0 cm³ 0.4 Gy 65.7 Gy 22.5 Gy 0.5 Gy 18.2 Gy 22.8 Gy
+Canal Med Approuvée 100.0 / 100.0 101.7 cm³ 0.1 Gy 36.9 Gy 8.6 Gy 0.1 Gy 1.3 Gy 11.9 Gy
+Patient: SOURZAT, MATTHIEU    (202308559) Printed jeudi 7 septembre 2023 15:49:05 by Lacaze Thierry
 Course: C1
-Plan: SeinGdibhboFE  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Plan: PoumonLSD  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PlexusDt Approuvée 100.0 / 99.8 9.9 cm³ 0.0 Gy 0.4 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.1 Gy
-PlexusGche Approuvée 100.0 / 100.0 10.5 cm³ 0.4 Gy 24.8 Gy 3.1 Gy 0.5 Gy 1.3 Gy 4.5 Gy
-Boost lit T Approuvée 100.0 / 100.3 19.9 cm³ 61.9 Gy 66.4 Gy 64.3 Gy 63.9 Gy 64.2 Gy 0.8 Gy
-Oesophage Approuvée 100.0 / 100.9 29.0 cm³ 0.3 Gy 1.3 Gy 0.7 Gy 0.5 Gy 0.6 Gy 0.2 Gy
-PTV boost Approuvée 100.0 / 100.2 47.3 cm³ 56.8 Gy 66.8 Gy 63.9 Gy 63.7 Gy 63.8 Gy 1.2 Gy
-TetehumeraleGche Approuvée 100.0 / 100.0 72.9 cm³ 0.6 Gy 15.5 Gy 1.3 Gy 0.7 Gy 1.1 Gy 1.1 Gy
-TetehumeraleDte Approuvée 100.0 / 100.1 73.6 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Canal Med Approuvée 100.0 / 100.0 106.6 cm³ 0.0 Gy 0.9 Gy 0.2 Gy 0.0 Gy 0.1 Gy 0.3 Gy
-Coeur Approuvée 100.0 / 100.0 668.9 cm³ 0.3 Gy 22.7 Gy 1.6 Gy 0.6 Gy 1.2 Gy 1.4 Gy
-PTV sein Approuvée 100.0 / 100.1 929.8 cm³ 32.3 Gy 67.3 Gy 53.9 Gy 52.8 Gy 53.0 Gy 3.4 Gy
-Sein contro Approuvée 100.0 / 100.0 974.6 cm³ 0.0 Gy 7.2 Gy 0.3 Gy 0.0 Gy 0.1 Gy 0.4 Gy
-Foie Approuvée 100.0 / 100.0 1529.8 cm³ 0.0 Gy 1.5 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.2 Gy
-PoumonGche Approuvée 100.0 / 100.0 2301.1 cm³ 0.1 Gy 59.5 Gy 5.7 Gy 1.0 Gy 1.8 Gy 10.2 Gy
-PoumonDt Approuvée 100.0 / 100.0 2644.3 cm³ 0.0 Gy 3.4 Gy 0.2 Gy 0.0 Gy 0.2 Gy 0.3 Gy
-CTV sein-5mm Approuvée 100.0 / 100.2 743.4 cm³ 44.0 Gy 67.3 Gy 54.2 Gy 53.0 Gy 53.1 Gy 3.4 Gy
+PTV Approuvée 100.0 / 100.1 400.0 cm³ 51.4 Gy 72.7 Gy 65.8 Gy 65.9 Gy 66.0 Gy 1.4 Gy
+Coeur Approuvée 100.0 / 100.0 1097.1 cm³ 0.4 Gy 70.9 Gy 8.6 Gy 0.7 Gy 1.6 Gy 14.6 Gy
+Poumons-PTV Approuvée 100.0 / 100.0 3705.7 cm³ 0.3 Gy 68.0 Gy 11.8 Gy 0.7 Gy 6.2 Gy 14.4 Gy
+Larynx Approuvée 100.0 / 100.0 26.3 cm³ 0.4 Gy 6.4 Gy 2.0 Gy 0.9 Gy 1.8 Gy 1.0 Gy
+PlexusDt Approuvée 100.0 / 100.1 14.2 cm³ 0.8 Gy 48.0 Gy 12.9 Gy 1.4 Gy 15.2 Gy 8.9 Gy
+PoumonDt Approuvée 100.0 / 100.0 1979.9 cm³ 0.3 Gy 72.7 Gy 19.4 Gy 0.7 Gy 11.0 Gy 20.6 Gy
+PoumonGche Approuvée 100.0 / 100.0 1826.4 cm³ 0.3 Gy 34.0 Gy 6.5 Gy 0.7 Gy 6.2 Gy 5.5 Gy
+Poumons Approuvée 100.0 / 100.0 3806.2 cm³ 0.3 Gy 72.7 Gy 13.2 Gy 0.7 Gy 6.5 Gy 16.6 Gy
+Plexus brachial Approuvée 100.0 / 99.9 27.0 cm³ 0.8 Gy 48.0 Gy 8.9 Gy 1.2 Gy 5.4 Gy 7.9 Gy
+CanalMed+5 Approuvée 100.0 / 100.0 258.8 cm³ 0.1 Gy 42.4 Gy 9.1 Gy 0.1 Gy 1.3 Gy 12.3 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - SeinGdibhboFE C1 63.800 Gy 2.200 Gy 29 63.800 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.7 %
-Patient: DE SOUSA TEIXEIRA, MARIA    (202305092) Printed jeudi 7 septembre 2023 14:25:26 by Lacaze Thierry
+- - - PoumonLSD C1 66.000 Gy 2.000 Gy 33 66.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.7 %
+Patient: SOURZAT, MATTHIEU    (202308559) Printed jeudi 7 septembre 2023 15:49:05 by Lacaze Thierry
 Course: C1
-Plan: SeinGdibhboFE  -  Planification approuvée Page: 2/2Institut Claudius Regaud, Toulouse Imprimé(e) sur jeudi 7 septembre 2023 14:25:52 par Lacaze Thierry (admin\lacaze)
-DE SOUSA TEIXEIRA, MARIA (202305092)
+Plan: PoumonLSD  -  Planification approuvée Page: 2/2Institut Claudius Regaud, Toulouse Imprimé(e) sur jeudi 7 septembre 2023 15:49:36 par Lacaze Thierry (admin\lacaze)
+SOURZAT, MATTHIEU (202308559)

@@ -591,6 +591,7 @@ d3.ToString("0.##");   //24
             wordPrefilledCheckList wpcl = new wordPrefilledCheckList(_pinfo, _pcontext, ListChecks, this);
             string dirname = @"\\srv015\sf_com\simon_lu\temp\";
             wpcl.saveInDirectory(dirname);
+            wpcl.saveToAria();
         }    
         private String setProtocolDisplay(String filename)
         {
