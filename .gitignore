@@ -2,7 +2,8 @@
 # Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
 ################################################################################
 
-/Plancheck/PlanCheck_Beta_0006_0177.esapi.dll
+*.esapi.dll
 *.cache
 *.lref
 *.resources
+.\plancheck_data\temp\*

@@ -589,9 +589,11 @@ d3.ToString("0.##");   //24
         private void createCheckListWord_button_Click(object sender, RoutedEventArgs e)
         {
             wordPrefilledCheckList wpcl = new wordPrefilledCheckList(_pinfo, _pcontext, ListChecks, this);
-            string dirname = @"\\srv015\sf_com\simon_lu\temp\";
+                        string dirname = @"\\srv015\sf_com\simon_lu\temp\";
+            //string dirname = @".\plancheck_data\temp\";
             wpcl.saveInDirectory(dirname);
             wpcl.saveToAria();
+            MessageBox.Show("Checklist préparée. Voir ARIA documents. ");
         }    
         private String setProtocolDisplay(String filename)
         {

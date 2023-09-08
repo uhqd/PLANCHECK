@@ -43,7 +43,7 @@ namespace PlanCheck
             _templateName = _ctx.ExternalPlanSetup.Id;
             _documentType = new DocumentType
             {
-                DocumentTypeDescription = "Dosimétrie"
+                DocumentTypeDescription = "Chek List Validation Physicien"  //must be an existing type
             };
         }
         public static byte[] ConvertWordDocumentToBinary(Microsoft.Office.Interop.Word.Document document)

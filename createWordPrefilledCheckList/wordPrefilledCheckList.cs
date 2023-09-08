@@ -352,7 +352,7 @@ namespace PlanCheck.createWordPrefilledCheckList
             textfilename = textfilename.Replace(":", "_");
             textfilename = textfilename.Replace(" ", "_");
             textfilename = textfilename.Replace("/", "_");
-            MessageBox.Show("Checklist préparée et  partiellement préremplie par Plancheck: \n" + textfilename);
+            //MessageBox.Show("Checklist préparée et  partiellement préremplie par Plancheck: \n" + textfilename);
             object filename = textfilename;
             document.SaveAs2(ref filename);
             document.Close(ref missing, ref missing, ref missing);
