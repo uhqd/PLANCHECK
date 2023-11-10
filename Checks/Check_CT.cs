@@ -92,6 +92,7 @@ namespace PlanCheck
             CT_age.ExpectedValue = "12";
             DateTime myToday = DateTime.Today;
             int nDays = (myToday - (DateTime)_context.Image.Series.HistoryDateTime).Days;
+           // _context.Image.Series.export
             CT_age.MeasuredValue = nDays.ToString();
             //CT_age.Comparator = "<";
             CT_age.Infobulle = "Le CT doit avoir moins de 12 jours. Warning si > 10 jours, ERREUR si > 30";

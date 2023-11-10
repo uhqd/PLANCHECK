@@ -189,6 +189,7 @@ namespace PlanCheck
 
 
                     }
+                    
 
                     if (lines[i].Contains("Prescribed Dose per Fraction"))
                         trd.prescriptionDosePerFraction = Convert.ToDouble(lines[i].Split(separatingStrings2, System.StringSplitOptions.RemoveEmptyEntries)[1]);

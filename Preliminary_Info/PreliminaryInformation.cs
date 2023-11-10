@@ -209,7 +209,10 @@ namespace PlanCheck
                 int datesignloc = response_docdetails.IndexOf("DateSigned");
 
                 if (dateservloc <= 0)
+                {
                     trashDoc = true;
+                    //MessageBox.Show("trash one");
+                }
                 #endregion
 
                 #region  dismiss if document is marked as error
@@ -221,6 +224,7 @@ namespace PlanCheck
                     if (isError.ToUpper().Contains("TRU"))
                     {
                         trashDoc = true;
+                        //MessageBox.Show("trash marked as error");
                     }
 
                 }
@@ -232,7 +236,10 @@ namespace PlanCheck
 
                     dtDateTime = dtDateTime.AddSeconds(Convert.ToDouble(response_docdetails.Substring(dateservloc + 23, datesignloc - dateservloc - 34)) / 1000).ToLocalTime();
                     if (!isARecentDocument(dtDateTime))
+                    {
                         trashDoc = true;
+                       // MessageBox.Show("trash cos > 30 d");
+                    }
 
 
                 }
@@ -242,7 +249,10 @@ namespace PlanCheck
                 if (!trashDoc)
                 {
                     if ((thisDocType != doc1) && (thisDocType != doc2) && (thisDocType != doc3))
+                    {
                         trashDoc = true;
+                        //MessageBox.Show("trash cos not 1 2 or 3");
+                    }
 
 
                 }
@@ -257,18 +267,25 @@ namespace PlanCheck
                     if (thisDocType == doc1)
                     {
 
+
                         tomoReportReturnCode = isTheCorrectTomoReport(response_docdetails); // check that is a TOMO report and has the same dose max than the plan
                                                                                             // fill _tprd
                                                                                             // MessageBox.Show("two " + tomoReportReturnCode);
                         if (_TOMO)
                         {
                             if (tomoReportReturnCode != 2)
+                            {
                                 trashDoc = true;
+                               // MessageBox.Show("RETURN CODE IS NOT 2");
+                            }
                         }
                         else
                         {
                             if (tomoReportReturnCode != 0)
+                            {
                                 trashDoc = true;
+                               // MessageBox.Show("RETURN CODE IS NOT 1");
+                            }
                         }
 
                     }
@@ -293,6 +310,8 @@ namespace PlanCheck
             #region count each document type
             for (int i = 0; i < DocTypeList.Count; i++)
             {
+                //MessageBox.Show("nouveau document " + DocTypeList[i]);
+
                 if (DocTypeList[i] == doc1) { dosimetrie.Add(DateServiceList[i]); }
                 else if (DocTypeList[i] == doc2) { dosecheck.Add(DateServiceList[i]); }
                 else if (DocTypeList[i] == doc3) { ficheDePosition.Add(DateServiceList[i]); }
@@ -316,6 +335,7 @@ namespace PlanCheck
             else
                 planReportFound = true;
 
+            //MessageBox.Show("count " + dosimetrie.Count.ToString() + " planreport found " + planReportFound);
 
             #endregion
 
@@ -527,7 +547,7 @@ namespace PlanCheck
             }
 
             if ((isTOMO) && (!tomoReportIsFound))
-                MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents");
+                MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents\nPlanChek n'a pas trouvé un document Dosimétrie TOMO ayant la même dose max que le plan DTO");// + isTOMO.ToString() + tomoReportIsFound.ToString());
 
             #endregion
 
@@ -603,13 +623,13 @@ namespace PlanCheck
                 if (!_findNonFEplan)
                 {
                     // wip : open  a window to select the plan manually
-                     var myChoiceWindow = new chooseNonFEplanWindow(_ctx,this); // create window
-                     myChoiceWindow.ShowDialog(); // display window,
+                    var myChoiceWindow = new chooseNonFEplanWindow(_ctx, this); // create window
+                    myChoiceWindow.ShowDialog(); // display window,
                 }
 
             }
             #endregion
-            
+
 
             #region dosecheck is needed ?
             _dosecheckIsNeeded = true;
@@ -751,7 +771,7 @@ namespace PlanCheck
         public TomotherapyPdfReportReader tprd
         {
             get { return _tprd; }
-        }       
+        }
         public bool tomoReportIsFound
         {
             get { return planReportFound; }
