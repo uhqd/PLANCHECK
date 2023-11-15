@@ -67,7 +67,7 @@ namespace PlanCheck
         public IEnumerable<string> CalculationOptions { get; set; }
         public string OptimizationModel { get; set; }
         public List<UserControl> ListChecks { get; set; }
-       
+
         #endregion
 
         public MainWindow(PreliminaryInformation pinfo, ScriptContext pcontext) //Constructeur
@@ -109,8 +109,8 @@ namespace PlanCheck
             String sex;
             if (_pcontext.Patient.Sex == "Female")
             {
-                sex = "F";                
-                sexBackgroundColor = System.Windows.Media.Brushes.Wheat;          
+                sex = "F";
+                sexBackgroundColor = System.Windows.Media.Brushes.Wheat;
                 sexForegroundColor = System.Windows.Media.Brushes.DeepPink;
                 strPatientDOB = "Née le " + _pinfo.PatientDOB; // for tooltip only
             }
@@ -336,7 +336,7 @@ d3.ToString("0.##");   //24
                 MessageBox.Show(string.Format("Le check-protocol '{0}'  n'existe pas ", theProtocol));
                 return;
             }
-            theProtocol = setProtocolDisplay(myFullFilename);            
+            theProtocol = setProtocolDisplay(myFullFilename);
             defaultProtocol.Text = theProtocol; // refresh display of default value
             _pinfo.lastUsedCheckProtocol = theProtocol;
         }
@@ -347,7 +347,7 @@ d3.ToString("0.##");   //24
             exportPDF_button.Visibility = Visibility.Visible;
             createCheckListWord_button.Visibility = Visibility.Visible;
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
-           
+
             #region PERFORM THE CHECK
             myTimer.durationSinceLastCall("user click");
 
@@ -589,12 +589,17 @@ d3.ToString("0.##");   //24
         private void createCheckListWord_button_Click(object sender, RoutedEventArgs e)
         {
             wordPrefilledCheckList wpcl = new wordPrefilledCheckList(_pinfo, _pcontext, ListChecks, this);
-                        string dirname = @"\\srv015\sf_com\simon_lu\temp\";
+            string dirname = @"\\srv015\sf_com\simon_lu\temp\";
             //string dirname = @".\plancheck_data\temp\";
             wpcl.saveInDirectory(dirname);
-            wpcl.saveToAria();
-            MessageBox.Show("Checklist préparée. Voir ARIA documents. ");
-        }    
+
+
+            // uncomment to send to aria
+            // wpcl.saveToAria();
+            //MessageBox.Show("Checklist préparée et envoyée vers ARIA documents. ");
+
+            MessageBox.Show("Checklist préparée dans\n"+dirname+"\nDecommenter L596 MainWindow.xaml pour envoi vers ARIA documents. ");
+        }
         private String setProtocolDisplay(String filename)
         {
             String protocol = "Check-protocol: ";  // theProtocol is not a file name. It s a string that display the file name with no extension

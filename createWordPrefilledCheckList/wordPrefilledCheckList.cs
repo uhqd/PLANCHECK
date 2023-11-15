@@ -30,10 +30,6 @@ namespace PlanCheck.createWordPrefilledCheckList
             else
             {
 
-
-                
-
-
                 foreach (CheckScreen_Global csg in _ListChecks)
                 {
                     foreach (Item_Result ir in csg.Items)
@@ -70,8 +66,15 @@ namespace PlanCheck.createWordPrefilledCheckList
                             table2.Rows[resulTableRowIndex].Cells[3].PreferredWidth = 3;
 
 
-                            //column 4
-                            table2.Rows[resulTableRowIndex].Cells[4].Range.Text = "";// + "\n"+formatThisStringForTheCheckList(ir.Infobulle);// Label;
+                            //column 4 : commentaire
+                            if (ir.ResultStatus.Item1 == "X" || ir.ResultStatus.Item1 == "WARNING")
+                                table2.Rows[resulTableRowIndex].Cells[4].Range.Text = ir.Infobulle + "\n\nCommentaire :";
+                            else if (ir.ResultStatus.Item1 == "UNCHECK")
+                                table2.Rows[resulTableRowIndex].Cells[4].Range.Text = "";
+                            else
+                                table2.Rows[resulTableRowIndex].Cells[4].Range.Text = ir.Infobulle;
+
+
                             table2.Rows[resulTableRowIndex].Cells[4].Range.Font.Bold = 0;
                             table2.Rows[resulTableRowIndex].Cells[4].Range.Font.Size = 8;
                             table2.Rows[resulTableRowIndex].Cells[4].Shading.BackgroundPatternColor = color;//WdColor.wdColorLightGreen;
@@ -81,7 +84,7 @@ namespace PlanCheck.createWordPrefilledCheckList
                             table2.Rows[resulTableRowIndex].Cells[4].PreferredWidth = 47;//(float)0.45 * (float) table2.PreferredWidth;
 
 
-                                checkboxControlN.Checked = checkboxStatus;
+                            checkboxControlN.Checked = checkboxStatus;
                             checkboxControlN.Title = csg._title;
                         }
                     }
@@ -152,7 +155,7 @@ namespace PlanCheck.createWordPrefilledCheckList
             s = s.Replace("  ", " ");
             return s;
         }
-        public wordPrefilledCheckList(PreliminaryInformation pinfo, ScriptContext ctx, List<UserControl> ListChecks,MainWindow mw)  //Constructor
+        public wordPrefilledCheckList(PreliminaryInformation pinfo, ScriptContext ctx, List<UserControl> ListChecks, MainWindow mw)  //Constructor
         {
 
 
@@ -196,6 +199,7 @@ namespace PlanCheck.createWordPrefilledCheckList
                     }
                 }
             }
+            //MessageBox.Show("test error : " + testError.ToString());
             nTests = testOK + testError + testInfo + testWarn + uncheckedTest;
 
             #endregion
@@ -235,7 +239,7 @@ namespace PlanCheck.createWordPrefilledCheckList
             }
             #endregion
 
-            #region first table general info 
+            #region first table (header for general info) 
             document.Content.SetRange(0, 0);
             Microsoft.Office.Interop.Word.Paragraph para1 = document.Content.Paragraphs.Add(ref missing);
             para1.Range.Font.Size = 12;
@@ -247,7 +251,8 @@ namespace PlanCheck.createWordPrefilledCheckList
             Microsoft.Office.Interop.Word.Table table1 = document.Tables.Add(para1.Range, 4, 4, ref missing, ref missing);
             table1.PreferredWidth = 450.0f;
             table1.Borders.Enable = 1;
-            table1.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
+            //table1.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
+            table1.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitWindow);
             foreach (Microsoft.Office.Interop.Word.Row row in table1.Rows)
             {
                 foreach (Microsoft.Office.Interop.Word.Cell cell in row.Cells)
@@ -303,15 +308,15 @@ namespace PlanCheck.createWordPrefilledCheckList
             para1.Range.Text = Environment.NewLine;
             #endregion
 
-            
 
-            #region cosmetic
+
+            #region second table (results)
             // object missing = System.Reflection.Missing.Value;
             Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
             para2.Range.InsertParagraphAfter();
             Microsoft.Office.Interop.Word.Table table2 = document.Tables.Add(para2.Range, nTests, 4, ref missing, ref missing);
             table2.Borders.Enable = 1; // Enable table borders
-          //  table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
+                                       //  table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent); // Autofit table to content
             table2.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitWindow); // Autofit table to content
 
             // color of the table lines
@@ -335,13 +340,13 @@ namespace PlanCheck.createWordPrefilledCheckList
             }
             #endregion
 
-          
+
 
         }
         public void saveInDirectory(string dirname)
         {
             #region Save the  word  document
-             textfilename = dirname;
+            textfilename = dirname;
             textfilename += myToday.ToString();
             textfilename += "_temp1.docx";
             textfilename = textfilename.Replace(":", "_");
@@ -381,7 +386,7 @@ namespace PlanCheck.createWordPrefilledCheckList
 
         public void saveToAria()
         {
-            AriaSender asender = new AriaSender(_ctx, textfilename,document);
+            AriaSender asender = new AriaSender(_ctx, textfilename, document);
 
         }
 
