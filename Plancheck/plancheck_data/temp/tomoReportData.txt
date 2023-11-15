@@ -1,26 +1,26 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : MORELL, JACQUES ID : 202301455 Date de naissance : vendredi 13 mars 1942 Sexe : Masculin
+Nom : GARCIA, SANDRINE ID : 202307345 Date de naissance : lundi 3 mai 1971 Sexe : Féminin
 Plan
-ID plan : S3S4
+ID plan : SeinDFE
 ID dossier de traitement : C1
-ID image : TDMRTE091123
+ID image : TDMRTE251023
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.29cm, 0.68cm, 0.50cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (2.03cm, 0.83cm, 0.00cm)
 Prescription de dose
-Volume cible : PTV_S3S4
-Valeur de normalisation du plan : 99.9 %
+Volume cible : PTV boost
+Valeur de normalisation du plan : 101.0 %
 Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV_S3S4
+Point de référence principal : PTV boost
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 8.000 Gy (8.000 Gy / fraction)
-Dose au point de référence principal : 8.000 Gy (8.000 Gy / fraction)
-Nombre de fractions : 1
+Dose prescrite : 63.800 Gy (2.200 Gy / fraction)
+Dose au point de référence principal : 63.800 Gy (2.200 Gy / fraction)
+Nombre de fractions : 29
 Options de calcul
 Algorithme photon : AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -28,12 +28,12 @@ CalculationGridSizeInCMForSRSAndHyperArc0.125
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
 Approbations
-Plan créé : jeudi 9 novembre 2023 16:24:13 par Carillo Fabienne
-Approbation du plan : vendredi 10 novembre 2023 08:58:25 par Castex Clelie
-Patient : MORELL, JACQUES  (202301455) Imprimé le 10/11/2023 09:34 par admin\carillo
-Dernière modification le vendredi 10 novembre 2023 08:58:24 par Carillo Fabienne
+Plan créé : mardi 7 novembre 2023 10:34:58 par Lacaze Thierry
+Approbation du plan : samedi 11 novembre 2023 18:10:12 par Izar Françoise
+Patient : GARCIA, SANDRINE  (202307345) Imprimé le 13/11/2023 10:52 par admin\recordon
+Dernière modification le samedi 11 novembre 2023 18:10:15 par Izar Françoise
 Dossier de traitement : C1
-Plan : S3S4  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Plan : SeinDFE  -  Planification approuvée Page : 1/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -89,18 +89,18 @@ Y2: +14.0 cm
 -
 -
 -
-4.76 cm
-2.41 cm
-4.02 cm
-79.0 cm
+-9.12 cm
+-12.59 cm
+8.63 cm
+97.9 cm
 0.000
 -
-PTV_S3S4
+PTV boost
 -
 -
 -
 -
-  RA1  
+  MAMINT DT  
   HALCYON6  
 6X-FFF 
 740 UM/min
@@ -109,10 +109,10 @@ X1: -14.0 cm
 X2: +14.0 cm 
 Y1: -14.0 cm 
 Y2: +14.0 cm 
-179.0 °
-SAH
+55.0 °
+-
+-
 0.0 °
-315.0 °
 0.0 °
  -
  -
@@ -121,18 +121,18 @@ SX2 MLC
 -
 -
 -
-4.76 cm
-2.41 cm
-4.02 cm
-96.4 cm
-0.742
+-9.12 cm
+-12.59 cm
+8.63 cm
+95.3 cm
+1.000
 -
-PTV_S3S4
-2.030 Gy
+PTV boost
+0.367 Gy
 -
 -
-594.6 UM
-  RA2  
+115.2 UM
+  MAMINT DT1  
   HALCYON6  
 6X-FFF 
 740 UM/min
@@ -141,10 +141,10 @@ X1: -14.0 cm
 X2: +14.0 cm 
 Y1: -14.0 cm 
 Y2: +14.0 cm 
+62.0 °
+-
+-
 0.0 °
-SH
-179.0 °
-45.0 °
 0.0 °
  -
  -
@@ -153,18 +153,18 @@ SX2 MLC
 -
 -
 -
-4.76 cm
-2.41 cm
-4.02 cm
-79.0 cm
-0.720
+-9.12 cm
+-12.59 cm
+8.63 cm
+94.2 cm
+1.000
 -
-PTV_S3S4
-1.968 Gy
+PTV boost
+0.367 Gy
 -
 -
-576.5 UM
-  RA3  
+189.2 UM
+  MAMINT DT2  
   HALCYON6  
 6X-FFF 
 740 UM/min
@@ -173,10 +173,10 @@ X1: -14.0 cm
 X2: +14.0 cm 
 Y1: -14.0 cm 
 Y2: +14.0 cm 
-179.0 °
-SAH
+48.0 °
+-
+-
 0.0 °
-315.0 °
 0.0 °
  -
  -
@@ -185,18 +185,18 @@ SX2 MLC
 -
 -
 -
-4.76 cm
-2.41 cm
-4.02 cm
-96.4 cm
-0.741
+-9.12 cm
+-12.59 cm
+8.63 cm
+96.1 cm
+1.000
 -
-PTV_S3S4
-2.027 Gy
+PTV boost
+0.367 Gy
 -
 -
-593.8 UM
-  RA4  
+165.1 UM
+  MAMEXT  
   HALCYON6  
 6X-FFF 
 740 UM/min
@@ -205,10 +205,10 @@ X1: -14.0 cm
 X2: +14.0 cm 
 Y1: -14.0 cm 
 Y2: +14.0 cm 
+230.0 °
+-
+-
 0.0 °
-SH
-179.0 °
-45.0 °
 0.0 °
  -
  -
@@ -217,70 +217,129 @@ SX2 MLC
 -
 -
 -
-4.76 cm
-2.41 cm
-4.02 cm
-79.0 cm
-0.722
+-9.12 cm
+-12.59 cm
+8.63 cm
+93.7 cm
+1.000
 -
-PTV_S3S4
-1.974 Gy
+PTV boost
+0.367 Gy
 -
 -
-578.2 UM
-Patient : MORELL, JACQUES  (202301455) Imprimé le 10/11/2023 09:34 par admin\carillo
-Dernière modification le vendredi 10 novembre 2023 08:58:24 par Carillo Fabienne
+127.8 UM
+  MAMEXT1  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+223.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+-9.12 cm
+-12.59 cm
+8.63 cm
+92.5 cm
+1.000
+-
+PTV boost
+0.367 Gy
+-
+-
+133.0 UM
+  MAMEXT2  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+237.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+-9.12 cm
+-12.59 cm
+8.63 cm
+94.5 cm
+1.000
+-
+PTV boost
+0.367 Gy
+-
+-
+129.2 UM
+Patient : GARCIA, SANDRINE  (202307345) Imprimé le 13/11/2023 10:52 par admin\recordon
+Dernière modification le samedi 11 novembre 2023 18:10:15 par Izar Françoise
 Dossier de traitement : C1
-Plan : S3S4  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Plan : SeinDFE  -  Planification approuvée Page : 2/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.29cm, 0.68cm, 0.50cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (2.03cm, 0.83cm, 0.00cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  RA3  RA4  kVCBCT  
+Champs de l'isocentre :  MAMINT DT  MAMINT DT1  MAMINT DT2  MAMEXT  MAMEXT1  MAMEXT2  kVCBCT  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 4.8 2.4 4.0
-Direction : Gauche Haut Sortie [Out]
+Décaler [cm] : 9.1 12.6 8.6
+Direction : Droite Bas Sortie [Out]
  
  
 Erreurs et avertissements concernant le calcul :
-Patient : MORELL, JACQUES  (202301455) Imprimé le 10/11/2023 09:34 par admin\carillo
-Dernière modification le vendredi 10 novembre 2023 08:58:24 par Carillo Fabienne
+Patient : GARCIA, SANDRINE  (202307345) Imprimé le 13/11/2023 10:52 par admin\recordon
+Dernière modification le samedi 11 novembre 2023 18:10:15 par Izar Françoise
 Dossier de traitement : C1
-Plan : S3S4  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Plan : SeinDFE  -  Planification approuvée Page : 3/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: MORELL, JACQUES  
-Patient IDs: 202301455
+Patient: GARCIA, SANDRINE  
+Patient IDs: 202307345
 Comment:
 Plan Plan Course Plan History
-S3S4 C1 Last Modified: vendredi 10 novembre 2023 08:58:24 by Carillo Fabienne
-Planification approuvée: vendredi 10 novembre 2023 08:58:25 by Castex Clelie
+SeinDFE C1 Last Modified: samedi 11 novembre 2023 18:10:15 by Izar Françoise
+Planification approuvée: samedi 11 novembre 2023 18:10:12 by Izar Françoise
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Canal Anal Approuvée 100.0 / 100.1 7.8 cm³ 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.0 Gy
-QueueDeCheval Approuvée 100.0 / 100.0 20.1 cm³ 0.0 Gy 0.3 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.1 Gy
-CTV_S3S4 Approuvée 100.0 / 100.0 45.2 cm³ 7.7 Gy 8.3 Gy 8.0 Gy 8.0 Gy 8.0 Gy 0.1 Gy
-Patient: MORELL, JACQUES    (202301455) Printed vendredi 10 novembre 2023 09:35:11 by Carillo Fabienne
+PTV boost Approuvée 100.0 / 99.9 23.1 cm³ 58.0 Gy 66.5 Gy 63.8 Gy 63.6 Gy 63.8 Gy 1.0 Gy
+CTV sein-5mm Approuvée 100.0 / 99.9 367.8 cm³ 45.5 Gy 66.5 Gy 53.6 Gy 52.0 Gy 52.4 Gy 3.5 Gy
+Sein contro Approuvée 100.0 / 99.9 466.5 cm³ 0.0 Gy 2.8 Gy 0.3 Gy 0.1 Gy 0.2 Gy 0.3 Gy
+Patient: GARCIA, SANDRINE    (202307345) Printed lundi 13 novembre 2023 10:53:10 by Recordon Frederique
 Course: C1
-Plan: S3S4  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Plan: SeinDFE  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Sigmoide Approuvée 100.0 / 100.0 55.9 cm³ 0.1 Gy 4.1 Gy 0.9 Gy 0.1 Gy 0.2 Gy 1.1 Gy
-Rectum Approuvée 100.0 / 100.0 81.7 cm³ 0.1 Gy 4.6 Gy 0.6 Gy 0.1 Gy 0.2 Gy 1.0 Gy
-PTV_S3S4 Approuvée 100.0 / 100.0 92.1 cm³ 7.2 Gy 8.3 Gy 8.0 Gy 8.0 Gy 8.0 Gy 0.1 Gy
-Vessie Approuvée 100.0 / 100.1 147.1 cm³ 0.2 Gy 2.4 Gy 1.1 Gy 1.1 Gy 1.0 Gy 0.4 Gy
-RingPTV Approuvée 100.0 / 100.0 155.6 cm³ 0.7 Gy 8.2 Gy 5.7 Gy 5.9 Gy 5.9 Gy 1.5 Gy
-TeteFemorGche Approuvée 100.0 / 99.9 159.3 cm³ 0.0 Gy 2.4 Gy 0.3 Gy 0.1 Gy 0.1 Gy 0.5 Gy
-TeteFemorDte Approuvée 100.0 / 100.0 160.5 cm³ 0.0 Gy 0.7 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.2 Gy
-Sacro iliaquesD Approuvée 100.0 / 100.0 225.9 cm³ 0.0 Gy 1.7 Gy 0.4 Gy 0.1 Gy 0.3 Gy 0.4 Gy
-Sacrum Approuvée 100.0 / 100.0 234.4 cm³ 0.1 Gy 8.3 Gy 1.6 Gy 0.2 Gy 0.5 Gy 2.2 Gy
-Sacro iliaquesG Approuvée 100.0 / 100.0 237.9 cm³ 0.0 Gy 8.3 Gy 1.3 Gy 0.1 Gy 0.3 Gy 1.5 Gy
-Grele Approuvée 100.0 / 100.0 2448.3 cm³ 0.0 Gy 5.9 Gy 0.3 Gy 0.0 Gy 0.1 Gy 0.4 Gy
-BODY Approuvée 100.0 / 100.0 29398.4 cm³ 0.0 Gy 8.3 Gy 0.3 Gy 0.0 Gy 0.0 Gy 0.8 Gy
+PTVsein-PTVboost Approuvée 100.0 / 100.0 496.2 cm³ 35.8 Gy 64.5 Gy 52.7 Gy 52.0 Gy 52.3 Gy 2.3 Gy
+PTV sein Approuvée 100.0 / 100.1 520.8 cm³ 35.8 Gy 66.5 Gy 53.3 Gy 52.0 Gy 52.3 Gy 3.3 Gy
+Coeur Approuvée 100.0 / 100.0 694.5 cm³ 0.1 Gy 5.1 Gy 0.7 Gy 0.1 Gy 0.5 Gy 0.6 Gy
+PoumonGche Approuvée 100.0 / 100.0 1546.1 cm³ 0.0 Gy 0.6 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy
+Foie Approuvée 100.0 / 100.1 1595.1 cm³ 0.0 Gy 7.0 Gy 0.5 Gy 0.0 Gy 0.3 Gy 0.5 Gy
+PoumonDt Approuvée 100.0 / 100.0 1923.5 cm³ 0.2 Gy 55.9 Gy 6.3 Gy 0.9 Gy 2.0 Gy 10.7 Gy
+Poumons Approuvée 100.0 / 100.0 3469.6 cm³ 0.0 Gy 55.9 Gy 3.6 Gy 0.1 Gy 0.8 Gy 8.5 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - S3S4 C1 8.000 Gy 8.000 Gy 1 8.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.9 %
-Patient: MORELL, JACQUES    (202301455) Printed vendredi 10 novembre 2023 09:35:11 by Carillo Fabienne
+- - - SeinDFE C1 63.800 Gy 2.200 Gy 29 63.800 Gy   100.0 % 100.00% couvre 50.00% du volume cible 101.0 %
+Patient: GARCIA, SANDRINE    (202307345) Printed lundi 13 novembre 2023 10:53:10 by Recordon Frederique
 Course: C1
-Plan: S3S4  -  Planification approuvée Page: 2/2
+Plan: SeinDFE  -  Planification approuvée Page: 2/2

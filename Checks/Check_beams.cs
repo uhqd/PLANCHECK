@@ -92,6 +92,53 @@ namespace PlanCheck
             }
             #endregion
 
+            #region DOSERATE FOR QA PREDICTION 
+            /*
+            if (_pinfo.isNOVA && _pinfo.isModulated) // not checked if mono energy machine
+            {
+                Item_Result doseRate = new Item_Result();
+                energy.Label = "Energie";
+                energy.ExpectedValue = "NA";
+
+
+
+                if ((_rcp.energy == "") || (_rcp.energy == null)) // no energy specified in check-protocol
+                {
+                    energy.setToINFO();
+                    energy.MeasuredValue = "Energie non vérifiée";
+                    energy.Infobulle = "Aucune énergie spécifiée dans le protocole:" + _rcp.protocolName;
+                }
+                else
+                {
+
+                    List<string> energyList = new List<string>();
+                    List<string> distinctEnergyList = new List<string>();
+                    foreach (Beam b in _ctx.PlanSetup.Beams)
+                        if (!b.IsSetupField)
+                            energyList.Add(b.EnergyModeDisplayName);
+
+                    distinctEnergyList = energyList.Distinct().ToList(); // remove doublons
+                    energy.MeasuredValue += "Energies : ";
+                    foreach (string distinctEnergy in distinctEnergyList)
+                        energy.MeasuredValue += distinctEnergy + " ";
+                    energy.Infobulle = "Valeur spécifiée dans le check-protocol : " + _rcp.energy;
+                    if (distinctEnergyList.Count > 1)
+                    {
+                        energy.setToWARNING();
+                    }
+                    else
+                    {
+                        if (distinctEnergyList[0] == _rcp.energy)
+                            energy.setToTRUE();
+                        else
+                            energy.setToFALSE();
+                    }
+                }
+                this._result.Add(energy);
+            }
+            */
+            #endregion
+
             #region tolerance table
             if (!_pinfo.isTOMO)
             {
