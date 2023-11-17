@@ -1,345 +1,157 @@
-Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-PATIENT
-Nom : GARCIA, SANDRINE ID : 202307345 Date de naissance : lundi 3 mai 1971 Sexe : Féminin
-Plan
-ID plan : SeinDFE
-ID dossier de traitement : C1
-ID image : TDMRTE251023
-Modalité de l'image : CT
-Système d'imagerie : TDMRT
-Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (2.03cm, 0.83cm, 0.00cm)
-Prescription de dose
-Volume cible : PTV boost
-Valeur de normalisation du plan : 101.0 %
-Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV boost
-Point de normalisation du plan : -, -, -
-Pourcentage de dose prescrite : 100.0 %
-Fractionnement : 
-Dose prescrite : 63.800 Gy (2.200 Gy / fraction)
-Dose au point de référence principal : 63.800 Gy (2.200 Gy / fraction)
-Nombre de fractions : 29
-Options de calcul
-Algorithme photon : AAA_15605New
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc0.125
-FieldNormalizationType 100% to isocenter
-HeterogeneityCorrection ON
-Approbations
-Plan créé : mardi 7 novembre 2023 10:34:58 par Lacaze Thierry
-Approbation du plan : samedi 11 novembre 2023 18:10:12 par Izar Françoise
-Patient : GARCIA, SANDRINE  (202307345) Imprimé le 13/11/2023 10:52 par admin\recordon
-Dernière modification le samedi 11 novembre 2023 18:10:15 par Izar Françoise
-Dossier de traitement : C1
-Plan : SeinDFE  -  Planification approuvée Page : 1/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Champs
-ID champ
-ID machine
-Énergie
-Débit de dose
-Taille de champ
-X1
-X2
-Y1
-Y2
-Angle du bras
-Sens de rotation du bras
-Angle d'arrêt du bras
-Rot. collimateur
-Rot. de table
-Filtre en coin
-Facteur de filtre
-MLC
-Bloc
-Plaque
-Bolus
-DSP bolus
-Isocentre X
-Isocentre Y
-Isocentre Z
-DSP
-Pondération
-Refdose (Gy)
-Point de référence
-Dose par fraction
-Profondeur physique
-Profondeur effective
-UM
-  kVCBCT  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.12 cm
--12.59 cm
-8.63 cm
-97.9 cm
-0.000
--
-PTV boost
--
--
--
--
-  MAMINT DT  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-55.0 °
--
--
-0.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--9.12 cm
--12.59 cm
-8.63 cm
-95.3 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-115.2 UM
-  MAMINT DT1  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-62.0 °
--
--
-0.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--9.12 cm
--12.59 cm
-8.63 cm
-94.2 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-189.2 UM
-  MAMINT DT2  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-48.0 °
--
--
-0.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--9.12 cm
--12.59 cm
-8.63 cm
-96.1 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-165.1 UM
-  MAMEXT  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-230.0 °
--
--
-0.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--9.12 cm
--12.59 cm
-8.63 cm
-93.7 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-127.8 UM
-  MAMEXT1  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-223.0 °
--
--
-0.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--9.12 cm
--12.59 cm
-8.63 cm
-92.5 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-133.0 UM
-  MAMEXT2  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-237.0 °
--
--
-0.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--9.12 cm
--12.59 cm
-8.63 cm
-94.5 cm
-1.000
--
-PTV boost
-0.367 Gy
--
--
-129.2 UM
-Patient : GARCIA, SANDRINE  (202307345) Imprimé le 13/11/2023 10:52 par admin\recordon
-Dernière modification le samedi 11 novembre 2023 18:10:15 par Izar Françoise
-Dossier de traitement : C1
-Plan : SeinDFE  -  Planification approuvée Page : 2/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Décalage de la table
-AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
-AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (2.03cm, 0.83cm, 0.00cm)
-Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  MAMINT DT  MAMINT DT1  MAMINT DT2  MAMEXT  MAMEXT1  MAMEXT2  kVCBCT  
-Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 9.1 12.6 8.6
-Direction : Droite Bas Sortie [Out]
- 
- 
-Erreurs et avertissements concernant le calcul :
-Patient : GARCIA, SANDRINE  (202307345) Imprimé le 13/11/2023 10:52 par admin\recordon
-Dernière modification le samedi 11 novembre 2023 18:10:15 par Izar Françoise
-Dossier de traitement : C1
-Plan : SeinDFE  -  Planification approuvée Page : 3/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: GARCIA, SANDRINE  
-Patient IDs: 202307345
-Comment:
-Plan Plan Course Plan History
-SeinDFE C1 Last Modified: samedi 11 novembre 2023 18:10:15 by Izar Françoise
-Planification approuvée: samedi 11 novembre 2023 18:10:12 by Izar Françoise
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PTV boost Approuvée 100.0 / 99.9 23.1 cm³ 58.0 Gy 66.5 Gy 63.8 Gy 63.6 Gy 63.8 Gy 1.0 Gy
-CTV sein-5mm Approuvée 100.0 / 99.9 367.8 cm³ 45.5 Gy 66.5 Gy 53.6 Gy 52.0 Gy 52.4 Gy 3.5 Gy
-Sein contro Approuvée 100.0 / 99.9 466.5 cm³ 0.0 Gy 2.8 Gy 0.3 Gy 0.1 Gy 0.2 Gy 0.3 Gy
-Patient: GARCIA, SANDRINE    (202307345) Printed lundi 13 novembre 2023 10:53:10 by Recordon Frederique
-Course: C1
-Plan: SeinDFE  -  Planification approuvée Page: 1/2Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PTVsein-PTVboost Approuvée 100.0 / 100.0 496.2 cm³ 35.8 Gy 64.5 Gy 52.7 Gy 52.0 Gy 52.3 Gy 2.3 Gy
-PTV sein Approuvée 100.0 / 100.1 520.8 cm³ 35.8 Gy 66.5 Gy 53.3 Gy 52.0 Gy 52.3 Gy 3.3 Gy
-Coeur Approuvée 100.0 / 100.0 694.5 cm³ 0.1 Gy 5.1 Gy 0.7 Gy 0.1 Gy 0.5 Gy 0.6 Gy
-PoumonGche Approuvée 100.0 / 100.0 1546.1 cm³ 0.0 Gy 0.6 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy
-Foie Approuvée 100.0 / 100.1 1595.1 cm³ 0.0 Gy 7.0 Gy 0.5 Gy 0.0 Gy 0.3 Gy 0.5 Gy
-PoumonDt Approuvée 100.0 / 100.0 1923.5 cm³ 0.2 Gy 55.9 Gy 6.3 Gy 0.9 Gy 2.0 Gy 10.7 Gy
-Poumons Approuvée 100.0 / 100.0 3469.6 cm³ 0.0 Gy 55.9 Gy 3.6 Gy 0.1 Gy 0.8 Gy 8.5 Gy
-Plan prescription
-Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
-Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - SeinDFE C1 63.800 Gy 2.200 Gy 29 63.800 Gy   100.0 % 100.00% couvre 50.00% du volume cible 101.0 %
-Patient: GARCIA, SANDRINE    (202307345) Printed lundi 13 novembre 2023 10:53:10 by Recordon Frederique
-Course: C1
-Plan: SeinDFE  -  Planification approuvée Page: 2/2
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+Femur D
+Standard
+Plan Saved Date: 15 Nov 2023, 8:22:49 AM (hr:min:sec)
+Treatment Machine / Serial No.: 4010012_1000MU 1180 MU/min, rev 
+34 / 4010012
+Prescription: Median of PTV FemurDr, 30.00 Gy
+Prescribed Dose per Fraction (Gy): 3.00
+Planned Fractions: 10
+Maximum Dose (Gy): 32.88
+Plan Status: Approved
+MU Planned / MU per Fraction: 98956.0 / 9895.6
+Field Width (cm): 5.0, Dynamic
+Pitch: 0.424
+Modulation Factor / Actual: 2.000 / 1.8
+Gantry Period (sec):
+Gantry Rotations:
+22.1
+25.9
+Sinogram Segments: 8.6
+Couch Travel (mm):
+Couch Speed (mm/sec):
+554.3
+1.0
+Red Lasers Offset (IECf, mm): X: 84.82 Y: 2.58 Z: -6.54
+Beam On Time (sec): 572.0
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 0.98 Y: 2.50 Z: 0.98
+Size (IECp, voxel) X: 559 Y: 298 Z: 512
+Reference Dose (Gy): 32.88
+X: -37.1 Y: -82.5 Z: -1.0 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: VOLO Ultra
+Patient Name:
+Medical ID:
+MENDOUSSE, MARCEL
+202312678 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 03 Nov 1952
+Gender: Male Patient Key: 409903
+Plan Overview
+Page 1 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)DVH: Absolute Dose
+Plan Overview
+Page 2 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
+Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
+3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+BODY 21350.47 0.07 7.20 32.88 n/a n/a n/a n/a Allowed
+CTV FemurDr 810.85 27.06 30.03 32.82 2.13 4.13 1.10 51.62 n/a
+PTV FemurDr 1777.80 21.71 29.93 32.88 1.00 2.01 1.10 50.00 n/a
+OGE 224.98 1.43 2.68 6.13 n/a n/a n/a n/a Exit Only
+Rectum 197.06 2.01 4.12 9.40 n/a n/a n/a n/a Allowed
+Vessie 221.42 1.97 5.18 17.07 n/a n/a n/a n/a Allowed
+NS_Prosthesis 47.04 27.06 29.65 31.33 n/a n/a n/a n/a Allowed
+RingPTV 1425.83 5.92 23.08 31.85 n/a n/a n/a n/a Allowed
+CONTROLAT 6604.92 0.19 1.83 9.37 n/a n/a n/a n/a Allowed
+CONTROLAT+1CM 9436.21 0.18 1.86 12.30 n/a n/a n/a n/a Exit Only
+All Target Regions n/a 21.71 29.93 32.88 0.00 0.00 0.00 0.00 n/a
+All Critical Regions n/a 0.07 6.72 32.88 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.07 1.80 20.00 0.00 0.00 0.00 0.00 n/a
+VOI
+DVH Dose (Gy) Dose (% of 30.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV FemurDr 28.84 96.1 1688.91 95.0 Dose (%) > 95.0 96.1
+PTV FemurDr 31.11 103.7 35.56 2.0 Dose (%) < 105.0 103.7
+Dx Vx Values
+Plan Overview
+Page 3 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
+Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
+3.3.1.3Planned Fluence Sinogram
+Plan Overview
+Page 4 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
+Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
+3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-939 * 0.001
+-672 * 0.290
+-509 * 0.480
+13 * 1.000
+226 * 1.146
+455 * 1.331
+837 * 1.558
+1214 * 1.822
+30884 * 22.599
+Density
+Density Model: IUC-120kV
+Density Overrides
+Priority VOI Name
+Relative Electron 
+Density
+Mass Density 
+(g/cm³)
+1 NS_Prosthesis n/a 4.420
+Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
+Plan Overview
+Page 5 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
+Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
+3.3.1.3Name: HERNANDEZ, Ludovic
+15 Nov 2023, 8:23:20 AM (hr:min:sec)
+User ID: hernandez_l
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+422322/4
+Brun, Thomas
+Saved Deliverable by: PARENT, Laure
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Patient Position: FFS Delivery Signature: VKeuD MxDUA 
+Plan Overview
+Page 6 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
+Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
+3.3.1.3Report Snapshots
+Plan Overview
+Page 7 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
+Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
+3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) 249.023 100.000 250.000
+Size (IECp, voxel) 512 298 512
+Spacing (IECp, mm) 0.98 2.50 0.98
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+14 Nov 2023, 01:22:50 PM (hr:min:sec) 298
+Scanner Model:
+Patient Position:
+Optima CT580
+FFS
+Series UID/Description Study UID/Description:
+1.2.840.113619.2.278.3.3523880722.478.1699944083.282.3 1.2.840.113619.2.278.3.3523880722.478.1699944083.277
+ASIR30 TDM therapie SPC
+Plan Overview
+Page 8 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
+Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
+3.3.1.3
