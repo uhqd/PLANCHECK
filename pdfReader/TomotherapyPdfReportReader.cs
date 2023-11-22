@@ -151,6 +151,16 @@ namespace PlanCheck
                 string[] separatingStrings4 = { "of " };
                 bool planNameFound = false;  // because Plan name is several times in the file
                 bool patientNameFound = false;  // because patient name is several times in the file
+
+                //* Write pdf in message box
+                /* 
+                                string fulltext = "";
+                                foreach(string s in lines) 
+                                {
+                                    fulltext += "\n" + s;
+                                }
+                               MessageBox.Show(fulltext);
+                */
                 for (int i = 0; i < lines.Count; i++)
                 {
 
@@ -189,7 +199,7 @@ namespace PlanCheck
 
 
                     }
-                    
+
 
                     if (lines[i].Contains("Prescribed Dose per Fraction"))
                         trd.prescriptionDosePerFraction = Convert.ToDouble(lines[i].Split(separatingStrings2, System.StringSplitOptions.RemoveEmptyEntries)[1]);
@@ -276,7 +286,8 @@ namespace PlanCheck
                     if (lines[i].Contains("Exit Only"))
                     {
                         string[] sub2 = lines[i].Split(' ');
-                        trd.blockedOAR.Add(sub2[0]);
+                        int nSpace = sub2.Count();
+                        trd.blockedOAR.Add(sub2[nSpace-11]);
                     }
 
                     if (lines[i].Contains("Beam On Time"))
@@ -361,10 +372,10 @@ namespace PlanCheck
                         trd.originZ = Convert.ToDouble(sub2[5]);
                     }
 
-                    if (lines[i].Contains("Scan Date")) 
+                    if (lines[i].Contains("Scan Date"))
                     {
 
-                        string[] sub2 = lines[i+3].Split(',');
+                        string[] sub2 = lines[i + 3].Split(',');
                         trd.CTDate = sub2[0];
                     }
 

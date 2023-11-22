@@ -74,15 +74,22 @@ namespace PlanCheck
                 if ((myMLCType == "VMAT") || (myMLCType == "IMRT") || (myMLCType == "DoseDynamic"))
                 {
                     um.setToTRUE();
-                    if (n_um_per_gray > 4.5)
+                    double max_umPercGy = 3.5;
+                    double maxMax = 6.0;
+                    if (_pinfo.isHALCYON)
+                        max_umPercGy = 4.5;
+                    if(_rcp.protocolName.ToUpper().Contains("VERTEBRE"))
+                        max_umPercGy = 5;
+
+                    if (n_um_per_gray > max_umPercGy)
                         um.setToWARNING();
 
-                    if (n_um_per_gray > 5)
+                    if (n_um_per_gray > maxMax)
                         um.setToFALSE();
 
                     //MessageBox.Show("IMRT " + n_um_per_gray);
 
-                    um.Infobulle = "En VMAT/IMRT warning si > 4.5 et ERREUR si > 5.";
+                    um.Infobulle = "En VMAT/IMRT warning si > 3.5, > 4.5 pour Halcyon, > 5 pour STEC vertebre et ERREUR si > 6";
 
                 }
                 else

@@ -1,157 +1,382 @@
-Accuray Precision® Plan Overview
-Plan Name:
-Plan Type:
-Femur D
-Standard
-Plan Saved Date: 15 Nov 2023, 8:22:49 AM (hr:min:sec)
-Treatment Machine / Serial No.: 4010012_1000MU 1180 MU/min, rev 
-34 / 4010012
-Prescription: Median of PTV FemurDr, 30.00 Gy
-Prescribed Dose per Fraction (Gy): 3.00
-Planned Fractions: 10
-Maximum Dose (Gy): 32.88
-Plan Status: Approved
-MU Planned / MU per Fraction: 98956.0 / 9895.6
-Field Width (cm): 5.0, Dynamic
-Pitch: 0.424
-Modulation Factor / Actual: 2.000 / 1.8
-Gantry Period (sec):
-Gantry Rotations:
-22.1
-25.9
-Sinogram Segments: 8.6
-Couch Travel (mm):
-Couch Speed (mm/sec):
-554.3
-1.0
-Red Lasers Offset (IECf, mm): X: 84.82 Y: 2.58 Z: -6.54
-Beam On Time (sec): 572.0
-Plan Delivery Type / Mode: Helical / IMRT
-Dose Calculation Algorithm:
-Dose Calculation Resolution / Type: High / Final
-Convolution-Superposition Spacing (IECp, mm) X: 0.98 Y: 2.50 Z: 0.98
-Size (IECp, voxel) X: 559 Y: 298 Z: 512
-Reference Dose (Gy): 32.88
-X: -37.1 Y: -82.5 Z: -1.0 Reference Point (IECp, mm): Tracking Method: None
-Image Angles (deg):
-Tracking Target VOI:
-Planning Method: VOLO Ultra
-Patient Name:
-Medical ID:
-MENDOUSSE, MARCEL
-202312678 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 03 Nov 1952
-Gender: Male Patient Key: 409903
-Plan Overview
-Page 1 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)DVH: Absolute Dose
-Plan Overview
-Page 2 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
-Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
-3.3.1.3VOI List
-VOI Volume 
-(cm³)
-Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
-%
-Beam Inter.
-BODY 21350.47 0.07 7.20 32.88 n/a n/a n/a n/a Allowed
-CTV FemurDr 810.85 27.06 30.03 32.82 2.13 4.13 1.10 51.62 n/a
-PTV FemurDr 1777.80 21.71 29.93 32.88 1.00 2.01 1.10 50.00 n/a
-OGE 224.98 1.43 2.68 6.13 n/a n/a n/a n/a Exit Only
-Rectum 197.06 2.01 4.12 9.40 n/a n/a n/a n/a Allowed
-Vessie 221.42 1.97 5.18 17.07 n/a n/a n/a n/a Allowed
-NS_Prosthesis 47.04 27.06 29.65 31.33 n/a n/a n/a n/a Allowed
-RingPTV 1425.83 5.92 23.08 31.85 n/a n/a n/a n/a Allowed
-CONTROLAT 6604.92 0.19 1.83 9.37 n/a n/a n/a n/a Allowed
-CONTROLAT+1CM 9436.21 0.18 1.86 12.30 n/a n/a n/a n/a Exit Only
-All Target Regions n/a 21.71 29.93 32.88 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.07 6.72 32.88 0.00 0.00 0.00 0.00 n/a
-Soft Tissue n/a 0.07 1.80 20.00 0.00 0.00 0.00 0.00 n/a
-VOI
-DVH Dose (Gy) Dose (% of 30.00 
-Gy Rx Dose)
-Volume (cm³) Volume (%) Criteria Value
-PTV FemurDr 28.84 96.1 1688.91 95.0 Dose (%) > 95.0 96.1
-PTV FemurDr 31.11 103.7 35.56 2.0 Dose (%) < 105.0 103.7
-Dx Vx Values
-Plan Overview
-Page 3 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
-Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
-3.3.1.3Planned Fluence Sinogram
-Plan Overview
-Page 4 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
-Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
-3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
--939 * 0.001
--672 * 0.290
--509 * 0.480
-13 * 1.000
-226 * 1.146
-455 * 1.331
-837 * 1.558
-1214 * 1.822
-30884 * 22.599
-Density
-Density Model: IUC-120kV
-Density Overrides
-Priority VOI Name
-Relative Electron 
-Density
-Mass Density 
-(g/cm³)
-1 NS_Prosthesis n/a 4.420
-Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
-Plan Overview
-Page 5 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
-Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
-3.3.1.3Name: HERNANDEZ, Ludovic
-15 Nov 2023, 8:23:20 AM (hr:min:sec)
-User ID: hernandez_l
-Approval Date:
-Approved by: Specialists
-Radiation Oncologist:
-Surgeon:
-Referring Physician:
-Physicist:
-Treatment Site ICD: IUC-TOULOUSE
-IUC-TOULOUSE Treatment Site:
-Additional Site Codes: IUC-TOULOUSE
-Additional Sites: IUC-TOULOUSE
-Created in Version: Accuray Precision 3.3.1.3 [2]
-Plan Key:
-Last Modified by:
-422322/4
-Brun, Thomas
-Saved Deliverable by: PARENT, Laure
-Approval and ICD
-Auto Generated Results:
-Not Applicable
-Patient Position: FFS Delivery Signature: VKeuD MxDUA 
-Plan Overview
-Page 6 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
-Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
-3.3.1.3Report Snapshots
-Plan Overview
-Page 7 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
-Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
-3.3.1.3Imaging Series
-X Y Z
-Origin (IECp, mm) 249.023 100.000 250.000
-Size (IECp, voxel) 512 298 512
-Spacing (IECp, mm) 0.98 2.50 0.98
-Primary Series:
-Modality:
-Scan Date: Number of Slices:
-Yes
-CT
-14 Nov 2023, 01:22:50 PM (hr:min:sec) 298
-Scanner Model:
-Patient Position:
-Optima CT580
-FFS
-Series UID/Description Study UID/Description:
-1.2.840.113619.2.278.3.3523880722.478.1699944083.282.3 1.2.840.113619.2.278.3.3523880722.478.1699944083.277
-ASIR30 TDM therapie SPC
-Plan Overview
-Page 8 of 8 15 Nov 2023, 10:30:31 AM (hr:min:sec)
-Patient Name: MENDOUSSE, MARCEL; Medical ID: 202312678; Plan Name: Femur D; Version: Accuray Precision 
-3.3.1.3
+Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+PATIENT
+Nom : DAGUZAN, CHRISTIANE ID : 202312466 Date de naissance : lundi 5 mai 1941 Sexe : Féminin
+Plan
+ID plan : RASTECFoie
+ID dossier de traitement : C1
+ID image : TDM071123_AVG3
+Modalité de l'image : CT
+Système d'imagerie : TDMRT
+Orientation de traitement : Tête devant- Décubitus dorsal
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.39cm, 0.39cm, -0.00cm)
+Prescription de dose
+Volume cible : CTVopt
+Valeur de normalisation du plan : 99.4 %
+Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
+Point de référence principal : CTVopt
+Point de normalisation du plan : -, -, -
+Pourcentage de dose prescrite : 100.0 %
+Fractionnement : 
+Dose prescrite : 60.000 Gy (12.000 Gy / fraction)
+Dose au point de référence principal : 60.000 Gy (12.000 Gy / fraction)
+Nombre de fractions : 5
+Options de calcul
+Algorithme photon : AAA_15605New
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc0.125
+FieldNormalizationType 100% to isocenter
+HeterogeneityCorrection ON
+Approbations
+Plan créé : lundi 20 novembre 2023 08:43:26 par Recordon Frederique
+Approbation du plan : mardi 21 novembre 2023 15:54:32 par Modesto Anouchka
+Patient : DAGUZAN, CHRISTIANE  (202312466) Imprimé le 22/11/2023 09:16 par admin\recordon
+Dernière modification le mardi 21 novembre 2023 15:54:33 par Recordon Frederique
+Dossier de traitement : C1
+Plan : RASTECFoie  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Champs
+ID champ
+ID machine
+Énergie
+Débit de dose
+Taille de champ
+X1
+X2
+Y1
+Y2
+Angle du bras
+Sens de rotation du bras
+Angle d'arrêt du bras
+Rot. collimateur
+Rot. de table
+Filtre en coin
+Facteur de filtre
+MLC
+Bloc
+Plaque
+Bolus
+DSP bolus
+Isocentre X
+Isocentre Y
+Isocentre Z
+DSP
+Pondération
+Refdose (Gy)
+Point de référence
+Dose par fraction
+Profondeur physique
+Profondeur effective
+UM
+  RA1  
+  NOVA SBRT  
+10X-FFF 
+2400 UM/min
+5.6 cm x 5.0 cm
+X1: +2.8 cm 
+X2: +2.8 cm 
+Y1: +2.5 cm 
+Y2: +2.5 cm 
+181.0 °
+SH
+0.0 °
+15.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-3.67 cm
+-3.01 cm
+2.36 cm
+89.2 cm
+1.494
+-
+CTVopt
+6.112 Gy
+-
+-
+1804.0 UM
+  RA2  
+  NOVA SBRT  
+10X-FFF 
+2400 UM/min
+5.6 cm x 5.0 cm
+X1: +2.8 cm 
+X2: +2.9 cm 
+Y1: +2.5 cm 
+Y2: +2.5 cm 
+0.0 °
+SAH
+181.0 °
+345.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-3.67 cm
+-3.01 cm
+2.36 cm
+91.0 cm
+1.440
+-
+CTVopt
+5.888 Gy
+-
+-
+1738.2 UM
+  antsetup  
+  NOVA SBRT  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-3.67 cm
+-3.01 cm
+2.36 cm
+91.0 cm
+0.000
+-
+CTVopt
+-
+-
+-
+-
+  latdtsetup  
+  NOVA SBRT  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+270.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-3.67 cm
+-3.01 cm
+2.36 cm
+89.4 cm
+0.000
+-
+CTVopt
+-
+-
+-
+-
+  postsetup  
+  NOVA SBRT  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-3.67 cm
+-3.01 cm
+2.36 cm
+89.2 cm
+0.000
+-
+CTVopt
+-
+-
+-
+-
+  cbct  
+  NOVA SBRT  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-3.67 cm
+-3.01 cm
+2.36 cm
+89.2 cm
+0.000
+-
+CTVopt
+-
+-
+-
+-
+  latgsetup  
+  NOVA SBRT  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-3.67 cm
+-3.01 cm
+2.36 cm
+80.7 cm
+0.000
+-
+CTVopt
+-
+-
+-
+-
+Patient : DAGUZAN, CHRISTIANE  (202312466) Imprimé le 22/11/2023 09:16 par admin\recordon
+Dernière modification le mardi 21 novembre 2023 15:54:33 par Recordon Frederique
+Dossier de traitement : C1
+Plan : RASTECFoie  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Décalage de la table
+AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
+AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.39cm, 0.39cm, -0.00cm)
+Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
+Champs de l'isocentre :  RA1  RA2  antsetup  latdtsetup  postsetup  cbct  latgsetup  
+Décalage de la table par rapport à la position de référence :
+Décaler [cm] : 3.67 3.01 2.36
+Direction : Droite Bas Sortie [Out]
+ 
+ 
+Erreurs et avertissements concernant le calcul :
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA1  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA1  )
+ éventail et la surface du porte-patient. (Avertissement :   RA1  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA2  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA2  )
+ éventail et la surface du porte-patient. (Avertissement :   RA2  )
+The field exits the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA2  )
+ calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA2  )
+ the patient support device. (Avertissement :   RA2  )
+Patient : DAGUZAN, CHRISTIANE  (202312466) Imprimé le 22/11/2023 09:16 par admin\recordon
+Dernière modification le mardi 21 novembre 2023 15:54:33 par Recordon Frederique
+Dossier de traitement : C1
+Plan : RASTECFoie  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient: DAGUZAN, CHRISTIANE  
+Patient IDs: 202312466
+Comment:
+Plan Plan Course Plan History
+RASTECFoie C1 Last Modified: mardi 21 novembre 2023 15:54:33 by Recordon Frederique
+Planification approuvée: mardi 21 novembre 2023 15:54:32 by Modesto Anouchka
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+OverlapVeineCave Approuvée 100.0 / 100.3 0.9 cm³ 48.4 Gy 52.9 Gy 51.2 Gy 51.0 Gy 51.2 Gy 0.5 Gy
+Pacemaker Approuvée 100.0 / 100.0 1.4 cm³ 0.1 Gy 0.3 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
+VCaveSup Approuvée 100.0 / 99.4 3.0 cm³ 0.1 Gy 0.6 Gy 0.3 Gy 0.3 Gy 0.3 Gy 0.1 Gy
+Patient: DAGUZAN, CHRISTIANE    (202312466) Printed mercredi 22 novembre 2023 09:17:58 by Recordon Frederique
+Course: C1
+Plan: RASTECFoie  -  Planification approuvée Page: 1/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+IVA Approuvée 100.0 / 99.7 3.5 cm³ 0.3 Gy 4.7 Gy 0.6 Gy 0.3 Gy 0.3 Gy 0.9 Gy
+Canal biliaire Approuvée 100.0 / 100.1 6.4 cm³ 0.3 Gy 1.6 Gy 0.6 Gy 0.5 Gy 0.6 Gy 0.2 Gy
+ITV Approuvée 100.0 / 100.1 11.0 cm³ 50.6 Gy 62.6 Gy 59.7 Gy 60.7 Gy 60.2 Gy 1.7 Gy
+Oesophage Approuvée 100.0 / 100.0 12.8 cm³ 0.1 Gy 13.9 Gy 3.4 Gy 0.2 Gy 2.9 Gy 3.3 Gy
+VesiculeBiliaire Approuvée 100.0 / 100.0 13.6 cm³ 0.1 Gy 0.6 Gy 0.3 Gy 0.2 Gy 0.3 Gy 0.1 Gy
+CTV Approuvée 100.0 / 99.9 24.8 cm³ 51.0 Gy 62.6 Gy 59.6 Gy 60.6 Gy 60.0 Gy 1.6 Gy
+Canal Med Approuvée 100.0 / 100.0 37.7 cm³ 0.1 Gy 8.4 Gy 1.4 Gy 0.1 Gy 0.3 Gy 2.1 Gy
+VCaveInf Approuvée 100.0 / 100.2 40.4 cm³ 0.0 Gy 52.9 Gy 8.7 Gy 0.0 Gy 0.5 Gy 14.3 Gy
+D2cm Approuvée 100.0 / 101.5 41.5 cm³ 1.0 Gy 31.1 Gy 12.8 Gy 1.2 Gy 13.9 Gy 8.6 Gy
+PTV Approuvée 100.0 / 99.9 53.8 cm³ 41.8 Gy 63.0 Gy 57.4 Gy 60.6 Gy 58.3 Gy 3.1 Gy
+Colon Approuvée 100.0 / 100.1 62.9 cm³ 0.2 Gy 4.1 Gy 0.6 Gy 0.3 Gy 0.4 Gy 0.6 Gy
+Duodenum Approuvée 100.0 / 100.0 71.8 cm³ 0.0 Gy 0.6 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+Aorte Approuvée 100.0 / 100.1 83.0 cm³ 0.1 Gy 14.9 Gy 2.6 Gy 0.2 Gy 0.6 Gy 3.5 Gy
+Pancreas Approuvée 100.0 / 99.9 88.2 cm³ 0.1 Gy 1.9 Gy 0.3 Gy 0.2 Gy 0.3 Gy 0.2 Gy
+ReinDt Approuvée 100.0 / 100.1 103.8 cm³ 0.0 Gy 0.5 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+CanalMed+5 Approuvée 100.0 / 99.9 106.7 cm³ 0.1 Gy 10.3 Gy 1.5 Gy 0.1 Gy 0.3 Gy 2.3 Gy
+ReinGche Approuvée 100.0 / 100.0 110.8 cm³ 0.0 Gy 0.4 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+Aorte/v.cave Approuvée 100.0 / 100.1 126.4 cm³ 0.0 Gy 52.9 Gy 4.6 Gy 0.0 Gy 0.5 Gy 9.1 Gy
+Rate Approuvée 100.0 / 100.0 166.4 cm³ 0.1 Gy 7.3 Gy 1.0 Gy 0.1 Gy 0.3 Gy 1.3 Gy
+Reins Approuvée 100.0 / 100.0 213.9 cm³ 0.0 Gy 0.5 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+Estomac Approuvée 100.0 / 100.0 399.8 cm³ 0.2 Gy 8.6 Gy 1.6 Gy 0.3 Gy 0.6 Gy 1.7 Gy
+Coeur Approuvée 100.0 / 100.0 565.0 cm³ 0.2 Gy 50.3 Gy 4.3 Gy 0.4 Gy 1.7 Gy 5.3 Gy
+ParoiThoraciqueD Approuvée 100.0 / 100.1 632.9 cm³ 0.0 Gy 23.2 Gy 3.0 Gy 0.2 Gy 0.4 Gy 4.7 Gy
+ParoiThoraciqueG Approuvée 100.0 / 100.0 647.5 cm³ 0.0 Gy 12.6 Gy 1.1 Gy 0.2 Gy 0.3 Gy 1.6 Gy
+PoumonGche Approuvée 100.0 / 100.1 839.2 cm³ 0.1 Gy 11.1 Gy 1.1 Gy 0.2 Gy 0.4 Gy 1.6 Gy
+PoumonDt Approuvée 100.0 / 100.0 1071.7 cm³ 0.1 Gy 60.0 Gy 5.2 Gy 0.4 Gy 1.3 Gy 7.8 Gy
+Foie Approuvée 100.0 / 100.0 1194.2 cm³ 0.0 Gy 63.0 Gy 8.6 Gy 0.0 Gy 0.8 Gy 14.2 Gy
+ParoiThoracique Approuvée 100.0 / 100.1 1280.4 cm³ 0.0 Gy 23.2 Gy 2.0 Gy 0.2 Gy 0.3 Gy 3.6 Gy
+Grele Approuvée 100.0 / 100.5 1900.9 cm³ 0.0 Gy 0.2 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.1 Gy
+Poumons Approuvée 100.0 / 100.0 1910.9 cm³ 0.1 Gy 60.0 Gy 3.4 Gy 0.2 Gy 0.8 Gy 6.3 Gy
+BODY Approuvée 100.0 / 100.3 14631.2 cm³ 0.0 Gy 63.0 Gy 2.0 Gy 0.0 Gy 0.2 Gy 5.8 Gy
+Patient: DAGUZAN, CHRISTIANE    (202312466) Printed mercredi 22 novembre 2023 09:17:58 by Recordon Frederique
+Course: C1
+Plan: RASTECFoie  -  Planification approuvée Page: 2/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Plan prescription
+Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
+Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
+- - - RASTECFoie C1 60.000 Gy 12.000 Gy 5 60.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.4 %
+Patient: DAGUZAN, CHRISTIANE    (202312466) Printed mercredi 22 novembre 2023 09:17:59 by Recordon Frederique
+Course: C1
+Plan: RASTECFoie  -  Planification approuvée Page: 3/3

@@ -91,14 +91,20 @@ namespace PlanCheck
 
                     Structure ptvTarget = null;// = new Structure;
 
-
-
+                    // GET THE GREATESET PTV
+                    double volmax = 0.0;
                     foreach (Structure s in _ctx.StructureSet.Structures)
                     {
-                        if (s.Id == _ctx.PlanSetup.TargetVolumeID)
-                        {
-                            ptvTarget = s;
-                        }
+                        //if (s.Id == _ctx.PlanSetup.TargetVolumeID)
+                        if (!s.Id.ToUpper().Contains("-PTV"))   // avoid struct-PTV
+                            if (s.Id.ToUpper().Contains("PTV"))
+                            {
+                                if (s.Volume > volmax)
+                                {
+                                    volmax = s.Volume;
+                                    ptvTarget = s;
+                                }
+                            }
                     }
 
                     bool doit = false;
@@ -181,16 +187,17 @@ namespace PlanCheck
             {
                 Item_Result distanceToOrigin = new Item_Result();
 
-                double maxDistanceX = 15.0;
+                //double maxDistanceX = 15.0;
                 //double maxDistanceY = 15.0;
-                double maxDistanceZ = 25.0;
-                distanceToOrigin.Label = "Distance iso-origine";
+                double maxDistanceZ = 20.0;
+                distanceToOrigin.Label = "Distance iso-origine (Z)";
                 distanceToOrigin.ExpectedValue = "1";
-                double distanceX = (myx - _ctx.Image.UserOrigin.x) / 10.0;
+                //double distanceX = (myx - _ctx.Image.UserOrigin.x) / 10.0;
                 //double distanceY = (myy - _ctx.Image.UserOrigin.y) / 10.0;
                 double distanceZ = (myz - _ctx.Image.UserOrigin.z) / 10.0;
 
-                if ((distanceX > maxDistanceX) || (distanceX < -maxDistanceX) || (distanceZ > maxDistanceZ) || (distanceZ < -maxDistanceZ))
+                //                if ((distanceX > maxDistanceX) || (distanceX < -maxDistanceX) || (distanceZ > maxDistanceZ) || (distanceZ < -maxDistanceZ))
+                if ((distanceZ > maxDistanceZ) || (distanceZ < -maxDistanceZ))
                 {
                     if (_pinfo.isHALCYON)
                         distanceToOrigin.setToFALSE();
@@ -200,8 +207,10 @@ namespace PlanCheck
                 else
                     distanceToOrigin.setToTRUE();
 
-                distanceToOrigin.MeasuredValue = distanceX.ToString("0.##") + " cm (x) / " + distanceZ.ToString("0.##") + " cm (z)";
-                distanceToOrigin.Infobulle = "L'isocentre doit être à < " + maxDistanceX + " cm  (en x) et < " + maxDistanceZ + " cm (en z) de l'origine";
+                //             distanceToOrigin.MeasuredValue = distanceX.ToString("0.##") + " cm (x) / " + distanceZ.ToString("0.##") + " cm (z)";
+                distanceToOrigin.MeasuredValue = distanceZ.ToString("0.##") + " cm (z)";
+                // distanceToOrigin.Infobulle = "L'isocentre doit être à < " + maxDistanceX + " cm  (en x) et < " + maxDistanceZ + " cm (en z) de l'origine";
+                distanceToOrigin.Infobulle = "L'isocentre doit être à < " + maxDistanceZ + " cm (en z) de l'origine";
                 distanceToOrigin.Infobulle += "\n Obligatoire pour les Halcyon";
 
                 this._result.Add(distanceToOrigin);

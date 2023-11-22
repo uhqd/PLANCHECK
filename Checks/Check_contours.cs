@@ -602,6 +602,86 @@ namespace PlanCheck
             }
             #endregion
 
+
+
+
+            #region  List of structures with assigned  HU
+            if (_pinfo.advancedUserMode)
+            {
+                List<string> fixedHUVolumeList = new List<string>();
+
+                Item_Result fixedHUVolume = new Item_Result();
+                fixedHUVolume.Label = "Structures avec HU forcées";
+                fixedHUVolume.ExpectedValue = "EN COURS";
+
+                double myHU = 0.0;
+                bool isAssigned = false;
+                foreach (Structure struct1 in _ctx.StructureSet.Structures)
+                {
+                    if (struct1 != null) // if structure  exist 
+                        if (!struct1.IsEmpty) //  and if not empty 
+                        {
+                            isAssigned = struct1.GetAssignedHU(out myHU); // return TRUE if HU assigned and HU value is sent to mydouble
+                            if (isAssigned)
+                            {
+                                bool isAClinicalStructure = false;
+                                bool isACouchStructure = false;
+                                bool isAnOptStructure = false;
+
+                                #region check if the structure is not already in the 3 previous check blocks
+                               
+                                foreach (expectedStructure es in _rcp.myClinicalExpectedStructures)
+                                {
+                                    if (es.Name == struct1.Id)
+                                    {
+                                        isAClinicalStructure = true;
+                                      //  break;
+                                    }                                                                           
+                                }
+                                foreach (expectedStructure es in _rcp.myCouchExpectedStructures)
+                                {
+                                    if (es.Name == struct1.Id)
+                                    {
+                                        isACouchStructure = true;
+                                       // break;
+                                    }
+                                }
+                                foreach (expectedStructure es in _rcp.myOptExpectedStructures)
+                                {
+                                    if (es.Name == struct1.Id)
+                                    {
+                                        isAnOptStructure = true;
+                                       // break;
+                                    }
+                                }
+                                
+                                #endregion
+
+                                if (!isAClinicalStructure && !isACouchStructure && !isAnOptStructure)
+                                    fixedHUVolumeList.Add(struct1.Id + " " + myHU + " HU");
+                            }
+                        }
+                }
+                if (fixedHUVolumeList.Count > 0)
+                {
+                    fixedHUVolume.Infobulle = "Structure avec HU forcées (autres que celles vérifiées dans les tests précédents) : \n";
+                    foreach (string ms in fixedHUVolumeList)
+                        fixedHUVolume.Infobulle += ms + "\n";
+                    fixedHUVolume.MeasuredValue = fixedHUVolumeList.Count.ToString() + " structure(s) avec HU forcées";
+                    fixedHUVolume.setToINFO();
+                }
+                else
+                {
+                    fixedHUVolume.setToTRUE();
+                    fixedHUVolume.Infobulle = "Aucune autre structure avec HU forcées (autres que celles testées dans la liste des structures de tables, cliniques et optim.)";
+                    fixedHUVolume.MeasuredValue = "Aucune autre structure avec HU forcées";
+                }
+
+                this._result.Add(fixedHUVolume);
+            }
+
+            #endregion
+
             #region  Anormal Volume values (cc)
             if (_pinfo.advancedUserMode)
             {

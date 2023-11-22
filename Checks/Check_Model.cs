@@ -182,7 +182,7 @@ namespace PlanCheck
                 {
                     if (!_pinfo.tprd.Trd.resolutionCalculation.ToLower().Contains("high"))
                         algo_grid.setToFALSE();
-                    
+
                 }
                 else
                     algo_grid.Infobulle = "Pas de rapport de Dosimétrie Tomotherapy dans Aria Documents";
@@ -284,7 +284,7 @@ namespace PlanCheck
 
                     Item_Result NTO = new Item_Result();
                     NTO.Label = "NTO";
-                    if(noNTOuse)
+                    if (noNTOuse)
                     {
                         NTO.MeasuredValue = "NTO désactivé";
                         NTO.Infobulle = "NTO désactivé";
@@ -302,8 +302,8 @@ namespace PlanCheck
                         NTO.Infobulle = "Paramètres NTO non conformes au protocole " + _rcp.protocolName;
                         NTO.setToFALSE();
                     }
-                    
-                    
+
+
                     NTO.Infobulle += "\n Paramètres NTO du plan vs. protocole :";
                     if (noNTOuse)
                     {
@@ -372,29 +372,29 @@ namespace PlanCheck
 
                     if (!isJawTrackingOn)
                     {
-                        if (isField3x3())
+                        /*if (isField3x3())
                         {
                             jawTrack.setToTRUE();
                             jawTrack.Infobulle += "\nJaw Track désactivé car jaws < 3.1 cm";
                         }
                         else
-                        {
-                            jawTrack.setToFALSE();
-                            jawTrack.Infobulle += "\nJaw Track désactivé";
-                        }
+                        {*/
+                        jawTrack.setToFALSE();
+                        jawTrack.Infobulle += "\nJaw Track désactivé";
+
                     }
                     else if (isJawTrackingOn) // != _rcp.JawTracking)
                     {
                         jawTrack.setToTRUE();
-                        if (isField3x3())
-                        {
-                            jawTrack.setToFALSE();
-                            jawTrack.Infobulle += "\nJawTrack activé mais jaws < 3.1";
-                        }
-                        else
-                        {
-                            jawTrack.Infobulle += "\nJawTrack activé ";
-                        }
+                        /*                        if (isField3x3())
+                                                {
+                                                    jawTrack.setToFALSE();
+                                                    jawTrack.Infobulle += "\nJawTrack activé mais jaws < 3.1";
+                                                }
+                                                else
+                                                {*/
+                        jawTrack.Infobulle += "\nJawTrack activé ";
+
                     }
                     this._result.Add(jawTrack);
                 }

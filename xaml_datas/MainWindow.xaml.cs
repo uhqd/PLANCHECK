@@ -344,7 +344,9 @@ d3.ToString("0.##");   //24
         {
             this.cleanList();
             OK_button.IsEnabled = false;// Visibility.Collapsed;
-            exportPDF_button.Visibility = Visibility.Visible;
+
+
+            
             createCheckListWord_button.Visibility = Visibility.Visible;
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
 
@@ -452,6 +454,14 @@ d3.ToString("0.##");   //24
             myTimer.durationSinceLastCall("uncheck");
             myTimer.close();
             #endregion
+
+
+            // NO need to click on pdf button anymore
+            //exportPDF_button.Visibility = Visibility.Visible;  
+            exportPDF_button.Visibility = Visibility.Hidden;
+            createPDFreport myPDF_report = new createPDFreport(_pinfo, _pcontext, ListChecks, this);
+            string dirname = @"\\srv015\sf_com\simon_lu\temp\";
+            myPDF_report.saveInDirectory(dirname);
 
 
             CheckList.Visibility = Visibility.Visible;
@@ -598,7 +608,7 @@ d3.ToString("0.##");   //24
             // wpcl.saveToAria();
             //MessageBox.Show("Checklist préparée et envoyée vers ARIA documents. ");
 
-            MessageBox.Show("Checklist préparée dans\n"+dirname+"\nDecommenter L596 MainWindow.xaml pour envoi vers ARIA documents. ");
+            MessageBox.Show("Checklist préparée dans\n" + dirname + "\nDecommenter L596 MainWindow.xaml pour envoi vers ARIA documents. ");
         }
         private String setProtocolDisplay(String filename)
         {

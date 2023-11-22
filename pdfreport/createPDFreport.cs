@@ -198,7 +198,7 @@ namespace PlanCheck.pdfreport
             pdfFile += Path.GetFileNameWithoutExtension(_mw.myFullFilename) + "_" + DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".pdf";
             pdfRenderer.Document = migraDoc;
             pdfRenderer.RenderDocument();
-            MessageBox.Show("Rapport PDF sauvegardé :\n" + pdfFile);
+          //  MessageBox.Show("Rapport PDF sauvegardé :\n" + pdfFile);
             pdfRenderer.PdfDocument.Save(pdfFile);
             System.Diagnostics.Process.Start(pdfFile);
             #endregion
