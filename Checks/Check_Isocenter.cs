@@ -75,111 +75,110 @@ namespace PlanCheck
             #endregion
 
             #region Iso au centre du PTV
-            if (_pinfo.advancedUserMode)
+
+            if (!_pinfo.isTOMO)
             {
-                if (!_pinfo.isTOMO)
+
+                double tolerance = 0.15; // 0.1 means that we expect the isocenter in a region  from + or -10% around the center of PTV
+                if (_rcp.protocolName.ToUpper().Contains("SEIN"))
+                    tolerance = 0.25;
+                Item_Result isoAtCenterOfPTV = new Item_Result();
+
+                isoAtCenterOfPTV.Label = "Position de l'isocentre";
+                isoAtCenterOfPTV.ExpectedValue = "1";
+                isoAtCenterOfPTV.setToTRUE();
+
+                Structure ptvTarget = null;// = new Structure;
+
+                // GET THE GREATESET PTV
+                double volmax = 0.0;
+                foreach (Structure s in _ctx.StructureSet.Structures)
                 {
-
-                    double tolerance = 0.15; // 0.1 means that we expect the isocenter in a region  from + or -10% around the center of PTV
-                    if (_rcp.protocolName.ToUpper().Contains("SEIN"))
-                        tolerance = 0.25;
-                    Item_Result isoAtCenterOfPTV = new Item_Result();
-
-                    isoAtCenterOfPTV.Label = "Position de l'isocentre";
-                    isoAtCenterOfPTV.ExpectedValue = "1";
-                    isoAtCenterOfPTV.setToTRUE();
-
-                    Structure ptvTarget = null;// = new Structure;
-
-                    // GET THE GREATESET PTV
-                    double volmax = 0.0;
-                    foreach (Structure s in _ctx.StructureSet.Structures)
-                    {
-                        //if (s.Id == _ctx.PlanSetup.TargetVolumeID)
-                        if (!s.Id.ToUpper().Contains("-PTV"))   // avoid struct-PTV
-                            if (s.Id.ToUpper().Contains("PTV"))
+                    //if (s.Id == _ctx.PlanSetup.TargetVolumeID)
+                    if (!s.Id.ToUpper().Contains("-PTV"))   // avoid struct-PTV
+                        if (s.Id.ToUpper().Contains("PTV"))
+                        {
+                            if (s.Volume > volmax)
                             {
-                                if (s.Volume > volmax)
-                                {
-                                    volmax = s.Volume;
-                                    ptvTarget = s;
-                                }
+                                volmax = s.Volume;
+                                ptvTarget = s;
                             }
-                    }
+                        }
+                }
 
-                    bool doit = false;
-                    if (ptvTarget != null)
-                        if (!ptvTarget.IsEmpty)
-                            doit = true;
+                bool doit = false;
+                if (ptvTarget != null)
+                    if (!ptvTarget.IsEmpty)
+                        doit = true;
 
 
 
-                    if (doit)
+                if (doit)
+                {
+                    // looking if isocenter is close to the ptv center
+                    // Coordinates are in DICOM ref 
+
+
+
+                    double centerPTVxmin = ptvTarget.MeshGeometry.Bounds.X + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeX);
+                    double centerPTVymin = ptvTarget.MeshGeometry.Bounds.Y + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeY);
+                    double centerPTVzmin = ptvTarget.MeshGeometry.Bounds.Z + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeZ);
+
+                    double centerPTVxmax = ptvTarget.MeshGeometry.Bounds.X + (0.5 + tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeX);
+                    double centerPTVymax = ptvTarget.MeshGeometry.Bounds.Y + (0.5 + tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeY);
+                    double centerPTVzmax = ptvTarget.MeshGeometry.Bounds.Z + (0.5 + tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeZ);
+
+                    double fractionX = (myx - ptvTarget.MeshGeometry.Bounds.X) / ptvTarget.MeshGeometry.Bounds.SizeX;
+                    double fractionY = (myy - ptvTarget.MeshGeometry.Bounds.Y) / ptvTarget.MeshGeometry.Bounds.SizeY;
+                    double fractionZ = (myz - ptvTarget.MeshGeometry.Bounds.Z) / ptvTarget.MeshGeometry.Bounds.SizeZ;
+
+
+
+                    int iswrong = 0;
+                    if ((myx > centerPTVxmax) || (myx < centerPTVxmin))
                     {
-                        // looking if isocenter is close to the ptv center
-                        // Coordinates are in DICOM ref 
-
-
-
-                        double centerPTVxmin = ptvTarget.MeshGeometry.Bounds.X + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeX);
-                        double centerPTVymin = ptvTarget.MeshGeometry.Bounds.Y + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeY);
-                        double centerPTVzmin = ptvTarget.MeshGeometry.Bounds.Z + (0.5 - tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeZ);
-
-                        double centerPTVxmax = ptvTarget.MeshGeometry.Bounds.X + (0.5 + tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeX);
-                        double centerPTVymax = ptvTarget.MeshGeometry.Bounds.Y + (0.5 + tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeY);
-                        double centerPTVzmax = ptvTarget.MeshGeometry.Bounds.Z + (0.5 + tolerance) * (ptvTarget.MeshGeometry.Bounds.SizeZ);
-
-                        double fractionX = (myx - ptvTarget.MeshGeometry.Bounds.X) / ptvTarget.MeshGeometry.Bounds.SizeX;
-                        double fractionY = (myy - ptvTarget.MeshGeometry.Bounds.Y) / ptvTarget.MeshGeometry.Bounds.SizeY;
-                        double fractionZ = (myz - ptvTarget.MeshGeometry.Bounds.Z) / ptvTarget.MeshGeometry.Bounds.SizeZ;
-
-
-
-                        int iswrong = 0;
-                        if ((myx > centerPTVxmax) || (myx < centerPTVxmin))
-                        {
-                            iswrong = 1;
-                        }
-                        if ((myy > centerPTVymax) || (myy < centerPTVymin))
-                        {
-                            iswrong = 1;
-                        }
-                        if ((myz > centerPTVzmax) || (myz < centerPTVzmin))
-                        {
-                            iswrong = 1;
-                        }
-                        if (iswrong == 1)
-                        {
-                            isoAtCenterOfPTV.MeasuredValue = " Positionnement non central de l'isocentre dans le " + ptvTarget.Id;
-                            isoAtCenterOfPTV.setToWARNING();
-                        }
-                        else
-                        {
-                            isoAtCenterOfPTV.MeasuredValue = " Isocentre proche du centre de " + ptvTarget.Id;
-                            isoAtCenterOfPTV.setToTRUE();
-                        }
-
-                        double tolmin = 0.5 - tolerance;
-                        double tolmax = 0.5 + tolerance;
-                        isoAtCenterOfPTV.Infobulle = "L'isocentre doit être proche du centre de " + ptvTarget.Id;
-                        isoAtCenterOfPTV.Infobulle += "\n(volume cible)";
-                        isoAtCenterOfPTV.Infobulle += "\navec une tolérance de " + (tolerance * 100).ToString("N1") + "% dans chaque direction.";
-                        isoAtCenterOfPTV.Infobulle += "\n\nPosition relative de l'isoscentre sur les axes x y et z:\n" + Math.Round(fractionX, 2) + "\t" + Math.Round(fractionY, 2) + "\t" + Math.Round(fractionZ, 2);
-                        isoAtCenterOfPTV.Infobulle += "\n\n0 et 1 = limites du PTV";
-                        isoAtCenterOfPTV.Infobulle += "\nValeures attendues (selon check-protocol) entre " + tolmin + " et " + tolmax;
+                        iswrong = 1;
+                    }
+                    if ((myy > centerPTVymax) || (myy < centerPTVymin))
+                    {
+                        iswrong = 1;
+                    }
+                    if ((myz > centerPTVzmax) || (myz < centerPTVzmin))
+                    {
+                        iswrong = 1;
+                    }
+                    if (iswrong == 1)
+                    {
+                        isoAtCenterOfPTV.MeasuredValue = " Positionnement non central de l'isocentre dans le " + ptvTarget.Id;
+                        isoAtCenterOfPTV.setToWARNING();
                     }
                     else
                     {
-                        isoAtCenterOfPTV.MeasuredValue = "Aucun volume cible trouvé";
-                        isoAtCenterOfPTV.setToINFO();
-                        isoAtCenterOfPTV.Infobulle += "Pas de vérification de la position de l'isocentre dans le volume cible";
-
+                        isoAtCenterOfPTV.MeasuredValue = " Isocentre proche du centre de " + ptvTarget.Id;
+                        isoAtCenterOfPTV.setToTRUE();
                     }
 
-
-                    this._result.Add(isoAtCenterOfPTV);
+                    double tolmin = 0.5 - tolerance;
+                    double tolmax = 0.5 + tolerance;
+                    isoAtCenterOfPTV.Infobulle = "L'isocentre doit être proche du centre de " + ptvTarget.Id;
+                    isoAtCenterOfPTV.Infobulle += "\n(volume cible)";
+                    isoAtCenterOfPTV.Infobulle += "\navec une tolérance de " + (tolerance * 100).ToString("N1") + "% dans chaque direction.";
+                    isoAtCenterOfPTV.Infobulle += "\n\nPosition relative de l'isoscentre sur les axes x y et z:\n" + Math.Round(fractionX, 2) + "\t" + Math.Round(fractionY, 2) + "\t" + Math.Round(fractionZ, 2);
+                    isoAtCenterOfPTV.Infobulle += "\n\n0 et 1 = limites du PTV";
+                    isoAtCenterOfPTV.Infobulle += "\nValeures attendues (selon check-protocol) entre " + tolmin + " et " + tolmax;
                 }
+                else
+                {
+                    isoAtCenterOfPTV.MeasuredValue = "Aucun volume cible trouvé";
+                    isoAtCenterOfPTV.setToINFO();
+                    isoAtCenterOfPTV.Infobulle += "Pas de vérification de la position de l'isocentre dans le volume cible";
+
+                }
+
+
+                this._result.Add(isoAtCenterOfPTV);
             }
+
             #endregion
 
             #region Distance à l'origine en z
@@ -221,25 +220,24 @@ namespace PlanCheck
             // impossible to get green laser position in the pdf report
             // there is the red laser, the dose max position (ref point)
             // and the origin of dicom image
-            if (_pinfo.advancedUserMode)
+
+            if (_pinfo.isTOMO)
             {
-                if (_pinfo.isTOMO)
-                {
-                    Item_Result isoTomo = new Item_Result();
+                Item_Result isoTomo = new Item_Result();
 
-                    isoTomo.Label = "Red laser Tomotherapy";
-                    isoTomo.ExpectedValue = "1";
+                isoTomo.Label = "Red laser Tomotherapy";
+                isoTomo.ExpectedValue = "1";
 
-                    isoTomo.MeasuredValue = _pinfo.tprd.Trd.redLaserXoffset + " " + _pinfo.tprd.Trd.redLaserYoffset + " " + _pinfo.tprd.Trd.redLaserZoffset + " mm";
-                    isoTomo.Infobulle = "z < 160 mm";
-                    if (_pinfo.tprd.Trd.redLaserZoffset < 160)
-                        isoTomo.setToTRUE();
-                    else
-                        isoTomo.setToFALSE();
+                isoTomo.MeasuredValue = _pinfo.tprd.Trd.redLaserXoffset + " " + _pinfo.tprd.Trd.redLaserYoffset + " " + _pinfo.tprd.Trd.redLaserZoffset + " mm";
+                isoTomo.Infobulle = "z < 160 mm";
+                if (_pinfo.tprd.Trd.redLaserZoffset < 160)
+                    isoTomo.setToTRUE();
+                else
+                    isoTomo.setToFALSE();
 
-                    this._result.Add(isoTomo);
-                }
+                this._result.Add(isoTomo);
             }
+
             #endregion
         }
         public string Title

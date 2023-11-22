@@ -148,7 +148,7 @@ namespace PlanCheck
             //  It is a plan with extended fluence
             // And the same plan without FE is found
             // And advanced user mode
-            if ((_pinfo.isFE) && (_pinfo.fondNonFEPlan)&&(_pinfo._advancedUserMode))
+            if ((_pinfo.isFE) && (_pinfo.fondNonFEPlan))
             {
                 Item_Result FE_MLC = new Item_Result();
                 FE_MLC.Label = "Fluence étendue : modification MLC";

@@ -129,8 +129,8 @@ namespace PlanCheck
                 }
 
             }
-            if (_pinfo.advancedUserMode)
-                this._result.Add(approve);
+
+            this._result.Add(approve);
             #endregion
 
             #region other courses

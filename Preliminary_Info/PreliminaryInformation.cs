@@ -62,7 +62,7 @@ namespace PlanCheck
         private bool doseCheckReportFound;
         private bool positionReportFound;
         private int returnCode;
-        public bool _advancedUserMode;
+        public int _UserMode; // 0 planner  1 physicist  2 physician
         public string _lastUsedCheckProtocol;
         public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
         public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
@@ -784,10 +784,10 @@ namespace PlanCheck
         {
             get { return positionReportFound; }
         }
-        public bool advancedUserMode
+        public int UserMode
         {
-            get { return _advancedUserMode; }
-            set { _advancedUserMode = value; }
+            get { return _UserMode; }
+            set { _UserMode = value; }
         }
         public List<OARvolume> manOARVolumes
         {

@@ -92,7 +92,7 @@ namespace PlanCheck
             CT_age.ExpectedValue = "12";
             DateTime myToday = DateTime.Today;
             int nDays = (myToday - (DateTime)_context.Image.Series.HistoryDateTime).Days;
-           // _context.Image.Series.export
+            // _context.Image.Series.export
             CT_age.MeasuredValue = nDays.ToString();
             //CT_age.Comparator = "<";
             CT_age.Infobulle = "Le CT doit avoir moins de 12 jours. Warning si > 10 jours, ERREUR si > 30";
@@ -108,7 +108,7 @@ namespace PlanCheck
             #endregion
 
             #region Origine placée
-            if ((_pinfo.advancedUserMode)&&(!_pinfo.isTOMO))
+            if ((!_pinfo.isTOMO))
             {
                 Item_Result origin = new Item_Result();
                 origin.Label = "Origine modifiée";
@@ -185,22 +185,21 @@ namespace PlanCheck
             #endregion
 
             #region CT series number
-            if (_pinfo.advancedUserMode)
-            {
-                Item_Result deviceName = new Item_Result();
-                String CT = _context.Image.Series.ImagingDeviceManufacturer + " ";
-                CT = CT + _context.Image.Series.ImagingDeviceModel;
-                CT = CT + _context.Image.Series.ImagingDeviceSerialNo;
+
+            Item_Result deviceName = new Item_Result();
+            String CT = _context.Image.Series.ImagingDeviceManufacturer + " ";
+            CT = CT + _context.Image.Series.ImagingDeviceModel;
+            CT = CT + _context.Image.Series.ImagingDeviceSerialNo;
 
 
-                deviceName.Label = "CT series number";
-                deviceName.ExpectedValue = "GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
-                deviceName.MeasuredValue = CT;
-                deviceName.Comparator = "=";
-                deviceName.Infobulle = "Vérification du modèle et du numéro de série du CT";
-                deviceName.ResultStatus = testing.CompareDatas(deviceName.ExpectedValue, deviceName.MeasuredValue, deviceName.Comparator);
-                this._result.Add(deviceName);
-            }
+            deviceName.Label = "CT series number";
+            deviceName.ExpectedValue = "GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
+            deviceName.MeasuredValue = CT;
+            deviceName.Comparator = "=";
+            deviceName.Infobulle = "Vérification du modèle et du numéro de série du CT";
+            deviceName.ResultStatus = testing.CompareDatas(deviceName.ExpectedValue, deviceName.MeasuredValue, deviceName.Comparator);
+            this._result.Add(deviceName);
+
             #endregion
 
             #region date dans le nom imaged 3d
@@ -302,54 +301,53 @@ namespace PlanCheck
             #region AVE3 or AVE6 is only for lung SBRT  (option)
 
 
-            if (_pinfo.advancedUserMode)
+
+
+            Item_Result averageForSBRT = new Item_Result();
+            averageForSBRT.Label = "Image Average";
+            averageForSBRT.ExpectedValue = "none";
+            averageForSBRT.Infobulle = "Les scanners AVERAGE doivent être utilisés pour les STEC poumons uniquement (avec enable Gating)";
+            averageForSBRT.MeasuredValue = _context.Image.Id;
+
+
+            if (_context.Image.Id.ToUpper().Contains("AV"))
             {
+                averageForSBRT.setToTRUE();
 
-                Item_Result averageForSBRT = new Item_Result();
-                averageForSBRT.Label = "Image Average";
-                averageForSBRT.ExpectedValue = "none";
-                averageForSBRT.Infobulle = "Les scanners AVERAGE doivent être utilisés pour les STEC poumons uniquement (avec enable Gating)";
-                averageForSBRT.MeasuredValue = _context.Image.Id;
-
-
-                if (_context.Image.Id.ToUpper().Contains("AV"))
+                if (!_context.PlanSetup.UseGating)
                 {
-                    averageForSBRT.setToTRUE();
-
-                    if (!_context.PlanSetup.UseGating)
-                    {
-                        averageForSBRT.setToFALSE();
-
-                    }
-
-
-                    if (!_rcp.protocolName.ToUpper().Contains("STEC POUMON"))
-                    {
-
-                        averageForSBRT.setToFALSE();
-                    }
-
-
+                    averageForSBRT.setToFALSE();
 
                 }
-                else
+
+
+                if (!_rcp.protocolName.ToUpper().Contains("STEC POUMON"))
                 {
-                    averageForSBRT.setToTRUE();
-                    if (_rcp.protocolName.ToUpper().Contains("STEC poumon"))
-                    {
-                        averageForSBRT.setToFALSE();
 
-                    }
-                    if (_context.PlanSetup.UseGating)
-                    {
-                        averageForSBRT.setToFALSE();
-
-                    }
+                    averageForSBRT.setToFALSE();
                 }
 
-                this._result.Add(averageForSBRT);
+
 
             }
+            else
+            {
+                averageForSBRT.setToTRUE();
+                if (_rcp.protocolName.ToUpper().Contains("STEC poumon"))
+                {
+                    averageForSBRT.setToFALSE();
+
+                }
+                if (_context.PlanSetup.UseGating)
+                {
+                    averageForSBRT.setToFALSE();
+
+                }
+            }
+
+            this._result.Add(averageForSBRT);
+
+
 
 
             #endregion
