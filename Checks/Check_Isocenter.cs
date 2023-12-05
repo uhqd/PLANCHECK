@@ -95,7 +95,7 @@ namespace PlanCheck
                 foreach (Structure s in _ctx.StructureSet.Structures)
                 {
                     //if (s.Id == _ctx.PlanSetup.TargetVolumeID)
-                    if (!s.Id.ToUpper().Contains("-PTV"))   // avoid struct-PTV
+                    if ( (!s.Id.ToUpper().Contains("-PTV")) && (!s.Id.ToUpper().Contains("(PTV")))   // avoid struct-PTV  and struct-(PTV)
                         if (s.Id.ToUpper().Contains("PTV"))
                         {
                             if (s.Volume > volmax)

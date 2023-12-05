@@ -56,7 +56,7 @@ namespace PlanCheck
         private List<DateTime> ficheDePosition = new List<DateTime>();
         private List<DateTime> autres = new List<DateTime>();
         //private string saveFilePath;
-        private string documentList;
+       // private string documentList;
         //private string tomoReportPath;
         private bool planReportFound;
         private bool doseCheckReportFound;
@@ -340,13 +340,14 @@ namespace PlanCheck
             #endregion
 
             #region uncomment to display document list 
-
+            /*
             documentList += "Patient: " + PatNameList[0] + " - " + ctx.Patient.Id + "\n";
-            documentList += "(" + dosimetrie.Count + ") " + doc1 + ":            " + dosimetrie.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
+           documentList += "(" + dosimetrie.Count + ") " + doc1 + ":            " + dosimetrie.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
             documentList += "(" + dosecheck.Count + ") " + doc2 + ":  " + dosecheck.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
             documentList += "(" + ficheDePosition.Count + ") " + doc3 + ":       " + ficheDePosition.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
             documentList += "(" + autres.Count + ") " + doc3 + ":       " + autres.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
-            /*
+          
+            
             MessageBox.Show(documentList);
             */
             #endregion
@@ -674,10 +675,10 @@ namespace PlanCheck
         {
             get { return _patientdob; }
         }
-        public string documentsList
+       /* public string documentsList
         {
             get { return documentList; }
-        }
+        }*/
         public DateTime PatientDOB_dt
         {
             get { return _patientdob_dt; }

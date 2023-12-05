@@ -5,6 +5,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
+using VMS.TPS.Common.Model.Types;
 using System.Windows;
 using System.Windows.Navigation;
 
@@ -93,50 +94,157 @@ namespace PlanCheck
             #endregion
 
             #region DOSERATE FOR QA PREDICTION 
-            /*
-            if (_pinfo.isNOVA && _pinfo.isModulated) // not checked if mono energy machine
-            {
-                Item_Result doseRate = new Item_Result();
-                energy.Label = "Energie";
-                energy.ExpectedValue = "NA";
 
-
-
-                if ((_rcp.energy == "") || (_rcp.energy == null)) // no energy specified in check-protocol
+            if (_pinfo.isModulated)
+                if (_pinfo.isNOVA || _pinfo.isHALCYON) // not checked if mono energy machine
                 {
-                    energy.setToINFO();
-                    energy.MeasuredValue = "Energie non vérifiée";
-                    energy.Infobulle = "Aucune énergie spécifiée dans le protocole:" + _rcp.protocolName;
-                }
-                else
-                {
-
-                    List<string> energyList = new List<string>();
-                    List<string> distinctEnergyList = new List<string>();
+                    int nLowStepDetected = 0;
+                    //int lowStepDetected = 0;
+                    double maxDoseRateEnergy = 0.0;
+                    string s = string.Empty;
+                    Item_Result doseRate = new Item_Result();
+                    doseRate.Label = "Débit de dose pour QA";
+                    doseRate.ExpectedValue = "NA";
+                    string textOut = string.Empty;
                     foreach (Beam b in _ctx.PlanSetup.Beams)
-                        if (!b.IsSetupField)
-                            energyList.Add(b.EnergyModeDisplayName);
-
-                    distinctEnergyList = energyList.Distinct().ToList(); // remove doublons
-                    energy.MeasuredValue += "Energies : ";
-                    foreach (string distinctEnergy in distinctEnergyList)
-                        energy.MeasuredValue += distinctEnergy + " ";
-                    energy.Infobulle = "Valeur spécifiée dans le check-protocol : " + _rcp.energy;
-                    if (distinctEnergyList.Count > 1)
                     {
-                        energy.setToWARNING();
+
+                        if (!b.IsSetupField)
+                        {
+                            if (_pinfo.isHALCYON)
+                                maxDoseRateEnergy = 740.0;
+                            else if (_pinfo.isNOVA)
+                            {
+                                if (b.EnergyModeDisplayName == "6X")
+                                    maxDoseRateEnergy = 600.0;
+                                else if (b.EnergyModeDisplayName == "6X-FFF")
+                                    maxDoseRateEnergy = 1400.0;
+                                else if (b.EnergyModeDisplayName == "10X")
+                                    maxDoseRateEnergy = 600.0;
+                                else if (b.EnergyModeDisplayName == "10-FFF")
+                                    maxDoseRateEnergy = 2400.0;
+
+
+                            }
+
+                            double maxGantrySpeed = 6.0;
+                            double maxDoseRate = b.DoseRate;
+                            int numberOfCPs = b.ControlPoints.Count();
+                            double beamMeterSet = b.Meterset.Value;
+
+                            List<double> diffMeterset = new List<double>();
+                            List<double> angleDifference = new List<double>();
+                            for (int i = 1; i < numberOfCPs; i++)
+                            {
+                                ControlPoint cp_curr = b.ControlPoints[i];
+                                ControlPoint cp_prev = b.ControlPoints[i - 1];
+                                if (b.GantryDirection == GantryDirection.Clockwise)
+                                    angleDifference.Add(cp_curr.GantryAngle - cp_prev.GantryAngle < 0 ? cp_curr.GantryAngle - cp_prev.GantryAngle + 360 : cp_curr.GantryAngle - cp_prev.GantryAngle);
+                                else
+                                    angleDifference.Add(cp_prev.GantryAngle - cp_curr.GantryAngle < 0 ? cp_prev.GantryAngle - cp_curr.GantryAngle + 360 : cp_prev.GantryAngle - cp_curr.GantryAngle);
+                                diffMeterset.Add(cp_curr.MetersetWeight - cp_prev.MetersetWeight);
+
+
+
+                            }
+                            var timePerCP = angleDifference.Select(x => x / maxGantrySpeed).ToList();
+                            var relativeMU = diffMeterset.Select(x => x * beamMeterSet).ToList();
+                            var doseRateTheory = relativeMU.Zip(timePerCP, (x, y) => x / y * 60).ToList(); // multiply values from the two lists 
+
+                            var doseRateDoubleList = doseRateTheory.Select(x => (x >= maxDoseRate) ? maxDoseRate : x).ToList();
+                            var gantrySpeed = doseRateDoubleList.Zip(relativeMU, (x, y) => x / y).Zip(angleDifference, (x, y) => x * y / 60).ToList();
+
+                            var lowStepDetected = gantrySpeed.Where(x => x > 1.0).ToList();
+
+                            nLowStepDetected += lowStepDetected.Count();
+                            //if (Convert.ToDouble(gantrySpeed) < 1)
+                            //  lowStepDetected++;
+
+                            var avDoseRate = doseRateDoubleList.Count > 0 ? doseRateDoubleList.Average() : 0.0;
+                            textOut += b.Id + ": " + avDoseRate.ToString("F0") + (b.Id == _ctx.PlanSetup.Beams.Last(bb => !bb.IsSetupField).Id ? string.Empty : ", ");
+
+
+
+                            //                         string s = string.Empty;
+                            //                         foreach (double item in doseRateDoubleList)
+                            //                         {
+                            //                           s += item.ToString("F2") + " . ";
+                            //                     }
+                            //                   MessageBox.Show(s);
+
+
+
+                            // chatGPT : I LOVE YOU. Make my histogram
+
+
+
+                            double binWidth = 20; // Définir la largeur du bin
+                            double minValue = 0.0;// doseRateDoubleList.Min(); // Trouver la valeur minimale
+                            double maxValue = maxDoseRateEnergy;// 600.0;// doseRateDoubleList.Max(); // Trouver la valeur maximale
+                            int numberOfBins = (int)Math.Ceiling((maxValue - minValue) / binWidth);
+                            int[] histogram = new int[numberOfBins];
+                            double nVal = Convert.ToDouble(doseRateTheory.Count);
+                            foreach (var value in doseRateTheory)
+                            {
+                                int binIndex = (int)Math.Floor((value - minValue) / binWidth);
+                                if (binIndex >= 0 && binIndex < numberOfBins)
+                                {
+                                    histogram[binIndex]++;
+                                }
+                            }
+
+                            // Affichage toutes les les valeurs de l'histogramme
+
+                            // for (int i = 0; i < numberOfBins; i++)
+                            //{
+                            //    double binStart = minValue + i * binWidth;
+                            //   double binEnd = binStart + binWidth;
+                            //  double d = Convert.ToDouble(histogram[i]) / nVal * 100.0 ;
+                            /// s += "Bin " + (i + 1).ToString() + " " + binStart + "-" + binEnd + " UM/min --> " + histogram[i] + " " + d.ToString("F2") + "\n";
+                            //}
+                            //MessageBox.Show("this is s " + s);
+
+
+
+                            int j = numberOfBins - 1;
+                            double binStart = minValue + j * binWidth;
+                            double binEnd = binStart + binWidth;
+                            double d = Convert.ToDouble(histogram[j]) / nVal * 100.0;
+                            s += b.Id + " " + d.ToString("F2") + "%% ";
+
+                            doseRate.Infobulle = "Dernier bin de l'histogramme de débit de dose" + binStart + "-" + binEnd + " UM/min ";
+
+
+                        }
+
+
+
+                    }
+                    doseRate.MeasuredValue = s;
+                    doseRate.setToTRUE();
+                    this._result.Add(doseRate);
+
+
+                    Item_Result lowStep = new Item_Result();
+                    lowStep.Label = "CP trop lents (< 1 deg/s)";
+                    lowStep.MeasuredValue = nLowStepDetected.ToString();
+                    lowStep.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
+
+                    if (nLowStepDetected > 1)
+                    {
+                        lowStep.setToWARNING();
                     }
                     else
                     {
-                        if (distinctEnergyList[0] == _rcp.energy)
-                            energy.setToTRUE();
-                        else
-                            energy.setToFALSE();
+                        lowStep.setToTRUE();
                     }
+
+                    this._result.Add(lowStep);
+
+
+
                 }
-                this._result.Add(energy);
-            }
-            */
+
             #endregion
 
             #region tolerance table
@@ -332,17 +440,17 @@ namespace PlanCheck
                             if (!done)
                             {
                                 done = true;
-                            //    MessageBox.Show(cp.LeafPositions.Length.ToString());
+                                //    MessageBox.Show(cp.LeafPositions.Length.ToString());
                             }
                             foreach (float f in cp.LeafPositions)
                             {
                                 //float g = cp.LeafPositions[28 + leafnumber];
 
                                 leafnumber++;
-                                
-                                
+
+
                                 //MessageBox.Show()
-                                
+
                                 if ((f > 105) || (f < -105))
                                 {
                                     allLeavesOK = false; // break loop on leaves
@@ -352,7 +460,7 @@ namespace PlanCheck
                                     totalNumberofCP = b.ControlPoints.Count;
                                     beamNotOk = b.Id;
                                     leafNumbernotOK = leafnumber;
-                                   
+
                                     break;
                                 }
                             }

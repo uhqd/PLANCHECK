@@ -239,7 +239,7 @@ namespace PlanCheck
             }
             this._result.Add(myCourseStatus);
             #endregion
-
+            /*
             #region previous treatments
             Item_Result anteriorTraitement = new Item_Result();
             List<string> anteriorTraitementList = new List<string>();
@@ -302,7 +302,7 @@ namespace PlanCheck
 
             this._result.Add(anteriorTraitement);
             #endregion
-
+            */
             #region Tomo report approved ?  
             if (_pinfo.isTOMO)
             {
