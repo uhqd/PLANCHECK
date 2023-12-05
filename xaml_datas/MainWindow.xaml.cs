@@ -357,7 +357,7 @@ d3.ToString("0.##");   //24
             myTimer.durationSinceLastCall("user click");
 
             #region c_course
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+            if (_pinfo.UserMode == 1) //((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
             {
                 Check_Course c_course = new Check_Course(_pinfo, _pcontext);
                 if (c_course.Result.Count > 0)

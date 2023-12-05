@@ -56,12 +56,13 @@ namespace PlanCheck
         private List<DateTime> ficheDePosition = new List<DateTime>();
         private List<DateTime> autres = new List<DateTime>();
         //private string saveFilePath;
-       // private string documentList;
+        // private string documentList;
         //private string tomoReportPath;
         private bool planReportFound;
         private bool doseCheckReportFound;
         private bool positionReportFound;
         private int returnCode;
+        private string SEA_planName;
         public int _UserMode; // 0 planner  1 physicist  2 physician
         public string _lastUsedCheckProtocol;
         public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
@@ -238,7 +239,7 @@ namespace PlanCheck
                     if (!isARecentDocument(dtDateTime))
                     {
                         trashDoc = true;
-                       // MessageBox.Show("trash cos > 30 d");
+                        // MessageBox.Show("trash cos > 30 d");
                     }
 
 
@@ -276,7 +277,7 @@ namespace PlanCheck
                             if (tomoReportReturnCode != 2)
                             {
                                 trashDoc = true;
-                               // MessageBox.Show("RETURN CODE IS NOT 2");
+                                // MessageBox.Show("RETURN CODE IS NOT 2");
                             }
                         }
                         else
@@ -284,7 +285,7 @@ namespace PlanCheck
                             if (tomoReportReturnCode != 0)
                             {
                                 trashDoc = true;
-                               // MessageBox.Show("RETURN CODE IS NOT 1");
+                                // MessageBox.Show("RETURN CODE IS NOT 1");
                             }
                         }
 
@@ -651,7 +652,39 @@ namespace PlanCheck
                 _dosecheckIsNeeded = false;
             #endregion
 
+
+
+            #region SEA plan name
+            //  = null if no SEA plan
+            // = SEA plan ID if only one plan contains the string SEA
+            // else ask user
+
+            SEA_planName = "null";
+            List<string> listSEA = new List<string>();
+            if (_TOMO)
+            {
+                foreach (PlanSetup p in _ctx.Course.PlanSetups)
+                {
+
+                    if (p.Id.Contains("SEA"))
+                    {
+                        SEA_planName = p.Id;
+                        listSEA.Add(SEA_planName);
+                
+                    }
+                }
+                if(listSEA.Count > 1)
+                {
+                    var myChoiceWindow = new chooseSEA(_ctx, this); // create window
+                    myChoiceWindow.ShowDialog(); // display window, 
+                }
+
+
+            }
+
             #endregion
+
+                        #endregion
 
         }
 
@@ -675,10 +708,10 @@ namespace PlanCheck
         {
             get { return _patientdob; }
         }
-       /* public string documentsList
-        {
-            get { return documentList; }
-        }*/
+        /* public string documentsList
+         {
+             get { return documentList; }
+         }*/
         public DateTime PatientDOB_dt
         {
             get { return _patientdob_dt; }
@@ -803,7 +836,11 @@ namespace PlanCheck
             get { return _lastUsedCheckProtocol; }
             set { _lastUsedCheckProtocol = value; }
         }
-
+        public string SEAplanName
+        {
+            get { return SEA_planName; }
+            set { SEA_planName = value; }
+        }
 
         #endregion
 

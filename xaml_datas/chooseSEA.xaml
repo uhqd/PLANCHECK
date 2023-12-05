@@ -1,0 +1,15 @@
+﻿<Window x:Class="PlanCheck.xaml_datas.chooseSEA"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlanCheck.xaml_datas"
+        mc:Ignorable="d"
+        Title="chooseNonFEplanWindow" Height="450" Width="800">
+    <Grid Margin="40,0,0,25">
+        <Button x:Name="close" Content="Fermer" HorizontalAlignment="Left" Margin="650,352,0,0" VerticalAlignment="Top" Click="close_Click" Height="48" Width="69" FontSize="20"/>
+        <TextBlock Background="AntiqueWhite" HorizontalAlignment="Left" Margin="125,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="129" Width="579" FontWeight="Bold"><Run Language="fr-fr" Text="Tomotherapy : plusieurs plans SEA détectés. "/><LineBreak/><Run Language="fr-fr"/><LineBreak/><Run Language="fr-fr" Text="Merci de choisir le plan SEA"/></TextBlock>
+        <ComboBox  x:Name="cbSEAplans" HorizontalAlignment="Left" Margin="230,265,0,0" VerticalAlignment="Top" Width="348" SelectionChanged="ComboBox_SelectionChanged" FontSize="16" Height="34"/>
+
+    </Grid>
+</Window>

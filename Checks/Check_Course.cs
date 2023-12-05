@@ -88,40 +88,54 @@ namespace PlanCheck
                     //approve.Infobulle = "Le plan doit être Planning Approved";
                 }
             }
-            else // else this is a tomo plan. A plan SEA must be planning approved
+            else // else this is a tomo plan. A plan SEA must be planning approved with non-zero UMs  and dose to ref point
             {
-                bool foundA_SEA_plan = false;
-                foreach (PlanSetup p in _ctx.Course.PlanSetups)
+
+                if (_pinfo.SEAplanName != "null")
                 {
-                    if (p.Id.Contains("SEA"))
+                    PlanSetup p = _ctx.Course.PlanSetups.FirstOrDefault(x => x.Id.Equals(_pinfo.SEAplanName, StringComparison.OrdinalIgnoreCase));
+                    string msg1 = p.PrimaryReferencePoint.DailyDoseLimit.Dose.ToString();
+                    string msg2 = p.Beams.First().Meterset.Value.ToString();
+                    // MessageBox.Show(msg);
+
+                    String[] beautifulDoctorName = p.PlanningApprover.Split('\\');
+                    String[] TAname = p.TreatmentApprover.Split('\\');
+
+                    if (p.ApprovalStatus.ToString() == "PlanningApproved")
                     {
-                        foundA_SEA_plan = true;
-                        String[] beautifulDoctorName = p.PlanningApprover.Split('\\');
-                        String[] TAname = p.TreatmentApprover.Split('\\');
+                        approve.MeasuredValue = "Tomo : Plan " + p.Id + " approuvé par le Dr " + beautifulDoctorName[1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
+                        approve.setToTRUE();
 
-                        if (p.ApprovalStatus.ToString() == "PlanningApproved")
-                        {
-                            approve.MeasuredValue = "Tomo : Plan " + p.Id + " approuvé par le Dr " + beautifulDoctorName[1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
-                            approve.setToTRUE();
-
-                        }
-                        else if (p.ApprovalStatus.ToString() == "TreatmentApproved")
-                        {
-                            approve.MeasuredValue = "Treatment approved";
-                            //Approuvé par le Dr " + _ctx.PlanSetup.TreatmentApprover + [1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
-                            approve.Infobulle += "\n\nLe plan  " + p.Id + " est en état Treat Approved";
-                            approve.Infobulle += "\nPlanning approver: " + beautifulDoctorName[1].ToUpper() + "\nTreatment approver " + TAname[1].ToUpper();
-                            approve.setToWARNING();
-                        }
-                        else
-                        {
-                            approve.MeasuredValue = "TOMO : " + p.Id + " : " + p.ApprovalStatus.ToString();// "Différent de Planning Approved";
-                            approve.setToFALSE();
-                            //approve.Infobulle = "Le plan doit être Planning Approved";
-                        }
                     }
+                    else if (p.ApprovalStatus.ToString() == "TreatmentApproved")
+                    {
+                        approve.MeasuredValue = "Treatment approved";
+                        //Approuvé par le Dr " + _ctx.PlanSetup.TreatmentApprover + [1].ToUpper();// + _ctx.PlanSetup.PlanningApprover;s[0].ToString().ToUpper() + s.Substring(1);
+                        approve.Infobulle += "\n\nLe plan  " + p.Id + " est en état Treat Approved";
+                        approve.Infobulle += "\nPlanning approver: " + beautifulDoctorName[1].ToUpper() + "\nTreatment approver " + TAname[1].ToUpper();
+                        approve.setToWARNING();
+                    }
+                    else
+                    {
+                        approve.MeasuredValue = "TOMO : " + p.Id + " : " + p.ApprovalStatus.ToString();// "Différent de Planning Approved";
+                        approve.setToFALSE();
+
+                    }
+
+                    if (msg1.Contains("NaN"))
+                    {
+                        approve.setToFALSE();
+                        approve.Infobulle += "\n\nATTENTION : le plan " + p.Id + " n'a pas de dose au point de référence prinicpal";
+                    }
+
+                    if (msg2.Contains("NaN"))
+                    {
+                        approve.setToFALSE();
+                        approve.Infobulle += "\n\nATTENTION : le plan " + p.Id + " n'a pas d'UMs";
+                    }
+
                 }
-                if (!foundA_SEA_plan)
+                else
                 {
                     approve.MeasuredValue = "TOMO : pas de plan SEA";
                     approve.Infobulle += "\n\nPour les plans TOMO un plan SEA doit exister et être approuvé";
@@ -132,6 +146,13 @@ namespace PlanCheck
 
             this._result.Add(approve);
             #endregion
+
+
+
+
+
+
+
 
             #region other courses
             Item_Result myCourseStatus = new Item_Result();

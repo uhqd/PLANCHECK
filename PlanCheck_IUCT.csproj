@@ -7,7 +7,7 @@
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanCheck</RootNamespace>
-    <AssemblyName>PlanCheck_Beta_0012_0031.esapi</AssemblyName>
+    <AssemblyName>PlanCheck_Beta_0012_0039.esapi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -204,6 +204,9 @@
     <Compile Include="Checks\Check_Model.cs" />
     <Compile Include="Comparator\Comparator.cs" />
     <Compile Include="Comparator\Item_Result.cs" />
+    <Compile Include="xaml_datas\chooseSEA.xaml.cs">
+      <DependentUpon>chooseSEA.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_datas\chooseNonFEplanWindow.xaml.cs">
       <DependentUpon>chooseNonFEplanWindow.xaml</DependentUpon>
     </Compile>
@@ -221,6 +224,10 @@
     <Page Include="xaml_datas\CheckScreen_Item.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_datas\chooseSEA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="xaml_datas\chooseNonFEplanWindow.xaml">
       <SubType>Designer</SubType>

@@ -1,334 +1,212 @@
-Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-PATIENT
-Nom : LEXA, JEAN PIERRE ID : 202110604 Date de naissance : samedi 4 novembre 1944 Sexe : Masculin
-Plan
-ID plan : STECPoumLSG
-ID dossier de traitement : C2
-ID image : TDMR271123_AVG6
-Modalité de l'image : CT
-Système d'imagerie : TDMRT
-Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.00cm, 0.00cm)
-Prescription de dose
-Volume cible : ITV 6ph
-Valeur de normalisation du plan : 96.4 %
-Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : ITV 6ph
-Point de normalisation du plan : -, -, -
-Pourcentage de dose prescrite : 100.0 %
-Fractionnement : 
-Dose prescrite : 66.000 Gy (13.200 Gy / fraction)
-Dose au point de référence principal : 66.000 Gy (13.200 Gy / fraction)
-Nombre de fractions : 5
-Options de calcul
-Algorithme photon : Acuros_15605New
-AutomaticHighDensityMaterial__ Bone
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc0.125
-DoseReportingMode Dose to medium
-FieldNormalizationType 100% to isocenter
-HeterogeneityCorrection ON
-MaximumAutomaticHighDensityVolumeInCM3__ 0.50
-PlanDoseCalculation OFF
-UseGPU Yes
-Approbations
-Plan créé : jeudi 30 novembre 2023 15:14:40 par Carillo Fabienne
-Approbation du plan : lundi 4 décembre 2023 11:08:48 par Keller Audrey
-Patient : LEXA, JEAN PIERRE  (202110604) Imprimé le 04/12/2023 14:53 par admin\deborne
-Dernière modification le lundi 4 décembre 2023 11:08:49 par Keller Audrey
-Dossier de traitement : C2
-Plan : STECPoumLSG  -  Planification approuvée Page : 1/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Champs
-ID champ
-ID machine
-Énergie
-Débit de dose
-Taille de champ
-X1
-X2
-Y1
-Y2
-Angle du bras
-Sens de rotation du bras
-Angle d'arrêt du bras
-Rot. collimateur
-Rot. de table
-Filtre en coin
-Facteur de filtre
-MLC
-Bloc
-Plaque
-Bolus
-DSP bolus
-Isocentre X
-Isocentre Y
-Isocentre Z
-DSP
-Pondération
-Refdose (Gy)
-Point de référence
-Dose par fraction
-Profondeur physique
-Profondeur effective
-UM
-  ARCSTE  
-  NOVA5  
-6X-FFF 
-1400 UM/min
-4.6 cm x 3.1 cm
-X1: +2.2 cm 
-X2: +2.4 cm 
-Y1: +1.7 cm 
-Y2: +1.4 cm 
-290.0 °
-SH
-90.0 °
-0.0 °
-0.0 °
- -
- -
-0364
--
--
--
--
-5.50 cm
--7.74 cm
-6.36 cm
-86.6 cm
-1.000
--
-ITV 6ph
-13.200 Gy
--
--
-1706.0 UM
-  antsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-5.50 cm
--7.74 cm
-6.36 cm
-94.5 cm
-0.000
--
-ITV 6ph
--
--
--
--
-  latdtsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-5.50 cm
--7.74 cm
-6.36 cm
-79.9 cm
-0.000
--
-ITV 6ph
--
--
--
--
-  latgsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-5.50 cm
--7.74 cm
-6.36 cm
-89.8 cm
-0.000
--
-ITV 6ph
--
--
--
--
-  postsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-5.50 cm
--7.74 cm
-6.36 cm
-81.3 cm
-0.000
--
-ITV 6ph
--
--
--
--
-  cbct  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-5.50 cm
--7.74 cm
-6.36 cm
-79.9 cm
-0.000
--
-ITV 6ph
--
--
--
--
-Patient : LEXA, JEAN PIERRE  (202110604) Imprimé le 04/12/2023 14:53 par admin\deborne
-Dernière modification le lundi 4 décembre 2023 11:08:49 par Keller Audrey
-Dossier de traitement : C2
-Plan : STECPoumLSG  -  Planification approuvée Page : 2/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Décalage de la table
-AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
-AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.00cm, 0.00cm)
-Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  ARCSTE  antsetup  latgsetup  postsetup  latdtsetup  cbct  
-Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 5.50 7.74 6.36
-Direction : Gauche Bas Sortie [Out]
- 
- 
-Erreurs et avertissements concernant le calcul :
-Patient : LEXA, JEAN PIERRE  (202110604) Imprimé le 04/12/2023 14:53 par admin\deborne
-Dernière modification le lundi 4 décembre 2023 11:08:49 par Keller Audrey
-Dossier de traitement : C2
-Plan : STECPoumLSG  -  Planification approuvée Page : 3/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: LEXA, JEAN PIERRE  
-Patient IDs: 202110604
-Comment:
-Plan Plan Course Plan History
-STECPoumLSG C2 Last Modified: lundi 4 décembre 2023 11:08:49 by Keller Audrey
-Planification approuvée: lundi 4 décembre 2023 11:08:48 by Keller Audrey
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PTV 6ph Approuvée 100.0 / 100.4 12.6 cm³ 48.0 Gy 71.7 Gy 61.9 Gy 58.1 Gy 61.7 Gy 4.5 Gy
-ParoiThoraciqueG Approuvée 100.0 / 100.2 2276.8 cm³ 0.0 Gy 71.3 Gy 1.3 Gy 0.0 Gy 0.1 Gy 4.8 Gy
-ParoiThoracique Approuvée 100.0 / 100.1 3359.3 cm³ 0.0 Gy 71.7 Gy 1.0 Gy 0.0 Gy 0.1 Gy 4.0 Gy
-Patient: LEXA, JEAN PIERRE    (202110604) Printed lundi 4 décembre 2023 14:54:27 by Deborne Justine
-Course: C2
-Plan: STECPoumLSG  -  Planification approuvée Page: 1/2Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-VCaveSup Approuvée 100.0 / 99.8 11.7 cm³ 0.2 Gy 5.8 Gy 1.7 Gy 0.2 Gy 0.4 Gy 1.8 Gy
-VCaveInf Approuvée 100.0 / 100.1 28.0 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.1 Gy 0.0 Gy
-Trachee2 Approuvée 100.0 / 100.2 30.0 cm³ 0.1 Gy 11.1 Gy 2.8 Gy 0.2 Gy 0.5 Gy 3.4 Gy
-ReinGche Approuvée 100.0 / 103.0 36.0 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-ReinDt Approuvée 100.0 / 102.8 28.7 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Rate Approuvée 100.0 / 100.1 177.3 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Poumons Approuvée 100.0 / 100.0 3503.3 cm³ 0.0 Gy 71.3 Gy 2.0 Gy 0.1 Gy 0.2 Gy 6.2 Gy
-Aorte Approuvée 100.0 / 99.9 203.3 cm³ 0.0 Gy 19.9 Gy 3.1 Gy 0.0 Gy 0.2 Gy 4.8 Gy
-Canal Med Approuvée 100.0 / 100.1 58.2 cm³ 0.0 Gy 5.8 Gy 0.6 Gy 0.0 Gy 0.1 Gy 1.4 Gy
-Coeur Approuvée 100.0 / 100.0 670.0 cm³ 0.0 Gy 0.4 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy
-Estomac Approuvée 100.0 / 100.4 179.5 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Foie Approuvée 100.0 / 100.4 1364.9 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Gros vaisseaux Approuvée 100.0 / 99.9 278.8 cm³ 0.0 Gy 19.9 Gy 2.4 Gy 0.1 Gy 0.3 Gy 4.3 Gy
-IVA Approuvée 100.0 / 99.8 5.4 cm³ 0.1 Gy 0.4 Gy 0.2 Gy 0.3 Gy 0.2 Gy 0.1 Gy
-ParoiThoraciqueD Approuvée 100.0 / 100.1 1116.5 cm³ 0.0 Gy 10.6 Gy 0.4 Gy 0.0 Gy 0.1 Gy 0.9 Gy
-Oesophage Approuvée 100.0 / 100.3 26.7 cm³ 0.1 Gy 11.0 Gy 1.3 Gy 0.1 Gy 0.2 Gy 2.8 Gy
-PBT2 Approuvée 100.0 / 100.0 25.3 cm³ 0.2 Gy 10.5 Gy 1.5 Gy 0.3 Gy 0.4 Gy 2.4 Gy
-PlexusDt Approuvée 100.0 / 100.0 12.2 cm³ 0.1 Gy 0.3 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.0 Gy
-PlexusGche Approuvée 100.0 / 99.9 12.3 cm³ 0.1 Gy 0.6 Gy 0.3 Gy 0.3 Gy 0.3 Gy 0.1 Gy
-PoumonGche Approuvée 100.0 / 100.0 1959.7 cm³ 0.0 Gy 71.3 Gy 3.0 Gy 0.1 Gy 0.2 Gy 8.0 Gy
-PoumonDt Approuvée 100.0 / 100.0 1543.6 cm³ 0.0 Gy 8.7 Gy 0.7 Gy 0.1 Gy 0.1 Gy 1.3 Gy
-ITV 6ph Approuvée 100.0 / 100.1 2.9 cm³ 58.5 Gy 71.7 Gy 65.9 Gy 63.9 Gy 66.0 Gy 2.7 Gy
-Plan prescription
-Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
-Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - STECPoumLSG C2 66.000 Gy 13.200 Gy 5 66.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 96.4 %
-Patient: LEXA, JEAN PIERRE    (202110604) Printed lundi 4 décembre 2023 14:54:27 by Deborne Justine
-Course: C2
-Plan: STECPoumLSG  -  Planification approuvée Page: 2/2Institut Claudius Regaud, Toulouse Imprimé(e) sur lundi 4 décembre 2023 14:55:00 par Deborne Justine (admin\deborne)
-LEXA, JEAN PIERRE (202110604)
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+SeinD+gg
+Standard
+Plan Saved Date: 05 Dec 2023, 9:23:54 AM (hr:min:sec)
+Treatment Machine / Serial No.: 0210471 850 MU/min, rev 138 / 
+210471
+Prescription: Median of PTV boost, 63.80 Gy
+Prescribed Dose per Fraction (Gy): 2.20
+Planned Fractions: 29
+Maximum Dose (Gy): 66.11
+Plan Status: Approved
+MU Planned / MU per Fraction: 189864.2 / 6547.0
+Field Width (cm): 5.0, Dynamic
+Pitch: 0.288
+Modulation Factor / Actual: 2.000 / 2.1
+Gantry Period (sec):
+Gantry Rotations:
+23.2
+19.5
+Sinogram Segments: 6.5
+Couch Travel (mm):
+Couch Speed (mm/sec):
+284.3
+0.6
+Red Lasers Offset (IECf, mm): X: 17.18 Y: -37.16 Z: -5.28
+Beam On Time (sec): 453.1
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
+Size (IECp, voxel) X: 512 Y: 199 Z: 512
+Reference Dose (Gy): 66.11
+X: -104.1 Y: 65.0 Z: 67.3 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: VOLO Ultra
+Patient Name:
+Medical ID:
+MULLONI, CHRISTINE
+202302450 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 20 May 1961
+Gender: Female Patient Key: 409955
+Plan Overview
+Page 1 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)DVH: Absolute Dose
+Plan Overview
+Page 2 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+Canal Med 88.82 0.12 3.41 11.79 n/a n/a n/a n/a Allowed
+Coeur 632.64 0.39 3.77 27.44 n/a n/a n/a n/a Allowed
+Foie 1183.56 0.08 0.42 8.01 n/a n/a n/a n/a Allowed
+IVA 4.52 0.76 4.76 8.33 n/a n/a n/a n/a Allowed
+Larynx 16.79 0.49 0.89 2.02 n/a n/a n/a n/a Allowed
+Oesophage 24.88 0.41 6.70 21.16 n/a n/a n/a n/a Allowed
+PoumonDt 1943.00 0.39 9.44 56.70 n/a n/a n/a n/a Allowed
+PoumonGche 1644.34 0.21 3.77 22.38 n/a n/a n/a n/a Allowed
+Poumons 3587.34 0.21 6.84 56.70 n/a n/a n/a n/a Allowed
+Sein contro 313.30 0.41 3.89 10.06 n/a n/a n/a n/a Exit Only
+TetehumeraleDte 74.03 0.41 15.78 37.78 n/a n/a n/a n/a Allowed
+TetehumeraleGche 70.29 0.18 0.71 1.93 n/a n/a n/a n/a Allowed
+Thyroide 11.85 1.45 20.50 54.54 n/a n/a n/a n/a Allowed
+Trachee 35.95 1.36 16.13 37.29 n/a n/a n/a n/a Allowed
+BODY 19750.83 0.01 6.17 66.11 n/a n/a n/a n/a Allowed
+Boost lit T 17.17 47.09 63.21 66.11 n/a n/a n/a n/a Allowed
+CTV cmi 5.46 48.89 52.91 56.47 n/a n/a n/a n/a Allowed
+CTV sein 282.59 32.76 53.00 66.11 n/a n/a n/a n/a Allowed
+CTV sous clav 40.76 51.20 52.91 55.41 n/a n/a n/a n/a Allowed
+CTV sus clav 22.55 48.69 52.65 57.16 n/a n/a n/a n/a Allowed
+Plexus Brachial 16.43 0.72 42.47 56.19 n/a n/a n/a n/a Allowed
+PTV boost 29.66 54.49 63.54 66.11 1.00 2.00 1.04 50.22 n/a
+PTV cmi 18.54 43.34 52.06 56.47 0.00 0.00 1.04 0.00 n/a
+PTV sein 308.40 36.03 54.09 66.11 1.00 20.76 1.04 4.83 n/a
+PTV sous clav 98.85 41.27 52.27 55.41 0.00 0.00 1.04 0.00 n/a
+PTV sus clav 62.09 39.79 52.25 57.75 0.00 0.00 1.04 0.00 n/a
+TetehumeraleD+10 242.77 0.34 13.86 45.96 n/a n/a n/a n/a Allowed
+CanalMed+5 242.14 0.11 3.51 16.75 n/a n/a n/a n/a Exit Only
+Cotecontro 1938.40 0.44 3.27 20.15 n/a n/a n/a n/a Allowed
+VOI
+Plan Overview
+Page 3 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3Isole1cm 243.42 36.03 52.43 58.50 n/a n/a n/a n/a Allowed
+ManqueSein 109.83 36.03 51.77 58.50 n/a n/a n/a n/a Allowed
+Plombs 0.86 0.24 7.84 28.42 n/a n/a n/a n/a Allowed
+PoumonDt-PTV+0.5 1858.32 0.39 7.97 47.58 n/a n/a n/a n/a Allowed
+PTVsein-PTVboost 278.78 36.03 53.08 63.87 3712.
+00
+2568
+2585
+6.00
+1.04 0.00 n/a
+PTVTotal 479.25 36.03 53.42 66.11 n/a n/a n/a n/a Allowed
+RingPTVgg 353.43 9.85 40.21 55.69 n/a n/a n/a n/a Allowed
+RingPTVSein 580.23 9.08 36.65 64.36 n/a n/a n/a n/a Allowed
+Seuillage 26.56 0.23 4.31 55.21 n/a n/a n/a n/a Allowed
+All Target Regions n/a 36.03 53.42 66.11 0.00 0.00 0.00 0.00 n/a
+All Critical Regions n/a 0.01 6.31 66.11 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.02 1.36 39.35 0.00 0.00 0.00 0.00 n/a
+Plan Overview
+Page 4 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3DVH Dose (Gy) Dose (% of 63.80 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV boost 61.24 96.0 28.18 95.0 Dose (Gy) >= 60.61, Min: 57.42 61.24
+PTV sein 49.56 77.7 292.98 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.56
+PTV sous clav 49.13 77.0 93.91 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.13
+PTV sus clav 49.14 77.0 58.99 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.14
+PTV cmi 49.29 77.3 17.61 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.29
+Canal Med 10.00 15.7 1.15 1.3 Volume (%) <= 10.0 1.3
+Coeur 15.00 23.5 8.64 1.4 Volume (%) <= 5.0, Max: 10.0 1.4
+Coeur 25.00 39.2 0.10 0.0 Volume (%) <= 0.0, Max: 5.0 0.0
+PoumonGche 5.00 7.8 454.27 27.6 Volume (%) <= 20.0, Max: 30.0 27.6
+PoumonDt 5.00 7.8 922.77 47.5 Volume (%) <= 65.0, Max: 70.0 47.5
+PoumonDt 20.00 31.3 294.47 15.2 Volume (%) <= 15.0, Max: 18.0 15.2
+Poumons 5.00 7.8 1377.46 38.4 Volume (%) <= 42.0, Max: 50.0 38.4
+Poumons 20.00 31.3 294.84 8.2 Volume (%) <= 10.0, Max: 15.0 8.2
+Sein contro 5.00 7.8 41.71 13.3 Volume (%) <= 15.0, Max: 25.0 13.3
+TetehumeraleDte 37.78 59.2 0.00 0.0 Dose (Gy) <= 45.00, Max: 47.50 37.78
+Canal Med 11.79 18.5 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 11.79
+CanalMed+5 16.75 26.3 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 16.75
+Coeur -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 7.00, Max: 8.00 3.77
+PTV boost 65.26 102.3 0.59 2.0 Dose (Gy) <= 68.26 65.26
+PTV sous clav 54.45 85.3 1.98 2.0 Dose (Gy) <= 55.85 54.45
+PTV sus clav 55.33 86.7 1.24 2.0 Dose (Gy) <= 55.85 55.33
+PTV cmi 55.18 86.5 0.37 2.0 Dose (Gy) <= 55.85 55.18
+Dx Vx Values
+Plan Overview
+Page 5 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-939 * 0.001
+-672 * 0.290
+-509 * 0.480
+13 * 1.000
+226 * 1.146
+455 * 1.331
+837 * 1.558
+1214 * 1.822
+30884 * 22.599
+Density
+Density Model: IUC-120kV
+Density Overrides
+Priority VOI Name
+Relative Electron 
+Density
+Mass Density 
+(g/cm³)
+1 Plombs n/a 0.900
+Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
+Plan Overview
+Page 6 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3Name: MASSABEAU, Carole
+05 Dec 2023, 9:25:08 AM (hr:min:sec)
+User ID: massabeau
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+422616/8
+CAIGNET, Frederique
+Saved Deliverable by: DEFOUR, Nathalie
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Patient Position: HFS Delivery Signature: OQypW cGqsA 
+Plan Overview
+Page 7 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3Report Snapshots
+Plan Overview
+Page 8 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) -325.000 -207.500 325.000
+Size (IECp, voxel) 512 199 512
+Spacing (IECp, mm) 1.27 2.50 1.27
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+29 Nov 2023, 05:54:44 AM (hr:min:sec) 199
+Scanner Model:
+Patient Position:
+Optima CT580
+HFS
+Series UID/Description Study UID/Description:
+1.2.840.113619.2.278.3.3523880722.970.1701144093.839 1.2.840.113619.2.278.3.3523880722.970.1701144093.834
+SEIN Droit Tomo TDM therapie SPC
+Plan Overview
+Page 9 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
+Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
+3.3.1.3
