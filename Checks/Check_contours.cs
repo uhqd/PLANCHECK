@@ -99,51 +99,6 @@ namespace PlanCheck
             }
             return result;
         }
-        /*
-        private int volumeIsOk(String volumeName, double volumeValue, String sex)
-        { // return 2 if nor ref volume, 1 if volume inside reference range, 2 if outside
-            int result = 2;
-            bool found = false;
-            bool isok = false;
-            if (sex == "Female")
-            {
-                foreach (OARvolume oar in _pinfo.womanOARVolumes)
-                {
-                    if (volumeName == oar.volumeName)
-                    {
-                        found = true;
-                        if ((volumeValue < oar.volumeMax) && (volumeValue > oar.volumeMin))
-                            isok = true;
-                    }
-
-                }
-            }
-            else // is male
-            {
-                foreach (OARvolume oar in _pinfo.manOARVolumes)
-                {
-                    if (volumeName == oar.volumeName)
-                    {
-                        found = true;
-                        if ((volumeValue < oar.volumeMax) && (volumeValue > oar.volumeMin))
-                            isok = true;
-                    }
-
-                }
-
-            }
-
-            if (isok)
-                result = 1;
-            else if (found)
-                result = 2;
-            else
-                result = 0;
-
-            return result;
-
-        }
-        */
         private bool nPartsIsOk(String volumeName, int nParts, String sex)
         {
             bool result = true;
@@ -285,7 +240,7 @@ namespace PlanCheck
         }
 
         private List<Item_Result> _result = new List<Item_Result>();
-        // private PreliminaryInformation _pinfo;
+
         private string _title = "Contours";
 
         public void Check()
@@ -413,32 +368,49 @@ namespace PlanCheck
 
             #endregion
 
-            #region overlap body vs couch structs. 
-            /* marche pas
-            Item_Result overlapCouchBody = new Item_Result();
-            overlapCouchBody.Label = "Overlap Body vs. Table";
-            overlapCouchBody.ExpectedValue = "EN COURS";
+            #region COUCH STRUCTURES CHECK TABLE IN COMMENT 
 
-            if (overlapStructList.Count() > 0)
+            if (!_pinfo.isTOMO)
             {
+                Item_Result correctCouch = new Item_Result();
+                correctCouch.Label = "Table correcte";
+                correctCouch.ExpectedValue = "EN COURS";
 
-                overlapCouchBody.MeasuredValue = "Overlap suspecté";
-                overlapCouchBody.Infobulle = "La position Y max du BODY semble refléter un overlap avec les sturctures de tables :\n ";
-                foreach (string s in overlapStructList)
-                    overlapCouchBody.Infobulle += " - " + s;
+                Structure s = _ctx.StructureSet.Structures.FirstOrDefault(p => p.Id.Equals("CouchSurface", StringComparison.OrdinalIgnoreCase));
 
-                overlapCouchBody.setToWARNING();
+                if (s != null)
+                    if (!s.IsEmpty)
+                    {
+                        String testingString = s.Comment;
+                        correctCouch.MeasuredValue = testingString;
+                        if (_pinfo.isHALCYON)
+                        {
+                            correctCouch.Infobulle = "Le commentaire de la structure CouchSurface doit être TABLE HALCYON";
+                            if (testingString.ToUpper().Contains("HALCYON"))
+                                correctCouch.setToTRUE();
+                            else
+                                correctCouch.setToFALSE();                                
+                        }
+                        if(_pinfo.isNOVA)
+                        {
+                            correctCouch.Infobulle = "Le commentaire de la structure CouchSurface doit être TABLE EXACT\n";
+                            correctCouch.Infobulle += "En principe, il faut la table épaisse pour les plans prostate, rectum, etc.,\n";
+                            correctCouch.Infobulle += "la table fine pour la tête...\n";
+
+                            if (testingString.ToUpper().Contains("EXACT"))
+                                correctCouch.setToTRUE();
+                            else
+                                correctCouch.setToFALSE();
+
+                        }
+
+                        this._result.Add(correctCouch);
+
+                    }
             }
-            else
-            {
-                overlapCouchBody.MeasuredValue = "Pas d'overlap détécté entre la table et le body";
-                overlapCouchBody.Infobulle = "Pas d'overlap détécté entre la table et le body (Tolérance = " + tolerancedOV.ToString() + " mm)";
-                overlapCouchBody.setToTRUE();
-            }
-            this._result.Add(overlapCouchBody);
 
-            */
             #endregion
+
 
             #region CLINICAL STRUCTURES 
 
