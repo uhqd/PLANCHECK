@@ -93,12 +93,13 @@ namespace PlanCheck
             }
             #endregion
 
-            #region DOSERATE FOR QA PREDICTION 
+            #region DOSERATE FOR QA PREDICTION AND GANTRY SPEED 
 
             if (_pinfo.isModulated)
                 if (_pinfo.isNOVA || _pinfo.isHALCYON) // not checked if mono energy machine
                 {
                     int nLowStepDetected = 0;
+                    int nTotalSteps = 0;
                     //int lowStepDetected = 0;
                     double maxDoseRateEnergy = 0.0;
                     string s = string.Empty;
@@ -154,23 +155,13 @@ namespace PlanCheck
                             var doseRateDoubleList = doseRateTheory.Select(x => (x >= maxDoseRate) ? maxDoseRate : x).ToList();
                             var gantrySpeed = doseRateDoubleList.Zip(relativeMU, (x, y) => x / y).Zip(angleDifference, (x, y) => x * y / 60).ToList();
 
-                            var lowStepDetected = gantrySpeed.Where(x => x > 1.0).ToList();
-
+                            var lowStepDetected = gantrySpeed.Where(x => x < 1.0).ToList();
+                            nTotalSteps += doseRateDoubleList.Count();
                             nLowStepDetected += lowStepDetected.Count();
-                            //if (Convert.ToDouble(gantrySpeed) < 1)
-                            //  lowStepDetected++;
+                           
 
                             var avDoseRate = doseRateDoubleList.Count > 0 ? doseRateDoubleList.Average() : 0.0;
                             textOut += b.Id + ": " + avDoseRate.ToString("F0") + (b.Id == _ctx.PlanSetup.Beams.Last(bb => !bb.IsSetupField).Id ? string.Empty : ", ");
-
-
-
-                            //                         string s = string.Empty;
-                            //                         foreach (double item in doseRateDoubleList)
-                            //                         {
-                            //                           s += item.ToString("F2") + " . ";
-                            //                     }
-                            //                   MessageBox.Show(s);
 
 
 
@@ -227,7 +218,8 @@ namespace PlanCheck
 
                     Item_Result lowStep = new Item_Result();
                     lowStep.Label = "CP trop lents (< 1 deg/s)";
-                    lowStep.MeasuredValue = nLowStepDetected.ToString();
+                    double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
+                    lowStep.MeasuredValue = nLowStepDetected.ToString() + " / "+ nTotalSteps.ToString() + " ("+ratio.ToString("F1")+"%)";
                     lowStep.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
 
                     if (nLowStepDetected > 1)

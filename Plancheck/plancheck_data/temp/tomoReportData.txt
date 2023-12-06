@@ -1,212 +1,383 @@
-Accuray Precision® Plan Overview
-Plan Name:
-Plan Type:
-SeinD+gg
-Standard
-Plan Saved Date: 05 Dec 2023, 9:23:54 AM (hr:min:sec)
-Treatment Machine / Serial No.: 0210471 850 MU/min, rev 138 / 
-210471
-Prescription: Median of PTV boost, 63.80 Gy
-Prescribed Dose per Fraction (Gy): 2.20
-Planned Fractions: 29
-Maximum Dose (Gy): 66.11
-Plan Status: Approved
-MU Planned / MU per Fraction: 189864.2 / 6547.0
-Field Width (cm): 5.0, Dynamic
-Pitch: 0.288
-Modulation Factor / Actual: 2.000 / 2.1
-Gantry Period (sec):
-Gantry Rotations:
-23.2
-19.5
-Sinogram Segments: 6.5
-Couch Travel (mm):
-Couch Speed (mm/sec):
-284.3
-0.6
-Red Lasers Offset (IECf, mm): X: 17.18 Y: -37.16 Z: -5.28
-Beam On Time (sec): 453.1
-Plan Delivery Type / Mode: Helical / IMRT
-Dose Calculation Algorithm:
-Dose Calculation Resolution / Type: High / Final
-Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
-Size (IECp, voxel) X: 512 Y: 199 Z: 512
-Reference Dose (Gy): 66.11
-X: -104.1 Y: 65.0 Z: 67.3 Reference Point (IECp, mm): Tracking Method: None
-Image Angles (deg):
-Tracking Target VOI:
-Planning Method: VOLO Ultra
-Patient Name:
-Medical ID:
-MULLONI, CHRISTINE
-202302450 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 20 May 1961
-Gender: Female Patient Key: 409955
-Plan Overview
-Page 1 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)DVH: Absolute Dose
-Plan Overview
-Page 2 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3VOI List
-VOI Volume 
-(cm³)
-Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
-%
-Beam Inter.
-Canal Med 88.82 0.12 3.41 11.79 n/a n/a n/a n/a Allowed
-Coeur 632.64 0.39 3.77 27.44 n/a n/a n/a n/a Allowed
-Foie 1183.56 0.08 0.42 8.01 n/a n/a n/a n/a Allowed
-IVA 4.52 0.76 4.76 8.33 n/a n/a n/a n/a Allowed
-Larynx 16.79 0.49 0.89 2.02 n/a n/a n/a n/a Allowed
-Oesophage 24.88 0.41 6.70 21.16 n/a n/a n/a n/a Allowed
-PoumonDt 1943.00 0.39 9.44 56.70 n/a n/a n/a n/a Allowed
-PoumonGche 1644.34 0.21 3.77 22.38 n/a n/a n/a n/a Allowed
-Poumons 3587.34 0.21 6.84 56.70 n/a n/a n/a n/a Allowed
-Sein contro 313.30 0.41 3.89 10.06 n/a n/a n/a n/a Exit Only
-TetehumeraleDte 74.03 0.41 15.78 37.78 n/a n/a n/a n/a Allowed
-TetehumeraleGche 70.29 0.18 0.71 1.93 n/a n/a n/a n/a Allowed
-Thyroide 11.85 1.45 20.50 54.54 n/a n/a n/a n/a Allowed
-Trachee 35.95 1.36 16.13 37.29 n/a n/a n/a n/a Allowed
-BODY 19750.83 0.01 6.17 66.11 n/a n/a n/a n/a Allowed
-Boost lit T 17.17 47.09 63.21 66.11 n/a n/a n/a n/a Allowed
-CTV cmi 5.46 48.89 52.91 56.47 n/a n/a n/a n/a Allowed
-CTV sein 282.59 32.76 53.00 66.11 n/a n/a n/a n/a Allowed
-CTV sous clav 40.76 51.20 52.91 55.41 n/a n/a n/a n/a Allowed
-CTV sus clav 22.55 48.69 52.65 57.16 n/a n/a n/a n/a Allowed
-Plexus Brachial 16.43 0.72 42.47 56.19 n/a n/a n/a n/a Allowed
-PTV boost 29.66 54.49 63.54 66.11 1.00 2.00 1.04 50.22 n/a
-PTV cmi 18.54 43.34 52.06 56.47 0.00 0.00 1.04 0.00 n/a
-PTV sein 308.40 36.03 54.09 66.11 1.00 20.76 1.04 4.83 n/a
-PTV sous clav 98.85 41.27 52.27 55.41 0.00 0.00 1.04 0.00 n/a
-PTV sus clav 62.09 39.79 52.25 57.75 0.00 0.00 1.04 0.00 n/a
-TetehumeraleD+10 242.77 0.34 13.86 45.96 n/a n/a n/a n/a Allowed
-CanalMed+5 242.14 0.11 3.51 16.75 n/a n/a n/a n/a Exit Only
-Cotecontro 1938.40 0.44 3.27 20.15 n/a n/a n/a n/a Allowed
-VOI
-Plan Overview
-Page 3 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3Isole1cm 243.42 36.03 52.43 58.50 n/a n/a n/a n/a Allowed
-ManqueSein 109.83 36.03 51.77 58.50 n/a n/a n/a n/a Allowed
-Plombs 0.86 0.24 7.84 28.42 n/a n/a n/a n/a Allowed
-PoumonDt-PTV+0.5 1858.32 0.39 7.97 47.58 n/a n/a n/a n/a Allowed
-PTVsein-PTVboost 278.78 36.03 53.08 63.87 3712.
-00
-2568
-2585
-6.00
-1.04 0.00 n/a
-PTVTotal 479.25 36.03 53.42 66.11 n/a n/a n/a n/a Allowed
-RingPTVgg 353.43 9.85 40.21 55.69 n/a n/a n/a n/a Allowed
-RingPTVSein 580.23 9.08 36.65 64.36 n/a n/a n/a n/a Allowed
-Seuillage 26.56 0.23 4.31 55.21 n/a n/a n/a n/a Allowed
-All Target Regions n/a 36.03 53.42 66.11 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.01 6.31 66.11 0.00 0.00 0.00 0.00 n/a
-Soft Tissue n/a 0.02 1.36 39.35 0.00 0.00 0.00 0.00 n/a
-Plan Overview
-Page 4 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3DVH Dose (Gy) Dose (% of 63.80 
-Gy Rx Dose)
-Volume (cm³) Volume (%) Criteria Value
-PTV boost 61.24 96.0 28.18 95.0 Dose (Gy) >= 60.61, Min: 57.42 61.24
-PTV sein 49.56 77.7 292.98 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.56
-PTV sous clav 49.13 77.0 93.91 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.13
-PTV sus clav 49.14 77.0 58.99 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.14
-PTV cmi 49.29 77.3 17.61 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.29
-Canal Med 10.00 15.7 1.15 1.3 Volume (%) <= 10.0 1.3
-Coeur 15.00 23.5 8.64 1.4 Volume (%) <= 5.0, Max: 10.0 1.4
-Coeur 25.00 39.2 0.10 0.0 Volume (%) <= 0.0, Max: 5.0 0.0
-PoumonGche 5.00 7.8 454.27 27.6 Volume (%) <= 20.0, Max: 30.0 27.6
-PoumonDt 5.00 7.8 922.77 47.5 Volume (%) <= 65.0, Max: 70.0 47.5
-PoumonDt 20.00 31.3 294.47 15.2 Volume (%) <= 15.0, Max: 18.0 15.2
-Poumons 5.00 7.8 1377.46 38.4 Volume (%) <= 42.0, Max: 50.0 38.4
-Poumons 20.00 31.3 294.84 8.2 Volume (%) <= 10.0, Max: 15.0 8.2
-Sein contro 5.00 7.8 41.71 13.3 Volume (%) <= 15.0, Max: 25.0 13.3
-TetehumeraleDte 37.78 59.2 0.00 0.0 Dose (Gy) <= 45.00, Max: 47.50 37.78
-Canal Med 11.79 18.5 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 11.79
-CanalMed+5 16.75 26.3 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 16.75
-Coeur -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 7.00, Max: 8.00 3.77
-PTV boost 65.26 102.3 0.59 2.0 Dose (Gy) <= 68.26 65.26
-PTV sous clav 54.45 85.3 1.98 2.0 Dose (Gy) <= 55.85 54.45
-PTV sus clav 55.33 86.7 1.24 2.0 Dose (Gy) <= 55.85 55.33
-PTV cmi 55.18 86.5 0.37 2.0 Dose (Gy) <= 55.85 55.18
-Dx Vx Values
-Plan Overview
-Page 5 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
--939 * 0.001
--672 * 0.290
--509 * 0.480
-13 * 1.000
-226 * 1.146
-455 * 1.331
-837 * 1.558
-1214 * 1.822
-30884 * 22.599
-Density
-Density Model: IUC-120kV
-Density Overrides
-Priority VOI Name
-Relative Electron 
-Density
-Mass Density 
-(g/cm³)
-1 Plombs n/a 0.900
-Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
-Plan Overview
-Page 6 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3Name: MASSABEAU, Carole
-05 Dec 2023, 9:25:08 AM (hr:min:sec)
-User ID: massabeau
-Approval Date:
-Approved by: Specialists
-Radiation Oncologist:
-Surgeon:
-Referring Physician:
-Physicist:
-Treatment Site ICD: IUC-TOULOUSE
-IUC-TOULOUSE Treatment Site:
-Additional Site Codes: IUC-TOULOUSE
-Additional Sites: IUC-TOULOUSE
-Created in Version: Accuray Precision 3.3.1.3 [2]
-Plan Key:
-Last Modified by:
-422616/8
-CAIGNET, Frederique
-Saved Deliverable by: DEFOUR, Nathalie
-Approval and ICD
-Auto Generated Results:
-Not Applicable
-Patient Position: HFS Delivery Signature: OQypW cGqsA 
-Plan Overview
-Page 7 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3Report Snapshots
-Plan Overview
-Page 8 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3Imaging Series
-X Y Z
-Origin (IECp, mm) -325.000 -207.500 325.000
-Size (IECp, voxel) 512 199 512
-Spacing (IECp, mm) 1.27 2.50 1.27
-Primary Series:
-Modality:
-Scan Date: Number of Slices:
-Yes
-CT
-29 Nov 2023, 05:54:44 AM (hr:min:sec) 199
-Scanner Model:
-Patient Position:
-Optima CT580
-HFS
-Series UID/Description Study UID/Description:
-1.2.840.113619.2.278.3.3523880722.970.1701144093.839 1.2.840.113619.2.278.3.3523880722.970.1701144093.834
-SEIN Droit Tomo TDM therapie SPC
-Plan Overview
-Page 9 of 9 05 Dec 2023, 11:11:20 AM (hr:min:sec)
-Patient Name: MULLONI, CHRISTINE; Medical ID: 202302450; Plan Name: SeinD+gg; Version: Accuray Precision 
-3.3.1.3
+Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+PATIENT
+Nom : THERS, CLARA ID : 202313902 Date de naissance : lundi 15 décembre 1997 Sexe : Féminin
+Plan
+ID plan : fosse post
+ID dossier de traitement : C1
+ID image : TDMRTE301123
+Modalité de l'image : CT
+Système d'imagerie : TDMRT
+Orientation de traitement : Tête devant- Décubitus dorsal
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.29cm, 0.25cm)
+Prescription de dose
+Volume cible : PTV_HDOPT
+Valeur de normalisation du plan : 100.4 %
+Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
+Point de référence principal : PTV_HDOPTtete
+Point de normalisation du plan : -, -, -
+Pourcentage de dose prescrite : 100.0 %
+Fractionnement : 
+Dose prescrite : 54.000 Gy (1.800 Gy / fraction)
+Dose au point de référence principal : 54.000 Gy (1.800 Gy / fraction)
+Nombre de fractions : 30
+Options de calcul
+Algorithme photon : AAA_15605New
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc0.125
+FieldNormalizationType 100% to isocenter
+HeterogeneityCorrection ON
+Approbations
+Plan créé : mardi 5 décembre 2023 14:42:04 par Recordon Frederique
+Approbation du plan : mardi 5 décembre 2023 16:44:42 par Laprie Anne
+Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
+Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+Dossier de traitement : C1
+Plan : fosse post  -  Planification approuvée Page : 1/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Champs
+ID champ
+ID machine
+Énergie
+Débit de dose
+Taille de champ
+X1
+X2
+Y1
+Y2
+Angle du bras
+Sens de rotation du bras
+Angle d'arrêt du bras
+Rot. collimateur
+Rot. de table
+Filtre en coin
+Facteur de filtre
+MLC
+Bloc
+Plaque
+Bolus
+DSP bolus
+Isocentre X
+Isocentre Y
+Isocentre Z
+DSP
+Pondération
+Refdose (Gy)
+Point de référence
+Dose par fraction
+Profondeur physique
+Profondeur effective
+UM
+  RA1  
+  NOVA SBRT  
+6X 
+600 UM/min
+5.7 cm x 6.8 cm
+X1: +2.8 cm 
+X2: +2.9 cm 
+Y1: +3.8 cm 
+Y2: +3.0 cm 
+181.0 °
+SH
+179.0 °
+15.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+1.09 cm
+2.35 cm
+-7.14 cm
+91.9 cm
+1.282
+-
+PTV_HDOPTtete
+0.880 Gy
+-
+-
+229.8 UM
+  RA2  
+  NOVA SBRT  
+6X 
+600 UM/min
+5.9 cm x 6.8 cm
+X1: +3.1 cm 
+X2: +2.8 cm 
+Y1: +3.8 cm 
+Y2: +3.0 cm 
+179.0 °
+SAH
+181.0 °
+345.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+1.09 cm
+2.35 cm
+-7.14 cm
+92.0 cm
+1.341
+-
+PTV_HDOPTtete
+0.920 Gy
+-
+-
+240.5 UM
+  postsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+1.09 cm
+2.35 cm
+-7.14 cm
+91.9 cm
+0.000
+-
+PTV_HDOPTtete
+-
+-
+-
+-
+  antsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+1.09 cm
+2.35 cm
+-7.14 cm
+87.5 cm
+0.000
+-
+PTV_HDOPTtete
+-
+-
+-
+-
+  latdtsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+270.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+1.09 cm
+2.35 cm
+-7.14 cm
+92.1 cm
+0.000
+-
+PTV_HDOPTtete
+-
+-
+-
+-
+  cbct  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+1.09 cm
+2.35 cm
+-7.14 cm
+91.9 cm
+0.000
+-
+PTV_HDOPTtete
+-
+-
+-
+-
+  latgsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+1.09 cm
+2.35 cm
+-7.14 cm
+94.1 cm
+0.000
+-
+PTV_HDOPTtete
+-
+-
+-
+-
+Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
+Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+Dossier de traitement : C1
+Plan : fosse post  -  Planification approuvée Page : 2/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Décalage de la table
+AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
+AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.29cm, 0.25cm)
+Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
+Champs de l'isocentre :  RA1  RA2  postsetup  latdtsetup  antsetup  latgsetup  cbct  
+Décalage de la table par rapport à la position de référence :
+Décaler [cm] : 1.09 2.35 7.14
+Direction : Gauche Haut Entrée [In]
+ 
+ 
+Erreurs et avertissements concernant le calcul :
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA1  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA1  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   RA1  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA1  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA1  )
+ éventail et la surface du porte-patient. (Avertissement :   RA1  )
+The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA1  )
+ calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA1  )
+ the patient support device. (Avertissement :   RA1  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA2  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA2  )
+ éventail et la surface du porte-patient. (Avertissement :   RA2  )
+The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA2  )
+Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
+Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+Dossier de traitement : C1
+Plan : fosse post  -  Planification approuvée Page : 3/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+ calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA2  )
+ the patient support device. (Avertissement :   RA2  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA2  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA2  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   RA2  )
+Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
+Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+Dossier de traitement : C1
+Plan : fosse post  -  Planification approuvée Page : 4/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient: THERS, CLARA  
+Patient IDs: 202313902
+Comment:
+Plan Plan Course Plan History
+fosse post C1 Last Modified: mardi 5 décembre 2023 16:44:48 by Laprie Anne
+Planification approuvée: mardi 5 décembre 2023 16:44:42 by Laprie Anne
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+CochleeGche Approuvée 100.0 / 100.6 0.0 cm³ 26.8 Gy 38.5 Gy 31.5 Gy 31.6 Gy 31.3 Gy 2.6 Gy
+CochleeDte Approuvée 100.0 / 102.1 0.0 cm³ 8.5 Gy 15.5 Gy 10.9 Gy 9.4 Gy 10.5 Gy 1.6 Gy
+OreilleIntGche Approuvée 100.0 / 99.6 0.9 cm³ 20.6 Gy 55.7 Gy 34.9 Gy 25.5 Gy 32.0 Gy 10.2 Gy
+Patient: THERS, CLARA    (202313902) Printed mardi 5 décembre 2023 17:44:19 by Recordon Frederique
+Course: C1
+Plan: fosse post  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+Hypophyse Approuvée 100.0 / 100.2 1.0 cm³ 2.6 Gy 17.9 Gy 9.8 Gy 12.5 Gy 11.0 Gy 4.5 Gy
+OreilleIntDte Approuvée 100.0 / 99.5 1.4 cm³ 7.0 Gy 17.5 Gy 10.1 Gy 7.8 Gy 9.7 Gy 2.1 Gy
+HippocampeGche Approuvée 100.0 / 99.8 2.2 cm³ 1.3 Gy 7.0 Gy 3.0 Gy 1.8 Gy 2.8 Gy 1.1 Gy
+HippocampeDt Approuvée 100.0 / 99.8 2.3 cm³ 1.1 Gy 3.4 Gy 1.8 Gy 1.6 Gy 1.7 Gy 0.4 Gy
+NerfOptGche+3 Approuvée 100.0 / 100.0 2.7 cm³ 0.7 Gy 3.6 Gy 1.4 Gy 1.0 Gy 1.3 Gy 0.5 Gy
+Canal med C1 Approuvée 100.0 / 100.2 2.9 cm³ 41.2 Gy 53.2 Gy 51.5 Gy 52.1 Gy 52.1 Gy 1.8 Gy
+CristallinGche+5 Approuvée 100.0 / 99.7 3.0 cm³ 0.0 Gy 2.3 Gy 0.9 Gy 0.6 Gy 0.8 Gy 0.4 Gy
+CristallinDt+5 Approuvée 100.0 / 100.4 3.2 cm³ 0.0 Gy 2.8 Gy 1.0 Gy 0.0 Gy 0.8 Gy 0.5 Gy
+NerfOptDt+3 Approuvée 100.0 / 100.3 3.6 cm³ 0.7 Gy 3.4 Gy 1.5 Gy 0.9 Gy 1.4 Gy 0.6 Gy
+Canal med C2 Approuvée 100.0 / 100.0 4.3 cm³ 1.5 Gy 40.9 Gy 7.5 Gy 1.6 Gy 3.3 Gy 8.5 Gy
+Chiasma+3 Approuvée 100.0 / 99.9 6.4 cm³ 1.2 Gy 3.6 Gy 1.9 Gy 1.6 Gy 1.8 Gy 0.4 Gy
+OeilDt Approuvée 100.0 / 99.9 7.6 cm³ 0.5 Gy 6.2 Gy 1.2 Gy 0.6 Gy 0.8 Gy 1.0 Gy
+OeilGche Approuvée 100.0 / 99.8 7.7 cm³ 0.5 Gy 6.1 Gy 1.0 Gy 0.6 Gy 0.7 Gy 0.7 Gy
+Canal med Approuvée 100.0 / 100.7 14.5 cm³ 0.0 Gy 1.5 Gy 0.5 Gy 0.1 Gy 0.3 Gy 0.3 Gy
+Tronc Cerebral Approuvée 100.0 / 100.0 29.7 cm³ 1.4 Gy 54.2 Gy 30.4 Gy 52.2 Gy 34.9 Gy 21.3 Gy
+PTV_HDOPT Approuvée 100.0 / 99.9 33.3 cm³ 48.3 Gy 56.4 Gy 53.9 Gy 54.0 Gy 54.0 Gy 0.7 Gy
+TroncCerebral+3 Approuvée 100.0 / 99.8 53.5 cm³ 1.3 Gy 54.9 Gy 28.6 Gy 52.2 Gy 30.3 Gy 21.9 Gy
+PTV54 Approuvée 100.0 / 100.0 57.3 cm³ 46.7 Gy 56.4 Gy 53.2 Gy 52.2 Gy 53.3 Gy 1.1 Gy
+LobeTemporalDt Approuvée 100.0 / 99.9 94.9 cm³ 0.4 Gy 21.1 Gy 3.6 Gy 0.7 Gy 1.5 Gy 4.2 Gy
+LobeTemporalGche Approuvée 100.0 / 100.0 104.3 cm³ 0.5 Gy 48.3 Gy 6.3 Gy 1.0 Gy 2.3 Gy 7.5 Gy
+cervelet-PTV Approuvée 100.0 / 100.0 154.9 cm³ 1.6 Gy 54.9 Gy 22.2 Gy 17.2 Gy 19.9 Gy 9.9 Gy
+cervelet Approuvée 100.0 / 100.0 179.6 cm³ 1.6 Gy 56.4 Gy 26.6 Gy 54.0 Gy 21.5 Gy 14.2 Gy
+Plan prescription
+Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
+Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
+- - - fosse post C1 54.000 Gy 1.800 Gy 30 54.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.4 %
+Patient: THERS, CLARA    (202313902) Printed mardi 5 décembre 2023 17:44:19 by Recordon Frederique
+Course: C1
+Plan: fosse post  -  Planification approuvée Page: 2/2
