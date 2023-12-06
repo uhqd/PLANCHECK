@@ -26,7 +26,7 @@ namespace PlanCheck
         private double _CTslicewidth;
         private string _algoName;
         private double _gridsize;
-
+        private List<string> _neededSupplImage = new List<string>();
         private List<string> _optionComp = new List<string>();
         private List<string> _POoptions = new List<string>();
         private String _prescriptionPercentage;
@@ -296,6 +296,15 @@ namespace PlanCheck
                 _optionComp.Add(tempo2);
                 optnumber++;
             }
+
+            // line 53
+            int colNeededImage = 1;
+            while (xlRange1.Cells[53, colNeededImage].Text != "") // parse the excel line from col 0 to first empty cell
+            {
+                _neededSupplImage.Add(xlRange1.Cells[53, colNeededImage].Text);                
+                colNeededImage++;
+            }
+    
             #endregion
 
             #region sheet 2 clinical structures
@@ -405,6 +414,10 @@ namespace PlanCheck
         public List<string> POoptions
         {
             get { return _POoptions; }
+        }
+        public List<string> needeSupplImages
+        {
+            get { return _neededSupplImage; }
         }
         public string prescriptionPercentage
         {

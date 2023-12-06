@@ -30,7 +30,8 @@ namespace PlanCheck.xaml_datas
 
             foreach (PlanSetup p in ctx.Course.PlanSetups)
             {
-                cbListPlan.Items.Add(p.Id);
+                if(p.Id != ctx.PlanSetup.Id)
+                    cbListPlan.Items.Add(p.Id);
             }
         }
 

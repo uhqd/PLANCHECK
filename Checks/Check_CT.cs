@@ -36,6 +36,29 @@ namespace PlanCheck
 
         private string _title = "CT";
         //test
+
+        private bool matchingImageName(string iName, string format)
+        {
+            // return true if the string iName contains all the part of format that are separated with a *
+            bool match = false;
+
+
+            string[] subStrings = format.Split(new string[] { "**" }, StringSplitOptions.None);
+
+
+            foreach (string ss in subStrings)
+            {
+                if (!iName.Contains(ss))
+                {
+                    match = false;
+                    break;
+                }
+                else
+                    match = true;
+            }
+
+            return match;
+        }
         private bool checAVEcomposition(String comment, int expectedPhase)
         {
             // if exepected phase is 3, comment must contains these values and only these values : 33% 50% 66%
@@ -368,6 +391,80 @@ namespace PlanCheck
                     tomoReportCT_date.setToFALSE();
                 tomoReportCT_date.Infobulle = "Comparaison de la date du CT (" + parsedDate.ToString() + ") dans le rapport Tomo et de la date du scanner (" + _context.Image.Series.HistoryDateTime.ToString() + ")";
                 this._result.Add(tomoReportCT_date);
+            }
+            #endregion
+
+            #region other required series
+            if (_rcp.needeSupplImages.Count > 0)
+            {
+                Item_Result otherSeries = new Item_Result();
+                List<string> unfound3DImage = new List<string>();
+                //neededSupplImage.Add("T2 FLAIR 220823");
+                //neededSupplImage.Add("T3 FLAIR 220823");
+
+                otherSeries.Label = "Autres séries d'images";
+                //_context.Image.
+                string msg = string.Empty;
+                foreach (string s in _rcp.needeSupplImages)
+                {
+                    bool found = false;
+                    foreach (Study st in _context.Patient.Studies)
+                    {
+                        foreach (Series se in st.Series)
+                        {
+
+                            if (matchingImageName(se.Comment, s))
+                            {
+                                //MessageBox.Show(s + " found");
+                                found = true;
+                                break;
+                            }
+
+                            /*foreach (Image im in se.Images)
+                             {
+                                
+                                if (im.ZDirection.z == double.NaN)
+                                    nan++;
+                                else
+                                    nonnan++;
+                                 // looking for a if statment to distinguish 3d and 2d
+                                 //if (im.Id == s)
+                                 if (!im.Id.Contains("Image")) // to change when found a good solution. Image2D IDs start with "Image..."
+                                     if (matchingImageName(im.Id, s))
+                                     {
+                                         //MessageBox.Show(s + " found");
+                                         found = true;
+                                         break;
+                                     }
+                             }*/
+                            /*if (found) break;*/
+                        }
+                        if (found) break;
+                    }
+
+                    if (!found)
+                        unfound3DImage.Add(s);
+
+                }
+
+
+
+                otherSeries.MeasuredValue = _rcp.needeSupplImages.Count + " série(s) nécessaires, " + unfound3DImage.Count + " séries absentes (voir détail)";
+                otherSeries.Infobulle = "Séries supplémentaires nécessaires (ex. IRM). cf check-protocol Ligne 53 \n";
+                foreach (string s in _rcp.needeSupplImages)
+                    otherSeries.Infobulle += " - " + s + "\n";
+                otherSeries.Infobulle += "Séries absentes \n";
+                foreach (string s in unfound3DImage)
+                    otherSeries.Infobulle += " - " + s + "\n";
+
+                if (unfound3DImage.Count > 0)
+                    otherSeries.setToFALSE();
+                else
+                    otherSeries.setToTRUE();
+
+                otherSeries.ExpectedValue = "NA";
+
+                this._result.Add(otherSeries);
             }
             #endregion
 

@@ -689,7 +689,13 @@ namespace PlanCheck
             if (anormalVolumeList.Count > 0)
             {
                 anormalVolumeItem.setToWARNING();
-                anormalVolumeItem.MeasuredValue = anormalVolumeList.Count.ToString() + " volumes anormaux détectés";
+                if (anormalVolumeList.Count == 0)
+                    anormalVolumeItem.MeasuredValue =  "Aucun volume anormal détecté";
+                else if (anormalVolumeList.Count == 1)
+                    anormalVolumeItem.MeasuredValue =  "1 volume anormal détecté";
+                else
+                    anormalVolumeItem.MeasuredValue = anormalVolumeList.Count.ToString() + " volumes anormaux détectés";
+
                 anormalVolumeItem.Infobulle = "Les volumes de ces " + anormalVolumeList.Count + " structures ne sont\npas dans l'intervalle habituel\n";
                 foreach (string avs in anormalVolumeList)
                     anormalVolumeItem.Infobulle += " - " + avs + "\n";

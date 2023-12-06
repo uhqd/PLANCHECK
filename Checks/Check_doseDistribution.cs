@@ -436,10 +436,15 @@ namespace PlanCheck
             dd.Infobulle = "Aucun test réalisé sur des indicateurs de dose. Soit il n'en est spécifié aucun dans le check-protocol, soit les structures requises sont absentes.";
             if ((successList.Count > 0) || (failedList.Count > 0))
             {
-                if (failedList.Count > 0)
+                if (failedList.Count == 1)
                 {
                     dd.setToWARNING();
-                    dd.MeasuredValue = failedList.Count + "objectif(s) non atteint (voir détail)";
+                    dd.MeasuredValue = "1 objectif non atteint (voir détail)";
+                }
+                else if (failedList.Count > 1)
+                {
+                    dd.setToWARNING();
+                    dd.MeasuredValue = failedList.Count + " objectifs non atteints (voir détail)";
                 }
                 else
                 {

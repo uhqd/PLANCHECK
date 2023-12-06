@@ -158,7 +158,7 @@ namespace PlanCheck
                             var lowStepDetected = gantrySpeed.Where(x => x < 1.0).ToList();
                             nTotalSteps += doseRateDoubleList.Count();
                             nLowStepDetected += lowStepDetected.Count();
-                           
+
 
                             var avDoseRate = doseRateDoubleList.Count > 0 ? doseRateDoubleList.Average() : 0.0;
                             textOut += b.Id + ": " + avDoseRate.ToString("F0") + (b.Id == _ctx.PlanSetup.Beams.Last(bb => !bb.IsSetupField).Id ? string.Empty : ", ");
@@ -215,26 +215,21 @@ namespace PlanCheck
                     doseRate.setToTRUE();
                     this._result.Add(doseRate);
 
-
-                    Item_Result lowStep = new Item_Result();
-                    lowStep.Label = "CP trop lents (< 1 deg/s)";
-                    double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
-                    lowStep.MeasuredValue = nLowStepDetected.ToString() + " / "+ nTotalSteps.ToString() + " ("+ratio.ToString("F1")+"%)";
-                    lowStep.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
-
-                    if (nLowStepDetected > 1)
+                    if (_pinfo.treatmentType != "IMRT")
                     {
-                        lowStep.setToWARNING();
+                        Item_Result lowStep = new Item_Result();
+                        lowStep.Label = "CP trop lents (< 1 deg/s)";
+                        double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
+                        lowStep.MeasuredValue = nLowStepDetected.ToString() + " / " + nTotalSteps.ToString() + " (" + ratio.ToString("F1") + "%)";
+                        lowStep.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
+
+                        if (nLowStepDetected > 1)
+                            lowStep.setToWARNING();
+                        else
+                            lowStep.setToTRUE();
+
+                        this._result.Add(lowStep);
                     }
-                    else
-                    {
-                        lowStep.setToTRUE();
-                    }
-
-                    this._result.Add(lowStep);
-
-
-
                 }
 
             #endregion

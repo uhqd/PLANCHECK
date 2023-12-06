@@ -1,26 +1,26 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : ROUART, GABRIEL ID : 200701092 Date de naissance : mardi 26 octobre 1948 Sexe : Masculin
+Nom : CARRIERE, MARIE ID : 201205910,  Date de naissance : jeudi 25 juillet 1963 Sexe : Féminin
 Plan
-ID plan : sacrum
-ID dossier de traitement : C1
-ID image : TDMRTE291123
+ID plan : RA_StecVert5
+ID dossier de traitement : C2
+ID image : TDMRT14112023
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.68cm, 0.25cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.00cm, 0.68cm, 0.50cm)
 Prescription de dose
-Volume cible : PTV sacrum
-Valeur de normalisation du plan : 100.0 %
+Volume cible : PTV_HDOPT
+Valeur de normalisation du plan : 100.2 %
 Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV sacrum
+Point de référence principal : PTV_HDOPT
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 30.000 Gy (3.000 Gy / fraction)
-Dose au point de référence principal : 30.000 Gy (3.000 Gy / fraction)
-Nombre de fractions : 10
+Dose prescrite : 30.000 Gy (6.000 Gy / fraction)
+Dose au point de référence principal : 30.000 Gy (6.000 Gy / fraction)
+Nombre de fractions : 5
 Options de calcul
 Algorithme photon : AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -28,12 +28,12 @@ CalculationGridSizeInCMForSRSAndHyperArc0.125
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
 Approbations
-Plan créé : jeudi 30 novembre 2023 15:53:06 par Carillo Fabienne
-Approbation du plan : vendredi 1 décembre 2023 09:28:17 par Castex Clelie
-Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
-Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
-Dossier de traitement : C1
-Plan : sacrum  -  Planification approuvée Page : 1/4Planification de radiothérapie
+Plan créé : mardi 28 novembre 2023 09:54:30 par Barbier Aurélie
+Approbation du plan : mardi 28 novembre 2023 14:08:08 par Massabeau Carole
+Patient : CARRIERE, MARIE HONTANS (201205910,  ) Imprimé le 30/11/2023 12:22 par admin\barbier
+Dernière modification le mardi 28 novembre 2023 14:08:16 par Castex Clelie
+Dossier de traitement : C2
+Plan : RA_StecVert5  -  Planification approuvée Page : 1/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -68,16 +68,16 @@ Dose par fraction
 Profondeur physique
 Profondeur effective
 UM
-  kVCBCT  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-0.0 °
+  latdtsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+270.0 °
 -
 -
 0.0 °
@@ -89,282 +89,407 @@ Y2: +14.0 cm
 -
 -
 -
--0.96 cm
-3.24 cm
-8.60 cm
-82.2 cm
+-1.11 cm
+2.40 cm
+11.93 cm
+84.6 cm
 0.000
 -
-PTV sacrum
+PTV_HDOPT
 -
 -
 -
 -
-  RA1  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-179.0 °
-SAH
-90.0 °
-315.0 °
+  antsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
 0.0 °
  -
  -
-SX2 MLC
 -
 -
 -
 -
--0.96 cm
-3.24 cm
-8.60 cm
-95.2 cm
-0.447
 -
-PTV sacrum
-0.495 Gy
+-1.11 cm
+2.40 cm
+11.93 cm
+83.7 cm
+0.000
+-
+PTV_HDOPT
 -
 -
-134.1 UM
-  RA2  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
+-
+-
+  postsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-1.11 cm
+2.40 cm
+11.93 cm
+89.4 cm
+0.000
+-
+PTV_HDOPT
+-
+-
+-
+-
+  cbct  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-1.11 cm
+2.40 cm
+11.93 cm
+89.4 cm
+0.000
+-
+PTV_HDOPT
+-
+-
+-
+-
+  cbct_fin  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-1.11 cm
+2.40 cm
+11.93 cm
+89.4 cm
+0.000
+-
+PTV_HDOPT
+-
+-
+-
+-
+  latgsetup  
+  NOVA5  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-1.11 cm
+2.40 cm
+11.93 cm
+84.0 cm
+0.000
+-
+PTV_HDOPT
+-
+-
+-
+-
+  STECRA1  
+  NOVA5  
+6X 
+600 UM/min
+12.4 cm x 13.4 cm
+X1: +6.5 cm 
+X2: +5.9 cm 
+Y1: +6.8 cm 
+Y2: +6.6 cm 
 181.0 °
 SH
-270.0 °
-45.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--0.96 cm
-3.24 cm
-8.60 cm
-95.2 cm
-0.450
--
-PTV sacrum
-0.498 Gy
--
--
-135.0 UM
-  RA5  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
 179.0 °
-SAH
-90.0 °
-315.0 °
+15.0 °
 0.0 °
  -
  -
-SX2 MLC
+0364
 -
 -
 -
 -
--0.96 cm
-3.24 cm
-8.60 cm
-95.2 cm
-0.421
+-1.11 cm
+2.40 cm
+11.93 cm
+89.4 cm
+0.667
 -
-PTV sacrum
-0.466 Gy
+PTV_HDOPT
+1.493 Gy
 -
 -
-126.2 UM
-  RA3  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-90.0 °
-SH
+399.4 UM
+  STECRA2  
+  NOVA5  
+6X 
+600 UM/min
+12.4 cm x 13.4 cm
+X1: +5.9 cm 
+X2: +6.5 cm 
+Y1: +6.8 cm 
+Y2: +6.6 cm 
 179.0 °
-45.0 °
-0.0 °
- -
- -
-SX2 MLC
--
--
--
--
--0.96 cm
-3.24 cm
-8.60 cm
-82.5 cm
-0.455
--
-PTV sacrum
-0.504 Gy
--
--
-136.5 UM
-  RA4  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-270.0 °
 SAH
 181.0 °
-315.0 °
+345.0 °
 0.0 °
  -
  -
-SX2 MLC
+0364
 -
 -
 -
 -
--0.96 cm
-3.24 cm
-8.60 cm
-85.7 cm
-0.480
+-1.11 cm
+2.40 cm
+11.93 cm
+89.4 cm
+0.644
 -
-PTV sacrum
-0.531 Gy
+PTV_HDOPT
+1.441 Gy
 -
 -
-144.0 UM
-  RA6  
-  HALCYON6  
-6X-FFF 
-740 UM/min
-28.0 cm x 28.0 cm
-X1: -14.0 cm 
-X2: +14.0 cm 
-Y1: -14.0 cm 
-Y2: +14.0 cm 
-90.0 °
+385.3 UM
+  STECRA3  
+  NOVA5  
+6X 
+600 UM/min
+13.1 cm x 12.1 cm
+X1: +6.6 cm 
+X2: +6.5 cm 
+Y1: +5.8 cm 
+Y2: +6.3 cm 
+181.0 °
 SH
 179.0 °
-45.0 °
+100.0 °
 0.0 °
  -
  -
-SX2 MLC
+0364
 -
 -
 -
 -
--0.96 cm
-3.24 cm
-8.60 cm
-82.5 cm
-0.457
+-1.11 cm
+2.40 cm
+11.93 cm
+89.4 cm
+0.717
 -
-PTV sacrum
-0.505 Gy
+PTV_HDOPT
+1.605 Gy
 -
 -
-136.9 UM
-Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
-Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
-Dossier de traitement : C1
-Plan : sacrum  -  Planification approuvée Page : 2/4Planification de radiothérapie
+429.4 UM
+  STECRA4  
+  NOVA5  
+6X 
+600 UM/min
+13.1 cm x 12.1 cm
+X1: +6.6 cm 
+X2: +6.5 cm 
+Y1: +6.3 cm 
+Y2: +5.8 cm 
+179.0 °
+SAH
+181.0 °
+80.0 °
+0.0 °
+ -
+ -
+0364
+-
+-
+-
+-
+-1.11 cm
+2.40 cm
+11.93 cm
+89.4 cm
+0.653
+-
+PTV_HDOPT
+1.461 Gy
+-
+-
+390.9 UM
+Patient : CARRIERE, MARIE HONTANS (201205910,  ) Imprimé le 30/11/2023 12:22 par admin\barbier
+Dernière modification le mardi 28 novembre 2023 14:08:16 par Castex Clelie
+Dossier de traitement : C2
+Plan : RA_StecVert5  -  Planification approuvée Page : 2/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.68cm, 0.25cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.00cm, 0.68cm, 0.50cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  RA3  RA4  RA5  RA6  kVCBCT  
+Champs de l'isocentre :  STECRA1  STECRA2  STECRA3  STECRA4  latdtsetup  postsetup  antsetup  latgsetup  cbct  cbct_fin  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 1.0 3.2 8.6
+Décaler [cm] : 1.11 2.40 11.93
 Direction : Droite Haut Sortie [Out]
  
  
 Erreurs et avertissements concernant le calcul :
-Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA1  )
- l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA1  )
- lignes en éventail et la surface du porte-patient. (Avertissement :   RA1  )
-The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA5  )
- calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA5  )
- the patient support device. (Avertissement :   RA5  )
-Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA5  )
- l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA5  )
- lignes en éventail et la surface du porte-patient. (Avertissement :   RA5  )
-Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA3  )
- l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA3  )
- lignes en éventail et la surface du porte-patient. (Avertissement :   RA3  )
-Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA6  )
-Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
-Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
-Dossier de traitement : C1
-Plan : sacrum  -  Planification approuvée Page : 3/4Planification de radiothérapie
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   STECRA1  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   STECRA1  )
+ éventail et la surface du porte-patient. (Avertissement :   STECRA1  )
+The field exits the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   STECRA1  )
+ calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   STECRA1  )
+ the patient support device. (Avertissement :   STECRA1  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   STECRA1  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   STECRA1  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   STECRA1  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   STECRA2  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   STECRA2  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   STECRA2  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   STECRA2  )
+Patient : CARRIERE, MARIE HONTANS (201205910,  ) Imprimé le 30/11/2023 12:22 par admin\barbier
+Dernière modification le mardi 28 novembre 2023 14:08:16 par Castex Clelie
+Dossier de traitement : C2
+Plan : RA_StecVert5  -  Planification approuvée Page : 3/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
- l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA6  )
- lignes en éventail et la surface du porte-patient. (Avertissement :   RA6  )
-Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
-Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
-Dossier de traitement : C1
-Plan : sacrum  -  Planification approuvée Page : 4/4Planification de radiothérapie
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   STECRA2  )
+ éventail et la surface du porte-patient. (Avertissement :   STECRA2  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   STECRA3  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   STECRA3  )
+ éventail et la surface du porte-patient. (Avertissement :   STECRA3  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   STECRA3  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   STECRA3  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   STECRA3  )
+The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   STECRA3  )
+ calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   STECRA3  )
+ the patient support device. (Avertissement :   STECRA3  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   STECRA4  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   STECRA4  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   STECRA4  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   STECRA4  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   STECRA4  )
+ éventail et la surface du porte-patient. (Avertissement :   STECRA4  )
+The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   STECRA4  )
+ calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   STECRA4  )
+ the patient support device. (Avertissement :   STECRA4  )
+Patient : CARRIERE, MARIE HONTANS (201205910,  ) Imprimé le 30/11/2023 12:22 par admin\barbier
+Dernière modification le mardi 28 novembre 2023 14:08:16 par Castex Clelie
+Dossier de traitement : C2
+Plan : RA_StecVert5  -  Planification approuvée Page : 4/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: ROUART, GABRIEL  
-Patient IDs: 200701092
+Patient: CARRIERE, MARIE  HONTANS
+Patient IDs: 201205910,  
 Comment:
 Plan Plan Course Plan History
-sacrum C1 Last Modified: vendredi 1 décembre 2023 09:28:18 by Castex Clelie
-Planification approuvée: vendredi 1 décembre 2023 09:28:17 by Castex Clelie
+RA_StecVert5 C2 Last Modified: mardi 28 novembre 2023 14:08:16 by Castex Clelie
+Planification approuvée: mardi 28 novembre 2023 14:08:08 by Massabeau Carole
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-CTV sacrum Approuvée 100.0 / 100.0 57.4 cm³ 28.8 Gy 31.4 Gy 30.0 Gy 30.0 Gy 30.0 Gy 0.3 Gy
-Canal Anal Approuvée 100.0 / 100.1 8.6 cm³ 0.1 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
-Grele Approuvée 100.0 / 100.0 1334.7 cm³ 0.1 Gy 22.9 Gy 2.0 Gy 0.3 Gy 0.7 Gy 2.3 Gy
-Patient: ROUART, GABRIEL    (200701092) Printed vendredi 1 décembre 2023 13:50:54 by Cavet Clemence
-Course: C1
-Plan: sacrum  -  Planification approuvée Page: 1/2Planification de radiothérapie
+IVA Approuvée 100.0 / 95.1 0.0 cm³ 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
+Moelle partielle Approuvée 100.0 / 99.5 4.2 cm³ 24.2 Gy 25.3 Gy 24.9 Gy 25.0 Gy 24.9 Gy 0.1 Gy
+QueueDeCheval Approuvée 100.0 / 99.7 5.1 cm³ 1.4 Gy 25.2 Gy 15.1 Gy 24.9 Gy 21.7 Gy 10.4 Gy
+Patient: CARRIERE, MARIE  HONTANS  (201205910,  ) Printed jeudi 30 novembre 2023 12:25:40 by Barbier Aurélie
+Course: C2
+Plan: RA_StecVert5  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PTV sacrum Approuvée 100.0 / 100.0 114.3 cm³ 25.6 Gy 31.6 Gy 30.0 Gy 30.0 Gy 30.0 Gy 0.4 Gy
-QueueDeCheval Approuvée 100.0 / 99.7 16.8 cm³ 0.1 Gy 31.1 Gy 6.8 Gy 0.2 Gy 0.8 Gy 11.3 Gy
-ReinDt Approuvée 100.0 / 100.0 39.2 cm³ 0.1 Gy 0.4 Gy 0.3 Gy 0.2 Gy 0.3 Gy 0.1 Gy
-ReinGche Approuvée 100.0 / 100.1 28.6 cm³ 0.1 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
-Sacro iliaquesD Approuvée 100.0 / 100.0 226.4 cm³ 0.4 Gy 31.4 Gy 6.3 Gy 0.6 Gy 4.2 Gy 6.6 Gy
-Sacro iliaquesG Approuvée 100.0 / 100.0 215.9 cm³ 0.2 Gy 17.3 Gy 3.6 Gy 0.3 Gy 1.8 Gy 4.1 Gy
-Sacrum Approuvée 100.0 / 100.0 275.4 cm³ 0.2 Gy 31.6 Gy 17.1 Gy 30.0 Gy 17.6 Gy 11.6 Gy
-Sigmoide Approuvée 100.0 / 99.9 100.7 cm³ 0.7 Gy 12.8 Gy 3.0 Gy 1.3 Gy 2.4 Gy 2.0 Gy
-TeteFemorDte Approuvée 100.0 / 100.0 154.6 cm³ 0.1 Gy 0.7 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy
-TeteFemorGche Approuvée 100.0 / 100.0 156.5 cm³ 0.1 Gy 0.4 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.1 Gy
-rectum Approuvée 100.0 / 100.0 62.9 cm³ 0.2 Gy 26.4 Gy 1.1 Gy 0.3 Gy 0.4 Gy 1.9 Gy
-vessie Approuvée 100.0 / 100.0 233.5 cm³ 0.3 Gy 2.1 Gy 0.6 Gy 0.4 Gy 0.6 Gy 0.2 Gy
+Oesophage Approuvée 100.0 / 99.1 6.0 cm³ 0.4 Gy 0.9 Gy 0.6 Gy 0.5 Gy 0.6 Gy 0.1 Gy
+MoellePartiell+2 Approuvée 100.0 / 100.2 10.9 cm³ 23.5 Gy 27.1 Gy 24.9 Gy 24.9 Gy 24.9 Gy 0.2 Gy
+overlapcanalMqdc Approuvée 100.0 / 100.1 22.7 cm³ 22.6 Gy 27.8 Gy 25.0 Gy 24.9 Gy 24.9 Gy 0.3 Gy
+GTV Approuvée 100.0 / 99.9 25.3 cm³ 26.9 Gy 30.9 Gy 30.2 Gy 30.4 Gy 30.2 Gy 0.4 Gy
+Canal Med1 Approuvée 100.0 / 100.1 37.5 cm³ 0.4 Gy 30.0 Gy 17.7 Gy 24.9 Gy 24.9 Gy 10.8 Gy
+Aorte Approuvée 100.0 / 100.2 38.8 cm³ 2.4 Gy 26.9 Gy 16.1 Gy 17.2 Gy 17.0 Gy 5.7 Gy
+VCaveInf Approuvée 100.0 / 99.5 49.3 cm³ 0.4 Gy 22.3 Gy 8.4 Gy 0.4 Gy 10.7 Gy 6.6 Gy
+Duodenum Approuvée 100.0 / 99.7 58.0 cm³ 2.9 Gy 15.5 Gy 10.6 Gy 9.5 Gy 10.7 Gy 2.4 Gy
+Rectum Approuvée 100.0 / 99.9 67.1 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+ReinDt Approuvée 100.0 / 100.0 178.8 cm³ 0.7 Gy 20.8 Gy 7.8 Gy 0.9 Gy 8.2 Gy 4.7 Gy
+ReinGche Approuvée 100.0 / 100.0 188.7 cm³ 3.1 Gy 22.9 Gy 9.6 Gy 8.0 Gy 8.8 Gy 2.8 Gy
+PTV_Low Approuvée 100.0 / 100.1 367.3 cm³ 20.2 Gy 30.9 Gy 26.0 Gy 24.9 Gy 25.4 Gy 1.6 Gy
+Estomac Approuvée 100.0 / 100.0 376.5 cm³ 0.3 Gy 9.8 Gy 2.9 Gy 0.4 Gy 1.1 Gy 2.8 Gy
+ParoiThoraciqueD Approuvée 100.0 / 99.6 444.4 cm³ 0.2 Gy 25.7 Gy 3.3 Gy 0.2 Gy 1.1 Gy 4.2 Gy
+ParoiThoraciqueG Approuvée 100.0 / 99.7 461.8 cm³ 0.2 Gy 30.9 Gy 3.2 Gy 0.2 Gy 1.1 Gy 4.1 Gy
+Foie Approuvée 100.0 / 99.8 1942.8 cm³ 0.2 Gy 19.7 Gy 3.6 Gy 0.4 Gy 1.8 Gy 3.4 Gy
+PTV_HDOPT Approuvée 100.0 / 100.0 39.4 cm³ 26.4 Gy 30.9 Gy 30.0 Gy 29.8 Gy 30.0 Gy 0.5 Gy
+PTV HD Approuvée 100.0 / 99.9 39.7 cm³ 25.7 Gy 30.9 Gy 29.9 Gy 29.8 Gy 30.0 Gy 0.6 Gy
+Pancreas Approuvée 100.0 / 99.9 91.8 cm³ 2.5 Gy 15.6 Gy 9.5 Gy 8.4 Gy 9.3 Gy 2.2 Gy
+Grele Approuvée 100.0 / 100.0 1838.3 cm³ 0.3 Gy 14.1 Gy 4.5 Gy 0.7 Gy 4.9 Gy 2.7 Gy
+QueueCheval+2 Approuvée 100.0 / 100.1 11.5 cm³ 1.3 Gy 25.7 Gy 14.8 Gy 24.9 Gy 20.7 Gy 10.5 Gy
+Reins Approuvée 100.0 / 100.0 366.9 cm³ 0.7 Gy 22.9 Gy 8.7 Gy 7.9 Gy 8.7 Gy 4.0 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - sacrum C1 30.000 Gy 3.000 Gy 10 30.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.0 %
-Patient: ROUART, GABRIEL    (200701092) Printed vendredi 1 décembre 2023 13:50:54 by Cavet Clemence
-Course: C1
-Plan: sacrum  -  Planification approuvée Page: 2/2
+- - - RA_StecVert5 C2 30.000 Gy 6.000 Gy 5 30.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.2 %
+Patient: CARRIERE, MARIE  HONTANS  (201205910,  ) Printed jeudi 30 novembre 2023 12:25:40 by Barbier Aurélie
+Course: C2
+Plan: RA_StecVert5  -  Planification approuvée Page: 2/2Institut Claudius Regaud, Toulouse Imprimé(e) sur jeudi 30 novembre 2023 12:26:27 par Barbier Aurélie (admin\barbier)
+CARRIERE, MARIE HONTANS (201205910,  )
