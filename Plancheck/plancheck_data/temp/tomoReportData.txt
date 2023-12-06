@@ -1,26 +1,26 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : THERS, CLARA ID : 202313902 Date de naissance : lundi 15 décembre 1997 Sexe : Féminin
+Nom : ROUART, GABRIEL ID : 200701092 Date de naissance : mardi 26 octobre 1948 Sexe : Masculin
 Plan
-ID plan : fosse post
+ID plan : sacrum
 ID dossier de traitement : C1
-ID image : TDMRTE301123
+ID image : TDMRTE291123
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.29cm, 0.25cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.68cm, 0.25cm)
 Prescription de dose
-Volume cible : PTV_HDOPT
-Valeur de normalisation du plan : 100.4 %
+Volume cible : PTV sacrum
+Valeur de normalisation du plan : 100.0 %
 Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV_HDOPTtete
+Point de référence principal : PTV sacrum
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 54.000 Gy (1.800 Gy / fraction)
-Dose au point de référence principal : 54.000 Gy (1.800 Gy / fraction)
-Nombre de fractions : 30
+Dose prescrite : 30.000 Gy (3.000 Gy / fraction)
+Dose au point de référence principal : 30.000 Gy (3.000 Gy / fraction)
+Nombre de fractions : 10
 Options de calcul
 Algorithme photon : AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -28,12 +28,12 @@ CalculationGridSizeInCMForSRSAndHyperArc0.125
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
 Approbations
-Plan créé : mardi 5 décembre 2023 14:42:04 par Recordon Frederique
-Approbation du plan : mardi 5 décembre 2023 16:44:42 par Laprie Anne
-Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
-Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+Plan créé : jeudi 30 novembre 2023 15:53:06 par Carillo Fabienne
+Approbation du plan : vendredi 1 décembre 2023 09:28:17 par Castex Clelie
+Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
+Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
 Dossier de traitement : C1
-Plan : fosse post  -  Planification approuvée Page : 1/4Planification de radiothérapie
+Plan : sacrum  -  Planification approuvée Page : 1/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -68,316 +68,303 @@ Dose par fraction
 Profondeur physique
 Profondeur effective
 UM
-  RA1  
-  NOVA SBRT  
-6X 
-600 UM/min
-5.7 cm x 6.8 cm
-X1: +2.8 cm 
-X2: +2.9 cm 
-Y1: +3.8 cm 
-Y2: +3.0 cm 
-181.0 °
-SH
-179.0 °
-15.0 °
+  kVCBCT  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+0.0 °
+-
+-
+0.0 °
 0.0 °
  -
  -
-0367
 -
 -
 -
 -
-1.09 cm
-2.35 cm
--7.14 cm
-91.9 cm
-1.282
 -
-PTV_HDOPTtete
-0.880 Gy
+-0.96 cm
+3.24 cm
+8.60 cm
+82.2 cm
+0.000
+-
+PTV sacrum
 -
 -
-229.8 UM
-  RA2  
-  NOVA SBRT  
-6X 
-600 UM/min
-5.9 cm x 6.8 cm
-X1: +3.1 cm 
-X2: +2.8 cm 
-Y1: +3.8 cm 
-Y2: +3.0 cm 
+-
+-
+  RA1  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
 179.0 °
 SAH
-181.0 °
-345.0 °
-0.0 °
- -
- -
-0367
--
--
--
--
-1.09 cm
-2.35 cm
--7.14 cm
-92.0 cm
-1.341
--
-PTV_HDOPTtete
-0.920 Gy
--
--
-240.5 UM
-  postsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-1.09 cm
-2.35 cm
--7.14 cm
-91.9 cm
-0.000
--
-PTV_HDOPTtete
--
--
--
--
-  antsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-1.09 cm
-2.35 cm
--7.14 cm
-87.5 cm
-0.000
--
-PTV_HDOPTtete
--
--
--
--
-  latdtsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-1.09 cm
-2.35 cm
--7.14 cm
-92.1 cm
-0.000
--
-PTV_HDOPTtete
--
--
--
--
-  cbct  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-1.09 cm
-2.35 cm
--7.14 cm
-91.9 cm
-0.000
--
-PTV_HDOPTtete
--
--
--
--
-  latgsetup  
-  NOVA3  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
 90.0 °
--
--
-0.0 °
+315.0 °
 0.0 °
  -
  -
+SX2 MLC
 -
 -
 -
 -
+-0.96 cm
+3.24 cm
+8.60 cm
+95.2 cm
+0.447
 -
-1.09 cm
-2.35 cm
--7.14 cm
-94.1 cm
-0.000
--
-PTV_HDOPTtete
--
--
+PTV sacrum
+0.495 Gy
 -
 -
-Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
-Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+134.1 UM
+  RA2  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+181.0 °
+SH
+270.0 °
+45.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+-0.96 cm
+3.24 cm
+8.60 cm
+95.2 cm
+0.450
+-
+PTV sacrum
+0.498 Gy
+-
+-
+135.0 UM
+  RA5  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+179.0 °
+SAH
+90.0 °
+315.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+-0.96 cm
+3.24 cm
+8.60 cm
+95.2 cm
+0.421
+-
+PTV sacrum
+0.466 Gy
+-
+-
+126.2 UM
+  RA3  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+90.0 °
+SH
+179.0 °
+45.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+-0.96 cm
+3.24 cm
+8.60 cm
+82.5 cm
+0.455
+-
+PTV sacrum
+0.504 Gy
+-
+-
+136.5 UM
+  RA4  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+270.0 °
+SAH
+181.0 °
+315.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+-0.96 cm
+3.24 cm
+8.60 cm
+85.7 cm
+0.480
+-
+PTV sacrum
+0.531 Gy
+-
+-
+144.0 UM
+  RA6  
+  HALCYON6  
+6X-FFF 
+740 UM/min
+28.0 cm x 28.0 cm
+X1: -14.0 cm 
+X2: +14.0 cm 
+Y1: -14.0 cm 
+Y2: +14.0 cm 
+90.0 °
+SH
+179.0 °
+45.0 °
+0.0 °
+ -
+ -
+SX2 MLC
+-
+-
+-
+-
+-0.96 cm
+3.24 cm
+8.60 cm
+82.5 cm
+0.457
+-
+PTV sacrum
+0.505 Gy
+-
+-
+136.9 UM
+Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
+Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
 Dossier de traitement : C1
-Plan : fosse post  -  Planification approuvée Page : 2/4Planification de radiothérapie
+Plan : sacrum  -  Planification approuvée Page : 2/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.29cm, 0.25cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.20cm, 0.68cm, 0.25cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  postsetup  latdtsetup  antsetup  latgsetup  cbct  
+Champs de l'isocentre :  RA1  RA2  RA3  RA4  RA5  RA6  kVCBCT  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 1.09 2.35 7.14
-Direction : Gauche Haut Entrée [In]
+Décaler [cm] : 1.0 3.2 8.6
+Direction : Droite Haut Sortie [Out]
  
  
 Erreurs et avertissements concernant le calcul :
 Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA1  )
  l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA1  )
  lignes en éventail et la surface du porte-patient. (Avertissement :   RA1  )
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA1  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA1  )
- éventail et la surface du porte-patient. (Avertissement :   RA1  )
-The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA1  )
- calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA1  )
- the patient support device. (Avertissement :   RA1  )
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA2  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA2  )
- éventail et la surface du porte-patient. (Avertissement :   RA2  )
-The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA2  )
-Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
-Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+The field enters the patient support device in a region where the CT data ends. This will reduce the dose (Avertissement :   RA5  )
+ calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA5  )
+ the patient support device. (Avertissement :   RA5  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA5  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA5  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   RA5  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA3  )
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA3  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   RA3  )
+Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA6  )
+Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
+Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
 Dossier de traitement : C1
-Plan : fosse post  -  Planification approuvée Page : 3/4Planification de radiothérapie
+Plan : sacrum  -  Planification approuvée Page : 3/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
- calculation accuracy, because Eclipse cannot find the intersection point of the fanline and the surface of (Avertissement :   RA2  )
- the patient support device. (Avertissement :   RA2  )
-Le champ pénètre dans le porte-patient dans une région où les données scanners cessent. Ceci réduira (Avertissement :   RA2  )
- l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA2  )
- lignes en éventail et la surface du porte-patient. (Avertissement :   RA2  )
-Patient : THERS, CLARA  (202313902) Imprimé le 05/12/2023 17:43 par admin\recordon
-Dernière modification le mardi 5 décembre 2023 16:44:48 par Laprie Anne
+ l'exactitude du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les (Avertissement :   RA6  )
+ lignes en éventail et la surface du porte-patient. (Avertissement :   RA6  )
+Patient : ROUART, GABRIEL  (200701092) Imprimé le 01/12/2023 13:50 par admin\cavet
+Dernière modification le vendredi 1 décembre 2023 09:28:18 par Castex Clelie
 Dossier de traitement : C1
-Plan : fosse post  -  Planification approuvée Page : 4/4Planification de radiothérapie
+Plan : sacrum  -  Planification approuvée Page : 4/4Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: THERS, CLARA  
-Patient IDs: 202313902
+Patient: ROUART, GABRIEL  
+Patient IDs: 200701092
 Comment:
 Plan Plan Course Plan History
-fosse post C1 Last Modified: mardi 5 décembre 2023 16:44:48 by Laprie Anne
-Planification approuvée: mardi 5 décembre 2023 16:44:42 by Laprie Anne
+sacrum C1 Last Modified: vendredi 1 décembre 2023 09:28:18 by Castex Clelie
+Planification approuvée: vendredi 1 décembre 2023 09:28:17 by Castex Clelie
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-CochleeGche Approuvée 100.0 / 100.6 0.0 cm³ 26.8 Gy 38.5 Gy 31.5 Gy 31.6 Gy 31.3 Gy 2.6 Gy
-CochleeDte Approuvée 100.0 / 102.1 0.0 cm³ 8.5 Gy 15.5 Gy 10.9 Gy 9.4 Gy 10.5 Gy 1.6 Gy
-OreilleIntGche Approuvée 100.0 / 99.6 0.9 cm³ 20.6 Gy 55.7 Gy 34.9 Gy 25.5 Gy 32.0 Gy 10.2 Gy
-Patient: THERS, CLARA    (202313902) Printed mardi 5 décembre 2023 17:44:19 by Recordon Frederique
+CTV sacrum Approuvée 100.0 / 100.0 57.4 cm³ 28.8 Gy 31.4 Gy 30.0 Gy 30.0 Gy 30.0 Gy 0.3 Gy
+Canal Anal Approuvée 100.0 / 100.1 8.6 cm³ 0.1 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
+Grele Approuvée 100.0 / 100.0 1334.7 cm³ 0.1 Gy 22.9 Gy 2.0 Gy 0.3 Gy 0.7 Gy 2.3 Gy
+Patient: ROUART, GABRIEL    (200701092) Printed vendredi 1 décembre 2023 13:50:54 by Cavet Clemence
 Course: C1
-Plan: fosse post  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Plan: sacrum  -  Planification approuvée Page: 1/2Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Hypophyse Approuvée 100.0 / 100.2 1.0 cm³ 2.6 Gy 17.9 Gy 9.8 Gy 12.5 Gy 11.0 Gy 4.5 Gy
-OreilleIntDte Approuvée 100.0 / 99.5 1.4 cm³ 7.0 Gy 17.5 Gy 10.1 Gy 7.8 Gy 9.7 Gy 2.1 Gy
-HippocampeGche Approuvée 100.0 / 99.8 2.2 cm³ 1.3 Gy 7.0 Gy 3.0 Gy 1.8 Gy 2.8 Gy 1.1 Gy
-HippocampeDt Approuvée 100.0 / 99.8 2.3 cm³ 1.1 Gy 3.4 Gy 1.8 Gy 1.6 Gy 1.7 Gy 0.4 Gy
-NerfOptGche+3 Approuvée 100.0 / 100.0 2.7 cm³ 0.7 Gy 3.6 Gy 1.4 Gy 1.0 Gy 1.3 Gy 0.5 Gy
-Canal med C1 Approuvée 100.0 / 100.2 2.9 cm³ 41.2 Gy 53.2 Gy 51.5 Gy 52.1 Gy 52.1 Gy 1.8 Gy
-CristallinGche+5 Approuvée 100.0 / 99.7 3.0 cm³ 0.0 Gy 2.3 Gy 0.9 Gy 0.6 Gy 0.8 Gy 0.4 Gy
-CristallinDt+5 Approuvée 100.0 / 100.4 3.2 cm³ 0.0 Gy 2.8 Gy 1.0 Gy 0.0 Gy 0.8 Gy 0.5 Gy
-NerfOptDt+3 Approuvée 100.0 / 100.3 3.6 cm³ 0.7 Gy 3.4 Gy 1.5 Gy 0.9 Gy 1.4 Gy 0.6 Gy
-Canal med C2 Approuvée 100.0 / 100.0 4.3 cm³ 1.5 Gy 40.9 Gy 7.5 Gy 1.6 Gy 3.3 Gy 8.5 Gy
-Chiasma+3 Approuvée 100.0 / 99.9 6.4 cm³ 1.2 Gy 3.6 Gy 1.9 Gy 1.6 Gy 1.8 Gy 0.4 Gy
-OeilDt Approuvée 100.0 / 99.9 7.6 cm³ 0.5 Gy 6.2 Gy 1.2 Gy 0.6 Gy 0.8 Gy 1.0 Gy
-OeilGche Approuvée 100.0 / 99.8 7.7 cm³ 0.5 Gy 6.1 Gy 1.0 Gy 0.6 Gy 0.7 Gy 0.7 Gy
-Canal med Approuvée 100.0 / 100.7 14.5 cm³ 0.0 Gy 1.5 Gy 0.5 Gy 0.1 Gy 0.3 Gy 0.3 Gy
-Tronc Cerebral Approuvée 100.0 / 100.0 29.7 cm³ 1.4 Gy 54.2 Gy 30.4 Gy 52.2 Gy 34.9 Gy 21.3 Gy
-PTV_HDOPT Approuvée 100.0 / 99.9 33.3 cm³ 48.3 Gy 56.4 Gy 53.9 Gy 54.0 Gy 54.0 Gy 0.7 Gy
-TroncCerebral+3 Approuvée 100.0 / 99.8 53.5 cm³ 1.3 Gy 54.9 Gy 28.6 Gy 52.2 Gy 30.3 Gy 21.9 Gy
-PTV54 Approuvée 100.0 / 100.0 57.3 cm³ 46.7 Gy 56.4 Gy 53.2 Gy 52.2 Gy 53.3 Gy 1.1 Gy
-LobeTemporalDt Approuvée 100.0 / 99.9 94.9 cm³ 0.4 Gy 21.1 Gy 3.6 Gy 0.7 Gy 1.5 Gy 4.2 Gy
-LobeTemporalGche Approuvée 100.0 / 100.0 104.3 cm³ 0.5 Gy 48.3 Gy 6.3 Gy 1.0 Gy 2.3 Gy 7.5 Gy
-cervelet-PTV Approuvée 100.0 / 100.0 154.9 cm³ 1.6 Gy 54.9 Gy 22.2 Gy 17.2 Gy 19.9 Gy 9.9 Gy
-cervelet Approuvée 100.0 / 100.0 179.6 cm³ 1.6 Gy 56.4 Gy 26.6 Gy 54.0 Gy 21.5 Gy 14.2 Gy
+PTV sacrum Approuvée 100.0 / 100.0 114.3 cm³ 25.6 Gy 31.6 Gy 30.0 Gy 30.0 Gy 30.0 Gy 0.4 Gy
+QueueDeCheval Approuvée 100.0 / 99.7 16.8 cm³ 0.1 Gy 31.1 Gy 6.8 Gy 0.2 Gy 0.8 Gy 11.3 Gy
+ReinDt Approuvée 100.0 / 100.0 39.2 cm³ 0.1 Gy 0.4 Gy 0.3 Gy 0.2 Gy 0.3 Gy 0.1 Gy
+ReinGche Approuvée 100.0 / 100.1 28.6 cm³ 0.1 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.0 Gy
+Sacro iliaquesD Approuvée 100.0 / 100.0 226.4 cm³ 0.4 Gy 31.4 Gy 6.3 Gy 0.6 Gy 4.2 Gy 6.6 Gy
+Sacro iliaquesG Approuvée 100.0 / 100.0 215.9 cm³ 0.2 Gy 17.3 Gy 3.6 Gy 0.3 Gy 1.8 Gy 4.1 Gy
+Sacrum Approuvée 100.0 / 100.0 275.4 cm³ 0.2 Gy 31.6 Gy 17.1 Gy 30.0 Gy 17.6 Gy 11.6 Gy
+Sigmoide Approuvée 100.0 / 99.9 100.7 cm³ 0.7 Gy 12.8 Gy 3.0 Gy 1.3 Gy 2.4 Gy 2.0 Gy
+TeteFemorDte Approuvée 100.0 / 100.0 154.6 cm³ 0.1 Gy 0.7 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy
+TeteFemorGche Approuvée 100.0 / 100.0 156.5 cm³ 0.1 Gy 0.4 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+rectum Approuvée 100.0 / 100.0 62.9 cm³ 0.2 Gy 26.4 Gy 1.1 Gy 0.3 Gy 0.4 Gy 1.9 Gy
+vessie Approuvée 100.0 / 100.0 233.5 cm³ 0.3 Gy 2.1 Gy 0.6 Gy 0.4 Gy 0.6 Gy 0.2 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - fosse post C1 54.000 Gy 1.800 Gy 30 54.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.4 %
-Patient: THERS, CLARA    (202313902) Printed mardi 5 décembre 2023 17:44:19 by Recordon Frederique
+- - - sacrum C1 30.000 Gy 3.000 Gy 10 30.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.0 %
+Patient: ROUART, GABRIEL    (200701092) Printed vendredi 1 décembre 2023 13:50:54 by Cavet Clemence
 Course: C1
-Plan: fosse post  -  Planification approuvée Page: 2/2
+Plan: sacrum  -  Planification approuvée Page: 2/2

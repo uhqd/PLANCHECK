@@ -126,13 +126,14 @@ namespace PlanCheck
                     {
                         approve.setToFALSE();
                         approve.Infobulle += "\n\nATTENTION : le plan " + p.Id + " n'a pas de dose au point de référence prinicpal";
-                    }
-
-                    if (msg2.Contains("NaN"))
+                    } else if (msg2.Contains("NaN"))
                     {
                         approve.setToFALSE();
                         approve.Infobulle += "\n\nATTENTION : le plan " + p.Id + " n'a pas d'UMs";
                     }
+                    else
+                        approve.Infobulle += "\n\nUMs et Dose au point principal sont bien renseignés dans le plan " + p.Id;
+
 
                 }
                 else

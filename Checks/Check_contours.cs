@@ -623,7 +623,7 @@ namespace PlanCheck
                             #endregion
 
                             if (!isAClinicalStructure && !isACouchStructure && !isAnOptStructure)
-                                fixedHUVolumeList.Add(struct1.Id + " " + myHU + " HU");
+                                fixedHUVolumeList.Add(struct1.Id + " " + myHU.ToString("F2") + " HU");
                         }
                     }
             }

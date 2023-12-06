@@ -104,7 +104,7 @@
                                   BorderBrush="#FF232020"
                                   Foreground="#FF0000cc"
                                   Background="#ffffffff"
-                                  ToolTip="Médical : après contourage &#x0a; Dosimétriste : Avant validation médicale &#x0a; Physicien : Après finalisation"/>
+                                  ToolTip="Médical : après contourage &#x0a; Dosimétriste : avant validation médicale &#x0a; Physicien : après finalisation"/>
 
                     </Grid>
                 </DockPanel>
