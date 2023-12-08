@@ -44,6 +44,7 @@ namespace PlanCheck.xaml_datas
         {
 
             _pinfo.planIdwithoutFE = cbListPlan.SelectedValue.ToString();
+            _pinfo.fondNonFEPlan = true;
             this.Close();
 
         }

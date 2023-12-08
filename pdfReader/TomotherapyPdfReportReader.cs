@@ -113,10 +113,18 @@ namespace PlanCheck
                 pageContent += PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(page), strategy);
 
             }
-            if (pageContent.Contains("Accuray"))
+
+            //if (pageContent.Contains("Chapter 1"))
+              //  MessageBox.Show("old tomo report");
+            //   if (pageContent.Contains("Accuray") && !pageContent.Contains("PrecisionPlan"))  /// remove old tomo plan that contains char TM 
+            if (pageContent.Contains("Accuray") && !pageContent.Contains("Chapter 1"))  /// remove old tomo plan that contains the string "chapter 1" 
+            {
                 _itisaTomoReport = true;
+            }
             else
+            {
                 _itisaTomoReport = false;
+            }
 
             File.WriteAllText(outpath, pageContent);
             pdfDoc.Close();
@@ -138,7 +146,18 @@ namespace PlanCheck
                 }
 
                 #endregion
-
+                /*
+                foreach (char c in lines[0])
+                {
+                    byte[] utf8Bytes = Encoding.UTF8.GetBytes(new[] { c });
+                    MessageBox.Show("Caractère '" + c + "': ");
+                    foreach (byte b in utf8Bytes)
+                    {
+                        MessageBox.Show(("\\x" + b.ToString("X2") + " ");
+                    }
+                   
+                }
+                */
 
                 #region Get the infos (see ex. at the end of file)
 
@@ -161,6 +180,16 @@ namespace PlanCheck
                                 }
                                MessageBox.Show(fulltext);
                 */
+
+                // Utilisez StreamWriter pour écrire dans le fichier
+                StreamWriter writer = new StreamWriter(@"\\srv015\sf_com\simon_lu\tototototo.txt");
+
+                writer.Write(lines[0]);
+                writer.Close();
+
+
+
+
                 for (int i = 0; i < lines.Count; i++)
                 {
 
@@ -211,8 +240,21 @@ namespace PlanCheck
                         trd.maxDose = Convert.ToDouble(lines[i].Split(separatingStrings2, System.StringSplitOptions.RemoveEmptyEntries)[1]);
 
 
+
                     if (lines[i].Contains("Plan Status:"))
-                        trd.approvalStatus = lines[i].Split(separatingStrings2, System.StringSplitOptions.RemoveEmptyEntries)[1];
+                    {
+
+                        //                        MessageBox.Show("i  " + lines[i]);
+                        try
+                        {
+                            trd.approvalStatus = lines[i].Split(separatingStrings2, System.StringSplitOptions.RemoveEmptyEntries)[1];
+                        }
+                        catch
+                        {
+                            trd.approvalStatus = "non_trouvé";
+                        }
+                        //                      MessageBox.Show("2");
+                    }
 
 
                     if (lines[i].Contains("MU per Fraction:"))
@@ -287,7 +329,7 @@ namespace PlanCheck
                     {
                         string[] sub2 = lines[i].Split(' ');
                         int nSpace = sub2.Count();
-                        trd.blockedOAR.Add(sub2[nSpace-11]);
+                        trd.blockedOAR.Add(sub2[nSpace - 11]);
                     }
 
                     if (lines[i].Contains("Beam On Time"))

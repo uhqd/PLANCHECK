@@ -274,6 +274,8 @@ namespace PlanCheck
                                                                                             // MessageBox.Show("two " + tomoReportReturnCode);
                         if (_TOMO)
                         {
+                            
+
                             if (tomoReportReturnCode != 2)
                             {
                                 trashDoc = true;
@@ -728,6 +730,7 @@ namespace PlanCheck
         public bool fondNonFEPlan
         {
             get { return _findNonFEplan; }
+            set { _findNonFEplan = value; }
         }
         public string PlanName
         {

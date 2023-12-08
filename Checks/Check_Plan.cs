@@ -170,7 +170,7 @@ namespace PlanCheck
                             //int lfIndex = 0;
                             foreach (float f in cp.LeafPositions)
                             {
-                               // if(f != pNonFE.Beams.ElementAt(beamindex).ControlPoints.ElementAt(cpIndex).LeafPositions[lfIndex])
+                                // if(f != pNonFE.Beams.ElementAt(beamindex).ControlPoints.ElementAt(cpIndex).LeafPositions[lfIndex])
                                 //{ }
 
                                 sum1 += f;
@@ -193,10 +193,14 @@ namespace PlanCheck
                     }
                     beamindex++;
                 }
+                int nTotBeam = modifiedMLC.Count + nonModifiedMLC.Count;
+                FE_MLC.MeasuredValue = "Faisceaux modifiés : " + modifiedMLC.Count + "/" + nTotBeam;
+                if (nTotBeam == modifiedMLC.Count)
+                    FE_MLC.setToTRUE();
+                else
+                    FE_MLC.setToWARNING();
 
-                FE_MLC.MeasuredValue = modifiedMLC.Count + " faisceaux modifiés et " + nonModifiedMLC.Count + " non modifiés";
-                FE_MLC.setToINFO();
-                FE_MLC.Infobulle = "Liste si le MLC est modifié entre le plan FE et non FE";
+                FE_MLC.Infobulle = "Vérifie si le MLC a été modifié entre les champs du plan FE et ceux du plan initial (non FE)";
 
                 this._result.Add(FE_MLC);
             }
@@ -215,7 +219,7 @@ namespace PlanCheck
             */
             #endregion
 
-           
+
 
         }
 
