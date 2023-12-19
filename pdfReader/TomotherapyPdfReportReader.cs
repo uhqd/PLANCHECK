@@ -115,9 +115,10 @@ namespace PlanCheck
             }
 
             //if (pageContent.Contains("Chapter 1"))
-              //  MessageBox.Show("old tomo report");
+            //  MessageBox.Show("old tomo report");
             //   if (pageContent.Contains("Accuray") && !pageContent.Contains("PrecisionPlan"))  /// remove old tomo plan that contains char TM 
-            if (pageContent.Contains("Accuray") && !pageContent.Contains("Chapter 1"))  /// remove old tomo plan that contains the string "chapter 1" 
+            //if (pageContent.Contains("Accuray") && !pageContent.Contains("Chapter 1"))  /// remove old tomo plan that contains the string "chapter 1" 
+            if (pageContent.Contains("Accuray") && !pageContent.Contains("Accuray Precision 1.1.1.0"))  /// remove old tomo plan
             {
                 _itisaTomoReport = true;
             }

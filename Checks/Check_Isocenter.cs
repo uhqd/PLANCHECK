@@ -150,7 +150,7 @@ namespace PlanCheck
                     if (iswrong == 1)
                     {
                         isoAtCenterOfPTV.MeasuredValue = " Positionnement non central de l'isocentre dans le " + ptvTarget.Id;
-                        isoAtCenterOfPTV.setToWARNING();
+                        isoAtCenterOfPTV.setToINFO();
                     }
                     else
                     {

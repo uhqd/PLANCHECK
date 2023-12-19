@@ -46,7 +46,7 @@ namespace PlanCheck
 
         public void Check()
         {
-
+            int vervose = 0;
             #region ENERGY 
 
             if ((!_pinfo.isTOMO) && (!_pinfo.isHALCYON)) // not checked if mono energy machine
@@ -92,7 +92,7 @@ namespace PlanCheck
                 this._result.Add(energy);
             }
             #endregion
-
+      
             #region DOSERATE FOR QA PREDICTION AND GANTRY SPEED 
 
             if (_pinfo.isModulated)
@@ -107,6 +107,7 @@ namespace PlanCheck
                     doseRate.Label = "Débit de dose pour QA";
                     doseRate.ExpectedValue = "NA";
                     string textOut = string.Empty;
+                  
                     foreach (Beam b in _ctx.PlanSetup.Beams)
                     {
 
@@ -114,7 +115,7 @@ namespace PlanCheck
                         {
                             if (_pinfo.isHALCYON)
                                 maxDoseRateEnergy = 740.0;
-                            else if (_pinfo.isNOVA)
+                            else if (_pinfo.isNOVA )
                             {
                                 if (b.EnergyModeDisplayName == "6X")
                                     maxDoseRateEnergy = 600.0;
@@ -122,12 +123,12 @@ namespace PlanCheck
                                     maxDoseRateEnergy = 1400.0;
                                 else if (b.EnergyModeDisplayName == "10X")
                                     maxDoseRateEnergy = 600.0;
-                                else if (b.EnergyModeDisplayName == "10-FFF")
+                                else if (b.EnergyModeDisplayName == "10X-FFF")
                                     maxDoseRateEnergy = 2400.0;
 
-
+                               
                             }
-
+                          
                             double maxGantrySpeed = 6.0;
                             double maxDoseRate = b.DoseRate;
                             int numberOfCPs = b.ControlPoints.Count();
@@ -135,6 +136,8 @@ namespace PlanCheck
 
                             List<double> diffMeterset = new List<double>();
                             List<double> angleDifference = new List<double>();
+                        
+                            
                             for (int i = 1; i < numberOfCPs; i++)
                             {
                                 ControlPoint cp_curr = b.ControlPoints[i];
@@ -148,31 +151,35 @@ namespace PlanCheck
 
 
                             }
+
+
+                           
                             var timePerCP = angleDifference.Select(x => x / maxGantrySpeed).ToList();
                             var relativeMU = diffMeterset.Select(x => x * beamMeterSet).ToList();
                             var doseRateTheory = relativeMU.Zip(timePerCP, (x, y) => x / y * 60).ToList(); // multiply values from the two lists 
-
+                          
                             var doseRateDoubleList = doseRateTheory.Select(x => (x >= maxDoseRate) ? maxDoseRate : x).ToList();
                             var gantrySpeed = doseRateDoubleList.Zip(relativeMU, (x, y) => x / y).Zip(angleDifference, (x, y) => x * y / 60).ToList();
-
+                            
                             var lowStepDetected = gantrySpeed.Where(x => x < 1.0).ToList();
                             nTotalSteps += doseRateDoubleList.Count();
                             nLowStepDetected += lowStepDetected.Count();
-
+                            
 
                             var avDoseRate = doseRateDoubleList.Count > 0 ? doseRateDoubleList.Average() : 0.0;
                             textOut += b.Id + ": " + avDoseRate.ToString("F0") + (b.Id == _ctx.PlanSetup.Beams.Last(bb => !bb.IsSetupField).Id ? string.Empty : ", ");
-
+                            
 
 
                             // chatGPT : I LOVE YOU. Make my histogram
 
-
+                          
 
                             double binWidth = 20; // Définir la largeur du bin
                             double minValue = 0.0;// doseRateDoubleList.Min(); // Trouver la valeur minimale
                             double maxValue = maxDoseRateEnergy;// 600.0;// doseRateDoubleList.Max(); // Trouver la valeur maximale
                             int numberOfBins = (int)Math.Ceiling((maxValue - minValue) / binWidth);
+
                             int[] histogram = new int[numberOfBins];
                             double nVal = Convert.ToDouble(doseRateTheory.Count);
                             foreach (var value in doseRateTheory)
@@ -196,27 +203,33 @@ namespace PlanCheck
                             //MessageBox.Show("this is s " + s);
 
 
-
+                           
                             int j = numberOfBins - 1;
+                          
                             double binStart = minValue + j * binWidth;
                             double binEnd = binStart + binWidth;
+                          
+
                             double d = Convert.ToDouble(histogram[j]) / nVal * 100.0;
+                          
                             s += b.Id + " " + d.ToString("F2") + "%% ";
-
+                          
                             doseRate.Infobulle = "Dernier bin de l'histogramme de débit de dose" + binStart + "-" + binEnd + " UM/min ";
-
+          
 
                         }
-
+               
 
 
                     }
+                   
                     doseRate.MeasuredValue = s;
                     doseRate.setToTRUE();
                     this._result.Add(doseRate);
 
                     if (_pinfo.treatmentType != "IMRT")
                     {
+                        
                         Item_Result lowStep = new Item_Result();
                         lowStep.Label = "CP trop lents (< 1 deg/s)";
                         double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
@@ -233,7 +246,7 @@ namespace PlanCheck
                 }
 
             #endregion
-
+ 
             #region tolerance table
             if (!_pinfo.isTOMO)
             {
@@ -316,7 +329,7 @@ namespace PlanCheck
                 this._result.Add(toleranceTable);
             }
             #endregion
-
+   
             #region FIELD SIZE GENERAL
             if (!_pinfo.isTOMO)
             {
@@ -396,7 +409,7 @@ namespace PlanCheck
                 this._result.Add(fieldTooSmall);
             }
             #endregion
-
+   
             #region MLC SIZE HALCYON
             if (_pinfo.isHALCYON) // if  HALCYON XxY must be < 20x20
             {
@@ -486,7 +499,7 @@ namespace PlanCheck
             }
 
             #endregion
-
+    
             #region NOVA SBRT 
             if (_pinfo.isNOVA)
             {
@@ -549,7 +562,7 @@ namespace PlanCheck
             }
 
             #endregion
-
+   
             #region TOMO PARAMETERS
             if ((_pinfo.isTOMO) && (_pinfo.tomoReportIsFound))
             {
@@ -619,7 +632,7 @@ namespace PlanCheck
             }
 
             #endregion
-
+    
         }
         public string Title
         {

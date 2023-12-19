@@ -1,25 +1,25 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : BOULARAN PENCHENAT, CAROLINE ID : 201804806 Date de naissance : dimanche 13 juillet 1980 Sexe : Féminin
+Nom : BELHABCHI, OURDIA ID : 202313697 Date de naissance : vendredi 20 février 1948 Sexe : Féminin
 Plan
-ID plan : STEC Paroist
-ID dossier de traitement : C2
-ID image : TDMRTE301123Thor
+ID plan : RASTECFoie
+ID dossier de traitement : C1
+ID image : TDM071223_AVG3
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.29cm, 0.49cm, 0.25cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.49cm, 2.44cm, -0.00cm)
 Prescription de dose
-Volume cible : GTVopt
-Valeur de normalisation du plan : 99.5 %
+Volume cible : CTV
+Valeur de normalisation du plan : 99.7 %
 Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : GTVopt
+Point de référence principal : CTVfoie
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 31.500 Gy (6.300 Gy / fraction)
-Dose au point de référence principal : 31.500 Gy (6.300 Gy / fraction)
+Dose prescrite : 60.000 Gy (12.000 Gy / fraction)
+Dose au point de référence principal : 60.000 Gy (12.000 Gy / fraction)
 Nombre de fractions : 5
 Options de calcul
 Algorithme photon : AAA_15605New
@@ -28,12 +28,12 @@ CalculationGridSizeInCMForSRSAndHyperArc0.125
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
 Approbations
-Plan créé : lundi 4 décembre 2023 12:10:43 par Lacaze Thierry
-Approbation du plan : mardi 5 décembre 2023 14:50:11 par Ducassou Anne
-Patient : BOULARAN PENCHENAT, CAROLINE PENCHENAT (201804806) Imprimé le 07/12/2023 09:07 par admin\carillo
-Dernière modification le mardi 5 décembre 2023 14:50:13 par Ducassou Anne
-Dossier de traitement : C2
-Plan : STEC Paroist  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Plan créé : jeudi 14 décembre 2023 15:42:48 par Recordon Frederique
+Approbation du plan : vendredi 15 décembre 2023 15:23:39 par Keller Audrey
+Patient : BELHABCHI, OURDIA  (202313697) Imprimé le 18/12/2023 11:03 par admin\stadler
+Dernière modification le vendredi 15 décembre 2023 15:23:42 par Keller Audrey
+Dossier de traitement : C1
+Plan : RASTECFoie  -  Planification approuvée Page : 1/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -68,8 +68,72 @@ Dose par fraction
 Profondeur physique
 Profondeur effective
 UM
+  RA1  
+  NOVA SBRT  
+10X-FFF 
+2400 UM/min
+5.1 cm x 7.3 cm
+X1: +2.8 cm 
+X2: +2.4 cm 
+Y1: +3.8 cm 
+Y2: +3.5 cm 
+240.0 °
+SH
+60.0 °
+15.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-1.80 cm
+-10.84 cm
+-3.27 cm
+83.9 cm
+1.251
+-
+CTVfoie
+5.869 Gy
+-
+-
+1505.5 UM
+  RA2  
+  NOVA SBRT  
+10X-FFF 
+2400 UM/min
+5.1 cm x 7.5 cm
+X1: +2.5 cm 
+X2: +2.6 cm 
+Y1: +3.8 cm 
+Y2: +3.8 cm 
+60.0 °
+SAH
+240.0 °
+345.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-1.80 cm
+-10.84 cm
+-3.27 cm
+89.3 cm
+1.307
+-
+CTVfoie
+6.131 Gy
+-
+-
+1572.9 UM
   antsetup  
-  NOVA5  
+  NOVA SBRT  
 6X 
 600 UM/min
 10.0 cm x 10.0 cm
@@ -89,51 +153,19 @@ Y2: +5.0 cm
 -
 -
 -
-10.96 cm
--5.46 cm
-6.31 cm
-93.5 cm
+-1.80 cm
+-10.84 cm
+-3.27 cm
+93.8 cm
 0.000
 -
-GTVopt
--
--
--
--
-  cbct  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-10.96 cm
--5.46 cm
-6.31 cm
-91.1 cm
-0.000
--
-GTVopt
+CTVfoie
 -
 -
 -
 -
   latdtsetup  
-  NOVA5  
+  NOVA SBRT  
 6X 
 600 UM/min
 10.0 cm x 10.0 cm
@@ -153,51 +185,19 @@ Y2: +5.0 cm
 -
 -
 -
-10.96 cm
--5.46 cm
-6.31 cm
-72.4 cm
+-1.80 cm
+-10.84 cm
+-3.27 cm
+87.7 cm
 0.000
 -
-GTVopt
--
--
--
--
-  latgsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
-10.96 cm
--5.46 cm
-6.31 cm
-96.3 cm
-0.000
--
-GTVopt
+CTVfoie
 -
 -
 -
 -
   postsetup  
-  NOVA5  
+  NOVA SBRT  
 6X 
 600 UM/min
 10.0 cm x 10.0 cm
@@ -217,194 +217,185 @@ Y2: +5.0 cm
 -
 -
 -
-10.96 cm
--5.46 cm
-6.31 cm
-91.1 cm
+-1.80 cm
+-10.84 cm
+-3.27 cm
+81.1 cm
 0.000
 -
-GTVopt
+CTVfoie
 -
 -
 -
 -
-  STECRA1  
+  cbct  
   NOVA SBRT  
 6X 
 600 UM/min
-8.0 cm x 5.8 cm
-X1: +3.4 cm 
-X2: +4.6 cm 
-Y1: +2.9 cm 
-Y2: +2.9 cm 
-179.0 °
-SAH
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
 0.0 °
-15.0 °
 0.0 °
  -
  -
-0367
 -
 -
 -
 -
-10.96 cm
--5.46 cm
-6.31 cm
-91.5 cm
-0.675
 -
-GTVopt
-1.527 Gy
+-1.80 cm
+-10.84 cm
+-3.27 cm
+81.1 cm
+0.000
+-
+CTVfoie
 -
 -
-427.4 UM
-  STECRA2  
+-
+-
+  latgsetup  
   NOVA SBRT  
 6X 
 600 UM/min
-8.0 cm x 6.1 cm
-X1: +3.3 cm 
-X2: +4.8 cm 
-Y1: +3.0 cm 
-Y2: +3.1 cm 
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
 0.0 °
-SH
-179.0 °
-345.0 °
-0.0 °
- -
- -
-0367
--
--
--
--
-10.96 cm
--5.46 cm
-6.31 cm
-93.5 cm
-0.697
--
-GTVopt
-1.576 Gy
--
--
-441.0 UM
-  STECRA3  
-  NOVA SBRT  
-6X 
-600 UM/min
-8.3 cm x 5.8 cm
-X1: +3.4 cm 
-X2: +4.9 cm 
-Y1: +2.9 cm 
-Y2: +2.9 cm 
-179.0 °
-SAH
-0.0 °
-15.0 °
 0.0 °
  -
  -
-0367
 -
 -
 -
 -
-10.96 cm
--5.46 cm
-6.31 cm
-91.5 cm
-0.686
 -
-GTVopt
-1.551 Gy
+-1.80 cm
+-10.84 cm
+-3.27 cm
+83.5 cm
+0.000
 -
--
-434.1 UM
-  STECRA4  
-  NOVA SBRT  
-6X 
-600 UM/min
-8.2 cm x 6.1 cm
-X1: +3.3 cm 
-X2: +4.9 cm 
-Y1: +3.0 cm 
-Y2: +3.1 cm 
-0.0 °
-SH
-179.0 °
-345.0 °
-0.0 °
- -
- -
-0367
+CTVfoie
 -
 -
 -
 -
-10.96 cm
--5.46 cm
-6.31 cm
-93.5 cm
-0.728
--
-GTVopt
-1.646 Gy
--
--
-460.7 UM
-Patient : BOULARAN PENCHENAT, CAROLINE PENCHENAT (201804806) Imprimé le 07/12/2023 09:07 par admin\carillo
-Dernière modification le mardi 5 décembre 2023 14:50:13 par Ducassou Anne
-Dossier de traitement : C2
-Plan : STEC Paroist  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Patient : BELHABCHI, OURDIA  (202313697) Imprimé le 18/12/2023 11:03 par admin\stadler
+Dernière modification le vendredi 15 décembre 2023 15:23:42 par Keller Audrey
+Dossier de traitement : C1
+Plan : RASTECFoie  -  Planification approuvée Page : 2/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.29cm, 0.49cm, 0.25cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.49cm, 2.44cm, -0.00cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  STECRA1  STECRA2  STECRA3  STECRA4  antsetup  cbct  latdtsetup  latgsetup  postsetup  
+Champs de l'isocentre :  RA1  RA2  antsetup  latdtsetup  postsetup  cbct  latgsetup  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 10.96 5.46 6.31
-Direction : Gauche Bas Sortie [Out]
+Décaler [cm] : 1.80 10.84 3.27
+Direction : Droite Bas Entrée [In]
  
  
 Erreurs et avertissements concernant le calcul :
-Patient : BOULARAN PENCHENAT, CAROLINE PENCHENAT (201804806) Imprimé le 07/12/2023 09:07 par admin\carillo
-Dernière modification le mardi 5 décembre 2023 14:50:13 par Ducassou Anne
-Dossier de traitement : C2
-Plan : STEC Paroist  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA1  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA1  )
+ éventail et la surface du porte-patient. (Avertissement :   RA1  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA2  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA2  )
+ éventail et la surface du porte-patient. (Avertissement :   RA2  )
+Patient : BELHABCHI, OURDIA  (202313697) Imprimé le 18/12/2023 11:03 par admin\stadler
+Dernière modification le vendredi 15 décembre 2023 15:23:42 par Keller Audrey
+Dossier de traitement : C1
+Plan : RASTECFoie  -  Planification approuvée Page : 3/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: BOULARAN PENCHENAT, CAROLINE  PENCHENAT
-Patient IDs: 201804806
+Patient: BELHABCHI, OURDIA  
+Patient IDs: 202313697
 Comment:
 Plan Plan Course Plan History
-STEC Paroist C2 Last Modified: mardi 5 décembre 2023 14:50:13 by Ducassou Anne
-Planification approuvée: mardi 5 décembre 2023 14:50:11 by Ducassou Anne
+RASTECFoie C1 Last Modified: vendredi 15 décembre 2023 15:23:42 by Keller Audrey
+Planification approuvée: vendredi 15 décembre 2023 15:23:39 by Keller Audrey
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-GTV_1 Approuvée 100.0 / 99.2 2.8 cm³ 30.8 Gy 32.6 Gy 31.5 Gy 31.6 Gy 31.5 Gy 0.3 Gy
-PlexusDt Approuvée 100.0 / 99.8 10.7 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-PlexusGche Approuvée 100.0 / 99.9 10.8 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Patient: BOULARAN PENCHENAT, CAROLINE  PENCHENAT  (201804806) Printed jeudi 7 décembre 2023 09:07:23 by Carillo Fabienne
-Course: C2
-Plan: STEC Paroist  -  Planification approuvée Page: 1/2Planification de radiothérapie
+DuodenumAcc Approuvée 100.0 / 100.0 93.3 cm³ 0.2 Gy 43.5 Gy 4.2 Gy 0.4 Gy 0.8 Gy 6.4 Gy
+EstomacAcc Approuvée 100.0 / 100.0 305.6 cm³ 0.5 Gy 42.8 Gy 5.3 Gy 0.8 Gy 4.5 Gy 4.4 Gy
+grain1 Approuvée 100.0 / 97.7 0.4 cm³ 57.3 Gy 60.1 Gy 58.7 Gy 59.0 Gy 58.8 Gy 0.6 Gy
+Patient: BELHABCHI, OURDIA    (202313697) Printed lundi 18 décembre 2023 11:04:17 by Stadler Marine
+Course: C1
+Plan: RASTECFoie  -  Planification approuvée Page: 1/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-CTV Approuvée 100.0 / 100.0 29.8 cm³ 30.3 Gy 32.6 Gy 31.0 Gy 31.0 Gy 31.0 Gy 0.3 Gy
-PTV paroi thor g Approuvée 100.0 / 100.0 67.0 cm³ 27.1 Gy 33.9 Gy 31.0 Gy 31.1 Gy 31.0 Gy 0.4 Gy
-Canal med Approuvée 100.0 / 100.1 70.2 cm³ 0.0 Gy 3.9 Gy 0.4 Gy 0.0 Gy 0.1 Gy 0.7 Gy
-CanalMed+5 Approuvée 100.0 / 100.0 192.2 cm³ 0.0 Gy 4.1 Gy 0.4 Gy 0.0 Gy 0.1 Gy 0.8 Gy
-Coeur Approuvée 100.0 / 100.0 670.4 cm³ 0.1 Gy 15.4 Gy 1.0 Gy 0.1 Gy 0.2 Gy 1.9 Gy
-PoumonGche Approuvée 100.0 / 100.0 761.1 cm³ 0.0 Gy 32.2 Gy 2.0 Gy 0.1 Gy 0.2 Gy 4.5 Gy
-ParoiThoraciqueG Approuvée 100.0 / 100.0 797.5 cm³ 0.0 Gy 34.5 Gy 2.3 Gy 0.1 Gy 0.2 Gy 6.1 Gy
-PoumonDt Approuvée 100.0 / 100.0 1132.6 cm³ 0.0 Gy 2.1 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.3 Gy
+grain3 Approuvée 100.0 / 99.6 0.4 cm³ 59.3 Gy 61.5 Gy 60.4 Gy 60.6 Gy 60.4 Gy 0.5 Gy
+grain2 Approuvée 100.0 / 100.5 0.5 cm³ 59.4 Gy 61.3 Gy 60.7 Gy 60.8 Gy 60.7 Gy 0.3 Gy
+VCaveSup Approuvée 100.0 / 100.5 1.5 cm³ 0.0 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.0 Gy
+Trachee Approuvée 100.0 / 99.9 2.2 cm³ 0.1 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy 0.0 Gy
+PTV grain3 Approuvée 100.0 / 100.6 4.3 cm³ 58.2 Gy 62.6 Gy 60.5 Gy 60.6 Gy 60.5 Gy 0.7 Gy
+PTV grain1 Approuvée 100.0 / 99.5 4.3 cm³ 56.9 Gy 61.3 Gy 59.3 Gy 59.1 Gy 59.3 Gy 0.8 Gy
+PTV grain2 Approuvée 100.0 / 98.7 4.9 cm³ 58.0 Gy 61.6 Gy 60.4 Gy 60.5 Gy 60.5 Gy 0.6 Gy
+IVA Approuvée 100.0 / 100.2 5.3 cm³ 0.1 Gy 0.7 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy
+Oesophage Approuvée 100.0 / 99.5 8.8 cm³ 0.1 Gy 1.0 Gy 0.4 Gy 0.1 Gy 0.3 Gy 0.2 Gy
+QueueDeCheval Approuvée 100.0 / 99.1 15.1 cm³ 0.1 Gy 0.8 Gy 0.3 Gy 0.1 Gy 0.3 Gy 0.2 Gy
+ITV Approuvée 100.0 / 100.0 25.0 cm³ 56.6 Gy 62.8 Gy 60.1 Gy 60.5 Gy 60.2 Gy 0.9 Gy
+ColonAcc Approuvée 100.0 / 100.0 30.5 cm³ 0.4 Gy 17.1 Gy 1.7 Gy 0.8 Gy 1.0 Gy 2.1 Gy
+Canal Med Approuvée 100.0 / 100.0 39.9 cm³ 0.0 Gy 5.6 Gy 1.7 Gy 0.1 Gy 2.1 Gy 1.3 Gy
+PTV-CTVopt Approuvée 100.0 / 100.0 42.9 cm³ 38.6 Gy 64.6 Gy 55.6 Gy 57.5 Gy 55.8 Gy 2.8 Gy
+Ring1 Approuvée 100.0 / 99.7 43.6 cm³ 30.3 Gy 64.6 Gy 55.6 Gy 57.5 Gy 55.9 Gy 3.0 Gy
+CTV Approuvée 100.0 / 100.0 53.6 cm³ 54.3 Gy 63.1 Gy 59.8 Gy 60.4 Gy 60.0 Gy 1.1 Gy
+D2cm Approuvée 100.0 / 99.8 54.4 cm³ 1.0 Gy 31.6 Gy 15.1 Gy 1.2 Gy 17.4 Gy 9.2 Gy
+Canal biliaire Approuvée 100.0 / 100.1 55.2 cm³ 6.3 Gy 60.7 Gy 25.9 Gy 8.5 Gy 22.7 Gy 13.7 Gy
+Duodenum-PTVs Approuvée 100.0 / 99.9 67.2 cm³ 0.3 Gy 36.7 Gy 3.8 Gy 0.5 Gy 0.7 Gy 5.5 Gy
+Duodenum Approuvée 100.0 / 99.9 67.3 cm³ 0.3 Gy 37.1 Gy 3.8 Gy 0.5 Gy 0.7 Gy 5.5 Gy
+VCaveInf Approuvée 100.0 / 99.9 70.2 cm³ 0.3 Gy 15.1 Gy 4.6 Gy 0.4 Gy 2.4 Gy 4.2 Gy
+Planning Approuvée 100.0 / 100.1 73.0 cm³ 29.9 Gy 64.6 Gy 58.9 Gy 60.2 Gy 59.6 Gy 2.5 Gy
+Aorte Approuvée 100.0 / 100.0 78.9 cm³ 0.0 Gy 18.9 Gy 2.7 Gy 0.1 Gy 0.7 Gy 3.7 Gy
+Ring2 Approuvée 100.0 / 100.1 90.6 cm³ 2.8 Gy 44.2 Gy 27.3 Gy 33.4 Gy 31.1 Gy 11.1 Gy
+Gros vaisseaux Approuvée 100.0 / 100.0 90.7 cm³ 0.0 Gy 18.9 Gy 1.8 Gy 0.1 Gy 0.4 Gy 3.0 Gy
+PTV_OPT Approuvée 100.0 / 99.9 97.4 cm³ 38.6 Gy 64.6 Gy 58.0 Gy 60.2 Gy 58.9 Gy 2.9 Gy
+PTV Approuvée 100.0 / 99.9 97.5 cm³ 30.3 Gy 64.6 Gy 57.9 Gy 60.2 Gy 58.9 Gy 3.0 Gy
+Pancreas Approuvée 100.0 / 100.0 98.6 cm³ 0.6 Gy 56.0 Gy 14.4 Gy 0.9 Gy 12.6 Gy 10.9 Gy
+CanalMed+5 Approuvée 100.0 / 100.0 106.8 cm³ 0.0 Gy 7.2 Gy 1.6 Gy 0.1 Gy 1.5 Gy 1.4 Gy
+Dose 50[Gy] Approuvée 100.0 / 100.1 121.4 cm³ 27.3 Gy 64.6 Gy 55.2 Gy 60.2 Gy 57.9 Gy 6.3 Gy
+Aorte/v.cave Approuvée 100.0 / 100.0 148.3 cm³ 0.1 Gy 18.9 Gy 3.6 Gy 0.1 Gy 1.0 Gy 4.0 Gy
+OARcreux_35[Gy] Approuvée 100.0 / 100.0 171.6 cm³ 32.3 Gy 64.6 Gy 50.9 Gy 60.2 Gy 53.7 Gy 8.9 Gy
+OARcolon_32[Gy] Approuvée 100.0 / 100.1 199.9 cm³ 27.2 Gy 64.6 Gy 48.4 Gy 60.2 Gy 50.0 Gy 10.3 Gy
+ReinDt Approuvée 100.0 / 100.0 209.5 cm³ 0.4 Gy 10.9 Gy 4.2 Gy 0.6 Gy 4.2 Gy 2.1 Gy
+ReinGche Approuvée 100.0 / 100.0 214.2 cm³ 0.2 Gy 12.0 Gy 2.9 Gy 0.4 Gy 2.7 Gy 2.6 Gy
+Estomac Approuvée 100.0 / 100.0 246.9 cm³ 0.6 Gy 16.9 Gy 4.9 Gy 0.8 Gy 4.2 Gy 3.9 Gy
+Rate Approuvée 100.0 / 100.0 395.9 cm³ 0.4 Gy 8.1 Gy 3.0 Gy 0.5 Gy 3.1 Gy 1.7 Gy
+Colon Approuvée 100.0 / 100.0 410.3 cm³ 0.1 Gy 12.9 Gy 1.0 Gy 0.2 Gy 0.4 Gy 1.5 Gy
+Reins Approuvée 100.0 / 100.0 423.5 cm³ 0.2 Gy 12.0 Gy 3.6 Gy 0.4 Gy 3.6 Gy 2.5 Gy
+PoumonGche Approuvée 100.0 / 100.0 579.0 cm³ 0.0 Gy 2.6 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.2 Gy
+Ring3 Approuvée 100.0 / 100.0 640.3 cm³ 0.7 Gy 38.2 Gy 13.7 Gy 1.0 Gy 15.0 Gy 10.0 Gy
+ReinDt+15 Approuvée 100.0 / 100.0 661.2 cm³ 0.3 Gy 14.6 Gy 3.8 Gy 0.4 Gy 3.6 Gy 2.7 Gy
+PoumonDt Approuvée 100.0 / 100.0 739.0 cm³ 0.1 Gy 2.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.1 Gy
+Coeur Approuvée 100.0 / 100.0 773.8 cm³ 0.0 Gy 1.0 Gy 0.3 Gy 0.1 Gy 0.2 Gy 0.2 Gy
+Foie-PTV+1 Approuvée 100.0 / 100.0 839.3 cm³ 0.3 Gy 36.3 Gy 7.1 Gy 0.5 Gy 4.6 Gy 7.2 Gy
+Foie-ITV Approuvée 100.0 / 100.0 959.4 cm³ 0.3 Gy 64.6 Gy 11.1 Gy 0.5 Gy 5.9 Gy 13.9 Gy
+Foie Approuvée 100.0 / 100.0 1013.8 cm³ 0.3 Gy 64.6 Gy 13.7 Gy 0.5 Gy 6.6 Gy 17.4 Gy
+Poumons Approuvée 100.0 / 100.0 1318.0 cm³ 0.0 Gy 2.6 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.2 Gy
+Grele Approuvée 100.0 / 100.5 1752.3 cm³ 0.0 Gy 17.2 Gy 0.3 Gy 0.1 Gy 0.1 Gy 1.0 Gy
+Patient: BELHABCHI, OURDIA    (202313697) Printed lundi 18 décembre 2023 11:04:18 by Stadler Marine
+Course: C1
+Plan: RASTECFoie  -  Planification approuvée Page: 2/3Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+ParoiThoracique Approuvée 100.0 / 100.0 2596.1 cm³ 0.0 Gy 34.9 Gy 2.1 Gy 0.1 Gy 0.4 Gy 3.7 Gy
+BODY Approuvée 100.0 / 100.2 23266.1 cm³ 0.0 Gy 64.6 Gy 2.1 Gy 0.0 Gy 0.2 Gy 5.9 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - STEC Paroist C2 31.500 Gy 6.300 Gy 5 31.500 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.5 %
-Patient: BOULARAN PENCHENAT, CAROLINE  PENCHENAT  (201804806) Printed jeudi 7 décembre 2023 09:07:23 by Carillo Fabienne
-Course: C2
-Plan: STEC Paroist  -  Planification approuvée Page: 2/2
+- - - RASTECFoie C1 60.000 Gy 12.000 Gy 5 60.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.7 %
+Patient: BELHABCHI, OURDIA    (202313697) Printed lundi 18 décembre 2023 11:04:18 by Stadler Marine
+Course: C1
+Plan: RASTECFoie  -  Planification approuvée Page: 3/3Institut Claudius Regaud, Toulouse Imprimé(e) sur lundi 18 décembre 2023 11:04:33 par Stadler Marine (admin\stadler)
+BELHABCHI, OURDIA (202313697)
