@@ -183,10 +183,10 @@ namespace PlanCheck
                 */
 
                 // Utilisez StreamWriter pour écrire dans le fichier
-                StreamWriter writer = new StreamWriter(@"\\srv015\sf_com\simon_lu\tototototo.txt");
+               // StreamWriter writer = new StreamWriter(@"\\srv015\sf_com\simon_lu\tototototo.txt");
 
-                writer.Write(lines[0]);
-                writer.Close();
+                //writer.Write(lines[0]);
+               // writer.Close();
 
 
 

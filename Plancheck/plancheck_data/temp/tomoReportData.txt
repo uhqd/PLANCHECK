@@ -1,39 +1,46 @@
 Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom : BELHABCHI, OURDIA ID : 202313697 Date de naissance : vendredi 20 février 1948 Sexe : Féminin
+Nom : COURNEIL, JEANINE ID : 202314902 Date de naissance : lundi 4 mars 1940 Sexe : Féminin
 Plan
-ID plan : RASTECFoie
+ID plan : STIC1LOC1_TT
 ID dossier de traitement : C1
-ID image : TDM071223_AVG3
+ID image : tdm181223spcMAR
 Modalité de l'image : CT
 Système d'imagerie : TDMRT
 Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.49cm, 2.44cm, -0.00cm)
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.05cm, 0.14cm, 0.13cm)
 Prescription de dose
-Volume cible : CTV
-Valeur de normalisation du plan : 99.7 %
-Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : CTVfoie
+Volume cible : GTV1.4
+Valeur de normalisation du plan : 393.2 %
+Méthode de normalisation du plan: Valeur de normalisation du plan : 393.19%
+Point de référence principal : H1DCA
 Point de normalisation du plan : -, -, -
 Pourcentage de dose prescrite : 100.0 %
 Fractionnement : 
-Dose prescrite : 60.000 Gy (12.000 Gy / fraction)
-Dose au point de référence principal : 60.000 Gy (12.000 Gy / fraction)
-Nombre de fractions : 5
+Dose prescrite : 36.000 Gy (12.000 Gy / fraction)
+Dose au point de référence principal : 36.000 Gy (12.000 Gy / fraction)
+Nombre de fractions : 3
 Options de calcul
-Algorithme photon : AAA_15605New
+Algorithme photon : Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc0.125
+DoseReportingMode Dose to medium
 FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
 Approbations
-Plan créé : jeudi 14 décembre 2023 15:42:48 par Recordon Frederique
-Approbation du plan : vendredi 15 décembre 2023 15:23:39 par Keller Audrey
-Patient : BELHABCHI, OURDIA  (202313697) Imprimé le 18/12/2023 11:03 par admin\stadler
-Dernière modification le vendredi 15 décembre 2023 15:23:42 par Keller Audrey
+Plan créé : jeudi 21 décembre 2023 09:41:23 par Carillo Fabienne
+Approbation du plan : jeudi 21 décembre 2023 15:31:57 par Attal Justine
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:32:04 par Attal Justine
 Dossier de traitement : C1
-Plan : RASTECFoie  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Plan : STIC1LOC1_TT  -  Planification approuvée Page : 1/8Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Champs
 ID champ
@@ -68,18 +75,50 @@ Dose par fraction
 Profondeur physique
 Profondeur effective
 UM
-  RA1  
-  NOVA SBRT  
-10X-FFF 
-2400 UM/min
-5.1 cm x 7.3 cm
-X1: +2.8 cm 
-X2: +2.4 cm 
-Y1: +3.8 cm 
-Y2: +3.5 cm 
-240.0 °
+  CBCT  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-1.39 cm
+3.34 cm
+-1.75 cm
+88.6 cm
+0.000
+-
+H1DCA
+-
+-
+-
+-
+  ARCSTI0  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+3.0 cm x 3.0 cm
+X1: +1.5 cm 
+X2: +1.5 cm 
+Y1: +1.5 cm 
+Y2: +1.5 cm 
+180.1 °
 SH
-60.0 °
+179.9 °
 15.0 °
 0.0 °
  -
@@ -89,30 +128,270 @@ SH
 -
 -
 -
--1.80 cm
--10.84 cm
--3.27 cm
-83.9 cm
-1.251
+-1.39 cm
+3.34 cm
+-1.75 cm
+96.4 cm
+1.000
 -
-CTVfoie
-5.869 Gy
+H1DCA
+3.000 Gy
 -
 -
-1505.5 UM
-  RA2  
-  NOVA SBRT  
-10X-FFF 
-2400 UM/min
-5.1 cm x 7.5 cm
-X1: +2.5 cm 
-X2: +2.6 cm 
-Y1: +3.8 cm 
-Y2: +3.8 cm 
-60.0 °
+443.7 UM
+  ARCSTI45  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+3.0 cm x 3.0 cm
+X1: +1.5 cm 
+X2: +1.5 cm 
+Y1: +1.5 cm 
+Y2: +1.5 cm 
+179.9 °
 SAH
-240.0 °
-345.0 °
+0.0 °
+42.0 °
+45.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-1.39 cm
+3.34 cm
+-1.75 cm
+96.4 cm
+1.000
+-
+H1DCA
+3.000 Gy
+-
+-
+403.4 UM
+  ARCSTI270  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+3.0 cm x 3.0 cm
+X1: +1.6 cm 
+X2: +1.5 cm 
+Y1: +1.5 cm 
+Y2: +1.5 cm 
+180.1 °
+SH
+0.0 °
+75.0 °
+270.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-1.39 cm
+3.34 cm
+-1.75 cm
+96.4 cm
+1.000
+-
+H1DCA
+3.000 Gy
+-
+-
+381.4 UM
+  ARCSTI315  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+3.0 cm x 3.0 cm
+X1: +1.5 cm 
+X2: +1.6 cm 
+Y1: +1.5 cm 
+Y2: +1.5 cm 
+0.0 °
+SAH
+180.1 °
+78.0 °
+315.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-1.39 cm
+3.34 cm
+-1.75 cm
+88.6 cm
+1.000
+-
+H1DCA
+3.000 Gy
+-
+-
+380.7 UM
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:32:04 par Attal Justine
+Dossier de traitement : C1
+Plan : STIC1LOC1_TT  -  Planification approuvée Page : 2/8Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Décalage de la table
+AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
+AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.05cm, 0.14cm, 0.13cm)
+Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
+Champs de l'isocentre :  ARCSTI0  ARCSTI45  ARCSTI315  ARCSTI270  CBCT  
+Décalage de la table par rapport à la position de référence :
+Décaler [cm] : 1.39 3.34 1.75
+Direction : Droite Haut Entrée [In]
+ 
+ 
+Erreurs et avertissements concernant le calcul :
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   ARCSTI45  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   ARCSTI45  )
+ éventail et la surface du porte-patient. (Avertissement :   ARCSTI45  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   ARCSTI270  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   ARCSTI270  )
+ éventail et la surface du porte-patient. (Avertissement :   ARCSTI270  )
+Le champ sort du contour externe dans une région où les données scanners cessent. Ceci réduira l'exactitude (Avertissement :   ARCSTI270  )
+ du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   ARCSTI270  )
+ éventail et la peau. (Avertissement :   ARCSTI270  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   ARCSTI315  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   ARCSTI315  )
+ éventail et la surface du porte-patient. (Avertissement :   ARCSTI315  )
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:32:04 par Attal Justine
+Dossier de traitement : C1
+Plan : STIC1LOC1_TT  -  Planification approuvée Page : 3/8Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:32:04 par Attal Justine
+Dossier de traitement : C1
+Plan : STIC1LOC1_TT  -  Planification approuvée Page : 4/8Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+PATIENT
+Nom : COURNEIL, JEANINE ID : 202314902 Date de naissance : lundi 4 mars 1940 Sexe : Féminin
+Plan
+ID plan : STIC1Loc3_TT
+ID dossier de traitement : C1
+ID image : tdm181223spcMAR
+Modalité de l'image : CT
+Système d'imagerie : TDMRT
+Orientation de traitement : Tête devant- Décubitus dorsal
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.05cm, 0.14cm, 0.13cm)
+Prescription de dose
+Volume cible : GTV1.1
+Valeur de normalisation du plan : 99.9 %
+Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
+Point de référence principal : HA1
+Point de normalisation du plan : -, -, -
+Pourcentage de dose prescrite : 100.0 %
+Fractionnement : 
+Dose prescrite : 36.000 Gy (12.000 Gy / fraction)
+Dose au point de référence principal : 36.000 Gy (12.000 Gy / fraction)
+Nombre de fractions : 3
+Options de calcul
+Algorithme photon : Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc0.125
+DoseReportingMode Dose to medium
+FieldNormalizationType 100% to isocenter
+HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
+Approbations
+Plan créé : jeudi 21 décembre 2023 11:11:57 par Carillo Fabienne
+Approbation du plan : jeudi 21 décembre 2023 15:34:44 par Attal Justine
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:34:44 par Attal Justine
+Dossier de traitement : C1
+Plan : STIC1Loc3_TT  -  Planification approuvée Page : 5/8Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Champs
+ID champ
+ID machine
+Énergie
+Débit de dose
+Taille de champ
+X1
+X2
+Y1
+Y2
+Angle du bras
+Sens de rotation du bras
+Angle d'arrêt du bras
+Rot. collimateur
+Rot. de table
+Filtre en coin
+Facteur de filtre
+MLC
+Bloc
+Plaque
+Bolus
+DSP bolus
+Isocentre X
+Isocentre Y
+Isocentre Z
+DSP
+Pondération
+Refdose (Gy)
+Point de référence
+Dose par fraction
+Profondeur physique
+Profondeur effective
+UM
+  CBCT  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+1.30 cm
+0.89 cm
+-9.63 cm
+86.8 cm
+0.000
+-
+HA1
+-
+-
+-
+-
+  HA0  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+8.4 cm x 13.0 cm
+X1: +3.8 cm 
+X2: +4.6 cm 
+Y1: +7.0 cm 
+Y2: +6.0 cm 
+180.1 °
+SH
+179.9 °
+105.0 °
 0.0 °
  -
  -
@@ -121,281 +400,224 @@ SAH
 -
 -
 -
--1.80 cm
--10.84 cm
--3.27 cm
-89.3 cm
-1.307
+1.30 cm
+0.89 cm
+-9.63 cm
+92.8 cm
+0.724
 -
-CTVfoie
-6.131 Gy
+HA1
+3.651 Gy
 -
 -
-1572.9 UM
-  antsetup  
-  NOVA SBRT  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
+869.9 UM
+  HA45  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+11.4 cm x 8.3 cm
+X1: +5.2 cm 
+X2: +6.1 cm 
+Y1: +4.5 cm 
+Y2: +3.8 cm 
+179.9 °
+SAH
 0.0 °
--
--
-0.0 °
-0.0 °
+159.0 °
+45.0 °
  -
  -
+0367
 -
 -
 -
 -
+1.30 cm
+0.89 cm
+-9.63 cm
+92.8 cm
+0.560
 -
--1.80 cm
--10.84 cm
--3.27 cm
-93.8 cm
-0.000
--
-CTVfoie
--
--
+HA1
+2.822 Gy
 -
 -
-  latdtsetup  
-  NOVA SBRT  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
+672.3 UM
+  HA315  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+6.5 cm x 12.5 cm
+X1: +3.4 cm 
+X2: +3.1 cm 
+Y1: +7.0 cm 
+Y2: +5.5 cm 
+0.0 °
+SAH
+180.1 °
+69.0 °
+315.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+1.30 cm
+0.89 cm
+-9.63 cm
+86.8 cm
+0.527
+-
+HA1
+2.654 Gy
+-
+-
+632.3 UM
+  HA270  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+8.2 cm x 11.5 cm
+X1: +4.6 cm 
+X2: +3.6 cm 
+Y1: +6.5 cm 
 Y2: +5.0 cm 
+180.1 °
+SH
+0.0 °
+30.0 °
 270.0 °
--
--
-0.0 °
-0.0 °
  -
  -
+0367
 -
 -
 -
 -
+1.30 cm
+0.89 cm
+-9.63 cm
+92.8 cm
+0.570
 -
--1.80 cm
--10.84 cm
--3.27 cm
-87.7 cm
-0.000
--
-CTVfoie
--
--
+HA1
+2.872 Gy
 -
 -
-  postsetup  
-  NOVA SBRT  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--1.80 cm
--10.84 cm
--3.27 cm
-81.1 cm
-0.000
--
-CTVfoie
--
--
--
--
-  cbct  
-  NOVA SBRT  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--1.80 cm
--10.84 cm
--3.27 cm
-81.1 cm
-0.000
--
-CTVfoie
--
--
--
--
-  latgsetup  
-  NOVA SBRT  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--1.80 cm
--10.84 cm
--3.27 cm
-83.5 cm
-0.000
--
-CTVfoie
--
--
--
--
-Patient : BELHABCHI, OURDIA  (202313697) Imprimé le 18/12/2023 11:03 par admin\stadler
-Dernière modification le vendredi 15 décembre 2023 15:23:42 par Keller Audrey
+684.3 UM
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:34:44 par Attal Justine
 Dossier de traitement : C1
-Plan : RASTECFoie  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Plan : STIC1Loc3_TT  -  Planification approuvée Page : 6/8Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 Décalage de la table
 AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
 AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.49cm, 2.44cm, -0.00cm)
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.05cm, 0.14cm, 0.13cm)
 Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  antsetup  latdtsetup  postsetup  cbct  latgsetup  
+Champs de l'isocentre :  HA0  HA45  HA315  HA270  CBCT  
 Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 1.80 10.84 3.27
-Direction : Droite Bas Entrée [In]
+Décaler [cm] : 1.30 0.89 9.63
+Direction : Gauche Haut Entrée [In]
  
  
 Erreurs et avertissements concernant le calcul :
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA1  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA1  )
- éventail et la surface du porte-patient. (Avertissement :   RA1  )
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   RA2  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   RA2  )
- éventail et la surface du porte-patient. (Avertissement :   RA2  )
-Patient : BELHABCHI, OURDIA  (202313697) Imprimé le 18/12/2023 11:03 par admin\stadler
-Dernière modification le vendredi 15 décembre 2023 15:23:42 par Keller Audrey
+Le champ sort du contour externe dans une région où les données scanners cessent. Ceci réduira l'exactitude (Avertissement :   HA45  )
+ du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   HA45  )
+ éventail et la peau. (Avertissement :   HA45  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   HA45  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   HA45  )
+ éventail et la surface du porte-patient. (Avertissement :   HA45  )
+Le champ sort du contour externe dans une région où les données scanners cessent. Ceci réduira l'exactitude (Avertissement :   HA315  )
+ du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   HA315  )
+ éventail et la peau. (Avertissement :   HA315  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   HA315  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   HA315  )
+ éventail et la surface du porte-patient. (Avertissement :   HA315  )
+Le champ sort du contour externe dans une région où les données scanners cessent. Ceci réduira l'exactitude (Avertissement :   HA270  )
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:34:44 par Attal Justine
 Dossier de traitement : C1
-Plan : RASTECFoie  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Plan : STIC1Loc3_TT  -  Planification approuvée Page : 7/8Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: BELHABCHI, OURDIA  
-Patient IDs: 202313697
+ du calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   HA270  )
+ éventail et la peau. (Avertissement :   HA270  )
+Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   HA270  )
+ calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   HA270  )
+ éventail et la surface du porte-patient. (Avertissement :   HA270  )
+Patient : COURNEIL, JEANINE  (202314902) Imprimé le 22/12/2023 10:38 par admin\recordon
+Dernière modification le jeudi 21 décembre 2023 15:34:44 par Attal Justine
+Dossier de traitement : C1
+Plan : STIC1Loc3_TT  -  Planification approuvée Page : 8/8Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient: COURNEIL, JEANINE  
+Patient IDs: 202314902
 Comment:
-Plan Plan Course Plan History
-RASTECFoie C1 Last Modified: vendredi 15 décembre 2023 15:23:42 by Keller Audrey
-Planification approuvée: vendredi 15 décembre 2023 15:23:39 by Keller Audrey
+Plan Sum Plan Sum Course Plan Plan Course Plan History
+DCA+HA C1 STIC1LOC1_TT C1 Last Modified: jeudi 21 décembre 2023 15:32:04 by Attal Justine
+Planification approuvée: jeudi 21 décembre 2023 15:31:57 by Attal Justine
+DCA+HA C1 STIC1Loc3_TT C1 Last Modified: jeudi 21 décembre 2023 15:34:44 by Attal Justine
+Planification approuvée: jeudi 21 décembre 2023 15:34:44 by Attal Justine
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-DuodenumAcc Approuvée 100.0 / 100.0 93.3 cm³ 0.2 Gy 43.5 Gy 4.2 Gy 0.4 Gy 0.8 Gy 6.4 Gy
-EstomacAcc Approuvée 100.0 / 100.0 305.6 cm³ 0.5 Gy 42.8 Gy 5.3 Gy 0.8 Gy 4.5 Gy 4.4 Gy
-grain1 Approuvée 100.0 / 97.7 0.4 cm³ 57.3 Gy 60.1 Gy 58.7 Gy 59.0 Gy 58.8 Gy 0.6 Gy
-Patient: BELHABCHI, OURDIA    (202313697) Printed lundi 18 décembre 2023 11:04:17 by Stadler Marine
+GTV1.4 Approuvée 100.0 / 99.9 0.1 cm³ 34.8 Gy 37.0 Gy 36.1 Gy 36.6 Gy 36.2 Gy 0.4 Gy
+Patient: COURNEIL, JEANINE    (202314902) Printed vendredi 22 décembre 2023 10:38:32 by Recordon Frederique
 Course: C1
-Plan: RASTECFoie  -  Planification approuvée Page: 1/3Planification de radiothérapie
+Plan Sum: DCA+HA Page: 1/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-grain3 Approuvée 100.0 / 99.6 0.4 cm³ 59.3 Gy 61.5 Gy 60.4 Gy 60.6 Gy 60.4 Gy 0.5 Gy
-grain2 Approuvée 100.0 / 100.5 0.5 cm³ 59.4 Gy 61.3 Gy 60.7 Gy 60.8 Gy 60.7 Gy 0.3 Gy
-VCaveSup Approuvée 100.0 / 100.5 1.5 cm³ 0.0 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.0 Gy
-Trachee Approuvée 100.0 / 99.9 2.2 cm³ 0.1 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy 0.0 Gy
-PTV grain3 Approuvée 100.0 / 100.6 4.3 cm³ 58.2 Gy 62.6 Gy 60.5 Gy 60.6 Gy 60.5 Gy 0.7 Gy
-PTV grain1 Approuvée 100.0 / 99.5 4.3 cm³ 56.9 Gy 61.3 Gy 59.3 Gy 59.1 Gy 59.3 Gy 0.8 Gy
-PTV grain2 Approuvée 100.0 / 98.7 4.9 cm³ 58.0 Gy 61.6 Gy 60.4 Gy 60.5 Gy 60.5 Gy 0.6 Gy
-IVA Approuvée 100.0 / 100.2 5.3 cm³ 0.1 Gy 0.7 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.1 Gy
-Oesophage Approuvée 100.0 / 99.5 8.8 cm³ 0.1 Gy 1.0 Gy 0.4 Gy 0.1 Gy 0.3 Gy 0.2 Gy
-QueueDeCheval Approuvée 100.0 / 99.1 15.1 cm³ 0.1 Gy 0.8 Gy 0.3 Gy 0.1 Gy 0.3 Gy 0.2 Gy
-ITV Approuvée 100.0 / 100.0 25.0 cm³ 56.6 Gy 62.8 Gy 60.1 Gy 60.5 Gy 60.2 Gy 0.9 Gy
-ColonAcc Approuvée 100.0 / 100.0 30.5 cm³ 0.4 Gy 17.1 Gy 1.7 Gy 0.8 Gy 1.0 Gy 2.1 Gy
-Canal Med Approuvée 100.0 / 100.0 39.9 cm³ 0.0 Gy 5.6 Gy 1.7 Gy 0.1 Gy 2.1 Gy 1.3 Gy
-PTV-CTVopt Approuvée 100.0 / 100.0 42.9 cm³ 38.6 Gy 64.6 Gy 55.6 Gy 57.5 Gy 55.8 Gy 2.8 Gy
-Ring1 Approuvée 100.0 / 99.7 43.6 cm³ 30.3 Gy 64.6 Gy 55.6 Gy 57.5 Gy 55.9 Gy 3.0 Gy
-CTV Approuvée 100.0 / 100.0 53.6 cm³ 54.3 Gy 63.1 Gy 59.8 Gy 60.4 Gy 60.0 Gy 1.1 Gy
-D2cm Approuvée 100.0 / 99.8 54.4 cm³ 1.0 Gy 31.6 Gy 15.1 Gy 1.2 Gy 17.4 Gy 9.2 Gy
-Canal biliaire Approuvée 100.0 / 100.1 55.2 cm³ 6.3 Gy 60.7 Gy 25.9 Gy 8.5 Gy 22.7 Gy 13.7 Gy
-Duodenum-PTVs Approuvée 100.0 / 99.9 67.2 cm³ 0.3 Gy 36.7 Gy 3.8 Gy 0.5 Gy 0.7 Gy 5.5 Gy
-Duodenum Approuvée 100.0 / 99.9 67.3 cm³ 0.3 Gy 37.1 Gy 3.8 Gy 0.5 Gy 0.7 Gy 5.5 Gy
-VCaveInf Approuvée 100.0 / 99.9 70.2 cm³ 0.3 Gy 15.1 Gy 4.6 Gy 0.4 Gy 2.4 Gy 4.2 Gy
-Planning Approuvée 100.0 / 100.1 73.0 cm³ 29.9 Gy 64.6 Gy 58.9 Gy 60.2 Gy 59.6 Gy 2.5 Gy
-Aorte Approuvée 100.0 / 100.0 78.9 cm³ 0.0 Gy 18.9 Gy 2.7 Gy 0.1 Gy 0.7 Gy 3.7 Gy
-Ring2 Approuvée 100.0 / 100.1 90.6 cm³ 2.8 Gy 44.2 Gy 27.3 Gy 33.4 Gy 31.1 Gy 11.1 Gy
-Gros vaisseaux Approuvée 100.0 / 100.0 90.7 cm³ 0.0 Gy 18.9 Gy 1.8 Gy 0.1 Gy 0.4 Gy 3.0 Gy
-PTV_OPT Approuvée 100.0 / 99.9 97.4 cm³ 38.6 Gy 64.6 Gy 58.0 Gy 60.2 Gy 58.9 Gy 2.9 Gy
-PTV Approuvée 100.0 / 99.9 97.5 cm³ 30.3 Gy 64.6 Gy 57.9 Gy 60.2 Gy 58.9 Gy 3.0 Gy
-Pancreas Approuvée 100.0 / 100.0 98.6 cm³ 0.6 Gy 56.0 Gy 14.4 Gy 0.9 Gy 12.6 Gy 10.9 Gy
-CanalMed+5 Approuvée 100.0 / 100.0 106.8 cm³ 0.0 Gy 7.2 Gy 1.6 Gy 0.1 Gy 1.5 Gy 1.4 Gy
-Dose 50[Gy] Approuvée 100.0 / 100.1 121.4 cm³ 27.3 Gy 64.6 Gy 55.2 Gy 60.2 Gy 57.9 Gy 6.3 Gy
-Aorte/v.cave Approuvée 100.0 / 100.0 148.3 cm³ 0.1 Gy 18.9 Gy 3.6 Gy 0.1 Gy 1.0 Gy 4.0 Gy
-OARcreux_35[Gy] Approuvée 100.0 / 100.0 171.6 cm³ 32.3 Gy 64.6 Gy 50.9 Gy 60.2 Gy 53.7 Gy 8.9 Gy
-OARcolon_32[Gy] Approuvée 100.0 / 100.1 199.9 cm³ 27.2 Gy 64.6 Gy 48.4 Gy 60.2 Gy 50.0 Gy 10.3 Gy
-ReinDt Approuvée 100.0 / 100.0 209.5 cm³ 0.4 Gy 10.9 Gy 4.2 Gy 0.6 Gy 4.2 Gy 2.1 Gy
-ReinGche Approuvée 100.0 / 100.0 214.2 cm³ 0.2 Gy 12.0 Gy 2.9 Gy 0.4 Gy 2.7 Gy 2.6 Gy
-Estomac Approuvée 100.0 / 100.0 246.9 cm³ 0.6 Gy 16.9 Gy 4.9 Gy 0.8 Gy 4.2 Gy 3.9 Gy
-Rate Approuvée 100.0 / 100.0 395.9 cm³ 0.4 Gy 8.1 Gy 3.0 Gy 0.5 Gy 3.1 Gy 1.7 Gy
-Colon Approuvée 100.0 / 100.0 410.3 cm³ 0.1 Gy 12.9 Gy 1.0 Gy 0.2 Gy 0.4 Gy 1.5 Gy
-Reins Approuvée 100.0 / 100.0 423.5 cm³ 0.2 Gy 12.0 Gy 3.6 Gy 0.4 Gy 3.6 Gy 2.5 Gy
-PoumonGche Approuvée 100.0 / 100.0 579.0 cm³ 0.0 Gy 2.6 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.2 Gy
-Ring3 Approuvée 100.0 / 100.0 640.3 cm³ 0.7 Gy 38.2 Gy 13.7 Gy 1.0 Gy 15.0 Gy 10.0 Gy
-ReinDt+15 Approuvée 100.0 / 100.0 661.2 cm³ 0.3 Gy 14.6 Gy 3.8 Gy 0.4 Gy 3.6 Gy 2.7 Gy
-PoumonDt Approuvée 100.0 / 100.0 739.0 cm³ 0.1 Gy 2.2 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.1 Gy
-Coeur Approuvée 100.0 / 100.0 773.8 cm³ 0.0 Gy 1.0 Gy 0.3 Gy 0.1 Gy 0.2 Gy 0.2 Gy
-Foie-PTV+1 Approuvée 100.0 / 100.0 839.3 cm³ 0.3 Gy 36.3 Gy 7.1 Gy 0.5 Gy 4.6 Gy 7.2 Gy
-Foie-ITV Approuvée 100.0 / 100.0 959.4 cm³ 0.3 Gy 64.6 Gy 11.1 Gy 0.5 Gy 5.9 Gy 13.9 Gy
-Foie Approuvée 100.0 / 100.0 1013.8 cm³ 0.3 Gy 64.6 Gy 13.7 Gy 0.5 Gy 6.6 Gy 17.4 Gy
-Poumons Approuvée 100.0 / 100.0 1318.0 cm³ 0.0 Gy 2.6 Gy 0.2 Gy 0.1 Gy 0.2 Gy 0.2 Gy
-Grele Approuvée 100.0 / 100.5 1752.3 cm³ 0.0 Gy 17.2 Gy 0.3 Gy 0.1 Gy 0.1 Gy 1.0 Gy
-Patient: BELHABCHI, OURDIA    (202313697) Printed lundi 18 décembre 2023 11:04:18 by Stadler Marine
+CochleeGche Approuvée 100.0 / 100.1 0.2 cm³ 2.3 Gy 3.2 Gy 2.8 Gy 2.8 Gy 2.8 Gy 0.1 Gy
+GTV1.1 Approuvée 100.0 / 99.9 0.2 cm³ 34.6 Gy 37.0 Gy 36.0 Gy 35.9 Gy 36.0 Gy 0.4 Gy
+CochleeDte Approuvée 100.0 / 100.3 0.2 cm³ 3.3 Gy 5.5 Gy 4.2 Gy 4.3 Gy 4.2 Gy 0.4 Gy
+CristallinGche Approuvée 100.0 / 100.0 0.2 cm³ 0.4 Gy 1.8 Gy 0.9 Gy 0.7 Gy 0.9 Gy 0.2 Gy
+Hypophyse Approuvée 100.0 / 101.3 0.2 cm³ 2.8 Gy 6.0 Gy 4.4 Gy 4.4 Gy 4.3 Gy 0.6 Gy
+CristallinDt Approuvée 100.0 / 99.4 0.3 cm³ 0.3 Gy 1.2 Gy 0.5 Gy 0.3 Gy 0.5 Gy 0.2 Gy
+Chiasma Approuvée 100.0 / 99.7 0.5 cm³ 0.7 Gy 3.2 Gy 1.8 Gy 2.4 Gy 1.8 Gy 0.7 Gy
+planning Approuvée 100.0 / 100.1 0.5 cm³ 26.7 Gy 37.0 Gy 34.0 Gy 36.6 Gy 34.4 Gy 1.9 Gy
+PTV1.4 Approuvée 100.0 / 99.5 0.6 cm³ 29.6 Gy 37.0 Gy 34.0 Gy 36.6 Gy 34.1 Gy 1.7 Gy
+NerfOptiqueGche Approuvée 100.0 / 99.6 0.7 cm³ 0.6 Gy 1.8 Gy 1.4 Gy 1.6 Gy 1.4 Gy 0.3 Gy
+NerfOptiqueDt Approuvée 100.0 / 98.3 0.7 cm³ 0.5 Gy 3.0 Gy 2.0 Gy 2.2 Gy 2.2 Gy 0.6 Gy
+PTV1.1 Approuvée 100.0 / 99.9 0.7 cm³ 28.9 Gy 37.0 Gy 34.2 Gy 35.7 Gy 34.4 Gy 1.7 Gy
+GTV1.3 Approuvée 100.0 / 100.3 0.7 cm³ 31.3 Gy 34.4 Gy 32.7 Gy 32.7 Gy 32.7 Gy 0.7 Gy
+GTV1.2 Approuvée 100.0 / 100.2 1.5 cm³ 34.6 Gy 37.7 Gy 36.1 Gy 35.7 Gy 36.0 Gy 0.6 Gy
+GTVsHD Approuvée 100.0 / 100.4 1.7 cm³ 34.6 Gy 37.7 Gy 36.1 Gy 35.7 Gy 36.0 Gy 0.6 Gy
+HippocampeDt Approuvée 100.0 / 100.0 1.7 cm³ 2.1 Gy 31.4 Gy 5.8 Gy 3.6 Gy 4.0 Gy 4.6 Gy
+PTV1.3 Approuvée 100.0 / 100.3 2.0 cm³ 26.5 Gy 34.4 Gy 31.5 Gy 32.7 Gy 31.9 Gy 1.6 Gy
+HippocampeGche Approuvée 100.0 / 99.5 2.2 cm³ 2.3 Gy 4.6 Gy 3.6 Gy 3.8 Gy 3.6 Gy 0.4 Gy
+RetineDt Approuvée 100.0 / 100.6 2.3 cm³ 0.3 Gy 2.6 Gy 1.1 Gy 0.4 Gy 0.8 Gy 0.6 Gy
+RetineGche Approuvée 100.0 / 99.8 2.3 cm³ 0.2 Gy 3.4 Gy 1.3 Gy 0.3 Gy 1.3 Gy 0.9 Gy
+GTVs Approuvée 100.0 / 100.4 2.4 cm³ 31.3 Gy 37.7 Gy 35.1 Gy 35.7 Gy 35.7 Gy 1.7 Gy
+NerfOptDt+2 Approuvée 100.0 / 100.0 2.8 cm³ 0.4 Gy 3.8 Gy 2.1 Gy 2.3 Gy 2.2 Gy 0.7 Gy
+NerfOptGche+2 Approuvée 100.0 / 100.1 2.9 cm³ 0.5 Gy 2.2 Gy 1.3 Gy 1.7 Gy 1.4 Gy 0.4 Gy
+CristallinGche+5 Approuvée 100.0 / 100.5 2.9 cm³ 0.0 Gy 3.0 Gy 1.1 Gy 0.4 Gy 1.0 Gy 0.6 Gy
+Chiasma+2 Approuvée 100.0 / 100.0 3.3 cm³ 0.7 Gy 4.1 Gy 2.0 Gy 2.5 Gy 2.2 Gy 0.8 Gy
+PTV1.2 Approuvée 100.0 / 100.5 3.4 cm³ 28.7 Gy 37.7 Gy 34.6 Gy 35.7 Gy 35.2 Gy 1.9 Gy
+CristallinDt+5 Approuvée 100.0 / 98.6 3.6 cm³ 0.0 Gy 1.9 Gy 0.7 Gy 0.3 Gy 0.5 Gy 0.4 Gy
+OeilGche Approuvée 100.0 / 99.9 7.7 cm³ 0.2 Gy 3.4 Gy 1.2 Gy 0.3 Gy 1.1 Gy 0.8 Gy
+OeilDt Approuvée 100.0 / 100.5 7.8 cm³ 0.3 Gy 2.6 Gy 0.9 Gy 0.4 Gy 0.7 Gy 0.6 Gy
+Tronc Cerebral Approuvée 100.0 / 100.1 19.7 cm³ 0.9 Gy 4.4 Gy 2.1 Gy 1.5 Gy 2.1 Gy 0.5 Gy
+Canal med Approuvée 100.0 / 100.0 31.3 cm³ 0.0 Gy 1.6 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.3 Gy
+TroncCerebral+2 Approuvée 100.0 / 100.0 32.3 cm³ 0.8 Gy 6.3 Gy 2.3 Gy 2.2 Gy 2.2 Gy 0.6 Gy
+ring2cmGTV1.4 Approuvée 100.0 / 99.9 34.0 cm³ 0.7 Gy 36.4 Gy 5.8 Gy 3.0 Gy 3.7 Gy 6.0 Gy
+ring2cmGTV1.3 Approuvée 100.0 / 100.0 41.4 cm³ 1.4 Gy 34.0 Gy 7.6 Gy 3.5 Gy 5.1 Gy 6.6 Gy
+ring2cmGTV1.1 Approuvée 100.0 / 100.0 41.8 cm³ 1.9 Gy 36.8 Gy 7.6 Gy 5.9 Gy 6.1 Gy 5.3 Gy
+ring2cmGTV1.2 Approuvée 100.0 / 100.0 53.8 cm³ 2.0 Gy 37.2 Gy 9.6 Gy 5.8 Gy 6.8 Gy 6.9 Gy
+Cerveau-GTVs Approuvée 100.0 / 100.0 1119.9 cm³ 0.2 Gy 37.2 Gy 3.0 Gy 1.7 Gy 2.3 Gy 3.4 Gy
+Cerveau Approuvée 100.0 / 100.0 1122.6 cm³ 0.2 Gy 37.7 Gy 3.1 Gy 1.7 Gy 2.3 Gy 3.7 Gy
+encomp+2 Approuvée 19.9 / 94.8 1962.2 cm³ 0.0 Gy 1.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+BODY Approuvée 100.0 / 100.4 8598.9 cm³ 0.0 Gy 37.7 Gy 0.9 Gy 0.0 Gy 0.3 Gy 1.8 Gy
+Patient: COURNEIL, JEANINE    (202314902) Printed vendredi 22 décembre 2023 10:38:33 by Recordon Frederique
 Course: C1
-Plan: RASTECFoie  -  Planification approuvée Page: 2/3Planification de radiothérapie
+Plan Sum: DCA+HA Page: 2/3Planification de radiothérapie
 Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-ParoiThoracique Approuvée 100.0 / 100.0 2596.1 cm³ 0.0 Gy 34.9 Gy 2.1 Gy 0.1 Gy 0.4 Gy 3.7 Gy
-BODY Approuvée 100.0 / 100.2 23266.1 cm³ 0.0 Gy 64.6 Gy 2.1 Gy 0.0 Gy 0.2 Gy 5.9 Gy
 Plan prescription
 Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
 Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - RASTECFoie C1 60.000 Gy 12.000 Gy 5 60.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.7 %
-Patient: BELHABCHI, OURDIA    (202313697) Printed lundi 18 décembre 2023 11:04:18 by Stadler Marine
+DCA+HA C1 1.0 STIC1LOC1_TT C1 36.000 Gy 12.000 Gy 3 36.000 Gy   100.0 % Valeur de normalisation du plan : 393.19% 393.2 %
+DCA+HA C1 1.0 STIC1Loc3_TT C1 36.000 Gy 12.000 Gy 3 36.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 99.9 %
+Patient: COURNEIL, JEANINE    (202314902) Printed vendredi 22 décembre 2023 10:38:33 by Recordon Frederique
 Course: C1
-Plan: RASTECFoie  -  Planification approuvée Page: 3/3Institut Claudius Regaud, Toulouse Imprimé(e) sur lundi 18 décembre 2023 11:04:33 par Stadler Marine (admin\stadler)
-BELHABCHI, OURDIA (202313697)
+Plan Sum: DCA+HA Page: 3/3

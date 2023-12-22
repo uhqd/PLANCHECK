@@ -8,7 +8,7 @@ using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
 using System.Windows;
 using System.Text.RegularExpressions;
-
+using System.IO;
 namespace PlanCheck
 {
     internal class Check_doseDistribution
@@ -24,7 +24,61 @@ namespace PlanCheck
             Check();
 
         }
+        private double getMedianDose(Structure s, DVHData dvh) // use a DVH with abs. dose and rel. volume. return abs median dose even in case of double leveled dose.             
+        {
+            double d = 0.0;
+            double dose1 = 0.0;
+            double dose2 = 0.0;
+            double vol1 = 0.0;
+            double vol2 = 0.0;
+            double penteMin = 0.0;
+            double pente = 0.0;
+            int i = 0;
+            string msg = String.Empty;
+            foreach (DVHPoint pt in dvh.CurveData)
+            {
+                i++;
+                
+                // string line = string.Format("{0},{1}", pt.DoseValue.Dose, pt.Volume);
+                if (pt.Volume < 50.0)
+                {
+                    MessageBox.Show("break car on passe les 50 " + pt.Volume.ToString("F2") + " " + pt.DoseValue.Dose.ToString("F2"));
+                    d = pt.DoseValue.Dose;
+                    break;
+                }
+                else if (pt.Volume < 95.0)
+                {
+                    dose1 = pt.DoseValue.Dose;
+                    vol1 = pt.Volume;
+                    dose2 = dvh.CurveData[i + 5].DoseValue.Dose;
+                    vol2 = dvh.CurveData[i + 5].Volume;
+                    pente = (vol2 - vol1) / (dose2 - dose1);// / ;
+                    
+                    msg +=i.ToString() +";"+ penteMin.ToString() + ";" + pente.ToString() + ";" + dose1.ToString("F2") + ";" +dose2.ToString("F2")+";"+ vol1.ToString()+";"+vol2.ToString()+"\n";
 
+                    if (pente <= penteMin)
+                    {
+                        penteMin = pente;
+                    }
+                    else
+                    {
+                        MessageBox.Show("BREAK " + pt.DoseValue.Dose.ToString("F2") + " Gy");
+                        d = pt.DoseValue.Dose;
+                        break;
+                    }
+
+
+                }
+
+            }
+            using (StreamWriter sw = new StreamWriter(@"\\srv015\sf_com\simon_lu\resultHDV.csv"))
+            {
+                sw.Write(msg);
+            }
+          //  MessageBox.Show(msg);
+//            MessageBox.Show("RETURN " + i.ToString() + " " + s.Id + " " + d.ToString("F2"));
+            return d;
+        }
         private bool treatmentIsOnTheLeft() // looks if iso is left or right. For Tomo, looks if the first founded PTV is left or right
         {
             bool itisleft = false;
@@ -320,10 +374,49 @@ namespace PlanCheck
 
             #endregion
 
-            #region Objectives to reach 
+
+            #region Objectives to ptv in the prescription
+            Item_Result prescribedObjectives = new Item_Result();
+            prescribedObjectives.Label = "Objectifs de dose (prescription)";
+            prescribedObjectives.ExpectedValue = "EN COURS";
+            foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) //loop on every dose level in prescription
+            {
+
+                double totalPrescribedDose = target.NumberOfFractions * target.DosePerFraction.Dose; // get the total dose
+                double percent95 = 0.95 * totalPrescribedDose;
+                String targetNameWithoutSpace = target.TargetId.ToUpper().Replace(" ", ""); // remove space
+
+
+                Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper().Replace(" ", "") == targetNameWithoutSpace); // get the structure 
+                if (s != null)
+                {
+
+                    // D95%
+                    DoseValue d = _ctx.PlanSetup.GetDoseAtVolume(s, 95.0, VolumePresentation.Relative, DoseValuePresentation.Absolute);
+                    /*  if (d.Dose > percent95)
+                          MessageBox.Show(s.Id + " obj reached " + d.Dose.ToString("F2") + " " + percent95.ToString("F2"));
+                      else
+                          MessageBox.Show(s.Id + " obj failed " + d.Dose.ToString("F2") + " " + percent95.ToString("F2"));
+                    */
+                    //median dose
+                    DVHData dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
+                    double median = getMedianDose(s, dvh);
+                }
+                else
+                    MessageBox.Show(target.TargetId + " : ce volume de la prescription est absent");
+            }
+
+
+            prescribedObjectives.setToINFO();
+            prescribedObjectives.MeasuredValue = "ok";
+            prescribedObjectives.Infobulle = "ok";
+            #endregion
+
+
+            #region Objectives to reach (check protocol)
 
             Item_Result dd = new Item_Result();
-            dd.Label = "Objectifs de dose";
+            dd.Label = "Objectifs de dose (du check-protocol)";
             dd.ExpectedValue = "EN COURS";
             List<string> successList = new List<string>();
             List<string> failedList = new List<string>();

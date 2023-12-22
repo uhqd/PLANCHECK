@@ -46,7 +46,7 @@ namespace PlanCheck
 
         public void Check()
         {
-            int vervose = 0;
+            
             #region ENERGY 
 
             if ((!_pinfo.isTOMO) && (!_pinfo.isHALCYON)) // not checked if mono energy machine
