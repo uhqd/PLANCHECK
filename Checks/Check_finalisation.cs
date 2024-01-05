@@ -173,85 +173,86 @@ namespace PlanCheck
                     foreach (String qa in _rcp.listQAplans) // loop on required QAplans
                     {
                         bool found = false;
-                        if ((qa == "PDIP")&&(_pinfo.isModulated)) // protocol wants a pdip qa
-                        {
-
-
-                            foreach (PlanSetup p in qaPlans) // loop on present QA plans
+                        if ((_pinfo.isModulated) || (_pinfo.treatmentType.ToUpper().Contains("DCA")))
+                            if (qa == "PDIP") // protocol wants a pdip qa
                             {
 
-                                if (p.Id.ToUpper().Contains("PDIP") || (p.Course.Id.ToUpper().Contains("PDIP")))
+
+                                foreach (PlanSetup p in qaPlans) // loop on present QA plans
                                 {
 
-
-                                    if (haveTheSameMU(p, _ctx.PlanSetup))
+                                    if (p.Id.ToUpper().Contains("PDIP") || (p.Course.Id.ToUpper().Contains("PDIP")))
                                     {
 
 
-                                        nameOfMatch = p.Id + " (Course:" + p.Course.Id + ")";
-                                        found = true;
-                                        if (p.ApprovalStatus.ToString() != "PlanningApproved")
-                                            unapprovedQAplans.Add(p.Id);
-
-                                        //String machine = _ctx.PlanSetup.Beams.FirstOrDefault().Id.ToUpper();
-                                        if (!_pinfo.isHALCYON) // if not HALCYON 
+                                        if (haveTheSameMU(p, _ctx.PlanSetup))
                                         {
-                                            if (p.PhotonCalculationModel != _ctx.PlanSetup.PhotonCalculationModel)
-                                                wrongAlgoQAplans.Add(p.Id + " " + p.PhotonCalculationModel);
+
+
+                                            nameOfMatch = p.Id + " (Course:" + p.Course.Id + ")";
+                                            found = true;
+                                            if (p.ApprovalStatus.ToString() != "PlanningApproved")
+                                                unapprovedQAplans.Add(p.Id);
+
+                                            //String machine = _ctx.PlanSetup.Beams.FirstOrDefault().Id.ToUpper();
+                                            if (!_pinfo.isHALCYON) // if not HALCYON 
+                                            {
+                                                if (p.PhotonCalculationModel != _ctx.PlanSetup.PhotonCalculationModel)
+                                                    wrongAlgoQAplans.Add(p.Id + " " + p.PhotonCalculationModel);
+                                            }
+                                            else // if HALCYON PDIP must be in AAA
+                                            {
+                                                if (p.PhotonCalculationModel != "AAA_15605New")
+                                                    wrongAlgoQAplans.Add(p.Id + " " + p.PhotonCalculationModel);
+                                            }
+                                            break;
                                         }
-                                        else // if HALCYON PDIP must be in AAA
+                                    }
+                                }
+
+                            }
+                            else if (qa == "RUBY")
+                            {
+                                foreach (PlanSetup p in qaPlans) // loop on present QA plans
+                                {
+                                    if (p.Id.ToUpper().Contains("RUBY") || (p.Course.Id.ToUpper().Contains("RUBY")))
+                                    {
+                                        if (haveTheSameMU(p, _ctx.PlanSetup))
                                         {
-                                            if (p.PhotonCalculationModel != "AAA_15605New")
-                                                wrongAlgoQAplans.Add(p.Id + " " + p.PhotonCalculationModel);
+                                            nameOfMatch = p.Id + " (Course:" + p.Course.Id + ")";
+                                            found = true;
+                                            if (p.ApprovalStatus.ToString() != "PlanningApproved")
+                                                unapprovedQAplans.Add(p.Id);
+
+                                            bool calibrationFieldisOK = isCalibrationFieldOK("RUBY", p.Course);
+                                            if (!calibrationFieldisOK)
+                                                wrongCalibrationQAplans.Add(p.Id);
+
+                                            break;
                                         }
-                                        break;
                                     }
                                 }
                             }
-
-                        }
-                        else if (qa == "RUBY")
-                        {
-                            foreach (PlanSetup p in qaPlans) // loop on present QA plans
+                            else if (qa == "Octa4D")
                             {
-                                if (p.Id.ToUpper().Contains("RUBY") || (p.Course.Id.ToUpper().Contains("RUBY")))
+                                foreach (PlanSetup p in qaPlans) // loop on present QA plans
                                 {
-                                    if (haveTheSameMU(p, _ctx.PlanSetup))
+                                    if (p.Id.ToUpper().Contains("OCT") || (p.Course.Id.ToUpper().Contains("OCT")))
                                     {
-                                        nameOfMatch = p.Id + " (Course:" + p.Course.Id + ")";
-                                        found = true;
-                                        if (p.ApprovalStatus.ToString() != "PlanningApproved")
-                                            unapprovedQAplans.Add(p.Id);
-
-                                        bool calibrationFieldisOK = isCalibrationFieldOK("RUBY", p.Course);
-                                        if (!calibrationFieldisOK)
-                                            wrongCalibrationQAplans.Add(p.Id);
-
-                                        break;
+                                        if (haveTheSameMU(p, _ctx.PlanSetup))
+                                        {
+                                            nameOfMatch = p.Id + " (Course:" + p.Course.Id + ")";
+                                            found = true;
+                                            if (p.ApprovalStatus.ToString() != "PlanningApproved")
+                                                unapprovedQAplans.Add(p.Id);
+                                            bool calibrationFieldisOK = isCalibrationFieldOK("Octa", p.Course);
+                                            if (!calibrationFieldisOK)
+                                                wrongCalibrationQAplans.Add(p.Id);
+                                            break;
+                                        }
                                     }
                                 }
                             }
-                        }
-                        else if (qa == "Octa4D")
-                        {
-                            foreach (PlanSetup p in qaPlans) // loop on present QA plans
-                            {
-                                if (p.Id.ToUpper().Contains("OCT") || (p.Course.Id.ToUpper().Contains("OCT")))
-                                {
-                                    if (haveTheSameMU(p, _ctx.PlanSetup))
-                                    {
-                                        nameOfMatch = p.Id + " (Course:" + p.Course.Id + ")";
-                                        found = true;
-                                        if (p.ApprovalStatus.ToString() != "PlanningApproved")
-                                            unapprovedQAplans.Add(p.Id);
-                                        bool calibrationFieldisOK = isCalibrationFieldOK("Octa", p.Course);
-                                        if (!calibrationFieldisOK)
-                                            wrongCalibrationQAplans.Add(p.Id);
-                                        break;
-                                    }
-                                }
-                            }
-                        }
 
                         if (found == true)
                         {
