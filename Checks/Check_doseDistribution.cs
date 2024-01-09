@@ -38,11 +38,11 @@ namespace PlanCheck
             foreach (DVHPoint pt in dvh.CurveData)
             {
                 i++;
-                
+
                 // string line = string.Format("{0},{1}", pt.DoseValue.Dose, pt.Volume);
                 if (pt.Volume < 50.0)
                 {
-                    MessageBox.Show("break car on passe les 50 " + pt.Volume.ToString("F2") + " " + pt.DoseValue.Dose.ToString("F2"));
+                    //MessageBox.Show("break car on passe les 50 " + pt.Volume.ToString("F2") + " " + pt.DoseValue.Dose.ToString("F2"));
                     d = pt.DoseValue.Dose;
                     break;
                 }
@@ -53,8 +53,8 @@ namespace PlanCheck
                     dose2 = dvh.CurveData[i + 5].DoseValue.Dose;
                     vol2 = dvh.CurveData[i + 5].Volume;
                     pente = (vol2 - vol1) / (dose2 - dose1);// / ;
-                    
-                    msg +=i.ToString() +";"+ penteMin.ToString() + ";" + pente.ToString() + ";" + dose1.ToString("F2") + ";" +dose2.ToString("F2")+";"+ vol1.ToString()+";"+vol2.ToString()+"\n";
+
+                    msg += i.ToString() + ";" + penteMin.ToString() + ";" + pente.ToString() + ";" + dose1.ToString("F2") + ";" + dose2.ToString("F2") + ";" + vol1.ToString() + ";" + vol2.ToString() + "\n";
 
                     if (pente <= penteMin)
                     {
@@ -62,7 +62,7 @@ namespace PlanCheck
                     }
                     else
                     {
-                        MessageBox.Show("BREAK " + pt.DoseValue.Dose.ToString("F2") + " Gy");
+                        //MessageBox.Show("BREAK " + pt.DoseValue.Dose.ToString("F2") + " Gy");
                         d = pt.DoseValue.Dose;
                         break;
                     }
@@ -71,12 +71,12 @@ namespace PlanCheck
                 }
 
             }
-            using (StreamWriter sw = new StreamWriter(@"\\srv015\sf_com\simon_lu\resultHDV.csv"))
-            {
-                sw.Write(msg);
-            }
-          //  MessageBox.Show(msg);
-//            MessageBox.Show("RETURN " + i.ToString() + " " + s.Id + " " + d.ToString("F2"));
+            /* using (StreamWriter sw = new StreamWriter(@"\\srv015\sf_com\simon_lu\resultHDV.csv"))
+             {
+                 sw.Write(msg);
+             }*/
+            //  MessageBox.Show(msg);
+            //            MessageBox.Show("RETURN " + i.ToString() + " " + s.Id + " " + d.ToString("F2"));
             return d;
         }
         private bool treatmentIsOnTheLeft() // looks if iso is left or right. For Tomo, looks if the first founded PTV is left or right
@@ -377,13 +377,25 @@ namespace PlanCheck
 
             #region Objectives to ptv in the prescription
             Item_Result prescribedObjectives = new Item_Result();
-            prescribedObjectives.Label = "Objectifs de dose (prescription)";
+            double tolerance = 1.0; // (Gy) tolerance on median dose
+            prescribedObjectives.Label = "Objectifs de dose PTV (prescription)";
             prescribedObjectives.ExpectedValue = "EN COURS";
+            List<string> ptvDoseresult = new List<string>();
             foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) //loop on every dose level in prescription
             {
-
+                string msg = string.Empty;
+                double percentVolume = 0.95;
+                double percentDose = 0.95;
                 double totalPrescribedDose = target.NumberOfFractions * target.DosePerFraction.Dose; // get the total dose
-                double percent95 = 0.95 * totalPrescribedDose;
+                
+              //  if()
+
+
+                
+                double minAcceptedDose = percentDose * totalPrescribedDose;
+                double minAcceptedMedianDose = totalPrescribedDose + tolerance  ;
+                double maxAcceptedMedianDose = totalPrescribedDose - tolerance;//(1 +tolerance) * totalPrescribedDose;
+
                 String targetNameWithoutSpace = target.TargetId.ToUpper().Replace(" ", ""); // remove space
 
 
@@ -392,31 +404,55 @@ namespace PlanCheck
                 {
 
                     // D95%
-                    DoseValue d = _ctx.PlanSetup.GetDoseAtVolume(s, 95.0, VolumePresentation.Relative, DoseValuePresentation.Absolute);
-                    /*  if (d.Dose > percent95)
-                          MessageBox.Show(s.Id + " obj reached " + d.Dose.ToString("F2") + " " + percent95.ToString("F2"));
-                      else
-                          MessageBox.Show(s.Id + " obj failed " + d.Dose.ToString("F2") + " " + percent95.ToString("F2"));
-                    */
+                    percentVolume = 100 * percentVolume;
+                    DoseValue d = _ctx.PlanSetup.GetDoseAtVolume(s, percentVolume, VolumePresentation.Relative, DoseValuePresentation.Absolute);
+                    
                     //median dose
                     DVHData dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
                     double median = getMedianDose(s, dvh);
+
+                    // max dose
+                    DoseValue maxDose = _ctx.PlanSetup.GetDoseAtVolume(s, 0.01, VolumePresentation.Relative, DoseValuePresentation.Absolute);
+                    double max = maxDose.Dose / totalPrescribedDose * 100.0;
+
+                    msg = " * " + target.TargetId + " (" +totalPrescribedDose.ToString("F1")+ " Gy)" + "\n";
+
+                    msg += "  Index dose min (Gy): " + d.Dose.ToString("F2") + " > " + minAcceptedDose.ToString("F2");
+                    if (d.Dose > minAcceptedDose)
+                        msg += "\tOK\n";
+                    else
+                        msg += "\tEchec\n";
+                    msg += "  Index dose median(Gy): " + median.ToString("F2") + " (accepté : " + minAcceptedMedianDose.ToString("F2") + " - " + maxAcceptedMedianDose.ToString("F2");
+                    if (median > minAcceptedMedianDose && median < maxAcceptedMedianDose)
+                        msg += "\tOK\n";
+                    else
+                        msg += "\tEchec\n";
+
+                    msg += "  Dose max(Gy): " + max.ToString("F2") + "%  (info)\n";
+
+
+
+
                 }
                 else
                     MessageBox.Show(target.TargetId + " : ce volume de la prescription est absent");
+
+                ptvDoseresult.Add(msg);
             }
 
 
             prescribedObjectives.setToINFO();
             prescribedObjectives.MeasuredValue = "ok";
-            prescribedObjectives.Infobulle = "ok";
+            foreach(string s in ptvDoseresult)
+                prescribedObjectives.Infobulle += s;
+            this._result.Add(prescribedObjectives);
             #endregion
 
 
             #region Objectives to reach (check protocol)
 
             Item_Result dd = new Item_Result();
-            dd.Label = "Objectifs de dose (du check-protocol)";
+            dd.Label = "Objectifs de dose OAR (du check-protocol)";
             dd.ExpectedValue = "EN COURS";
             List<string> successList = new List<string>();
             List<string> failedList = new List<string>();

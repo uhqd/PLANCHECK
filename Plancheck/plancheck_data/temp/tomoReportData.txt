@@ -1,388 +1,264 @@
-Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-PATIENT
-Nom : STAFFUZZA, YVETTE ID : 200805705 Date de naissance : vendredi 22 janvier 1943 Sexe : Féminin
-Plan
-ID plan : StereoFoie
-ID dossier de traitement : C1
-ID image : TDM261223_AVG3
-Modalité de l'image : CT
-Système d'imagerie : TDMRT
-Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.68cm, -0.00cm)
-Prescription de dose
-Volume cible : ITV
-Valeur de normalisation du plan : 97.5 %
-Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV
-Point de normalisation du plan : -, -, -
-Pourcentage de dose prescrite : 100.0 %
-Fractionnement : 
-Dose prescrite : 60.000 Gy (12.000 Gy / fraction)
-Dose au point de référence principal : 60.000 Gy (12.000 Gy / fraction)
-Nombre de fractions : 5
-Options de calcul
-Algorithme photon : AAA_15605New
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc0.125
-FieldNormalizationType 100% to isocenter
-HeterogeneityCorrection ON
-Approbations
-Plan créé : mercredi 3 janvier 2024 14:20:16 par Lanaspeze Christelle
-Approbation du plan : vendredi 5 janvier 2024 10:25:12 par Modesto Anouchka
-Patient : STAFFUZZA, YVETTE  (200805705) Imprimé le 05/01/2024 12:03 par admin\stadler
-Dernière modification le vendredi 5 janvier 2024 10:25:14 par Modesto Anouchka
-Dossier de traitement : C1
-Plan : StereoFoie  -  Planification approuvée Page : 1/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Champs
-ID champ
-ID machine
-Énergie
-Débit de dose
-Taille de champ
-X1
-X2
-Y1
-Y2
-Angle du bras
-Sens de rotation du bras
-Angle d'arrêt du bras
-Rot. collimateur
-Rot. de table
-Filtre en coin
-Facteur de filtre
-MLC
-Bloc
-Plaque
-Bolus
-DSP bolus
-Isocentre X
-Isocentre Y
-Isocentre Z
-DSP
-Pondération
-Refdose (Gy)
-Point de référence
-Dose par fraction
-Profondeur physique
-Profondeur effective
-UM
-  ARCSTE  
-  NOVA5  
-10X-FFF 
-2400 UM/min
-4.2 cm x 4.9 cm
-X1: +2.2 cm 
-X2: +2.0 cm 
-Y1: +2.2 cm 
-Y2: +2.7 cm 
-0.0 °
-SAH
-181.0 °
-0.0 °
-0.0 °
- -
- -
-0364
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-93.9 cm
-1.000
--
-PTV
-12.000 Gy
--
--
-1378.9 UM
-  ant_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-93.9 cm
-0.000
--
-PTV
--
--
--
--
-  cbct  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-94.9 cm
-0.000
--
-PTV
--
--
--
--
-  latdt_ciné  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-94.9 cm
-0.000
--
-PTV
--
--
--
--
-  latdt_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-94.9 cm
-0.000
--
-PTV
--
--
--
--
-  post_ciné  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-89.0 cm
-0.000
--
-PTV
--
--
--
--
-  post_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-89.0 cm
-0.000
--
-PTV
--
--
--
--
-  latg_setup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--9.41 cm
--5.79 cm
--0.90 cm
-76.3 cm
-0.000
--
-PTV
--
--
--
--
-Patient : STAFFUZZA, YVETTE  (200805705) Imprimé le 05/01/2024 12:03 par admin\stadler
-Dernière modification le vendredi 5 janvier 2024 10:25:14 par Modesto Anouchka
-Dossier de traitement : C1
-Plan : StereoFoie  -  Planification approuvée Page : 2/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Décalage de la table
-AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
-AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.68cm, -0.00cm)
-Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  ARCSTE  ant_setup  latdt_setup  post_ciné  latdt_ciné  cbct  post_setup  latg_setup  
-Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 9.41 5.79 0.90
-Direction : Droite Bas Entrée [In]
- 
- 
-Erreurs et avertissements concernant le calcul :
-Le champ sort du porte-patient dans une région où les données scanners cessent. Ceci réduira l'exactitude du (Avertissement :   ARCSTE  )
- calcul de dose, Eclipse n'étant pas en mesure de trouver le point d'intersection entre les lignes en (Avertissement :   ARCSTE  )
- éventail et la surface du porte-patient. (Avertissement :   ARCSTE  )
-Patient : STAFFUZZA, YVETTE  (200805705) Imprimé le 05/01/2024 12:03 par admin\stadler
-Dernière modification le vendredi 5 janvier 2024 10:25:14 par Modesto Anouchka
-Dossier de traitement : C1
-Plan : StereoFoie  -  Planification approuvée Page : 3/3Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: STAFFUZZA, YVETTE  
-Patient IDs: 200805705
-Comment:
-Plan Plan Course Plan History
-StereoFoie C1 Last Modified: vendredi 5 janvier 2024 10:25:14 by Modesto Anouchka
-Planification approuvée: vendredi 5 janvier 2024 10:25:12 by Modesto Anouchka
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PBT Approuvée 100.0 / 99.7 6.3 cm³ 0.1 Gy 0.4 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.1 Gy
-ITV Approuvée 100.0 / 100.3 8.1 cm³ 54.8 Gy 62.7 Gy 59.9 Gy 59.9 Gy 60.0 Gy 1.6 Gy
-Oesophage Approuvée 100.0 / 100.1 13.3 cm³ 0.1 Gy 4.9 Gy 2.2 Gy 0.1 Gy 2.7 Gy 1.7 Gy
-Patient: STAFFUZZA, YVETTE    (200805705) Printed vendredi 5 janvier 2024 12:03:51 by Stadler Marine
-Course: C1
-Plan: StereoFoie  -  Planification approuvée Page: 1/2Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-PTV Approuvée 100.0 / 99.7 23.9 cm³ 42.9 Gy 62.7 Gy 57.2 Gy 58.4 Gy 57.5 Gy 3.1 Gy
-D2cm Approuvée 100.0 / 102.1 32.8 cm³ 0.5 Gy 24.7 Gy 10.7 Gy 0.7 Gy 12.3 Gy 7.1 Gy
-Gros vaisseaux Approuvée 100.0 / 100.1 86.0 cm³ 0.0 Gy 3.9 Gy 1.0 Gy 0.1 Gy 0.2 Gy 1.2 Gy
-CanalMed+5 Approuvée 100.0 / 100.0 107.7 cm³ 0.1 Gy 3.9 Gy 0.8 Gy 0.1 Gy 0.2 Gy 1.1 Gy
-ReinGche Approuvée 100.0 / 100.0 110.9 cm³ 0.0 Gy 0.1 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-ReinDt Approuvée 100.0 / 100.0 114.2 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Colon Approuvée 100.0 / 100.0 116.7 cm³ 0.0 Gy 0.2 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.0 Gy
-Aorte/v.cave Approuvée 100.0 / 100.0 145.5 cm³ 0.0 Gy 8.5 Gy 1.3 Gy 0.0 Gy 0.2 Gy 1.9 Gy
-Estomac Approuvée 100.0 / 100.0 396.1 cm³ 0.0 Gy 2.6 Gy 0.4 Gy 0.1 Gy 0.1 Gy 0.6 Gy
-Coeur Approuvée 100.0 / 100.0 530.5 cm³ 0.1 Gy 9.5 Gy 1.9 Gy 0.2 Gy 1.6 Gy 1.7 Gy
-ParoiThoraciqueD Approuvée 100.0 / 100.1 586.2 cm³ 0.0 Gy 45.7 Gy 2.9 Gy 0.1 Gy 0.4 Gy 5.7 Gy
-Grele Approuvée 100.0 / 100.8 894.1 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
-Foie-ITV Approuvée 100.0 / 100.0 1395.5 cm³ 0.0 Gy 62.5 Gy 4.3 Gy 0.1 Gy 0.3 Gy 9.3 Gy
-Foie Approuvée 100.0 / 100.0 1424.7 cm³ 0.0 Gy 62.7 Gy 4.6 Gy 0.1 Gy 0.3 Gy 10.1 Gy
-Plan prescription
-Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
-Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - StereoFoie C1 60.000 Gy 12.000 Gy 5 60.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 97.5 %
-Patient: STAFFUZZA, YVETTE    (200805705) Printed vendredi 5 janvier 2024 12:03:52 by Stadler Marine
-Course: C1
-Plan: StereoFoie  -  Planification approuvée Page: 2/2Institut Claudius Regaud, Toulouse Imprimé(e) sur vendredi 5 janvier 2024 12:03:59 par Stadler Marine (admin\stadler)
-STAFFUZZA, YVETTE (200805705)
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+CavumDt1
+Standard
+Plan Saved Date: 05 Jan 2024, 1:59:00 PM (hr:min:sec)
+Treatment Machine / Serial No.: 4010012_1000MU 1180 MU/min, rev 
+34 / 4010012
+Prescription: Median of PTV_HDOPT, 70.00 Gy
+Prescribed Dose per Fraction (Gy): 2.00
+Planned Fractions: 35
+Maximum Dose (Gy): 74.34
+Plan Status: Approved
+MU Planned / MU per Fraction: 162231.3 / 4635.2
+Field Width (cm): 2.5, Dynamic
+Pitch: 0.426
+Modulation Factor / Actual: 2.000 / 1.9
+Gantry Period (sec):
+Gantry Rotations:
+11.8
+22.7
+Sinogram Segments: 7.6
+Couch Travel (mm):
+Couch Speed (mm/sec):
+243.1
+0.9
+Red Lasers Offset (IECf, mm): X: 2.18 Y: -12.50 Z: -4.04
+Beam On Time (sec): 267.9
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 1.27 Y: 2.50 Z: 1.27
+Size (IECp, voxel) X: 512 Y: 173 Z: 512
+Reference Dose (Gy): 74.34
+X: -10.2 Y: 105.0 Z: 14.0 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: VOLO Ultra
+Patient Name:
+Medical ID:
+BOUNAGA, MOHAMMED
+202311784 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 07 Dec 1986
+Gender: Male Patient Key: 410050
+Plan Overview
+Page 1 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)DVH: Absolute Dose
+Warning: Full list of VOIs may not fit in legend.Refer VOI List
+Plan Overview
+Page 2 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+BODY 17948.36 0.20 14.34 74.34 n/a n/a n/a n/a Allowed
+ATMDte 3.17 32.28 52.06 72.31 n/a n/a n/a n/a Allowed
+ATMGche 3.03 28.29 41.67 59.40 n/a n/a n/a n/a Allowed
+Canal Med 52.07 0.46 12.51 43.18 n/a n/a n/a n/a Allowed
+Cav Buc 111.78 11.12 30.18 69.82 n/a n/a n/a n/a Allowed
+Cerveau 1467.25 0.71 15.52 74.34 n/a n/a n/a n/a Allowed
+Chiasma 1.01 44.65 51.57 54.83 n/a n/a n/a n/a Allowed
+CochleeDte 0.15 67.53 68.29 68.94 n/a n/a n/a n/a Allowed
+CochleeGche 0.17 29.16 36.52 46.81 n/a n/a n/a n/a Allowed
+Const Pharynx 29.01 21.83 49.55 71.99 n/a n/a n/a n/a Allowed
+CristallinDt 0.06 17.66 19.55 21.33 n/a n/a n/a n/a Allowed
+CristallinGche 0.10 11.67 13.22 15.94 n/a n/a n/a n/a Allowed
+CTV BD 791.08 43.70 61.72 74.34 n/a n/a n/a n/a Allowed
+CTV HD 179.28 58.04 70.02 74.34 n/a n/a n/a n/a Allowed
+CTV HDN 6.32 67.52 70.71 73.20 n/a n/a n/a n/a Allowed
+CTV HDT 172.96 58.04 69.99 74.34 n/a n/a n/a n/a Allowed
+CTV ND 240.04 46.07 59.35 73.20 n/a n/a n/a n/a Allowed
+CTV NG 222.66 43.70 56.81 72.63 n/a n/a n/a n/a Allowed
+CTV T 348.83 48.62 67.05 74.34 n/a n/a n/a n/a Allowed
+GTV N 2.67 67.95 71.01 73.20 n/a n/a n/a n/a Allowed
+GTV T 95.89 55.79 69.81 74.34 n/a n/a n/a n/a Allowed
+Hypophyse 0.95 54.22 61.14 68.42 n/a n/a n/a n/a Allowed
+Larynx 30.61 18.31 26.50 49.01 n/a n/a n/a n/a Allowed
+Levres 28.47 8.35 16.25 37.49 n/a n/a n/a n/a Allowed
+Mandibule 62.84 9.82 30.35 66.01 n/a n/a n/a n/a Allowed
+MoelleHaute 4.55 16.51 20.79 39.68 n/a n/a n/a n/a Allowed
+MoelleHaute+3 11.90 16.05 23.03 50.06 n/a n/a n/a n/a Allowed
+NerfOptiqueDt 0.99 52.94 65.82 69.24 n/a n/a n/a n/a Allowed
+NerfOptiqueGche 1.28 23.34 44.25 55.21 n/a n/a n/a n/a Allowed
+VOI
+Plan Overview
+Page 3 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3OeilDt 9.35 11.00 32.67 69.39 n/a n/a n/a n/a Allowed
+OeilGche 9.47 9.40 15.53 27.43 n/a n/a n/a n/a Allowed
+Oesophage 27.55 0.46 12.33 48.78 n/a n/a n/a n/a Allowed
+OreilleIntDte 0.89 59.95 67.24 69.66 n/a n/a n/a n/a Allowed
+OreilleIntGche 0.67 23.57 34.51 56.51 n/a n/a n/a n/a Allowed
+ParoDte 42.46 10.32 25.44 68.28 n/a n/a n/a n/a Allowed
+ParoGche 40.39 10.02 23.16 55.21 n/a n/a n/a n/a Allowed
+PlexusDt 14.65 1.87 36.45 55.07 n/a n/a n/a n/a Allowed
+PlexusGche 13.45 2.55 37.90 55.13 n/a n/a n/a n/a Allowed
+PoumonDt 913.34 0.42 1.75 45.47 n/a n/a n/a n/a Allowed
+PoumonGche 732.11 0.44 1.82 42.33 n/a n/a n/a n/a Allowed
+Poumons 1645.45 0.42 1.78 45.47 n/a n/a n/a n/a Allowed
+PTV BD 1150.70 32.71 60.07 74.34 n/a n/a n/a n/a Allowed
+PTV HD 262.81 54.50 69.39 74.34 n/a n/a n/a n/a Allowed
+SousMaxDte 14.01 54.36 58.07 71.54 n/a n/a n/a n/a Allowed
+SousMaxGche 13.55 18.68 32.78 56.83 n/a n/a n/a n/a Allowed
+Thyroide 13.20 35.93 50.45 59.93 n/a n/a n/a n/a Allowed
+Trachee 29.54 1.49 23.33 53.94 n/a n/a n/a n/a Allowed
+Tronc Cerebral 26.90 20.07 40.53 58.53 n/a n/a n/a n/a Allowed
+Tronc Cerebral+2 40.84 18.70 41.44 59.96 n/a n/a n/a n/a Allowed
+CanalMed+3 101.01 0.45 13.37 53.09 n/a n/a n/a n/a Allowed
+CavBuc-PTVs 109.27 11.12 29.48 64.21 n/a n/a n/a n/a Allowed
+Chauffe 1699.51 8.57 18.99 54.12 n/a n/a n/a n/a Allowed
+Chiasma+3 5.05 39.04 50.97 57.75 n/a n/a n/a n/a Allowed
+ConsPharynx-PTVs 15.72 21.83 37.67 61.59 n/a n/a n/a n/a Allowed
+CristallinDt+5 1.79 14.39 21.94 35.06 n/a n/a n/a n/a Allowed
+CristallinGche+5 2.27 10.30 14.59 23.52 n/a n/a n/a n/a Allowed
+LarynxOPT-PTVs 101.81 15.90 33.86 59.65 n/a n/a n/a n/a Allowed
+Mandibule-PTVs 59.42 9.82 29.04 59.41 n/a n/a n/a n/a Allowed
+NerfOptDt+3 5.11 40.84 64.35 70.63 n/a n/a n/a n/a Allowed
+NerfOptGche+3 5.52 17.98 44.35 56.75 n/a n/a n/a n/a Allowed
+OverlapChiasma+3 2.36 52.39 54.35 57.75 0.00 0.00 1.06 0.00 n/a
+OverlapNerOptD+3 2.47 59.71 68.18 70.63 6477.
+20
+7928
+09.28
+1.06 0.82 n/a
+Plan Overview
+Page 4 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3OverlapNerOptG+3 1.58 54.01 54.76 56.75 0.00 0.00 1.06 0.00 n/a
+OverlapPlexusDt 3.23 52.56 54.57 55.63 0.00 0.00 1.06 0.00 n/a
+OverlapPlexusGch 4.17 53.02 54.51 55.47 0.00 0.00 1.06 0.00 n/a
+OverlapTronc+3 7.55 49.49 56.88 60.68 0.00 0.00 1.06 0.00 n/a
+ParoDte-PTVs 39.54 10.32 23.40 56.98 n/a n/a n/a n/a Allowed
+ParoGche-PTVs 39.79 10.02 22.74 52.30 n/a n/a n/a n/a Allowed
+PlexusDt+3 41.58 1.69 34.59 55.82 n/a n/a n/a n/a Allowed
+PlexusGche+3 38.37 2.27 36.11 55.47 n/a n/a n/a n/a Allowed
+PTV_BDOPT 1124.38 32.71 60.15 74.34 n/a n/a n/a n/a Allowed
+PTV_BD-PTV_HD 866.68 32.71 57.37 71.67 245.3
+5
+3997
+97.21
+1.06 0.06 n/a
+PTV_HDOPT 259.69 55.14 69.43 74.34 1.00 2.01 1.06 50.03 n/a
+PTVBDIsole 618.03 32.71 56.05 61.78 n/a n/a n/a n/a Allowed
+PTVTotal 1150.70 32.71 60.07 74.34 n/a n/a n/a n/a Allowed
+RingPTVBD 1374.42 7.80 45.99 70.64 n/a n/a n/a n/a Allowed
+SousMaxGche-PTVs 12.98 18.68 31.95 53.09 n/a n/a n/a n/a Allowed
+TroncCerebral+3 45.45 18.65 41.85 60.68 n/a n/a n/a n/a Allowed
+CanalMed+3OPT 91.97 0.45 12.21 39.31 n/a n/a n/a n/a Allowed
+NS_Device 21.06 1.52 5.04 17.68 n/a n/a n/a n/a Exit Only
+Chiasma+2 4.01 39.23 51.08 56.01 n/a n/a n/a n/a Allowed
+NerfOptiqueG+2 4.35 19.06 44.51 55.66 n/a n/a n/a n/a Allowed
+Chiasma+3-PTV 2.69 39.04 48.00 54.10 n/a n/a n/a n/a Allowed
+TC+3-PTV 36.55 20.88 39.17 58.12 n/a n/a n/a n/a Allowed
+chauffe1 776.34 8.68 15.44 37.30 n/a n/a n/a n/a Allowed
+All Target Regions n/a 32.71 60.09 74.34 0.00 0.00 0.00 0.00 n/a
+All Critical Regions n/a 0.20 14.45 74.34 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.17 3.06 46.77 0.00 0.00 0.00 0.00 n/a
+Plan Overview
+Page 5 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3DVH Dose (Gy) Dose (% of 70.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV_HDOPT 65.03 92.9 246.71 95.0 Dose (Gy) >= 66.50 65.03
+PTV_BD-PTV_HD 53.39 76.3 823.34 95.0 Dose (Gy) >= 53.20 53.39
+OverlapPlexusDt 53.79 76.8 3.07 95.0 Dose (Gy) >= 53.20 53.79
+OverlapPlexusGch 53.91 77.0 3.97 95.0 Dose (Gy) >= 53.20 53.91
+PTV_HDOPT 71.95 102.8 5.19 2.0 Dose (Gy) <= 74.90 71.95
+Larynx 49.01 70.0 0.00 0.0 Dose (Gy) <= 55.00 49.01
+Cav Buc 69.82 99.7 0.00 0.0 Dose (Gy) <= 55.00 69.82
+CanalMed+3OPT 39.31 56.2 0.00 0.0 Dose (Gy) <= 45.00 39.31
+TroncCerebral+3 60.68 86.7 0.00 0.0 Dose (Gy) <= 55.00, Max: 59.00 60.68
+ATMDte 72.31 103.3 0.00 0.0 Dose (Gy) <= 50.00 72.31
+ATMGche 59.40 84.9 0.00 0.0 Dose (Gy) <= 50.00 59.40
+OreilleIntDte 69.66 99.5 0.00 0.0 Dose (Gy) <= 50.00 69.66
+OreilleIntGche 56.51 80.7 0.00 0.0 Dose (Gy) <= 50.00 56.51
+Mandibule 66.01 94.3 0.00 0.0 Dose (Gy) <= 70.00 66.01
+CristallinDt 21.33 30.5 0.00 0.0 Dose (Gy) <= 10.00, Max: 15.00 21.33
+CristallinGche 15.94 22.8 0.00 0.0 Dose (Gy) <= 10.00, Max: 15.00 15.94
+Chiasma+3 57.75 82.5 0.00 0.0 Dose (Gy) <= 54.00 57.75
+NerfOptDt+3 70.63 100.9 0.00 0.0 Dose (Gy) <= 54.00 70.63
+NerfOptGche+3 56.75 81.1 0.00 0.0 Dose (Gy) <= 54.00 56.75
+OeilDt 69.39 99.1 0.00 0.0 Dose (Gy) <= 50.00 69.39
+OeilGche 27.43 39.2 0.00 0.0 Dose (Gy) <= 50.00 27.43
+OverlapChiasma+3 53.34 76.2 2.24 95.0 Dose (Gy) >= 53.20 53.34
+OverlapNerOptD+3 67.10 95.9 2.34 95.0 Dose (Gy) >= 53.20 67.10
+OverlapNerOptG+3 54.28 77.5 1.50 95.0 Dose (Gy) >= 53.20 54.28
+OverlapTronc+3 54.48 77.8 7.17 95.0 Dose (Gy) >= 53.20 54.48
+PTV BD 53.87 77.0 1093.16 95.0
+PTV HD 64.85 92.6 249.66 95.0
+GTV T 60.00 85.7 94.71 98.8
+Dx Vx Values
+Plan Overview
+Page 6 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-939 * 0.001
+-672 * 0.290
+-509 * 0.480
+13 * 1.000
+226 * 1.146
+455 * 1.331
+837 * 1.558
+1214 * 1.822
+30884 * 22.599
+Density
+Density Model: IUC-120kV
+Plan Overview
+Page 7 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3Name: PIRAM, Lucie
+05 Jan 2024, 2:00:35 PM (hr:min:sec)
+User ID: piram
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+422996/3
+LANASPEZE, Christelle
+Saved Deliverable by: dqprm, dqprm
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Patient Position: HFS Delivery Signature: KnZ3d iHcQA 
+Plan Overview
+Page 8 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3Report Snapshots
+Plan Overview
+Page 9 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) -325.000 -200.000 325.000
+Size (IECp, voxel) 512 173 512
+Spacing (IECp, mm) 1.27 2.50 1.27
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+28 Dec 2023, 11:25:15 AM (hr:min:sec) 173
+Scanner Model:
+Patient Position:
+Optima CT580
+HFS
+Series UID/Description Study UID/Description:
+1.2.840.113619.2.278.3.3523880722.306.1703732868.319 1.2.840.113619.2.278.3.3523880722.306.1703732868.314
+ORL TDM therapie APC
+Plan Overview
+Page 10 of 10 05 Jan 2024, 2:50:02 PM (hr:min:sec)
+Patient Name: BOUNAGA, MOHAMMED; Medical ID: 202311784; Plan Name: CavumDt1; Version: Accuray Precision 
+3.3.1.3
