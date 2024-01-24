@@ -312,6 +312,84 @@ namespace PlanCheck
             return result;
         }
 
+        public string getResultForThisObjective(Structure s, DVHData dvh, string obj)
+        {
+            string resultMsg = string.Empty;
+            string theObjective = "";
+            string theValue = "";
+            double theValueDouble = 0.0;
+            string theValueWithUnit = "";//0.0;
+            string theUnit = "";
+            string[] elementI = null;
+            string[] elementS = null;
+            bool isInfObj = false;
+            bool isSupObj = false;
+
+            elementS = obj.Split('>');  // split around > or <   Get V20.0Gy an 33.1%
+            elementI = obj.Split('<');
+
+            if (elementS.Length > 1)
+            {
+                isSupObj = true; // it is a sup obective
+                theObjective = elementS[0];
+                theValueWithUnit = elementS[1];
+            }
+            else if (elementI.Length > 1)
+            {
+                isInfObj = true; // it is a inf obective
+                theObjective = elementI[0];
+                theValueWithUnit = elementI[1];
+            }
+            else
+            {
+                MessageBox.Show("This objective is not correct " + obj + "(must contain < or >). It will be ignored");
+
+            }
+
+            if (isInfObj || isSupObj)
+            {
+                theUnit = getTheUnit(theValueWithUnit); // extract Gy from 20.4Gy
+                if (theUnit != "failed")
+                {
+                    theValue = theValueWithUnit.Replace(theUnit, "");// extract 20.4 from 20.4Gy
+                    theValueDouble = Convert.ToDouble(theValue);
+                    double result = getValueForThisObjective(s, dvh, theObjective, theUnit); // no need to pass the value, just the indicator and the output unit
+                    if (isInfObj)
+                    {
+
+                        if (result <= theValueDouble)//success
+                        {
+                            resultMsg += "OK:\t" + s.Id + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit;
+                            //successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                            // MessageBox.Show("INF " + s.Id + " " + result + " " + theValueDouble + " success");
+                        }
+                        else // failed
+                        {
+                            resultMsg += "X:\t" + s.Id + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit;
+                            //failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                            //MessageBox.Show("INF " + s.Id + " " + result + " " + theValueDouble + " success");
+                        }
+                    }
+                    else if (isSupObj)
+                    {
+                        //MessageBox.Show("SUP " + s.Id + " " + result + " " + theValueDouble);
+                        if (result >= theValueDouble)//success
+                            resultMsg += "OK:\t" + s.Id + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit;
+                        //successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                        else // failed
+                            resultMsg += "X:\t" + s.Id + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit;
+                        //                        failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
+                    }
+                }
+                else
+                    MessageBox.Show("error in this objective: wrong unit: " + s.Id + " " + obj + "It will be ignored.");
+
+            }
+
+
+            return resultMsg;
+
+        }
         private List<Item_Result> _result = new List<Item_Result>();
         // private PreliminaryInformation _pinfo;
         private string _title = "Dose Distribution";
@@ -375,60 +453,134 @@ namespace PlanCheck
             #endregion
 
 
-            #region Objectives to ptv in the prescription
+            #region Objectives to ptv in the prescription.
+            /**
+           	Dx%		
+vol	%dos	
+Surrenale	98	100	PTV
+STEC Poumon	95	100	
+Foie	98	100	
+HA	99	100	
+STIC Homog	99	100	105%
+Os	98	100	PTV
+STIC 	99	100	
+
+             
+             
+             */
+
+            bool ff = false;
+            if(ff)
+            { 
+
             Item_Result prescribedObjectives = new Item_Result();
-            double tolerance = 1.0; // (Gy) tolerance on median dose
-            prescribedObjectives.Label = "Objectifs de dose PTV (prescription)";
+            prescribedObjectives.Label = "Objectifs de dose des PTVs (prescription)";
             prescribedObjectives.ExpectedValue = "EN COURS";
-            List<string> ptvDoseresult = new List<string>();
+            List<string> successListPTV = new List<string>();
+            List<string> failedListPTV = new List<string>();
+            double tolerance = 1.0; // (Gy) tolerance on median dose
+            string myinfo = string.Empty;
+            int nOK = 0;
+            int nFailed = 0;
+            // get objectives in check protocol
+            DOstructure dosPTVHigh = _rcp.myDOStructures.FirstOrDefault(x => x.Name == "PTV_HAUTE_DOSE"); // get dose of objectives for the highest PTVs
+            DOstructure dosPTVLow = _rcp.myDOStructures.FirstOrDefault(x => x.Name == "PTV_AUTRES"); // get dose of objectives for the lowest PTVs
+            if ((dosPTVHigh == null) || (dosPTVLow == null))
+                MessageBox.Show("Le check protocol ne contient pas d'objectifs pour les PTV");
+
+            // get prescription, separating ptvs with the highest dose (could be several) and the others
+            List<RTPrescriptionTarget> targetHigh = new List<RTPrescriptionTarget>();
+            List<RTPrescriptionTarget> targetOther = new List<RTPrescriptionTarget>();
+
+            // find highest prescribed dose
+            double highest_prescribed_total_dose = 0.0;
             foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) //loop on every dose level in prescription
             {
-                string msg = string.Empty;
-                double percentVolume = 0.95;
-                double percentDose = 0.95;
-                double totalPrescribedDose = target.NumberOfFractions * target.DosePerFraction.Dose; // get the total dose
-                
-              //  if()
+                double totalDose = target.NumberOfFractions * target.DosePerFraction.Dose;
+                if (totalDose > highest_prescribed_total_dose)
+                {
+                    highest_prescribed_total_dose = totalDose;
+                }
+            }
+            // Separate in two lists of Targets : highest dose and others
+            foreach (var target in _ctx.PlanSetup.RTPrescription.Targets)
+            {
+                double totalDose = target.NumberOfFractions * target.DosePerFraction.Dose;
+                if (totalDose == highest_prescribed_total_dose)
+                    targetHigh.Add(target);
+                else
+                    targetOther.Add(target);
+            }
 
 
-                
-                double minAcceptedDose = percentDose * totalPrescribedDose;
-                double minAcceptedMedianDose = totalPrescribedDose + tolerance  ;
-                double maxAcceptedMedianDose = totalPrescribedDose - tolerance;//(1 +tolerance) * totalPrescribedDose;
-
+            foreach (var target in targetHigh) //loop on every highest dose level in prescription list
+            {
                 String targetNameWithoutSpace = target.TargetId.ToUpper().Replace(" ", ""); // remove space
-
-
                 Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper().Replace(" ", "") == targetNameWithoutSpace); // get the structure 
+                double totalPrescribedDose = target.NumberOfFractions * target.DosePerFraction.Dose; // get the total dose
+                double minAcceptedMedianDose = totalPrescribedDose - tolerance;
+                double maxAcceptedMedianDose = totalPrescribedDose + tolerance;//(1 +tolerance) * totalPrescribedDose;
+                string msg = string.Empty;
+
+
                 if (s != null)
                 {
-
-                    // D95%
-                    percentVolume = 100 * percentVolume;
-                    DoseValue d = _ctx.PlanSetup.GetDoseAtVolume(s, percentVolume, VolumePresentation.Relative, DoseValuePresentation.Absolute);
-                    
-                    //median dose
+                    myinfo += "* " + target.TargetId + " (" + totalPrescribedDose.ToString("F1") + " Gy)" + "\n";
+                    //median dose: not in check protocol. Must be prescribed dose +/- tolerance
                     DVHData dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
                     double median = getMedianDose(s, dvh);
-
-                    // max dose
-                    DoseValue maxDose = _ctx.PlanSetup.GetDoseAtVolume(s, 0.01, VolumePresentation.Relative, DoseValuePresentation.Absolute);
-                    double max = maxDose.Dose / totalPrescribedDose * 100.0;
-
-                    msg = " * " + target.TargetId + " (" +totalPrescribedDose.ToString("F1")+ " Gy)" + "\n";
-
-                    msg += "  Index dose min (Gy): " + d.Dose.ToString("F2") + " > " + minAcceptedDose.ToString("F2");
-                    if (d.Dose > minAcceptedDose)
-                        msg += "\tOK\n";
-                    else
-                        msg += "\tEchec\n";
-                    msg += "  Index dose median(Gy): " + median.ToString("F2") + " (accepté : " + minAcceptedMedianDose.ToString("F2") + " - " + maxAcceptedMedianDose.ToString("F2");
+                    myinfo += "- Mediane estimée (Gy) :\n";
                     if (median > minAcceptedMedianDose && median < maxAcceptedMedianDose)
-                        msg += "\tOK\n";
+                    {
+                        myinfo += "\t- OK: ";
+                        nOK++;
+                    }
                     else
-                        msg += "\tEchec\n";
+                    {
+                        myinfo += "\t- X:";
+                        nFailed++;
+                    }
+                    myinfo += median.ToString("F2") + " (" + minAcceptedMedianDose.ToString("F2") + " - " + maxAcceptedMedianDose.ToString("F2") + ")\n";
 
-                    msg += "  Dose max(Gy): " + max.ToString("F2") + "%  (info)\n";
+
+
+                    myinfo += "- Min :\n";
+                    foreach (string obj in dosPTVHigh.listOfObjectives) // loop on list of objectives in check-protocol. 
+                    {
+
+                        string msg_result = getResultForThisObjective(s, dvh, obj);
+                        if (msg_result.Contains("OK:"))
+                        {
+                            successListPTV.Add("\t- " + msg_result);
+                            nOK++;
+                        }
+                        else
+                        {
+                            failedListPTV.Add("\t- " + msg_result);
+                            nFailed++;
+                        }
+
+                    }
+                    foreach (string st in failedListPTV)
+                        myinfo += st + "\n";
+                    foreach (string st in successListPTV)
+                        myinfo += st + "\n";
+                    failedListPTV.Clear();
+                    successListPTV.Clear();
+
+
+                    // D95%
+                    // percentVolume = 100 * percentVolume;
+                    // DoseValue d = _ctx.PlanSetup.GetDoseAtVolume(s, percentVolume, VolumePresentation.Relative, DoseValuePresentation.Absolute);
+                    // max dose
+                    //                    DoseValue maxDose = _ctx.PlanSetup.GetDoseAtVolume(s, 0.01, VolumePresentation.Relative, DoseValuePresentation.Absolute);
+                    //                  double max = maxDose.Dose / totalPrescribedDose * 100.0;
+                    // msg += "  Index dose min (Gy): " + d.Dose.ToString("F2") + " > " + minAcceptedDose.ToString("F2");
+                    // if (d.Dose > minAcceptedDose)
+                    //     msg += "\tOK\n";
+                    // else
+                    //    msg += "\tEchec\n";
+                    // msg += "  Dose max(Gy): " + max.ToString("F2") + "%  (info)\n";
 
 
 
@@ -437,28 +589,42 @@ namespace PlanCheck
                 else
                     MessageBox.Show(target.TargetId + " : ce volume de la prescription est absent");
 
-                ptvDoseresult.Add(msg);
+                // ptvDoseresult.Add(msg);
             }
 
 
-            prescribedObjectives.setToINFO();
-            prescribedObjectives.MeasuredValue = "ok";
-            foreach(string s in ptvDoseresult)
-                prescribedObjectives.Infobulle += s;
+
+
+
+            prescribedObjectives.setToTRUE();
+            prescribedObjectives.MeasuredValue = nOK.ToString() + "/" + (nOK + nFailed).ToString() + " objectifs atteneints";
+            prescribedObjectives.Infobulle = myinfo;
+            if (nFailed > 1)
+                prescribedObjectives.setToWARNING();
+            if (nFailed > 3)
+                prescribedObjectives.setToFALSE();
+            //foreach(string s in successListPTV)
+            //  prescribedObjectives.Infobulle += s;
+
+            //foreach (string s in failedListPTV)
+            //  prescribedObjectives.Infobulle += s;
             this._result.Add(prescribedObjectives);
+
+
+        }
             #endregion
 
 
             #region Objectives to reach (check protocol)
 
             Item_Result dd = new Item_Result();
-            dd.Label = "Objectifs de dose OAR (du check-protocol)";
+            dd.Label = "Objectifs de dose des OAR (check-protocol)";
             dd.ExpectedValue = "EN COURS";
             List<string> successList = new List<string>();
             List<string> failedList = new List<string>();
             dd.setToINFO();
             dd.MeasuredValue = "en cours";
-            double result = 0.0;
+            // double result = 0.0;
             foreach (DOstructure dos in _rcp.myDOStructures) // loop on list structures with > 0 objectives in check-protocol
             {
                 string structName = dos.Name.ToUpper();
@@ -481,105 +647,31 @@ namespace PlanCheck
                     if (dvh != null)
                         foreach (string obj in dos.listOfObjectives) // loop on list of objectives in check-protocol. 
                         {
-                            //----------------------------------
-                            //  Ex. of objective V20.0Gy<33.1%
-                            //----------------------------------
 
-                            //MessageBox.Show("start processing " + obj);
-
-                            string theObjective = "";
-                            string theValue = "";
-                            double theValueDouble = 0.0;
-                            string theValueWithUnit = "";//0.0;
-                            string theUnit = "";
-                            string[] elementI = null;
-                            string[] elementS = null;
-                            bool isInfObj = false;
-                            bool isSupObj = false;
-
-                            elementS = obj.Split('>');  // split around > or <   Get V20.0Gy an 33.1%
-                            elementI = obj.Split('<');
-
-                            if (elementS.Length > 1)
-                            {
-                                isSupObj = true; // it is a sup obective
-                                theObjective = elementS[0];
-                                theValueWithUnit = elementS[1];
-                            }
-                            else if (elementI.Length > 1)
-                            {
-                                isInfObj = true; // it is a inf obective
-                                theObjective = elementI[0];
-                                theValueWithUnit = elementI[1];
-                            }
+                            string msg_result = getResultForThisObjective(s, dvh, obj);
+                            if (msg_result.Contains("OK:"))
+                                successList.Add(msg_result);
                             else
-                            {
-                                MessageBox.Show("This objective is not correct " + obj + "(must contain < or >). It will be ignored");
-                                break;
-                            }
-
-                            if (isInfObj || isSupObj)
-                            {
-                                theUnit = getTheUnit(theValueWithUnit); // extract Gy from 20.4Gy
-                                if (theUnit != "failed")
-                                {
-                                    theValue = theValueWithUnit.Replace(theUnit, "");// extract 20.4 from 20.4Gy
-                                    theValueDouble = Convert.ToDouble(theValue);
-                                    result = getValueForThisObjective(s, dvh, theObjective, theUnit); // no need to pass the value, just the indicator and the output unit
-                                    if (isInfObj)
-                                    {
-
-                                        if (result <= theValueDouble)//success
-                                        {
-                                            successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                            // MessageBox.Show("INF " + s.Id + " " + result + " " + theValueDouble + " success");
-                                        }
-                                        else // failed
-                                        {
-                                            failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                            //MessageBox.Show("INF " + s.Id + " " + result + " " + theValueDouble + " success");
-                                        }
-                                    }
-                                    else if (isSupObj)
-                                    {
-                                        //MessageBox.Show("SUP " + s.Id + " " + result + " " + theValueDouble);
-                                        if (result >= theValueDouble)//success
-                                            successList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                        else // failed
-                                            failedList.Add(structName + " " + obj + " --> " + result.ToString("0.00") + " " + theUnit);
-                                    }
-                                }
-                                else
-                                    MessageBox.Show("error in this objective: wrong unit: " + structName + " " + obj + "It will be ignored.");
-
-
-                                // MessageBox.Show("End of process for " + obj + " Result : " + result.ToString("0.00") + " " + theUnit);
-                            }
-
+                                failedList.Add(msg_result);
                         }
                 }
 
             }
-            dd.setToINFO();
-            dd.MeasuredValue = "Aucun test réalisé sur des indicateurs de dose";
-            dd.Infobulle = "Aucun test réalisé sur des indicateurs de dose. Soit il n'en est spécifié aucun dans le check-protocol, soit les structures requises sont absentes.";
+
             if ((successList.Count > 0) || (failedList.Count > 0))
             {
-                if (failedList.Count == 1)
+                if (failedList.Count > 0)
                 {
                     dd.setToWARNING();
-                    dd.MeasuredValue = "1 objectif non atteint (voir détail)";
-                }
-                else if (failedList.Count > 1)
-                {
-                    dd.setToWARNING();
-                    dd.MeasuredValue = failedList.Count + " objectifs non atteints (voir détail)";
+
                 }
                 else
                 {
                     dd.setToTRUE();
-                    dd.MeasuredValue = "Tous les objectifs atteints";
+
                 }
+                dd.MeasuredValue = successList.Count + "/" + (failedList.Count + successList.Count).ToString() + " objectif(s) atteint(s)";
+
                 dd.Infobulle = "";
                 if (failedList.Count > 0)
                 {
@@ -593,6 +685,13 @@ namespace PlanCheck
                     foreach (string s in successList)
                         dd.Infobulle += "  - " + s + "\n";
                 }
+            }
+            else
+            {
+                dd.setToINFO();
+                dd.MeasuredValue = "Aucun test réalisé sur des indicateurs de dose";
+                dd.Infobulle = "Aucun test réalisé sur des indicateurs de dose. Soit il n'en est spécifié aucun dans le check-protocol, soit les structures requises sont absentes.";
+
             }
 
             this._result.Add(dd);
