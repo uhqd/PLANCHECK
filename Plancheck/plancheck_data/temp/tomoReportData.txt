@@ -1,407 +1,132 @@
-Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+1/8
 PATIENT
-Nom : LINON, SEBASTIEN ID : 200304421,  Date de naissance : mardi 9 février 1982 Sexe : Masculin
-Plan
-ID plan : RéirradAdducD
-ID dossier de traitement : C1
-ID image : TDMRTE180124
-Modalité de l'image : CT
-Système d'imagerie : CT130246
-Orientation de traitement : Tête devant- Décubitus dorsal
-Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.30cm, -18.66cm, -0.40cm)
-Prescription de dose
-Volume cible : PTV_HDOPT
-Valeur de normalisation du plan : 100.5 %
-Méthode de normalisation du plan: 100.00% couvre 50.00% du volume cible
-Point de référence principal : PTV_HDOPT1
-Point de normalisation du plan : -, -, -
-Pourcentage de dose prescrite : 100.0 %
-Fractionnement : 
-Dose prescrite : 50.000 Gy (2.000 Gy / fraction)
-Dose au point de référence principal : 50.000 Gy (2.000 Gy / fraction)
-Nombre de fractions : 25
-Options de calcul
-Algorithme photon : AAA_15605New
+Nom:FAUST,APOLLINE(202315976) DatedeNaissance:05/02/2018 Sexe:Féminin
+PLAN PRESCRIPTIONDE
+DOSE
+IDplan BoostMedullo Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
+IDimage: TDMBOOST291223 Pointdereferenceprincipal PTV_HDOPT
+Systèmed'imagerie: Scan_IUC_100kV Valeurdenormalisation: 101.0%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (0.10cm,0.20cm,0.25cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 30.600Gy(1.800Gy/fraction)
+Nombredefractions: 17
+OPTIONSDECALCUL
+Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc0.125
-FieldNormalizationType 100% to isocenter
+CalculationGridSizeInCMForSRSAndHyperArc 0.125
+FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
-Approbations
-Plan créé : lundi 22 janvier 2024 15:44:57 par Lanaspeze Christelle
-Approbation du plan : mardi 23 janvier 2024 16:08:17 par Ducassou Anne
-Patient : LINON, SEBASTIEN  (200304421,  ) Imprimé le 23/01/2024 16:43 par admin\defour
-Dernière modification le mardi 23 janvier 2024 16:08:19 par Ducassou Anne
-Dossier de traitement : C1
-Plan : RéirradAdducD  -  Planification approuvée Page : 1/4Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Champs
-ID champ
-ID machine
-Énergie
-Débit de dose
-Taille de champ
-X1
-X2
-Y1
-Y2
-Angle du bras
-Sens de rotation du bras
-Angle d'arrêt du bras
-Rot. collimateur
-Rot. de table
-Filtre en coin
-Facteur de filtre
-MLC
-Bloc
-Plaque
-Bolus
-DSP bolus
-Isocentre X
-Isocentre Y
-Isocentre Z
-DSP
-Pondération
-Refdose (Gy)
-Point de référence
-Dose par fraction
-Profondeur physique
-Profondeur effective
-UM
-  RA1  
-  NOVA5  
-10X 
-600 UM/min
-12.7 cm x 14.0 cm
-X1: +6.4 cm 
-X2: +6.4 cm 
-Y1: +6.0 cm 
-Y2: +8.0 cm 
-181.0 °
-SH
-0.0 °
-15.0 °
-0.0 °
- -
- -
-0364
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-86.6 cm
-0.684
--
-PTV_HDOPT1
-0.661 Gy
--
--
-136.1 UM
-  RA2  
-  NOVA5  
-10X 
-600 UM/min
-13.2 cm x 13.5 cm
-X1: +6.1 cm 
-X2: +7.1 cm 
-Y1: +6.0 cm 
-Y2: +7.5 cm 
-0.0 °
-SAH
-181.0 °
-345.0 °
-0.0 °
- -
- -
-0364
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-94.1 cm
-0.650
--
-PTV_HDOPT1
-0.629 Gy
--
--
-129.4 UM
-  RA3  
-  NOVA5  
-10X 
-600 UM/min
-13.7 cm x 14.0 cm
-X1: +7.1 cm 
-X2: +6.6 cm 
-Y1: +6.0 cm 
-Y2: +8.0 cm 
-181.0 °
-SH
-0.0 °
-15.0 °
-0.0 °
- -
- -
-0364
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-86.6 cm
-0.733
--
-PTV_HDOPT1
-0.709 Gy
--
--
-145.9 UM
-  postsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-86.6 cm
-0.000
--
-PTV_HDOPT1
--
--
--
--
-  latdtsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-270.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-89.6 cm
-0.000
--
-PTV_HDOPT1
--
--
--
--
-  antsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-0.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-94.1 cm
-0.000
--
-PTV_HDOPT1
--
--
--
--
-  latgsetup  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-90.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-77.5 cm
-0.000
--
-PTV_HDOPT1
--
--
--
--
-  cbct  
-  NOVA5  
-6X 
-600 UM/min
-10.0 cm x 10.0 cm
-X1: +5.0 cm 
-X2: +5.0 cm 
-Y1: +5.0 cm 
-Y2: +5.0 cm 
-180.0 °
--
--
-0.0 °
-0.0 °
- -
- -
--
--
--
--
--
--6.49 cm
--7.18 cm
--10.87 cm
-86.6 cm
-0.000
--
-PTV_HDOPT1
--
--
--
--
-Patient : LINON, SEBASTIEN  (200304421,  ) Imprimé le 23/01/2024 16:43 par admin\defour
-Dernière modification le mardi 23 janvier 2024 16:08:19 par Ducassou Anne
-Dossier de traitement : C1
-Plan : RéirradAdducD  -  Planification approuvée Page : 2/4Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Décalage de la table
-AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
-AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
-Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (-0.30cm, -18.66cm, -0.40cm)
-Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
-Champs de l'isocentre :  RA1  RA2  RA3  postsetup  latdtsetup  antsetup  latgsetup  cbct  
-Décalage de la table par rapport à la position de référence :
-Décaler [cm] : 6.49 7.18 10.87
-Direction : Droite Bas Entrée [In]
- 
- 
-Erreurs et avertissements concernant le calcul :
-Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   RA1  )
- densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   RA1  )
- dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   RA1  )
-La valeur UH maximale dans l'image (12231.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   RA1  )
- 'Electron_Density'. (Avertissement :   RA1  )
-Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   RA1  )
-Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   RA2  )
- densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   RA2  )
- dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   RA2  )
-La valeur UH maximale dans l'image (12231.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   RA2  )
- 'Electron_Density'. (Avertissement :   RA2  )
-Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   RA2  )
-Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   RA3  )
-Patient : LINON, SEBASTIEN  (200304421,  ) Imprimé le 23/01/2024 16:43 par admin\defour
-Dernière modification le mardi 23 janvier 2024 16:08:19 par Ducassou Anne
-Dossier de traitement : C1
-Plan : RéirradAdducD  -  Planification approuvée Page : 3/4Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
- densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   RA3  )
- dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   RA3  )
-La valeur UH maximale dans l'image (12231.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   RA3  )
- 'Electron_Density'. (Avertissement :   RA3  )
-Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   RA3  )
-Patient : LINON, SEBASTIEN  (200304421,  ) Imprimé le 23/01/2024 16:43 par admin\defour
-Dernière modification le mardi 23 janvier 2024 16:08:19 par Ducassou Anne
-Dossier de traitement : C1
-Plan : RéirradAdducD  -  Planification approuvée Page : 4/4Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-Patient: LINON, SEBASTIEN  
-Patient IDs: 200304421,  
-Comment:
-Plan Plan Course Plan History
-RéirradAdducD C1 Last Modified: mardi 23 janvier 2024 16:08:19 by Ducassou Anne
-Planification approuvée: mardi 23 janvier 2024 16:08:17 by Ducassou Anne
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Articulation PB Approuvée 100.0 / 100.0 6.9 cm³ 9.5 Gy 45.7 Gy 23.2 Gy 17.1 Gy 21.8 Gy 7.5 Gy
-Articulation GF Approuvée 100.0 / 100.1 28.4 cm³ 1.0 Gy 50.4 Gy 14.6 Gy 1.8 Gy 10.6 Gy 12.9 Gy
-Plexus sacré dt Approuvée 100.0 / 100.1 31.0 cm³ 0.2 Gy 15.6 Gy 1.5 Gy 0.4 Gy 0.7 Gy 2.4 Gy
-Patient: LINON, SEBASTIEN    (200304421,  ) Printed mardi 23 janvier 2024 16:44:10 by Defour Nathalie
-Course: C1
-Plan: RéirradAdducD  -  Planification approuvée Page: 1/2Planification de radiothérapie
-Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
-DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
-Sigmoide Approuvée 100.0 / 100.0 32.2 cm³ 1.5 Gy 18.2 Gy 7.1 Gy 2.2 Gy 6.7 Gy 3.5 Gy
-Rectum Approuvée 100.0 / 99.9 45.7 cm³ 1.2 Gy 25.4 Gy 11.5 Gy 1.3 Gy 11.4 Gy 6.2 Gy
-Femur dt Approuvée 100.0 / 100.1 48.5 cm³ 1.1 Gy 48.5 Gy 23.6 Gy 1.9 Gy 27.2 Gy 11.8 Gy
-Vessie Approuvée 100.0 / 100.0 57.4 cm³ 1.4 Gy 45.5 Gy 8.5 Gy 3.5 Gy 6.6 Gy 6.2 Gy
-IschioPubis D Approuvée 100.0 / 100.1 148.3 cm³ 0.8 Gy 52.3 Gy 23.7 Gy 1.3 Gy 27.2 Gy 17.0 Gy
-IschioPubis G Approuvée 100.0 / 100.0 154.8 cm³ 0.4 Gy 31.8 Gy 6.3 Gy 0.6 Gy 4.2 Gy 6.1 Gy
-TeteFemorDte Approuvée 100.0 / 100.0 156.2 cm³ 1.3 Gy 49.9 Gy 12.6 Gy 4.2 Gy 9.7 Gy 9.9 Gy
-TeteFemorGche Approuvée 100.0 / 100.0 177.7 cm³ 0.6 Gy 6.9 Gy 3.4 Gy 3.9 Gy 3.6 Gy 1.4 Gy
-Sacrum Approuvée 100.0 / 100.1 242.9 cm³ 0.1 Gy 17.6 Gy 0.8 Gy 0.4 Gy 0.4 Gy 1.6 Gy
-OGE Approuvée 100.0 / 100.0 268.4 cm³ 0.0 Gy 48.7 Gy 11.3 Gy 4.6 Gy 8.6 Gy 8.2 Gy
-Grele Approuvée 100.0 / 100.0 419.6 cm³ 0.2 Gy 41.1 Gy 3.1 Gy 1.2 Gy 1.6 Gy 4.1 Gy
-GTV Approuvée 100.0 / 100.0 454.9 cm³ 43.6 Gy 53.1 Gy 50.2 Gy 50.1 Gy 50.2 Gy 0.7 Gy
-PTV_HDOPT Approuvée 100.0 / 100.0 645.1 cm³ 32.5 Gy 53.1 Gy 49.8 Gy 50.1 Gy 50.0 Gy 1.2 Gy
-PTV Approuvée 100.0 / 100.0 651.7 cm³ 0.0 Gy 53.1 Gy 49.7 Gy 50.1 Gy 50.0 Gy 2.4 Gy
-Plan prescription
-Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
-Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
-- - - RéirradAdducD C1 50.000 Gy 2.000 Gy 25 50.000 Gy   100.0 % 100.00% couvre 50.00% du volume cible 100.5 %
-Patient: LINON, SEBASTIEN    (200304421,  ) Printed mardi 23 janvier 2024 16:44:10 by Defour Nathalie
-Course: C1
-Plan: RéirradAdducD  -  Planification approuvée Page: 2/2
+APPROBATIONS
+Plancréé: admin\lanaspeze(23/01/202413:52:43)
+Appro.plan: LaprieAnne(mercredi24janvier202419:03:59)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+2/8
+PARAMETRESDESFAISCEAUXDETRAITEMENT
+IDchamp RA1 RA2
+IDmachine NOVASBRT NOVASBRT
+Energie 6X 6X
+Debitdedose 600UM/min 600UM/min
+X1 2.83 3.05
+X2 2.83 2.82
+Y1 2.92 2.92
+Y2 2.75 2.75
+Tailledechamp 5.66cmx
+5.67cm
+5.87cmx
+5.67cm
+Angledubras 181° 179°
+Sensderotationdu
+bras
+SH SAH
+Angled'arrêtdu
+bras
+179° 181°
+Rot.collimateur 15° 345°
+Rot.detable 0° 0°
+Bolus - -
+IsocentreX -0.08cm -0.08cm
+IsocentreY -0.57cm -0.57cm
+IsocentreZ -1.01cm -1.01cm
+DSP 94.6cm 94.6cm
+Ponderation 1.299 1.311
+Pointderéférence PTV_HDOPT PTV_HDOPT
+Filtreencoin - -
+Bloc - -
+Plaque - -
+Doseparfraction 0.896Gy 0.904Gy
+UM 231.5UM 233.7UMRappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+3/8
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+4/8
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
+Canalmed 22.0 1.8 0.3 1.0
+CavBuc 16.8 0.4 0.2 0.3
+Cerveau 1260.5 34.0 4.4 31.3
+CristallinDt 0.1 2.0 1.4 0.0
+CristallinGche 0.1 1.9 1.4 0.0
+Larynx 2.6 0.2 0.1 0.1
+Mandibule 36.4 8.0 0.4 4.3
+NerfOptiqueDt 0.2 3.5 2.4 0.0
+NerfOptiqueGche 0.3 3.8 2.7 0.0
+OeilDt 6.2 5.2 2.5 3.4
+OeilGche 6.5 4.7 2.5 3.4
+Oesophage 4.6 0.1 0.0 0.1
+ParoDte 7.6 4.9 0.7 0.9
+ParoGche 7.5 2.4 0.5 0.7
+PoumonDt 42.4 0.1 0.0 0.1
+PoumonGche 34.9 0.1 0.0 0.1
+Poumons 77.3 0.1 0.0 0.1
+Thyroide 3.2 0.1 0.1 0.1
+GTVpreop 18.6 31.6 30.3 31.0
+Chiasma 0.3 5.5 4.3 0.0
+CTVboost 22.9 32.0 30.3 31.1
+GTVlittumoral 7.3 31.4 30.3 30.8
+HippocampeDt 2.1 9.6 4.7 4.6
+HippocampeGche 2.4 10.3 4.9 5.5
+Hypophyse 0.4 5.1 3.6 0.0
+LobeTemporalDt 175.6 31.1 4.9 24.9
+LobeTemporalGche 162.5 31.5 4.9 23.4
+OreilleIntDte 0.4 6.9 3.5 0.0
+OreilleIntGche 0.3 5.6 3.2 0.0Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+5/8Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+6/8
+StatistiquesduDVH
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
+RetineDt 1.5 5.7 3.1 2.7
+RetineGche 1.5 5.0 3.1 2.7
+TroncCerebral 21.7 32.5 22.7 29.8
+GTVresidu 1.9 31.4 30.5 30.6
+cervelet 113.3 34.0 20.1 31.2
+CTV_residu 21.6 31.9 30.4 31.1
+PTV_boost 39.0 34.0 30.3 31.3
+PTV 39.0 34.0 30.3 31.3
+Chiasma+3 2.8 8.0 4.6 4.8
+HippoDt+3 7.5 12.5 5.3 9.1
+HippoGche+3 8.3 13.2 5.5 9.4
+PTV_HDOPT 28.1 34.0 30.5 31.3
+TroncCerebral+3 29.6 32.7 22.9 29.9Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+7/8
+DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
+Isocentredeschamps:,RA1,RA2
+Décaler: 0.08cm 0.57cm -1.01cm
+Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
+Plan:BoostMedullo
+Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
+8/8
