@@ -181,15 +181,15 @@ namespace PlanCheck
                 String expectedHUcurve;
 
                 if ((myToday - (DateTime)_context.Patient.DateOfBirth).Days < (14 * 365))
-                    expectedHUcurve = "Scan_IUC_100kV";
+                    expectedHUcurve = "100kV_CT130246";
                 else
-                    expectedHUcurve = "TDMRT";
+                    expectedHUcurve = "CT130246";//"TDMRT";
 
 
                 HUcurve.ExpectedValue = expectedHUcurve;
                 HUcurve.MeasuredValue = courbeHU;
                 HUcurve.Comparator = "=";
-                HUcurve.Infobulle = "La courbe doit être TDMRT sauf si âge patient < 14";
+                HUcurve.Infobulle = "La courbe doit être "+ expectedHUcurve + " sauf si âge patient < 14";
                 HUcurve.ResultStatus = testing.CompareDatas(HUcurve.ExpectedValue, HUcurve.MeasuredValue, HUcurve.Comparator);
             }
             else // tomo
@@ -197,11 +197,11 @@ namespace PlanCheck
                 HUcurve.MeasuredValue = _pinfo.tprd.Trd.HUcurve;
 
                 HUcurve.ExpectedValue = "";
-                if (HUcurve.MeasuredValue.Contains("IUC-120kV"))
+                if (HUcurve.MeasuredValue.Contains("CT130246"))
                     HUcurve.setToTRUE();
                 else
                     HUcurve.setToFALSE();
-                HUcurve.Infobulle = "Pour Tomotherapy la courbe doit être IUC-120kV";
+                HUcurve.Infobulle = "Pour Tomotherapy la courbe doit être "+ HUcurve.ExpectedValue;
             }
 
             this._result.Add(HUcurve);
@@ -216,7 +216,7 @@ namespace PlanCheck
 
 
             deviceName.Label = "CT series number";
-            deviceName.ExpectedValue = "GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
+            deviceName.ExpectedValue = "Siemens Healthineers SOMATOM go.Open Pro130246";// GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
             deviceName.MeasuredValue = CT;
             deviceName.Comparator = "=";
             deviceName.Infobulle = "Vérification du modèle et du numéro de série du CT";
