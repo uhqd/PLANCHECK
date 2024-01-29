@@ -1,132 +1,483 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-1/8
+Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom:FAUST,APOLLINE(202315976) DatedeNaissance:05/02/2018 Sexe:Féminin
-PLAN PRESCRIPTIONDE
-DOSE
-IDplan BoostMedullo Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
-IDimage: TDMBOOST291223 Pointdereferenceprincipal PTV_HDOPT
-Systèmed'imagerie: Scan_IUC_100kV Valeurdenormalisation: 101.0%
-Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (0.10cm,0.20cm,0.25cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 30.600Gy(1.800Gy/fraction)
-Nombredefractions: 17
-OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
+Nom : MARIN, GILBERTE ID : 202311287 Date de naissance : vendredi 25 décembre 1953Sexe : Féminin
+Plan
+ID plan : Sein G DV
+ID dossier de traitement : C1
+ID image : TDMRTE230124
+Modalité de l'image : CT
+Système d'imagerie : CT130246
+Orientation de traitement : Tête devant- Décubitus ventral
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.18cm, -40.79cm, -3.80cm)
+Prescription de dose
+Volume cible : PTV sein
+Valeur de normalisation du plan : 1271.1 %
+Méthode de normalisation du plan: 100% au point de référence ICRUPTV sein
+Point de référence principal : ICRUPTV sein
+Point de normalisation du plan : -9.6 cm, 21.2 cm, 2.9 cm
+Pourcentage de dose prescrite : 100.0 %
+Fractionnement : 
+Dose prescrite : 40.000 Gy (2.667 Gy / fraction)
+Dose au point de référence principal : 40.000 Gy (2.667 Gy / fraction)
+Nombre de fractions : 15
+Options de calcul
+Algorithme photon : AAA_15605New
 CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc 0.125
-FieldNormalizationType 100%toisocenter
+CalculationGridSizeInCMForSRSAndHyperArc0.125
+FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
-APPROBATIONS
-Plancréé: admin\lanaspeze(23/01/202413:52:43)
-Appro.plan: LaprieAnne(mercredi24janvier202419:03:59)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-2/8
-PARAMETRESDESFAISCEAUXDETRAITEMENT
-IDchamp RA1 RA2
-IDmachine NOVASBRT NOVASBRT
-Energie 6X 6X
-Debitdedose 600UM/min 600UM/min
-X1 2.83 3.05
-X2 2.83 2.82
-Y1 2.92 2.92
-Y2 2.75 2.75
-Tailledechamp 5.66cmx
-5.67cm
-5.87cmx
-5.67cm
-Angledubras 181° 179°
-Sensderotationdu
-bras
-SH SAH
-Angled'arrêtdu
-bras
-179° 181°
-Rot.collimateur 15° 345°
-Rot.detable 0° 0°
-Bolus - -
-IsocentreX -0.08cm -0.08cm
-IsocentreY -0.57cm -0.57cm
-IsocentreZ -1.01cm -1.01cm
-DSP 94.6cm 94.6cm
-Ponderation 1.299 1.311
-Pointderéférence PTV_HDOPT PTV_HDOPT
-Filtreencoin - -
-Bloc - -
-Plaque - -
-Doseparfraction 0.896Gy 0.904Gy
-UM 231.5UM 233.7UMRappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-3/8
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-4/8
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
-Canalmed 22.0 1.8 0.3 1.0
-CavBuc 16.8 0.4 0.2 0.3
-Cerveau 1260.5 34.0 4.4 31.3
-CristallinDt 0.1 2.0 1.4 0.0
-CristallinGche 0.1 1.9 1.4 0.0
-Larynx 2.6 0.2 0.1 0.1
-Mandibule 36.4 8.0 0.4 4.3
-NerfOptiqueDt 0.2 3.5 2.4 0.0
-NerfOptiqueGche 0.3 3.8 2.7 0.0
-OeilDt 6.2 5.2 2.5 3.4
-OeilGche 6.5 4.7 2.5 3.4
-Oesophage 4.6 0.1 0.0 0.1
-ParoDte 7.6 4.9 0.7 0.9
-ParoGche 7.5 2.4 0.5 0.7
-PoumonDt 42.4 0.1 0.0 0.1
-PoumonGche 34.9 0.1 0.0 0.1
-Poumons 77.3 0.1 0.0 0.1
-Thyroide 3.2 0.1 0.1 0.1
-GTVpreop 18.6 31.6 30.3 31.0
-Chiasma 0.3 5.5 4.3 0.0
-CTVboost 22.9 32.0 30.3 31.1
-GTVlittumoral 7.3 31.4 30.3 30.8
-HippocampeDt 2.1 9.6 4.7 4.6
-HippocampeGche 2.4 10.3 4.9 5.5
-Hypophyse 0.4 5.1 3.6 0.0
-LobeTemporalDt 175.6 31.1 4.9 24.9
-LobeTemporalGche 162.5 31.5 4.9 23.4
-OreilleIntDte 0.4 6.9 3.5 0.0
-OreilleIntGche 0.3 5.6 3.2 0.0Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-5/8Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-6/8
-StatistiquesduDVH
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
-RetineDt 1.5 5.7 3.1 2.7
-RetineGche 1.5 5.0 3.1 2.7
-TroncCerebral 21.7 32.5 22.7 29.8
-GTVresidu 1.9 31.4 30.5 30.6
-cervelet 113.3 34.0 20.1 31.2
-CTV_residu 21.6 31.9 30.4 31.1
-PTV_boost 39.0 34.0 30.3 31.3
-PTV 39.0 34.0 30.3 31.3
-Chiasma+3 2.8 8.0 4.6 4.8
-HippoDt+3 7.5 12.5 5.3 9.1
-HippoGche+3 8.3 13.2 5.5 9.4
-PTV_HDOPT 28.1 34.0 30.5 31.3
-TroncCerebral+3 29.6 32.7 22.9 29.9Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-7/8
-DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2
-Décaler: 0.08cm 0.57cm -1.01cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deFAUST,APOLLINE
-Plan:BoostMedullo
-Rapportcrééle:25/01/202408:36:33par:LanaspezeChristelle
-8/8
+Approbations
+Plan créé : jeudi 25 janvier 2024 14:55:45 par Recordon Frederique
+Approbation du plan : lundi 29 janvier 2024 08:46:42 par Castex Clelie
+Patient : MARIN, GILBERTE  (202311287) Imprimé le 29/01/2024 10:47 par admin\defour
+Dernière modification le lundi 29 janvier 2024 08:46:43 par Castex Clelie
+Dossier de traitement : C1
+Plan : Sein G DV  -  Planification approuvée Page : 1/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Champs
+ID champ
+ID machine
+Énergie
+Débit de dose
+Taille de champ
+X1
+X2
+Y1
+Y2
+Angle du bras
+Sens de rotation du bras
+Angle d'arrêt du bras
+Rot. collimateur
+Rot. de table
+Filtre en coin
+Facteur de filtre
+MLC
+Bloc
+Plaque
+Bolus
+DSP bolus
+Isocentre X
+Isocentre Y
+Isocentre Z
+DSP
+Pondération
+Refdose (Gy)
+Point de référence
+Dose par fraction
+Profondeur physique
+Profondeur effective
+UM
+  MAMEXT G  
+  NOVA3  
+6X 
+600 UM/min
+17.9 cm x 17.8 cm
+X1: +9.0 cm 
+X2: +9.0 cm 
+Y1: +8.9 cm 
+Y2: +8.9 cm 
+290.0 °
+-
+-
+97.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+93.2 cm
+3.813
+1.011 Gy
+ICRUPTV sein
+0.800 Gy
+6.8 cm
+6.3 cm
+81.2 UM
+  MAMEXT GRED  
+  NOVA3  
+6X 
+600 UM/min
+10.3 cm x 17.8 cm
+X1: +7.6 cm 
+X2: +2.7 cm 
+Y1: +8.9 cm 
+Y2: +8.9 cm 
+290.0 °
+-
+-
+97.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+93.2 cm
+0.636
+0.169 Gy
+ICRUPTV sein
+0.133 Gy
+6.8 cm
+6.3 cm
+14.0 UM
+  MAMEXT G10  
+  NOVA3  
+10X 
+600 UM/min
+17.9 cm x 17.8 cm
+X1: +9.0 cm 
+X2: +9.0 cm 
+Y1: +8.9 cm 
+Y2: +8.9 cm 
+290.0 °
+-
+-
+97.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+93.2 cm
+1.907
+0.469 Gy
+ICRUPTV sein
+0.400 Gy
+6.8 cm
+6.3 cm
+40.1 UM
+  MAMINT G10  
+  NOVA3  
+10X 
+600 UM/min
+17.9 cm x 17.8 cm
+X1: +9.0 cm 
+X2: +9.0 cm 
+Y1: +8.9 cm 
+Y2: +8.9 cm 
+100.0 °
+-
+-
+83.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+93.0 cm
+1.907
+0.470 Gy
+ICRUPTV sein
+0.400 Gy
+7.0 cm
+6.4 cm
+40.5 UM
+  MAMINT G  
+  NOVA3  
+6X 
+600 UM/min
+17.9 cm x 17.8 cm
+X1: +9.0 cm 
+X2: +9.0 cm 
+Y1: +8.9 cm 
+Y2: +8.9 cm 
+100.0 °
+-
+-
+83.0 °
+0.0 °
+EDW15IN
+ -
+0367
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+93.0 cm
+4.449
+1.180 Gy
+ICRUPTV sein
+0.933 Gy
+7.0 cm
+6.4 cm
+113.2 UM
+  CBCT  
+  NOVA3  
+6X 
+600 UM/min
+15.0 cm x 15.0 cm
+X1: +7.5 cm 
+X2: +7.5 cm 
+Y1: +7.5 cm 
+Y2: +7.5 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+67.5 cm
+0.000
+-
+ICRUPTV sein
+-
+-
+-
+-
+  Setup ant  
+  NOVA3  
+6X 
+600 UM/min
+15.0 cm x 15.0 cm
+X1: +7.5 cm 
+X2: +7.5 cm 
+Y1: +7.5 cm 
+Y2: +7.5 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+93.7 cm
+0.000
+-
+ICRUPTV sein
+-
+-
+-
+-
+  Setup lat Dt  
+  NOVA3  
+6X 
+600 UM/min
+15.0 cm x 15.0 cm
+X1: +7.5 cm 
+X2: +7.5 cm 
+Y1: +7.5 cm 
+Y2: +7.5 cm 
+90.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+92.9 cm
+0.000
+-
+ICRUPTV sein
+-
+-
+-
+-
+  Setup lat Gch  
+  NOVA3  
+6X 
+600 UM/min
+15.0 cm x 15.0 cm
+X1: +7.5 cm 
+X2: +7.5 cm 
+Y1: +7.5 cm 
+Y2: +7.5 cm 
+270.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+93.9 cm
+0.000
+-
+ICRUPTV sein
+-
+-
+-
+-
+  Setup post  
+  NOVA3  
+6X 
+600 UM/min
+15.0 cm x 15.0 cm
+X1: +7.5 cm 
+X2: +7.5 cm 
+Y1: +7.5 cm 
+Y2: +7.5 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-9.62 cm
+21.22 cm
+2.90 cm
+67.5 cm
+0.000
+-
+ICRUPTV sein
+-
+-
+-
+-
+Patient : MARIN, GILBERTE  (202311287) Imprimé le 29/01/2024 10:47 par admin\defour
+Dernière modification le lundi 29 janvier 2024 08:46:43 par Castex Clelie
+Dossier de traitement : C1
+Plan : Sein G DV  -  Planification approuvée Page : 2/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Décalage de la table
+AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
+AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.18cm, -40.79cm, -3.80cm)
+Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
+Champs de l'isocentre :  MAMEXT G  MAMINT G  MAMEXT G10  MAMINT G10  MAMEXT GRED  CBCT  Setup ant  Setup lat Dt  Setup lat Gch  Setup post  
+Décalage de la table par rapport à la position de référence :
+Décaler [cm] : 9.62 21.22 2.90
+Direction : Droite Haut Sortie [Out]
+ 
+ 
+Erreurs et avertissements concernant le calcul :
+La valeur UH maximale dans l'image (22902.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   MAMEXT G  )
+ 'Electron_Density'. (Avertissement :   MAMEXT G  )
+Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   MAMEXT G  )
+Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   MAMEXT G  )
+ densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   MAMEXT G  )
+ dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   MAMEXT G  )
+La valeur UH maximale dans l'image (22902.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   MAMEXT GRED  )
+ 'Electron_Density'. (Avertissement :   MAMEXT GRED  )
+Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   MAMEXT GRED  )
+Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   MAMEXT GRED  )
+ densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   MAMEXT GRED  )
+ dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   MAMEXT GRED  )
+La valeur UH maximale dans l'image (22902.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   MAMEXT G10  )
+Patient : MARIN, GILBERTE  (202311287) Imprimé le 29/01/2024 10:47 par admin\defour
+Dernière modification le lundi 29 janvier 2024 08:46:43 par Castex Clelie
+Dossier de traitement : C1
+Plan : Sein G DV  -  Planification approuvée Page : 3/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+ 'Electron_Density'. (Avertissement :   MAMEXT G10  )
+Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   MAMEXT G10  )
+Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   MAMEXT G10  )
+ densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   MAMEXT G10  )
+ dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   MAMEXT G10  )
+La valeur UH maximale dans l'image (22902.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   MAMINT G10  )
+ 'Electron_Density'. (Avertissement :   MAMINT G10  )
+Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   MAMINT G10  )
+Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   MAMINT G10  )
+ densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   MAMINT G10  )
+ dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   MAMINT G10  )
+La valeur UH maximale dans l'image (22902.00 UH) se situe hors de la courbe de conversion scanner (Avertissement :   MAMINT G  )
+ 'Electron_Density'. (Avertissement :   MAMINT G  )
+Assurez-vous que la courbe de conversion scanner est correctement étalonnée. (Avertissement :   MAMINT G  )
+Certaines des valeurs UH de l'image sont en dehors de la plage de la courbe d'étalonnage scanner pour la (Avertissement :   MAMINT G  )
+ densité des électrons. La valeur de densité des électrons à partir de la valeur UH la plus élevée définie (Avertissement :   MAMINT G  )
+ dans la courbe d'étalonnage est celle utilisée pour les valeurs UH plus élevées. (Avertissement :   MAMINT G  )
+Patient : MARIN, GILBERTE  (202311287) Imprimé le 29/01/2024 10:47 par admin\defour
+Dernière modification le lundi 29 janvier 2024 08:46:43 par Castex Clelie
+Dossier de traitement : C1
+Plan : Sein G DV  -  Planification approuvée Page : 4/4Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+Patient: MARIN, GILBERTE  
+Patient IDs: 202311287
+Comment:
+Plan Plan Course Plan History
+Sein G DV C1 Last Modified: lundi 29 janvier 2024 08:46:43 by Castex Clelie
+Planification approuvée: lundi 29 janvier 2024 08:46:42 by Castex Clelie
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+IVA Approuvée 100.0 / 99.6 1.6 cm³ 1.2 Gy 2.8 Gy 1.9 Gy 1.6 Gy 1.8 Gy 0.3 Gy
+Thyroide Approuvée 100.0 / 99.8 4.1 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+Trachee Approuvée 100.0 / 100.0 18.3 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+Patient: MARIN, GILBERTE    (202311287) Printed lundi 29 janvier 2024 10:48:21 by Defour Nathalie
+Course: C1
+Plan: Sein G DV  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Planification de radiothérapie 15.6.8 Institut Claudius Regaud, Toulouse
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+Larynx Approuvée 100.0 / 100.2 20.1 cm³ 0.0 Gy 0.1 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.0 Gy
+Oesophage Approuvée 100.0 / 100.0 24.3 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+TetehumeraleDte Approuvée 100.0 / 99.9 55.0 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+TetehumeraleGche Approuvée 100.0 / 100.0 64.9 cm³ 0.0 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+Canal Med Approuvée 100.0 / 100.1 68.6 cm³ 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+Coeur Approuvée 100.0 / 100.0 845.3 cm³ 0.0 Gy 4.2 Gy 0.6 Gy 0.0 Gy 0.5 Gy 0.6 Gy
+Sein contro Approuvée 100.0 / 100.1 1019.2 cm³ 0.0 Gy 3.0 Gy 0.2 Gy 0.0 Gy 0.2 Gy 0.2 Gy
+PoumonGche Approuvée 100.0 / 100.0 1221.7 cm³ 0.0 Gy 1.5 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.2 Gy
+PTV sein Approuvée 100.0 / 100.0 1385.0 cm³ 30.8 Gy 42.2 Gy 40.4 Gy 41.1 Gy 40.6 Gy 1.0 Gy
+CTV sein Approuvée 100.0 / 100.0 1433.9 cm³ 0.0 Gy 42.2 Gy 39.5 Gy 41.1 Gy 40.5 Gy 3.5 Gy
+Foie Approuvée 100.0 / 100.0 1642.5 cm³ 0.0 Gy 1.8 Gy 0.1 Gy 0.0 Gy 0.0 Gy 0.2 Gy
+PoumonDt Approuvée 100.0 / 100.0 1737.6 cm³ 0.0 Gy 0.3 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.0 Gy
+Poumons Approuvée 100.0 / 100.0 2962.2 cm³ 0.0 Gy 1.5 Gy 0.0 Gy 0.0 Gy 0.0 Gy 0.1 Gy
+BODY Approuvée 100.0 / 100.1 31763.9 cm³ 0.0 Gy 42.3 Gy 2.9 Gy 0.0 Gy 0.0 Gy 9.7 Gy
+Plan prescription
+Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
+Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
+- - - Sein G DV C1 40.000 Gy 2.667 Gy 15 40.000 Gy   100.0 % 100% au point de référence ICRUPTV sein 1271.1 %
+Patient: MARIN, GILBERTE    (202311287) Printed lundi 29 janvier 2024 10:48:21 by Defour Nathalie
+Course: C1
+Plan: Sein G DV  -  Planification approuvée Page: 2/2
