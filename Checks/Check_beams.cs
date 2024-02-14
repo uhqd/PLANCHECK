@@ -46,496 +46,521 @@ namespace PlanCheck
 
         public void Check()
         {
-            
-            #region ENERGY 
-
-            if ((!_pinfo.isTOMO) && (!_pinfo.isHALCYON)) // not checked if mono energy machine
+            if (_pinfo.actualUserPreference.userWantsTheTest("energy"))
             {
-                Item_Result energy = new Item_Result();
-                energy.Label = "Energie";
-                energy.ExpectedValue = "NA";
+                #region ENERGY 
 
-
-
-                if ((_rcp.energy == "") || (_rcp.energy == null)) // no energy specified in check-protocol
+                if ((!_pinfo.isTOMO) && (!_pinfo.isHALCYON)) // not checked if mono energy machine
                 {
-                    energy.setToINFO();
-                    energy.MeasuredValue = "Energie non vérifiée";
-                    energy.Infobulle = "Aucune énergie spécifiée dans le protocole:" + _rcp.protocolName;
-                }
-                else
-                {
+                    Item_Result energy = new Item_Result();
+                    energy.Label = "Energie";
+                    energy.ExpectedValue = "NA";
 
-                    List<string> energyList = new List<string>();
-                    List<string> distinctEnergyList = new List<string>();
-                    foreach (Beam b in _ctx.PlanSetup.Beams)
-                        if (!b.IsSetupField)
-                            energyList.Add(b.EnergyModeDisplayName);
 
-                    distinctEnergyList = energyList.Distinct().ToList(); // remove doublons
-                    energy.MeasuredValue += "Energies : ";
-                    foreach (string distinctEnergy in distinctEnergyList)
-                        energy.MeasuredValue += distinctEnergy + " ";
-                    energy.Infobulle = "Valeur spécifiée dans le check-protocol : " + _rcp.energy;
-                    if (distinctEnergyList.Count > 1)
+
+                    if ((_rcp.energy == "") || (_rcp.energy == null)) // no energy specified in check-protocol
                     {
-                        energy.setToWARNING();
+                        energy.setToINFO();
+                        energy.MeasuredValue = "Energie non vérifiée";
+                        energy.Infobulle = "Aucune énergie spécifiée dans le protocole:" + _rcp.protocolName;
                     }
                     else
                     {
-                        if (distinctEnergyList[0] == _rcp.energy)
-                            energy.setToTRUE();
-                        else
-                            energy.setToFALSE();
-                    }
-                }
-                this._result.Add(energy);
-            }
-            #endregion
-      
-            #region DOSERATE FOR QA PREDICTION AND GANTRY SPEED 
 
-            if (_pinfo.isModulated)
-                if (_pinfo.isNOVA || _pinfo.isHALCYON) // not checked if mono energy machine
-                {
-                    int nLowStepDetected = 0;
-                    int nTotalSteps = 0;
-                    //int lowStepDetected = 0;
-                    double maxDoseRateEnergy = 0.0;
-                    string s = string.Empty;
-                    Item_Result doseRate = new Item_Result();
-                    doseRate.Label = "Débit de dose pour QA";
-                    doseRate.ExpectedValue = "NA";
-                    string textOut = string.Empty;
-                  
-                    foreach (Beam b in _ctx.PlanSetup.Beams)
-                    {
+                        List<string> energyList = new List<string>();
+                        List<string> distinctEnergyList = new List<string>();
+                        foreach (Beam b in _ctx.PlanSetup.Beams)
+                            if (!b.IsSetupField)
+                                energyList.Add(b.EnergyModeDisplayName);
 
-                        if (!b.IsSetupField)
+                        distinctEnergyList = energyList.Distinct().ToList(); // remove doublons
+                        energy.MeasuredValue += "Energies : ";
+                        foreach (string distinctEnergy in distinctEnergyList)
+                            energy.MeasuredValue += distinctEnergy + " ";
+                        energy.Infobulle = "Valeur spécifiée dans le check-protocol : " + _rcp.energy;
+                        if (distinctEnergyList.Count > 1)
                         {
-                            if (_pinfo.isHALCYON)
-                                maxDoseRateEnergy = 740.0;
-                            else if (_pinfo.isNOVA )
+                            energy.setToWARNING();
+                        }
+                        else
+                        {
+                            if (distinctEnergyList[0] == _rcp.energy)
+                                energy.setToTRUE();
+                            else
+                                energy.setToFALSE();
+                        }
+                    }
+                    this._result.Add(energy);
+                }
+                #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("doseRate"))
+            {
+                #region DOSERATE FOR QA PREDICTION AND GANTRY SPEED 
+
+                if (_pinfo.isModulated)
+                    if (_pinfo.isNOVA || _pinfo.isHALCYON) // not checked if mono energy machine
+                    {
+                        int nLowStepDetected = 0;
+                        int nTotalSteps = 0;
+                        //int lowStepDetected = 0;
+                        double maxDoseRateEnergy = 0.0;
+                        string s = string.Empty;
+                        Item_Result doseRate = new Item_Result();
+                        doseRate.Label = "Débit de dose pour QA";
+                        doseRate.ExpectedValue = "NA";
+                        string textOut = string.Empty;
+
+                        foreach (Beam b in _ctx.PlanSetup.Beams)
+                        {
+
+                            if (!b.IsSetupField)
                             {
-                                if (b.EnergyModeDisplayName == "6X")
-                                    maxDoseRateEnergy = 600.0;
-                                else if (b.EnergyModeDisplayName == "6X-FFF")
-                                    maxDoseRateEnergy = 1400.0;
-                                else if (b.EnergyModeDisplayName == "10X")
-                                    maxDoseRateEnergy = 600.0;
-                                else if (b.EnergyModeDisplayName == "10X-FFF")
-                                    maxDoseRateEnergy = 2400.0;
-
-                               
-                            }
-                          
-                            double maxGantrySpeed = 6.0;
-                            double maxDoseRate = b.DoseRate;
-                            int numberOfCPs = b.ControlPoints.Count();
-                            double beamMeterSet = b.Meterset.Value;
-
-                            List<double> diffMeterset = new List<double>();
-                            List<double> angleDifference = new List<double>();
-                        
-                            
-                            for (int i = 1; i < numberOfCPs; i++)
-                            {
-                                ControlPoint cp_curr = b.ControlPoints[i];
-                                ControlPoint cp_prev = b.ControlPoints[i - 1];
-                                if (b.GantryDirection == GantryDirection.Clockwise)
-                                    angleDifference.Add(cp_curr.GantryAngle - cp_prev.GantryAngle < 0 ? cp_curr.GantryAngle - cp_prev.GantryAngle + 360 : cp_curr.GantryAngle - cp_prev.GantryAngle);
-                                else
-                                    angleDifference.Add(cp_prev.GantryAngle - cp_curr.GantryAngle < 0 ? cp_prev.GantryAngle - cp_curr.GantryAngle + 360 : cp_prev.GantryAngle - cp_curr.GantryAngle);
-                                diffMeterset.Add(cp_curr.MetersetWeight - cp_prev.MetersetWeight);
-
-
-
-                            }
-
-
-                           
-                            var timePerCP = angleDifference.Select(x => x / maxGantrySpeed).ToList();
-                            var relativeMU = diffMeterset.Select(x => x * beamMeterSet).ToList();
-                            var doseRateTheory = relativeMU.Zip(timePerCP, (x, y) => x / y * 60).ToList(); // multiply values from the two lists 
-                          
-                            var doseRateDoubleList = doseRateTheory.Select(x => (x >= maxDoseRate) ? maxDoseRate : x).ToList();
-                            var gantrySpeed = doseRateDoubleList.Zip(relativeMU, (x, y) => x / y).Zip(angleDifference, (x, y) => x * y / 60).ToList();
-                            
-                            var lowStepDetected = gantrySpeed.Where(x => x < 1.0).ToList();
-                            nTotalSteps += doseRateDoubleList.Count();
-                            nLowStepDetected += lowStepDetected.Count();
-                            
-
-                            var avDoseRate = doseRateDoubleList.Count > 0 ? doseRateDoubleList.Average() : 0.0;
-                            textOut += b.Id + ": " + avDoseRate.ToString("F0") + (b.Id == _ctx.PlanSetup.Beams.Last(bb => !bb.IsSetupField).Id ? string.Empty : ", ");
-                            
-
-
-                            // chatGPT : I LOVE YOU. Make my histogram
-
-                          
-
-                            double binWidth = 20; // Définir la largeur du bin
-                            double minValue = 0.0;// doseRateDoubleList.Min(); // Trouver la valeur minimale
-                            double maxValue = maxDoseRateEnergy;// 600.0;// doseRateDoubleList.Max(); // Trouver la valeur maximale
-                            int numberOfBins = (int)Math.Ceiling((maxValue - minValue) / binWidth);
-
-                            int[] histogram = new int[numberOfBins];
-                            double nVal = Convert.ToDouble(doseRateTheory.Count);
-                            foreach (var value in doseRateTheory)
-                            {
-                                int binIndex = (int)Math.Floor((value - minValue) / binWidth);
-                                if (binIndex >= 0 && binIndex < numberOfBins)
+                                if (_pinfo.isHALCYON)
+                                    maxDoseRateEnergy = 740.0;
+                                else if (_pinfo.isNOVA)
                                 {
-                                    histogram[binIndex]++;
+                                    if (b.EnergyModeDisplayName == "6X")
+                                        maxDoseRateEnergy = 600.0;
+                                    else if (b.EnergyModeDisplayName == "6X-FFF")
+                                        maxDoseRateEnergy = 1400.0;
+                                    else if (b.EnergyModeDisplayName == "10X")
+                                        maxDoseRateEnergy = 600.0;
+                                    else if (b.EnergyModeDisplayName == "10X-FFF")
+                                        maxDoseRateEnergy = 2400.0;
+
+
                                 }
+
+                                double maxGantrySpeed = 6.0;
+                                double maxDoseRate = b.DoseRate;
+                                int numberOfCPs = b.ControlPoints.Count();
+                                double beamMeterSet = b.Meterset.Value;
+
+                                List<double> diffMeterset = new List<double>();
+                                List<double> angleDifference = new List<double>();
+
+
+                                for (int i = 1; i < numberOfCPs; i++)
+                                {
+                                    ControlPoint cp_curr = b.ControlPoints[i];
+                                    ControlPoint cp_prev = b.ControlPoints[i - 1];
+                                    if (b.GantryDirection == GantryDirection.Clockwise)
+                                        angleDifference.Add(cp_curr.GantryAngle - cp_prev.GantryAngle < 0 ? cp_curr.GantryAngle - cp_prev.GantryAngle + 360 : cp_curr.GantryAngle - cp_prev.GantryAngle);
+                                    else
+                                        angleDifference.Add(cp_prev.GantryAngle - cp_curr.GantryAngle < 0 ? cp_prev.GantryAngle - cp_curr.GantryAngle + 360 : cp_prev.GantryAngle - cp_curr.GantryAngle);
+                                    diffMeterset.Add(cp_curr.MetersetWeight - cp_prev.MetersetWeight);
+
+
+
+                                }
+
+
+
+                                var timePerCP = angleDifference.Select(x => x / maxGantrySpeed).ToList();
+                                var relativeMU = diffMeterset.Select(x => x * beamMeterSet).ToList();
+                                var doseRateTheory = relativeMU.Zip(timePerCP, (x, y) => x / y * 60).ToList(); // multiply values from the two lists 
+
+                                var doseRateDoubleList = doseRateTheory.Select(x => (x >= maxDoseRate) ? maxDoseRate : x).ToList();
+                                var gantrySpeed = doseRateDoubleList.Zip(relativeMU, (x, y) => x / y).Zip(angleDifference, (x, y) => x * y / 60).ToList();
+
+                                var lowStepDetected = gantrySpeed.Where(x => x < 1.0).ToList();
+                                nTotalSteps += doseRateDoubleList.Count();
+                                nLowStepDetected += lowStepDetected.Count();
+
+
+                                var avDoseRate = doseRateDoubleList.Count > 0 ? doseRateDoubleList.Average() : 0.0;
+                                textOut += b.Id + ": " + avDoseRate.ToString("F0") + (b.Id == _ctx.PlanSetup.Beams.Last(bb => !bb.IsSetupField).Id ? string.Empty : ", ");
+
+
+
+                                // chatGPT : I LOVE YOU. Make my histogram
+
+
+
+                                double binWidth = 20; // Définir la largeur du bin
+                                double minValue = 0.0;// doseRateDoubleList.Min(); // Trouver la valeur minimale
+                                double maxValue = maxDoseRateEnergy;// 600.0;// doseRateDoubleList.Max(); // Trouver la valeur maximale
+                                int numberOfBins = (int)Math.Ceiling((maxValue - minValue) / binWidth);
+
+                                int[] histogram = new int[numberOfBins];
+                                double nVal = Convert.ToDouble(doseRateTheory.Count);
+                                foreach (var value in doseRateTheory)
+                                {
+                                    int binIndex = (int)Math.Floor((value - minValue) / binWidth);
+                                    if (binIndex >= 0 && binIndex < numberOfBins)
+                                    {
+                                        histogram[binIndex]++;
+                                    }
+                                }
+
+                                // Affichage toutes les les valeurs de l'histogramme
+
+                                // for (int i = 0; i < numberOfBins; i++)
+                                //{
+                                //    double binStart = minValue + i * binWidth;
+                                //   double binEnd = binStart + binWidth;
+                                //  double d = Convert.ToDouble(histogram[i]) / nVal * 100.0 ;
+                                /// s += "Bin " + (i + 1).ToString() + " " + binStart + "-" + binEnd + " UM/min --> " + histogram[i] + " " + d.ToString("F2") + "\n";
+                                //}
+                                //MessageBox.Show("this is s " + s);
+
+
+
+                                int j = numberOfBins - 1;
+
+                                double binStart = minValue + j * binWidth;
+                                double binEnd = binStart + binWidth;
+
+
+                                double d = Convert.ToDouble(histogram[j]) / nVal * 100.0;
+
+                                s += b.Id + " " + d.ToString("F2") + "%% ";
+
+                                doseRate.Infobulle = "Dernier bin de l'histogramme de débit de dose" + binStart + "-" + binEnd + " UM/min ";
+
+
                             }
 
-                            // Affichage toutes les les valeurs de l'histogramme
 
-                            // for (int i = 0; i < numberOfBins; i++)
-                            //{
-                            //    double binStart = minValue + i * binWidth;
-                            //   double binEnd = binStart + binWidth;
-                            //  double d = Convert.ToDouble(histogram[i]) / nVal * 100.0 ;
-                            /// s += "Bin " + (i + 1).ToString() + " " + binStart + "-" + binEnd + " UM/min --> " + histogram[i] + " " + d.ToString("F2") + "\n";
-                            //}
-                            //MessageBox.Show("this is s " + s);
-
-
-                           
-                            int j = numberOfBins - 1;
-                          
-                            double binStart = minValue + j * binWidth;
-                            double binEnd = binStart + binWidth;
-                          
-
-                            double d = Convert.ToDouble(histogram[j]) / nVal * 100.0;
-                          
-                            s += b.Id + " " + d.ToString("F2") + "%% ";
-                          
-                            doseRate.Infobulle = "Dernier bin de l'histogramme de débit de dose" + binStart + "-" + binEnd + " UM/min ";
-          
 
                         }
-               
 
+                        doseRate.MeasuredValue = s;
+                        doseRate.setToTRUE();
+                        this._result.Add(doseRate);
 
-                    }
-                   
-                    doseRate.MeasuredValue = s;
-                    doseRate.setToTRUE();
-                    this._result.Add(doseRate);
+                        if (_pinfo.treatmentType != "IMRT")
+                        {
 
-                    if (_pinfo.treatmentType != "IMRT")
-                    {
-                        
-                        Item_Result lowStep = new Item_Result();
-                        lowStep.Label = "CP trop lents (< 1 deg/s)";
-                        double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
-                        lowStep.MeasuredValue = nLowStepDetected.ToString() + " / " + nTotalSteps.ToString() + " (" + ratio.ToString("F1") + "%)";
-                        lowStep.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
+                            Item_Result lowStep = new Item_Result();
+                            lowStep.Label = "CP trop lents (< 1 deg/s)";
+                            double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
+                            lowStep.MeasuredValue = nLowStepDetected.ToString() + " / " + nTotalSteps.ToString() + " (" + ratio.ToString("F1") + "%)";
+                            lowStep.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
 
-                        if (nLowStepDetected > 1)
-                            lowStep.setToWARNING();
-                        else
-                            lowStep.setToTRUE();
+                            if (nLowStepDetected > 1)
+                                lowStep.setToWARNING();
+                            else
+                                lowStep.setToTRUE();
 
-                        this._result.Add(lowStep);
-                    }
-                }
-
-            #endregion
- 
-            #region tolerance table
-            if (!_pinfo.isTOMO)
-            {
-                Item_Result toleranceTable = new Item_Result();
-                toleranceTable.Label = "Table de tolérance";
-                toleranceTable.ExpectedValue = "NA";
-
-
-                bool toleranceOK = true;
-                List<string> listOfTolTable = new List<string>();
-                String firstTT = null;
-                bool firstTTfound = false;
-                bool allSame = false;
-
-                foreach (Beam b in _ctx.PlanSetup.Beams)
-                {
-
-
-                    listOfTolTable.Add(b.Id + "\t(" + b.ToleranceTableLabel.ToUpper() + ")");
-                    // this part is to check if the tol table are all the same
-                    if (!firstTTfound)
-                    {
-                        firstTTfound = true;
-                        allSame = true;
-                        firstTT = b.ToleranceTableLabel.ToUpper();
-                    }
-                    else
-                    {
-                        if (b.ToleranceTableLabel.ToUpper() != firstTT)
-                            allSame = false;
-                    }
-                    // this part is to check if the tol table are as specified in schek protocol
-                    if (b.ToleranceTableLabel.ToUpper() != _rcp.toleranceTable.ToUpper())
-                    {
-                        toleranceOK = false;
-
-                    }
-                }
-                if (toleranceOK)
-                {
-                    toleranceTable.setToTRUE();
-                    toleranceTable.MeasuredValue = _rcp.toleranceTable;
-                    toleranceTable.Infobulle = "Tous les champs ont bien la table de tolérance spécifiée dans le check-protocol:\n";
-                }
-                else
-                {
-                    toleranceTable.setToFALSE();
-                    toleranceTable.MeasuredValue = "Table de tolérances des champs à revoir (voir détail)";
-                    toleranceTable.Infobulle += "\n\nCertains des chams suivants n'ont pas la bonne table de tolérance\n";
-
-                }
-                if (_rcp.toleranceTable == "") // if no table specidfied in RCP
-                {
-
-                    toleranceTable.MeasuredValue = "Table de tolérances unique  (voir détail) ";
-                    toleranceTable.Infobulle = "Pas de table de tolérance spécifiée dans le check-protocol " + _rcp.protocolName;
-                    if (allSame)
-                    {
-                        toleranceTable.Infobulle += "\nUnse seule table de tolérance est utilisée pour tous les faisceaux\n";
-                        toleranceTable.MeasuredValue = "Table de tolérances unique  (voir détail) ";
-                        toleranceTable.setToTRUE();
-                    }
-                    else
-                    {
-                        toleranceTable.Infobulle += "\nPlusieurs tables de tolérance utilisées pour les faisceaux\n";
-                        toleranceTable.MeasuredValue = "Table de tolérances différentes  (voir détail) ";
-                        toleranceTable.setToFALSE();
+                            this._result.Add(lowStep);
+                        }
                     }
 
-                }
-                foreach (String field in listOfTolTable)
-                    toleranceTable.Infobulle += "\n - " + field;
-
-                if (_pinfo.isTOMO)
-                {
-                    toleranceTable.Infobulle += "\nNon vérifié pour les tomos\n";
-                    toleranceTable.MeasuredValue = "Tomo (pas de table de tolérance)";
-                    toleranceTable.setToINFO();
-                }
-                this._result.Add(toleranceTable);
+                #endregion
             }
-            #endregion
-   
-            #region FIELD SIZE GENERAL
-            if (!_pinfo.isTOMO)
+            if (_pinfo.actualUserPreference.userWantsTheTest("toleranceTable"))
             {
-                bool giveup = false;
-                Item_Result fieldTooSmall = new Item_Result();
-
-
-                List<String> fieldTooSmallList = new List<String>();
-                fieldTooSmall.Label = "Champs trop petits";
-                fieldTooSmall.ExpectedValue = "NA";
-                fieldTooSmall.Infobulle = "Les champs doivent avoir une dimension adaptée au PTV";
-                String targetName = _ctx.PlanSetup.TargetVolumeID;
-                Structure target = null;
-                double surfaceZX = 0;
-                double surfaceZY = 0;
-                //int n = 0;
-                string listOfWrongBeam = null;
-                try // do we have a target volume ? 
+                #region tolerance table
+                if (!_pinfo.isTOMO)
                 {
-                    target = _ctx.StructureSet.Structures.Where(s => s.Id == targetName).FirstOrDefault();
-                    surfaceZX = target.MeshGeometry.Bounds.SizeZ * target.MeshGeometry.Bounds.SizeX;
-                    surfaceZY = target.MeshGeometry.Bounds.SizeZ * target.MeshGeometry.Bounds.SizeY;
+                    Item_Result toleranceTable = new Item_Result();
+                    toleranceTable.Label = "Table de tolérance";
+                    toleranceTable.ExpectedValue = "NA";
+
+
+                    bool toleranceOK = true;
+                    List<string> listOfTolTable = new List<string>();
+                    String firstTT = null;
+                    bool firstTTfound = false;
+                    bool allSame = false;
+
+                    foreach (Beam b in _ctx.PlanSetup.Beams)
+                    {
+
+
+                        listOfTolTable.Add(b.Id + "\t(" + b.ToleranceTableLabel.ToUpper() + ")");
+                        // this part is to check if the tol table are all the same
+                        if (!firstTTfound)
+                        {
+                            firstTTfound = true;
+                            allSame = true;
+                            firstTT = b.ToleranceTableLabel.ToUpper();
+                        }
+                        else
+                        {
+                            if (b.ToleranceTableLabel.ToUpper() != firstTT)
+                                allSame = false;
+                        }
+                        // this part is to check if the tol table are as specified in schek protocol
+                        if (b.ToleranceTableLabel.ToUpper() != _rcp.toleranceTable.ToUpper())
+                        {
+                            toleranceOK = false;
+
+                        }
+                    }
+                    if (toleranceOK)
+                    {
+                        toleranceTable.setToTRUE();
+                        toleranceTable.MeasuredValue = _rcp.toleranceTable;
+                        toleranceTable.Infobulle = "Tous les champs ont bien la table de tolérance spécifiée dans le check-protocol:\n";
+                    }
+                    else
+                    {
+                        toleranceTable.setToFALSE();
+                        toleranceTable.MeasuredValue = "Table de tolérances des champs à revoir (voir détail)";
+                        toleranceTable.Infobulle += "\n\nCertains des chams suivants n'ont pas la bonne table de tolérance\n";
+
+                    }
+                    if (_rcp.toleranceTable == "") // if no table specidfied in RCP
+                    {
+
+                        toleranceTable.MeasuredValue = "Table de tolérances unique  (voir détail) ";
+                        toleranceTable.Infobulle = "Pas de table de tolérance spécifiée dans le check-protocol " + _rcp.protocolName;
+                        if (allSame)
+                        {
+                            toleranceTable.Infobulle += "\nUnse seule table de tolérance est utilisée pour tous les faisceaux\n";
+                            toleranceTable.MeasuredValue = "Table de tolérances unique  (voir détail) ";
+                            toleranceTable.setToTRUE();
+                        }
+                        else
+                        {
+                            toleranceTable.Infobulle += "\nPlusieurs tables de tolérance utilisées pour les faisceaux\n";
+                            toleranceTable.MeasuredValue = "Table de tolérances différentes  (voir détail) ";
+                            toleranceTable.setToFALSE();
+                        }
+
+                    }
+                    foreach (String field in listOfTolTable)
+                        toleranceTable.Infobulle += "\n - " + field;
+
+                    if (_pinfo.isTOMO)
+                    {
+                        toleranceTable.Infobulle += "\nNon vérifié pour les tomos\n";
+                        toleranceTable.MeasuredValue = "Tomo (pas de table de tolérance)";
+                        toleranceTable.setToINFO();
+                    }
+                    this._result.Add(toleranceTable);
                 }
-                catch // no we don't
+                #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("fieldTooSmall"))
+            {
+                #region FIELD SIZE GENERAL
+                if (!_pinfo.isTOMO)
                 {
-                    giveup = true;
+                    bool giveup = false;
+                    Item_Result fieldTooSmall = new Item_Result();
+
+
+                    List<String> fieldTooSmallList = new List<String>();
+                    fieldTooSmall.Label = "Champs trop petits";
+                    fieldTooSmall.ExpectedValue = "NA";
+                    fieldTooSmall.Infobulle = "Les champs doivent avoir une dimension adaptée au PTV";
+                    String targetName = _ctx.PlanSetup.TargetVolumeID;
+                    Structure target = null;
+                    double surfaceZX = 0;
+                    double surfaceZY = 0;
+                    //int n = 0;
+                    string listOfWrongBeam = null;
+                    try // do we have a target volume ? 
+                    {
+                        target = _ctx.StructureSet.Structures.Where(s => s.Id == targetName).FirstOrDefault();
+                        surfaceZX = target.MeshGeometry.Bounds.SizeZ * target.MeshGeometry.Bounds.SizeX;
+                        surfaceZY = target.MeshGeometry.Bounds.SizeZ * target.MeshGeometry.Bounds.SizeY;
+                    }
+                    catch // no we don't
+                    {
+                        giveup = true;
+                    }
+
+
+
+                    if (!giveup)
+                    {
+                        foreach (Beam b in _ctx.PlanSetup.Beams)
+                        {
+                            if (!b.IsSetupField)
+                            {
+
+
+                                foreach (ControlPoint cp in b.ControlPoints)
+                                {
+                                    if (fieldIsTooSmall(surfaceZX, surfaceZY, cp.JawPositions.X1, cp.JawPositions.X2, cp.JawPositions.Y1, cp.JawPositions.Y2))
+                                    {
+                                        listOfWrongBeam += "\n - " + b.Id;
+                                        break;
+                                    }
+                                    //                            n++;
+                                }
+                            }
+                        }
+                    }
+
+
+                    if (giveup)
+                    {
+                        fieldTooSmall.setToINFO();
+                        fieldTooSmall.MeasuredValue = "Test non réalisé";
+                        fieldTooSmall.Infobulle += "\n\nCe test n'est pas réalisé pour les Tomos ou si le plan n'a pas de volume cible";
+                    }
+                    else
+                    {
+                        if (listOfWrongBeam == null)
+                        {
+                            fieldTooSmall.setToTRUE();
+                            fieldTooSmall.MeasuredValue = "Dimensions des Jaws correctes";
+                            fieldTooSmall.Infobulle += "\n\nTous les champs ou Control Points ont des dimensions de machoîres cohérentes par rapport au volume cible";
+                        }
+                        else
+                        {
+                            fieldTooSmall.setToWARNING();
+                            fieldTooSmall.MeasuredValue = "Un ou plusieurs champs trop petits";
+                            fieldTooSmall.Infobulle += "\n\nAu moins un champ ou un Control Point a des dimensions de machoîres trop petites par rapport au volume cible" + listOfWrongBeam;
+                        }
+
+
+                    }
+
+                    this._result.Add(fieldTooSmall);
                 }
-
-
-
-                if (!giveup)
+                #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("maxPositionMLCHalcyon"))
+            {
+                #region MLC SIZE HALCYON
+                if (_pinfo.isHALCYON) // if  HALCYON XxY must be < 20x20
                 {
+                    Item_Result maxPositionMLCHalcyon = new Item_Result();
+                    maxPositionMLCHalcyon.Label = "Lames MLC Halcyon < 10 cm";
+                    maxPositionMLCHalcyon.ExpectedValue = "NA";
+                    maxPositionMLCHalcyon.Infobulle = "Les lames du MLC pour l'Halcyon doivent être < 100 mm (tolérance 5 mm)";
+
+                    // List<String> mlcTooLarge = new List<String>();
+                    double thisleafnotok = 0;
+                    bool allLeavesOK = true;
+                    int cpNotOk = -1;
+                    int totalNumberofCP = -1;
+                    String beamNotOk = null;
+                    int leafNumbernotOK = -1;
+                    //int i = 0;
+
                     foreach (Beam b in _ctx.PlanSetup.Beams)
                     {
                         if (!b.IsSetupField)
                         {
-
-
                             foreach (ControlPoint cp in b.ControlPoints)
                             {
-                                if (fieldIsTooSmall(surfaceZX, surfaceZY, cp.JawPositions.X1, cp.JawPositions.X2, cp.JawPositions.Y1, cp.JawPositions.Y2))
+                                int leafnumber = 0;
+
+                                //                            for(int i = 0; i < cp.LeafPositions.Length; i++)
+
+                                if (!done)
                                 {
-                                    listOfWrongBeam += "\n - " + b.Id;
-                                    break;
+                                    done = true;
+                                    //    MessageBox.Show(cp.LeafPositions.Length.ToString());
                                 }
-                                //                            n++;
-                            }
-                        }
-                    }
-                }
-
-
-                if (giveup)
-                {
-                    fieldTooSmall.setToINFO();
-                    fieldTooSmall.MeasuredValue = "Test non réalisé";
-                    fieldTooSmall.Infobulle += "\n\nCe test n'est pas réalisé pour les Tomos ou si le plan n'a pas de volume cible";
-                }
-                else
-                {
-                    if (listOfWrongBeam == null)
-                    {
-                        fieldTooSmall.setToTRUE();
-                        fieldTooSmall.MeasuredValue = "Dimensions des Jaws correctes";
-                        fieldTooSmall.Infobulle += "\n\nTous les champs ou Control Points ont des dimensions de machoîres cohérentes par rapport au volume cible";
-                    }
-                    else
-                    {
-                        fieldTooSmall.setToWARNING();
-                        fieldTooSmall.MeasuredValue = "Un ou plusieurs champs trop petits";
-                        fieldTooSmall.Infobulle += "\n\nAu moins un champ ou un Control Point a des dimensions de machoîres trop petites par rapport au volume cible" + listOfWrongBeam;
-                    }
-
-
-                }
-
-                this._result.Add(fieldTooSmall);
-            }
-            #endregion
-   
-            #region MLC SIZE HALCYON
-            if (_pinfo.isHALCYON) // if  HALCYON XxY must be < 20x20
-            {
-                Item_Result maxPositionMLCHalcyon = new Item_Result();
-                maxPositionMLCHalcyon.Label = "Lames MLC Halcyon < 10 cm";
-                maxPositionMLCHalcyon.ExpectedValue = "NA";
-                maxPositionMLCHalcyon.Infobulle = "Les lames du MLC pour l'Halcyon doivent être < 100 mm (tolérance 5 mm)";
-
-                // List<String> mlcTooLarge = new List<String>();
-                double thisleafnotok = 0;
-                bool allLeavesOK = true;
-                int cpNotOk = -1;
-                int totalNumberofCP = -1;
-                String beamNotOk = null;
-                int leafNumbernotOK = -1;
-                //int i = 0;
-
-                foreach (Beam b in _ctx.PlanSetup.Beams)
-                {
-                    if (!b.IsSetupField)
-                    {
-                        foreach (ControlPoint cp in b.ControlPoints)
-                        {
-                            int leafnumber = 0;
-
-                            //                            for(int i = 0; i < cp.LeafPositions.Length; i++)
-
-                            if (!done)
-                            {
-                                done = true;
-                                //    MessageBox.Show(cp.LeafPositions.Length.ToString());
-                            }
-                            foreach (float f in cp.LeafPositions)
-                            {
-                                //float g = cp.LeafPositions[28 + leafnumber];
-
-                                leafnumber++;
-
-
-                                //MessageBox.Show()
-
-                                if ((f > 105) || (f < -105))
+                                foreach (float f in cp.LeafPositions)
                                 {
-                                    allLeavesOK = false; // break loop on leaves
-                                    thisleafnotok = f;
+                                    //float g = cp.LeafPositions[28 + leafnumber];
 
-                                    cpNotOk = cp.Index;
-                                    totalNumberofCP = b.ControlPoints.Count;
-                                    beamNotOk = b.Id;
-                                    leafNumbernotOK = leafnumber;
+                                    leafnumber++;
 
-                                    break;
+
+                                    //MessageBox.Show()
+
+                                    if ((f > 105) || (f < -105))
+                                    {
+                                        allLeavesOK = false; // break loop on leaves
+                                        thisleafnotok = f;
+
+                                        cpNotOk = cp.Index;
+                                        totalNumberofCP = b.ControlPoints.Count;
+                                        beamNotOk = b.Id;
+                                        leafNumbernotOK = leafnumber;
+
+                                        break;
+                                    }
+                                }
+
+                                if (!allLeavesOK)
+                                {
+
+                                    break; // break loop on cp
                                 }
                             }
+                            // +" "+ cp.JawPositions.X1.ToString()  +" " +cp.JawPositions.X2.ToString()+" ");
 
                             if (!allLeavesOK)
                             {
-
-                                break; // break loop on cp
+                                break; // break beam loop
                             }
                         }
-                        // +" "+ cp.JawPositions.X1.ToString()  +" " +cp.JawPositions.X2.ToString()+" ");
-
-                        if (!allLeavesOK)
-                        {
-                            break; // break beam loop
-                        }
                     }
-                }
 
 
-                // if (mlcTooLarge.Count > 0)
-                if (!allLeavesOK)
-                {
-                    //MessageBox.Show("i = " + i.ToString());
-                    maxPositionMLCHalcyon.setToINFO();
-                    maxPositionMLCHalcyon.MeasuredValue = "Au moins une lame MLC > 100 mm (" + thisleafnotok + ")";
-                    maxPositionMLCHalcyon.Infobulle += "\nBeam: " + beamNotOk + " cp: " + cpNotOk + "/" + totalNumberofCP + " leaf: " + leafNumbernotOK;
-                }
-                else
-                {
-                    maxPositionMLCHalcyon.setToTRUE();
-                    maxPositionMLCHalcyon.MeasuredValue = "Toutes les lames MLC < 100 mm";
-                }
-                this._result.Add(maxPositionMLCHalcyon);
-
-            }
-
-            #endregion
-    
-            #region NOVA SBRT 
-            if (_pinfo.isNOVA)
-            {
-                Item_Result novaSBRT = new Item_Result();
-                novaSBRT.Label = "NOVA SBRT ou NOVA";
-                novaSBRT.MeasuredValue = _pinfo.machine;
-                if (_pinfo.treatmentType == "VMAT")
-                {
-
-
-                    novaSBRT.Infobulle = "Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée pour les champs < 7x7 cm2";
-                    novaSBRT.Infobulle += "\nLa machine NOVA doit être utilisée pour les champs > 13.5x13.5 cm2";
-                    novaSBRT.Infobulle += "\nLes deux machines sont autorisées entres les deux valeurs";
-
-                    Beam b = _ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
-                    ControlPoint cp = b.ControlPoints.First();
-                    double meanJawsXY = 0.5 * (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2)) + (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
-                    double limit = 70.0;
-                    double limithigh = 135.0;
-                    if (_pinfo.machine == "NOVA SBRT")
+                    // if (mlcTooLarge.Count > 0)
+                    if (!allLeavesOK)
                     {
-                        novaSBRT.MeasuredValue = "NOVA SBRT (jaws moy. = " + meanJawsXY + ")";
-                        if (meanJawsXY < limithigh)
-                        {
-                            novaSBRT.setToTRUE();
-                        }
-                        else
-                        {
-                            novaSBRT.setToFALSE();
-                        }
-
+                        //MessageBox.Show("i = " + i.ToString());
+                        maxPositionMLCHalcyon.setToINFO();
+                        maxPositionMLCHalcyon.MeasuredValue = "Au moins une lame MLC > 100 mm (" + thisleafnotok + ")";
+                        maxPositionMLCHalcyon.Infobulle += "\nBeam: " + beamNotOk + " cp: " + cpNotOk + "/" + totalNumberofCP + " leaf: " + leafNumbernotOK;
                     }
                     else
                     {
-                        novaSBRT.MeasuredValue = "NOVA (jaws moy. = " + meanJawsXY + ")";
-                        if (meanJawsXY < limit)
+                        maxPositionMLCHalcyon.setToTRUE();
+                        maxPositionMLCHalcyon.MeasuredValue = "Toutes les lames MLC < 100 mm";
+                    }
+                    this._result.Add(maxPositionMLCHalcyon);
+
+                }
+
+                #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("novaSBRT"))
+            {
+                #region NOVA SBRT 
+                if (_pinfo.isNOVA)
+                {
+                    Item_Result novaSBRT = new Item_Result();
+                    novaSBRT.Label = "NOVA SBRT ou NOVA";
+                    novaSBRT.MeasuredValue = _pinfo.machine;
+                    if (_pinfo.treatmentType == "VMAT")
+                    {
+
+
+                        novaSBRT.Infobulle = "Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée pour les champs < 7x7 cm2";
+                        novaSBRT.Infobulle += "\nLa machine NOVA doit être utilisée pour les champs > 13.5x13.5 cm2";
+                        novaSBRT.Infobulle += "\nLes deux machines sont autorisées entres les deux valeurs";
+
+                        Beam b = _ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
+                        ControlPoint cp = b.ControlPoints.First();
+                        double meanJawsXY = 0.5 * (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2)) + (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
+                        double limit = 70.0;
+                        double limithigh = 135.0;
+                        if (_pinfo.machine == "NOVA SBRT")
+                        {
+                            novaSBRT.MeasuredValue = "NOVA SBRT (jaws moy. = " + meanJawsXY + ")";
+                            if (meanJawsXY < limithigh)
+                            {
+                                novaSBRT.setToTRUE();
+                            }
+                            else
+                            {
+                                novaSBRT.setToFALSE();
+                            }
+
+                        }
+                        else
+                        {
+                            novaSBRT.MeasuredValue = "NOVA (jaws moy. = " + meanJawsXY + ")";
+                            if (meanJawsXY < limit)
+                            {
+                                novaSBRT.setToFALSE();
+                            }
+                            else
+                            {
+                                novaSBRT.setToTRUE();
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        novaSBRT.Infobulle = "Nova non VMAT : machine NOVA SBRT interdite";
+                        if (_pinfo.machine == "NOVA SBRT")
                         {
                             novaSBRT.setToFALSE();
                         }
@@ -543,96 +568,84 @@ namespace PlanCheck
                         {
                             novaSBRT.setToTRUE();
                         }
+                    }
+                    this._result.Add(novaSBRT);
+                }
 
-                    }
-                }
-                else
-                {
-                    novaSBRT.Infobulle = "Nova non VMAT : machine NOVA SBRT interdite";
-                    if (_pinfo.machine == "NOVA SBRT")
-                    {
-                        novaSBRT.setToFALSE();
-                    }
-                    else
-                    {
-                        novaSBRT.setToTRUE();
-                    }
-                }
-                this._result.Add(novaSBRT);
+                #endregion
             }
-
-            #endregion
-   
-            #region TOMO PARAMETERS
-            if ((_pinfo.isTOMO) && (_pinfo.tomoReportIsFound))
+            if (_pinfo.actualUserPreference.userWantsTheTest("tomoParamsFieldWidth"))
             {
-                Item_Result tomoParamsFieldWidth = new Item_Result();
-                Item_Result tomoParamsGantryPeriod = new Item_Result();
-                Item_Result tomoParamsPitch = new Item_Result();
-                Item_Result tomoParamsModulationFactor = new Item_Result();
+                #region TOMO PARAMETERS
+                if ((_pinfo.isTOMO) && (_pinfo.tomoReportIsFound))
+                {
+                    Item_Result tomoParamsFieldWidth = new Item_Result();
+                    Item_Result tomoParamsGantryPeriod = new Item_Result();
+                    Item_Result tomoParamsPitch = new Item_Result();
+                    Item_Result tomoParamsModulationFactor = new Item_Result();
 
 
-                tomoParamsFieldWidth.Label = "Field Width";
-                tomoParamsGantryPeriod.Label = "Gantry period";
-                tomoParamsPitch.Label = "Pitch";
-                tomoParamsModulationFactor.Label = "Modulation factor";
+                    tomoParamsFieldWidth.Label = "Field Width";
+                    tomoParamsGantryPeriod.Label = "Gantry period";
+                    tomoParamsPitch.Label = "Pitch";
+                    tomoParamsModulationFactor.Label = "Modulation factor";
 
 
-                tomoParamsFieldWidth.MeasuredValue = _pinfo.tprd.Trd.fieldWidth.ToString();
-                tomoParamsGantryPeriod.MeasuredValue = _pinfo.tprd.Trd.gantryPeriod.ToString();
-                tomoParamsPitch.MeasuredValue = _pinfo.tprd.Trd.pitch.ToString();
-                tomoParamsModulationFactor.MeasuredValue = _pinfo.tprd.Trd.modulationFactor.ToString();
+                    tomoParamsFieldWidth.MeasuredValue = _pinfo.tprd.Trd.fieldWidth.ToString();
+                    tomoParamsGantryPeriod.MeasuredValue = _pinfo.tprd.Trd.gantryPeriod.ToString();
+                    tomoParamsPitch.MeasuredValue = _pinfo.tprd.Trd.pitch.ToString();
+                    tomoParamsModulationFactor.MeasuredValue = _pinfo.tprd.Trd.modulationFactor.ToString();
 
 
-                if (_pinfo.tprd.Trd.fieldWidth == 5.0)
-                    tomoParamsFieldWidth.setToTRUE();
-                else
-                    tomoParamsFieldWidth.setToINFO();
+                    if (_pinfo.tprd.Trd.fieldWidth == 5.0)
+                        tomoParamsFieldWidth.setToTRUE();
+                    else
+                        tomoParamsFieldWidth.setToINFO();
 
-                tomoParamsFieldWidth.Infobulle = "Attendu : 5.0 cm";
-
-
-                if ((_pinfo.tprd.Trd.gantryPeriod < 52.0) && (_pinfo.tprd.Trd.gantryPeriod > 12.0))
-                    tomoParamsGantryPeriod.setToTRUE();
-                else
-                    tomoParamsGantryPeriod.setToWARNING();
-
-                tomoParamsGantryPeriod.Infobulle = "Attendu (s) : 12 < x < 52 ";
+                    tomoParamsFieldWidth.Infobulle = "Attendu : 5.0 cm";
 
 
-                if ((_pinfo.tprd.Trd.pitch < 0.44) && (_pinfo.tprd.Trd.pitch > 0.4))
-                    tomoParamsPitch.setToTRUE();
-                else
-                    tomoParamsPitch.setToINFO();
+                    if ((_pinfo.tprd.Trd.gantryPeriod < 52.0) && (_pinfo.tprd.Trd.gantryPeriod > 12.0))
+                        tomoParamsGantryPeriod.setToTRUE();
+                    else
+                        tomoParamsGantryPeriod.setToWARNING();
 
-                tomoParamsPitch.Infobulle = "Attendu : 0.4 < x < 0.44";
-
-                if ((_pinfo.tprd.Trd.modulationFactor < 3.5) && (_pinfo.tprd.Trd.modulationFactor > 2.0))
-                    tomoParamsModulationFactor.setToTRUE();
-                else
-                    tomoParamsModulationFactor.setToINFO();
-
-                tomoParamsModulationFactor.Infobulle = "Attendu : 2 < x < 3.5";
-
-                Item_Result blockedOAR = new Item_Result();
-                blockedOAR.Label = "Blocage OAR";
-                blockedOAR.MeasuredValue = _pinfo.tprd.Trd.blockedOAR.Count + " OAR bloqués (voir détail)";
-                blockedOAR.setToINFO();
-                blockedOAR.Infobulle = "Liste des OAR bloqués en EXIT ONLY\n";
-                foreach (string blocOAR in _pinfo.tprd.Trd.blockedOAR)
-                    blockedOAR.Infobulle += "\n" + blocOAR;
-
-                this._result.Add(blockedOAR);
-                this._result.Add(tomoParamsFieldWidth);
-                this._result.Add(tomoParamsGantryPeriod);
-                this._result.Add(tomoParamsPitch);
-                this._result.Add(tomoParamsModulationFactor);
+                    tomoParamsGantryPeriod.Infobulle = "Attendu (s) : 12 < x < 52 ";
 
 
+                    if ((_pinfo.tprd.Trd.pitch < 0.44) && (_pinfo.tprd.Trd.pitch > 0.4))
+                        tomoParamsPitch.setToTRUE();
+                    else
+                        tomoParamsPitch.setToINFO();
+
+                    tomoParamsPitch.Infobulle = "Attendu : 0.4 < x < 0.44";
+
+                    if ((_pinfo.tprd.Trd.modulationFactor < 3.5) && (_pinfo.tprd.Trd.modulationFactor > 2.0))
+                        tomoParamsModulationFactor.setToTRUE();
+                    else
+                        tomoParamsModulationFactor.setToINFO();
+
+                    tomoParamsModulationFactor.Infobulle = "Attendu : 2 < x < 3.5";
+
+                    Item_Result blockedOAR = new Item_Result();
+                    blockedOAR.Label = "Blocage OAR";
+                    blockedOAR.MeasuredValue = _pinfo.tprd.Trd.blockedOAR.Count + " OAR bloqués (voir détail)";
+                    blockedOAR.setToINFO();
+                    blockedOAR.Infobulle = "Liste des OAR bloqués en EXIT ONLY\n";
+                    foreach (string blocOAR in _pinfo.tprd.Trd.blockedOAR)
+                        blockedOAR.Infobulle += "\n" + blocOAR;
+
+                    this._result.Add(blockedOAR);
+                    this._result.Add(tomoParamsFieldWidth);
+                    this._result.Add(tomoParamsGantryPeriod);
+                    this._result.Add(tomoParamsPitch);
+                    this._result.Add(tomoParamsModulationFactor);
+
+
+                }
+
+                #endregion
             }
-
-            #endregion
-    
         }
         public string Title
         {

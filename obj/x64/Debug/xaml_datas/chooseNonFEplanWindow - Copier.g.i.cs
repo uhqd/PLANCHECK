@@ -68,7 +68,7 @@ namespace PlanCheck.xaml_datas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PlanCheck_Beta_0012_0035.esapi;component/xaml_datas/choosenonfeplanwindow%20-%20" +
+            System.Uri resourceLocater = new System.Uri("/PlanCheck_Beta_0019_0022.esapi;component/xaml_datas/choosenonfeplanwindow%20-%20" +
                     "copier.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\xaml_datas\chooseNonFEplanWindow - Copier.xaml"

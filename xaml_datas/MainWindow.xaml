@@ -18,7 +18,7 @@
         </Grid.Background -->
 
         <ScrollViewer Style="{x:Null}"  Grid.Column ="1">
-
+ 
             <StackPanel Style="{x:Null}"  Orientation="Vertical">
                 <StackPanel Style="{x:Null}" >
                     <DockPanel Style="{x:Null}" >
@@ -82,29 +82,13 @@
                             <!-- ColumnDefinition Width="30" /-->
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
+                            <RowDefinition Height="30" />
                         </Grid.RowDefinitions>
                         <!-->
                         <TextBlock Style="{x:Null}" x:Name="cpName" Grid.Row="0" Grid.Column ="0" FontSize="16"  Background="White"  Foreground="DarkBlue"  ToolTip="Nom du check protocol" VerticalAlignment="Center" Text="Check-Protocol :" HorizontalAlignment="Right"></TextBlock>                            
                         <ComboBox Name="cbCheckProtocol" Width="240"  Grid.Column ="1"  Grid.Row="0" HorizontalContentAlignment="Center" HorizontalAlignment="Right" SelectionChanged="CheckProtocol_SelectionChanged" FontFamily="Arial" FontWeight="Bold" FontSize="14" BorderBrush="#FF232020" Foreground="#FF0000cc" Background="#ffffffff" />
                          </-->
-
-                        <TextBlock Style="{x:Null}" x:Name="modeName" Grid.Row="0" Grid.Column ="2" FontSize="16"  Background="White" Foreground="DarkBlue"  ToolTip="Nom du mode" VerticalAlignment="Center" Text="Mode :" HorizontalAlignment="Right"></TextBlock>
-
-                        <ComboBox Name="UserMode"
-                                  Width="242" 
-                                  Grid.Column ="3"
-                                  Grid.Row="0"
-                                  HorizontalContentAlignment="Center"
-                                  HorizontalAlignment="Right"
-                                  SelectionChanged="UserMode_SelectionChanged"
-                                  FontFamily="Arial"
-                                  FontWeight="Bold"
-                                  FontSize="14"
-                                  BorderBrush="#FF232020"
-                                  Foreground="#FF0000cc"
-                                  Background="#ffffffff"
-                                  ToolTip="Médical : après contourage &#x0a; Dosimétriste : avant validation médicale &#x0a; Physicien : après finalisation"/>
+                        <Button Style="{x:Null}" Grid.Row="0" Grid.Column ="3" x:Name="prefButton" Content="Préférences Utilisateur" Width="235" Height="28" Click="preferences_button_Click" ToolTip="Choisir un autre check-protocol"  />
 
                     </Grid>
                 </DockPanel>

@@ -1,113 +1,92 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deSERRES,MARIE-
-DENISE
-Plan:STECPoumLIG
-Rapportcrééle:02/02/202411:18:40par:LacazeThierry
+Rappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
+Plan:Mediastin
+Rapportcrééle:14/02/202413:46:34par:DefourNathalie
 1/6
 PATIENT
-Nom:SERRES,MARIE-DENISE(202112527) DatedeNaissance:19/03/1954 Sexe:Féminin
+Nom:GUIRAUD,ROLAND(202111520) DatedeNaissance:17/12/1939 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan STECPoumLIG Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: ITV6ph
-IDimage: TDM240124_AVG6 Pointdereferenceprincipal ITV6ph
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 95.8%
+IDplan Mediastin Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV
+IDimage: TDMRTE090224 Pointdereferenceprincipal PTV
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.8%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.15cm,-20.95cm,0.00cm) Fractionnement:
-Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 66.000Gy(13.200Gy/fraction)
-Nombredefractions: 5
+Décalagedel'origine/àDICOM: (-0.25cm,-21.67cm,0.20cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 30.000Gy(3.000Gy/fraction)
+Nombredefractions: 10
 OPTIONSDECALCUL
-Algorithmephoton: Acuros_15605New
-AutomaticHighDensityMaterial__ Bone
+Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc 0.125
-DoseReportingMode Dosetomedium
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
-MaximumAutomaticHighDensityVolumeInCM3__ 0.50
-PlanDoseCalculation OFF
-UseGPU Yes
 APPROBATIONS
-Plancréé: admin\lacaze(29/01/202410:07:32)
-Appro.plan: PreaultMichael(jeudi1février202412:43:21)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deSERRES,MARIE-
-DENISE
-Plan:STECPoumLIG
-Rapportcrééle:02/02/202411:18:40par:LacazeThierry
+Plancréé: admin\lacaze(13/02/202410:06:59)
+Appro.plan: HernandezLudovic(mardi13février202411:23:01)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
+Plan:Mediastin
+Rapportcrééle:14/02/202413:46:34par:DefourNathalie
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT
-IDchamp ARCSTE
-IDmachine NOVA3
-Energie 6X-FFF
-Debitdedose 1400UM/min
-X1 1.6
-X2 1.8
-Y1 1.6
-Y2 1.5
-Tailledechamp 3.4cmx3.1cm
-Angledubras 0°
+IDchamp RA1 RA2
+IDmachine NOVA5 NOVA5
+Energie 6X 6X
+Debitdedose 600UM/min 600UM/min
+X1 4.62 5.84
+X2 5.62 4.37
+Y1 7.92 7.92
+Y2 6.5 6.5
+Tailledechamp 10.24cmx
+14.42cm
+10.21cmx
+14.42cm
+Angledubras 181° 179°
 Sensderotationdu
 bras
-SH
+SH SAH
 Angled'arrêtdu
 bras
-179°
-Rot.collimateur 0°
-Rot.detable 0°
-Bolus -
-IsocentreX 8.3cm
-IsocentreY -1.78cm
-IsocentreZ 17.39cm
-DSP 88.1cm
-Ponderation 1
-Pointderéférence ITV6ph
-Filtreencoin -
-Bloc -
-Plaque -
-Doseparfraction 13.200Gy
-UM 1933.8UMRappportdeplanificationderadiothérapie(v15.6.05)deSERRES,MARIE-
-DENISE
-Plan:STECPoumLIG
-Rapportcrééle:02/02/202411:18:40par:LacazeThierry
+179° 181°
+Rot.collimateur 15° 345°
+Rot.detable 0° 0°
+Bolus - -
+IsocentreX 1.03cm 1.03cm
+IsocentreY 2.29cm 2.29cm
+IsocentreZ 12.71cm 12.71cm
+DSP 90cm 90cm
+Ponderation 1.023 0.945
+Pointderéférence PTV PTV
+Filtreencoin - -
+Bloc - -
+Plaque - -
+Doseparfraction 1.559Gy 1.441Gy
+UM 304.5UM 281.3UMRappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
+Plan:Mediastin
+Rapportcrééle:14/02/202413:46:34par:DefourNathalie
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deSERRES,MARIE-
-DENISE
-Plan:STECPoumLIG
-Rapportcrééle:02/02/202411:18:40par:LacazeThierry
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
+Plan:Mediastin
+Rapportcrééle:14/02/202413:46:34par:DefourNathalie
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
-VCaveSup 10.3 4.3 1.7 3.7
-VCaveInf 13.7 0.1 0.0 0.1
-Trachee 23.0 5.3 0.5 3.6
-Poumons 3451.3 70.5 1.6 65.9
-PoumonGche 1434.4 70.5 3.2 65.9
-PoumonDt 2016.8 5.1 0.5 4.6
-PlexusGche 13.0 0.3 0.2 0.3
-PlexusDt 10.6 0.1 0.1 0.1
-PBT 22.4 10.9 2.7 6.0
-ParoiThoraciqueG 2380.4 70.1 1.2 56.8
-ParoiThoraciqueD 870.7 4.5 0.3 3.9
-ParoiThoracique 2380.2 70.1 1.2 56.8
-Oesophage 27.2 7.0 0.8 6.0
-IVA 5.3 0.2 0.1 0.2
-Grosvaisseaux 229.7 10.0 1.7 9.4
-Foie 560.7 0.0 0.0 0.0
-Coeur 561.8 0.3 0.1 0.3
-CanalMed 64.6 6.1 0.6 5.3
-Aorte 169.6 10.0 2.0 9.3
-ITV6ph 1.3 70.5 66.0 64.2
-PTV6ph 7.3 70.5 61.7 66.7
-ITV3ph 0.7 70.0 66.4 0.0
-CanalMed+5 182.2 6.6 0.6 5.9Rappportdeplanificationderadiothérapie(v15.6.05)deSERRES,MARIE-
-DENISE
-Plan:STECPoumLIG
-Rapportcrééle:02/02/202411:18:40par:LacazeThierry
+Trachee 32.6 30.2 9.7 29.6
+Poumons 5835.9 30.5 5.0 30.1
+PoumonGche 2943.5 30.2 4.8 27.8
+PoumonDt 2892.2 30.5 5.1 30.1
+Oesophage 93.6 32.0 17.8 30.9
+Coeur 714.2 30.5 3.0 29.7
+CanalMed 97.3 6.9 1.7 5.8
+CTV 122.7 31.2 30.1 30.8
+PTV 222.7 32.0 29.9 31.0
+CanalMed+5 269.4 9.4 1.8 NonNumériqueRappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
+Plan:Mediastin
+Rapportcrééle:14/02/202413:46:34par:DefourNathalie
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,ARCSTE
-Décaler: -8.3cm 1.78cm 17.39cm
-Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deSERRES,MARIE-
-DENISE
-Plan:STECPoumLIG
-Rapportcrééle:02/02/202411:18:40par:LacazeThierry
+Isocentredeschamps:,RA1,RA2
+Décaler: -1.03cm -2.29cm 12.71cm
+Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
+Plan:Mediastin
+Rapportcrééle:14/02/202413:46:34par:DefourNathalie
 6/6

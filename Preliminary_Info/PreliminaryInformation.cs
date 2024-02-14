@@ -63,11 +63,11 @@ namespace PlanCheck
         private bool positionReportFound;
         private int returnCode;
         private string SEA_planName;
-        public int _UserMode; // 0 planner  1 physicist  2 physician
+        //public int _UserMode; // 0 planner  1 physicist  2 physician
         public string _lastUsedCheckProtocol;
         public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
         public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
-
+        private User_preference _actualUserPreference;
         public bool isARecentDocument(DateTime t)
         {
             int recent = 30;   // number of days 
@@ -274,7 +274,7 @@ namespace PlanCheck
                                                                                             // MessageBox.Show("two " + tomoReportReturnCode);
                         if (_TOMO)
                         {
-                            
+
 
                             if (tomoReportReturnCode != 2)
                             {
@@ -462,6 +462,9 @@ namespace PlanCheck
             #region general info
             _ctx = ctx;
 
+            _actualUserPreference = new User_preference(_ctx.CurrentUser.Id);
+
+
             if (_ctx.Patient.Name != null)
                 _patientname = _ctx.Patient.Name;
             else
@@ -485,6 +488,8 @@ namespace PlanCheck
 
             if (ctx.PlanSetup.RTPrescription != null)
                 _doctor = GetUser("doctor", iuct_users);
+
+
 
             if (_ctx.PlanSetup.PhotonCalculationModel != null)
                 _algoname = ctx.PlanSetup.PhotonCalculationModel;
@@ -672,10 +677,10 @@ namespace PlanCheck
                     {
                         SEA_planName = p.Id;
                         listSEA.Add(SEA_planName);
-                
+
                     }
                 }
-                if(listSEA.Count > 1)
+                if (listSEA.Count > 1)
                 {
                     var myChoiceWindow = new chooseSEA(_ctx, this); // create window
                     myChoiceWindow.ShowDialog(); // display window, 
@@ -686,7 +691,7 @@ namespace PlanCheck
 
             #endregion
 
-                        #endregion
+            #endregion
 
         }
 
@@ -821,11 +826,11 @@ namespace PlanCheck
         {
             get { return positionReportFound; }
         }
-        public int UserMode
+        /*public int UserMode
         {
             get { return _UserMode; }
             set { _UserMode = value; }
-        }
+        }*/
         public List<OARvolume> manOARVolumes
         {
             get { return referenceManOARVolume; }
@@ -844,8 +849,13 @@ namespace PlanCheck
             get { return SEA_planName; }
             set { SEA_planName = value; }
         }
+        public User_preference actualUserPreference
+        {
+            get { return _actualUserPreference; }
+            set { _actualUserPreference = value; }
 
+        }
         #endregion
-
     }
 }
+

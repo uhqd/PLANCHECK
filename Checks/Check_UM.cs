@@ -35,214 +35,221 @@ namespace PlanCheck
 
             int uncorrFieldWithaWedge = 0;
             int FieldWithLessThan10UM = 0;
-
-            #region UM per Gray
-            Item_Result um = new Item_Result();
-            um.Label = "UM";
-            um.ExpectedValue = "EN COURS";
-            if (!_pinfo.isTOMO)
+            if (_pinfo.actualUserPreference.userWantsTheTest("umPerGray"))
             {
-
-                n_um = 0.0;
-                n_um_per_gray = 0.0;
-                String myMLCType = null;
-
-                foreach (Beam b in _ctx.PlanSetup.Beams)
+                #region UM per Gray
+                Item_Result umPerGray = new Item_Result();
+                umPerGray.Label = "UM";
+                umPerGray.ExpectedValue = "EN COURS";
+                if (!_pinfo.isTOMO)
                 {
-                    if (!b.IsSetupField)
+
+                    n_um = 0.0;
+                    n_um_per_gray = 0.0;
+                    String myMLCType = null;
+
+                    foreach (Beam b in _ctx.PlanSetup.Beams)
                     {
-                        if (b.Meterset.Value < 20.0)
-                            if (b.Wedges.Count() > 0)
-                                uncorrFieldWithaWedge++;
-                        if (b.Meterset.Value < 9.5)
+                        if (!b.IsSetupField)
                         {
-                            FieldWithLessThan10UM++;
-                            //MessageBox.Show(b.Id + b.Meterset.Value.ToString());
-                        }
-                        myMLCType = b.MLCPlanType.ToString();
-                        n_um = n_um + Math.Round(b.Meterset.Value, 1);
-                    }
-                }
-
-
-                n_um_per_gray = n_um / (_ctx.PlanSetup.DosePerFraction.Dose / _ctx.PlanSetup.TreatmentPercentage);
-                n_um_per_gray = Math.Round(n_um_per_gray / 100, 3);
-                um.MeasuredValue = n_um.ToString() + " UM (" + n_um_per_gray + " UM/cGy)";
-
-                // MessageBox.Show(n_um_per_gray.ToString("N2") + myMLCType);
-
-                if ((myMLCType == "VMAT") || (myMLCType == "IMRT") || (myMLCType == "DoseDynamic"))
-                {
-                    um.setToTRUE();
-                    double max_umPercGy = 3.5;
-                    double maxMax = 6.0;
-                    if (_pinfo.isHALCYON)
-                        max_umPercGy = 4.5;
-                    if(_rcp.protocolName.ToUpper().Contains("VERTEBRE"))
-                        max_umPercGy = 5;
-
-                    if (n_um_per_gray > max_umPercGy)
-                        um.setToWARNING();
-
-                    if (n_um_per_gray > maxMax)
-                        um.setToFALSE();
-
-                    //MessageBox.Show("IMRT " + n_um_per_gray);
-
-                    um.Infobulle = "En VMAT/IMRT warning si > 3.5, > 4.5 pour Halcyon, > 5 pour STEC vertebre et ERREUR si > 6";
-
-                }
-                else
-                {
-                    if (n_um_per_gray > 2)
-                        um.setToFALSE();
-                    else if (n_um_per_gray > 1.5)
-                        um.setToWARNING();
-                    else
-                        um.setToTRUE();
-                    um.Infobulle = "En RTC/DCA  warning si > 1.5 et ERREUR si > 2.";
-
-                }
-
-            }
-            else // tomo
-            {
-                if (_pinfo.tomoReportIsFound)
-                {
-                    um.Label = "Beam On Time";
-                    um.MeasuredValue = "Beam on time: " + _pinfo.tprd.Trd.beamOnTime.ToString() + " s (" + (_pinfo.tprd.Trd.beamOnTime / 60).ToString("0.00") + " min)";
-                    if (_pinfo.tprd.Trd.beamOnTime > 700)
-                        um.setToWARNING();
-                    else
-                        um.setToTRUE();
-
-                    um.Infobulle = "Attendu < 700 s";
-                }
-                else
-                {
-                    um.MeasuredValue = "Pas de rapport de dosimétrie Tomotherapy dans Aria documents";
-                }
-
-            }
-
-            this._result.Add(um);
-
-            #endregion
-
-            #region UM fluence etendue ?
-           if(_pinfo.isFE)
-            {
-                Item_Result FE = new Item_Result();
-                FE.Label = "Fluence étendue";
-                FE.ExpectedValue = "EN COURS";
-                double nUmWithNoFE = 0.0;
-
-               // string planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
-
-                #region get UM of the plan without FE in name
-                foreach (PlanSetup p in _ctx.Course.PlanSetups)
-                {
-                    if (p.Id == _pinfo.planIdwithoutFE)
-                    {
-
-                        foreach (Beam b in p.Beams)
-                        {
-                            if (!b.IsSetupField)
+                            if (b.Meterset.Value < 20.0)
+                                if (b.Wedges.Count() > 0)
+                                    uncorrFieldWithaWedge++;
+                            if (b.Meterset.Value < 9.5)
                             {
-
-
-
-                                nUmWithNoFE += Math.Round(b.Meterset.Value, 1);
+                                FieldWithLessThan10UM++;
+                                //MessageBox.Show(b.Id + b.Meterset.Value.ToString());
                             }
+                            myMLCType = b.MLCPlanType.ToString();
+                            n_um = n_um + Math.Round(b.Meterset.Value, 1);
                         }
+                    }
+
+
+                    n_um_per_gray = n_um / (_ctx.PlanSetup.DosePerFraction.Dose / _ctx.PlanSetup.TreatmentPercentage);
+                    n_um_per_gray = Math.Round(n_um_per_gray / 100, 3);
+                    umPerGray.MeasuredValue = n_um.ToString() + " UM (" + n_um_per_gray + " UM/cGy)";
+
+                    // MessageBox.Show(n_um_per_gray.ToString("N2") + myMLCType);
+
+                    if ((myMLCType == "VMAT") || (myMLCType == "IMRT") || (myMLCType == "DoseDynamic"))
+                    {
+                        umPerGray.setToTRUE();
+                        double max_umPercGy = 3.5;
+                        double maxMax = 6.0;
+                        if (_pinfo.isHALCYON)
+                            max_umPercGy = 4.5;
+                        if (_rcp.protocolName.ToUpper().Contains("VERTEBRE"))
+                            max_umPercGy = 5;
+
+                        if (n_um_per_gray > max_umPercGy)
+                            umPerGray.setToWARNING();
+
+                        if (n_um_per_gray > maxMax)
+                            umPerGray.setToFALSE();
+
+                        //MessageBox.Show("IMRT " + n_um_per_gray);
+
+                        umPerGray.Infobulle = "En VMAT/IMRT warning si > 3.5, > 4.5 pour Halcyon, > 5 pour STEC vertebre et ERREUR si > 6";
+
+                    }
+                    else
+                    {
+                        if (n_um_per_gray > 2)
+                            umPerGray.setToFALSE();
+                        else if (n_um_per_gray > 1.5)
+                            umPerGray.setToWARNING();
+                        else
+                            umPerGray.setToTRUE();
+                        umPerGray.Infobulle = "En RTC/DCA  warning si > 1.5 et ERREUR si > 2.";
 
                     }
 
+                }
+                else // tomo
+                {
+                    if (_pinfo.tomoReportIsFound)
+                    {
+                        umPerGray.Label = "Beam On Time";
+                        umPerGray.MeasuredValue = "Beam on time: " + _pinfo.tprd.Trd.beamOnTime.ToString() + " s (" + (_pinfo.tprd.Trd.beamOnTime / 60).ToString("0.00") + " min)";
+                        if (_pinfo.tprd.Trd.beamOnTime > 700)
+                            umPerGray.setToWARNING();
+                        else
+                            umPerGray.setToTRUE();
+
+                        umPerGray.Infobulle = "Attendu < 700 s";
+                    }
+                    else
+                    {
+                        umPerGray.MeasuredValue = "Pas de rapport de dosimétrie Tomotherapy dans Aria documents";
+                    }
+
+                }
+
+                this._result.Add(umPerGray);
+
+                #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("UMforFE"))
+            {
+                #region UM fluence etendue ?
+                if (_pinfo.isFE)
+                {
+                    Item_Result UMforFE = new Item_Result();
+                    UMforFE.Label = "Fluence étendue";
+                    UMforFE.ExpectedValue = "EN COURS";
+                    double nUmWithNoFE = 0.0;
+
+                    // string planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
+
+                    #region get UM of the plan without FE in name
+                    foreach (PlanSetup p in _ctx.Course.PlanSetups)
+                    {
+                        if (p.Id == _pinfo.planIdwithoutFE)
+                        {
+
+                            foreach (Beam b in p.Beams)
+                            {
+                                if (!b.IsSetupField)
+                                {
+
+
+
+                                    nUmWithNoFE += Math.Round(b.Meterset.Value, 1);
+                                }
+                            }
+
+                        }
+
+                    }
+                    #endregion
+                    double diff = 100 * Math.Abs(n_um - nUmWithNoFE) / nUmWithNoFE;
+                    UMforFE.MeasuredValue = n_um.ToString() + " UM vs. " + nUmWithNoFE.ToString() + " UM (" + diff.ToString("F2") + "%)";
+                    UMforFE.Infobulle = " La différence d'UM avec le plan " + _pinfo.planIdwithoutFE + " doit être < 10%";
+                    if (diff > 10)
+                    {
+
+                        UMforFE.setToFALSE();
+
+
+                    }
+                    else
+                    {
+
+                        UMforFE.setToTRUE();
+
+
+                    }
+
+                    this._result.Add(UMforFE);
                 }
                 #endregion
-                double diff = 100 * Math.Abs(n_um - nUmWithNoFE) / nUmWithNoFE;
-                FE.MeasuredValue = n_um.ToString() + " UM vs. " + nUmWithNoFE.ToString() + " UM (" + diff.ToString("F2") + "%)";
-                FE.Infobulle = " La différence d'UM avec le plan " + _pinfo.planIdwithoutFE + " doit être < 10%";
-                if (diff > 10)
-                {
-
-                    FE.setToFALSE();
-
-
-                }
-                else
-                {
-
-                    FE.setToTRUE();
-
-
-                }
-
-                this._result.Add(FE);
             }
-            #endregion
-
-            #region UM Champs filtrés ?
-            if (_pinfo.isNOVA)
+            if (_pinfo.actualUserPreference.userWantsTheTest("wedged"))
             {
-                Item_Result wedged = new Item_Result();
-                wedged.Label = "Champs filtrés";
-                wedged.ExpectedValue = "EN COURS";
-
-                if (uncorrFieldWithaWedge != 0)
+                #region UM Champs filtrés ?
+                if (_pinfo.isNOVA)
                 {
-                    wedged.MeasuredValue = uncorrFieldWithaWedge.ToString() + " champs filtrés avec < 20 UM";
-                    wedged.setToFALSE();
-                    wedged.Infobulle = uncorrFieldWithaWedge.ToString() + " champs filtrés avec moins de 20 UM";
+                    Item_Result wedged = new Item_Result();
+                    wedged.Label = "Champs filtrés";
+                    wedged.ExpectedValue = "EN COURS";
 
-                }
-                else
-                {
-                    wedged.MeasuredValue = "OK";
-                    wedged.setToTRUE();
-                    wedged.Infobulle = "Pas de champs filtré avec moins de 20 UM";
+                    if (uncorrFieldWithaWedge != 0)
+                    {
+                        wedged.MeasuredValue = uncorrFieldWithaWedge.ToString() + " champs filtrés avec < 20 UM";
+                        wedged.setToFALSE();
+                        wedged.Infobulle = uncorrFieldWithaWedge.ToString() + " champs filtrés avec moins de 20 UM";
 
-                }
-                if (_pinfo.machine.Contains("TOM") || _pinfo.machine.Contains("HALCYON"))
-                {
-                    wedged.setToINFO();
-                    wedged.MeasuredValue = "TOMO ou HALCYON: non vérifié";
-                }
+                    }
+                    else
+                    {
+                        wedged.MeasuredValue = "OK";
+                        wedged.setToTRUE();
+                        wedged.Infobulle = "Pas de champs filtré avec moins de 20 UM";
 
-                this._result.Add(wedged);
+                    }
+                    if (_pinfo.machine.Contains("TOM") || _pinfo.machine.Contains("HALCYON"))
+                    {
+                        wedged.setToINFO();
+                        wedged.MeasuredValue = "TOMO ou HALCYON: non vérifié";
+                    }
+
+                    this._result.Add(wedged);
+                }
+                #endregion
             }
-            #endregion
-
-            #region Champs < 10 UM ?
-            if (!_pinfo.isTOMO)
+            if (_pinfo.actualUserPreference.userWantsTheTest("less10UM"))
             {
-                Item_Result less10UM = new Item_Result();
-                less10UM.Label = "Champs < 10 UM";
-                less10UM.ExpectedValue = "EN COURS";
-
-                if (FieldWithLessThan10UM != 0)
+                #region Champs < 10 UM ?
+                if (!_pinfo.isTOMO)
                 {
-                    less10UM.MeasuredValue = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
-                    less10UM.setToFALSE();
-                    less10UM.Infobulle = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
+                    Item_Result less10UM = new Item_Result();
+                    less10UM.Label = "Champs < 10 UM";
+                    less10UM.ExpectedValue = "EN COURS";
 
-                }
-                else
-                {
-                    less10UM.MeasuredValue = "OK";
-                    less10UM.setToTRUE();
-                    less10UM.Infobulle = "Pas de champs < 10 UM";
+                    if (FieldWithLessThan10UM != 0)
+                    {
+                        less10UM.MeasuredValue = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
+                        less10UM.setToFALSE();
+                        less10UM.Infobulle = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
 
+                    }
+                    else
+                    {
+                        less10UM.MeasuredValue = "OK";
+                        less10UM.setToTRUE();
+                        less10UM.Infobulle = "Pas de champs < 10 UM";
+
+                    }
+                    if (_pinfo.machine.Contains("TOM"))
+                    {
+                        less10UM.setToINFO();
+                        less10UM.MeasuredValue = "TOMO : non vérifié";
+                    }
+                    this._result.Add(less10UM);
                 }
-                if (_pinfo.machine.Contains("TOM"))
-                {
-                    less10UM.setToINFO();
-                    less10UM.MeasuredValue = "TOMO : non vérifié";
-                }
-                this._result.Add(less10UM);
+                #endregion
             }
-            #endregion
-
 
         }
         public string Title

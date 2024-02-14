@@ -1,0 +1,27 @@
+﻿<Window x:Class="PlanCheck.xaml_datas.chooseUserPreferences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlanCheck.xaml_datas"
+        mc:Ignorable="d"
+        Title="Préférences Utilisateur" Height="1200" Width="700">
+
+    <Grid Margin="40,0,0,25">
+
+        <ItemsControl x:Name="itemsControl" ItemsSource="{Binding MaListe}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <!-- Utilisation de CheckBox pour chaque élément de la liste -->
+                    <CheckBox Content="{Binding}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button x:Name="tous" Content="Tous" HorizontalAlignment="Left" Margin="500,1000,0,0" VerticalAlignment="Top" Click="tous_Click" Height="27" Width="89" FontSize="12" />
+        <Button x:Name="aucun" Content="Aucun" HorizontalAlignment="Left" Margin="500,1050,0,0" VerticalAlignment="Top" Click="aucun_Click" Height="27" Width="89" FontSize="12" />
+
+        <Button x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,1100,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" />
+
+
+    </Grid>
+</Window>

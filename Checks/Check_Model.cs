@@ -105,53 +105,57 @@ namespace PlanCheck
 
 
             Comparator testing = new Comparator();
-
-
-            #region Nom de l'algo
-            Item_Result algo_name = new Item_Result();
-            algo_name.Label = "Algorithme de calcul";
-            if (!_pinfo.isTOMO)
+            String algoNameStatus = String.Empty;
+            if (_pinfo.actualUserPreference.userWantsTheTest("algo_name"))
             {
-
-
-
-                algo_name.ExpectedValue = _rcp.algoName;
-                algo_name.MeasuredValue = _pinfo.AlgoName;
-                algo_name.Comparator = "=";
-                algo_name.Infobulle = "Algorithme attendu pour le check-protocol " + _rcp.protocolName + " : " + algo_name.ExpectedValue;
-                algo_name.Infobulle += "\nLes options de calcul ne sont pas vérifiées si l'algorithme n'est pas celui attendu";
-                algo_name.ResultStatus = testing.CompareDatas(algo_name.ExpectedValue, algo_name.MeasuredValue, algo_name.Comparator);
-
-            }
-            else
-            {
-                if (_pinfo.tomoReportIsFound)
+                #region Nom de l'algo
+                Item_Result algo_name = new Item_Result();
+                algo_name.Label = "Algorithme de calcul";
+                if (!_pinfo.isTOMO)
                 {
-                    string tomoAlgo = _pinfo.tprd.Trd.algorithm;
-                    string planningMethod = _pinfo.tprd.Trd.planningMethod;
-                    algo_name.MeasuredValue = tomoAlgo + ":" + planningMethod;
 
-                    if ((tomoAlgo.Contains("Convolution-Superposition")) && (planningMethod.ToUpper().Contains("ULTRA")))  // Change to VOLO Ultra
-                        algo_name.setToTRUE();
-                    else
-                        algo_name.setToFALSE();
-                    algo_name.Infobulle = "Pour les plans Tomotherapy l'algorithme doit être Volo ULTRA. ";
 
+
+                    algo_name.ExpectedValue = _rcp.algoName;
+                    algo_name.MeasuredValue = _pinfo.AlgoName;
+                    algo_name.Comparator = "=";
+                    algo_name.Infobulle = "Algorithme attendu pour le check-protocol " + _rcp.protocolName + " : " + algo_name.ExpectedValue;
+                    algo_name.Infobulle += "\nLes algoOptions de calcul ne sont pas vérifiées si l'algorithme n'est pas celui attendu";
+                    algo_name.ResultStatus = testing.CompareDatas(algo_name.ExpectedValue, algo_name.MeasuredValue, algo_name.Comparator);
 
                 }
                 else
                 {
-                    algo_name.setToINFO();
-                    algo_name.MeasuredValue = "Pas de rapport de Dosimetrie Tomotherapy dans ARIA Documents";
+                    if (_pinfo.tomoReportIsFound)
+                    {
+                        string tomoAlgo = _pinfo.tprd.Trd.algorithm;
+                        string planningMethod = _pinfo.tprd.Trd.planningMethod;
+                        algo_name.MeasuredValue = tomoAlgo + ":" + planningMethod;
+
+                        if ((tomoAlgo.Contains("Convolution-Superposition")) && (planningMethod.ToUpper().Contains("ULTRA")))  // Change to VOLO Ultra
+                            algo_name.setToTRUE();
+                        else
+                            algo_name.setToFALSE();
+                        algo_name.Infobulle = "Pour les plans Tomotherapy l'algorithme doit être Volo ULTRA. ";
+
+
+                    }
+                    else
+                    {
+                        algo_name.setToINFO();
+                        algo_name.MeasuredValue = "Pas de rapport de Dosimetrie Tomotherapy dans ARIA Documents";
+
+                    }
 
                 }
-
+                this._result.Add(algo_name);
+                algoNameStatus = algo_name.ResultStatus.Item1; // for the following tests
+                #endregion
             }
-            this._result.Add(algo_name);
-            #endregion
-
-            #region Grille de resolution
-            Item_Result algo_grid = new Item_Result();
+            if (_pinfo.actualUserPreference.userWantsTheTest("algo_grid"))
+            {
+                #region Grille de resolution
+                Item_Result algo_grid = new Item_Result();
             algo_grid.Label = "Taille grille de calcul (mm)";
             algo_grid.ExpectedValue = _rcp.gridSize.ToString();//"1.25";// TO GET IN PRTOCOLE
             algo_grid.MeasuredValue = _pcontext.PlanSetup.Dose.XRes.ToString("0.00");
@@ -193,14 +197,16 @@ namespace PlanCheck
 
 
             #endregion
-
-            #region LES OPTIONS DE CALCUL
-            if (!_pinfo.isTOMO)
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("algoOptions"))
+            {
+                #region LES OPTIONS DE CALCUL
+                if (!_pinfo.isTOMO)
             {
 
 
                 // ------------------
-                // uncomment to display options !
+                // uncomment to display algoOptions !
                 /*
                  * String msg = null;
                                 Dictionary<String, String> map = new Dictionary<String, String>();
@@ -214,10 +220,10 @@ namespace PlanCheck
                 */
                 // ----------------------
 
-                if (algo_name.ResultStatus.Item1 != "X")// options are not checked if the algo is not the same
+                if (algoNameStatus != "X")// algoOptions are not checked if the algo is not the same
                 {
-                    Item_Result options = new Item_Result();
-                    options.Label = "Autres options du modèle de calcul";
+                    Item_Result algoOptions = new Item_Result();
+                    algoOptions.Label = "Autres algoOptions du modèle de calcul";
 
                     int optionsAreOK = 1;
                     int myOpt = 0;
@@ -232,8 +238,8 @@ namespace PlanCheck
 
                         if (kvp.Value != _rcp.optionComp[myOpt]) // if one computation option is different test is error
                         {
-                            options.Infobulle += "\nOption de calcul est différente du check-protocol: " + kvp.Key + "\n Protocole: " + _rcp.optionComp[myOpt] + "\n Plan: " + kvp.Value;
-                            options.MeasuredValue = "Options de calcul erronées (voir détail)";
+                            algoOptions.Infobulle += "\nOption de calcul est différente du check-protocol: " + kvp.Key + "\n Protocole: " + _rcp.optionComp[myOpt] + "\n Plan: " + kvp.Value;
+                            algoOptions.MeasuredValue = "Options de calcul erronées (voir détail)";
                             optionsAreOK = 0;
                         }
                         myOpt++;
@@ -242,27 +248,29 @@ namespace PlanCheck
 
                     if (optionsAreOK == 0)
                     {
-                        options.setToFALSE();
+                        algoOptions.setToFALSE();
                     }
                     else
                     {
-                        options.setToTRUE();
-                        options.MeasuredValue = "OK";
-                        options.Infobulle = "Les " + myOpt + " options du modèle calcul sont en accord avec le check-protocol: " + _rcp.protocolName + "\n";
+                        algoOptions.setToTRUE();
+                        algoOptions.MeasuredValue = "OK";
+                        algoOptions.Infobulle = "Les " + myOpt + " algoOptions du modèle calcul sont en accord avec le check-protocol: " + _rcp.protocolName + "\n";
                         foreach (KeyValuePair<String, String> kvp in map)
-                            options.Infobulle += " - " + kvp.Key + " : " + kvp.Value + "\n";
+                            algoOptions.Infobulle += " - " + kvp.Key + " : " + kvp.Value + "\n";
 
                     }
 
-                    this._result.Add(options);
+                    this._result.Add(algoOptions);
                 }
             }
             #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("NTO"))
+            {
+                #region NTO
 
-            #region NTO
 
-
-            if ((!_pinfo.isTOMO) && (!_pinfo.isHyperArc))
+                if ((!_pinfo.isTOMO) && (!_pinfo.isHyperArc))
             {
                 if (_pcontext.PlanSetup.OptimizationSetup.Parameters.Count() > 0) // if there is an optim. pararam
                 {
@@ -348,17 +356,19 @@ namespace PlanCheck
 
 
             #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("jawTrack"))
+            {
+                #region Jaw tracking
+                //  This method doesnt work:
+                //  OptimizationJawTrackingUsedParameter ojtup = op as OptimizationJawTrackingUsedParameter;
+                //  (found on the reddit )
+                // check only for nova
 
-            #region Jaw tracking
-            //  This method doesnt work:
-            //  OptimizationJawTrackingUsedParameter ojtup = op as OptimizationJawTrackingUsedParameter;
-            //  (found on the reddit )
-            // check only for nova
+                // en fait c'est actif systemetiquement au nova. pas fait a l'halcyon 
+                // sauf toute petite lésion : 3x3
 
-            // en fait c'est actif systemetiquement au nova. pas fait a l'halcyon 
-            // sauf toute petite lésion : 3x3
-
-            if ((_pinfo.isNOVA) && (!_pinfo.isHyperArc))
+                if ((_pinfo.isNOVA) && (!_pinfo.isHyperArc))
             {
                 if (_pcontext.PlanSetup.OptimizationSetup.Parameters.Count() > 0) // if there is an optim. pararam
                 {
@@ -400,11 +410,13 @@ namespace PlanCheck
                 }
             }
             #endregion
-
-            #region LES OPTIONS DU PO
-            if (!_pinfo.isTOMO)
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("POoptions"))
             {
-                if (algo_name.ResultStatus.Item1 != "X")// options are not checked if the algo is not the same
+                #region LES OPTIONS DU PO
+                if (!_pinfo.isTOMO)
+            {
+                if (algoNameStatus != "X")// algoOptions are not checked if the algo is not the same
                 {
                     Item_Result POoptions = new Item_Result();
                     POoptions.Label = "Options du PO";
@@ -440,7 +452,7 @@ namespace PlanCheck
                     else
                     {
                         POoptions.setToTRUE();
-                        POoptions.Infobulle = "Les " + myOpt + " options du modèle PO sont en accord avec le check-protocol: " + _rcp.protocolName;
+                        POoptions.Infobulle = "Les " + myOpt + " algoOptions du modèle PO sont en accord avec le check-protocol: " + _rcp.protocolName;
                         POoptions.MeasuredValue = "OK";
 
                     }
@@ -449,7 +461,7 @@ namespace PlanCheck
                 }
             }
             #endregion
-
+            }
         }
 
 

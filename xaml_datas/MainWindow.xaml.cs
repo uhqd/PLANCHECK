@@ -15,6 +15,8 @@ using Microsoft.Office.Interop.Word;
 using PlanCheck;
 using PlanCheck.createWordPrefilledCheckList;
 using PlanCheck.pdfreport;
+using PlanCheck.Users;
+using PlanCheck.xaml_datas;
 //using Microsoft.Office.Tools;
 //using PdfSharp.Pdf;
 
@@ -35,7 +37,6 @@ namespace PlanCheck
     public partial class MainWindow : System.Windows.Window
     {
         #region Variable Declarations of the class
-
         private PlanSetup _plan;
         private PreliminaryInformation _pinfo;
         private ScriptContext _pcontext;
@@ -74,29 +75,30 @@ namespace PlanCheck
         {
 
             DataContext = this;
+            //            _actualUserPreference = actualUserPreference;
             _pinfo = pinfo;
             _plan = pcontext.PlanSetup;
             _pcontext = pcontext;
-           // myTimer = new timer();
+            // myTimer = new timer();
 
             // an intelligent default protocol is chosen
             myFullFilename = getIntelligentDefaultProtocol();
 
             theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
-          //  myTimer.durationSinceLastCall("fill header");
+                               //  myTimer.durationSinceLastCall("fill header");
 
             _pinfo.lastUsedCheckProtocol = theProtocol;
 
             InitializeComponent(); // read the xaml
-          //  myTimer.durationSinceLastCall("Initialize component");
-
-            // fill combo box for user mode
-            UserMode.Items.Add("Dosimétriste");
-            UserMode.Items.Add("Physicien");
-            UserMode.Items.Add("Médical");
-
-            UserMode.SelectedIndex = 1;
+                                   //  myTimer.durationSinceLastCall("Initialize component");
+            /*
+              // fill combo box for user mode
+              UserMode.Items.Add("Dosimétriste");
+              UserMode.Items.Add("Physicien");
+              UserMode.Items.Add("Médical");
+              UserMode.SelectedIndex = 1;
+            */
         }
         public void FillHeaderInfos()
         {
@@ -357,175 +359,161 @@ d3.ToString("0.##");   //24
             myTimer.durationSinceLastCall("user click");
 
             #region c_course
-            if (_pinfo.UserMode == 1) //((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+
+            Check_Course c_course = new Check_Course(_pinfo, _pcontext);
+            if (c_course.Result.Count > 0)
             {
-                Check_Course c_course = new Check_Course(_pinfo, _pcontext);
-                if (c_course.Result.Count > 0)
-                {
-                    var check_point_course = new CheckScreen_Global(c_course.Title, c_course.Result);
-                    this.AddCheck(check_point_course);
-                }
-                myTimer.durationSinceLastCall("Check course");
+                var check_point_course = new CheckScreen_Global(c_course.Title, c_course.Result);
+                this.AddCheck(check_point_course);
             }
+            myTimer.durationSinceLastCall("Check course");
+
             #endregion
 
             #region Check_previous_Treatment
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1) || (_pinfo.UserMode == 2))
+
+            Check_previous_Treatment c_previous_traitements = new Check_previous_Treatment(_pinfo, _pcontext);
+            if (c_previous_traitements.Result.Count > 0)
             {
-                Check_previous_Treatment c_previous_traitements = new Check_previous_Treatment(_pinfo, _pcontext);
-                if (c_previous_traitements.Result.Count > 0)
-                {
-                    var check_point_prevTTT = new CheckScreen_Global(c_previous_traitements.Title, c_previous_traitements.Result);
-                    this.AddCheck(check_point_prevTTT);
-                }
-                myTimer.durationSinceLastCall("Previous treatments");
+                var check_point_prevTTT = new CheckScreen_Global(c_previous_traitements.Title, c_previous_traitements.Result);
+                this.AddCheck(check_point_prevTTT);
             }
+            myTimer.durationSinceLastCall("Previous treatments");
+
             #endregion
 
             #region Check_Prescription
 
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1) || (_pinfo.UserMode == 2))
-                if (_pcontext.PlanSetup.RTPrescription != null) // faire ce check seulement si il y a une prescription
+            if (_pcontext.PlanSetup.RTPrescription != null) // faire ce check seulement si il y a une prescription
+            {
+                Check_Prescription c_prescri = new Check_Prescription(_pinfo, _pcontext, rcp);
+                if (c_prescri.Result.Count > 0)
                 {
-                    Check_Prescription c_prescri = new Check_Prescription(_pinfo, _pcontext, rcp);
-                    if (c_prescri.Result.Count > 0)
-                    {
-                        var check_point_prescription = new CheckScreen_Global(c_prescri.Title, c_prescri.Result);
-                        this.AddCheck(check_point_prescription);
-                    }
+                    var check_point_prescription = new CheckScreen_Global(c_prescri.Title, c_prescri.Result);
+                    this.AddCheck(check_point_prescription);
                 }
+            }
             myTimer.durationSinceLastCall("prescription");
             #endregion
 
             #region c_CT
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+            Check_CT c_CT = new Check_CT(_pinfo, _pcontext, rcp);
+            if (c_CT.Result.Count > 0)
             {
-                Check_CT c_CT = new Check_CT(_pinfo, _pcontext, rcp);
-                if (c_CT.Result.Count > 0)
-                {
-                    var check_point_ct = new CheckScreen_Global(c_CT.Title, c_CT.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_ct);
-                }
-                myTimer.durationSinceLastCall("CT");
+                var check_point_ct = new CheckScreen_Global(c_CT.Title, c_CT.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_ct);
             }
+            myTimer.durationSinceLastCall("CT");
+
             #endregion
 
             #region Check_contours
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1) || (_pinfo.UserMode == 2))
+
+            Check_contours c_Contours = new Check_contours(_pinfo, _pcontext, rcp);
+            if (c_Contours.Result.Count > 0)
             {
-                Check_contours c_Contours = new Check_contours(_pinfo, _pcontext, rcp);
-                if (c_Contours.Result.Count > 0)
-                {
-                    var check_point_contours = new CheckScreen_Global(c_Contours.Title, c_Contours.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_contours);
-                }
-                myTimer.durationSinceLastCall("contours");
+                var check_point_contours = new CheckScreen_Global(c_Contours.Title, c_Contours.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_contours);
             }
+            myTimer.durationSinceLastCall("contours");
+
             #endregion
 
             #region Check_Isocenter
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+
+            Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext, rcp);
+            if (c_Isocenter.Result.Count > 0)
             {
-                Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext, rcp);
-                if (c_Isocenter.Result.Count > 0)
-                {
-                    var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_iso);
-                }
-                myTimer.durationSinceLastCall("isocenter");
+                var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_iso);
             }
+            myTimer.durationSinceLastCall("isocenter");
+
             #endregion
 
             #region c_Plan
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+
+            Check_Plan c_Plan = new Check_Plan(_pinfo, _pcontext, rcp);
+            if (c_Plan.Result.Count > 0)
             {
-                Check_Plan c_Plan = new Check_Plan(_pinfo, _pcontext, rcp);
-                if (c_Plan.Result.Count > 0)
-                {
-                    var check_point_plan = new CheckScreen_Global(c_Plan.Title, c_Plan.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_plan);
-                }
-                myTimer.durationSinceLastCall("plan");
+                var check_point_plan = new CheckScreen_Global(c_Plan.Title, c_Plan.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_plan);
             }
+            myTimer.durationSinceLastCall("plan");
+
             #endregion
 
             #region c_algo
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+
+            Check_Model c_algo = new Check_Model(_pinfo, _pcontext, rcp);
+            if (c_algo.Result.Count > 0)
             {
-                Check_Model c_algo = new Check_Model(_pinfo, _pcontext, rcp);
-                if (c_algo.Result.Count > 0)
-                {
-                    var check_point_model = new CheckScreen_Global(c_algo.Title, c_algo.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_model);
-                }
-                myTimer.durationSinceLastCall("model");
+                var check_point_model = new CheckScreen_Global(c_algo.Title, c_algo.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_model);
             }
+            myTimer.durationSinceLastCall("model");
+
             #endregion
 
             #region c_Beams
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+
+            Check_beams c_Beams = new Check_beams(_pinfo, _pcontext, rcp);
+            if (c_Beams.Result.Count > 0)
             {
-                Check_beams c_Beams = new Check_beams(_pinfo, _pcontext, rcp);
-                if (c_Beams.Result.Count > 0)
-                {
-                    var check_point_beams = new CheckScreen_Global(c_Beams.Title, c_Beams.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_beams);
-                }
-                myTimer.durationSinceLastCall("beams");
+                var check_point_beams = new CheckScreen_Global(c_Beams.Title, c_Beams.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_beams);
             }
+            myTimer.durationSinceLastCall("beams");
+
             #endregion
 
             #region c_UM
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+
+            Check_UM c_UM = new Check_UM(_pinfo, _pcontext, rcp);
+            if (c_UM.Result.Count > 0)
             {
-                Check_UM c_UM = new Check_UM(_pinfo, _pcontext, rcp);
-                if (c_UM.Result.Count > 0)
-                {
-                    var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_um);
-                }
-                myTimer.durationSinceLastCall("UM");
+                var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_um);
             }
+            myTimer.durationSinceLastCall("UM");
+
             #endregion
 
             #region Check_doseDistribution
-            if ((_pinfo.UserMode == 0) || (_pinfo.UserMode == 1))
+
+            Check_doseDistribution c_doseDistribution = new Check_doseDistribution(_pinfo, _pcontext, rcp);
+            if (c_doseDistribution.Result.Count > 0)
             {
-                Check_doseDistribution c_doseDistribution = new Check_doseDistribution(_pinfo, _pcontext, rcp);
-                if (c_doseDistribution.Result.Count > 0)
-                {
-                    var check_point_dose_distribution = new CheckScreen_Global(c_doseDistribution.Title, c_doseDistribution.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_dose_distribution);
-                }
-                myTimer.durationSinceLastCall("dose distribution");
+                var check_point_dose_distribution = new CheckScreen_Global(c_doseDistribution.Title, c_doseDistribution.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_dose_distribution);
             }
+            myTimer.durationSinceLastCall("dose distribution");
+
             #endregion
 
             #region Check_finalisation
-            if ((_pinfo.UserMode == 1))
+
+            Check_finalisation c_Finalisation = new Check_finalisation(_pinfo, _pcontext, rcp);
+            if (c_Finalisation.Result.Count > 0)
             {
-                Check_finalisation c_Finalisation = new Check_finalisation(_pinfo, _pcontext, rcp);
-                if (c_Finalisation.Result.Count > 0)
-                {
-                    var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    this.AddCheck(check_point_finalisation);
-                }
-                myTimer.durationSinceLastCall("finalisation");
+                var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                this.AddCheck(check_point_finalisation);
             }
+            myTimer.durationSinceLastCall("finalisation");
+
             #endregion
 
             #region Check_Uncheck_Test
-            if ((_pinfo.UserMode == 1))
+
+            Check_Uncheck_Test c_Uncheck = new Check_Uncheck_Test(_pinfo, _pcontext, rcp);
+            if (c_Uncheck.Result.Count > 0)
             {
-                Check_Uncheck_Test c_Uncheck = new Check_Uncheck_Test(_pinfo, _pcontext, rcp);
-                if (c_Uncheck.Result.Count > 0)
-                {
-                    var check_point_uncheck = new CheckScreen_Global(c_Uncheck.Title, c_Uncheck.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                    check_point_uncheck.Visibility = Visibility.Collapsed;
-                    this.AddCheck(check_point_uncheck);
-                }
-                myTimer.durationSinceLastCall("uncheck");
+                var check_point_uncheck = new CheckScreen_Global(c_Uncheck.Title, c_Uncheck.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                check_point_uncheck.Visibility = Visibility.Collapsed;
+                this.AddCheck(check_point_uncheck);
             }
+            myTimer.durationSinceLastCall("uncheck");
+
             #endregion
 
             myTimer.close();
@@ -655,7 +643,19 @@ d3.ToString("0.##");   //24
             */
             #endregion
         }
-        private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void preferences_button_Click(object sender, RoutedEventArgs e)
+        {
+            var myPrefWindow = new chooseUserPreferences(_pcontext,_pinfo); // create window
+            myPrefWindow.ShowDialog(); // display window,
+           // MessageBox.Show("yes");
+
+        }
+
+
+
+        /*
+         private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             OK_button.IsEnabled = true;
             if (UserMode.SelectedValue.ToString() == "Dosimétriste")
@@ -666,6 +666,8 @@ d3.ToString("0.##");   //24
                 _pinfo.UserMode = 2;
 
         }
+        */
+
         private void exportPDF_button_Click(object sender, RoutedEventArgs e)
         {
 
