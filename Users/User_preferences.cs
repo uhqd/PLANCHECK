@@ -11,7 +11,7 @@ namespace PlanCheck.Users
     public class User_preference
     {
 
-        private List<(string, bool)> userPrefsList;
+        private List<(string, bool,string)> userPrefsList;
         private static string userListFilePath = String.Empty;
         private static string newsFilePath = String.Empty;
         public bool userWantsTheTest(string testName)
@@ -38,7 +38,7 @@ namespace PlanCheck.Users
                     bool yesOrNo = true;
 
                     // Vérifier si la ligne contient suffisamment de colonnes
-                    if (colonnes.Length == 2)
+                    if (colonnes.Length == 3)
                     {
                         if (colonnes[1] == "yes")
                             yesOrNo = true;
@@ -46,8 +46,8 @@ namespace PlanCheck.Users
                             yesOrNo = false;
                         // Ajouter le tuple à la liste
 
-
-                        userPrefsList.Add((colonnes[0], yesOrNo));
+                         
+                        userPrefsList.Add((colonnes[0], yesOrNo,colonnes[2]));
 
 
                     }
@@ -101,14 +101,14 @@ namespace PlanCheck.Users
                 // Créer un fichier et écrire du texte dedans
                 using (StreamWriter writer = new StreamWriter(userListFilePath))
                 {
-                    foreach ((string text, bool valeurBool) in userPrefsList)
+                    foreach ((string text, bool valeurBool,string textExplication) in userPrefsList)
                     {
                         if(valeurBool == true)
                         {
-                            writer.WriteLine(text+";yes");
+                            writer.WriteLine(text+";yes;" + textExplication);
                         }
                         else
-                            writer.WriteLine(text + ";no");
+                            writer.WriteLine(text + ";no;" + textExplication);
                         //   writer.WriteLine("Hello, world!");
                         //   writer.WriteLine("Ceci est une nouvelle ligne de texte.");
                     }
@@ -129,7 +129,7 @@ namespace PlanCheck.Users
 
         public User_preference(string fulluserID) // constructor 
         {
-            userPrefsList = new List<(string, bool)>();
+            userPrefsList = new List<(string, bool,string)>();
 
             string userid; //i.e admin\simon_lu --> cut admin\
             if (fulluserID.Contains("\\"))
@@ -143,10 +143,10 @@ namespace PlanCheck.Users
 
             userListFilePath = userid + "_prefs.csv";
 
-            userListFilePath = Directory.GetCurrentDirectory() + @"\plancheck_data\users\" + userListFilePath;
+            userListFilePath = Directory.GetCurrentDirectory() + @"\plancheck_data\users\UserPrefs\" + userListFilePath;
 
             // This file contains yes for all test. All the new tests are here. 
-            newsFilePath = Directory.GetCurrentDirectory() + @"\plancheck_data\users\newsPrefs.csv";
+            newsFilePath = Directory.GetCurrentDirectory() + @"\plancheck_data\users\UserPrefs\newsPrefs.csv";
 
             if (!File.Exists(newsFilePath))
             {
@@ -175,12 +175,12 @@ namespace PlanCheck.Users
 
         }
         //   GET, SET
-        public List<(string, bool)> userPreferencesList
+        public List<(string, bool,string)> userPreferencesList
         {
             get { return userPrefsList; }
             set { userPrefsList = value; }
         }
-        public void Set(string targetString, bool newValue)
+        public void Set(string targetString, bool newValue,string text2)
         {
             // Rechercher l'index de l'élément ayant la chaîne spécifique
             int index = userPrefsList.FindIndex(item => item.Item1 == targetString);
@@ -189,12 +189,12 @@ namespace PlanCheck.Users
             if (index != -1)
             {
                 var updatedItem = userPrefsList[index];
-                userPrefsList[index] = (updatedItem.Item1, newValue);
+                userPrefsList[index] = (updatedItem.Item1, newValue,text2);
             }
             // Sinon, ajouter un nouvel élément avec la chaîne spécifique et la nouvelle valeur booléenne
             else
             {
-                userPrefsList.Add((targetString, newValue));
+                userPrefsList.Add((targetString, newValue,text2));
             }
         }
 

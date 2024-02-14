@@ -94,7 +94,9 @@ namespace PlanCheck
                 }
                 #endregion
             }
-            if (_pinfo.actualUserPreference.userWantsTheTest("doseRate"))
+            bool userWantsDoseRate = _pinfo.actualUserPreference.userWantsTheTest("doseRate");
+            bool userWantsLowStep = _pinfo.actualUserPreference.userWantsTheTest("lowSteps");
+            if (userWantsDoseRate || userWantsLowStep)
             {
                 #region DOSERATE FOR QA PREDICTION AND GANTRY SPEED 
 
@@ -228,23 +230,24 @@ namespace PlanCheck
 
                         doseRate.MeasuredValue = s;
                         doseRate.setToTRUE();
-                        this._result.Add(doseRate);
+                        if (userWantsDoseRate)
+                            this._result.Add(doseRate);
 
                         if (_pinfo.treatmentType != "IMRT")
                         {
 
-                            Item_Result lowStep = new Item_Result();
-                            lowStep.Label = "CP trop lents (< 1 deg/s)";
+                            Item_Result lowSteps = new Item_Result();
+                            lowSteps.Label = "CP trop lents (< 1 deg/s)";
                             double ratio = 100.0 * Convert.ToDouble(nLowStepDetected) / Convert.ToDouble(nTotalSteps);
-                            lowStep.MeasuredValue = nLowStepDetected.ToString() + " / " + nTotalSteps.ToString() + " (" + ratio.ToString("F1") + "%)";
-                            lowStep.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
+                            lowSteps.MeasuredValue = nLowStepDetected.ToString() + " / " + nTotalSteps.ToString() + " (" + ratio.ToString("F1") + "%)";
+                            lowSteps.Infobulle = "Nombre de CP ayant une vitesse < 1 deg/s";
 
                             if (nLowStepDetected > 1)
-                                lowStep.setToWARNING();
+                                lowSteps.setToWARNING();
                             else
-                                lowStep.setToTRUE();
-
-                            this._result.Add(lowStep);
+                                lowSteps.setToTRUE();
+                            if (userWantsLowStep)
+                                this._result.Add(lowSteps);
                         }
                     }
 

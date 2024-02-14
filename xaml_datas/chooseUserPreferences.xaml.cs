@@ -33,9 +33,9 @@ namespace PlanCheck.xaml_datas
 
 
             MaListe = new List<string>();
-            foreach ((string text, bool valeurBool) in _pinfo.actualUserPreference.userPreferencesList)
+            foreach ((string text, bool valeurBool,string text2) in _pinfo.actualUserPreference.userPreferencesList)
             {
-                MaListe.Add(text);
+                MaListe.Add(text2);
             }
 
 
@@ -82,8 +82,8 @@ namespace PlanCheck.xaml_datas
                 var checkBox = FindChild<CheckBox>(container, null);
 
 
-                bool userPreferenceForThisTest = _pinfo.actualUserPreference.userPreferencesList.FirstOrDefault(x => x.Item1 == checkBox.Content.ToString()).Item2;
-
+                bool userPreferenceForThisTest = _pinfo.actualUserPreference.userPreferencesList.FirstOrDefault(x => x.Item3 == checkBox.Content.ToString()).Item2;
+                
                 checkBox.IsChecked = userPreferenceForThisTest;   // set the checkbox status with the user pref
 
                 // checkbox label name : checkBox.Content.ToString()
@@ -135,7 +135,10 @@ namespace PlanCheck.xaml_datas
                 bool isChecked = checkBox.IsChecked ?? false; // get checkboxstatus
 
                 // update list preference
-                _pinfo.actualUserPreference.Set(_pinfo.actualUserPreference.userPreferencesList.FirstOrDefault(x => x.Item1 == checkBox.Content.ToString()).Item1, isChecked);
+                _pinfo.actualUserPreference.Set(
+                    _pinfo.actualUserPreference.userPreferencesList.FirstOrDefault(x => x.Item3 == checkBox.Content.ToString()).Item1,
+                    isChecked,
+                    _pinfo.actualUserPreference.userPreferencesList.FirstOrDefault(x => x.Item3 == checkBox.Content.ToString()).Item3);
             }
             // update user file  preference
             _pinfo.actualUserPreference.updateUserPrefFileFromlist();

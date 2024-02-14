@@ -1,0 +1,62 @@
+currentCourseStatus;no;Statut du course ouvert
+planApprove;no;Statut du plan ouvert
+coursesStatus;no;Statut des autres courses
+tomoReportApproved;no;Approbation du rapport Tomo
+anteriorTraitement;no;Recherche de traitements anterieurs
+prescriptionVolumes;no;Liste des cibles dans la prescription
+fractionation;no;Verification du fractionnement
+percentage;no;Pourcentage de la prescription
+normalisation;no;Mode de normalisation
+prescriptionName;no;Nom de la prescription
+CT_age;no;Age du CT
+origin;yes;Origine modifiee
+sliceThickness;no;Epaisseur de coupes
+HUcurve;no;Courbe HU
+deviceName;no;Nom du scanner
+image3Dnaming;no;Nom de image3D
+averageCT;no;Scanner Average composition
+averageForSBRT;no;Scanner Average pour SBRT
+tomoReportCT_date;no;Date du rapport Tomo
+otherSeries;no;Series supplementaires necessaires
+approbationStatus;no;Approbation du groupe de structures
+couchStructExist;no;Existence de la table
+correctCouch;no;Table correcte
+clinicalStructuresItem;no;Liste des structures cliniques
+optStructuresItem;no;Liste des structures Optimisation
+fixedHUVolumeList;no;Liste des structures HU forcees
+anormalVolumeList;no;Vraissemblance des volumes des stuctures
+shapeAnalyser;no;Nombre de parties des structures
+missingSlicesItem;no;Coupes manquantes dans les structures
+laterality;no;Lateralite correcte des structures G et D
+aPTVforEveryone;no;Existence de PTV pour chaque CTV
+allFieldsSameIso;no;Unicite de l'isocentre
+isoAtCenterOfPTV;no;Isocentre au centre de la cible
+distanceToOrigin;no;Distance iso origine
+isoTomo;no;Position iso Tomo
+gating;no;Gating active
+RAdirection;no;Direction des arcs
+colli;no;Collimateur VMAT non nul
+FE_MLC;no;Modification des champs de FE
+algo_name;no;Nom algorithme
+algo_grid;no;Grille de calcul
+algoOptions;no;Options de l'algorithme
+NTO;no;parametres NTO
+jawTrack;no;Jaw tracking
+POoptions;no;Options PO
+energy;no;Energie
+doseRate;no;Debit de dose pour CQ
+lowSteps;yes;Control Points trop lents
+toleranceTable;no;Table de tolerances des champs
+fieldTooSmall;no;Champ trop petit
+maxPositionMLCHalcyon;no;Position max des lames Halcyon
+novaSBRT;no;Nova SBRT
+tomoParamsFieldWidth;no;Parametres du plan TOMO
+umPerGray;no;UM par Gray
+UMforFE;no;UM du plan FE
+wedged;no;Filtres
+less10UM;no;Champs de 10 UM
+turquoiseIsodose;no;Isodose Turquoise
+prescribedObjectives;no;Objectifs de dose (PTV)
+doseToOAR;no;Objectifs de dose (OAR)
+ariaDocuments;no;Documents ARIA
+preparedQA;no;Preparation QA
