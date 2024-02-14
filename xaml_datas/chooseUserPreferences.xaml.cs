@@ -137,7 +137,9 @@ namespace PlanCheck.xaml_datas
                 // update list preference
                 _pinfo.actualUserPreference.Set(_pinfo.actualUserPreference.userPreferencesList.FirstOrDefault(x => x.Item1 == checkBox.Content.ToString()).Item1, isChecked);
             }
-                this.Close();
+            // update user file  preference
+            _pinfo.actualUserPreference.updateUserPrefFileFromlist();
+            this.Close();
         }
        
     }

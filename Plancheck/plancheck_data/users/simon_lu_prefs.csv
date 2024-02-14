@@ -42,7 +42,7 @@ algo_grid;yes
 algoOptions;yes
 NTO;yes
 jawTrack;yes
-POoptions;no
+POoptions;yes
 energy;yes
 doseRate;yes
 toleranceTable;yes

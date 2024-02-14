@@ -17,10 +17,10 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button x:Name="tous" Content="Tous" HorizontalAlignment="Left" Margin="500,1000,0,0" VerticalAlignment="Top" Click="tous_Click" Height="27" Width="89" FontSize="12" />
-        <Button x:Name="aucun" Content="Aucun" HorizontalAlignment="Left" Margin="500,1050,0,0" VerticalAlignment="Top" Click="aucun_Click" Height="27" Width="89" FontSize="12" />
+        <Button x:Name="tous" Content="Tous" HorizontalAlignment="Left" Margin="500,100,0,0" VerticalAlignment="Top" Click="tous_Click" Height="27" Width="89" FontSize="12" />
+        <Button x:Name="aucun" Content="Aucun" HorizontalAlignment="Left" Margin="500,130,0,0" VerticalAlignment="Top" Click="aucun_Click" Height="27" Width="89" FontSize="12" />
 
-        <Button x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,1100,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" />
+        <Button x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,160,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" />
 
 
     </Grid>
