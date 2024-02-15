@@ -14,7 +14,7 @@ sliceThickness;yes;Epaisseur de coupes
 HUcurve;yes;Courbe HU
 deviceName;yes;Nom du scanner
 image3Dnaming;yes;Nom de image3D
-averageCT;yes;Scanner Average composition
+averageCT;no;Scanner Average composition
 averageForSBRT;yes;Scanner Average pour SBRT
 tomoReportCT_date;yes;Date du rapport Tomo
 otherSeries;yes;Series supplementaires necessaires
