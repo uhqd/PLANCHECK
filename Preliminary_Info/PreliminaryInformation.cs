@@ -74,7 +74,10 @@ namespace PlanCheck
             bool returnBool = false;
             DateTime myToday = DateTime.Today;
             int nDays = (myToday - t).Days;
-            if (nDays > recent)
+
+            //MessageBox.Show("date " + t.ToString() + " " + nDays.ToString());
+            
+            if ((nDays > recent)||(nDays < 0))
                 returnBool = false;
             else
                 returnBool = true;
@@ -236,6 +239,8 @@ namespace PlanCheck
                 {
 
                     dtDateTime = dtDateTime.AddSeconds(Convert.ToDouble(response_docdetails.Substring(dateservloc + 23, datesignloc - dateservloc - 34)) / 1000).ToLocalTime();
+
+                    //MessageBox.Show("date avant : " + dtDateTime.ToString());
                     if (!isARecentDocument(dtDateTime))
                     {
                         trashDoc = true;

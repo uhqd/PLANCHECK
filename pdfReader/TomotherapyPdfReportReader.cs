@@ -297,16 +297,32 @@ namespace PlanCheck
                     if (lines[i].Contains("Gantry Period (sec)"))
                     {
 
+                        try
+                        {
+                            trd.gantryPeriod = Convert.ToDouble(lines[i + 2]);
+                            trd.gantryNumberOfRotation = Convert.ToDouble(lines[i + 3]);
+                        }
+                        catch
+                        {
+                            trd.gantryPeriod = 99.999;
+                            trd.gantryNumberOfRotation = 99.999;
+                            //MessageBox.Show("gantry period " + lines[i + 2]);
+                            //MessageBox.Show("n rotation" + lines[i + 3]);
 
-                        trd.gantryPeriod = Convert.ToDouble(lines[i + 2]);
-                        trd.gantryNumberOfRotation = Convert.ToDouble(lines[i + 3]);
+                        }
                     }
                     if (lines[i].Contains("Couch Travel (mm)"))
                     {
-
-                        trd.couchTravel = Convert.ToDouble(lines[i + 2]);
-                        trd.couchSpeed = Convert.ToDouble(lines[i + 3]);
-
+                        try
+                        {
+                            trd.couchTravel = Convert.ToDouble(lines[i + 2]);
+                            trd.couchSpeed = Convert.ToDouble(lines[i + 3]);
+                        }
+                        catch
+                        {
+                            trd.couchTravel = 99.99;
+                            trd.couchSpeed = 99.99;
+                        }
                     }
 
                     //ex.: Red Lasers Offset (IECf, mm): X: -11.58 Y: -85.14 Z: -26.32

@@ -394,7 +394,7 @@ namespace PlanCheck
                                 if (testingString.ToUpper().Contains("HALCYON"))
                                     correctCouch.setToTRUE();
                                 else
-                                    correctCouch.setToFALSE();
+                                    correctCouch.setToWARNING();
                             }
                             if (_pinfo.isNOVA)
                             {
@@ -405,7 +405,7 @@ namespace PlanCheck
                                 if (testingString.ToUpper().Contains("EXACT"))
                                     correctCouch.setToTRUE();
                                 else
-                                    correctCouch.setToFALSE();
+                                    correctCouch.setToWARNING();
 
                             }
 
@@ -485,7 +485,7 @@ namespace PlanCheck
 
                     if (mandatoryMissingClinicalStructures.Count > 0)
                     {
-                        clinicalStructuresItem.setToFALSE();
+                        clinicalStructuresItem.setToWARNING();
                         clinicalStructuresItem.Infobulle += mandatoryMissingClinicalStructures.Count + " structure(s) obligatoire(s) manquante(s) :\n";
                         foreach (string ms in mandatoryMissingClinicalStructures)
                             clinicalStructuresItem.Infobulle += " - " + ms + "\n";
@@ -567,7 +567,7 @@ namespace PlanCheck
 
                     if (mandatoryMissingOptStructures.Count > 0)
                     {
-                        optStructuresItem.setToFALSE();
+                        optStructuresItem.setToWARNING();
                         optStructuresItem.Infobulle += mandatoryMissingOptStructures.Count + "structure(s) obligatoire(s) manquante(s) : \n";
                         foreach (string ms in mandatoryMissingOptStructures)
                             optStructuresItem.Infobulle += " - " + ms + "\n";

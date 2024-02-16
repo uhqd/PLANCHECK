@@ -1,92 +1,258 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
-Plan:Mediastin
-Rapportcrééle:14/02/202413:46:34par:DefourNathalie
-1/6
-PATIENT
-Nom:GUIRAUD,ROLAND(202111520) DatedeNaissance:17/12/1939 Sexe:Masculin
-PLAN PRESCRIPTIONDE
-DOSE
-IDplan Mediastin Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV
-IDimage: TDMRTE090224 Pointdereferenceprincipal PTV
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.8%
-Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.25cm,-21.67cm,0.20cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 30.000Gy(3.000Gy/fraction)
-Nombredefractions: 10
-OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc 0.125
-FieldNormalizationType 100%toisocenter
-HeterogeneityCorrection ON
-APPROBATIONS
-Plancréé: admin\lacaze(13/02/202410:06:59)
-Appro.plan: HernandezLudovic(mardi13février202411:23:01)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
-Plan:Mediastin
-Rapportcrééle:14/02/202413:46:34par:DefourNathalie
-2/6
-PARAMETRESDESFAISCEAUXDETRAITEMENT
-IDchamp RA1 RA2
-IDmachine NOVA5 NOVA5
-Energie 6X 6X
-Debitdedose 600UM/min 600UM/min
-X1 4.62 5.84
-X2 5.62 4.37
-Y1 7.92 7.92
-Y2 6.5 6.5
-Tailledechamp 10.24cmx
-14.42cm
-10.21cmx
-14.42cm
-Angledubras 181° 179°
-Sensderotationdu
-bras
-SH SAH
-Angled'arrêtdu
-bras
-179° 181°
-Rot.collimateur 15° 345°
-Rot.detable 0° 0°
-Bolus - -
-IsocentreX 1.03cm 1.03cm
-IsocentreY 2.29cm 2.29cm
-IsocentreZ 12.71cm 12.71cm
-DSP 90cm 90cm
-Ponderation 1.023 0.945
-Pointderéférence PTV PTV
-Filtreencoin - -
-Bloc - -
-Plaque - -
-Doseparfraction 1.559Gy 1.441Gy
-UM 304.5UM 281.3UMRappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
-Plan:Mediastin
-Rapportcrééle:14/02/202413:46:34par:DefourNathalie
-3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
-Plan:Mediastin
-Rapportcrééle:14/02/202413:46:34par:DefourNathalie
-4/6
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
-Trachee 32.6 30.2 9.7 29.6
-Poumons 5835.9 30.5 5.0 30.1
-PoumonGche 2943.5 30.2 4.8 27.8
-PoumonDt 2892.2 30.5 5.1 30.1
-Oesophage 93.6 32.0 17.8 30.9
-Coeur 714.2 30.5 3.0 29.7
-CanalMed 97.3 6.9 1.7 5.8
-CTV 122.7 31.2 30.1 30.8
-PTV 222.7 32.0 29.9 31.0
-CanalMed+5 269.4 9.4 1.8 NonNumériqueRappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
-Plan:Mediastin
-Rapportcrééle:14/02/202413:46:34par:DefourNathalie
-5/6
-DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2
-Décaler: -1.03cm -2.29cm 12.71cm
-Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deGUIRAUD,ROLAND
-Plan:Mediastin
-Rapportcrééle:14/02/202413:46:34par:DefourNathalie
-6/6
+Accuray PrecisionPlan Overview
+Contents
+Chapter 1: Overview
+Patient Details
+Plan Summary
+Chapter 2: Imaging
+Imaging Series
+Chapter 3: Plan
+Plan Overview
+Treatment Parameters
+Density
+Prescription Details
+VOI and DVH Graphs
+Chapter 4: Approval
+Details
+Chapter 5: DVH - Omitted by User Request
+Chapter 6: Images
+Report Snapshots
+Patient Name: CHRISTINE CARRARO
+Medical ID: 202007287 Plan Status:
+Version:
+Approved
+Accuray Precision 2.0.0.1
+Plan Name: ParoiGgg
+Plan Overview
+Page 1 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)Chapter 1: Overview
+Patient Details
+Last Name: CARRARO
+First Name:
+Medical ID:
+Patient Key:
+202007287
+CHRISTINE
+Gender:
+407800
+Female
+Date Of Birth: 19 Mar 1963
+Plan Summary
+Plan Name:
+Plan Status:
+ParoiGgg
+Approved
+No. of Planned Fractions: 25
+0 No. of Delivered Fractions:
+Last Treatment Date:
+Planned MU: 176604.2
+Treatment Site ICD: IUC-TOULOUSE
+Reference Dose (Gy): 59.23
+IUC-TOULOUSE Treatment Site:
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Specialists
+Plan Type: Standard
+Additional Sites: IUC-TOULOUSE
+Additional Site Codes: IUC-TOULOUSE
+Physician Name Physician Signature Date/Time
+Physicist Name Physicist Signature Date/Time
+Sinogram Segments: 5.7
+Red Lasers Offset (IECf, mm): X: -61.34 Y: -43.34 Z: -51.43
+Prescription: Median of PTV paroi, 50.00 Gy
+Gantry Rotations: 17.1 Couch Speed (mm/sec): 0.6
+Beam On Time (sec): 408.3
+Couch Travel (mm): 248.6 Gantry Period (sec): 23.8
+Plan Overview
+Page 2 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1Imaging Series
+Chapter 2: Imaging
+X Y Z
+Origin (IECp, mm) -325.000 -205.000 325.000
+Size (IECp, voxel) 512 202 512
+Spacing (IECp, mm) 1.27 2.50 1.27
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+21 May 2021, 01:46:06 PM (hr:min:sec) 202
+Scanner Model:
+Patient Position:
+Optima CT580
+HFS
+Series UID/Description Study UID/Description:
+1.2.840.113619.2.278.3.3523880722.508.1621572651.436 1.2.840.113619.2.278.3.3523880722.508.1621572651.431
+paroi ghe TDM therapie SPC
+Plan Overview
+Page 3 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1Plan Overview
+Chapter 3: Plan
+ParoiGgg Plan Name:
+Plan Type: Standard
+Plan Saved Date: 09 Jun 2021, 4:37:47 PM (hr:min:sec)
+Created in Version: Accuray Precision 2.0.0.1 [4]
+Plan Key:
+Last Modified by:
+414540/2
+Eliane Graulieres
+Saved Deliverable by: Christelle LANASPEZE
+Treatment Parameters
+Treatment Machine: 4010012_1000MU 1180 MU/min, rev 19
+Planned Fractions: 25
+HFS Patient Position:
+Treatment Machine Serial No.: 4010012
+Plan Delivery Type (Mode): Helical (IMRT)
+Field Width (cm): 5.0, Dynamic
+Pitch: 0.287
+Modulation Factor (Actual): 3.500 (2.0)
+Beam On Time (sec): 408.3
+Couch Travel (mm): 248.6
+Couch Speed (mm/sec): 0.6
+Gantry Period (sec): 23.8
+17.1 Gantry Rotations:
+Plan Overview
+Page 4 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1Reference Dose (Gy):
+Delivery Signature: gnQC7 XaYYA 
+59.23 59.23 Maximum Dose (Gy):
+MU per Fraction: 7064.2
+Convolution-Superposition
+Prescription Details
+X: 67.3 Y: 157.5 Z: 57.1
+Dose Calculation Algorithm:
+Reference Point (IECp, mm):
+Dose Calculation Resolution 
+(Type):
+High (Final)
+Auto Generated Results:
+Not Applicable
+Prescription: Median of PTV paroi, 50.00 Gy
+Prescribed Dose per Fraction 
+(Gy):
+2.00
+Plan Overview
+Page 5 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1Dose Calculation Grid
+X Y Z
+Origin (IECp, mm) -325.000 -205.000 325.000
+Size (IECp, voxel) 512 202 512
+Spacing (IECp, mm) 1.27 2.50 1.27
+HU Relative Electron Density Mass Density (g/cm³)
+-939 * 0.001
+-672 * 0.290
+-509 * 0.480
+13 * 1.000
+226 * 1.146
+455 * 1.331
+837 * 1.558
+1214 * 1.822
+30884 * 22.599
+Density
+Density Model: IUC-120kV
+Density Overrides
+Priority VOI Name
+Relative Electron 
+Density
+Mass Density 
+(g/cm³)
+Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
+Plan Overview
+Page 6 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) Cl nCl HI Coverage 
+%
+Beam Inter.
+BODY 58892.14 0.03 6.43 59.23 n/a n/a n/a n/a Allowed
+Canal med 61.35 0.31 3.13 10.31 n/a n/a n/a n/a Exit Only
+Coeur 824.74 1.56 7.90 46.40 n/a n/a n/a n/a Exit Only
+CTV axillaire 256.86 47.12 50.31 59.23 n/a n/a n/a n/a Allowed
+CTV cmi 25.41 42.81 49.93 53.80 n/a n/a n/a n/a Allowed
+CTV paroi 1484.94 29.41 49.62 54.33 n/a n/a n/a n/a Allowed
+CTV sous clav 125.07 45.62 50.56 58.87 n/a n/a n/a n/a Allowed
+CTV sus clav 55.49 46.91 50.28 53.94 n/a n/a n/a n/a Allowed
+Foie 3618.37 0.11 0.96 17.23 n/a n/a n/a n/a Exit Only
+Larynx 28.79 1.39 2.78 11.40 n/a n/a n/a n/a Allowed
+Oesophage 18.64 2.23 12.59 34.21 n/a n/a n/a n/a Allowed
+PoumonDt 1162.55 0.47 3.93 18.51 n/a n/a n/a n/a Exit Only
+PoumonGche 917.65 0.92 10.16 52.92 n/a n/a n/a n/a Exit Only
+Poumons 2080.19 0.47 6.68 52.92 n/a n/a n/a n/a Allowed
+PTV Axillaire 426.33 39.58 49.94 59.23 5.85 12.89 1.18 45.36 n/a
+PTV boost 7.60 53.83 57.16 59.23 148.7
+8
+148.7
+8
+1.18 100.00 n/a
+PTV cmi 58.30 36.54 49.55 54.53 42.79 94.37 1.09 45.34 n/a
+PTV paroi 1773.27 33.17 49.74 54.35 1.40 3.08 1.09 45.54 n/a
+PTV sous clav 234.45 43.31 50.13 58.87 9.59 19.07 1.18 50.30 n/a
+PTV sus clav 119.90 35.46 49.81 53.94 19.20 39.05 1.08 49.15 n/a
+Sein contro 2030.27 1.61 4.36 18.49 n/a n/a n/a n/a Exit Only
+TetehumeraleGche 56.05 1.91 8.09 34.47 n/a n/a n/a n/a Allowed
+Thyroide 29.93 2.58 24.00 52.47 n/a n/a n/a n/a Allowed
+Trachee 19.09 6.05 18.50 36.52 n/a n/a n/a n/a Allowed
+GTV 0.83 57.02 58.16 59.16 n/a n/a n/a n/a Allowed
+Plexus Brachial 20.55 29.47 50.22 53.35 n/a n/a n/a n/a Allowed
+BrachialPlexus+5 72.78 16.10 49.28 55.62 n/a n/a n/a n/a Allowed
+BLOC 553.97 0.82 1.75 3.07 n/a n/a n/a n/a Exit Only
+VOI
+Plan Overview
+Page 7 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1CanalMed+5 201.65 0.29 3.32 19.16 n/a n/a n/a n/a Exit Only
+PTVTOTAL 2404.01 32.73 49.79 59.23 n/a n/a n/a n/a Allowed
+RingPTVgg 615.27 10.73 41.02 55.04 n/a n/a n/a n/a Allowed
+RingPTVParoi 1165.25 11.24 35.16 55.04 n/a n/a n/a n/a Allowed
+MANQUE 549.35 34.68 49.58 54.33 4.77 11.07 1.09 43.13 n/a
+All Target Regions n/a 33.17 49.79 59.23 1.03 2.26 1.18 45.66 n/a
+All Critical Regions n/a 0.11 15.96 59.23 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.03 3.75 52.80 0.00 0.00 0.00 0.00 n/a
+DVH Dose (Gy) Dose (% of 50.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%)
+Canal med 10.00 20.0 0.04 0.1
+Coeur 15.00 30.0 78.92 9.6
+Coeur 25.00 50.0 20.97 2.5
+PoumonDt 5.00 10.0 325.90 28.0
+PoumonGche 5.00 10.0 593.50 64.7
+PoumonGche 20.00 40.0 131.45 14.3
+Poumons 5.00 10.0 919.36 44.2
+Poumons 20.00 40.0 131.44 6.3
+Sein contro 5.00 10.0 561.15 27.6
+PTV paroi 47.68 95.4 1684.60 95.0
+PTV sus clav 47.60 95.2 113.91 95.0
+PTV sous clav 47.64 95.3 222.73 95.0
+PTV Axillaire 48.04 96.1 405.02 95.0
+PTV cmi 45.75 91.5 55.39 95.0
+PTV boost 55.38 110.8 7.22 95.0
+Dx Vx Values
+Plan Overview
+Page 8 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1DVH: Relative Dose
+Plan Overview
+Page 9 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1DVH: Absolute Dose
+Plan Overview
+Page 10 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1Planned Fluence Sinogram
+Plan Overview
+Page 11 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1Chapter 4: Approval
+Details
+Approved by:
+First Name:
+Last Name:
+Middle Name:
+Justine
+ATTAL
+09 Jun 2021, 4:36:28 PM (hr:min:sec)
+User ID: attal_j
+Approval Date:
+Plan Overview
+Page 12 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1Chapter 6: Images
+Report Snapshots
+Plan Overview
+Page 13 of 13 10 Jun 2021, 11:59:51 AM (hr:min:sec)
+CARRARO, CHRISTINE, 202007287, ParoiGgg, Accuray Precision 2.0.0.1
