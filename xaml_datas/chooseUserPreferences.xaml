@@ -17,10 +17,14 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+          
             <Button  Style="{x:Null}"  x:Name="tous" Content="Tous" HorizontalAlignment="Left" Margin="500,100,0,0" VerticalAlignment="Top" Click="tous_Click" Height="27" Width="89" FontSize="12" />
             <Button  Style="{x:Null}"   x:Name="aucun" Content="Aucun" HorizontalAlignment="Left" Margin="500,130,0,0" VerticalAlignment="Top" Click="aucun_Click" Height="27" Width="89" FontSize="12" />
 
-            <Button  Style="{x:Null}"  x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,160,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" />
+            <Button  Style="{x:Null}"  x:Name="medecin" Content="Médecin" ToolTip="Liste recommandée pour les médecins" HorizontalAlignment="Left" Margin="500,180,0,0" VerticalAlignment="Top" Click="medecin_Click" Height="27" Width="89" FontSize="12" />
+            <Button  Style="{x:Null}"   x:Name="dosimetriste" Content="Dosimétriste" ToolTip="Liste recommandée pour les dosimétristes" HorizontalAlignment="Left" Margin="500,210,0,0" VerticalAlignment="Top" Click="dosimetriste_Click" Height="27" Width="89" FontSize="12" />
+            
+            <Button  Style="{x:Null}"  x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,300,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" Background="#FF9DE47E" />
 
 
         </Grid>

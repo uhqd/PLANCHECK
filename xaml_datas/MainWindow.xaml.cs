@@ -653,21 +653,6 @@ d3.ToString("0.##");   //24
         }
 
 
-
-        /*
-         private void UserMode_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            OK_button.IsEnabled = true;
-            if (UserMode.SelectedValue.ToString() == "Dosimétriste")
-                _pinfo.UserMode = 0;
-            if (UserMode.SelectedValue.ToString() == "Physicien")
-                _pinfo.UserMode = 1;
-            if (UserMode.SelectedValue.ToString() == "Médical")
-                _pinfo.UserMode = 2;
-
-        }
-        */
-
         private void exportPDF_button_Click(object sender, RoutedEventArgs e)
         {
 
