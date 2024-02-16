@@ -6,22 +6,23 @@
         xmlns:local="clr-namespace:PlanCheck.xaml_datas"
         mc:Ignorable="d"
         Title="Préférences Utilisateur" Height="1200" Width="700">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="40,0,0,25">
 
-    <Grid Margin="40,0,0,25">
+            <ItemsControl x:Name="itemsControl" ItemsSource="{Binding MaListe}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Utilisation de CheckBox pour chaque élément de la liste -->
+                        <CheckBox Content="{Binding}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Button x:Name="tous" Content="Tous" HorizontalAlignment="Left" Margin="500,100,0,0" VerticalAlignment="Top" Click="tous_Click" Height="27" Width="89" FontSize="12" />
+            <Button x:Name="aucun" Content="Aucun" HorizontalAlignment="Left" Margin="500,130,0,0" VerticalAlignment="Top" Click="aucun_Click" Height="27" Width="89" FontSize="12" />
 
-        <ItemsControl x:Name="itemsControl" ItemsSource="{Binding MaListe}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <!-- Utilisation de CheckBox pour chaque élément de la liste -->
-                    <CheckBox Content="{Binding}" />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        <Button x:Name="tous" Content="Tous" HorizontalAlignment="Left" Margin="500,100,0,0" VerticalAlignment="Top" Click="tous_Click" Height="27" Width="89" FontSize="12" />
-        <Button x:Name="aucun" Content="Aucun" HorizontalAlignment="Left" Margin="500,130,0,0" VerticalAlignment="Top" Click="aucun_Click" Height="27" Width="89" FontSize="12" />
-
-        <Button x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,160,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" />
+            <Button x:Name="close" Content="OK" HorizontalAlignment="Left" Margin="500,160,0,0" VerticalAlignment="Top" Click="close_Click" Height="27" Width="89" FontSize="12" />
 
 
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>

@@ -118,14 +118,14 @@ namespace PlanCheck
             //  MessageBox.Show("old tomo report");
             //   if (pageContent.Contains("Accuray") && !pageContent.Contains("PrecisionPlan"))  /// remove old tomo plan that contains char TM 
             //if (pageContent.Contains("Accuray") && !pageContent.Contains("Chapter 1"))  /// remove old tomo plan that contains the string "chapter 1" 
-            if (pageContent.Contains("Accuray") && !pageContent.Contains("Accuray Precision 1.1.1.0"))  /// remove old tomo plan
+            _itisaTomoReport = false;
+            if (pageContent.Contains("Accuray"))  /// remove old tomo plan
             {
-                _itisaTomoReport = true;
+                if (!pageContent.Contains("Accuray Precision 1.1.1.0"))
+                    if (!pageContent.Contains("Accuray Precision 2.0.0.1"))
+                        _itisaTomoReport = true;
             }
-            else
-            {
-                _itisaTomoReport = false;
-            }
+
 
             File.WriteAllText(outpath, pageContent);
             pdfDoc.Close();
@@ -183,10 +183,10 @@ namespace PlanCheck
                 */
 
                 // Utilisez StreamWriter pour écrire dans le fichier
-               // StreamWriter writer = new StreamWriter(@"\\srv015\sf_com\simon_lu\tototototo.txt");
+                // StreamWriter writer = new StreamWriter(@"\\srv015\sf_com\simon_lu\tototototo.txt");
 
                 //writer.Write(lines[0]);
-               // writer.Close();
+                // writer.Close();
 
 
 

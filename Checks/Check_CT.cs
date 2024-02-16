@@ -115,7 +115,7 @@ namespace PlanCheck
                 Item_Result CT_age = new Item_Result();
                 CT_age.Label = "Ancienneté du CT (jours)";
                 CT_age.ExpectedValue = "12";
-                
+
                 int nDays = (myToday - (DateTime)_context.Image.Series.HistoryDateTime).Days;
                 // _context.Image.Series.export
                 CT_age.MeasuredValue = nDays.ToString();
@@ -201,8 +201,9 @@ namespace PlanCheck
                     HUcurve.Infobulle = "La courbe doit être " + expectedHUcurve + " sauf si âge patient < 14";
                     HUcurve.ResultStatus = testing.CompareDatas(HUcurve.ExpectedValue, HUcurve.MeasuredValue, HUcurve.Comparator);
                 }
-                else // tomo
+                else if (_pinfo.tomoReportIsFound) // tomo with a report
                 {
+
                     HUcurve.MeasuredValue = _pinfo.tprd.Trd.HUcurve;
 
                     HUcurve.ExpectedValue = "";
@@ -212,6 +213,12 @@ namespace PlanCheck
                         HUcurve.setToFALSE();
                     HUcurve.Infobulle = "Pour Tomotherapy la courbe doit être " + HUcurve.ExpectedValue;
                 }
+                else
+                {
+                    HUcurve.MeasuredValue = "Pas de rapport de dosimétrie Tomothérapie. Vérifiez la courbe HU";
+                    HUcurve.setToUNCHECK();
+                }
+
 
                 this._result.Add(HUcurve);
                 #endregion
@@ -394,21 +401,30 @@ namespace PlanCheck
             }
             if (_pinfo.actualUserPreference.userWantsTheTest("tomoReportCT_date"))
             {
-                #region CT used for tomo Check date
+                #region CT used for tomo : Check date
                 if (_pinfo.isTOMO)
                 {
                     Item_Result tomoReportCT_date = new Item_Result();
-
-
                     tomoReportCT_date.Label = "Date du CT dans le rapport Tomotherapy";
-                    tomoReportCT_date.ExpectedValue = "";//XXXXX TO GET         
-                    tomoReportCT_date.MeasuredValue = _pinfo.tprd.Trd.CTDate;  //format 11 Apr 2023
-                    var parsedDate = DateTime.Parse(_pinfo.tprd.Trd.CTDate);
-                    if (DateTime.Compare(parsedDate, _context.Image.Series.HistoryDateTime) < 2) // different hours gives difference = 1
-                        tomoReportCT_date.setToTRUE();
+                    tomoReportCT_date.ExpectedValue = "";//XXXXX TO GET        
+                    if (_pinfo.tomoReportIsFound) // tomo with a report
+                    {
+                         
+                        tomoReportCT_date.MeasuredValue = _pinfo.tprd.Trd.CTDate;  //format 11 Apr 2023
+                        var parsedDate = DateTime.Parse(_pinfo.tprd.Trd.CTDate);
+                        if (DateTime.Compare(parsedDate, _context.Image.Series.HistoryDateTime) < 2) // different hours gives difference = 1
+                            tomoReportCT_date.setToTRUE();
+                        else
+                            tomoReportCT_date.setToFALSE();
+                        tomoReportCT_date.Infobulle = "Comparaison de la date du CT (" + parsedDate.ToString() + ") dans le rapport Tomo et de la date du scanner (" + _context.Image.Series.HistoryDateTime.ToString() + ")";
+                    }
                     else
-                        tomoReportCT_date.setToFALSE();
-                    tomoReportCT_date.Infobulle = "Comparaison de la date du CT (" + parsedDate.ToString() + ") dans le rapport Tomo et de la date du scanner (" + _context.Image.Series.HistoryDateTime.ToString() + ")";
+                    {
+                        tomoReportCT_date.MeasuredValue = "Pas de rapport de dosimétrie Tomothérapie, vérifiez la date";
+                        tomoReportCT_date.setToUNCHECK();
+
+
+                    }
                     this._result.Add(tomoReportCT_date);
                 }
                 #endregion

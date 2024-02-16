@@ -235,14 +235,20 @@ namespace PlanCheck
 
                     isoTomo.Label = "Red laser Tomotherapy";
                     isoTomo.ExpectedValue = "1";
-
-                    isoTomo.MeasuredValue = _pinfo.tprd.Trd.redLaserXoffset + " " + _pinfo.tprd.Trd.redLaserYoffset + " " + _pinfo.tprd.Trd.redLaserZoffset + " mm";
-                    isoTomo.Infobulle = "z < 160 mm";
-                    if (_pinfo.tprd.Trd.redLaserZoffset < 160)
-                        isoTomo.setToTRUE();
+                    if (_pinfo.tomoReportIsFound)
+                    {
+                        isoTomo.MeasuredValue = _pinfo.tprd.Trd.redLaserXoffset + " " + _pinfo.tprd.Trd.redLaserYoffset + " " + _pinfo.tprd.Trd.redLaserZoffset + " mm";
+                        isoTomo.Infobulle = "z < 160 mm";
+                        if (_pinfo.tprd.Trd.redLaserZoffset < 160)
+                            isoTomo.setToTRUE();
+                        else
+                            isoTomo.setToFALSE();
+                    }
                     else
-                        isoTomo.setToFALSE();
-
+                    {
+                        isoTomo.MeasuredValue = "Pas de rapport de dosimétrie Tomotherapy. Vérifier l'isocentre";
+                        isoTomo.setToUNCHECK();
+                    }
                     this._result.Add(isoTomo);
                 }
 

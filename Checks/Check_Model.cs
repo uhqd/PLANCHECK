@@ -439,7 +439,7 @@ namespace PlanCheck
 
                     if (!optionsPOareOK)
                     {
-                        POoptions.setToFALSE();
+                        POoptions.setToWARNING();
                         POoptions.MeasuredValue = "Option(s) du PO non conforme au protocole (voir détail)";
                         POoptions.Infobulle = "Une option du PO est différente du check-protocol " + _rcp.protocolName + "\n";
                         myOpt = 0;

@@ -75,9 +75,9 @@ namespace PlanCheck
             DateTime myToday = DateTime.Today;
             int nDays = (myToday - t).Days;
 
-            //MessageBox.Show("date " + t.ToString() + " " + nDays.ToString());
-            
-            if ((nDays > recent)||(nDays < 0))
+
+
+            if (nDays > recent)//||(nDays < 0)) // some old tomo report have a date > year 2050
                 returnBool = false;
             else
                 returnBool = true;
@@ -105,10 +105,8 @@ namespace PlanCheck
 
                 if (Math.Abs(_tempTprd.Trd.maxDose - planDoseMax) < 0.11) // < 0.11 Gy
                 {
-
                     returnCode = 2;
                     _tprd = _tempTprd;
-                    // MessageBox.Show("Extraction des données de plan depuis la Dosimétrie Tomo dans Aria Documents");
                 }
                 else
                     returnCode = 1;
@@ -116,7 +114,6 @@ namespace PlanCheck
             }
 
             File.Delete(saveFilePathTemp);
-
             return returnCode;
         }
         public String connectToAriaDocuments(ScriptContext ctx)
@@ -215,7 +212,7 @@ namespace PlanCheck
                 if (dateservloc <= 0)
                 {
                     trashDoc = true;
-                    //MessageBox.Show("trash one");
+
                 }
                 #endregion
 
@@ -228,7 +225,7 @@ namespace PlanCheck
                     if (isError.ToUpper().Contains("TRU"))
                     {
                         trashDoc = true;
-                        //MessageBox.Show("trash marked as error");
+
                     }
 
                 }
@@ -240,27 +237,21 @@ namespace PlanCheck
 
                     dtDateTime = dtDateTime.AddSeconds(Convert.ToDouble(response_docdetails.Substring(dateservloc + 23, datesignloc - dateservloc - 34)) / 1000).ToLocalTime();
 
-                    //MessageBox.Show("date avant : " + dtDateTime.ToString());
                     if (!isARecentDocument(dtDateTime))
                     {
                         trashDoc = true;
-                        // MessageBox.Show("trash cos > 30 d");
                     }
 
 
                 }
                 #endregion
-
                 #region dismiss if document has a useless type for plancheck
                 if (!trashDoc)
                 {
                     if ((thisDocType != doc1) && (thisDocType != doc2) && (thisDocType != doc3))
                     {
                         trashDoc = true;
-                        //MessageBox.Show("trash cos not 1 2 or 3");
                     }
-
-
                 }
                 #endregion
 
@@ -279,12 +270,9 @@ namespace PlanCheck
                                                                                             // MessageBox.Show("two " + tomoReportReturnCode);
                         if (_TOMO)
                         {
-
-
                             if (tomoReportReturnCode != 2)
                             {
                                 trashDoc = true;
-                                // MessageBox.Show("RETURN CODE IS NOT 2");
                             }
                         }
                         else
@@ -292,16 +280,12 @@ namespace PlanCheck
                             if (tomoReportReturnCode != 0)
                             {
                                 trashDoc = true;
-                                // MessageBox.Show("RETURN CODE IS NOT 1");
                             }
                         }
-
                     }
-
-
                 }
                 #endregion
-                //MessageBox.Show("one " + thisDocType + " " + trashDoc );
+               
                 #region store index
                 if (!trashDoc)
                 {
@@ -343,7 +327,7 @@ namespace PlanCheck
             else
                 planReportFound = true;
 
-            //MessageBox.Show("count " + dosimetrie.Count.ToString() + " planreport found " + planReportFound);
+         
 
             #endregion
 
