@@ -167,7 +167,7 @@ namespace PlanCheck
                     //string normMethod = _ctx.PlanSetup.PlanNormalizationMethod;
                     normalisation.ExpectedValue = _rcp.normalisationMode;
                     normalisation.MeasuredValue = _ctx.PlanSetup.PlanNormalizationMethod;
-
+                    normalisation.setToINFO();
                     if (normalisation.MeasuredValue.Contains("volume")) // si le mode de normalisation contient le mot volume
                     {
                         if (normalisation.ExpectedValue == normalisation.MeasuredValue)

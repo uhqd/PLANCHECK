@@ -7,7 +7,7 @@
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanCheck</RootNamespace>
-    <AssemblyName>PlanCheck_Beta_0019_0076.esapi</AssemblyName>
+    <AssemblyName>PlanCheck_Beta_0019_0091.esapi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -237,6 +237,9 @@
     <Compile Include="Checks\Check_Model.cs" />
     <Compile Include="Comparator\Comparator.cs" />
     <Compile Include="Comparator\Item_Result.cs" />
+    <Compile Include="xaml_datas\selectPTWWindow.xaml.cs">
+      <DependentUpon>selectPTWWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml_datas\chooseUserPreferences.xaml.cs">
       <DependentUpon>chooseUserPreferences.xaml</DependentUpon>
     </Compile>
@@ -260,6 +263,10 @@
     <Page Include="xaml_datas\CheckScreen_Item.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml_datas\selectPTWWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="xaml_datas\chooseUserPreferences.xaml">
       <Generator>MSBuild:Compile</Generator>
