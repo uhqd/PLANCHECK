@@ -462,10 +462,10 @@ namespace PlanCheck
             #endregion
 
             #region Objectives to ptv in the prescription.
-            if (_pinfo.actualUserPreference.userWantsTheTest("prescribedObjectives"))
+            if (_pinfo.actualUserPreference.userWantsTheTest("prescribedObjectives") && _ctx.PlanSetup.RTPrescription.Targets.Count() > 0)
             {
                 Item_Result prescribedObjectives = new Item_Result();
-                prescribedObjectives.Label = "Objectifs de dose des PTVs (prescription)";
+                prescribedObjectives.Label = "Dose aux PTVs";
                 prescribedObjectives.ExpectedValue = "EN COURS";
                 prescribedObjectives.MeasuredValue = "EN COURS";
                 prescribedObjectives.setToINFO();
@@ -495,136 +495,155 @@ namespace PlanCheck
 
 
                 // get objectives in check protocol
-                //   DOstructure dosPTVHigh = _rcp.myDOStructures.FirstOrDefault(x => x.Name == "PTV_HAUTE_DOSE"); // get dose of objectives for the highest PTVs
-                //  DOstructure dosPTVLow = _rcp.myDOStructures.FirstOrDefault(x => x.Name == "PTV_AUTRES"); // get dose of objectives for other PTVs
+                DOstructure dosPTVHigh = _rcp.myDOStructures.FirstOrDefault(x => x.Name == "PTV_HAUTE_DOSE"); // get dose of objectives for the highest PTVs
+                DOstructure dosPTVLow = _rcp.myDOStructures.FirstOrDefault(x => x.Name == "PTV_AUTRES"); // get dose of objectives for other PTVs
 
-                //if (dosPTVHigh == null) // || (dosPTVLow == null))
-                //   MessageBox.Show("Le check protocol ne contient pas d'objectifs pour les PTV");
+                bool thereIsAHighObjective = true;
+                if (dosPTVHigh == null) // || (dosPTVLow == null))
+                    thereIsAHighObjective = false;
 
-                // get prescription, separating ptvs with the highest dose (could be several) and the others
-                // List<RTPrescriptionTarget> targetsHigh = new List<RTPrescriptionTarget>();
-                // List<RTPrescriptionTarget> targetsOther = new List<RTPrescriptionTarget>();
+                bool thereIsALowObjective = true;
+                if (dosPTVLow == null) // || (dosPTVLow == null))
+                    thereIsALowObjective = false;
 
                 // find highest prescribed dose
+                double highest_prescribed_total_dose = _ctx.PlanSetup.RTPrescription.Targets.Select(target => target.NumberOfFractions * target.DosePerFraction.Dose).Max();
 
 
-                // double highest_prescribed_total_dose = _ctx.PlanSetup.RTPrescription.Targets.Select(target => target.NumberOfFractions * target.DosePerFraction.Dose).Max();
+                var myChoiceWindow = new selectPTVWindow(_ctx, _pinfo); // create window
+                myChoiceWindow.ShowDialog(); // display window,
 
-                /*double highest_prescribed_total_dose = 0.0;
-                foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) //loop on every dose level in prescription
+                if (myChoiceWindow.targetStructList.Count != _ctx.PlanSetup.RTPrescription.Targets.Count())
+                    MessageBox.Show("ERREUR Check_DoseDistribution : Nombre de prescriptions incohérent");
+
+
+                foreach (var target in _ctx.PlanSetup.RTPrescription.Targets)
                 {
-                    double totalDose = target.NumberOfFractions * target.DosePerFraction.Dose;
-                    if (totalDose > highest_prescribed_total_dose)
+                    double totalPrescribedDose = target.NumberOfFractions * target.DosePerFraction.Dose; // get the total dose
+                    double minAcceptedMedianDose = totalPrescribedDose - tolerance;
+                    double maxAcceptedMedianDose = totalPrescribedDose + tolerance;//(1 +tolerance) * totalPrescribedDose;
+
+
+                    // check if it it is a highest dose volume
+                    bool highestDoseVolume = false;
+                    if (target.NumberOfFractions * target.DosePerFraction.Dose == highest_prescribed_total_dose)
+                        highestDoseVolume = true;
+
+
+
+                    // get in targetStructList, the structure name corresponding to target
+                    Structure correspondingStructure = null;
+                    foreach (var element in myChoiceWindow.targetStructList)
                     {
-                        highest_prescribed_total_dose = totalDose;
+                        //MessageBox.Show("in loop target : " + target.Id + " item 1 " + element.Item1 + " item 2 " + element.Item2);
+                        if (element.Item1 == target.TargetId)
+                        {
+                            correspondingStructure = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id == element.Item2);
+                        }
+
                     }
-                }*/
-
-
-
-                // Separate in two lists of Targets : highest dose and others
-                /* foreach (var target in _ctx.PlanSetup.RTPrescription.Targets)
-                 {
-                     double totalDose = target.NumberOfFractions * target.DosePerFraction.Dose;
-                     if (totalDose == highest_prescribed_total_dose)
-                         targetsHigh.Add(target);
-                     else
-                         targetsOther.Add(target);
-                 }
-                */
-                bool onePrescribedVolumeIsNotFound = false;
-                foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) //loop on every target
-                {
-                    String targetNameWithoutSpace = target.TargetId.ToUpper().Replace(" ", ""); // remove space
-                    Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper().Replace(" ", "") == targetNameWithoutSpace); // get the structure 
-
-
-                    if (s == null)
-                        onePrescribedVolumeIsNotFound = true;
-                    else
-                        listOfStructuresWithADose.Add((targetNameWithoutSpace, target.NumberOfFractions * target.DosePerFraction.Dose));
-
-                }
-             //   if(onePrescribedVolumeIsNotFound)
-                {
-                    var myChoiceWindow = new selectPTVWindow(_ctx, _pinfo); // create window
-                    myChoiceWindow.ShowDialog(); // display window,
-                    MessageBox.Show("back to dd "+ myChoiceWindow.targetStructList[0].Item1 + " - " + myChoiceWindow.targetStructList[0].Item2);
-                }
-
-
-                /*
-            double totalPrescribedDose = target.NumberOfFractions * target.DosePerFraction.Dose; // get the total dose
-            double minAcceptedMedianDose = totalPrescribedDose - tolerance;
-            double maxAcceptedMedianDose = totalPrescribedDose + tolerance;//(1 +tolerance) * totalPrescribedDose;
-            string msg = string.Empty;
-                */
-                /*
-
-                if (s != null)
-                {
-                    myinfo += "* " + target.TargetId + " (" + totalPrescribedDose.ToString("F1") + " Gy)" + "\n";
-
-                    //median dose: not in check protocol. Must be prescribed dose +/- tolerance
-
-                    DVHData dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
-                    double median = getMedianDose(s, dvh);
-
-                    myinfo += "- Mediane estimée (Gy) :\n";
-                    if (median > minAcceptedMedianDose && median < maxAcceptedMedianDose)
+                    if (correspondingStructure == null)
                     {
-                        myinfo += "\t- OK: ";
-                        nOK++;
+                        MessageBox.Show("impossible de trouver la structure " + target.TargetId);
                     }
-                    else
+
+                    DVHData dvh = _ctx.PlanSetup.GetDVHCumulativeData(correspondingStructure, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
+                    myinfo += "\u2022 " + target.TargetId + " (prescr. " + totalPrescribedDose.ToString("F1") + " Gy)\n";
+
+                    #region check D95%
+                    DoseValue d95 = _ctx.PlanSetup.GetDoseAtVolume(correspondingStructure, 95, VolumePresentation.Relative, DoseValuePresentation.Absolute);
+                    double d95double = d95.Dose;
+                    double d95pres = 0.95 * totalPrescribedDose;
+
+
+                    if (d95double < d95pres)
                     {
-                        myinfo += "\t- X:";
+
                         nFailed++;
+                        //                        myinfo += d95double.ToString("F2") + " < " + d95pres.ToString("F2");
+                        myinfo += "\t- X:\t";
                     }
-                    myinfo += median.ToString("F2") + " (" + minAcceptedMedianDose.ToString("F2") + " - " + maxAcceptedMedianDose.ToString("F2") + ")\n";
-
-
-                    //min/max dose: in check protocol. 
-                    myinfo += "- Min :\n";
-                    if (totalPrescribedDose == highest_prescribed_total_dose) // Objective for PTVs with the highest dose
+                    else
                     {
-                        foreach (string obj in dosPTVHigh.listOfObjectives) // loop on list of objectives in check-protocol. 
-                        {
 
-                            string msg_result = getResultForThisObjective(s, dvh, obj);
-                            if (msg_result.Contains("OK:"))
-                            {
-                                successListPTV.Add("\t- " + msg_result);
-                                nOK++;
-                            }
-                            else
-                            {
-                                failedListPTV.Add("\t- " + msg_result);
-                                nFailed++;
-                            }
-
-                        }
+                        nOK++;
+                        //                      myinfo += d95double.ToString("F2") + " > " + d95pres.ToString("F2");
+                        myinfo += "\t- OK:\t";
                     }
-                    else // Objective for other PTVs
+                    myinfo += "D95%>95% (" + d95double.ToString("F2") + ">" + d95pres.ToString("F2") + " Gy)\n";
+                    #endregion
+
+                    #region median dose
+
+                    if (!_rcp.protocolName.Contains("STEC") && !_rcp.protocolName.Contains("hyperarc") && !_rcp.protocolName.Contains("STIC"))
                     {
-                        foreach (string obj in dosPTVLow.listOfObjectives) // loop on list of objectives in check-protocol. 
+                        double median = getMedianDose(correspondingStructure, dvh);
+
+
+                        if (median > minAcceptedMedianDose && median < maxAcceptedMedianDose)
                         {
-
-                            string msg_result = getResultForThisObjective(s, dvh, obj);
-                            if (msg_result.Contains("OK:"))
-                            {
-                                successListPTV.Add("\t- " + msg_result);
-                                nOK++;
-                            }
-                            else
-                            {
-                                failedListPTV.Add("\t- " + msg_result);
-                                nFailed++;
-                            }
-
+                            myinfo += "\t- OK:\t";
+                            //myinfo += "OK\n";
+                            nOK++;
                         }
-
+                        else
+                        {
+                            myinfo += "\t- X:\t";
+                            //                            myinfo += "X\n";
+                            nFailed++;
+                        }
+                        myinfo += "Dose médiane* (Gy) :\t" + median.ToString("F2") + " (" + minAcceptedMedianDose.ToString("F2") + "<D<" + maxAcceptedMedianDose.ToString("F2") + ")\n";
                     }
+                    #endregion
+
+
+
+                    #region Check suppl. DO objective in checkprotocol
+
+                    if (highestDoseVolume)
+                    {
+                        if (thereIsAHighObjective)
+                            foreach (string obj in dosPTVHigh.listOfObjectives) // loop on list of objectives in check-protocol. 
+                            {
+
+                                string msg_result = getResultForThisObjective(correspondingStructure, dvh, obj);
+
+                                //myinfo += "\t" + obj +  
+                                if (msg_result.Contains("OK:"))
+                                {
+                                    successListPTV.Add("\t- " + msg_result);
+                                    nOK++;
+                                }
+                                else
+                                {
+                                    failedListPTV.Add("\t- " + msg_result);
+                                    nFailed++;
+                                }
+
+                            }
+                    }
+                    else
+                    {
+                        if (thereIsALowObjective)
+                            foreach (string obj in dosPTVLow.listOfObjectives) // loop on list of objectives in check-protocol. 
+                            {
+
+                                string msg_result = getResultForThisObjective(correspondingStructure, dvh, obj);
+                                if (msg_result.Contains("OK:"))
+                                {
+                                    successListPTV.Add("\t- " + msg_result);
+                                    nOK++;
+                                }
+                                else
+                                {
+                                    failedListPTV.Add("\t- " + msg_result);
+                                    nFailed++;
+                                }
+
+                            }
+                    }
+                    #endregion
+
                     foreach (string st in failedListPTV)
                         myinfo += st + "\n";
                     foreach (string st in successListPTV)
@@ -633,45 +652,24 @@ namespace PlanCheck
                     successListPTV.Clear();
 
 
-                    // D95%
-                    // percentVolume = 100 * percentVolume;
-                    // DoseValue d = _ctx.PlanSetup.GetDoseAtVolume(s, percentVolume, VolumePresentation.Relative, DoseValuePresentation.Absolute);
-                    // max dose
-                    //                    DoseValue maxDose = _ctx.PlanSetup.GetDoseAtVolume(s, 0.01, VolumePresentation.Relative, DoseValuePresentation.Absolute);
-                    //                  double max = maxDose.Dose / totalPrescribedDose * 100.0;
-                    // msg += "  Index dose min (Gy): " + d.Dose.ToString("F2") + " > " + minAcceptedDose.ToString("F2");
-                    // if (d.Dose > minAcceptedDose)
-                    //     msg += "\tOK\n";
-                    // else
-                    //    msg += "\tEchec\n";
-                    // msg += "  Dose max(Gy): " + max.ToString("F2") + "%  (info)\n";
-
-
-
-
                 }
-                else
-                    MessageBox.Show(target.TargetId + " : ce volume de la prescription est absent");
-                */
-                // ptvDoseresult.Add(msg);
-                // }
-
-
 
 
 
                 prescribedObjectives.setToTRUE();
-                prescribedObjectives.MeasuredValue = nOK.ToString() + "/" + (nOK + nFailed).ToString() + " objectifs atteneints";
+                prescribedObjectives.MeasuredValue = nOK.ToString() + "/" + (nOK + nFailed).ToString() + " objectifs atteints";
                 prescribedObjectives.Infobulle = myinfo;
                 if (nFailed > 1)
                     prescribedObjectives.setToWARNING();
                 if (nFailed > 3)
                     prescribedObjectives.setToFALSE();
-                //foreach(string s in successListPTV)
-                //  prescribedObjectives.Infobulle += s;
 
-                //foreach (string s in failedListPTV)
-                //  prescribedObjectives.Infobulle += s;
+                if (!thereIsAHighObjective && !thereIsALowObjective)
+                    prescribedObjectives.Infobulle += "\n\n Pas d'objectifs PTV dans le check-protocol (seuls les tests par défaut ont été réalisés)";
+
+                prescribedObjectives.Infobulle += "\n * La dose médiane est interpolée pour les PTV BD (non calculée pour les STEC/STIC)";
+
+
                 this._result.Add(prescribedObjectives);
 
 
@@ -687,7 +685,7 @@ namespace PlanCheck
 
 
                 Item_Result doseToOAR = new Item_Result();
-                doseToOAR.Label = "Objectifs de dose des OAR (check-protocol)";
+                doseToOAR.Label = "Doses aux OARs (check-protocol)";
                 doseToOAR.ExpectedValue = "EN COURS";
                 List<string> successList = new List<string>();
                 List<string> failedList = new List<string>();
@@ -696,35 +694,39 @@ namespace PlanCheck
                 // double result = 0.0;
                 foreach (DOstructure dos in _rcp.myDOStructures) // loop on list structures with > 0 objectives in check-protocol
                 {
-                    string structName = dos.Name.ToUpper();
-                    if (dos.Name.ToUpper().Contains("HOMO"))
-                        structName = replaceHomoIn(dos.Name);
-                    if (dos.Name.ToUpper().Contains("CONTRO"))
-                        structName = replaceControIn(dos.Name);
+                   
 
-                    if (structName != null)
+                    if ((dos.Name != "PTV_HAUTE_DOSE") && (dos.Name != "PTV_AUTRES"))
                     {
-                        Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper() == structName.ToUpper()); // get the chosen structure
-                        structName = null;
-                        DVHData dvh = null;
+                        string structName = dos.Name.ToUpper();
+                        if (dos.Name.ToUpper().Contains("HOMO"))
+                            structName = replaceHomoIn(dos.Name);
+                        if (dos.Name.ToUpper().Contains("CONTRO"))
+                            structName = replaceControIn(dos.Name);
 
-                        if (s != null) // get the dvh once per struct
+                        if (structName != null)
                         {
-                            dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
-                            structName = s.Id;
-                        }
-                        if (dvh != null)
-                            foreach (string obj in dos.listOfObjectives) // loop on list of objectives in check-protocol. 
+                            Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper() == structName.ToUpper()); // get the chosen structure
+                            structName = null;
+                            DVHData dvh = null;
+
+                            if (s != null) // get the dvh once per struct
                             {
-
-                                string msg_result = getResultForThisObjective(s, dvh, obj);
-                                if (msg_result.Contains("OK:"))
-                                    successList.Add(msg_result);
-                                else
-                                    failedList.Add(msg_result);
+                                dvh = _ctx.PlanSetup.GetDVHCumulativeData(s, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
+                                structName = s.Id;
                             }
-                    }
+                            if (dvh != null)
+                                foreach (string obj in dos.listOfObjectives) // loop on list of objectives in check-protocol. 
+                                {
 
+                                    string msg_result = getResultForThisObjective(s, dvh, obj);
+                                    if (msg_result.Contains("OK:"))
+                                        successList.Add(msg_result);
+                                    else
+                                        failedList.Add(msg_result);
+                                }
+                        }
+                    }
                 }
 
                 if ((successList.Count > 0) || (failedList.Count > 0))

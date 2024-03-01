@@ -57,6 +57,6 @@ wedged;no;Filtres
 less10UM;no;Champs de 10 UM
 turquoiseIsodose;no;Isodose Turquoise
 prescribedObjectives;yes;Objectifs de dose (PTV)
-doseToOAR;no;Objectifs de dose (OAR)
+doseToOAR;yes;Objectifs de dose (OAR)
 ariaDocuments;no;Documents ARIA
 preparedQA;no;Preparation QA
