@@ -316,7 +316,7 @@ d3.ToString("0.##");   //24
 
             var fileDialog = new Microsoft.Win32.OpenFileDialog();
             fileDialog.DefaultExt = "xlsx";
-            fileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\";
+            fileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\v19";
 
             if (!Directory.Exists(fileDialog.InitialDirectory))
             {
@@ -646,9 +646,9 @@ d3.ToString("0.##");   //24
 
         private void preferences_button_Click(object sender, RoutedEventArgs e)
         {
-            var myPrefWindow = new chooseUserPreferences(_pcontext,_pinfo); // create window
+            var myPrefWindow = new chooseUserPreferences(_pcontext, _pinfo); // create window
             myPrefWindow.ShowDialog(); // display window,
-           // MessageBox.Show("yes");
+                                       // MessageBox.Show("yes");
 
         }
 
@@ -685,7 +685,7 @@ d3.ToString("0.##");   //24
         private String getIntelligentDefaultProtocol()
         {
 
-            String fileName = @"\plancheck_data\check_protocol\defaut.xlsx";
+            String fileName = @"\plancheck_data\check_protocol\v19\defaut.xlsx";
             String planName = _pcontext.PlanSetup.Id.ToUpper();
             String nFractions = _pcontext.PlanSetup.NumberOfFractions.ToString();
             bool isORL = false;
@@ -712,65 +712,75 @@ d3.ToString("0.##");   //24
                     //if (hypo)
                     //  fileName = @"\plancheck_data\check_protocol\sein ganglions hypo.xlsx";
                     // else
-                    fileName = @"\plancheck_data\check_protocol\sein ganglions.xlsx";
+                    fileName = @"\plancheck_data\check_protocol\v19\sein ganglions.xlsx";
                 }
                 else if (planName.ToUpper().Contains("DIBH"))
                 {
-                    fileName = @"\plancheck_data\check_protocol\sein DIBH.xlsx";
+                    fileName = @"\plancheck_data\check_protocol\v19\sein DIBH.xlsx";
                 }
                 else
                 {
                     //if (hypo)
                     //  fileName = @"\check_protocol\sein hypo.xlsx";
                     //else
-                    fileName = @"\plancheck_data\check_protocol\sein.xlsx";
+                    fileName = @"\plancheck_data\check_protocol\v19\sein.xlsx";
                 }
 
 
             }
             else if (isORL)
-                fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
+            {
+                fileName = @"\plancheck_data\check_protocol\v19\ORL.xlsx";
+            }
+            else if (planName.Contains("POUMON") && (!planName.Contains("STEC")
+            {
+                fileName = @"\plancheck_data\check_protocol\v19\poumon.xlsx";
+            }
             else if (planName.Contains("VAGIN") || planName.Contains("VULVE") || planName.Contains("COL"))
             {
-                fileName = @"\plancheck_data\check_protocol\gynecologie.xlsx";
+                fileName = @"\plancheck_data\check_protocol\v19\gynecologie.xlsx";
 
             }
             else if (planName.Contains("PAROI"))
             {
 
-                fileName = @"\plancheck_data\check_protocol\paroi ganglions.xlsx";
+                fileName = @"\plancheck_data\check_protocol\v19\paroi ganglions.xlsx";
             }
             else if (planName.Contains("LOGE") || planName.Contains("PROST"))
-                fileName = @"\plancheck_data\check_protocol\prostate.xlsx";
+            {
+                fileName = @"\plancheck_data\check_protocol\v19\prostate.xlsx";
+            }
             else if (_pinfo.isHyperArc)
-                fileName = @"\plancheck_data\check_protocol\hyperarc.xlsx";
+            { fileName = @"\plancheck_data\check_protocol\v19\hyperarc.xlsx"; }
+            else if (planName.Contains("STIC")
+            { fileName = @"\plancheck_data\check_protocol\v19\STIC.xlsx"; }
             else if (planName.Contains("STEC"))
             {
                 if (planName.Contains("FOIE"))
                 {
                     //fileName = @"\plancheck_data\check_protocol\STEC foie" + nFractions + "F.xlsx";
                     if (_pinfo.treatmentType == "VMAT")
-                        fileName = @"\plancheck_data\check_protocol\STEC foie RA.xlsx";
+                        fileName = @"\plancheck_data\check_protocol\v19\STEC foie RA.xlsx";
                     else
-                        fileName = @"\plancheck_data\check_protocol\STEC foie DCA.xlsx";
+                        fileName = @"\plancheck_data\check_protocol\v19\STEC foie DCA.xlsx";
                 }
                 if (planName.Contains("POUM"))
                 {
                     //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
                     if (_pinfo.treatmentType == "VMAT")
-                        fileName = @"\plancheck_data\check_protocol\STEC poumon RA.xlsx";
+                        fileName = @"\plancheck_data\check_protocol\v19\STEC poumon RA.xlsx";
                     else
-                        fileName = @"\plancheck_data\check_protocol\STEC poumon DCA.xlsx";
+                        fileName = @"\plancheck_data\check_protocol\v19\STEC poumon DCA.xlsx";
                 }
 
             }
             else if (_pinfo.treatmentType.Contains("RTC"))
             {
-                fileName = @"\plancheck_data\check_protocol\defaut RTC.xlsx";
+                fileName = @"\plancheck_data\check_protocol\v19\defaut RTC.xlsx";
             }
             else if (isCranial)
             {
-                fileName = @"\plancheck_data\check_protocol\intracranien-non-stereo.xlsx";
+                fileName = @"\plancheck_data\check_protocol\v19\intracranien-non-stereo.xlsx";
             }
 
 
@@ -778,7 +788,7 @@ d3.ToString("0.##");   //24
             if (!File.Exists(fullname))
             {
                 MessageBox.Show("Le check-protcol est introuvable :\n" + fullname + "\nUtilisation du fichier par défaut : prostate");
-                fullname = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\prostate.xlsx";
+                fullname = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\v19\prostate.xlsx";
             }
             if (!File.Exists(fullname))
                 MessageBox.Show(fullname + "\nFichiers check-protocol introuvables");

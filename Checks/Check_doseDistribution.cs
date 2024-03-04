@@ -474,8 +474,8 @@ namespace PlanCheck
                 /* 
                 Dx%		 vol	%dos	
                 Surrenale	98	100	PTV
-                STEC Poumon	95	100	
-                Foie	98	100	
+                        STEC Poumon	95	100	
+                         Foie	98	100	
                 HA	99	100	
                 STIC Homog	99	100	105%
                 Os	98	100	PTV

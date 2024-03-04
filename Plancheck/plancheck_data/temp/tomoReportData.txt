@@ -1,213 +1,115 @@
-Accuray Precision® Plan Overview
-Plan Name:
-Plan Type:
-orl2
-Standard
-Plan Saved Date: 12 Jan 2024, 4:59:38 PM (hr:min:sec)
-Treatment Machine / Serial No.: 0210462 850 MU/min, rev 175 / 
-210462
-Prescription: Median of PTV_HDOPT, 70.00 Gy
-Prescribed Dose per Fraction (Gy): 2.00
-Planned Fractions: 35
-Maximum Dose (Gy): 73.37
-Plan Status: Approved
-MU Planned / MU per Fraction: 147359.1 / 4210.3
-Field Width (cm): 2.5, Dynamic
-Pitch: 0.432
-Modulation Factor / Actual: 2.000 / 1.8
-Gantry Period (sec):
-Gantry Rotations:
-17.1
-16.9
-Sinogram Segments: 5.7
-Couch Travel (mm):
-Couch Speed (mm/sec):
-184.2
-0.6
-Red Lasers Offset (IECf, mm): X: 0.00 Y: -31.27 Z: -2.01
-Beam On Time (sec): 290.0
-Plan Delivery Type / Mode: Helical / IMRT
-Dose Calculation Algorithm:
-Dose Calculation Resolution / Type: High / Final
-Convolution-Superposition Spacing (IECp, mm) X: 0.98 Y: 2.50 Z: 0.98
-Size (IECp, voxel) X: 544 Y: 189 Z: 512
-Reference Dose (Gy): 73.37
-X: -2.0 Y: 17.5 Z: 29.3 Reference Point (IECp, mm): Tracking Method: None
-Image Angles (deg):
-Tracking Target VOI:
-Planning Method: VOLO Ultra
-Patient Name:
-Medical ID:
-NADOUCE, ERIC
-202312897 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 31 Aug 1965
-Gender: Male Patient Key: 410085
-Plan Overview
-Page 1 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)DVH: Absolute Dose
-Warning: Full list of VOIs may not fit in legend.Refer VOI List
-Plan Overview
-Page 2 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3VOI List
-VOI Volume 
-(cm³)
-Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
-%
-Beam Inter.
-BODY 14815.36 0.06 9.56 73.37 n/a n/a n/a n/a Allowed
-ATMDte 2.79 1.88 2.70 4.72 n/a n/a n/a n/a Allowed
-ATMGche 3.25 1.40 1.90 2.60 n/a n/a n/a n/a Allowed
-Canal Med 63.52 0.36 10.99 31.71 n/a n/a n/a n/a Allowed
-Cav Buc 76.63 12.97 40.99 73.37 n/a n/a n/a n/a Allowed
-Chiasma 0.92 0.95 1.05 1.21 n/a n/a n/a n/a Allowed
-Const Pharynx 22.64 19.70 48.87 71.86 n/a n/a n/a n/a Allowed
-CristallinDt 0.19 0.89 1.00 1.13 n/a n/a n/a n/a Allowed
-CristallinGche 0.18 0.86 0.93 1.02 n/a n/a n/a n/a Allowed
-CTV BD 467.56 30.95 64.67 73.37 n/a n/a n/a n/a Allowed
-CTV BD claire 370.13 9.38 66.57 73.37 n/a n/a n/a n/a Allowed
-CTV HD 191.99 64.24 70.13 73.37 n/a n/a n/a n/a Allowed
-GTV N 103.42 65.16 70.06 72.91 n/a n/a n/a n/a Allowed
-GTV T 0.78 69.32 71.37 73.31 n/a n/a n/a n/a Allowed
-Larynx 19.31 8.18 25.75 64.00 n/a n/a n/a n/a Allowed
-Levres 19.28 7.26 12.71 24.71 n/a n/a n/a n/a Allowed
-Mandibule 59.15 1.45 28.33 71.67 n/a n/a n/a n/a Allowed
-NerfOptiqueDt 0.45 0.94 1.10 1.24 n/a n/a n/a n/a Allowed
-NerfOptiqueGche 0.47 0.81 0.99 1.12 n/a n/a n/a n/a Allowed
-OeilDt 8.53 0.72 0.97 1.41 n/a n/a n/a n/a Allowed
-OeilGche 8.65 0.66 0.91 1.31 n/a n/a n/a n/a Allowed
-Oesophage 21.79 0.38 10.91 51.98 n/a n/a n/a n/a Allowed
-OreilleIntDte 1.46 1.58 1.98 2.44 n/a n/a n/a n/a Allowed
-OreilleIntGche 1.73 1.20 1.49 1.80 n/a n/a n/a n/a Allowed
-ParoDte 17.02 2.58 25.52 71.41 n/a n/a n/a n/a Allowed
-ParoGche 16.90 1.26 17.19 53.18 n/a n/a n/a n/a Allowed
-PlexusDt 11.04 1.07 40.40 65.57 n/a n/a n/a n/a Allowed
-PlexusGche 10.17 6.52 31.30 55.30 n/a n/a n/a n/a Allowed
-PoumonDt 1003.63 0.38 5.52 57.40 n/a n/a n/a n/a Allowed
-VOI
-Plan Overview
-Page 3 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3PoumonGche 1576.27 0.29 2.44 45.22 n/a n/a n/a n/a Allowed
-Poumons 2579.90 0.29 3.64 57.40 n/a n/a n/a n/a Allowed
-PTV BD 659.47 18.57 62.46 73.37 n/a n/a n/a n/a Allowed
-PTV HD 270.80 52.70 69.63 73.37 n/a n/a n/a n/a Allowed
-SousMaxDte 7.78 55.26 66.42 72.26 n/a n/a n/a n/a Allowed
-SousMaxGche 7.91 17.41 34.22 56.79 n/a n/a n/a n/a Allowed
-Thyroide 12.06 23.59 50.14 72.96 n/a n/a n/a n/a Allowed
-Trachee 35.40 2.11 25.06 58.50 n/a n/a n/a n/a Allowed
-Tronc Cerebral 24.27 0.71 1.41 4.72 n/a n/a n/a n/a Allowed
-CanalMed+3 120.06 0.35 11.41 39.82 n/a n/a n/a n/a Allowed
-CavBuc-PTVs 54.70 12.97 32.27 59.80 n/a n/a n/a n/a Allowed
-Chauffe 569.37 2.28 18.15 54.01 n/a n/a n/a n/a Allowed
-ConsPharynx-PTVs 11.87 19.70 41.21 57.37 n/a n/a n/a n/a Allowed
-LarynxOPT-PTVs 139.59 8.18 37.12 72.70 n/a n/a n/a n/a Allowed
-Larynx-PTVs 14.22 8.18 18.78 49.47 n/a n/a n/a n/a Allowed
-Mandibule-PTVs 54.83 1.45 25.82 68.45 n/a n/a n/a n/a Allowed
-OverlapPlexusDt 4.57 63.18 65.03 67.13 0.00 0.00 1.05 0.00 n/a
-OverlapPlexusGch 0.96 54.04 54.91 55.70 0.00 0.00 1.05 0.00 n/a
-ParoDte-PTVs 14.15 2.58 18.80 54.15 n/a n/a n/a n/a Allowed
-PlexusDt+3 35.18 0.99 39.50 67.13 n/a n/a n/a n/a Allowed
-PlexusGche+3 32.34 5.88 29.61 55.70 n/a n/a n/a n/a Allowed
-Poumons-PTV 2579.64 0.29 3.63 57.40 n/a n/a n/a n/a Allowed
-PTV_BDOPT 645.68 18.57 62.47 73.37 n/a n/a n/a n/a Allowed
-PTV_BD-PTV_HD 385.74 19.54 57.54 71.15 617.7
-2
-1110
-465.5
-1
-1.05 0.06 n/a
-PTV_HDOPT 264.61 54.70 69.73 73.37 1.00 2.00 1.05 50.01 n/a
-PTVBDIsole 223.75 18.57 55.58 61.66 n/a n/a n/a n/a Allowed
-PTVTotal 658.80 18.57 62.47 73.37 n/a n/a n/a n/a Allowed
-RingPTVBD 865.77 6.89 42.48 70.40 n/a n/a n/a n/a Allowed
-TroncCerebral+3 41.85 0.66 1.49 7.72 n/a n/a n/a n/a Allowed
-chauffe2 4.77 29.87 48.56 53.51 n/a n/a n/a n/a Allowed
-All Target Regions n/a 19.54 62.51 73.37 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.06 9.78 73.37 0.00 0.00 0.00 0.00 n/a
-Plan Overview
-Page 4 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3Soft Tissue n/a 0.04 2.54 45.18 0.00 0.00 0.00 0.00 n/a
-DVH Dose (Gy) Dose (% of 70.00 
-Gy Rx Dose)
-Volume (cm³) Volume (%) Criteria Value
-PTV_HDOPT 66.88 95.5 251.38 95.0 Dose (Gy) >= 66.50 66.88
-PTV_BDOPT 54.05 77.2 613.40 95.0 Dose (Gy) >= 53.20 54.05
-OverlapPlexusDt 64.18 91.7 4.34 95.0 Dose (Gy) >= 53.20 64.18
-OverlapPlexusGch 54.38 77.7 0.91 95.0 Dose (Gy) >= 53.20 54.38
-PTV_HDOPT 71.77 102.5 5.29 2.0 Dose (Gy) <= 74.90 71.77
-Larynx 64.00 91.4 0.00 0.0 Dose (Gy) <= 55.00 64.00
-Cav Buc 73.37 104.8 0.00 0.0 Dose (Gy) <= 55.00 73.37
-CanalMed+3 39.82 56.9 0.00 0.0 Dose (Gy) <= 45.00 39.82
-TroncCerebral+3 7.72 11.0 0.00 0.0 Dose (Gy) <= 55.00, Max: 59.00 7.72
-ATMDte 4.72 6.7 0.00 0.0 Dose (Gy) <= 50.00 4.72
-ATMGche 2.60 3.7 0.00 0.0 Dose (Gy) <= 50.00 2.60
-OreilleIntDte 2.44 3.5 0.00 0.0 Dose (Gy) <= 50.00 2.44
-OreilleIntGche 1.80 2.6 0.00 0.0 Dose (Gy) <= 50.00 1.80
-Mandibule 71.67 102.4 0.00 0.0 Dose (Gy) <= 70.00 71.67
-PlexusDt 65.57 93.7 0.00 0.0 Dose (Gy) <= 60.00 65.57
-PlexusGche 55.30 79.0 0.00 0.0 Dose (Gy) <= 60.00 55.30
-PlexusDt+3 66.44 94.9 0.10 0.3
-Dx Vx Values
-Plan Overview
-Page 5 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
--939 * 0.001
--672 * 0.290
--509 * 0.480
-13 * 1.000
-226 * 1.146
-455 * 1.331
-837 * 1.558
-1214 * 1.822
-30884 * 22.599
-Density
-Density Model: IUC-120kV
-Plan Overview
-Page 6 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3Name: MODESTO, Anouchka
-12 Jan 2024, 5:01:17 PM (hr:min:sec)
-User ID: modesto
-Approval Date:
-Approved by: Specialists
-Radiation Oncologist:
-Surgeon:
-Referring Physician:
-Physicist:
-Treatment Site ICD: IUC-TOULOUSE
-IUC-TOULOUSE Treatment Site:
-Additional Site Codes: IUC-TOULOUSE
-Additional Sites: IUC-TOULOUSE
-Created in Version: Accuray Precision 3.3.1.3 [2]
-Plan Key:
-Last Modified by:
-423180/2
-CAIGNET, Frederique
-Saved Deliverable by: ANTOUN, Claire
-Approval and ICD
-Auto Generated Results:
-Not Applicable
-Patient Position: HFS Delivery Signature: cAgfO 8+VgA 
-Plan Overview
-Page 7 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3Report Snapshots
-Plan Overview
-Page 8 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3Imaging Series
-X Y Z
-Origin (IECp, mm) -250.000 -200.000 250.000
-Size (IECp, voxel) 512 189 512
-Spacing (IECp, mm) 0.98 2.50 0.98
-Primary Series:
-Modality:
-Scan Date: Number of Slices:
-Yes
-CT
-02 Jan 2024, 02:31:36 PM (hr:min:sec) 189
-Scanner Model:
-Patient Position:
-Optima CT580
-HFS
-Series UID/Description Study UID/Description:
-1.2.840.113619.2.278.3.3523880722.276.1704168256.381.4 1.2.840.113619.2.278.3.3523880722.276.1704168256.376
-ORL fov 50 MAR TDM therapie SPC
-Plan Overview
-Page 9 of 9 12 Jan 2024, 5:55:23 PM (hr:min:sec)
-Patient Name: NADOUCE, ERIC; Medical ID: 202312897; Plan Name: orl2; Version: Accuray Precision 3.3.1.3
+Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+1/6
+PATIENT
+Nom:PRECIADO,MARC(202401149) DatedeNaissance:28/07/1952 Sexe:Masculin
+PLAN PRESCRIPTIONDE
+DOSE
+IDplan RASTEC_LID Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: ITV3phcm
+IDimage: TDM070224_AVG3. Pointdereferenceprincipal PTV3ph
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.5%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (0.05cm,-16.50cm,8.80cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 66.000Gy(13.200Gy/fraction)
+Nombredefractions: 5
+OPTIONSDECALCUL
+Algorithmephoton: Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc 0.125
+DoseReportingMode Dosetomedium
+FieldNormalizationType 100%toisocenter
+HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
+APPROBATIONS
+Plancréé: admin\stadler(14/02/202417:24:18)
+Appro.plan: MassabeauCarole(jeudi15février202409:35:09)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+2/6
+PARAMETRESDESFAISCEAUXDETRAITEMENT
+IDchamp RA1 RA2 RA3 RA4
+IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
+X1 2.77 2.63 3.39 3.26
+X2 2.39 2.39 3.64 3.77
+Y1 3.25 3.25 2.25 2.5
+Y2 3.98 3.99 2.75 2.25
+Tailledechamp 5.16cmx
+7.23cm
+5.02cmx
+7.24cm
+7.03cmx5cm 7.03cmx
+4.75cm
+Angledubras 181° 0° 181° 0°
+Sensderotationdu
+bras
+SH SAH SH SAH
+Angled'arrêtdu
+bras
+0° 181° 0° 181°
+Rot.collimateur 15° 345° 105° 75°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX -5.76cm -5.76cm -5.76cm -5.76cm
+IsocentreY 3.72cm 3.72cm 3.72cm 3.72cm
+IsocentreZ -2.6cm -2.6cm -2.6cm -2.6cm
+DSP 96.7cm 79.3cm 96.7cm 79.3cm
+Ponderation 0.807 0.738 0.688 0.646
+Pointderéférence PTV3ph PTV3ph PTV3ph PTV3ph
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 3.702Gy 3.382Gy 3.153Gy 2.963Gy
+UM 1071.3UM 978.6UM 912.4UM 857.2UMRappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+3/6
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+4/6
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
+Aorte 181.2 9.9 1.3 8.1
+CanalMed 60.9 10.3 1.2 8.5
+Coeur 700.3 15.9 2.6 13.7
+Estomac 259.6 0.3 0.1 0.2
+Foie 1101.3 0.4 0.1 0.4
+Grosvaisseaux 209.7 9.9 1.2 8.1
+IVA 6.2 5.0 1.8 3.2
+Oesophage 47.8 8.5 1.3 6.6
+ParoiThoracique 3553.8 64.0 2.0 60.6
+ParoiThoraciqueD 2467.7 64.0 2.6 60.6
+ParoiThoraciqueG 1086.1 6.3 0.6 5.5
+PBT 26.9 16.7 3.4 12.2
+PoumonDt 2150.5 68.9 4.8 67.4
+PoumonGche 2152.0 6.2 0.9 5.2
+Poumons 4302.5 68.9 2.9 67.4
+Rate 105.1 0.3 0.2 0.2
+ReinDt 54.6 0.1 0.1 0.1
+ReinGche 71.1 0.1 0.1 0.1
+Trachee 42.7 0.5 0.2 0.4
+VCaveInf 28.4 0.7 0.2 0.5
+VCaveSup 16.9 9.8 1.8 6.5
+ITV3ph 11.9 68.9 64.7 67.4
+PTV3ph 33.6 68.9 62.8 67.4
+Canal+5 176.4 12.5 1.3 10.2
+Vertebre 160.4 29.1 6.8 19.2
+ITV3phcm 11.7 68.9 64.7 67.4Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+5/6
+DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: 5.76cm -3.72cm -2.6cm
+Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+6/6
