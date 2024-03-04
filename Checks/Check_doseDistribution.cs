@@ -167,7 +167,6 @@ namespace PlanCheck
             else
                 return null;
         }
-
         public string getTheUnit(string theValueWithUnit) // get 20Gy or 12.5cc and return Gy or cc
         {
             string FormatPattern = "(?<vali>\\-?\\d*\\.?\\d+)(?<uniti>%|Gy|cc)";
@@ -315,7 +314,6 @@ namespace PlanCheck
             }
             return result;
         }
-
         public string getResultForThisObjective(Structure s, DVHData dvh, string obj)
         {
             string resultMsg = string.Empty;
@@ -394,8 +392,6 @@ namespace PlanCheck
             return resultMsg;
 
         }
-
-
         private string makeMyWishAbsolute(string obj, double totalPrescribedDose) // D50%<30%  --> D50%<38.1Gy
         {
             string outText = String.Empty;
@@ -418,23 +414,16 @@ namespace PlanCheck
             {
                 string valeurString = obj.Substring(startIndex + 1, endIndex - startIndex - 1).Trim();
                 double.TryParse(valeurString, out valueinObj);
-
-
                 beginOfObj = obj.Substring(0, startIndex+1);
-
                 outText = beginOfObj + (valueinObj * totalPrescribedDose / 100.0).ToString("F2") + "Gy";
-
             }
             else
-                outText = obj;
-
-            MessageBox.Show(obj + " est remplacée par  " + outText);
-                
-
+                outText = obj;           
             return outText;
         }
+
         private List<Item_Result> _result = new List<Item_Result>();
-        // private PreliminaryInformation _pinfo;
+
         private string _title = "Dose Distribution";
 
         public void Check()
@@ -709,8 +698,9 @@ namespace PlanCheck
 
                 if (!thereIsAHighObjective && !thereIsALowObjective)
                     prescribedObjectives.Infobulle += "\n\n Pas d'objectifs PTV dans le check-protocol (seuls les tests par défaut ont été réalisés)";
-
-                prescribedObjectives.Infobulle += "\n * La dose médiane est interpolée pour les PTV BD (non calculée pour les STEC/STIC)";
+               
+                if (!_rcp.protocolName.Contains("STEC") && !_rcp.protocolName.Contains("hyperarc") && !_rcp.protocolName.Contains("STIC"))
+                    prescribedObjectives.Infobulle += "\n * La dose médiane est interpolée pour les PTV BD (non calculée pour les STEC/STIC)";
 
 
                 this._result.Add(prescribedObjectives);
