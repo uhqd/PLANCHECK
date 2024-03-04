@@ -1,18 +1,18 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
-Plan:RASTEC_LID
-Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+Rappportdeplanificationderadiothérapie(v15.6.05)deCORRET,GEORGES
+Plan:STECLSG
+Rapportcrééle:15/02/202408:54:09par:StadlerMarine
 1/6
 PATIENT
-Nom:PRECIADO,MARC(202401149) DatedeNaissance:28/07/1952 Sexe:Masculin
+Nom:CORRET,GEORGES(201102376),() DatedeNaissance:04/04/1942 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan RASTEC_LID Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: ITV3phcm
-IDimage: TDM070224_AVG3. Pointdereferenceprincipal PTV3ph
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.5%
+IDplan STECLSG Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C2 Volumecible: ITV6phLSG
+IDimage: tdm290124_AVG6. Pointdereferenceprincipal ITV6phLSG
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 129.7%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (0.05cm,-16.50cm,8.80cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 66.000Gy(13.200Gy/fraction)
+Décalagedel'origine/àDICOM: (-0.35cm,-20.29cm,0.00cm) Fractionnement:
+Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 66.000Gy(13.200Gy/fraction)
 Nombredefractions: 5
 OPTIONSDECALCUL
 Algorithmephoton: Acuros_15605New
@@ -26,90 +26,87 @@ MaximumAutomaticHighDensityVolumeInCM3__ 0.50
 PlanDoseCalculation OFF
 UseGPU Yes
 APPROBATIONS
-Plancréé: admin\stadler(14/02/202417:24:18)
-Appro.plan: MassabeauCarole(jeudi15février202409:35:09)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
-Plan:RASTEC_LID
-Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+Plancréé: admin\stadler(13/02/202416:13:17)
+Appro.plan: MassabeauCarole(mercredi14février202417:20:12)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deCORRET,GEORGES
+Plan:STECLSG
+Rapportcrééle:15/02/202408:54:09par:StadlerMarine
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT
-IDchamp RA1 RA2 RA3 RA4
-IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
-X1 2.77 2.63 3.39 3.26
-X2 2.39 2.39 3.64 3.77
-Y1 3.25 3.25 2.25 2.5
-Y2 3.98 3.99 2.75 2.25
-Tailledechamp 5.16cmx
-7.23cm
-5.02cmx
-7.24cm
-7.03cmx5cm 7.03cmx
-4.75cm
-Angledubras 181° 0° 181° 0°
+IDchamp ARCSTE
+IDmachine NOVA5
+Energie 6X-FFF
+Debitdedose 1400UM/min
+X1 2.5
+X2 3
+Y1 2.5
+Y2 2.1
+Tailledechamp 5.5cmx4.6cm
+Angledubras 345°
 Sensderotationdu
 bras
-SH SAH SH SAH
+SH
 Angled'arrêtdu
 bras
-0° 181° 0° 181°
-Rot.collimateur 15° 345° 105° 75°
-Rot.detable 0° 0° 0° 0°
-Bolus - - - -
-IsocentreX -5.76cm -5.76cm -5.76cm -5.76cm
-IsocentreY 3.72cm 3.72cm 3.72cm 3.72cm
-IsocentreZ -2.6cm -2.6cm -2.6cm -2.6cm
-DSP 96.7cm 79.3cm 96.7cm 79.3cm
-Ponderation 0.807 0.738 0.688 0.646
-Pointderéférence PTV3ph PTV3ph PTV3ph PTV3ph
-Filtreencoin - - - -
-Bloc - - - -
-Plaque - - - -
-Doseparfraction 3.702Gy 3.382Gy 3.153Gy 2.963Gy
-UM 1071.3UM 978.6UM 912.4UM 857.2UMRappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
-Plan:RASTEC_LID
-Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+165°
+Rot.collimateur 0°
+Rot.detable 0°
+Bolus -
+IsocentreX 5.22cm
+IsocentreY -2.98cm
+IsocentreZ 8.4cm
+DSP 95cm
+Ponderation 1.4
+Pointderéférence ITV6phLSG
+Filtreencoin -
+Bloc -
+Plaque -
+Doseparfraction 13.200Gy
+UM 1891.4UMRappportdeplanificationderadiothérapie(v15.6.05)deCORRET,GEORGES
+Plan:STECLSG
+Rapportcrééle:15/02/202408:54:09par:StadlerMarine
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
-Plan:RASTEC_LID
-Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deCORRET,GEORGES
+Plan:STECLSG
+Rapportcrééle:15/02/202408:54:09par:StadlerMarine
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
-Aorte 181.2 9.9 1.3 8.1
-CanalMed 60.9 10.3 1.2 8.5
-Coeur 700.3 15.9 2.6 13.7
-Estomac 259.6 0.3 0.1 0.2
-Foie 1101.3 0.4 0.1 0.4
-Grosvaisseaux 209.7 9.9 1.2 8.1
-IVA 6.2 5.0 1.8 3.2
-Oesophage 47.8 8.5 1.3 6.6
-ParoiThoracique 3553.8 64.0 2.0 60.6
-ParoiThoraciqueD 2467.7 64.0 2.6 60.6
-ParoiThoraciqueG 1086.1 6.3 0.6 5.5
-PBT 26.9 16.7 3.4 12.2
-PoumonDt 2150.5 68.9 4.8 67.4
-PoumonGche 2152.0 6.2 0.9 5.2
-Poumons 4302.5 68.9 2.9 67.4
-Rate 105.1 0.3 0.2 0.2
-ReinDt 54.6 0.1 0.1 0.1
-ReinGche 71.1 0.1 0.1 0.1
-Trachee 42.7 0.5 0.2 0.4
-VCaveInf 28.4 0.7 0.2 0.5
-VCaveSup 16.9 9.8 1.8 6.5
-ITV3ph 11.9 68.9 64.7 67.4
-PTV3ph 33.6 68.9 62.8 67.4
-Canal+5 176.4 12.5 1.3 10.2
-Vertebre 160.4 29.1 6.8 19.2
-ITV3phcm 11.7 68.9 64.7 67.4Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
-Plan:RASTEC_LID
-Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+CanalMed 66.8 8.7 0.9 7.8
+Coeur 518.9 0.3 0.1 0.3
+Estomac 186.5 0.0 0.0 0.0
+Foie 1032.6 0.1 0.0 0.1
+Larynx 21.6 0.4 0.2 0.3
+Oesophage 24.3 21.2 3.0 16.9
+ParoiThoraciqueD 2158.9 9.2 0.7 8.2
+ParoiThoraciqueG 1882.3 58.2 1.9 45.1
+PoumonDt 2444.7 15.7 1.2 13.4
+PoumonGche 2445.2 72.9 4.0 64.3
+Poumons 4889.9 72.9 2.6 64.3
+QueueDeCheval 13.1 0.0 0.0 0.0
+ReinDt 104.7 0.0 0.0 0.0
+ReinGche 125.7 0.0 0.0 0.0
+Thyroide 15.3 21.8 2.6 12.9
+Trachee10 31.3 21.6 7.0 17.6
+ITV6phLSD 2.1 6.1 5.7 5.7
+ITV6phLSG 1.2 72.9 65.7 62.0
+PTV6phLSD 10.6 6.3 5.4 6.0
+PTV6phLSG 7.8 72.9 58.9 64.3
+Canal+5 191.2 9.5 0.9 8.7
+Grosvaisseaux 182.6 33.9 2.7 28.6
+ParoiThoracique 3924.0 57.2 1.2 44.2
+PBT 24.8 13.7 1.2 8.6
+PlexusBrachial 9.3 0.3 0.2 0.3
+D2cm 28.7 8.5 3.5 7.7
+CanalMed+5 191.2 9.5 0.9 8.7
+D2cmLSG 26.3 42.0 18.6 35.3Rappportdeplanificationderadiothérapie(v15.6.05)deCORRET,GEORGES
+Plan:STECLSG
+Rapportcrééle:15/02/202408:54:09par:StadlerMarine
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2,RA3,RA4
-Décaler: 5.76cm -3.72cm -2.6cm
-Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
-Plan:RASTEC_LID
-Rapportcrééle:15/02/202409:42:09par:StadlerMarine
+Isocentredeschamps:,ARCSTE
+Décaler: -5.22cm 2.98cm 8.4cm
+Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deCORRET,GEORGES
+Plan:STECLSG
+Rapportcrééle:15/02/202408:54:09par:StadlerMarine
 6/6

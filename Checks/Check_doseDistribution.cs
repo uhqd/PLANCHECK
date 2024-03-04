@@ -394,6 +394,45 @@ namespace PlanCheck
             return resultMsg;
 
         }
+
+
+        private string makeMyWishAbsolute(string obj, double totalPrescribedDose) // D50%<30%  --> D50%<38.1Gy
+        {
+            string outText = String.Empty;
+            double valueinObj = 0.0;
+            int startIndex=0;
+            string beginOfObj=String.Empty;
+            
+            if (obj.Contains("<"))
+                startIndex = obj.IndexOf('<');
+            else if (obj.Contains(">"))
+                startIndex = obj.IndexOf('>');
+            else
+                MessageBox.Show("ERROR DOSE DISTRIBUTION. Cet objectif devrait contenir un caractère < ou > : " + obj);
+            
+            int endIndex = obj.IndexOf('%', startIndex);
+
+            if (!obj.Contains("D"))
+                outText = obj;
+            else if (startIndex != -1 && endIndex != -1)
+            {
+                string valeurString = obj.Substring(startIndex + 1, endIndex - startIndex - 1).Trim();
+                double.TryParse(valeurString, out valueinObj);
+
+
+                beginOfObj = obj.Substring(0, startIndex+1);
+
+                outText = beginOfObj + (valueinObj * totalPrescribedDose / 100.0).ToString("F2") + "Gy";
+
+            }
+            else
+                outText = obj;
+
+            MessageBox.Show(obj + " est remplacée par  " + outText);
+                
+
+            return outText;
+        }
         private List<Item_Result> _result = new List<Item_Result>();
         // private PreliminaryInformation _pinfo;
         private string _title = "Dose Distribution";
@@ -562,6 +601,7 @@ namespace PlanCheck
                         nFailed++;
                         //                        myinfo += d95double.ToString("F2") + " < " + d95pres.ToString("F2");
                         myinfo += "\t- X:\t";
+                        myinfo += "D95%>95% (" + d95double.ToString("F2") + "<" + d95pres.ToString("F2") + " Gy)\n";
                     }
                     else
                     {
@@ -569,8 +609,9 @@ namespace PlanCheck
                         nOK++;
                         //                      myinfo += d95double.ToString("F2") + " > " + d95pres.ToString("F2");
                         myinfo += "\t- OK:\t";
+                        myinfo += "D95%>95% (" + d95double.ToString("F2") + ">" + d95pres.ToString("F2") + " Gy)\n";
                     }
-                    myinfo += "D95%>95% (" + d95double.ToString("F2") + ">" + d95pres.ToString("F2") + " Gy)\n";
+
                     #endregion
 
                     #region median dose
@@ -605,10 +646,11 @@ namespace PlanCheck
                         if (thereIsAHighObjective)
                             foreach (string obj in dosPTVHigh.listOfObjectives) // loop on list of objectives in check-protocol. 
                             {
+                                // MessageBox.Show(correspondingStructure.Id+" " + obj);
+                                string absobj = makeMyWishAbsolute(obj, totalPrescribedDose);
+                                string msg_result = getResultForThisObjective(correspondingStructure, dvh, absobj);
 
-                                string msg_result = getResultForThisObjective(correspondingStructure, dvh, obj);
 
-                                //myinfo += "\t" + obj +  
                                 if (msg_result.Contains("OK:"))
                                 {
                                     successListPTV.Add("\t- " + msg_result);
@@ -627,8 +669,9 @@ namespace PlanCheck
                         if (thereIsALowObjective)
                             foreach (string obj in dosPTVLow.listOfObjectives) // loop on list of objectives in check-protocol. 
                             {
-
-                                string msg_result = getResultForThisObjective(correspondingStructure, dvh, obj);
+                                // MessageBox.Show(correspondingStructure.Id + " " + obj);
+                                string absobj = makeMyWishAbsolute(obj, totalPrescribedDose);
+                                string msg_result = getResultForThisObjective(correspondingStructure, dvh, absobj);
                                 if (msg_result.Contains("OK:"))
                                 {
                                     successListPTV.Add("\t- " + msg_result);
@@ -694,7 +737,7 @@ namespace PlanCheck
                 // double result = 0.0;
                 foreach (DOstructure dos in _rcp.myDOStructures) // loop on list structures with > 0 objectives in check-protocol
                 {
-                   
+
 
                     if ((dos.Name != "PTV_HAUTE_DOSE") && (dos.Name != "PTV_AUTRES"))
                     {

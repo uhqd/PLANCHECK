@@ -732,7 +732,7 @@ d3.ToString("0.##");   //24
             {
                 fileName = @"\plancheck_data\check_protocol\v19\ORL.xlsx";
             }
-            else if (planName.Contains("POUMON") && (!planName.Contains("STEC")
+            else if ((planName.Contains("POUMON")) && (!planName.Contains("STEC")))
             {
                 fileName = @"\plancheck_data\check_protocol\v19\poumon.xlsx";
             }
@@ -752,8 +752,10 @@ d3.ToString("0.##");   //24
             }
             else if (_pinfo.isHyperArc)
             { fileName = @"\plancheck_data\check_protocol\v19\hyperarc.xlsx"; }
-            else if (planName.Contains("STIC")
-            { fileName = @"\plancheck_data\check_protocol\v19\STIC.xlsx"; }
+            else if (planName.Contains("STIC"))
+            { 
+                fileName = @"\plancheck_data\check_protocol\v19\STIC.xlsx"; 
+            }
             else if (planName.Contains("STEC"))
             {
                 if (planName.Contains("FOIE"))
