@@ -53,7 +53,7 @@ namespace PlanCheck
                 if (i.ResultStatus.Item1 == "WARNING") nWarning++;
                 if (i.ResultStatus.Item1 == "OK") nTrue++;
                 if (i.ResultStatus.Item1 == "INFO") nInfo++;
-                if (i.ResultStatus.Item1 == "NON VERIFIE") nUncheck++;// nInfo++;
+                if (i.ResultStatus.Item1 == "UNCHECK") nUncheck++;// nInfo++;
 
             }
             if (nFalse > 0)  // si un item faux, global faux

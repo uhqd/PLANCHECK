@@ -59,7 +59,7 @@ namespace PlanCheck
         }
         public void setToUNCHECK()
         {
-            this.ResultStatus = ("NON VERIFIE", new SolidColorBrush(Colors.LightBlue));
+            this.ResultStatus = ("UNCHECK", new SolidColorBrush(Colors.LightBlue));
         }
         public void setToFALSE()
         {

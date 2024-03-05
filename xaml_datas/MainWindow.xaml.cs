@@ -520,9 +520,9 @@ d3.ToString("0.##");   //24
             #endregion
 
 
-            // NO need to click on pdf button anymore
-            //exportPDF_button.Visibility = Visibility.Visible;  
-            exportPDF_button.Visibility = Visibility.Hidden;
+            // NO need to click on pdf button anymore --> YES if i want to reprint. 
+            exportPDF_button.Visibility = Visibility.Visible;
+            //exportPDF_button.Visibility = Visibility.Hidden;
             createPDFreport myPDF_report = new createPDFreport(_pinfo, _pcontext, ListChecks, this);
             string dirname = @"\\srv015\sf_com\simon_lu\temp\";
             myPDF_report.saveInDirectory(dirname);
@@ -668,12 +668,12 @@ d3.ToString("0.##");   //24
             //string dirname = @".\plancheck_data\temp\";
             wpcl.saveInDirectory(dirname);
 
-
+            //////////////////////////////////
             // uncomment to send to aria
             // wpcl.saveToAria();
-            //MessageBox.Show("Checklist préparée et envoyée vers ARIA documents. ");
-
-            MessageBox.Show("Checklist préparée dans\n" + dirname + "\nDecommenter L596 MainWindow.xaml pour envoi vers ARIA documents. ");
+            // MessageBox.Show("Checklist préparée et envoyée vers ARIA documents. ");
+            //////////////////////////////////
+            MessageBox.Show("Checklist préparée dans\n" + dirname + "\nDecommenter L673 MainWindow.xaml.cs pour envoi vers ARIA documents. ");
         }
         private String setProtocolDisplay(String filename)
         {
@@ -706,8 +706,11 @@ d3.ToString("0.##");   //24
                     gg = true;
                 //if (_pcontext.PlanSetup.NumberOfFractions == 15)
                 //  hypo = true;
-
-                if (gg)
+                if (planName.Contains("DV"))
+                {
+                    fileName = @"\plancheck_data\check_protocol\v19\seinDV.xlsx";
+                }
+                else if (gg)
                 {
                     //if (hypo)
                     //  fileName = @"\plancheck_data\check_protocol\sein ganglions hypo.xlsx";
@@ -753,8 +756,8 @@ d3.ToString("0.##");   //24
             else if (_pinfo.isHyperArc)
             { fileName = @"\plancheck_data\check_protocol\v19\hyperarc.xlsx"; }
             else if (planName.Contains("STIC"))
-            { 
-                fileName = @"\plancheck_data\check_protocol\v19\STIC.xlsx"; 
+            {
+                fileName = @"\plancheck_data\check_protocol\v19\STIC.xlsx";
             }
             else if (planName.Contains("STEC"))
             {

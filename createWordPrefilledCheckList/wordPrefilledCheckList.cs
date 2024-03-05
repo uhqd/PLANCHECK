@@ -21,14 +21,26 @@ namespace PlanCheck.createWordPrefilledCheckList
         public static int resulTableRowIndex = 0;
         private List<UserControl> _ListChecks;
         private string textfilename;
+        
+
         private bool addToResultTable(Microsoft.Office.Interop.Word.Table table2, string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
         {
             //MessageBox.Show(resultType + " " + resulTableRowIndex.ToString());
             bool ok = true;
+
+
+
             if (nTests == 0)
                 ok = false;
             else
             {
+                int nTr = 0;
+                foreach (CheckScreen_Global csg in _ListChecks)                
+                    foreach (Item_Result ir in csg.Items)                    
+                        if (ir.ResultStatus.Item1 == resultType)
+                            nTr++;
+                MessageBox.Show(resultType + " " + nTr.ToString());
+
 
                 foreach (CheckScreen_Global csg in _ListChecks)
                 {
@@ -36,6 +48,10 @@ namespace PlanCheck.createWordPrefilledCheckList
                     {
                         if (ir.ResultStatus.Item1 == resultType)
                         {
+                           // if (ir.Label != null)
+                            //    MessageBox.Show(ir.Label);
+                            //else
+                             //   MessageBox.Show("no label");
                             resulTableRowIndex++;
                             // column 1
                             table2.Rows[resulTableRowIndex].Cells[1].Range.Text = ir.Label; //csg._title + " -> " + ir.Label;
@@ -92,6 +108,9 @@ namespace PlanCheck.createWordPrefilledCheckList
             }
             return ok;
         }
+
+
+
         private bool drawTable(string resultType, Microsoft.Office.Interop.Word.Document document, int nTests, WdColor color, bool checkboxStatus)
         {
             bool ok = true;
@@ -181,21 +200,25 @@ namespace PlanCheck.createWordPrefilledCheckList
                     {
                         testOK++;
                     }
-                    if (ir.ResultStatus.Item1 == "X")
+                    else if (ir.ResultStatus.Item1 == "X")
                     {
                         testError++;
                     }
-                    if (ir.ResultStatus.Item1 == "INFO")
+                    else if (ir.ResultStatus.Item1 == "INFO")
                     {
                         testInfo++;
                     }
-                    if (ir.ResultStatus.Item1 == "WARNING")
+                    else if (ir.ResultStatus.Item1 == "WARNING")
                     {
                         testWarn++;
                     }
-                    if (ir.ResultStatus.Item1 == "UNCHECK")
+                    else if (ir.ResultStatus.Item1 == "UNCHECK")
                     {
                         uncheckedTest++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Type inconnu " + ir.ResultStatus.Item1);
                     }
                 }
             }
@@ -326,10 +349,15 @@ namespace PlanCheck.createWordPrefilledCheckList
             var wdcInfo = WdColor.wdColorGray05;//pale gray
             var wdcOk = (WdColor)(183 + 0x100 * 255 + 0x10000 * 183); // pale yellow
 
+         //   MessageBox.Show("UNCHECK");
             addToResultTable(table2, "UNCHECK", document, uncheckedTest, wdcUncheck, false);
+          //  MessageBox.Show("x");
             addToResultTable(table2, "X", document, testError, wdcX, false);
+           // MessageBox.Show("w");
             addToResultTable(table2, "WARNING", document, testWarn, wdcWarn, false);
+           // MessageBox.Show("i");
             addToResultTable(table2, "INFO", document, testInfo, wdcInfo, false);
+           // MessageBox.Show("ok");
             addToResultTable(table2, "OK", document, resulTableRowIndex, wdcOk, true);
 
 
