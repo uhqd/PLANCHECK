@@ -351,7 +351,7 @@ d3.ToString("0.##");   //24
 
 
 
-            createCheckListWord_button.Visibility = Visibility.Visible;
+            
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
 
             #region PERFORM THE CHECK
@@ -521,7 +521,7 @@ d3.ToString("0.##");   //24
 
 
             // NO need to click on pdf button anymore --> YES if i want to reprint. 
-            exportPDF_button.Visibility = Visibility.Visible;
+           
             //exportPDF_button.Visibility = Visibility.Hidden;
             createPDFreport myPDF_report = new createPDFreport(_pinfo, _pcontext, ListChecks, this);
             string dirname = @"\\srv015\sf_com\simon_lu\temp\";
@@ -529,7 +529,9 @@ d3.ToString("0.##");   //24
 
 
             CheckList.Visibility = Visibility.Visible;
-
+            createCheckListWord_button.Visibility = Visibility.Visible;
+            ariaRadio_button.Visibility = Visibility.Visible;
+            exportPDF_button.Visibility = Visibility.Visible;
         }
         private void Button_Click_help(object sender, RoutedEventArgs e)
         {
@@ -665,15 +667,22 @@ d3.ToString("0.##");   //24
         {
             wordPrefilledCheckList wpcl = new wordPrefilledCheckList(_pinfo, _pcontext, ListChecks, this);
             string dirname = @"\\srv015\sf_com\simon_lu\temp\";
-            //string dirname = @".\plancheck_data\temp\";
-            wpcl.saveInDirectory(dirname);
+           
 
-            //////////////////////////////////
+            // uncomment to save in temp/
+            wpcl.saveInDirectory(dirname);
+            wpcl.closeWDC();
+
             // uncomment to send to aria
-            // wpcl.saveToAria();
-            // MessageBox.Show("Checklist préparée et envoyée vers ARIA documents. ");
-            //////////////////////////////////
-            MessageBox.Show("Checklist préparée dans\n" + dirname + "\nDecommenter L673 MainWindow.xaml.cs pour envoi vers ARIA documents. ");
+            bool buttonState = ariaRadio_button.IsChecked.GetValueOrDefault();
+            if (buttonState)
+                wpcl.saveToAria();
+
+           
+
+            
+
+
         }
         private String setProtocolDisplay(String filename)
         {

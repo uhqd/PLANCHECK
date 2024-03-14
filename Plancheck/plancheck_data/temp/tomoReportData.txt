@@ -1,19 +1,19 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deVAESA,ANNE-MARIE
-Plan:SeinGHypoDV
-Rapportcrééle:05/03/202417:41:02par:CavetClemence
+Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
+Plan:T3-T8+K4-6G
+Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
 1/6
 PATIENT
-Nom:VAESA,ANNE-MARIE(202305629) DatedeNaissance:21/11/1954 Sexe:Féminin
+Nom:LABIOD,GISELE(202314824) DatedeNaissance:22/11/1960 Sexe:Féminin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan SeinGHypoDV Méthodenormalisation 100%aupointderéférenceICRUPTVseinG
-IDdossierdetraitement: C1 Volumecible: PTVsein
-IDimage: TDMRTE260224 Pointdereferenceprincipal ICRUPTVseinG
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 687.3%
-Orientationdutraitement: Tetedevant-DV Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.07cm,42.72cm,0.30cm) Fractionnement:
-Typedetraitement: RTC3D DosePrescrite: 40.0Gy(2.67Gy/fraction)
-Nombredefractions: 15
+IDplan T3-T8+K4-6G Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
+IDimage: TDMRTE110324 Pointdereferenceprincipal PTV_HDOPT
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.6%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (-0.05cm,-17.35cm,0.40cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 20.0Gy(4.00Gy/fraction)
+Nombredefractions: 5
 OPTIONSDECALCUL
 Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -21,73 +21,81 @@ CalculationGridSizeInCMForSRSAndHyperArc 0.125
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
 APPROBATIONS
-Plancréé: admin\cavet(05/03/202410:25:48)
-Appro.plan: MassabeauCarole(mardi5mars202415:32:07)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deVAESA,ANNE-MARIE
-Plan:SeinGHypoDV
-Rapportcrééle:05/03/202417:41:02par:CavetClemence
+Plancréé: admin\recordon(12/03/202413:25:39)
+Appro.plan: DalmassoCeline(mercredi13mars202414:30:06)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
+Plan:T3-T8+K4-6G
+Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-MAMEXTG MAMINTG MAMEXTG
-RED
-IDmachine NOVA3 NOVA3 NOVA3
-Energie 6X 6X 6X
-Debitdedose 600UM/min 600UM/min 600UM/min
-X1 9.7 9 7.3
-X2 9.7 8.6 2.3
-Y1 11.5 11.5 11.5
-Y2 11.5 11.5 6.5
-Tailledechamp 19.4x23cm² 17.6x23cm² 9.6x18cm²
-Angledubras 299° 106° 299°
-Sensderotationdubras - - -
-Angled'arrêtdubras - - -
-Rot.collimateur 87° 93° 87°
-Rot.detable 0° 0° 0°
-Bolus - - -
-IsocentreX 8.29cm 8.29cm 8.29cm
-IsocentreY -23.85cm -23.85cm -23.85cm
-IsocentreZ 3.91cm 3.91cm 3.91cm
-DSP 93.4cm 93.4cm 93.4cm
-Ponderation 2.818 3.712 0.344
-Pointderéférence ICRUPTVseinG ICRUPTVseinG ICRUPTVseinG
-Filtreencoin - - -
-Bloc - - -
-Plaque - - -
-Doseparfraction 1.093Gy 1.440Gy 0.133Gy
-UM 108.7UM 145.1UM 13.8UMRappportdeplanificationderadiothérapie(v15.6.05)deVAESA,ANNE-MARIE
-Plan:SeinGHypoDV
-Rapportcrééle:05/03/202417:41:02par:CavetClemence
+RA1 RA2 RA3 RA4 RA5 RA6
+IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14 14 14
+X2 14 14 14 14 14 14
+Y1 14 14 14 14 14 14
+Y2 14 14 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 179° 0° 179° 0° 179° 0°
+Sensderotationdubras SAH SH SAH SH SAH SH
+Angled'arrêtdubras 0° 179° 0° 179° 0° 179°
+Rot.collimateur 315° 45° 315° 45° 315° 45°
+Rot.detable 0° 0° 0° 0° 0° 0°
+Bolus - - - - - -
+IsocentreX 3.28cm 3.28cm 3.28cm 3.28cm 3.28cm 3.28cm
+IsocentreY 0.58cm 0.58cm 0.58cm 0.58cm 0.58cm 0.58cm
+IsocentreZ 8.46cm 8.46cm 8.46cm 8.46cm 8.46cm 8.46cm
+DSP 92.7cm 86.3cm 92.7cm 86.3cm 92.7cm 86.3cm
+Ponderation 0.661 0.589 0.654 0.661 0.655 0.591
+Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
+Filtreencoin - - - - - -
+Bloc - - - - - -
+Plaque - - - - - -
+Doseparfraction 0.693Gy 0.618Gy 0.687Gy 0.694Gy 0.688Gy 0.620Gy
+UM 262.5UM 234.1UM 260.0UM 262.8UM 260.4UM 234.8UMRappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
+Plan:T3-T8+K4-6G
+Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deVAESA,ANNE-MARIE
-Plan:SeinGHypoDV
-Rapportcrééle:05/03/202417:41:02par:CavetClemence
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
+Plan:T3-T8+K4-6G
+Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-Trachee 14.5 0.0 0.0 0.0 0.0
-Thyroide 14.9 0.0 0.0 0.0 0.0
-TetehumeraleGche 62.1 0.5 0.1 0.4 0.5
-TetehumeraleDte 51.3 0.0 0.0 0.0 0.0
-PoumonGche 1319.9 2.1 0.1 1.9 2.0
-PoumonDt 1634.2 0.0 0.0 0.0 0.0
-Oesophage 74.0 0.0 0.0 0.0 0.0
-Larynx 4.7 0.0 0.0 0.0 0.0
-IVA 2.1 3.1 2.5 2.5 2.9
-Foie 1562.8 1.3 0.0 1.2 1.3
-Coeur 753.4 3.3 0.6 3.0 3.2
-CanalMed 70.3 0.0 0.0 0.0 0.0
-CTVsein 2149.2 42.5 39.2 42.2 42.4
-Poumons 2957.4 2.1 0.0 1.9 2.0
-PTVsein 1981.5 42.5 40.0 42.2 42.4
-Seincontro 2039.1 5.5 0.2 3.7 4.5Rappportdeplanificationderadiothérapie(v15.6.05)deVAESA,ANNE-MARIE
-Plan:SeinGHypoDV
-Rapportcrééle:05/03/202417:41:02par:CavetClemence
+BODY 31538.4 21.4 2.6 21.0 21.3
+Trachee 25.7 14.8 6.6 13.5 14.5
+Thyroide 15.2 2.2 0.9 1.2 1.8
+ReinGche 233.6 0.2 0.1 0.2 0.2
+ReinDt 154.1 0.1 0.0 0.1 0.1
+Poumons 2353.7 21.4 6.4 20.5 20.9
+PoumonGche 1104.6 21.4 8.3 20.5 20.9
+PoumonDt 1249.1 20.1 4.8 19.5 19.9
+PlexusGche 12.6 7.4 1.5 4.6 7.3
+PlexusDt 12.8 3.3 1.1 2.5 3.1
+Pancreas 22.7 0.2 0.1 0.2 0.2
+Oesophage 65.6 20.7 8.7 19.6 20.3
+Foie 2504.0 7.4 0.3 6.5 7.3
+Estomac 199.2 0.6 0.2 0.5 0.6
+Coeur 950.8 18.0 4.7 16.2 17.8
+CanalMed 110.4 21.2 6.0 20.6 21.0
+PTVT3T8 519.0 21.4 19.9 20.9 21.2
+PTVK4K6G 298.0 21.3 20.0 21.0 21.2
+CTVT3T8 319.7 21.3 20.1 20.8 21.0
+CTVK4K6G 166.3 21.2 20.1 20.8 21.1
+PTV_HDOPT 813.5 21.4 20.0 21.0 21.3
+CanalMed+5 291.4 21.3 6.0 20.7 21.1
+PTV 817.1 21.4 20.0 21.0 21.3
+Poumons-PTV 2292.3 20.2 6.1 19.2 19.7
+Dose105[%] 1.7 21.2 20.3 20.3 20.9Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
+Plan:T3-T8+K4-6G
+Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,MAMEXTG,MAMINTG,MAMEXTGRED
-Décaler: -8.29cm 23.85cm 3.91cm
-Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deVAESA,ANNE-MARIE
-Plan:SeinGHypoDV
-Rapportcrééle:05/03/202417:41:02par:CavetClemence
+Isocentredeschamps:,RA1,RA2,RA3,RA4,RA5,RA6
+Décaler: -3.28cm -0.58cm 8.46cm
+Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
+Plan:T3-T8+K4-6G
+Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
 6/6
