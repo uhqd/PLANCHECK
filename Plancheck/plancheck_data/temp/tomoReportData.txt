@@ -1,101 +1,115 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
-Plan:T3-T8+K4-6G
-Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
+Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
 1/6
 PATIENT
-Nom:LABIOD,GISELE(202314824) DatedeNaissance:22/11/1960 Sexe:Féminin
+Nom:PRECIADO,MARC(202401149) DatedeNaissance:28/07/1952 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan T3-T8+K4-6G Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
-IDimage: TDMRTE110324 Pointdereferenceprincipal PTV_HDOPT
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.6%
+IDplan RASTEC_LID Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: ITV3phcm
+IDimage: TDM070224_AVG3. Pointdereferenceprincipal PTV3ph
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.5%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.05cm,-17.35cm,0.40cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 20.0Gy(4.00Gy/fraction)
+Décalagedel'origine/àDICOM: (0.05cm,-16.50cm,8.80cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 66.000Gy(13.200Gy/fraction)
 Nombredefractions: 5
 OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
+Algorithmephoton: Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc 0.125
+DoseReportingMode Dosetomedium
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
 APPROBATIONS
-Plancréé: admin\recordon(12/03/202413:25:39)
-Appro.plan: DalmassoCeline(mercredi13mars202414:30:06)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
-Plan:T3-T8+K4-6G
-Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
+Plancréé: admin\stadler(14/02/202417:24:18)
+Appro.plan: MassabeauCarole(jeudi15février202409:35:09)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
 2/6
-PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
-IDchamp
-RA1 RA2 RA3 RA4 RA5 RA6
-IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
-X1 14 14 14 14 14 14
-X2 14 14 14 14 14 14
-Y1 14 14 14 14 14 14
-Y2 14 14 14 14 14 14
-Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
-Angledubras 179° 0° 179° 0° 179° 0°
-Sensderotationdubras SAH SH SAH SH SAH SH
-Angled'arrêtdubras 0° 179° 0° 179° 0° 179°
-Rot.collimateur 315° 45° 315° 45° 315° 45°
-Rot.detable 0° 0° 0° 0° 0° 0°
-Bolus - - - - - -
-IsocentreX 3.28cm 3.28cm 3.28cm 3.28cm 3.28cm 3.28cm
-IsocentreY 0.58cm 0.58cm 0.58cm 0.58cm 0.58cm 0.58cm
-IsocentreZ 8.46cm 8.46cm 8.46cm 8.46cm 8.46cm 8.46cm
-DSP 92.7cm 86.3cm 92.7cm 86.3cm 92.7cm 86.3cm
-Ponderation 0.661 0.589 0.654 0.661 0.655 0.591
-Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
-Filtreencoin - - - - - -
-Bloc - - - - - -
-Plaque - - - - - -
-Doseparfraction 0.693Gy 0.618Gy 0.687Gy 0.694Gy 0.688Gy 0.620Gy
-UM 262.5UM 234.1UM 260.0UM 262.8UM 260.4UM 234.8UMRappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
-Plan:T3-T8+K4-6G
-Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
+PARAMETRESDESFAISCEAUXDETRAITEMENT
+IDchamp RA1 RA2 RA3 RA4
+IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
+X1 2.77 2.63 3.39 3.26
+X2 2.39 2.39 3.64 3.77
+Y1 3.25 3.25 2.25 2.5
+Y2 3.98 3.99 2.75 2.25
+Tailledechamp 5.16cmx
+7.23cm
+5.02cmx
+7.24cm
+7.03cmx5cm 7.03cmx
+4.75cm
+Angledubras 181° 0° 181° 0°
+Sensderotationdu
+bras
+SH SAH SH SAH
+Angled'arrêtdu
+bras
+0° 181° 0° 181°
+Rot.collimateur 15° 345° 105° 75°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX -5.76cm -5.76cm -5.76cm -5.76cm
+IsocentreY 3.72cm 3.72cm 3.72cm 3.72cm
+IsocentreZ -2.6cm -2.6cm -2.6cm -2.6cm
+DSP 96.7cm 79.3cm 96.7cm 79.3cm
+Ponderation 0.807 0.738 0.688 0.646
+Pointderéférence PTV3ph PTV3ph PTV3ph PTV3ph
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 3.702Gy 3.382Gy 3.153Gy 2.963Gy
+UM 1071.3UM 978.6UM 912.4UM 857.2UMRappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
-Plan:T3-T8+K4-6G
-Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
 4/6
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 31538.4 21.4 2.6 21.0 21.3
-Trachee 25.7 14.8 6.6 13.5 14.5
-Thyroide 15.2 2.2 0.9 1.2 1.8
-ReinGche 233.6 0.2 0.1 0.2 0.2
-ReinDt 154.1 0.1 0.0 0.1 0.1
-Poumons 2353.7 21.4 6.4 20.5 20.9
-PoumonGche 1104.6 21.4 8.3 20.5 20.9
-PoumonDt 1249.1 20.1 4.8 19.5 19.9
-PlexusGche 12.6 7.4 1.5 4.6 7.3
-PlexusDt 12.8 3.3 1.1 2.5 3.1
-Pancreas 22.7 0.2 0.1 0.2 0.2
-Oesophage 65.6 20.7 8.7 19.6 20.3
-Foie 2504.0 7.4 0.3 6.5 7.3
-Estomac 199.2 0.6 0.2 0.5 0.6
-Coeur 950.8 18.0 4.7 16.2 17.8
-CanalMed 110.4 21.2 6.0 20.6 21.0
-PTVT3T8 519.0 21.4 19.9 20.9 21.2
-PTVK4K6G 298.0 21.3 20.0 21.0 21.2
-CTVT3T8 319.7 21.3 20.1 20.8 21.0
-CTVK4K6G 166.3 21.2 20.1 20.8 21.1
-PTV_HDOPT 813.5 21.4 20.0 21.0 21.3
-CanalMed+5 291.4 21.3 6.0 20.7 21.1
-PTV 817.1 21.4 20.0 21.0 21.3
-Poumons-PTV 2292.3 20.2 6.1 19.2 19.7
-Dose105[%] 1.7 21.2 20.3 20.3 20.9Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
-Plan:T3-T8+K4-6G
-Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy)
+Aorte 181.2 9.9 1.3 8.1
+CanalMed 60.9 10.3 1.2 8.5
+Coeur 700.3 15.9 2.6 13.7
+Estomac 259.6 0.3 0.1 0.2
+Foie 1101.3 0.4 0.1 0.4
+Grosvaisseaux 209.7 9.9 1.2 8.1
+IVA 6.2 5.0 1.8 3.2
+Oesophage 47.8 8.5 1.3 6.6
+ParoiThoracique 3553.8 64.0 2.0 60.6
+ParoiThoraciqueD 2467.7 64.0 2.6 60.6
+ParoiThoraciqueG 1086.1 6.3 0.6 5.5
+PBT 26.9 16.7 3.4 12.2
+PoumonDt 2150.5 68.9 4.8 67.4
+PoumonGche 2152.0 6.2 0.9 5.2
+Poumons 4302.5 68.9 2.9 67.4
+Rate 105.1 0.3 0.2 0.2
+ReinDt 54.6 0.1 0.1 0.1
+ReinGche 71.1 0.1 0.1 0.1
+Trachee 42.7 0.5 0.2 0.4
+VCaveInf 28.4 0.7 0.2 0.5
+VCaveSup 16.9 9.8 1.8 6.5
+ITV3ph 11.9 68.9 64.7 67.4
+PTV3ph 33.6 68.9 62.8 67.4
+Canal+5 176.4 12.5 1.3 10.2
+Vertebre 160.4 29.1 6.8 19.2
+ITV3phcm 11.7 68.9 64.7 67.4Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2,RA3,RA4,RA5,RA6
-Décaler: -3.28cm -0.58cm 8.46cm
-Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deLABIOD,GISELE
-Plan:T3-T8+K4-6G
-Rapportcrééle:13/03/202415:40:20par:CarilloFabienne
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: 5.76cm -3.72cm -2.6cm
+Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)dePRECIADO,MARC
+Plan:RASTEC_LID
+Rapportcrééle:15/02/202409:42:09par:StadlerMarine
 6/6

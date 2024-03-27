@@ -29,6 +29,19 @@ namespace PlanCheck
             Check();
         }
 
+        /*double checkIndexOfThisSerie(Image i)
+        {
+            double result = 0.0;
+
+            int halfXSize = i.XSize / 2 ;
+
+            i.GetVoxels()
+
+
+            return result;
+
+        }
+        */
         private List<Item_Result> _result = new List<Item_Result>();
         private PreliminaryInformation _pinfo;
         private ScriptContext _context;
@@ -59,6 +72,187 @@ namespace PlanCheck
 
             return match;
         }
+
+        private bool checkAVEcompositionSiemensCT(ScriptContext ctx, int threeOrSix)
+        {
+            bool iSChecked = true;
+            String msg = String.Empty;
+
+            // AVERAGE SERIES
+
+            int zSizeAverage = ctx.Image.ZSize;
+            int xSizeAverage = ctx.Image.XSize;
+            int ySizeAverage = ctx.Image.YSize;
+            int centralImageIndex = zSizeAverage / 2;
+            int[,] myPlane = new int[xSizeAverage, ySizeAverage];
+            ctx.Image.GetVoxels(centralImageIndex, myPlane);
+            double checkSumAvergageSerie = 0.0;
+
+            int i = 256;
+            int j = 256;
+            checkSumAvergageSerie = ctx.Image.VoxelToDisplayValue(myPlane[i, j]);
+
+
+            MessageBox.Show("Checksum for image ave " + i + " " + j + " " + centralImageIndex + " : " + checkSumAvergageSerie + " " + ctx.Image.Id + " " + ctx.Image.Series.Study.Id);
+
+
+            //  ctx.Image.ZSize is the number of images of the image3D of the plan. eg 189
+            //  ctx.Image.Series.Images.Count() is the number of images in the series used to build the image3D eg 190 : 189 images + 1 image3D
+            // ctx.Image.Series.Study.Series.Count() est le nombre de serie dans l'examen
+
+
+            foreach (var v in ctx.Image.Series.Study.Series)
+            {
+                if (v.Modality.ToString() == "CT")
+                {
+                    if (threeOrSix == 6)
+                    {
+                        if (v.Comment.Contains("0%"))
+                        {
+
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
+                                    int zPhaseSize = im.ZSize;
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+
+                                    if (xSizeAverage > xPhaseSize) // when adding table, the average image is larger
+                                    {
+
+                                    }
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    double checkSumSerie = 0.0;
+                                    int k = im.XSize / 2;
+                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, k]);
+                                    MessageBox.Show("33% " + k + " " + k + " " + centralImageIndex + " : " + checkSumSerie);
+
+
+
+
+                                }
+
+                            }
+
+
+
+                        }
+                        if (v.Comment.Contains("16%"))
+                        {
+
+                        }
+                        if (v.Comment.Contains("33%"))
+                        {
+
+                        }
+                        if (v.Comment.Contains("50%"))
+                        {
+
+                        }
+                        if (v.Comment.Contains("66%"))
+                        {
+
+                        }
+                        if (v.Comment.Contains("83%"))
+                        {
+
+                        }
+                    }
+                    else if (threeOrSix == 3)
+                    {
+
+                        if (v.Comment.Contains("33%"))
+                        {
+
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    double checkSumSerie = 0.0;
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+
+
+                                    int k = xPhaseSize / 2 - ((xSizeAverage - xPhaseSize) / 2);
+                                    int m = yPhaseSize / 2 - ((ySizeAverage - yPhaseSize) / 2);
+                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, m]);
+                                    MessageBox.Show("33% " + k + " " + m + " " + centralImageIndex + " : " + checkSumSerie);
+
+
+
+
+                                }
+
+                            }
+
+
+                        }
+                        if (v.Comment.Contains("50%"))
+                        {
+
+
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    double checkSumSerie = 0.0;
+                                    int k = im.XSize / 2;
+                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, k + 1]);
+                                    MessageBox.Show("50% " + k + " " + k + " " + centralImageIndex + " : " + checkSumSerie + " " + im.Id + " " + v.Id + " " + ctx.Image.Series.Study.Id);
+
+
+
+                                }
+
+                            }
+
+                        }
+                        if (v.Comment.Contains("66%"))
+                        {
+
+
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    double checkSumSerie = 0.0;
+                                    int k = im.XSize / 2;
+                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, k + 1]);
+                                    MessageBox.Show("66% " + k + " " + k + " " + centralImageIndex + " : " + checkSumSerie);
+
+
+
+                                }
+
+                            }
+                        }
+
+                    }
+                    else
+                        iSChecked = false;
+
+
+                }
+
+
+                //MessageBox.Show(v.Id + " " + v.Modality.ToString() + " " + v.Comment);
+
+            }
+            // MessageBox.Show(v.Id  + " " +v.Modality.ToString());
+            return iSChecked;
+        }
+
         private bool checAVEcomposition(String comment, int expectedPhase)
         {
             // if exepected phase is 3, comment must contains these values and only these values : 33% 50% 66%
@@ -308,12 +502,15 @@ namespace PlanCheck
                         if (_context.Image.Id.ToUpper().Contains("AVG3") || _context.Image.Id.ToUpper().Contains("AVE3"))
                         {
 
-                            checkComposition = checAVEcomposition(_context.Image.Series.Comment, 3);
+                            //    checkComposition = checAVEcomposition(_context.Image.Series.Comment, 3);  // GE
+                            // checkComposition = checAVEcompositionSiemensCT(_context, 3);  // SIEMENS
+                            checkComposition = checkAVEcompositionSiemensCT(_context, 3); // SIEMENS
                         }
-                        else if (_context.Image.Id.ToUpper().Contains("AVG6") || _context.Image.Id.ToUpper().Contains("AVE6"))
+                        else if (_context.Image.Id.ToUpper().Contains("AVG") || _context.Image.Id.ToUpper().Contains("AVE"))
                         {
 
-                            checkComposition = checAVEcomposition(_context.Image.Series.Comment, 6);
+                            //  checkComposition = checAVEcomposition(_context.Image.Series.Comment, 6); // GE
+                            checkComposition = checkAVEcompositionSiemensCT(_context, 6); // SIEMENS
                         }
                         else
                         {
@@ -409,7 +606,7 @@ namespace PlanCheck
                     tomoReportCT_date.ExpectedValue = "";//XXXXX TO GET        
                     if (_pinfo.tomoReportIsFound) // tomo with a report
                     {
-                         
+
                         tomoReportCT_date.MeasuredValue = _pinfo.tprd.Trd.CTDate;  //format 11 Apr 2023
                         var parsedDate = DateTime.Parse(_pinfo.tprd.Trd.CTDate);
                         if (DateTime.Compare(parsedDate, _context.Image.Series.HistoryDateTime) < 2) // different hours gives difference = 1

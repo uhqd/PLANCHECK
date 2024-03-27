@@ -351,7 +351,7 @@ d3.ToString("0.##");   //24
 
 
 
-            
+
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
 
             #region PERFORM THE CHECK
@@ -521,7 +521,7 @@ d3.ToString("0.##");   //24
 
 
             // NO need to click on pdf button anymore --> YES if i want to reprint. 
-           
+
             //exportPDF_button.Visibility = Visibility.Hidden;
             createPDFreport myPDF_report = new createPDFreport(_pinfo, _pcontext, ListChecks, this);
             string dirname = @"\\srv015\sf_com\simon_lu\temp\";
@@ -667,7 +667,7 @@ d3.ToString("0.##");   //24
         {
             wordPrefilledCheckList wpcl = new wordPrefilledCheckList(_pinfo, _pcontext, ListChecks, this);
             string dirname = @"\\srv015\sf_com\simon_lu\temp\";
-           
+
 
             // uncomment to save in temp/
             wpcl.saveInDirectory(dirname);
@@ -678,9 +678,9 @@ d3.ToString("0.##");   //24
             if (buttonState)
                 wpcl.saveToAria();
 
-           
 
-            
+
+
 
 
         }

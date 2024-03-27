@@ -9,16 +9,16 @@
         WindowState="Maximized"
         Style="{x:Null}" >
     <!-- Title="PlanCheck " Height="900" Width="1400" /-->
-    
-    
+
+
     <!-- Background="#331122ff" /-->
-        <Grid Style="{x:Null}" >
+    <Grid Style="{x:Null}" >
         <!-- Grid.Background>
             <ImageBrush ImageSource="\\srv015\SF_COM\SIMON_LU\scriptsEclipse\00004-plancheck\xaml_datas\logo.png" Stretch="Uniform" />
         </Grid.Background -->
 
         <ScrollViewer Style="{x:Null}"  Grid.Column ="1">
- 
+
             <StackPanel Style="{x:Null}"  Orientation="Vertical">
                 <StackPanel Style="{x:Null}" >
                     <DockPanel Style="{x:Null}" >
@@ -71,10 +71,10 @@
                 </StackPanel>
 
                 <DockPanel Style="{x:Null}" Width="980" Height="32">
-                    
-                        <Grid Style="{x:Null}" Width="980">
+
+                    <Grid Style="{x:Null}" Width="980">
                         <Grid.ColumnDefinitions>
-                            
+
                             <ColumnDefinition Width="240" />
                             <ColumnDefinition Width="250" />
                             <ColumnDefinition Width="240" />
@@ -93,7 +93,7 @@
                     </Grid>
                 </DockPanel>
 
-               
+
 
                 <DockPanel Style="{x:Null}" Width="980">
                     <Border Style="{x:Null}" CornerRadius="3" BorderBrush="LightBlue" Background="White" BorderThickness="3" DockPanel.Dock="Top">
@@ -136,9 +136,10 @@
                 <StackPanel Style="{x:Null}" Height="60">
                     <!-- ADD A SPACING -->
                 </StackPanel>
-                <StackPanel Style="{x:Null}" Height="70" Width="805">
+                <StackPanel Style="{x:Null}" Height="90" Width="805">
                     <Button Style="{x:Null}"  x:Name="exportPDF_button" Content="PDF" Visibility="Hidden" FontSize="16" FontFamily="Bauhaus" Margin="0,2,0,0"  Click="exportPDF_button_Click" Width="100" Height="30" Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Right" ToolTip="Export des résultats en pdf.  Ce fichier est généré par défaut. Cliquer seulemnt pour le regénérer" />
                     <Button Style="{x:Null}"  x:Name="createCheckListWord_button" Content="Check-List" Visibility="Hidden" FontSize="16" FontFamily="Bauhaus" Margin="0,4,0,0" Click="createCheckListWord_button_Click" Width="100" Height="30" Background="LightGray" VerticalAlignment="Top" HorizontalAlignment="Right" ToolTip="Création d'une Checlist Word." />
+                    <CheckBox Style="{x:Null}" x:Name="ariaRadio_button" Visibility="Hidden" Content="vers Aria" VerticalAlignment="Center" HorizontalAlignment="Right" ToolTip="Copier la Check List dans Aria documents (sinon elle est créée dans /simon_lu/temp)"/>
                 </StackPanel>
                 <!--<StackPanel Height="30" Width="800" VerticalAlignment="Bottom">
                     <Button Content="?" FontSize="10" FontFamily="Bauhaus" Click="Button_Click_help" Width="15" Height="20" Background="Coral" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
