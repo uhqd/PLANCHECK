@@ -935,3 +935,6 @@
 \\srv015\SF_COM\SIMON_LU\scriptsEclipse\PLANCHECK\0020\obj\x64\Debug\PlanCheck_IUCT.csproj.CopyComplete
 \\srv015\SF_COM\SIMON_LU\scriptsEclipse\PLANCHECK\0020\obj\x64\Debug\PlanCheck_0020_0100.esapi.dll
 \\srv015\SF_COM\SIMON_LU\scriptsEclipse\PLANCHECK\0020\obj\x64\Debug\PlanCheck_0020_0100.esapi.pdb
+\\srv015\SF_COM\SIMON_LU\scriptsEclipse\PLANCHECK\0020b\Plancheck\MigraDoc.DocumentObjectModel-WPF.dll
+\\srv015\SF_COM\SIMON_LU\scriptsEclipse\PLANCHECK\0020b\Plancheck\MigraDoc.RtfRendering-WPF.dll
+\\srv015\SF_COM\SIMON_LU\scriptsEclipse\PLANCHECK\0020b\Plancheck\System.ValueTuple.xml
