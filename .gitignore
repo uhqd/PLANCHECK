@@ -6,4 +6,5 @@
 *.cache
 *.lref
 *.resources
+*.pdb
 .\plancheck_data\temp\*
