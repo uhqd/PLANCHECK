@@ -50,7 +50,7 @@ namespace PlanCheck
                 {
                     foreach (PlanSetup p in c.PlanSetups) // loop plan
                     {
-                        if ((c.Id != _ctx.Course.Id) && (p.Id != _ctx.PlanSetup.Id)) // if not same course AND same plan: in other course a plan with the same name can exist
+                        if ((c.Id != _ctx.Course.Id) || (p.Id != _ctx.PlanSetup.Id)) // if not same course AND same plan: in other course a plan with the same name can exist
                         {
 
                             bool validPlan = false;

@@ -75,33 +75,37 @@ namespace PlanCheck
 
         private bool checkAVEcompositionSiemensCT(ScriptContext ctx, int threeOrSix)
         {
+            // testing patient : 202401149
             bool iSChecked = true;
             String msg = String.Empty;
+            double checkSumSerie00 = -99999.0;
+            double checkSumSerie16 = -99999.0;
+            double checkSumSerie33 = -99999.0;
+            double checkSumSerie50 = -99999.0;
+            double checkSumSerie66 = -99999.0;
+            double checkSumSerie83 = -99999.0;
 
-            // AVERAGE SERIES
+            #region  AVERAGE SERIES
 
             int zSizeAverage = ctx.Image.ZSize;
             int xSizeAverage = ctx.Image.XSize;
             int ySizeAverage = ctx.Image.YSize;
             int centralImageIndex = zSizeAverage / 2;
             int[,] myPlane = new int[xSizeAverage, ySizeAverage];
-            ctx.Image.GetVoxels(centralImageIndex, myPlane);
-            double checkSumAvergageSerie = 0.0;
+            ctx.Image.GetVoxels(centralImageIndex, myPlane); // get voxel to myplane
+            int i1 = xSizeAverage / 2;
+            int j1 = ySizeAverage / 2;
+            double checkSumAvergageSerie = ctx.Image.VoxelToDisplayValue(myPlane[i1, j1]);
 
-            int i = 256;
-            int j = 256;
-            checkSumAvergageSerie = ctx.Image.VoxelToDisplayValue(myPlane[i, j]);
-
-
-            MessageBox.Show("Checksum for image ave " + i + " " + j + " " + centralImageIndex + " : " + checkSumAvergageSerie + " " + ctx.Image.Id + " " + ctx.Image.Series.Study.Id);
+            #endregion
 
 
             //  ctx.Image.ZSize is the number of images of the image3D of the plan. eg 189
             //  ctx.Image.Series.Images.Count() is the number of images in the series used to build the image3D eg 190 : 189 images + 1 image3D
-            // ctx.Image.Series.Study.Series.Count() est le nombre de serie dans l'examen
+            //  ctx.Image.Series.Study.Series.Count() est le nombre de serie dans l'examen
 
-
-            foreach (var v in ctx.Image.Series.Study.Series)
+            #region phases series
+            foreach (var v in ctx.Image.Series.Study.Series) // looking for phases
             {
                 if (v.Modality.ToString() == "CT")
                 {
@@ -114,23 +118,15 @@ namespace PlanCheck
                             {
                                 if (im.ZSize > 1) // is 3d
                                 {
-                                    int zPhaseSize = im.ZSize;
-                                    int xPhaseSize = im.XSize;
-                                    int yPhaseSize = im.YSize;
 
-                                    if (xSizeAverage > xPhaseSize) // when adding table, the average image is larger
-                                    {
-
-                                    }
 
                                     int[,] myPlane2 = new int[im.XSize, im.YSize];
                                     im.GetVoxels(centralImageIndex, myPlane2);
-                                    double checkSumSerie = 0.0;
-                                    int k = im.XSize / 2;
-                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, k]);
-                                    MessageBox.Show("33% " + k + " " + k + " " + centralImageIndex + " : " + checkSumSerie);
-
-
+                                     int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie00 += im.VoxelToDisplayValue(myPlane2[k, m]);
 
 
                                 }
@@ -142,23 +138,113 @@ namespace PlanCheck
                         }
                         if (v.Comment.Contains("16%"))
                         {
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
 
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie16 += im.VoxelToDisplayValue(myPlane2[k, m]);
+
+
+                                }
+
+                            }
                         }
                         if (v.Comment.Contains("33%"))
                         {
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
 
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie33 += im.VoxelToDisplayValue(myPlane2[k, m]);
+
+
+                                }
+
+                            }
                         }
                         if (v.Comment.Contains("50%"))
                         {
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
 
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie50 += im.VoxelToDisplayValue(myPlane2[k, m]);
+
+
+                                }
+
+                            }
                         }
                         if (v.Comment.Contains("66%"))
                         {
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
 
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                    
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie66 += im.VoxelToDisplayValue(myPlane2[k, m]);
+
+
+                                }
+
+                            }
                         }
                         if (v.Comment.Contains("83%"))
                         {
+                            foreach (var im in v.Images)
+                            {
+                                if (im.ZSize > 1) // is 3d
+                                {
 
+
+                                    int[,] myPlane2 = new int[im.XSize, im.YSize];
+                                    im.GetVoxels(centralImageIndex, myPlane2);
+                                   
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie83 += im.VoxelToDisplayValue(myPlane2[k, m]);
+
+
+                                }
+
+                            }
                         }
                     }
                     else if (threeOrSix == 3)
@@ -171,21 +257,17 @@ namespace PlanCheck
                             {
                                 if (im.ZSize > 1) // is 3d
                                 {
-
+                                    
+                                    
                                     int[,] myPlane2 = new int[im.XSize, im.YSize];
                                     im.GetVoxels(centralImageIndex, myPlane2);
-                                    double checkSumSerie = 0.0;
+                                    
                                     int xPhaseSize = im.XSize;
                                     int yPhaseSize = im.YSize;
-
-
-                                    int k = xPhaseSize / 2 - ((xSizeAverage - xPhaseSize) / 2);
-                                    int m = yPhaseSize / 2 - ((ySizeAverage - yPhaseSize) / 2);
-                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    MessageBox.Show("33% " + k + " " + m + " " + centralImageIndex + " : " + checkSumSerie);
-
-
-
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie33 += im.VoxelToDisplayValue(myPlane2[k,m]);
+                                
 
                                 }
 
@@ -204,11 +286,13 @@ namespace PlanCheck
 
                                     int[,] myPlane2 = new int[im.XSize, im.YSize];
                                     im.GetVoxels(centralImageIndex, myPlane2);
-                                    double checkSumSerie = 0.0;
-                                    int k = im.XSize / 2;
-                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, k + 1]);
-                                    MessageBox.Show("50% " + k + " " + k + " " + centralImageIndex + " : " + checkSumSerie + " " + im.Id + " " + v.Id + " " + ctx.Image.Series.Study.Id);
-
+                                    
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;                                  
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie50 += im.VoxelToDisplayValue(myPlane2[k, m]);
+          
 
 
                                 }
@@ -224,13 +308,15 @@ namespace PlanCheck
                             {
                                 if (im.ZSize > 1) // is 3d
                                 {
+
                                     int[,] myPlane2 = new int[im.XSize, im.YSize];
                                     im.GetVoxels(centralImageIndex, myPlane2);
-                                    double checkSumSerie = 0.0;
-                                    int k = im.XSize / 2;
-                                    checkSumSerie += im.VoxelToDisplayValue(myPlane2[k, k + 1]);
-                                    MessageBox.Show("66% " + k + " " + k + " " + centralImageIndex + " : " + checkSumSerie);
-
+                                    
+                                    int xPhaseSize = im.XSize;
+                                    int yPhaseSize = im.YSize;
+                                    int k = xPhaseSize / 2;
+                                    int m = yPhaseSize / 2;
+                                    checkSumSerie50 += im.VoxelToDisplayValue(myPlane2[k, m]);
 
 
                                 }
@@ -242,14 +328,34 @@ namespace PlanCheck
                     else
                         iSChecked = false;
 
-
                 }
 
+            }
+            #endregion
 
-                //MessageBox.Show(v.Id + " " + v.Modality.ToString() + " " + v.Comment);
+
+            double checkSumComputedAverage = 0.0;
+
+
+            if(threeOrSix == 3)
+            {
+                checkSumComputedAverage = (1 / 3) * (checkSumSerie33 + checkSumSerie50 + checkSumSerie66);
 
             }
-            // MessageBox.Show(v.Id  + " " +v.Modality.ToString());
+            else if (threeOrSix == 6)
+            {
+                checkSumComputedAverage = (1 / 6) * (checkSumSerie00+checkSumSerie16+  checkSumSerie33 + checkSumSerie50 + checkSumSerie66+checkSumSerie83);
+
+            }
+            if(Math.Abs(checkSumComputedAverage- checkSumAvergageSerie) < 1)
+            {
+                iSChecked=true;
+            }
+            else
+            {
+
+                iSChecked = false;
+            }
             return iSChecked;
         }
 
@@ -503,7 +609,7 @@ namespace PlanCheck
                         {
 
                             //    checkComposition = checAVEcomposition(_context.Image.Series.Comment, 3);  // GE
-                            // checkComposition = checAVEcompositionSiemensCT(_context, 3);  // SIEMENS
+                           
                             checkComposition = checkAVEcompositionSiemensCT(_context, 3); // SIEMENS
                         }
                         else if (_context.Image.Id.ToUpper().Contains("AVG") || _context.Image.Id.ToUpper().Contains("AVE"))
