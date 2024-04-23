@@ -100,7 +100,7 @@ namespace PlanCheck.xaml_datas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PlanCheck_0020_1116.esapi;component/xaml_datas/chooseuserpreferences.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PlanCheck_0020_1118.esapi;component/xaml_datas/chooseuserpreferences.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\xaml_datas\chooseUserPreferences.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

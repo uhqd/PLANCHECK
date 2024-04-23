@@ -324,11 +324,9 @@ namespace PlanCheck
 
             double checkSumComputedAverage = 0.0;
 
-            msg = checkSumAvergageSerie.ToString() + " ";
             if (threeOrSix == 3)
             {
                 checkSumComputedAverage = (1.0 / 3.0) * (checkSumSerie33 + checkSumSerie50 + checkSumSerie66);
-                msg += checkSumSerie33.ToString() + " " + checkSumSerie50.ToString() + " " + checkSumSerie66.ToString();
             }
             else if (threeOrSix == 6)
             {
@@ -346,7 +344,6 @@ namespace PlanCheck
 
                 iSChecked = false;
             }
-            MessageBox.Show(msg);
 
             return iSChecked;
         }
@@ -656,6 +653,9 @@ namespace PlanCheck
                 Item_Result averageForSBRT = new Item_Result();
                 averageForSBRT.Label = "Image Average";
                 averageForSBRT.ExpectedValue = "none";
+
+
+                /*
                 averageForSBRT.Infobulle = "Les scanners AVERAGE doivent être utilisés pour les STEC poumons uniquement (avec enable Gating)";
                 averageForSBRT.MeasuredValue = _context.Image.Id;
 
@@ -694,7 +694,9 @@ namespace PlanCheck
 
                     }
                 }
-
+                */
+                averageForSBRT.setToINFO();
+                averageForSBRT.MeasuredValue = "Ce test n'est plus utile. Merci de le déselectionner dans vos préférences";
                 this._result.Add(averageForSBRT);
 
 
