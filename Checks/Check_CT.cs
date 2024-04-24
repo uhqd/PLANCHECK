@@ -435,13 +435,13 @@ namespace PlanCheck
                     {
                         origin.setToWARNING();
                         origin.MeasuredValue = "Origine non modifiée";
-                        origin.Infobulle = "L'origine est confondue avec l'origine DICOM. Ce qui peut signifier que l'origine n'a pas été placée. A vérifier.";
+                        origin.Infobulle = "L'origine est confondue avec l'origine DICOM. Ce qui signifie que l'origine n'a pas été placée. A vérifier.";
                     }
                     else
                     {
                         origin.setToTRUE();
                         origin.MeasuredValue = "Origine modifiée";
-                        origin.Infobulle = "L'origine n'est pas confondue avec l'origine DICOM. Dans le cas contraire cela peut signifier que l'origine n'a pas été placée";
+                        origin.Infobulle = "L'origine n'est pas confondue avec l'origine DICOM.";
                     }
 
                     this._result.Add(origin);
@@ -584,9 +584,9 @@ namespace PlanCheck
                     Item_Result averageCT = new Item_Result();
                     averageCT.Label = "Composition de AVE3 ou AVE6";
                     averageCT.ExpectedValue = "none";
-                    averageCT.Infobulle = "Si le nom de l'image contient AVG ou AVE, l'image 3D doit être composé des phases correctes.";
-                    averageCT.Infobulle += "\n Une image AVG3 doit être composée des phases 33% 50% et 66%";
-                    averageCT.Infobulle += "\n Une image AVG6 doit être composée des phases 0% 16% 33% 50% 66% et 83%";
+                    averageCT.Infobulle = "Si le nom de l'image contient AVG ou AVE, l'image 3D doit être la moyenne des phases:";
+                    averageCT.Infobulle += "\n AVG3: moyenne des phases 33% 50% et 66%";
+                    averageCT.Infobulle += "\n AVG6: moyenne des phases 0% 16% 33% 50% 66% et 83%";
                     averageCT.Infobulle += "\n\nLa composition est vérifiée en recalculant la moyenne pour un pixel";
                     averageCT.MeasuredValue = _context.Image.Series.Comment;
                     bool checkComposition = false;
