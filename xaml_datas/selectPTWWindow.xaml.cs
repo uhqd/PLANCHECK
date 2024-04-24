@@ -18,9 +18,10 @@ namespace PlanCheck.xaml_datas
 
     public partial class selectPTVWindow : Window
     {
+       // private static bool allTargetAreFound;
         private List<string> listOfTargets = new List<string>();
-        private List<string> listOfPTVs = new List<string>();
-        private List<(string,string)> targetsAndStructList = new List<(string,string)> ();
+        private List<string> listOfStructures = new List<string>();
+        private List<(string, string)> targetsAndStructList = new List<(string, string)>();
         private PreliminaryInformation _pinfo;
         private ScriptContext _ctx;
         public selectPTVWindow(ScriptContext ctx, PreliminaryInformation pinfo) // consturctor
@@ -28,9 +29,10 @@ namespace PlanCheck.xaml_datas
             _pinfo = pinfo;
             _ctx = ctx;
             InitializeComponent();
+            this.Closing += selectPTWWindow_closing; // manage the closing of the window
             loadTargetList();
 
-            this.Closing += selectPTWWindow_closing; // manage the closing of the window
+           
 
 
         }
@@ -44,41 +46,51 @@ namespace PlanCheck.xaml_datas
             }
             foreach (Structure s in _ctx.StructureSet.Structures) // list of structures 
             {
-               // if (s.Id.ToUpper().Contains("PTV"))// && !s.Id.ToUpper().Contains("-PTV"))
-                    listOfPTVs.Add(s.Id);
+                // if (s.Id.ToUpper().Contains("PTV"))// && !s.Id.ToUpper().Contains("-PTV"))
+                listOfStructures.Add(s.Id);
 
             }
 
             targetList.ItemsSource = listOfTargets;  // binding text bloc --> list of targets
 
+            //bool oneTargetIsFound = false;
+            //allTargetAreFound = true;
             foreach (string element in listOfTargets) // create a combo box for each target
             {
+                //oneTargetIsFound = false;
                 ComboBox comboBox = new ComboBox();
-                comboBox.ItemsSource = listOfPTVs; // fill combobox with ptv list
-                comboBox.SelectedItem = listOfPTVs[0]; // default is temporary first item
+                comboBox.ItemsSource = listOfStructures; // fill combobox with ptv list
+                comboBox.SelectedItem = listOfStructures[0]; // default is temporary first item
                 #region get default value ...
 
-                foreach (String s in listOfPTVs)
+                foreach (String s in listOfStructures)
                 {
 
-                    
-                    if (s.ToUpper().Replace(" ","") == element.ToUpper().Replace(" ", ""))
+
+                    if (s.ToUpper().Replace(" ", "") == element.ToUpper().Replace(" ", ""))
+                    {
                         comboBox.SelectedItem = s;
+                       // oneTargetIsFound = true;
+                    }
                 }
                 #endregion
-                
+
+               // if(oneTargetIsFound == false)
+                 //   allTargetAreFound = false;
 
                 stackPanel.Children.Add(comboBox); // Ajoutez la ComboBox au StackPanel
             }
 
             targetsAndStructList.Clear();
 
+
+           
         }
         private void close_Click(object sender, RoutedEventArgs e)
         {
-            
+
             this.Close();
-        }       
+        }
         private void selectPTWWindow_closing(object sender, System.ComponentModel.CancelEventArgs e) // this is executed whatever the way of window closing
         {
 
@@ -86,22 +98,24 @@ namespace PlanCheck.xaml_datas
             foreach (ComboBox cb in stackPanel.Children)
             {
                 userchoices.Add(cb.SelectedValue.ToString());
-               
+
             }
 
             // zip both lists. 
-             targetsAndStructList = listOfTargets.Zip(userchoices, (element1, element2) => (element1, element2)).ToList();
+            targetsAndStructList = listOfTargets.Zip(userchoices, (element1, element2) => (element1, element2)).ToList();
 
 
         }
-
+      
 
         // get set
-        public List<(string,string)> targetStructList
+        public List<(string, string)> targetStructList
         {
             get { return targetsAndStructList; }
-           
+
 
         }
+    
+
     }
 }

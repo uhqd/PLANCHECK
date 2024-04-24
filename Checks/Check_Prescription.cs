@@ -119,8 +119,8 @@ namespace PlanCheck
                     else
                         fractionation.setToFALSE();
 
-                    fractionation.Infobulle += "\n\nLe 'nombre de fractions' et la 'dose par fraction' du plan doivent\nêtre conformes à la prescription " + _ctx.PlanSetup.RTPrescription.Id +
-                        " : " + nPrescribedNFractions.ToString() + " x " + nPrescribedDosePerFraction.ToString("N2") + " Gy.\n\n Le système récupère la dose la plus haute prescrite\nsi il existe plusieurs niveaux de dose dans la prescription";
+                    fractionation.Infobulle += "\n\nLe 'nombre de fractions' et la 'dose par fraction' du plan doivent\nêtre conformes à la plus forte prescription (" + _ctx.PlanSetup.RTPrescription.Id +
+                        ") : " + nPrescribedNFractions.ToString() + " x " + nPrescribedDosePerFraction.ToString("N2") + " Gy.";
 
                 }
                 else

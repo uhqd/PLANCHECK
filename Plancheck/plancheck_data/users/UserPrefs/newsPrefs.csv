@@ -15,7 +15,6 @@ HUcurve;yes;Courbe HU
 deviceName;yes;Nom du scanner
 image3Dnaming;yes;Nom de image3D
 averageCT;no;Scanner Average composition
-averageForSBRT;no;Scanner Average pour SBRT
 tomoReportCT_date;yes;Date du rapport Tomo
 otherSeries;yes;Series supplementaires necessaires
 approbationStatus;yes;Approbation du groupe de structures

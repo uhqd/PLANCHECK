@@ -181,10 +181,10 @@ namespace PlanCheck
 
 
                 coursesStatus.Infobulle = "Les courses doivent être dans l'état TERMINE\n";
-                coursesStatus.Infobulle += "\nERREUR si au moins un course (CQ ou non) est EN COURS cours depuis > " + maxNumberOfDays + " jours";
+              /*  coursesStatus.Infobulle += "\nERREUR si au moins un course (CQ ou non) est EN COURS cours depuis > " + maxNumberOfDays + " jours";
                 coursesStatus.Infobulle += "\nWARNING si au moins un course (non CQ) est en cours depuis moins de " + maxNumberOfDays + " jours";
                 coursesStatus.Infobulle += "\nOK si tous les course sont TERMINE (CQ ou non) ou EN COURS (CQ) depuis moins de " + maxNumberOfDays + " jours";
-
+              */
 
 
                 foreach (Course courseN in _ctx.Patient.Courses) // loop on the courses
@@ -230,7 +230,7 @@ namespace PlanCheck
                         }
                 }
                 #region infobulle
-                coursesStatus.Infobulle += "\n\nListe des courses\n";
+              // coursesStatus.Infobulle += "\n\nListe des courses\n";
                 if (oldCourses.Count() > 0)
                 {
                     coursesStatus.Infobulle += "\nAnciens et toujours EN COURS : \n";

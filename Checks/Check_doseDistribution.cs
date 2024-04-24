@@ -396,16 +396,16 @@ namespace PlanCheck
         {
             string outText = String.Empty;
             double valueinObj = 0.0;
-            int startIndex=0;
-            string beginOfObj=String.Empty;
-            
+            int startIndex = 0;
+            string beginOfObj = String.Empty;
+
             if (obj.Contains("<"))
                 startIndex = obj.IndexOf('<');
             else if (obj.Contains(">"))
                 startIndex = obj.IndexOf('>');
             else
                 MessageBox.Show("ERROR DOSE DISTRIBUTION. Cet objectif devrait contenir un caractère < ou > : " + obj);
-            
+
             int endIndex = obj.IndexOf('%', startIndex);
 
             if (!obj.Contains("D"))
@@ -414,11 +414,11 @@ namespace PlanCheck
             {
                 string valeurString = obj.Substring(startIndex + 1, endIndex - startIndex - 1).Trim();
                 double.TryParse(valeurString, out valueinObj);
-                beginOfObj = obj.Substring(0, startIndex+1);
+                beginOfObj = obj.Substring(0, startIndex + 1);
                 outText = beginOfObj + (valueinObj * totalPrescribedDose / 100.0).ToString("F2") + "Gy";
             }
             else
-                outText = obj;           
+                outText = obj;
             return outText;
         }
 
@@ -698,7 +698,7 @@ namespace PlanCheck
 
                 if (!thereIsAHighObjective && !thereIsALowObjective)
                     prescribedObjectives.Infobulle += "\n\n Pas d'objectifs PTV dans le check-protocol (seuls les tests par défaut ont été réalisés)";
-               
+
                 if (!_rcp.protocolName.Contains("STEC") && !_rcp.protocolName.Contains("hyperarc") && !_rcp.protocolName.Contains("STIC"))
                     prescribedObjectives.Infobulle += "\n * La dose médiane est interpolée pour les PTV BD (non calculée pour les STEC/STIC)";
 

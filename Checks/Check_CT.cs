@@ -38,6 +38,7 @@ namespace PlanCheck
         private string _title = "CT";
         //test
 
+      
         private bool matchingImageName(string iName, string format)
         {
             // return true if the string iName contains all the part of format that are separated with a *
@@ -472,7 +473,8 @@ namespace PlanCheck
             {
                 #region courbe HU
                 Item_Result HUcurve = new Item_Result();
-                HUcurve.Label = "Courbe HU";
+                HUcurve.Label = "Courbe HU";             
+                
                 if (!_pinfo.isTOMO)
                 {
                     String courbeHU = _context.Image.Series.ImagingDeviceId;

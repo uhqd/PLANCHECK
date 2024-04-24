@@ -125,7 +125,7 @@ namespace PlanCheck
 
                 if (!allisgood)
                 {
-                    ariaDocuments.MeasuredValue += "absent(s) ";
+                    ariaDocuments.MeasuredValue += "absent(s) ou > 30 jours";
                     ariaDocuments.setToFALSE();
                 }
                 else

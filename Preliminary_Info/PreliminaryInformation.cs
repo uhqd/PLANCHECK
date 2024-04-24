@@ -68,6 +68,7 @@ namespace PlanCheck
         public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
         public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
         private User_preference _actualUserPreference;
+        public int nAriaDocumentExterieur;
         public bool isARecentDocument(DateTime t)
         {
             int recent = 30;   // number of days 
@@ -157,6 +158,7 @@ namespace PlanCheck
             string doc1 = "Dosimétrie";
             string doc2 = "Dosecheck";
             string doc3 = "Fiche de positionnement";
+            string doc4 = "Document extérieur";
             var VisitNoteList = new List<string>();
             int visitnoteloc = response.IndexOf("PtVisitNoteId");
             while (visitnoteloc > 0)
@@ -248,7 +250,7 @@ namespace PlanCheck
                 #region dismiss if document has a useless type for plancheck
                 if (!trashDoc)
                 {
-                    if ((thisDocType != doc1) && (thisDocType != doc2) && (thisDocType != doc3))
+                    if ((thisDocType != doc1) && (thisDocType != doc2) && (thisDocType != doc3) && (thisDocType != doc4))
                     {
                         trashDoc = true;
                     }
@@ -300,6 +302,7 @@ namespace PlanCheck
             #endregion
 
             #region count each document type
+            nAriaDocumentExterieur = 0;
             for (int i = 0; i < DocTypeList.Count; i++)
             {
                 //MessageBox.Show("nouveau document " + DocTypeList[i]);
@@ -307,6 +310,7 @@ namespace PlanCheck
                 if (DocTypeList[i] == doc1) { dosimetrie.Add(DateServiceList[i]); }
                 else if (DocTypeList[i] == doc2) { dosecheck.Add(DateServiceList[i]); }
                 else if (DocTypeList[i] == doc3) { ficheDePosition.Add(DateServiceList[i]); }
+                else if (DocTypeList[i] == doc4) { nAriaDocumentExterieur++; }
                 else { autres.Add(DateServiceList[i]); }
             }
             #endregion
