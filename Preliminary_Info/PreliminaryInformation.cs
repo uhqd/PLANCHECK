@@ -648,8 +648,12 @@ namespace PlanCheck
                 }
             }
 
-            if (isNOVA && isModulated && energy.Contains("6FFF"))
+            if (isNOVA && isModulated && energy.Contains("FFF"))
                 _dosecheckIsNeeded = false;
+
+//            MessageBox.Show("Is needeed " + _dosecheckIsNeeded.ToString() + " isnova " + isNOVA.ToString() + " ismodul " + isModulated.ToString() + " FFF " + energy);
+            
+            
             #endregion
 
 

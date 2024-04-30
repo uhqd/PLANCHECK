@@ -1,95 +1,109 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
-Plan:ProstateLoggg
-Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
-1/6
+Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
+Plan:STECPOUMSLSD
+Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
+1/7
 PATIENT
-Nom:MARC,PHILIPPE(201004914) DatedeNaissance:28/06/1971 Sexe:Masculin
+Nom:ABADIA,ROGER(201705609) DatedeNaissance:27/06/1949 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan ProstateLoggg Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
-IDimage: TDMRTE110424 Pointdereferenceprincipal PTV_HDOPT
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 101.0%
+IDplan STECPOUMSLSD Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: ITV3ph
+IDimage: TDM240424_AVG3 Pointdereferenceprincipal ITV3ph
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.6%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.05cm,-15.95cm,-0.20cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 66.0Gy(2.00Gy/fraction)
-Nombredefractions: 33
+Décalagedel'origine/àDICOM: (-0.55cm,-22.70cm,0.00cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 60.0Gy(12.00Gy/fraction)
+Nombredefractions: 5
 OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
+Algorithmephoton: Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc 0.125
+DoseReportingMode Dosetomedium
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
 APPROBATIONS
-Plancréé: admin\lanaspeze(25/04/202410:56:32)
-Appro.plan: KhalifaJonathan(vendredi26avril202415:03:24)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
-Plan:ProstateLoggg
-Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
-2/6
+Plancréé: admin\carillo(29/04/202408:00:58)
+Appro.plan: GlemarecGauthier(lundi29avril202413:05:26)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
+Plan:STECPOUMSLSD
+Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
+2/7
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
 RA1 RA2 RA3 RA4
-IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8
+IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
 Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min
-X1 14 14 14 14
-X2 14 14 14 14
-Y1 14 14 14 14
-Y2 14 14 14 14
-Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm²
-Angledubras 179° 181° 179° 181°
-Sensderotationdubras SAH SH SAH SH
-Angled'arrêtdubras 181° 179° 181° 179°
-Rot.collimateur 315° 45° 315° 45°
+Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
+X1 2.52 2.38 2.27 2.27
+X2 2.27 2.14 2.39 2.39
+Y1 2 2 2 2
+Y2 2.25 2.25 2.25 2
+Tailledechamp 4.79x4.25cm² 4.52x4.25cm² 4.66x4.25cm² 4.66x4cm²
+Angledubras 181° 0° 181° 0°
+Sensderotationdubras SH SAH SH SAH
+Angled'arrêtdubras 0° 181° 0° 181°
+Rot.collimateur 15° 345° 105° 75°
 Rot.detable 0° 0° 0° 0°
 Bolus - - - -
-IsocentreX 0.91cm 0.91cm 0.91cm 0.91cm
-IsocentreY -3.63cm -3.63cm -3.63cm -3.63cm
-IsocentreZ -6.43cm -6.43cm -6.43cm -6.43cm
-DSP 89.7cm 89.7cm 89.7cm 89.7cm
-Ponderation 1.092 1.108 1.075 1.137
-Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
+IsocentreX -2.82cm -2.82cm -2.82cm -2.82cm
+IsocentreY 5.47cm 5.47cm 5.47cm 5.47cm
+IsocentreZ 8.66cm 8.66cm 8.66cm 8.66cm
+DSP 92.2cm 84.1cm 92.2cm 84.1cm
+Ponderation 1.218 1.065 1.275 1.195
+Pointderéférence ITV3ph ITV3ph ITV3ph ITV3ph
 Filtreencoin - - - -
 Bloc - - - -
 Plaque - - - -
-Doseparfraction 0.495Gy 0.502Gy 0.487Gy 0.515Gy
-UM 216.3UM 219.5UM 212.9UM 225.3UMRappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
-Plan:ProstateLoggg
-Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
-3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
-Plan:ProstateLoggg
-Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
-4/6
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
+Doseparfraction 3.075Gy 2.690Gy 3.218Gy 3.018Gy
+UM 1467.0UM 1283.4UM 1535.5UM 1439.9UMRappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
+Plan:STECPOUMSLSD
+Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
+3/7
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
+Plan:STECPOUMSLSD
+Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
+4/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 26610.3 70.6 12.0 69.5 70.4
-Vessie 118.5 68.2 46.1 67.1 67.8
-TeteFemorGche 151.6 42.1 14.6 37.5 41.6
-TeteFemorDte 154.8 45.1 14.9 38.8 43.9
-Sigmoide 46.9 60.5 47.0 57.0 58.8
-Rectum 49.8 67.1 34.0 65.7 66.6
-QueueDeCheval 25.3 27.8 15.1 26.0 27.4
-Grele 1440.8 65.5 26.2 63.9 64.8
-CTVGG 442.8 70.2 56.9 67.4 69.1
-BulbePenien 5.1 47.2 10.4 13.8 40.1
-CTVloge 61.5 70.6 66.0 69.0 70.2
-GTVT 0.4 70.6 69.6 0.0 70.1
-PTVBD 864.1 70.5 56.7 69.1 70.1
-PTVBoost 3.4 70.6 69.1 69.5 70.4
-PTVHD 222.9 70.6 65.9 69.5 70.4
-Sacroiliaques 312.0 58.5 39.0 56.8 57.9
-PTV_HDOPT 207.8 69.6 66.0 68.2 69.2
-PTV_BD-PTV_HD 678.6 68.0 56.0 65.6 67.2
-CTVlogeOPT 59.7 69.3 65.9 67.4 68.5Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
-Plan:ProstateLoggg
-Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
-5/6
+BODY 28425.5 63.6 1.0 61.4 62.6
+CanalMed 82.3 10.6 1.1 9.0 10.2
+Coeur 879.7 0.9 0.2 0.7 0.8
+Estomac 285.8 0.1 0.0 0.1 0.1
+Foie 1784.1 0.2 0.1 0.2 0.2
+Grosvaisseaux 317.2 19.4 2.6 16.7 18.6
+IVA 5.4 0.4 0.2 0.2 0.4
+Oesophage 66.6 12.4 1.8 8.9 11.4
+ParoiThoracique 2986.4 56.4 1.4 45.8 54.9
+ParoiThoraciqueD 1242.5 56.6 2.8 45.3 54.9
+ParoiThoraciqueG 1221.3 13.9 0.5 7.2 11.4
+PBT 30.0 27.8 4.7 17.8 24.7
+PlexusDt 12.5 5.6 0.5 0.8 4.0
+PlexusGche 11.6 0.3 0.2 0.3 0.3
+PoumonDt 1693.0 63.6 5.0 61.2 62.5
+PoumonGche 1279.1 11.8 1.2 9.7 11.2
+Poumons 2960.0 63.6 3.3 61.2 62.5
+Trachee 25.6 22.1 4.3 12.8 20.2
+PTV3ph 26.0 63.6 56.3 61.4 62.6
+ITV3ph 8.4 63.6 59.4 61.4 62.6
+Canal+5 215.7 21.5 1.2 12.6 18.5
+CanalMed+5 215.7 21.5 1.2 12.6 18.5
+Poumons-ITV 2956.3 61.6 3.2 58.8 60.4Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
+Plan:STECPOUMSLSD
+Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
+5/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
+Plan:STECPOUMSLSD
+Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
+6/7
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
 Isocentredeschamps:,RA1,RA2,RA3,RA4
-Décaler: -0.91cm 3.63cm -6.43cm
-Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
-Plan:ProstateLoggg
-Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
-6/6
+Décaler: 2.82cm -5.47cm 8.66cm
+Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
+Plan:STECPOUMSLSD
+Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
+7/7

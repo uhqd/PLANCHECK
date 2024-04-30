@@ -31,7 +31,31 @@ namespace PlanCheck
         // private PreliminaryInformation _pinfo;
         private string _title = "Faisceaux";
 
+        private bool isItProstateWithoutNodes()
+        {
+            bool value = false;
 
+            bool therisAnOverlapGrele = false;
+            Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper() == "OverlapGrele");
+            if (s != null)
+                if (!s.IsEmpty)
+                    therisAnOverlapGrele = true;
+
+            bool thereAreNodes = false;
+            if (_pinfo.PlanName.ToUpper().Contains("GG") || therisAnOverlapGrele)
+                thereAreNodes = true;
+
+            if (_rcp.protocolName.ToUpper().Contains("PROSTATE"))
+            {
+                if (!thereAreNodes)
+                    value = true;
+            }
+
+
+
+            return value;
+
+        }
         private bool fieldIsTooSmall(double surfaceZX, double surfaceZY, double X1, double X2, double Y1, double Y2)
         {
             bool itIsTooSmall = false;
@@ -524,41 +548,57 @@ namespace PlanCheck
                     {
 
 
-                        novaSBRT.Infobulle = "Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée pour les champs < 7x7 cm2";
-                        novaSBRT.Infobulle += "\nLa machine NOVA doit être utilisée pour les champs > 13.5x13.5 cm2";
-                        novaSBRT.Infobulle += "\nLes deux machines sont autorisées entres les deux valeurs";
+                        novaSBRT.Infobulle = "Pour les Nova en VMAT, la machine NOVA SBRT doit être utilisée si X ou Y < 7 cm,\n";
+                        novaSBRT.Infobulle += "sauf pour les prostate sans Ganglions (NOVA SBRT dans tous les cas)";
+
 
                         Beam b = _ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
                         ControlPoint cp = b.ControlPoints.First();
-                        double meanJawsXY = 0.5 * (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2)) + (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
+                        //double meanJawsXY = 0.5 * (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2)) + (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
+                        double JawsX = (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2));
+                        double JawsY = (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
                         double limit = 70.0;
-                        double limithigh = 135.0;
-                        if (_pinfo.machine == "NOVA SBRT")
+                        bool smallField = false;
+                        bool mustBeSBRT = false;
+                        if (JawsX < limit || JawsY < limit)
                         {
-                            novaSBRT.MeasuredValue = "NOVA SBRT (jaws moy. = " + meanJawsXY + ")";
-                            if (meanJawsXY < limithigh)
-                            {
-                                novaSBRT.setToTRUE();
-                            }
-                            else
-                            {
-                                novaSBRT.setToFALSE();
-                            }
+                            smallField = true;
 
+                        }
+
+                        bool isProstateWithoutNodes = isItProstateWithoutNodes();
+
+                        if (isProstateWithoutNodes)
+                            mustBeSBRT = true;
+                        else
+                        {
+                            if (smallField)
+                                mustBeSBRT = true;
+                        }
+
+                        bool isSBRT = false;
+
+                        if (_pinfo.machine == "NOVA SBRT")
+                            isSBRT = true;
+                        novaSBRT.MeasuredValue = "NOVA SBRT ou NOVA: " + _pinfo.machine;
+                        if (isSBRT == mustBeSBRT)
+                        {
+                            novaSBRT.setToTRUE();
+                            
+                           
                         }
                         else
                         {
-                            novaSBRT.MeasuredValue = "NOVA (jaws moy. = " + meanJawsXY + ")";
-                            if (meanJawsXY < limit)
-                            {
-                                novaSBRT.setToFALSE();
-                            }
-                            else
-                            {
-                                novaSBRT.setToTRUE();
-                            }
+                            novaSBRT.setToFALSE();
+                            
 
                         }
+                        if (isProstateWithoutNodes)
+                            novaSBRT.Infobulle += "\nCe plan : Prostate sans gg --> NOVA SBRT";
+                        else if(smallField)
+                            novaSBRT.Infobulle += "\nCe plan : X ou Y < 7 cm --> NOVA SBRT";
+                        else
+                            novaSBRT.Infobulle += "\nCe plan : X et Y > 7 cm --> NOVA";
                     }
                     else
                     {

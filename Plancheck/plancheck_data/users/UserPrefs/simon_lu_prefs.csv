@@ -29,7 +29,7 @@ missingSlicesItem;no;Coupes manquantes dans les structures
 laterality;no;Lateralite correcte des structures G et D
 aPTVforEveryone;no;Existence de PTV pour chaque CTV
 allFieldsSameIso;no;Unicite de l'isocentre
-isoAtCenterOfPTV;yes;Isocentre au centre de la cible
+isoAtCenterOfPTV;no;Isocentre au centre de la cible
 distanceToOrigin;no;Distance iso origine
 isoTomo;no;Position iso Tomo
 gating;no;Gating active
@@ -48,7 +48,7 @@ lowSteps;no;Control Points trop lents
 toleranceTable;no;Table de tolerances des champs
 fieldTooSmall;no;Champ trop petit
 maxPositionMLCHalcyon;no;Position max des lames Halcyon
-novaSBRT;no;Nova SBRT
+novaSBRT;yes;Nova SBRT
 tomoParamsFieldWidth;no;Parametres du plan TOMO
 umPerGray;no;UM par Gray
 UMforFE;no;UM du plan FE
@@ -57,5 +57,5 @@ less10UM;no;Champs de 10 UM
 turquoiseIsodose;no;Isodose Turquoise
 prescribedObjectives;no;Objectifs de dose (PTV)
 doseToOAR;no;Objectifs de dose (OAR)
-ariaDocuments;no;Documents ARIA
-preparedQA;no;Preparation QA
+ariaDocuments;yes;Documents ARIA
+preparedQA;yes;Preparation QA
