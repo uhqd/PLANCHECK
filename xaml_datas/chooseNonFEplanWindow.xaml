@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:PlanCheck.xaml_datas"
         mc:Ignorable="d"
         Title="chooseNonFEplanWindow" Height="450" Width="800">
-    <Grid Margin="40,0,0,25">
-        <Button x:Name="close" Content="Fermer" HorizontalAlignment="Left" Margin="650,352,0,0" VerticalAlignment="Top" Click="close_Click" Height="48" Width="69" FontSize="20"/>
-        <TextBlock Background="AntiqueWhite" HorizontalAlignment="Left" Margin="125,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="129" Width="579" FontWeight="Bold"><Run Text="Plan avec Fluence Etendue détecté."/><LineBreak/><Run Text="Le plan original sans "/><Run Language="fr-fr" Text="FE"/><Run Text=", n'a pu être trouvé automatiquement. Merci de le sélectionner dans la liste ci"/><Run Language="fr-fr" Text="-"/><Run Text="dessous afin de réaliser les tests qui nécessitent ce plan. "/><Run Text=" "/></TextBlock>
-        <ComboBox  x:Name="cbListPlan" HorizontalAlignment="Left" Margin="230,265,0,0" VerticalAlignment="Top" Width="348" SelectionChanged="ComboBox_SelectionChanged" FontSize="16" Height="34"/>
+    <Grid  Style="{x:Null}" Margin="40,0,0,25">
+        <Button  Style="{x:Null}" x:Name="close" Content="Fermer" HorizontalAlignment="Left" Margin="650,352,0,0" VerticalAlignment="Top" Click="close_Click" Height="48" Width="69" FontSize="20"/>
+        <TextBlock  Style="{x:Null}" Background="AntiqueWhite" HorizontalAlignment="Left" Margin="125,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="129" Width="579" FontWeight="Bold"><Run Text="Plan avec Fluence Etendue détecté."/><LineBreak/><Run Text="Le plan original sans "/><Run Language="fr-fr" Text="FE"/><Run Text=", n'a pu être trouvé automatiquement. Merci de le sélectionner dans la liste ci"/><Run Language="fr-fr" Text="-"/><Run Text="dessous afin de réaliser les tests qui nécessitent ce plan. "/><Run Text=" "/></TextBlock>
+        <ComboBox  Style="{x:Null}"  x:Name="cbListPlan" HorizontalAlignment="Left" Margin="230,265,0,0" VerticalAlignment="Top" Width="348" SelectionChanged="ComboBox_SelectionChanged" FontSize="16" Height="34"/>
 
     </Grid>
 </Window>

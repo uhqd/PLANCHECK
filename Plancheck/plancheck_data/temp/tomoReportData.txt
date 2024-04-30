@@ -1,115 +1,95 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deTHUAULT,JEAN-
-JACQUES
-Plan:STECPoumLSG
-Rapportcrééle:23/04/202415:45:53par:LacazeThierry
+Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
+Plan:ProstateLoggg
+Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
 1/6
 PATIENT
-Nom:THUAULT,JEAN-JACQUES(202407185) DatedeNaissance:10/08/1952 Sexe:Masculin
+Nom:MARC,PHILIPPE(201004914) DatedeNaissance:28/06/1971 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan STECPoumLSG Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: ITV6ph
-IDimage: TDM170424_AVG6 Pointdereferenceprincipal ITV6ph
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 98.4%
+IDplan ProstateLoggg Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
+IDimage: TDMRTE110424 Pointdereferenceprincipal PTV_HDOPT
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 101.0%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (0.25cm,-22.05cm,0.00cm) Fractionnement:
-Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 66.0Gy(13.20Gy/fraction)
-Nombredefractions: 5
+Décalagedel'origine/àDICOM: (-0.05cm,-15.95cm,-0.20cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 66.0Gy(2.00Gy/fraction)
+Nombredefractions: 33
 OPTIONSDECALCUL
-Algorithmephoton: Acuros_15605New
-AutomaticHighDensityMaterial__ Bone
+Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc 0.125
-DoseReportingMode Dosetomedium
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
-MaximumAutomaticHighDensityVolumeInCM3__ 0.50
-PlanDoseCalculation OFF
-UseGPU Yes
 APPROBATIONS
-Plancréé: admin\cavet(18/04/202411:24:50)
-Appro.plan: KellerAudrey(mardi23avril202413:39:19)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deTHUAULT,JEAN-
-JACQUES
-Plan:STECPoumLSG
-Rapportcrééle:23/04/202415:45:53par:LacazeThierry
+Plancréé: admin\lanaspeze(25/04/202410:56:32)
+Appro.plan: KhalifaJonathan(vendredi26avril202415:03:24)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
+Plan:ProstateLoggg
+Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-ARCSTE
-IDmachine NOVA5
-Energie 6X-FFF
-Debitdedose 1400UM/min
-X1 1.7
-X2 1.8
-Y1 2.1
-Y2 2.1
-Tailledechamp 3.5x4.2cm²
-Angledubras 0°
-Sensderotationdubras SH
-Angled'arrêtdubras 179°
-Rot.collimateur 0°
-Rot.detable 0°
-Bolus -
-IsocentreX 11.12cm
-IsocentreY 3.07cm
-IsocentreZ 9.71cm
-DSP 86cm
-Ponderation 1
-Pointderéférence ITV6ph
-Filtreencoin -
-Bloc -
-Plaque -
-Doseparfraction 13.200Gy
-UM 1906.3UMRappportdeplanificationderadiothérapie(v15.6.05)deTHUAULT,JEAN-
-JACQUES
-Plan:STECPoumLSG
-Rapportcrééle:23/04/202415:45:53par:LacazeThierry
+RA1 RA2 RA3 RA4
+IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14
+X2 14 14 14 14
+Y1 14 14 14 14
+Y2 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 179° 181° 179° 181°
+Sensderotationdubras SAH SH SAH SH
+Angled'arrêtdubras 181° 179° 181° 179°
+Rot.collimateur 315° 45° 315° 45°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX 0.91cm 0.91cm 0.91cm 0.91cm
+IsocentreY -3.63cm -3.63cm -3.63cm -3.63cm
+IsocentreZ -6.43cm -6.43cm -6.43cm -6.43cm
+DSP 89.7cm 89.7cm 89.7cm 89.7cm
+Ponderation 1.092 1.108 1.075 1.137
+Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 0.495Gy 0.502Gy 0.487Gy 0.515Gy
+UM 216.3UM 219.5UM 212.9UM 225.3UMRappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
+Plan:ProstateLoggg
+Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deTHUAULT,JEAN-
-JACQUES
-Plan:STECPoumLSG
-Rapportcrééle:23/04/202415:45:53par:LacazeThierry
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
+Plan:ProstateLoggg
+Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-Trachee 22.3 0.4 0.2 0.4 0.4
-Thyroide 13.4 0.2 0.2 0.2 0.2
-ReinGche 143.7 0.1 0.0 0.1 0.1
-ReinDt 196.2 0.0 0.0 0.0 0.0
-QueueDeCheval 3.7 0.0 0.0 0.0 0.0
-Poumons 3697.9 68.6 2.1 67.3 68.4
-PoumonGche 1310.8 68.6 4.8 67.3 68.4
-PoumonDt 2387.1 3.0 0.5 2.8 2.9
-PlexusGche 11.0 0.3 0.2 0.2 0.3
-PlexusDt 12.5 0.2 0.1 0.1 0.1
-ParoiThoraciqueG 3122.4 68.6 1.4 63.6 68.0
-ParoiThoraciqueD 1303.1 3.3 0.3 2.9 3.2
-ParoiThoracique 4427.1 68.6 1.1 63.6 68.0
-Oesophage 38.1 4.8 0.9 4.1 4.7
-Larynx 10.2 0.1 0.1 0.1 0.1
-Foie 1920.4 0.1 0.0 0.1 0.1
-Estomac 262.8 0.2 0.1 0.2 0.2
-Coeur 1069.0 7.2 0.4 5.4 6.7
-CanalMed 79.7 4.8 0.6 4.1 4.6
-BODY 32229.9 68.6 0.7 67.4 68.4
-ITV6ph 4.5 68.6 65.8 67.2 68.4
-PTV6ph 15.5 68.6 62.8 67.4 68.4
-Canal+5 203.0 5.1 0.6 4.5 5.0
-Grosvaisseaux 377.6 13.2 2.5 10.2 12.3
-PBT 40.9 15.3 2.6 10.2 14.7
-CanalMed+5 205.9 5.1 0.6 4.5 5.0
-Poumons-ITV 3697.0 68.4 2.0 64.7 67.8
-Poumons-PTV 3687.3 61.4 1.8 56.4 59.4Rappportdeplanificationderadiothérapie(v15.6.05)deTHUAULT,JEAN-
-JACQUES
-Plan:STECPoumLSG
-Rapportcrééle:23/04/202415:45:53par:LacazeThierry
+BODY 26610.3 70.6 12.0 69.5 70.4
+Vessie 118.5 68.2 46.1 67.1 67.8
+TeteFemorGche 151.6 42.1 14.6 37.5 41.6
+TeteFemorDte 154.8 45.1 14.9 38.8 43.9
+Sigmoide 46.9 60.5 47.0 57.0 58.8
+Rectum 49.8 67.1 34.0 65.7 66.6
+QueueDeCheval 25.3 27.8 15.1 26.0 27.4
+Grele 1440.8 65.5 26.2 63.9 64.8
+CTVGG 442.8 70.2 56.9 67.4 69.1
+BulbePenien 5.1 47.2 10.4 13.8 40.1
+CTVloge 61.5 70.6 66.0 69.0 70.2
+GTVT 0.4 70.6 69.6 0.0 70.1
+PTVBD 864.1 70.5 56.7 69.1 70.1
+PTVBoost 3.4 70.6 69.1 69.5 70.4
+PTVHD 222.9 70.6 65.9 69.5 70.4
+Sacroiliaques 312.0 58.5 39.0 56.8 57.9
+PTV_HDOPT 207.8 69.6 66.0 68.2 69.2
+PTV_BD-PTV_HD 678.6 68.0 56.0 65.6 67.2
+CTVlogeOPT 59.7 69.3 65.9 67.4 68.5Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
+Plan:ProstateLoggg
+Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,ARCSTE
-Décaler: -11.12cm -3.07cm 9.71cm
-Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deTHUAULT,JEAN-
-JACQUES
-Plan:STECPoumLSG
-Rapportcrééle:23/04/202415:45:53par:LacazeThierry
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: -0.91cm 3.63cm -6.43cm
+Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deMARC,PHILIPPE
+Plan:ProstateLoggg
+Rapportcrééle:26/04/202415:13:12par:CarilloFabienne
 6/6

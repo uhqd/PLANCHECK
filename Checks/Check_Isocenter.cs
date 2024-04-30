@@ -37,7 +37,16 @@ namespace PlanCheck
             double myy = 999999.0;
             double myz = 999999.0;
 
-
+            foreach (Beam b in _ctx.PlanSetup.Beams)
+            {
+                if ((myx != b.IsocenterPosition.x) || (myy != b.IsocenterPosition.y) || (myz != b.IsocenterPosition.z))
+                {
+                    myx = b.IsocenterPosition.x;
+                    myy = b.IsocenterPosition.y;
+                    myz = b.IsocenterPosition.z;
+                    numberOfIso++;
+                }
+            }
             if (_pinfo.actualUserPreference.userWantsTheTest("allFieldsSameIso"))
             {
                 #region Tous les champs ont le même iso
@@ -48,16 +57,7 @@ namespace PlanCheck
                     allFieldsSameIso.Label = "Unicité de l'isocentre";
                     allFieldsSameIso.ExpectedValue = "1";
 
-                    foreach (Beam b in _ctx.PlanSetup.Beams)
-                    {
-                        if ((myx != b.IsocenterPosition.x) || (myy != b.IsocenterPosition.y) || (myz != b.IsocenterPosition.z))
-                        {
-                            myx = b.IsocenterPosition.x;
-                            myy = b.IsocenterPosition.y;
-                            myz = b.IsocenterPosition.z;
-                            numberOfIso++;
-                        }
-                    }
+                    
 
                     if (numberOfIso > 1)
                     {

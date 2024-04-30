@@ -19,12 +19,12 @@ using System.Windows.Navigation;
 using Excel = Microsoft.Office.Interop.Excel;
 // Do "Add reference" in reference manager --> COM tab --> Microsoft Excel 16 object...
 
-[assembly: AssemblyVersion("1.0.21.00")]
+[assembly: AssemblyVersion("1.0.21.12")]
 namespace VMS.TPS
 {
     public class Script
     {
-      
+      // 
         public Script()
         {
         }
