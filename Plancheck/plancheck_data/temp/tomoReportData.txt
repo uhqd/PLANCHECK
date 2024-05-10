@@ -1,19 +1,19 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
-Plan:M+poplitéeD
-Rapportcrééle:07/05/202411:22:37par:CavetClemence
+Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
+Plan:SeinGDIBHHyFE
+Rapportcrééle:10/05/202410:48:55par:SimonLuc
 1/6
 PATIENT
-Nom:NONIS,ELODIE(202204866) DatedeNaissance:05/12/1992 Sexe:Féminin
+Nom:DENES,MARIE(202400382) DatedeNaissance:06/08/1961 Sexe:Féminin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan M+poplitéeD Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV
-IDimage: TDMRTE020524 Pointdereferenceprincipal PTV
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 101.0%
-Orientationdutraitement: Indefinie Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-14.00cm,15.66cm,0.20cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 36.0Gy(6.00Gy/fraction)
-Nombredefractions: 6
+IDplan SeinGDIBHHyFE Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTVsein
+IDimage: TDMRTE300424DIBH Pointdereferenceprincipal PTVsein
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.9%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (-2.11cm,-18.91cm,0.00cm) Fractionnement:
+Typedetraitement: IMRTstatique DosePrescrite: 40.0Gy(2.67Gy/fraction)
+Nombredefractions: 15
 OPTIONSDECALCUL
 Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -21,60 +21,77 @@ CalculationGridSizeInCMForSRSAndHyperArc 0.125
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
 APPROBATIONS
-Plancréé: admin\lanaspeze(06/05/202414:17:10)
-Appro.plan: ChiraCiprian(lundi6mai202418:27:41)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
-Plan:M+poplitéeD
-Rapportcrééle:07/05/202411:22:37par:CavetClemence
+Plancréé: admin\lanaspeze(06/05/202410:56:52)
+Appro.plan: CastexClelie(mardi7mai202414:19:40)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
+Plan:SeinGDIBHHyFE
+Rapportcrééle:10/05/202410:48:55par:SimonLuc
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-RA1 RA2
-IDmachine NOVASBRT NOVASBRT
-Energie 6X 6X
-Debitdedose 600UM/min 600UM/min
-X1 2.33 2.53
-X2 2.43 2.35
-Y1 2.28 2.27
-Y2 2.27 2.27
-Tailledechamp 4.76x4.55cm² 4.88x4.54cm²
-Angledubras 250° 60°
-Sensderotationdubras SH SAH
-Angled'arrêtdubras 60° 250°
-Rot.collimateur 15° 345°
-Rot.detable 0° 0°
-Bolus - -
-IsocentreX 0.49cm 0.49cm
-IsocentreY 1.95cm 1.95cm
-IsocentreZ 1.56cm 1.56cm
-DSP 94.3cm 96.3cm
-Ponderation 0.801 0.815
-Pointderéférence PTV PTV
-Filtreencoin - -
-Bloc - -
-Plaque - -
-Doseparfraction 2.974Gy 3.026Gy
-UM 476.3UM 484.6UMRappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
-Plan:M+poplitéeD
-Rapportcrééle:07/05/202411:22:37par:CavetClemence
+MAMINTGH MAMINTGH1 MAMINTGH2 MAMEXT MAMEXT1 MAMEXT2
+IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14 14 14
+X2 14 14 14 14 14 14
+Y1 14 14 14 14 14 14
+Y2 14 14 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 310° 303° 317° 135° 142° 128°
+Sensderotationdubras - - - - - -
+Angled'arrêtdubras - - - - - -
+Rot.collimateur 10° 10° 10° 350° 350° 350°
+Rot.detable 0° 0° 0° 0° 0° 0°
+Bolus - - - - - -
+IsocentreX 11cm 11cm 11cm 11cm 11cm 11cm
+IsocentreY -16.81cm -16.81cm -16.81cm -16.81cm -16.81cm -16.81cm
+IsocentreZ 11.11cm 11.11cm 11.11cm 11.11cm 11.11cm 11.11cm
+DSP 93.9cm 93cm 94.6cm 93cm 92.5cm 93.5cm
+Ponderation 1 1 1 1 1 1
+Pointderéférence PTVsein PTVsein PTVsein PTVsein PTVsein PTVsein
+Filtreencoin - - - - - -
+Bloc - - - - - -
+Plaque - - - - - -
+Doseparfraction 0.444Gy 0.444Gy 0.444Gy 0.444Gy 0.444Gy 0.444Gy
+UM 146.4UM 219.3UM 138.7UM 141.1UM 150.8UM 133.1UMRappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
+Plan:SeinGDIBHHyFE
+Rapportcrééle:10/05/202410:48:55par:SimonLuc
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
-Plan:M+poplitéeD
-Rapportcrééle:07/05/202411:22:37par:CavetClemence
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
+Plan:SeinGDIBHHyFE
+Rapportcrééle:10/05/202410:48:55par:SimonLuc
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 17279.5 36.7 0.3 36.3 36.5
-PTV 15.7 36.7 36.0 36.3 36.5
-GTV 1.0 36.4 36.0 35.7 36.2
-CTV 4.3 36.4 35.9 36.1 36.3Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
-Plan:M+poplitéeD
-Rapportcrééle:07/05/202411:22:37par:CavetClemence
+Trachee 32.7 0.8 0.5 0.6 0.7
+Thyroide 13.0 0.6 0.3 0.5 0.6
+TetehumeraleGche 77.3 4.7 0.6 1.4 3.5
+TetehumeraleDte 76.5 0.0 0.0 0.0 0.0
+Seincontro 690.0 2.8 0.2 2.1 2.6
+Poumons 6511.1 39.2 2.0 37.5 38.6
+PoumonGche 2956.8 39.2 4.3 37.6 38.6
+PoumonDt 3554.8 2.1 0.1 1.5 1.9
+PlexusGche 11.2 6.1 0.9 1.4 3.7
+PlexusDt 9.9 0.2 0.1 0.2 0.2
+Oesophage 22.9 0.7 0.4 0.6 0.7
+Larynx 7.7 0.4 0.3 0.3 0.3
+IVA 5.6 15.4 5.0 8.6 13.7
+Foie 1477.2 0.7 0.1 0.6 0.7
+CTVsein 582.6 42.2 39.9 41.6 42.0
+Coeur 817.2 17.1 0.9 11.0 14.9
+CanalMed 96.9 0.5 0.2 0.5 0.5
+BODYRL 32549.7 41.6 1.2 41.2 41.5
+BODY 34607.1 42.2 1.9 41.6 42.0
+PTVsein 692.8 42.2 39.9 41.6 42.0
+CTVsein-5mm 521.9 42.2 40.1 41.6 42.0Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
+Plan:SeinGDIBHHyFE
+Rapportcrééle:10/05/202410:48:55par:SimonLuc
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2
-Décaler: -0.49cm -1.95cm 1.56cm
-Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
-Plan:M+poplitéeD
-Rapportcrééle:07/05/202411:22:37par:CavetClemence
+Isocentredeschamps:,MAMINTGH,MAMINTGH1,MAMINTGH2,MAMEXT,MAMEXT1,MAMEXT2
+Décaler: -11cm 16.81cm 11.11cm
+Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
+Plan:SeinGDIBHHyFE
+Rapportcrééle:10/05/202410:48:55par:SimonLuc
 6/6

@@ -40,9 +40,20 @@ namespace PlanCheck
             if (_pinfo.actualUserPreference.userWantsTheTest("prescriptionVolumes"))
             {
                 Item_Result prescriptionVolumes = new Item_Result();
+                if (_ctx.PlanSetup.RTPrescription.Status == "Approved")
+                {
+                    prescriptionVolumes.MeasuredValue = "Approuvée: ";
+                    prescriptionVolumes.setToTRUE();
+                }
+                else
+                {
+                    prescriptionVolumes.MeasuredValue = "Non approuvée: ";
 
+                    //                    prescriptionVolumes.Label = " Prescription non approuvée (" + targetNumber + " cible(s))";
+                    prescriptionVolumes.setToFALSE();
+                }
                 int targetNumber = 0;
-                prescriptionVolumes.MeasuredValue = "";
+                //prescriptionVolumes.MeasuredValue = "";
                 prescriptionVolumes.Infobulle = "information : liste des cibles de la prescription\n";
                 foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) //boucle sur les différents niveaux de dose de la prescription
                 {
@@ -53,16 +64,8 @@ namespace PlanCheck
                 }
 
                 prescriptionVolumes.ExpectedValue = "info";
-                if (_ctx.PlanSetup.RTPrescription.Status == "Approved")
-                {
-                    prescriptionVolumes.Label = " Prescription approuvée pour " + targetNumber + " cible(s) : ";
-                    prescriptionVolumes.setToTRUE();
-                }
-                else
-                {
-                    prescriptionVolumes.Label = " Prescription non approuvée (" + targetNumber + " cible(s))";
-                    prescriptionVolumes.setToFALSE();
-                }
+                prescriptionVolumes.Label = " Approbation de la prescription pour " + targetNumber + " cible(s) : ";
+                
 
                 this._result.Add(prescriptionVolumes);
             }

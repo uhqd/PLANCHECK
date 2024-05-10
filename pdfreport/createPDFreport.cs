@@ -175,7 +175,7 @@ namespace PlanCheck.pdfreport
 
                 }
                 section.Add(table1);
-                section.AddPageBreak();
+               // section.AddPageBreak();
 
             }
             #endregion

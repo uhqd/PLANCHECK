@@ -18,6 +18,13 @@ namespace PlanCheck.xaml_datas
     /// <summary>
     /// Logique d'interaction pour chooseNonFEplanWindow.xaml
     /// </summary>
+    
+    /*
+     * POUR AJOUTER UN TEST
+     * CREER LE TEST DANS LE CODE AVEC UN TEST IF USER WANT THE TEST (NOM DU TEST)
+     * AJOUTER CE NOM DE TEST DANS LE FICHIER NEWS.PREFS
+     * VOILA
+    */
     public partial class chooseUserPreferences : Window
     {
         public List<string> MaListe { get; set; }
@@ -145,7 +152,7 @@ namespace PlanCheck.xaml_datas
             this.Close();
         }
 
-        private void medecin_Click(object sender, RoutedEventArgs e)
+       /* private void medecin_Click(object sender, RoutedEventArgs e)
         {
             int i = 0;
             List<int> medecinList = new List<int>() {4,5,6,7,21,24,27,28,29,30,31,58,59,60 };
@@ -179,7 +186,7 @@ namespace PlanCheck.xaml_datas
                 else
                     checkBox.IsChecked = false;
             }
-        }
+        }*/
     }
 }
 

@@ -184,7 +184,7 @@ namespace PlanCheck
 
                 #endregion
             }
-
+            
             if (_pinfo.actualUserPreference.userWantsTheTest("distanceToOrigin"))
             {
                 #region Distance à l'origine en z
