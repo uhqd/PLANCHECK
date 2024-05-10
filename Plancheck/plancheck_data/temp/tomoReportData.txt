@@ -1,109 +1,80 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
-Plan:STECPOUMSLSD
-Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
-1/7
+Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
+Plan:M+poplitéeD
+Rapportcrééle:07/05/202411:22:37par:CavetClemence
+1/6
 PATIENT
-Nom:ABADIA,ROGER(201705609) DatedeNaissance:27/06/1949 Sexe:Masculin
+Nom:NONIS,ELODIE(202204866) DatedeNaissance:05/12/1992 Sexe:Féminin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan STECPOUMSLSD Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: ITV3ph
-IDimage: TDM240424_AVG3 Pointdereferenceprincipal ITV3ph
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.6%
-Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.55cm,-22.70cm,0.00cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 60.0Gy(12.00Gy/fraction)
-Nombredefractions: 5
+IDplan M+poplitéeD Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV
+IDimage: TDMRTE020524 Pointdereferenceprincipal PTV
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 101.0%
+Orientationdutraitement: Indefinie Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (-14.00cm,15.66cm,0.20cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 36.0Gy(6.00Gy/fraction)
+Nombredefractions: 6
 OPTIONSDECALCUL
-Algorithmephoton: Acuros_15605New
-AutomaticHighDensityMaterial__ Bone
+Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc 0.125
-DoseReportingMode Dosetomedium
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
-MaximumAutomaticHighDensityVolumeInCM3__ 0.50
-PlanDoseCalculation OFF
-UseGPU Yes
 APPROBATIONS
-Plancréé: admin\carillo(29/04/202408:00:58)
-Appro.plan: GlemarecGauthier(lundi29avril202413:05:26)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
-Plan:STECPOUMSLSD
-Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
-2/7
+Plancréé: admin\lanaspeze(06/05/202414:17:10)
+Appro.plan: ChiraCiprian(lundi6mai202418:27:41)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
+Plan:M+poplitéeD
+Rapportcrééle:07/05/202411:22:37par:CavetClemence
+2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-RA1 RA2 RA3 RA4
-IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
-X1 2.52 2.38 2.27 2.27
-X2 2.27 2.14 2.39 2.39
-Y1 2 2 2 2
-Y2 2.25 2.25 2.25 2
-Tailledechamp 4.79x4.25cm² 4.52x4.25cm² 4.66x4.25cm² 4.66x4cm²
-Angledubras 181° 0° 181° 0°
-Sensderotationdubras SH SAH SH SAH
-Angled'arrêtdubras 0° 181° 0° 181°
-Rot.collimateur 15° 345° 105° 75°
-Rot.detable 0° 0° 0° 0°
-Bolus - - - -
-IsocentreX -2.82cm -2.82cm -2.82cm -2.82cm
-IsocentreY 5.47cm 5.47cm 5.47cm 5.47cm
-IsocentreZ 8.66cm 8.66cm 8.66cm 8.66cm
-DSP 92.2cm 84.1cm 92.2cm 84.1cm
-Ponderation 1.218 1.065 1.275 1.195
-Pointderéférence ITV3ph ITV3ph ITV3ph ITV3ph
-Filtreencoin - - - -
-Bloc - - - -
-Plaque - - - -
-Doseparfraction 3.075Gy 2.690Gy 3.218Gy 3.018Gy
-UM 1467.0UM 1283.4UM 1535.5UM 1439.9UMRappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
-Plan:STECPOUMSLSD
-Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
-3/7
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
-Plan:STECPOUMSLSD
-Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
-4/7
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
+RA1 RA2
+IDmachine NOVASBRT NOVASBRT
+Energie 6X 6X
+Debitdedose 600UM/min 600UM/min
+X1 2.33 2.53
+X2 2.43 2.35
+Y1 2.28 2.27
+Y2 2.27 2.27
+Tailledechamp 4.76x4.55cm² 4.88x4.54cm²
+Angledubras 250° 60°
+Sensderotationdubras SH SAH
+Angled'arrêtdubras 60° 250°
+Rot.collimateur 15° 345°
+Rot.detable 0° 0°
+Bolus - -
+IsocentreX 0.49cm 0.49cm
+IsocentreY 1.95cm 1.95cm
+IsocentreZ 1.56cm 1.56cm
+DSP 94.3cm 96.3cm
+Ponderation 0.801 0.815
+Pointderéférence PTV PTV
+Filtreencoin - -
+Bloc - -
+Plaque - -
+Doseparfraction 2.974Gy 3.026Gy
+UM 476.3UM 484.6UMRappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
+Plan:M+poplitéeD
+Rapportcrééle:07/05/202411:22:37par:CavetClemence
+3/6
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
+Plan:M+poplitéeD
+Rapportcrééle:07/05/202411:22:37par:CavetClemence
+4/6
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 28425.5 63.6 1.0 61.4 62.6
-CanalMed 82.3 10.6 1.1 9.0 10.2
-Coeur 879.7 0.9 0.2 0.7 0.8
-Estomac 285.8 0.1 0.0 0.1 0.1
-Foie 1784.1 0.2 0.1 0.2 0.2
-Grosvaisseaux 317.2 19.4 2.6 16.7 18.6
-IVA 5.4 0.4 0.2 0.2 0.4
-Oesophage 66.6 12.4 1.8 8.9 11.4
-ParoiThoracique 2986.4 56.4 1.4 45.8 54.9
-ParoiThoraciqueD 1242.5 56.6 2.8 45.3 54.9
-ParoiThoraciqueG 1221.3 13.9 0.5 7.2 11.4
-PBT 30.0 27.8 4.7 17.8 24.7
-PlexusDt 12.5 5.6 0.5 0.8 4.0
-PlexusGche 11.6 0.3 0.2 0.3 0.3
-PoumonDt 1693.0 63.6 5.0 61.2 62.5
-PoumonGche 1279.1 11.8 1.2 9.7 11.2
-Poumons 2960.0 63.6 3.3 61.2 62.5
-Trachee 25.6 22.1 4.3 12.8 20.2
-PTV3ph 26.0 63.6 56.3 61.4 62.6
-ITV3ph 8.4 63.6 59.4 61.4 62.6
-Canal+5 215.7 21.5 1.2 12.6 18.5
-CanalMed+5 215.7 21.5 1.2 12.6 18.5
-Poumons-ITV 2956.3 61.6 3.2 58.8 60.4Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
-Plan:STECPOUMSLSD
-Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
-5/7
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
-Plan:STECPOUMSLSD
-Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
-6/7
+BODY 17279.5 36.7 0.3 36.3 36.5
+PTV 15.7 36.7 36.0 36.3 36.5
+GTV 1.0 36.4 36.0 35.7 36.2
+CTV 4.3 36.4 35.9 36.1 36.3Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
+Plan:M+poplitéeD
+Rapportcrééle:07/05/202411:22:37par:CavetClemence
+5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2,RA3,RA4
-Décaler: 2.82cm -5.47cm 8.66cm
-Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deABADIA,ROGER
-Plan:STECPOUMSLSD
-Rapportcrééle:29/04/202413:58:00par:RecordonFrederique
-7/7
+Isocentredeschamps:,RA1,RA2
+Décaler: -0.49cm -1.95cm 1.56cm
+Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deNONIS,ELODIE
+Plan:M+poplitéeD
+Rapportcrééle:07/05/202411:22:37par:CavetClemence
+6/6
