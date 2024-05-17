@@ -69,6 +69,68 @@ namespace PlanCheck
         public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
         private User_preference _actualUserPreference;
         public int nAriaDocumentExterieur;
+        private double myXcenter;
+
+
+        private Structure isExistAndNotEmpty(String id)
+        {
+
+            bool isok = false;
+            Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper() == id.ToUpper());
+            if (s != null)
+                if (!s.IsEmpty)
+                    isok = true;
+
+            if (isok)
+                return s;
+            else
+                return null;
+
+        }
+
+
+        public double getXcenter()
+        {
+            double xCenter = 0.0;
+
+            Structure centralStruct = isExistAndNotEmpty("CHIASMA");
+
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("CANAL MED");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("RECTUM");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("VESSIE");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("CERVEAU");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("TRONC CEREBRAL");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("PROSTATE");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("HYPOPHYSE");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("BODY");
+
+            if (centralStruct == null)
+                centralStruct = isExistAndNotEmpty("CONTOUR EXTERNE");
+
+            if (centralStruct != null)
+                xCenter = centralStruct.MeshGeometry.Bounds.X + (centralStruct.MeshGeometry.Bounds.SizeX / 2.0);
+
+
+            return xCenter;
+        }
+
+
         public bool isARecentDocument(DateTime t)
         {
             int recent = 30;   // number of days 
@@ -556,7 +618,7 @@ namespace PlanCheck
 
             #region set initial values
 
-
+            myXcenter = getXcenter();
 
             foreach (Beam bn in ctx.PlanSetup.Beams)
             {
@@ -835,6 +897,10 @@ namespace PlanCheck
         public List<OARvolume> womanOARVolumes
         {
             get { return referenceWomanOARVolume; }
+        }
+        public double theXcenter
+        {
+            get { return myXcenter; }
         }
         public string lastUsedCheckProtocol
         {

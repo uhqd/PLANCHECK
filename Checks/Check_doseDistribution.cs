@@ -93,15 +93,44 @@ namespace PlanCheck
             {
                 // if(_ctx.PlanSetup.RTPrescription.Id.ToLower().Contains("gche"))
 
-                Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper().Contains("PTV"));
-                if (s.MeshGeometry.Bounds.X + (0.5 * s.MeshGeometry.Bounds.SizeX) > 0)
+                //Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper().Contains("PTV"));
+                Structure s1 = null;
+                foreach(Structure s in _ctx.StructureSet.Structures)
+                {
+                    String myId = s.Id.ToUpper();
+                    if (myId.Contains("PTV") && !myId.Contains("-PTV"))
+                    {
+                        s1 = s;
+                        break;
+                    }
+                }
+                if(s1==null)
+                {
+                    foreach (Structure s in _ctx.StructureSet.Structures)
+                    {
+                        if (s.DicomType == "BODY")
+                        {
+                            s1 = s;
+                            break ;
+                        }
+
+                    }
+                }
+
+                double ptvCenter = s1.MeshGeometry.Bounds.X + (0.5 * s1.MeshGeometry.Bounds.SizeX);
+                if (ptvCenter > _pinfo.theXcenter)//0)
+                {
+                   // MessageBox.Show(s.Id + " " + ptvCenter + "\n center " + _pinfo.theXcenter);
+
                     itisleft = true;
+                    
+                }
                 // MessageBox.Show("it is left " + itisleft.ToString() + s.Id + " "+s.MeshGeometry.Bounds.X.ToString("")+" " + s.MeshGeometry.Bounds.SizeX.ToString(""));
             }
             else
             {
                 Beam b = _ctx.PlanSetup.Beams.First();
-                if (b.IsocenterPosition.x > 0)  // if iso is left
+                if (b.IsocenterPosition.x > _pinfo.theXcenter)  // if iso is left
                     itisleft = true;
             }
 

@@ -56,7 +56,7 @@ UMforFE;yes;UM du plan FE
 wedged;no;Filtres
 less10UM;no;Champs de 10 UM
 turquoiseIsodose;no;Isodose Turquoise
-prescribedObjectives;no;Objectifs de dose (PTV)
+prescribedObjectives;yes;Objectifs de dose (PTV)
 doseToOAR;yes;Objectifs de dose (OAR)
 ariaDocuments;yes;Documents ARIA
 preparedQA;yes;Preparation QA

@@ -28,7 +28,9 @@ namespace PlanCheck
             var imageRes = SS.Image.ZRes;
             return Convert.ToInt32((z - SS.Image.Origin.z) / imageRes);
         }
-        private Structure isExistAndNotEmpty(String id)
+
+        /*
+         private Structure isExistAndNotEmpty(String id)
         {
 
             bool isok = false;
@@ -43,6 +45,7 @@ namespace PlanCheck
                 return null;
 
         }
+        */
         private double volumeMin(String volumeName, double volumeValue, String sex)
         {
             double result = -1.0;
@@ -171,6 +174,7 @@ namespace PlanCheck
             return result;
 
         }
+        /*
         public double getXcenter()
         {
             double xCenter = 0.0;
@@ -211,6 +215,7 @@ namespace PlanCheck
 
             return xCenter;
         }
+        */
         public static int getNumberOfMissingSlices(Structure S, StructureSet SS)
         {
 
@@ -881,7 +886,8 @@ namespace PlanCheck
 
                             double bodyXcenter = sbody.MeshGeometry.Bounds.X + (sbody.MeshGeometry.Bounds.SizeX / 2.0);
                 */
-                double bodyXcenter = getXcenter();
+                double bodyXcenter = _pinfo.theXcenter;
+                    //getXcenter();
 
                 foreach (Structure s in _ctx.StructureSet.Structures)
                 {
