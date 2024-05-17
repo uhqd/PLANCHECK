@@ -31,6 +31,51 @@ namespace PlanCheck
         // private PreliminaryInformation _pinfo;
         private string _title = "Faisceaux";
 
+
+
+        private bool gantryAnglesAreCorrect(ScriptContext _ctx)
+        {
+            bool isCorrect = true;
+            List<double> intAngle = new List<double>();
+            List<double> extAngle = new List<double>();
+
+            //List<Beam> myBeamList = new List<Beam>();
+            foreach (Beam b in _ctx.PlanSetup.Beams)
+            {
+                if (b.Id.ToLower().Contains("int"))
+                {
+                    intAngle.Add(b.ControlPoints.First().GantryAngle);
+                }
+                if (b.Id.ToLower().Contains("ext"))
+                {
+                    extAngle.Add(b.ControlPoints.First().GantryAngle);
+                }
+            }
+            intAngle.Sort();
+            extAngle.Sort();
+            for (int i = 0; i < intAngle.Count - 1; i++)
+            {
+                if (intAngle[i + 1] - intAngle[i] != 7)
+                {
+                    isCorrect = false;
+                    break;
+                }
+            }
+            if (isCorrect)
+                for (int i = 0; i < extAngle.Count - 1; i++)
+                {
+                    if (extAngle[i + 1] - extAngle[i] != 7)
+                    {
+                        isCorrect = false;
+                        break;
+                    }
+                }
+
+            return isCorrect;
+
+        }
+
+
         private bool isItProstateWithoutNodes()
         {
             bool value = false;
@@ -552,31 +597,59 @@ namespace PlanCheck
                         novaSBRT.Infobulle += "sauf pour les prostate sans Ganglions (NOVA SBRT dans tous les cas)";
 
 
-                        Beam b = _ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
-                        ControlPoint cp = b.ControlPoints.First();
-                        //double meanJawsXY = 0.5 * (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2)) + (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
-                        double JawsX = (Math.Abs(cp.JawPositions.X1) + Math.Abs(cp.JawPositions.X2));
-                        double JawsY = (Math.Abs(cp.JawPositions.Y1) + Math.Abs(cp.JawPositions.Y2));
+                        bool aFieldIsSmall = false;
+                        double maxJawsX1 = 0.0;
+                        double maxJawsX2 = 0.0;
+                        double maxJawsY1 = 0.0;
+                        double maxJawsY2 = 0.0;
+                        double maxJawsX = 0.0;
+                        double maxJawsY = 0.0;
                         double limit = 70.0;
-                        bool smallField = false;
-                        bool mustBeSBRT = false;
-                        if (JawsX < limit || JawsY < limit)
+                        foreach (Beam b in _ctx.PlanSetup.Beams)
                         {
-                            smallField = true;
+
+
+                            foreach (ControlPoint cpi in b.ControlPoints)
+                            {
+                                if (Math.Abs(cpi.JawPositions.X1) > maxJawsX1)
+                                    maxJawsX1 = Math.Abs(cpi.JawPositions.X1);
+                                if (Math.Abs(cpi.JawPositions.X2) > maxJawsX2)
+                                    maxJawsX2 = Math.Abs(cpi.JawPositions.X2);
+
+                                if (Math.Abs(cpi.JawPositions.Y1) > maxJawsY1)
+                                    maxJawsY1 = Math.Abs(cpi.JawPositions.Y1);
+                                if (Math.Abs(cpi.JawPositions.Y2) > maxJawsY2)
+                                    maxJawsY2 = Math.Abs(cpi.JawPositions.Y2);
+
+                            }
+                            maxJawsX = maxJawsX1 + maxJawsX2;
+                            maxJawsY = maxJawsY1 + maxJawsY2;
+
+                            if ((maxJawsY < limit) || (maxJawsX < limit))
+                            {
+                                aFieldIsSmall = true;
+                                break;
+                            }
+
 
                         }
 
+
+
+
+                        bool mustBeSBRT = false;
+                        bool isSBRT = false;
                         bool isProstateWithoutNodes = isItProstateWithoutNodes();
 
                         if (isProstateWithoutNodes)
                             mustBeSBRT = true;
                         else
                         {
-                            if (smallField)
+                            if (aFieldIsSmall)
                                 mustBeSBRT = true;
                         }
 
-                        bool isSBRT = false;
+
 
                         if (_pinfo.machine == "NOVA SBRT")
                             isSBRT = true;
@@ -584,18 +657,18 @@ namespace PlanCheck
                         if (isSBRT == mustBeSBRT)
                         {
                             novaSBRT.setToTRUE();
-                            
-                           
+
+
                         }
                         else
                         {
                             novaSBRT.setToFALSE();
-                            
+
 
                         }
                         if (isProstateWithoutNodes)
                             novaSBRT.Infobulle += "\nCe plan : Prostate sans gg --> NOVA SBRT";
-                        else if(smallField)
+                        else if (aFieldIsSmall)
                             novaSBRT.Infobulle += "\nCe plan : X ou Y < 7 cm --> NOVA SBRT";
                         else
                             novaSBRT.Infobulle += "\nCe plan : X et Y > 7 cm --> NOVA";
@@ -687,6 +760,35 @@ namespace PlanCheck
 
                 }
 
+                #endregion
+            }
+            if (_pinfo.actualUserPreference.userWantsTheTest("gantryAnglesForBreast"))
+            {
+                #region ANGLES SHIFT IS 7 DEGRES BREAST IMRT 
+                if (_rcp.protocolName == "sein" && _pinfo.treatmentType == "IMRT")
+                {
+                    Item_Result gantryAngleBreastIMRT = new Item_Result();
+                    gantryAngleBreastIMRT.Label = "Angles de bras en IMRT du sein";
+                    gantryAngleBreastIMRT.ExpectedValue = "";
+
+                    bool isCorrect = false;
+                    isCorrect = gantryAnglesAreCorrect(_ctx);
+                    if (isCorrect)
+                    {
+                        gantryAngleBreastIMRT.setToTRUE();
+                        gantryAngleBreastIMRT.MeasuredValue = "7 deg. entre les différents champs";
+                    }
+                    else
+                    {
+                        gantryAngleBreastIMRT.setToFALSE();
+                        gantryAngleBreastIMRT.MeasuredValue = "7 deg. entre les différents champs : non respecté";
+
+                    }
+                    gantryAngleBreastIMRT.Infobulle = "Les différents champs intenes doivent être séparés de 7 degrés (idem externes)";
+
+                    this._result.Add(gantryAngleBreastIMRT);
+
+                }
                 #endregion
             }
         }

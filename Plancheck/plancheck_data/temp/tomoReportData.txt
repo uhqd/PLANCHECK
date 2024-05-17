@@ -1,19 +1,19 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
-Plan:SeinGDIBHHyFE
-Rapportcrééle:10/05/202410:48:55par:SimonLuc
+Rappportdeplanificationderadiothérapie(v15.6.05)deLEWIN,ELODIE
+Plan:SeinDBoostFE
+Rapportcrééle:15/05/202418:07:08par:LacazeThierry
 1/6
 PATIENT
-Nom:DENES,MARIE(202400382) DatedeNaissance:06/08/1961 Sexe:Féminin
+Nom:LEWIN,ELODIE(202403441) DatedeNaissance:07/11/1978 Sexe:Féminin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan SeinGDIBHHyFE Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTVsein
-IDimage: TDMRTE300424DIBH Pointdereferenceprincipal PTVsein
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.9%
+IDplan SeinDBoostFE Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTVboost
+IDimage: TDMRTE100524 Pointdereferenceprincipal PTVboost
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.1%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-2.11cm,-18.91cm,0.00cm) Fractionnement:
-Typedetraitement: IMRTstatique DosePrescrite: 40.0Gy(2.67Gy/fraction)
-Nombredefractions: 15
+Décalagedel'origine/àDICOM: (1.95cm,-23.12cm,0.00cm) Fractionnement:
+Typedetraitement: IMRTstatique DosePrescrite: 63.8Gy(2.20Gy/fraction)
+Nombredefractions: 29
 OPTIONSDECALCUL
 Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -21,77 +21,79 @@ CalculationGridSizeInCMForSRSAndHyperArc 0.125
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
 APPROBATIONS
-Plancréé: admin\lanaspeze(06/05/202410:56:52)
-Appro.plan: CastexClelie(mardi7mai202414:19:40)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
-Plan:SeinGDIBHHyFE
-Rapportcrééle:10/05/202410:48:55par:SimonLuc
+Plancréé: admin\recordon(14/05/202416:39:19)
+Appro.plan: KellerAudrey(mercredi15mai202416:54:00)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deLEWIN,ELODIE
+Plan:SeinDBoostFE
+Rapportcrééle:15/05/202418:07:08par:LacazeThierry
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-MAMINTGH MAMINTGH1 MAMINTGH2 MAMEXT MAMEXT1 MAMEXT2
-IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
-X1 14 14 14 14 14 14
-X2 14 14 14 14 14 14
-Y1 14 14 14 14 14 14
-Y2 14 14 14 14 14 14
-Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
-Angledubras 310° 303° 317° 135° 142° 128°
-Sensderotationdubras - - - - - -
-Angled'arrêtdubras - - - - - -
-Rot.collimateur 10° 10° 10° 350° 350° 350°
-Rot.detable 0° 0° 0° 0° 0° 0°
-Bolus - - - - - -
-IsocentreX 11cm 11cm 11cm 11cm 11cm 11cm
-IsocentreY -16.81cm -16.81cm -16.81cm -16.81cm -16.81cm -16.81cm
-IsocentreZ 11.11cm 11.11cm 11.11cm 11.11cm 11.11cm 11.11cm
-DSP 93.9cm 93cm 94.6cm 93cm 92.5cm 93.5cm
-Ponderation 1 1 1 1 1 1
-Pointderéférence PTVsein PTVsein PTVsein PTVsein PTVsein PTVsein
-Filtreencoin - - - - - -
-Bloc - - - - - -
-Plaque - - - - - -
-Doseparfraction 0.444Gy 0.444Gy 0.444Gy 0.444Gy 0.444Gy 0.444Gy
-UM 146.4UM 219.3UM 138.7UM 141.1UM 150.8UM 133.1UMRappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
-Plan:SeinGDIBHHyFE
-Rapportcrééle:10/05/202410:48:55par:SimonLuc
+MAMINTDT MAMINTDT1 MAMINTDT2 MAMEXTDT MAMEXTDT1
+IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14 14
+X2 14 14 14 14 14
+Y1 14 14 14 14 14
+Y2 14 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 56° 62° 49° 231° 224°
+Sensderotationdubras - - - - -
+Angled'arrêtdubras - - - - -
+Rot.collimateur 358° 358° 358° 2° 2°
+Rot.detable 0° 0° 0° 0° 0°
+Bolus - - - - -
+IsocentreX -9.66cm -9.66cm -9.66cm -9.66cm -9.66cm
+IsocentreY -6.99cm -6.99cm -6.99cm -6.99cm -6.99cm
+IsocentreZ 8.76cm 8.76cm 8.76cm 8.76cm 8.76cm
+DSP 95.3cm 94.6cm 95.9cm 95.3cm 94.5cm
+Ponderation 1 1 1 1 1
+Pointderéférence PTVboost PTVboost PTVboost PTVboost PTVboost
+Filtreencoin - - - - -
+Bloc - - - - -
+Plaque - - - - -
+Doseparfraction 0.440Gy 0.440Gy 0.440Gy 0.440Gy 0.440Gy
+UM 160.0UM 159.5UM 220.3UM 145.6UM 101.7UMRappportdeplanificationderadiothérapie(v15.6.05)deLEWIN,ELODIE
+Plan:SeinDBoostFE
+Rapportcrééle:15/05/202418:07:08par:LacazeThierry
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
-Plan:SeinGDIBHHyFE
-Rapportcrééle:10/05/202410:48:55par:SimonLuc
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deLEWIN,ELODIE
+Plan:SeinDBoostFE
+Rapportcrééle:15/05/202418:07:08par:LacazeThierry
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-Trachee 32.7 0.8 0.5 0.6 0.7
-Thyroide 13.0 0.6 0.3 0.5 0.6
-TetehumeraleGche 77.3 4.7 0.6 1.4 3.5
-TetehumeraleDte 76.5 0.0 0.0 0.0 0.0
-Seincontro 690.0 2.8 0.2 2.1 2.6
-Poumons 6511.1 39.2 2.0 37.5 38.6
-PoumonGche 2956.8 39.2 4.3 37.6 38.6
-PoumonDt 3554.8 2.1 0.1 1.5 1.9
-PlexusGche 11.2 6.1 0.9 1.4 3.7
-PlexusDt 9.9 0.2 0.1 0.2 0.2
-Oesophage 22.9 0.7 0.4 0.6 0.7
-Larynx 7.7 0.4 0.3 0.3 0.3
-IVA 5.6 15.4 5.0 8.6 13.7
-Foie 1477.2 0.7 0.1 0.6 0.7
-CTVsein 582.6 42.2 39.9 41.6 42.0
-Coeur 817.2 17.1 0.9 11.0 14.9
-CanalMed 96.9 0.5 0.2 0.5 0.5
-BODYRL 32549.7 41.6 1.2 41.2 41.5
-BODY 34607.1 42.2 1.9 41.6 42.0
-PTVsein 692.8 42.2 39.9 41.6 42.0
-CTVsein-5mm 521.9 42.2 40.1 41.6 42.0Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
-Plan:SeinGDIBHHyFE
-Rapportcrééle:10/05/202410:48:55par:SimonLuc
+Trachee 25.8 0.6 0.3 0.5 0.6
+Thyroide 5.3 0.3 0.2 0.2 0.3
+TetehumeraleGche 66.0 0.3 0.1 0.2 0.3
+TetehumeraleDte 93.0 0.9 0.4 0.8 0.9
+Seincontro 248.2 2.1 0.4 1.7 1.9
+Poumons 2673.3 54.2 3.2 49.6 52.3
+PoumonGche 1231.9 0.4 0.1 0.4 0.4
+PoumonDt 1441.4 54.2 5.9 49.6 52.3
+PlexusGche 14.2 0.3 0.1 0.2 0.3
+PlexusDt 14.1 1.6 0.6 1.3 1.5
+Oesophage 24.2 0.5 0.3 0.4 0.5
+Larynx 9.8 0.4 0.3 0.3 0.4
+IVA 4.3 0.3 0.2 0.2 0.3
+Foie 1300.9 32.7 1.9 30.3 32.1
+CTVsein 268.2 66.1 52.4 65.3 65.9
+Coeur 584.7 3.7 0.4 2.7 3.4
+CanalMed 84.7 0.4 0.2 0.4 0.4
+BODY 20721.0 66.1 2.2 65.3 65.9
+BoostlitT 21.7 66.1 63.6 65.3 65.9
+PTVboost 35.9 66.1 63.7 65.3 65.9
+PTVsein 276.6 66.1 54.6 65.3 65.9
+PTVsein-PTVboost 239.7 65.2 53.2 63.6 64.7
+CTVsein-5mm 174.7 66.1 55.8 65.3 65.9Rappportdeplanificationderadiothérapie(v15.6.05)deLEWIN,ELODIE
+Plan:SeinDBoostFE
+Rapportcrééle:15/05/202418:07:08par:LacazeThierry
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,MAMINTGH,MAMINTGH1,MAMINTGH2,MAMEXT,MAMEXT1,MAMEXT2
-Décaler: -11cm 16.81cm 11.11cm
-Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deDENES,MARIE
-Plan:SeinGDIBHHyFE
-Rapportcrééle:10/05/202410:48:55par:SimonLuc
+Isocentredeschamps:,MAMINTDT,MAMINTDT1,MAMINTDT2,MAMEXTDT,MAMEXTDT1
+Décaler: 9.66cm 6.99cm 8.76cm
+Direction: Tableversladroiteenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deLEWIN,ELODIE
+Plan:SeinDBoostFE
+Rapportcrééle:15/05/202418:07:08par:LacazeThierry
 6/6

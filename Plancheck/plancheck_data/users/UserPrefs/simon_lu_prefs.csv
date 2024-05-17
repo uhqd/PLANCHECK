@@ -14,7 +14,7 @@ sliceThickness;yes;Epaisseur de coupes
 HUcurve;yes;Courbe HU
 deviceName;yes;Nom du scanner
 image3Dnaming;yes;Nom de image3D
-averageCT;yes;Scanner Average composition
+averageCT;no;Scanner Average composition
 tomoReportCT_date;yes;Date du rapport Tomo
 otherSeries;yes;Series supplementaires necessaires
 approbationStatus;yes;Approbation du groupe de structures
@@ -42,20 +42,21 @@ algoOptions;yes;Options de l'algorithme
 NTO;yes;parametres NTO
 jawTrack;yes;Jaw tracking
 POoptions;yes;Options PO
-energy;yes;Energie
-doseRate;yes;Debit de dose pour CQ
+energy;no;Energie
+doseRate;no;Debit de dose pour CQ
 lowSteps;yes;Control Points trop lents
 toleranceTable;yes;Table de tolerances des champs
-fieldTooSmall;yes;Champ trop petit
-maxPositionMLCHalcyon;yes;Position max des lames Halcyon
+fieldTooSmall;no;Champ trop petit
+maxPositionMLCHalcyon;no;Position max des lames Halcyon
 novaSBRT;yes;Nova SBRT
 tomoParamsFieldWidth;yes;Parametres du plan TOMO
+gantryAnglesForBreast;yes;Variation angles de bras 7 degres
 umPerGray;yes;UM par Gray
 UMforFE;yes;UM du plan FE
-wedged;yes;Filtres
-less10UM;yes;Champs de 10 UM
-turquoiseIsodose;yes;Isodose Turquoise
-prescribedObjectives;yes;Objectifs de dose (PTV)
+wedged;no;Filtres
+less10UM;no;Champs de 10 UM
+turquoiseIsodose;no;Isodose Turquoise
+prescribedObjectives;no;Objectifs de dose (PTV)
 doseToOAR;yes;Objectifs de dose (OAR)
 ariaDocuments;yes;Documents ARIA
 preparedQA;yes;Preparation QA

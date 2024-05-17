@@ -173,7 +173,7 @@ namespace PlanCheck
             }
             if (_pinfo.isTOMO)
             {
-                algo_grid.Infobulle = "Pour les tomos, la grille doit être 1.27 mm (obtenu dans le plan DTO\net la grille de Final Dose doit être High (obtenu dans le rapport de Dosimétrie si disponible)";
+                algo_grid.Infobulle = "Pour les tomos, la grille doit être 1.17 mm (obtenu dans le plan DTO\net la grille de Final Dose doit être High (obtenu dans le rapport de Dosimétrie si disponible)";
                 if (_pcontext.PlanSetup.Dose.XRes - 1.2695 < 0.01)
                 {
                     algo_grid.setToTRUE();

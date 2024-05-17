@@ -50,6 +50,7 @@ fieldTooSmall;no;Champ trop petit
 maxPositionMLCHalcyon;no;Position max des lames Halcyon
 novaSBRT;yes;Nova SBRT
 tomoParamsFieldWidth;yes;Parametres du plan TOMO
+gantryAnglesForBreast;no;Variation angles de bras 7 deg.
 umPerGray;yes;UM par Gray
 UMforFE;yes;UM du plan FE
 wedged;no;Filtres

@@ -95,10 +95,10 @@ namespace PlanCheck
 
                             foreach (string s in nameOfOtherCenters)
                             {
-                                if (c.Id.ToUpper().Contains(s.ToUpper()) || c.Id.ToUpper().Contains(s.ToUpper()))
+                                if (c.Id.ToUpper().Contains(s.ToUpper()) || p.Id.ToUpper().Contains(s.ToUpper()))
                                 {
                                     nOtherCenterDetectedPlan++;
-                                    msg += s + " ";
+                                    msg = s ;
                                 }
 
                             }
