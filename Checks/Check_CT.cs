@@ -489,7 +489,7 @@ namespace PlanCheck
                     HUcurve.ExpectedValue = expectedHUcurve;
                     HUcurve.MeasuredValue = courbeHU;
                     HUcurve.Comparator = "=";
-                    HUcurve.Infobulle = "La courbe doit être " + expectedHUcurve + " sauf si âge patient < 14";
+                    HUcurve.Infobulle = "La courbe doit être CT130246  sauf si âge patient < 14";
                     HUcurve.ResultStatus = testing.CompareDatas(HUcurve.ExpectedValue, HUcurve.MeasuredValue, HUcurve.Comparator);
                 }
                 else if (_pinfo.tomoReportIsFound) // tomo with a report

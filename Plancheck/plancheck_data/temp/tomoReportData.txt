@@ -1,215 +1,120 @@
-Accuray Precision® Plan Overview
-Plan Name:
-Plan Type:
-ParoiDgg
-Standard
-Plan Saved Date: 17 May 2024, 11:00:50 AM 
-(hr:min:sec)
-Treatment Machine / Serial No.: 0210471 850 MU/min, rev 139 / 
-210471
-Prescription: Median of PTV paroi, 50.00 Gy
-Prescribed Dose per Fraction (Gy): 2.00
-Planned Fractions: 25
-Maximum Dose (Gy): 55.54
-Plan Status: Approved
-MU Planned / MU per Fraction: 169889.5 / 6795.6
-Field Width (cm): 5.0, Dynamic
-Pitch: 0.291
-Modulation Factor / Actual: 2.000 / 2.1
-Gantry Period (sec):
-Gantry Rotations:
-25.3
-18.6
-Sinogram Segments: 6.2
-Couch Travel (mm):
-Couch Speed (mm/sec):
-273.2
-0.6
-Red Lasers Offset (IECf, mm): X: 15.94 Y: -54.00 Z: -46.95
-Beam On Time (sec): 470.3
-Plan Delivery Type / Mode: Helical / IMRT
-Dose Calculation Algorithm:
-Dose Calculation Resolution / Type: High / Final
-Convolution-Superposition Spacing (IECp, mm) X: 1.17 Y: 3.00 Z: 1.17
-Size (IECp, voxel) X: 512 Y: 163 Z: 512
-Reference Dose (Gy): 55.54
-X: -52.1 Y: 54.0 Z: 341.9 Reference Point (IECp, mm): Tracking Method: None
-Image Angles (deg):
-Tracking Target VOI:
-Planning Method: VOLO Ultra
-Patient Name:
-Medical ID:
-DE SARRIEU, GENEVIEVE
-202404868 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 20 Mar 1952
-Gender: Female Patient Key: 410403
-Plan Overview
-Page 1 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)DVH: Absolute Dose
-Plan Overview
-Page 2 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3VOI List
-VOI Volume 
-(cm³)
-Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
-%
-Beam Inter.
-Canal Med 99.68 0.15 3.64 11.53 n/a n/a n/a n/a Allowed
-Coeur 632.10 1.08 5.21 23.77 n/a n/a n/a n/a Allowed
-CTV cmi 22.93 47.58 50.64 54.83 n/a n/a n/a n/a Allowed
-Foie 1088.41 0.18 1.50 20.19 n/a n/a n/a n/a Allowed
-IVA 4.11 3.24 6.46 10.25 n/a n/a n/a n/a Allowed
-Larynx 12.44 0.86 1.66 4.34 n/a n/a n/a n/a Allowed
-Oesophage 27.29 1.32 8.70 26.16 n/a n/a n/a n/a Allowed
-Plexus Dt 13.69 1.08 39.04 52.49 n/a n/a n/a n/a Allowed
-Plexus Gche 13.12 0.67 4.21 7.98 n/a n/a n/a n/a Allowed
-PoumonDt 1666.36 0.95 10.53 54.27 n/a n/a n/a n/a Allowed
-PoumonGche 1125.87 0.73 4.09 19.09 n/a n/a n/a n/a Allowed
-Poumons 2792.16 0.73 7.93 54.27 n/a n/a n/a n/a Allowed
-Sein contro 826.61 1.34 4.36 13.88 n/a n/a n/a n/a Exit Only
-TetehumeraleDte 62.20 0.71 20.27 43.10 n/a n/a n/a n/a Allowed
-TetehumeraleGche 59.80 0.31 1.67 3.70 n/a n/a n/a n/a Allowed
-Thyroide 12.05 1.79 22.90 52.09 n/a n/a n/a n/a Allowed
-Trachee 24.11 2.08 19.56 38.50 n/a n/a n/a n/a Allowed
-BODY 25928.94 0.04 6.03 55.54 n/a n/a n/a n/a Allowed
-CTV axillaire 61.85 47.42 50.07 51.90 n/a n/a n/a n/a Allowed
-CTV paroi 195.44 42.85 50.03 55.54 n/a n/a n/a n/a Allowed
-CTV sous clav 59.00 48.48 50.59 53.29 n/a n/a n/a n/a Allowed
-CTV sus clav 23.96 46.47 50.38 54.66 n/a n/a n/a n/a Allowed
-PTV Axillaire 122.77 39.40 49.76 52.04 6.33 13.69 1.11 46.23 n/a
-PTV cmi 51.74 39.52 49.96 54.83 13.26 25.33 1.11 52.34 n/a
-PTV paroi 339.24 35.94 49.80 55.54 2.08 4.09 1.11 50.88 n/a
-PTV sous clav 130.76 40.48 50.01 53.29 4.61 7.75 1.11 59.51 n/a
-PTV sus clav 58.77 38.80 50.01 54.70 11.05 20.01 1.11 55.26 n/a
-TetehumeraleD+10 207.95 0.56 18.84 49.42 n/a n/a n/a n/a Allowed
-CanalMed+5 260.96 0.14 3.77 19.76 n/a n/a n/a n/a Exit Only
-VOI
-Plan Overview
-Page 3 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3Cotecontro 2127.41 0.23 2.90 21.02 n/a n/a n/a n/a Allowed
-Plombs 0.43 1.19 18.55 45.31 n/a n/a n/a n/a Allowed
-Portacath 38.89 2.43 4.49 7.24 n/a n/a n/a n/a Exit Only
-PoumonDt-PTV+0.5 1585.83 0.95 9.04 48.31 n/a n/a n/a n/a Allowed
-PTVTotal 657.71 35.94 49.84 55.54 n/a n/a n/a n/a Allowed
-RingPTVgg 497.59 10.51 40.25 53.30 n/a n/a n/a n/a Allowed
-RingPTVParoi 619.81 9.51 33.29 53.20 n/a n/a n/a n/a Allowed
-Seuillage 9.14 0.53 12.06 50.89 n/a n/a n/a n/a Allowed
-Thyroide-PTVs 11.02 1.79 20.38 50.30 n/a n/a n/a n/a Allowed
-ManqueParoi 164.11 35.94 49.43 55.54 n/a n/a n/a n/a Allowed
-CTV paroi-5mm 123.93 45.95 50.18 55.54 n/a n/a n/a n/a Allowed
-All Target Regions n/a 35.94 49.85 55.54 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.04 6.21 55.54 0.00 0.00 0.00 0.00 n/a
-Soft Tissue n/a 0.04 1.82 40.87 0.00 0.00 0.00 0.00 n/a
-Plan Overview
-Page 4 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3DVH Dose (Gy) Dose (% of 50.00 
-Gy Rx Dose)
-Volume (cm³) Volume (%) Criteria Value
-PTV paroi 47.00 94.0 322.28 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.00
-PTV sus clav 47.43 94.9 55.84 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.43
-PTV sous clav 47.37 94.7 124.22 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.37
-PTV cmi 47.19 94.4 49.15 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.19
-PTV Axillaire 47.91 95.8 116.63 95.0 Dose (Gy) >= 47.50, Min: 45.00 47.91
-Canal Med 10.00 20.0 1.54 1.5 Volume (%) <= 10.0 1.5
-Coeur 15.00 30.0 16.74 2.6 Volume (%) <= 5.0, Max: 10.0 2.6
-Coeur 25.00 50.0 0.00 0.0 Volume (%) <= 0.0, Max: 5.0 0.0
-PoumonGche 5.00 10.0 307.75 27.3 Volume (%) <= 20.0, Max: 30.0 27.3
-PoumonDt 5.00 10.0 921.26 55.3 Volume (%) <= 65.0, Max: 70.0 55.3
-PoumonDt 20.00 40.0 278.87 16.7 Volume (%) <= 15.0, Max: 18.0 16.7
-Poumons 5.00 10.0 1229.39 44.0 Volume (%) <= 42.0, Max: 50.0 44.0
-Poumons 20.00 40.0 278.78 10.0 Volume (%) <= 10.0, Max: 15.0 10.0
-Sein contro 5.00 10.0 225.56 27.3 Volume (%) <= 15.0, Max: 25.0 27.3
-TetehumeraleDte 43.10 86.2 0.00 0.0 Dose (Gy) <= 45.00, Max: 47.50 43.10
-Canal Med 11.53 23.1 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 11.53
-CanalMed+5 19.76 39.5 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 19.76
-PTV paroi 52.35 104.7 6.78 2.0 Dose (Gy) <= 53.50 52.35
-PTV sus clav 52.91 105.8 1.18 2.0 Dose (Gy) <= 53.50 52.91
-PTV sous clav 52.07 104.1 2.62 2.0 Dose (Gy) <= 53.50 52.07
-PTV Axillaire 51.22 102.4 2.46 2.0 Dose (Gy) <= 53.50 51.22
-PTV cmi 52.95 105.9 1.03 2.0 Dose (Gy) <= 53.50 52.95
-Dx Vx Values
-Plan Overview
-Page 5 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
--1000 * 0.001
--691 * 0.300
--509 * 0.490
--70 * 0.960
--40 * 0.983
-2 * 1.000
-3 * 1.023
-34 * 1.050
-63 * 1.081
-335 * 1.218
-503 * 1.331
-925 * 1.559
-1561 * 1.924
-8370 * 4.510
-Density
-Density Model: CT130246
-Density Overrides
-Priority VOI Name
-Relative Electron 
-Density
-Mass Density 
-(g/cm³)
-1 Plombs n/a 0.900
-Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
-Plan Overview
-Page 6 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3Name: CHIRA, Ciprian
-17 May 2024, 11:00:20 AM (hr:min:sec)
-User ID: chira
-Approval Date:
-Approved by: Specialists
-Radiation Oncologist:
-Surgeon:
-Referring Physician:
-Physicist:
-Treatment Site ICD: IUC-TOULOUSE
-IUC-TOULOUSE Treatment Site:
-Additional Site Codes: IUC-TOULOUSE
-Additional Sites: IUC-TOULOUSE
-Created in Version: Accuray Precision 3.3.1.3 [2]
-Plan Key:
-Last Modified by:
-424513/3
-CARILLO, Fabienne
-Saved Deliverable by: IZAR, Francoise
-Approval and ICD
-Auto Generated Results:
-Not Applicable
-Patient Position: HFS Delivery Signature: B7QsQ s4YgA 
-Plan Overview
-Page 7 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3Report Snapshots
-Plan Overview
-Page 8 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3Imaging Series
-X Y Z
-Origin (IECp, mm) -299.414 -192.000 532.914
-Size (IECp, voxel) 512 163 512
-Spacing (IECp, mm) 1.17 3.00 1.17
-Primary Series:
-Modality:
-Scan Date: Number of Slices:
-Yes
-CT
-07 May 2024, 11:52:40 AM (hr:min:sec) 163
-Scanner Model:
-Patient Position:
-SOMATOM go.Open Pro
-HFS
-Series UID/Description Study UID/Description:
-1.3.12.2.1107.5.1.7.130246.30000024050711011893800000726 1.3.51.0.1.1.10.10.13.63.107974928.9589694
-SEIN D TOMO SEIN D TOMO(Adulte)
-Plan Overview
-Page 9 of 9 17 May 2024, 11:57:51 AM (hr:min:sec)
-Patient Name: DE SARRIEU, GENEVIEVE; Medical ID: 202404868; Plan Name: ParoiDgg; Version: Accuray Precision 
-3.3.1.3
+Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
+Plan:PTVOsPDt
+Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+1/7
+PATIENT
+Nom:BRINGUIER,ALBA(202211662) DatedeNaissance:29/01/2020 Sexe:Féminin
+PLAN PRESCRIPTIONDE
+DOSE
+IDplan PTVOsPDt Méthodenormalisation 100%aupointderéférenceicruPTVOsPDt1
+IDdossierdetraitement: C2 Volumecible: PTVOsPDt1
+IDimage: TDMRT100524 Pointdereferenceprincipal icruPTVOsPDt1
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 199.9%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (0.00cm,-21.80cm,0.00cm) Fractionnement:
+Typedetraitement: RTC3D DosePrescrite: 17.5Gy(3.50Gy/fraction)
+Nombredefractions: 5
+OPTIONSDECALCUL
+Algorithmephoton: AAA_15605New
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc 0.125
+FieldNormalizationType 100%toisocenter
+HeterogeneityCorrection ON
+APPROBATIONS
+Plancréé: admin\lanaspeze(22/05/202412:01:24)
+Appro.plan: LaprieAnne(mercredi22mai202415:11:49)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
+Plan:PTVOsPDt
+Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+2/7
+PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
+IDchamp
+OAD OPD
+IDmachine NOVA3 NOVA3
+Energie 6X 6X
+Debitdedose 600UM/min 600UM/min
+X1 1.45 1.45
+X2 1.55 1.55
+Y1 1.7 1.7
+Y2 1.6 1.7
+Tailledechamp 3x3.3cm² 3x3.4cm²
+Angledubras 10° 190°
+Sensderotationdubras - -
+Angled'arrêtdubras - -
+Rot.collimateur 90° 90°
+Rot.detable 0° 0°
+Bolus - -
+IsocentreX -5.88cm -5.88cm
+IsocentreY 0.3cm 0.3cm
+IsocentreZ 1.95cm 1.95cm
+DSP 95.5cm 94.5cm
+Ponderation 1 1
+Pointderéférence icruPTVOsPDt1 icruPTVOsPDt1
+Filtreencoin - -
+Bloc - -
+Plaque - -
+Doseparfraction 1.755Gy 1.745Gy
+UM 202.3UM 211.2UMRappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
+Plan:PTVOsPDt
+Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+3/7
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
+Plan:PTVOsPDt
+Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+4/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+TroncCerebral 18.0 0.0 0.0 0.0 0.0
+RetineGche 1.7 0.0 0.0 0.0 0.0
+RetineDt 1.6 0.0 0.0 0.0 0.0
+OeilGche 5.9 0.0 0.0 0.0 0.0
+OeilDt 5.9 0.0 0.0 0.0 0.0
+NerfOptiqueGche 0.3 0.0 0.0 0.0 0.0
+NerfOptiqueDt 0.3 0.0 0.0 0.0 0.0
+Hypophyse 0.3 0.0 0.0 0.0 0.0
+CristallinGche 0.1 0.0 0.0 0.0 0.0
+CristallinDt 0.1 0.0 0.0 0.0 0.0
+CochleeGche 0.0 0.0 0.0 0.0 0.0
+CochleeDte 0.0 0.0 0.0 0.0 0.0
+Chiasma 1.0 0.0 0.0 0.0 0.0
+Cerveau 1244.9 17.7 0.3 17.3 17.6
+Canalmed 24.4 0.0 0.0 0.0 0.0
+GTVOsFG 3.9 0.0 0.0 0.0 0.0
+GTVOsPDt 2.8 17.9 17.4 17.5 17.8
+GTVbaseducrane 26.7 0.0 0.0 0.0 0.0
+BODY 4901.4 17.9 0.2 17.6 17.9
+HippocampeGche 1.8 0.0 0.0 0.0 0.0
+HippocampeDt 1.6 0.0 0.0 0.0 0.0
+PTVbaseducrane 44.3 0.0 0.0 0.0 0.0
+PTVOsPDt1 8.0 17.9 16.9 17.6 17.9
+PTVOsFG1 11.0 0.0 0.0 0.0 0.0
+PTV 63.3 17.9 2.2 17.6 17.9
+Chiasma+3 4.8 0.0 0.0 0.0 0.0
+CristallinDt+5 2.1 0.1 0.0 0.0 0.1
+CristallinGche+5 2.2 0.0 0.0 0.0 0.0
+HippoDt+3 6.4 0.0 0.0 0.0 0.0
+HippoGche+3 7.0 0.0 0.0 0.0 0.0
+NerfOptDt+3 2.5 0.0 0.0 0.0 0.0
+NerfOptGche+3 2.5 0.0 0.0 0.0 0.0Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
+Plan:PTVOsPDt
+Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+5/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+TroncCerebral+3 35.4 0.0 0.0 0.0 0.0
+HippoGche+3-PTV 6.4 0.0 0.0 0.0 0.0
+NerfOptGch+3-PTV 1.4 0.0 0.0 0.0 0.0
+NerfOptDt+3-PTV 1.4 0.0 0.0 0.0 0.0
+Chiasma+3-PTV 1.1 0.0 0.0 0.0 0.0
+PTVFG-3 9.4 0.0 0.0 0.0 0.0
+PTV_PD-3 6.3 17.9 17.3 17.6 17.9Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
+Plan:PTVOsPDt
+Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+6/7
+DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
+Isocentredeschamps:,OAD,OPD
+Décaler: 5.88cm -0.3cm 1.95cm
+Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
+Plan:PTVOsPDt
+Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+7/7

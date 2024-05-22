@@ -95,7 +95,7 @@ namespace PlanCheck
 
                 //Structure s = _ctx.StructureSet.Structures.FirstOrDefault(x => x.Id.ToUpper().Contains("PTV"));
                 Structure s1 = null;
-                foreach(Structure s in _ctx.StructureSet.Structures)
+                foreach (Structure s in _ctx.StructureSet.Structures)
                 {
                     String myId = s.Id.ToUpper();
                     if (myId.Contains("PTV") && !myId.Contains("-PTV"))
@@ -104,14 +104,14 @@ namespace PlanCheck
                         break;
                     }
                 }
-                if(s1==null)
+                if (s1 == null)
                 {
                     foreach (Structure s in _ctx.StructureSet.Structures)
                     {
                         if (s.DicomType == "BODY")
                         {
                             s1 = s;
-                            break ;
+                            break;
                         }
 
                     }
@@ -120,10 +120,10 @@ namespace PlanCheck
                 double ptvCenter = s1.MeshGeometry.Bounds.X + (0.5 * s1.MeshGeometry.Bounds.SizeX);
                 if (ptvCenter > _pinfo.theXcenter)//0)
                 {
-                   // MessageBox.Show(s.Id + " " + ptvCenter + "\n center " + _pinfo.theXcenter);
+                    // MessageBox.Show(s.Id + " " + ptvCenter + "\n center " + _pinfo.theXcenter);
 
                     itisleft = true;
-                    
+
                 }
                 // MessageBox.Show("it is left " + itisleft.ToString() + s.Id + " "+s.MeshGeometry.Bounds.X.ToString("")+" " + s.MeshGeometry.Bounds.SizeX.ToString(""));
             }
@@ -567,12 +567,63 @@ namespace PlanCheck
                 double highest_prescribed_total_dose = _ctx.PlanSetup.RTPrescription.Targets.Select(target => target.NumberOfFractions * target.DosePerFraction.Dose).Max();
 
 
-                var myChoiceWindow = new selectPTVWindow(_ctx, _pinfo); // create window
-                myChoiceWindow.ShowDialog(); // display window,
 
-                if (myChoiceWindow.targetStructList.Count != _ctx.PlanSetup.RTPrescription.Targets.Count())
+                #region get a structure for each target if possible
+
+                List<string> listOfTargets = new List<string>();
+                List<string> listOfStructures = new List<string>();
+                List<(string, string)> targetsAndStructList = new List<(string, string)>();
+
+                foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) // list of targets
+                {
+                    listOfTargets.Add(target.TargetId);
+
+                }
+                foreach (Structure s in _ctx.StructureSet.Structures) // list of structures 
+                {
+                    listOfStructures.Add(s.Id);
+                }
+
+
+                bool oneTargetIsFound = false;
+                bool allTargetAreFound = true;
+                foreach (string element in listOfTargets) // create a combo box for each target
+                {
+
+
+                    oneTargetIsFound = false;
+                    foreach (String s in listOfStructures)
+                    {
+
+
+                        if (s.ToUpper().Replace(" ", "") == element.ToUpper().Replace(" ", ""))
+                        {
+                            targetsAndStructList.Add((element, s));
+                            oneTargetIsFound = true;
+                        }
+                    }
+                    
+
+                    if (oneTargetIsFound == false)
+                        allTargetAreFound = false;
+
+                }
+
+                #endregion
+
+
+                #region if there is at least one target with no structure that has the same name 
+                if (allTargetAreFound == false)
+                {
+                    var myChoiceWindow = new selectPTVWindow(_ctx, _pinfo); // create window                                                                       
+                    myChoiceWindow.ShowDialog(); // display window,
+                    targetsAndStructList.Clear();
+                    targetsAndStructList = myChoiceWindow.targetStructList;
+                }
+                // if (myChoiceWindow.targetStructList.Count != _ctx.PlanSetup.RTPrescription.Targets.Count())
+                if (targetsAndStructList.Count != _ctx.PlanSetup.RTPrescription.Targets.Count())
                     MessageBox.Show("ERREUR Check_DoseDistribution : Nombre de prescriptions incohérent");
-
+                #endregion
 
                 foreach (var target in _ctx.PlanSetup.RTPrescription.Targets)
                 {
@@ -590,7 +641,8 @@ namespace PlanCheck
 
                     // get in targetStructList, the structure name corresponding to target
                     Structure correspondingStructure = null;
-                    foreach (var element in myChoiceWindow.targetStructList)
+                    //foreach (var element in myChoiceWindow.targetStructList)
+                    foreach (var element in targetsAndStructList)
                     {
                         //MessageBox.Show("in loop target : " + target.Id + " item 1 " + element.Item1 + " item 2 " + element.Item2);
                         if (element.Item1 == target.TargetId)
@@ -739,7 +791,7 @@ namespace PlanCheck
             }
 
 
-            #endregion
+#endregion
 
             #region Objectives OAR to reach (check protocol)
             if (_pinfo.actualUserPreference.userWantsTheTest("doseToOAR"))

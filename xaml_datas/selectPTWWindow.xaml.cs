@@ -18,7 +18,7 @@ namespace PlanCheck.xaml_datas
 
     public partial class selectPTVWindow : Window
     {
-       // private static bool allTargetAreFound;
+        private static bool allTargetAreFound;
         private List<string> listOfTargets = new List<string>();
         private List<string> listOfStructures = new List<string>();
         private List<(string, string)> targetsAndStructList = new List<(string, string)>();
@@ -32,7 +32,13 @@ namespace PlanCheck.xaml_datas
             this.Closing += selectPTWWindow_closing; // manage the closing of the window
             loadTargetList();
 
-           
+
+          //  if (allTargetAreFound)
+           // {
+                // Call close without clicking :
+             //   RoutedEventArgs args = new RoutedEventArgs();
+               // close_Click(null, args);
+          //  }
 
 
         }
@@ -42,7 +48,7 @@ namespace PlanCheck.xaml_datas
             foreach (var target in _ctx.PlanSetup.RTPrescription.Targets) // list of targets
             {
                 listOfTargets.Add(target.TargetId);
-                targetsAndStructList.Add((target.TargetId, "temporary"));
+               // targetsAndStructList.Add((target.TargetId, "temporary"));
             }
             foreach (Structure s in _ctx.StructureSet.Structures) // list of structures 
             {
@@ -53,16 +59,16 @@ namespace PlanCheck.xaml_datas
 
             targetList.ItemsSource = listOfTargets;  // binding text bloc --> list of targets
 
-            //bool oneTargetIsFound = false;
-            //allTargetAreFound = true;
+            bool oneTargetIsFound = false;
+             allTargetAreFound = true;
             foreach (string element in listOfTargets) // create a combo box for each target
             {
-                //oneTargetIsFound = false;
                 ComboBox comboBox = new ComboBox();
                 comboBox.ItemsSource = listOfStructures; // fill combobox with ptv list
                 comboBox.SelectedItem = listOfStructures[0]; // default is temporary first item
                 #region get default value ...
 
+                oneTargetIsFound = false;
                 foreach (String s in listOfStructures)
                 {
 
@@ -70,21 +76,21 @@ namespace PlanCheck.xaml_datas
                     if (s.ToUpper().Replace(" ", "") == element.ToUpper().Replace(" ", ""))
                     {
                         comboBox.SelectedItem = s;
-                       // oneTargetIsFound = true;
+                        oneTargetIsFound = true;
                     }
                 }
                 #endregion
 
-               // if(oneTargetIsFound == false)
-                 //   allTargetAreFound = false;
+                if (oneTargetIsFound == false)
+                    allTargetAreFound = false;
 
                 stackPanel.Children.Add(comboBox); // Ajoutez la ComboBox au StackPanel
             }
 
-            targetsAndStructList.Clear();
+           // targetsAndStructList.Clear();
 
+            
 
-           
         }
         private void close_Click(object sender, RoutedEventArgs e)
         {
@@ -106,8 +112,12 @@ namespace PlanCheck.xaml_datas
 
 
         }
-      
+        public bool allPTVarefound
+        {
+            get { return allTargetAreFound; }
 
+
+        }
         // get set
         public List<(string, string)> targetStructList
         {
@@ -115,7 +125,7 @@ namespace PlanCheck.xaml_datas
 
 
         }
-    
+
 
     }
 }

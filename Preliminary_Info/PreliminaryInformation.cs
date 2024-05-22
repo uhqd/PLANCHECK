@@ -349,7 +349,7 @@ namespace PlanCheck
                     }
                 }
                 #endregion
-               
+
                 #region store index
                 if (!trashDoc)
                 {
@@ -393,7 +393,7 @@ namespace PlanCheck
             else
                 planReportFound = true;
 
-         
+
 
             #endregion
 
@@ -672,26 +672,27 @@ namespace PlanCheck
 
             #region extended fluence
             if (_ctx.PlanSetup.Id.Contains("FE"))
-            {
-                _isFE = true;
-                _planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
-                _findNonFEplan = false;
-                foreach (PlanSetup p in _ctx.Course.PlanSetups)
+                if (!_ctx.PlanSetup.Id.ToUpper().Contains("FEMU")) // not femur
                 {
-                    if (p.Id == _planIdwithoutFE)
+                    _isFE = true;
+                    _planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
+                    _findNonFEplan = false;
+                    foreach (PlanSetup p in _ctx.Course.PlanSetups)
                     {
-                        _findNonFEplan = true;
+                        if (p.Id == _planIdwithoutFE)
+                        {
+                            _findNonFEplan = true;
+                        }
+
+                    }
+                    if (!_findNonFEplan)
+                    {
+                        // wip : open  a window to select the plan manually
+                        var myChoiceWindow = new chooseNonFEplanWindow(_ctx, this); // create window
+                        myChoiceWindow.ShowDialog(); // display window,
                     }
 
                 }
-                if (!_findNonFEplan)
-                {
-                    // wip : open  a window to select the plan manually
-                    var myChoiceWindow = new chooseNonFEplanWindow(_ctx, this); // create window
-                    myChoiceWindow.ShowDialog(); // display window,
-                }
-
-            }
             #endregion
 
 
@@ -713,9 +714,9 @@ namespace PlanCheck
             if (isNOVA && isModulated && energy.Contains("FFF"))
                 _dosecheckIsNeeded = false;
 
-//            MessageBox.Show("Is needeed " + _dosecheckIsNeeded.ToString() + " isnova " + isNOVA.ToString() + " ismodul " + isModulated.ToString() + " FFF " + energy);
-            
-            
+            //            MessageBox.Show("Is needeed " + _dosecheckIsNeeded.ToString() + " isnova " + isNOVA.ToString() + " ismodul " + isModulated.ToString() + " FFF " + energy);
+
+
             #endregion
 
 
