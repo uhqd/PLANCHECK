@@ -519,9 +519,13 @@ namespace PlanCheck
             #endregion
 
             #region Objectives to ptv in the prescription.
-            if (_pinfo.actualUserPreference.userWantsTheTest("prescribedObjectives") && _ctx.PlanSetup.RTPrescription.Targets.Count() > 0)
+            if (_ctx.PlanSetup.RTPrescription == null)
+                MessageBox.Show("Pas de prescription --> Pas de vérification de la dose aux PTV");
+            else if (_pinfo.actualUserPreference.userWantsTheTest("prescribedObjectives") && _ctx.PlanSetup.RTPrescription.Targets.Count() > 0)
             {
-                Item_Result prescribedObjectives = new Item_Result();
+               
+
+               Item_Result prescribedObjectives = new Item_Result();
                 prescribedObjectives.Label = "Dose aux PTVs";
                 prescribedObjectives.ExpectedValue = "EN COURS";
                 prescribedObjectives.MeasuredValue = "EN COURS";

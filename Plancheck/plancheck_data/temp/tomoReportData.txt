@@ -1,120 +1,114 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
-Plan:PTVOsPDt
-Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+Rappportdeplanificationderadiothérapie(v15.6.05)deSALAS,ANDRE
+Plan:Poumon-medias
+Rapportcrééle:28/05/202415:43:53par:CarilloFabienne
 1/7
 PATIENT
-Nom:BRINGUIER,ALBA(202211662) DatedeNaissance:29/01/2020 Sexe:Féminin
+Nom:SALAS,ANDRE(202408623) DatedeNaissance:29/10/1966 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan PTVOsPDt Méthodenormalisation 100%aupointderéférenceicruPTVOsPDt1
-IDdossierdetraitement: C2 Volumecible: PTVOsPDt1
-IDimage: TDMRT100524 Pointdereferenceprincipal icruPTVOsPDt1
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 199.9%
+IDplan Poumon-medias Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
+IDimage: tdm220524_AVG6 Pointdereferenceprincipal PTV_HMED
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.0%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (0.00cm,-21.80cm,0.00cm) Fractionnement:
-Typedetraitement: RTC3D DosePrescrite: 17.5Gy(3.50Gy/fraction)
-Nombredefractions: 5
+Décalagedel'origine/àDICOM: (-0.12cm,-19.10cm,-32.80cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 60.0Gy(2.00Gy/fraction)
+Nombredefractions: 30
 OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
+Algorithmephoton: Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc 0.125
+DoseReportingMode Dosetomedium
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
 APPROBATIONS
-Plancréé: admin\lanaspeze(22/05/202412:01:24)
-Appro.plan: LaprieAnne(mercredi22mai202415:11:49)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
-Plan:PTVOsPDt
-Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+Plancréé: admin\carillo(28/05/202409:55:31)
+Appro.plan: KellerAudrey(mardi28mai202415:04:16)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deSALAS,ANDRE
+Plan:Poumon-medias
+Rapportcrééle:28/05/202415:43:53par:CarilloFabienne
 2/7
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-OAD OPD
-IDmachine NOVA3 NOVA3
-Energie 6X 6X
-Debitdedose 600UM/min 600UM/min
-X1 1.45 1.45
-X2 1.55 1.55
-Y1 1.7 1.7
-Y2 1.6 1.7
-Tailledechamp 3x3.3cm² 3x3.4cm²
-Angledubras 10° 190°
-Sensderotationdubras - -
-Angled'arrêtdubras - -
-Rot.collimateur 90° 90°
-Rot.detable 0° 0°
-Bolus - -
-IsocentreX -5.88cm -5.88cm
-IsocentreY 0.3cm 0.3cm
-IsocentreZ 1.95cm 1.95cm
-DSP 95.5cm 94.5cm
-Ponderation 1 1
-Pointderéférence icruPTVOsPDt1 icruPTVOsPDt1
-Filtreencoin - -
-Bloc - -
-Plaque - -
-Doseparfraction 1.755Gy 1.745Gy
-UM 202.3UM 211.2UMRappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
-Plan:PTVOsPDt
-Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+RA1 RA2 RA3 RA4
+IDmachine NOVA5 NOVA5 NOVA5 NOVA5
+Energie 6X 6X 6X 6X
+Debitdedose 600UM/min 600UM/min 600UM/min 600UM/min
+X1 7.36 6.61 7.62 7.61
+X2 6.61 6.61 7.62 7.36
+Y1 7.5 7.5 8 8.5
+Y2 7.88 7.88 8.5 8
+Tailledechamp 13.97x15.38cm² 13.22x15.38cm² 15.24x16.5cm² 14.97x16.5cm²
+Angledubras 181° 179° 181° 179°
+Sensderotationdubras SH SAH SH SAH
+Angled'arrêtdubras 179° 181° 179° 181°
+Rot.collimateur 15° 345° 105° 75°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX 2.85cm 2.85cm 2.85cm 2.85cm
+IsocentreY -1.23cm -1.23cm -1.23cm -1.23cm
+IsocentreZ 2.72cm 2.72cm 2.72cm 2.72cm
+DSP 89.2cm 89.2cm 89.2cm 89.2cm
+Ponderation 0.702 0.911 0.703 0.691
+Pointderéférence PTV_HMED PTV_HMED PTV_HMED PTV_HMED
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 0.467Gy 0.606Gy 0.468Gy 0.459Gy
+UM 140.4UM 182.1UM 140.5UM 138.1UMRappportdeplanificationderadiothérapie(v15.6.05)deSALAS,ANDRE
+Plan:Poumon-medias
+Rapportcrééle:28/05/202415:43:53par:CarilloFabienne
 3/7
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
-Plan:PTVOsPDt
-Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deSALAS,ANDRE
+Plan:Poumon-medias
+Rapportcrééle:28/05/202415:43:53par:CarilloFabienne
 4/7
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-TroncCerebral 18.0 0.0 0.0 0.0 0.0
-RetineGche 1.7 0.0 0.0 0.0 0.0
-RetineDt 1.6 0.0 0.0 0.0 0.0
-OeilGche 5.9 0.0 0.0 0.0 0.0
-OeilDt 5.9 0.0 0.0 0.0 0.0
-NerfOptiqueGche 0.3 0.0 0.0 0.0 0.0
-NerfOptiqueDt 0.3 0.0 0.0 0.0 0.0
-Hypophyse 0.3 0.0 0.0 0.0 0.0
-CristallinGche 0.1 0.0 0.0 0.0 0.0
-CristallinDt 0.1 0.0 0.0 0.0 0.0
-CochleeGche 0.0 0.0 0.0 0.0 0.0
-CochleeDte 0.0 0.0 0.0 0.0 0.0
-Chiasma 1.0 0.0 0.0 0.0 0.0
-Cerveau 1244.9 17.7 0.3 17.3 17.6
-Canalmed 24.4 0.0 0.0 0.0 0.0
-GTVOsFG 3.9 0.0 0.0 0.0 0.0
-GTVOsPDt 2.8 17.9 17.4 17.5 17.8
-GTVbaseducrane 26.7 0.0 0.0 0.0 0.0
-BODY 4901.4 17.9 0.2 17.6 17.9
-HippocampeGche 1.8 0.0 0.0 0.0 0.0
-HippocampeDt 1.6 0.0 0.0 0.0 0.0
-PTVbaseducrane 44.3 0.0 0.0 0.0 0.0
-PTVOsPDt1 8.0 17.9 16.9 17.6 17.9
-PTVOsFG1 11.0 0.0 0.0 0.0 0.0
-PTV 63.3 17.9 2.2 17.6 17.9
-Chiasma+3 4.8 0.0 0.0 0.0 0.0
-CristallinDt+5 2.1 0.1 0.0 0.0 0.1
-CristallinGche+5 2.2 0.0 0.0 0.0 0.0
-HippoDt+3 6.4 0.0 0.0 0.0 0.0
-HippoGche+3 7.0 0.0 0.0 0.0 0.0
-NerfOptDt+3 2.5 0.0 0.0 0.0 0.0
-NerfOptGche+3 2.5 0.0 0.0 0.0 0.0Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
-Plan:PTVOsPDt
-Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+BODY 22337.7 65.1 9.0 63.1 64.3
+Trachee 28.8 63.3 44.9 60.6 62.2
+Thyroide 8.3 62.2 29.2 60.0 61.5
+Poumons 3533.4 64.2 13.7 62.4 63.6
+PoumonGche 1640.9 64.2 20.9 62.4 63.6
+PoumonDt 1892.5 59.5 7.5 52.8 58.5
+PlexusGche 12.3 60.8 32.0 58.9 60.0
+PlexusDt 12.0 19.4 6.9 11.6 17.4
+ParoiThoraciqueG 1054.9 64.2 11.4 62.3 63.4
+ParoiThoraciqueD 1060.0 56.9 5.5 50.2 55.6
+ParoiThoracique 2114.9 64.2 8.5 62.3 63.4
+Oesophage 46.5 60.7 31.4 58.8 59.8
+Larynx 12.9 12.1 4.4 8.0 11.0
+Foie 1479.5 1.1 0.4 1.0 1.0
+Estomac 429.7 1.2 0.4 1.1 1.2
+Duodenum 5.1 0.2 0.2 0.2 0.2
+Coeur 837.3 61.2 6.8 59.0 60.1
+CanalMed 60.1 28.1 10.4 26.1 27.2
+PTVHD 644.2 65.1 59.8 63.1 64.3
+CTV_préCT 954.0 65.1 50.9 62.9 64.2
+CTV_High 330.8 64.2 60.1 62.6 63.5
+portacath 19.4 13.7 7.1 9.3 12.2
+Poumons-PTV 3402.8 62.0 12.0 60.4 61.0
+CanalMed+5 165.4 40.4 11.2 NonNumérique NonNumérique
+PlexusGche+3 37.8 61.2 31.0 NonNumérique NonNumérique
+PTV_HDOPT 610.0 65.1 59.9 63.1 64.3Rappportdeplanificationderadiothérapie(v15.6.05)deSALAS,ANDRE
+Plan:Poumon-medias
+Rapportcrééle:28/05/202415:43:53par:CarilloFabienne
 5/7
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-TroncCerebral+3 35.4 0.0 0.0 0.0 0.0
-HippoGche+3-PTV 6.4 0.0 0.0 0.0 0.0
-NerfOptGch+3-PTV 1.4 0.0 0.0 0.0 0.0
-NerfOptDt+3-PTV 1.4 0.0 0.0 0.0 0.0
-Chiasma+3-PTV 1.1 0.0 0.0 0.0 0.0
-PTVFG-3 9.4 0.0 0.0 0.0 0.0
-PTV_PD-3 6.3 17.9 17.3 17.6 17.9Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
-Plan:PTVOsPDt
-Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+CanalMed+10 324.7 59.4 12.5 NonNumérique NonNumérique
+PTV 644.2 65.1 59.8 63.1 64.3Rappportdeplanificationderadiothérapie(v15.6.05)deSALAS,ANDRE
+Plan:Poumon-medias
+Rapportcrééle:28/05/202415:43:53par:CarilloFabienne
 6/7
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,OAD,OPD
-Décaler: 5.88cm -0.3cm 1.95cm
-Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deBRINGUIER,ALBA
-Plan:PTVOsPDt
-Rapportcrééle:22/05/202415:41:30par:LanaspezeChristelle
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: -2.85cm 1.23cm 2.72cm
+Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deSALAS,ANDRE
+Plan:Poumon-medias
+Rapportcrééle:28/05/202415:43:53par:CarilloFabienne
 7/7
