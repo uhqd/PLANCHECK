@@ -29,15 +29,40 @@ namespace PlanCheck
             Check();
         }
 
-
+        static List<string> listOfPhases = new List<string> { "0%", "16%", "33%", "5%", "66%", "83%" };
         private List<Item_Result> _result = new List<Item_Result>();
         private PreliminaryInformation _pinfo;
         private ScriptContext _context;
         private read_check_protocol _rcp;
-
+        private  string CheckAVEMessage;
         private string _title = "CT";
         //test
 
+
+        private bool containsAndOnlyContains(string comment, string percentage)
+        {
+            bool value = false;
+            string comment2 = comment.Replace("50", "5");
+            int i = 0;
+            foreach (string phase in listOfPhases) // ch"eck if comment conaints only phase number
+            {
+                if (comment2.Contains(phase))
+                    i++;
+            }
+            if (i == 1)
+                value = true;
+            else
+                value = false;
+
+            if (value) // check if it is the correct one
+            {
+                if (comment2.Contains(percentage))
+                    value = true;
+                else
+                    value = false;
+            }
+            return value;
+        }
 
         private bool matchingImageName(string iName, string format)
         {
@@ -96,31 +121,32 @@ namespace PlanCheck
             int j1 = ySizeAverage / 2;
 
 
-            //  MessageBox.Show("xyz " + i1 + " " + j1 + " " + centralImageIndex);
-
             double checkSumAvergageSerie = ctx.Image.VoxelToDisplayValue(myPlane[i1, j1]);
-            double checkSumAvergageSerieB = ctx.Image.VoxelToDisplayValue(myPlane[i1+5, j1+5]);
+            double checkSumAvergageSerieB = ctx.Image.VoxelToDisplayValue(myPlane[i1 + 4, j1 + 4]);
 
-            // verbose
-            // MessageBox.Show("threeor six " + threeOrSix);
-            //MessageBox.Show("ave image id" + ctx.Image.Id);
-            //MessageBox.Show("checkSumAvergageSerie" + checkSumAvergageSerie.ToString("F3"));
+            CheckAVEMessage += "Image Average " + threeOrSix.ToString() + " " + ctx.Image.Id + "\n";
+            CheckAVEMessage += " A:\t" + checkSumAvergageSerie.ToString("F2") + "\t";
+            CheckAVEMessage += " B:\t" + checkSumAvergageSerieB.ToString("F2") + "\n";
 
             #endregion
-
-
+            // ----------------------------------------------------------------------------------------------------------------------------------
             //  ctx.Image.ZSize is the number of images of the image3D of the plan. eg 189
+            // ----------------------------------------------------------------------------------------------------------------------------------
             //  ctx.Image.Series.Images.Count() is the number of images in the series used to build the image3D eg 190 : 189 images + 1 image3D
+            // ----------------------------------------------------------------------------------------------------------------------------------
             //  ctx.Image.Series.Study.Series.Count() est le nombre de serie dans l'examen
+            // ----------------------------------------------------------------------------------------------------------------------------------
 
             #region phases series
+
             foreach (var v in ctx.Image.Series.Study.Series) // looking for phases
             {
                 if (v.Modality.ToString() == "CT")
                 {
                     if (threeOrSix == 6)
                     {
-                        if (v.Comment.Contains("0%"))
+                        //                        if (v.Comment.Contains("0%") && !v.Comment.Contains("50%"))
+                        if (containsAndOnlyContains(v.Comment, "0%"))
                         {
 
                             foreach (var im in v.Images)
@@ -136,17 +162,14 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie00 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie00B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
-//                                    MessageBox.Show("xyz ph0 " + k + " " + m + " " + centralImageIndex);
+                                    checkSumSerie00B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie00.ToString("F2") + "\tB:" + checkSumSerie00B.ToString("F2") + "\n";
+
 
                                 }
-
                             }
-
-
-
                         }
-                        if (v.Comment.Contains("16%"))
+                        if (containsAndOnlyContains(v.Comment, "16%"))
                         {
                             foreach (var im in v.Images)
                             {
@@ -162,14 +185,16 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie16 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie16B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie16B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
+
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie16.ToString("F2") + "\tB:" + checkSumSerie16B.ToString("F2") + "\n";
 
 
                                 }
 
                             }
                         }
-                        if (v.Comment.Contains("33%"))
+                        if (containsAndOnlyContains(v.Comment, "33%"))
                         {
                             foreach (var im in v.Images)
                             {
@@ -185,14 +210,15 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie33 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie33B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie33B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
 
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie33.ToString("F2") + "\tB:" + checkSumSerie33B.ToString("F2") + "\n";
 
                                 }
 
                             }
                         }
-                        if (v.Comment.Contains("50%"))
+                        if (containsAndOnlyContains(v.Comment, "5%"))
                         {
                             foreach (var im in v.Images)
                             {
@@ -208,14 +234,15 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie50 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie50B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie50B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
 
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie50.ToString("F2") + "\tB:" + checkSumSerie50B.ToString("F2") + "\n";
 
                                 }
 
                             }
                         }
-                        if (v.Comment.Contains("66%"))
+                        if (containsAndOnlyContains(v.Comment, "66%"))
                         {
                             foreach (var im in v.Images)
                             {
@@ -231,14 +258,15 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie66 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie66B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie66B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie66.ToString("F2") + "\tB:" + checkSumSerie66B.ToString("F2") + "\n";
 
 
                                 }
 
                             }
                         }
-                        if (v.Comment.Contains("83%"))
+                        if (containsAndOnlyContains(v.Comment, "83%"))
                         {
                             foreach (var im in v.Images)
                             {
@@ -254,8 +282,9 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie83 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie83B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie83B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
 
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie83.ToString("F2") + "\tB:" + checkSumSerie83B.ToString("F2") + "\n";
 
                                 }
 
@@ -265,7 +294,7 @@ namespace PlanCheck
                     else if (threeOrSix == 3)
                     {
 
-                        if (v.Comment.Contains("33%"))
+                        if (containsAndOnlyContains(v.Comment, "33%"))
                         {
 
                             foreach (var im in v.Images)
@@ -282,7 +311,8 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie33 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie33B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie33B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie33.ToString("F2") + "\tB:" + checkSumSerie33B.ToString("F2") + "\n";
 
                                 }
 
@@ -290,7 +320,7 @@ namespace PlanCheck
 
 
                         }
-                        if (v.Comment.Contains("50%"))
+                        if (containsAndOnlyContains(v.Comment, "5%"))
                         {
 
 
@@ -307,7 +337,8 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie50 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie50B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie50B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie50.ToString("F2") + "\tB:" + checkSumSerie50B.ToString("F2") + "\n";
 
 
 
@@ -316,7 +347,7 @@ namespace PlanCheck
                             }
 
                         }
-                        if (v.Comment.Contains("66%"))
+                        if (containsAndOnlyContains(v.Comment, "66%"))
                         {
 
 
@@ -333,7 +364,8 @@ namespace PlanCheck
                                     int k = xPhaseSize / 2;
                                     int m = yPhaseSize / 2;
                                     checkSumSerie66 = im.VoxelToDisplayValue(myPlane2[k, m]);
-                                    checkSumSerie66B = im.VoxelToDisplayValue(myPlane2[k+5, m+5]);
+                                    checkSumSerie66B = im.VoxelToDisplayValue(myPlane2[k + 4, m + 4]);
+                                    CheckAVEMessage += im.Id + " A: " + checkSumSerie66.ToString("F2") + "\tB:" + checkSumSerie66B.ToString("F2") + "\n";
 
 
                                 }
@@ -346,7 +378,7 @@ namespace PlanCheck
                         iSChecked = false;
 
                 }
-
+                
             }
             #endregion
 
@@ -364,9 +396,7 @@ namespace PlanCheck
                 checkSumComputedAverage = (1.0 / 6.0) * (checkSumSerie00 + checkSumSerie16 + checkSumSerie33 + checkSumSerie50 + checkSumSerie66 + checkSumSerie83);
                 checkSumComputedAverageB = (1.0 / 6.0) * (checkSumSerie00B + checkSumSerie16B + checkSumSerie33B + checkSumSerie50B + checkSumSerie66B + checkSumSerie83B);
 
-                // MessageBox.Show("phasee " + checkSumSerie00.ToString("F3") + " " + checkSumSerie16.ToString("F3") + " " + checkSumSerie33.ToString("F3") + " " + checkSumSerie50.ToString("F3") + " " + checkSumSerie66.ToString("F3") + " " + checkSumSerie83.ToString("F3") + " ");
-                //verbose
-                // MessageBox.Show("computed ave " + checkSumComputedAverage.ToString("F3"));
+
             }
             double diff1 = Math.Abs(checkSumComputedAverage - checkSumAvergageSerie);
             double diff2 = Math.Abs(checkSumComputedAverageB - checkSumAvergageSerieB);
@@ -380,12 +410,17 @@ namespace PlanCheck
             {
 
                 iSChecked = false;
-            }
 
+
+            }
+            //            MessageBox.Show("diff1 et 2\n" + diff1.ToString("F2") + " " + diff2.ToString("F2"));
             return iSChecked;
+
+
+            //MessageBox.Show(CheckAVEMessage);
         }
 
-        private bool checAVEcomposition(String comment, int expectedPhase)
+        private bool checAVEcomposition(String comment, int expectedPhase) // General Electrics 4dct
         {
             // if exepected phase is 3, comment must contains these values and only these values : 33% 50% 66%
             // if exepected phase is 6, comment must contains these values  : 0% 16% 33% 50% 66% 83%
@@ -622,17 +657,19 @@ namespace PlanCheck
                     Item_Result averageCT = new Item_Result();
                     averageCT.Label = "Composition de AVE3 ou AVE6";
                     averageCT.ExpectedValue = "none";
-                    averageCT.Infobulle = "Si le nom de l'image contient AVG ou AVE, l'image 3D doit être la moyenne des phases:";
-                    averageCT.Infobulle += "\n AVG3: moyenne des phases 33% 50% et 66%";
-                    averageCT.Infobulle += "\n AVG6: moyenne des phases 0% 16% 33% 50% 66% et 83%";
-                    averageCT.Infobulle += "\n\nLa composition est vérifiée en recalculant la moyenne pour deux pixels";
+                    // averageCT.Infobulle = "Si le nom de l'image contient AVG ou AVE, l'image 3D doit être la moyenne des phases:";
+                    // averageCT.Infobulle += "\n AVG3: moyenne des phases 33% 50% et 66%";
+                    // averageCT.Infobulle += "\n AVG6: moyenne des phases 0% 16% 33% 50% 66% et 83%";
+                    averageCT.Infobulle += "La composition est vérifiée en recalculant la moyenne pour deux pixels A et B\n";
+                    
                     averageCT.MeasuredValue = _context.Image.Id;
                     bool checkComposition = false;
 
                     if (_context.Image.Series.Comment.ToUpper().Contains("AVE"))
                     {
 
-                        if (_context.Image.Id.ToUpper().Contains("AV") && _context.Image.Id.ToUpper().Contains("3"))
+                        //if (_context.Image.Id.ToUpper().Contains("AV") && _context.Image.Id.ToUpper().Contains("3"))
+                        if (_context.Image.Series.Comment.ToUpper().Contains("3"))
                         {
 
                             //    checkComposition = checAVEcomposition(_context.Image.Series.Comment, 3);  // GE
@@ -641,7 +678,8 @@ namespace PlanCheck
 
 
                         }
-                        else if (_context.Image.Id.ToUpper().Contains("AV") && _context.Image.Id.ToUpper().Contains("6"))
+                        //else if (_context.Image.Id.ToUpper().Contains("AV") && _context.Image.Id.ToUpper().Contains("6"))
+                        else if (_context.Image.Series.Comment.ToUpper().Contains("6"))
                         {
 
                             //  checkComposition = checAVEcomposition(_context.Image.Series.Comment, 6); // GE
@@ -674,6 +712,7 @@ namespace PlanCheck
                         averageCT.setToTRUE();
                         averageCT.MeasuredValue += " est bien la moyenne des phases";
                     }
+                    averageCT.Infobulle += CheckAVEMessage;
                     this._result.Add(averageCT);
 
                 }

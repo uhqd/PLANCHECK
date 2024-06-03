@@ -37,6 +37,8 @@ namespace PlanCheck
             double pente = 0.0;
             int i = 0;
             string msg = String.Empty;
+
+            MessageBox.Show("Looking for " + s.Id);
             foreach (DVHPoint pt in dvh.CurveData)
             {
                 i++;
