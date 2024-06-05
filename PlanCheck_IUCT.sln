@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanCheck_IUCT", "PlanCheck_IUCT.csproj", "{279F5205-E225-4265-9833-16574F3B438D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanCheck_IUCT", "\\srv015\SF_COM\SIMON_LU\scriptsEclipse\PLANCHECK\0020b\PlanCheck_IUCT.csproj", "{279F5205-E225-4265-9833-16574F3B438D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -38,26 +38,36 @@ namespace PlanCheck
             int i = 0;
             string msg = String.Empty;
 
-            MessageBox.Show("Looking for " + s.Id);
+           
             foreach (DVHPoint pt in dvh.CurveData)
             {
                 i++;
-
+               
                 // string line = string.Format("{0},{1}", pt.DoseValue.Dose, pt.Volume);
                 if (pt.Volume < 50.0)  // if we parse dvh and meet the median dose --> break
                 {
-                    //MessageBox.Show("break car on passe les 50 " + pt.Volume.ToString("F2") + " " + pt.DoseValue.Dose.ToString("F2"));
+               
+                    
+                 //   MessageBox.Show("break car on passe les 50 " + pt.Volume.ToString("F2") + " " + pt.DoseValue.Dose.ToString("F2"));
                     d = pt.DoseValue.Dose;
                     break;
                 }
                 else if (pt.Volume < 95.0) // if we haven't found yet the median dose but the slope stops to decrase
                 {
-                    dose1 = pt.DoseValue.Dose;
-                    vol1 = pt.Volume;
-                    dose2 = dvh.CurveData[i + 5].DoseValue.Dose;
-                    vol2 = dvh.CurveData[i + 5].Volume;
-                    pente = (vol2 - vol1) / (dose2 - dose1);// / ;
+                    try
+                    {
+                        dose1 = pt.DoseValue.Dose;
+                        vol1 = pt.Volume;
+                        dose2 = dvh.CurveData[i + 5].DoseValue.Dose;
+                        vol2 = dvh.CurveData[i + 5].Volume;
+                        pente = (vol2 - vol1) / (dose2 - dose1);// / ;
 
+                    }
+                    catch
+                    {
+                        d = 9999;
+                        break;
+                    }
                     // msg += i.ToString() + ";" + penteMin.ToString() + ";" + pente.ToString() + ";" + dose1.ToString("F2") + ";" + dose2.ToString("F2") + ";" + vol1.ToString() + ";" + vol2.ToString() + "\n";
 
                     if (pente <= penteMin)
@@ -77,12 +87,7 @@ namespace PlanCheck
                 }
 
             }
-            /* using (StreamWriter sw = new StreamWriter(@"\\srv015\sf_com\simon_lu\resultHDV.csv"))
-             {
-                 sw.Write(msg);
-             }*/
-            //  MessageBox.Show(msg);
-            //            MessageBox.Show("RETURN " + i.ToString() + " " + s.Id + " " + d.ToString("F2"));
+            
             return d;
         }
         private bool treatmentIsOnTheLeft() // looks if iso is left or right. For Tomo, looks if the first founded PTV is left or right

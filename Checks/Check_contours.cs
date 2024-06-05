@@ -970,7 +970,7 @@ namespace PlanCheck
                 {
                     if ((s.Id.ToUpper().Contains("CTV")) || (s.Id.ToUpper().Contains("GTV")) || (s.Id.ToUpper().Contains("ITV"))) // look for ctv or Gtv or itv in name, case insensitive thanks to ToUpper
                     {
-                        if ((!s.Id.ToUpper().Contains("-CTV")) && (!s.Id.ToUpper().Contains("-GTV")) && (!s.Id.ToUpper().Contains("-ITV"))) // excludes lung-CTV
+                        if ((!s.Id.ToUpper().Contains("-CTV")) && (!s.Id.ToUpper().Contains("-GTV")) && (!s.Id.ToUpper().Contains("-ITV")) && (!s.Id.ToUpper().Contains("GTVS"))) // excludes lung-CTV and GTVs
                             if ((!s.Id.ToUpper().Contains("RING"))) // exlude rings
                                 if (!s.IsEmpty)
                                     CTVandGTVs.Add(s.Id);
