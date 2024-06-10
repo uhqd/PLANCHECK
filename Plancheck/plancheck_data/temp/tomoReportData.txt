@@ -1,98 +1,107 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deBEL,LUCILE
-Plan:SeinDBoostFE
-Rapportcrééle:05/06/202411:40:26par:CavetClemence
+Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
+Plan:STECPoumLIG
+Rapportcrééle:03/06/202409:47:47par:LacazeThierry
 1/6
 PATIENT
-Nom:BEL,LUCILE(201902473) DatedeNaissance:19/09/1976 Sexe:Féminin
+Nom:MIECRET,PHILIPPE(202409435) DatedeNaissance:07/02/1947 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan SeinDBoostFE Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTVboost
-IDimage: TDMRTE280524 Pointdereferenceprincipal PTVboost
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.9%
+IDplan STECPoumLIG Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: ITV3ph
+IDimage: AVG3 Pointdereferenceprincipal ITV3ph
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.3%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (1.82cm,-21.84cm,-32.70cm) Fractionnement:
-Typedetraitement: IMRTstatique DosePrescrite: 63.8Gy(2.20Gy/fraction)
-Nombredefractions: 29
+Décalagedel'origine/àDICOM: (-0.38cm,-17.36cm,-33.00cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 60.0Gy(12.00Gy/fraction)
+Nombredefractions: 5
 OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
+Algorithmephoton: Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
 CalculationGridSizeInCM 0.125
 CalculationGridSizeInCMForSRSAndHyperArc 0.125
+DoseReportingMode Dosetomedium
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
 APPROBATIONS
-Plancréé: admin\lanaspeze(04/06/202411:39:30)
-Appro.plan: MassabeauCarole(mardi4juin202415:51:41)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deBEL,LUCILE
-Plan:SeinDBoostFE
-Rapportcrééle:05/06/202411:40:26par:CavetClemence
+Plancréé: admin\recordon(31/05/202415:08:46)
+Appro.plan: PreaultMichael(vendredi31mai202417:11:15)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
+Plan:STECPoumLIG
+Rapportcrééle:03/06/202409:47:47par:LacazeThierry
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-MAMINTDT MAMINTDT1 MAMINTDT2 MAMEXT MAMEXT1 MAMEXT2
-IDmachine HALCYON6 HALCYON6 HALCYON6 HALCYON6 HALCYON6 HALCYON6
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
-X1 14 14 14 14 14 14
-X2 14 14 14 14 14 14
-Y1 14 14 14 14 14 14
-Y2 14 14 14 14 14 14
-Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
-Angledubras 53° 60° 46° 227° 220° 234°
-Sensderotationdubras - - - - - -
-Angled'arrêtdubras - - - - - -
-Rot.collimateur 350.8° 350.8° 350.8° 9.2° 9.2° 9.2°
-Rot.detable 0° 0° 0° 0° 0° 0°
-Bolus - - - - - -
-IsocentreX -11cm -11cm -11cm -11cm -11cm -11cm
-IsocentreY -11.5cm -11.5cm -11.5cm -11.5cm -11.5cm -11.5cm
-IsocentreZ 10.11cm 10.11cm 10.11cm 10.11cm 10.11cm 10.11cm
-DSP 91.3cm 90cm 92.4cm 87.7cm 85.8cm 90.3cm
-Ponderation 1 1 1 1 1 1
-Pointderéférence PTVboost PTVboost PTVboost PTVboost PTVboost PTVboost
-Filtreencoin - - - - - -
-Bloc - - - - - -
-Plaque - - - - - -
-Doseparfraction 0.367Gy 0.367Gy 0.367Gy 0.367Gy 0.367Gy 0.367Gy
-UM 154.3UM 139.3UM 155.5UM 147.1UM 172.4UM 144.0UMRappportdeplanificationderadiothérapie(v15.6.05)deBEL,LUCILE
-Plan:SeinDBoostFE
-Rapportcrééle:05/06/202411:40:26par:CavetClemence
+RA1 RA2 RA3 RA4
+IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
+X1 3.26 2.77 2.76 2.89
+X2 3.02 2.89 2.64 2.89
+Y1 2.5 3 2.75 2.75
+Y2 2.75 3.19 3.5 2.75
+Tailledechamp 6.28x5.25cm² 5.66x6.19cm² 5.4x6.25cm² 5.78x5.5cm²
+Angledubras 179° 0° 179° 0°
+Sensderotationdubras SAH SH SAH SH
+Angled'arrêtdubras 0° 179° 0° 179°
+Rot.collimateur 15° 345° 105° 75°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX 9.77cm 9.77cm 9.77cm 9.77cm
+IsocentreY 0.64cm 0.64cm 0.64cm 0.64cm
+IsocentreZ 0.94cm 0.94cm 0.94cm 0.94cm
+DSP 92.7cm 78.7cm 92.7cm 78.7cm
+Ponderation 0.945 0.889 1.018 0.921
+Pointderéférence ITV3ph ITV3ph ITV3ph ITV3ph
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 3.004Gy 2.828Gy 3.238Gy 2.929Gy
+UM 1141.8UM 1074.9UM 1230.8UM 1113.4UMRappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
+Plan:STECPoumLIG
+Rapportcrééle:03/06/202409:47:47par:LacazeThierry
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deBEL,LUCILE
-Plan:SeinDBoostFE
-Rapportcrééle:05/06/202411:40:26par:CavetClemence
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
+Plan:STECPoumLIG
+Rapportcrééle:03/06/202409:47:47par:LacazeThierry
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-Trachee 32.0 1.1 0.7 1.0 1.1
-Thyroide 21.3 0.8 0.5 0.7 0.7
-BODY 38655.8 65.6 3.2 64.7 65.5
-TetehumeraleGche 61.6 0.1 0.0 0.1 0.1
-TetehumeraleDte 64.9 27.0 4.4 20.7 25.5
-Seincontro 1080.0 3.7 0.2 2.1 2.7
-Poumons 3181.7 48.0 1.7 43.4 47.1
-PoumonGche 1561.9 1.8 0.1 1.4 1.6
-PoumonDt 1619.8 48.0 3.2 43.4 47.1
-PlexusGche 13.8 0.3 0.1 0.3 0.3
-PlexusDt 14.6 24.6 2.4 8.6 22.7
-Oesophage 36.2 0.8 0.5 0.7 0.8
-Larynx 11.2 0.5 0.4 0.5 0.5
-IVA 5.3 0.7 0.3 0.5 0.7
-Foie 1335.9 6.0 0.8 4.8 5.7
-CTVsein 993.4 65.6 54.0 64.7 65.4
-Coeur 877.2 5.0 1.0 4.4 4.9
-CanalMed 77.3 0.8 0.3 0.7 0.7
-BoostlitT 24.1 64.6 63.9 64.3 64.5
-PTVboost 58.6 65.6 63.7 64.6 65.3
-PTVsein 1058.2 65.6 54.5 64.7 65.4
-CTVsein-5mm 876.4 65.6 54.9 64.7 65.4Rappportdeplanificationderadiothérapie(v15.6.05)deBEL,LUCILE
-Plan:SeinDBoostFE
-Rapportcrééle:05/06/202411:40:26par:CavetClemence
+BODY 35347.0 63.2 1.2 61.7 62.6
+Aorte 207.5 24.0 3.1 17.6 22.0
+CanalMed 76.2 7.4 0.9 6.0 7.0
+Coeur 1290.7 9.3 0.7 7.6 8.8
+Grosvaisseaux 339.1 24.0 3.3 17.9 22.0
+IVA 4.3 5.4 1.5 3.1 5.2
+Oesophage 43.4 6.0 1.3 4.5 5.6
+ParoiThoracique 4636.1 62.1 1.8 54.2 59.4
+ParoiThoraciqueD 1247.5 5.8 0.5 4.3 5.4
+ParoiThoraciqueG 3388.7 62.1 2.3 54.2 59.4
+PBT 23.7 16.0 4.1 10.5 14.4
+PoumonDt 1085.0 10.1 1.0 8.1 9.6
+PoumonGche 2105.3 62.8 5.4 61.2 62.4
+Poumons 3190.3 62.8 3.9 61.2 62.4
+Trachee 30.9 1.5 0.4 1.0 1.3
+VCaveInf 40.2 0.2 0.1 0.2 0.2
+VCaveSup 22.2 2.8 1.3 2.1 2.6
+Canal+5 203.3 9.7 1.0 7.6 8.8
+ITV3ph 23.2 63.2 59.1 61.7 62.6
+PTV3ph 55.8 63.2 56.9 61.7 62.6
+ITV6ph 28.7 63.2 58.8 61.7 62.6
+Poumons-PTV 3161.7 57.1 3.4 49.9 53.4
+Poumons-ITV 3186.5 62.8 3.8 59.8 61.1
+CanalMed+5 203.3 9.7 1.0 7.6 8.8
+PTV-ITV 31.7 62.8 55.3 59.8 61.2
+ParoiOpt 554.1 62.1 10.7 54.1 59.2Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
+Plan:STECPoumLIG
+Rapportcrééle:03/06/202409:47:47par:LacazeThierry
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,MAMINTDT,MAMINTDT1,MAMINTDT2,MAMEXT,MAMEXT1,MAMEXT2
-Décaler: 11cm 11.5cm 10.11cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deBEL,LUCILE
-Plan:SeinDBoostFE
-Rapportcrééle:05/06/202411:40:26par:CavetClemence
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: -9.77cm -0.64cm 0.94cm
+Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
+Plan:STECPoumLIG
+Rapportcrééle:03/06/202409:47:47par:LacazeThierry
 6/6
