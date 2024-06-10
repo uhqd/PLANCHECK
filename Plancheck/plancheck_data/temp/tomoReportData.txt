@@ -1,19 +1,19 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
-Plan:STECPoumLIG
-Rapportcrééle:03/06/202409:47:47par:LacazeThierry
-1/6
+Rappportdeplanificationderadiothérapie(v15.6.05)deRABIER,BERNARD
+Plan:STIC1Locs3_TT
+Rapportcrééle:26/04/202408:36:33par:LanaspezeChristelle
+1/7
 PATIENT
-Nom:MIECRET,PHILIPPE(202409435) DatedeNaissance:07/02/1947 Sexe:Masculin
+Nom:RABIER,BERNARD(202407537) DatedeNaissance:12/04/1949 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan STECPoumLIG Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: ITV3ph
-IDimage: AVG3 Pointdereferenceprincipal ITV3ph
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.3%
+IDplan STIC1Locs3_TT Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: GTVsHD
+IDimage: TDMRTE220424 Pointdereferenceprincipal HA1
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.9%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.38cm,-17.36cm,-33.00cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 60.0Gy(12.00Gy/fraction)
-Nombredefractions: 5
+Décalagedel'origine/àDICOM: (0.13cm,-23.49cm,-0.20cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 36.0Gy(12.00Gy/fraction)
+Nombredefractions: 3
 OPTIONSDECALCUL
 Algorithmephoton: Acuros_15605New
 AutomaticHighDensityMaterial__ Bone
@@ -26,82 +26,93 @@ MaximumAutomaticHighDensityVolumeInCM3__ 0.50
 PlanDoseCalculation OFF
 UseGPU Yes
 APPROBATIONS
-Plancréé: admin\recordon(31/05/202415:08:46)
-Appro.plan: PreaultMichael(vendredi31mai202417:11:15)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
-Plan:STECPoumLIG
-Rapportcrééle:03/06/202409:47:47par:LacazeThierry
-2/6
+Plancréé: admin\carillo(25/04/202413:31:51)
+Appro.plan: AttalJustine(jeudi25avril202415:03:20)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deRABIER,BERNARD
+Plan:STIC1Locs3_TT
+Rapportcrééle:26/04/202408:36:33par:LanaspezeChristelle
+2/7
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-RA1 RA2 RA3 RA4
-IDmachine NOVASBRT NOVASBRT NOVASBRT NOVASBRT
+HA0 HA45 HA315 HA270
+IDmachine NOVA3 NOVA3 NOVA3 NOVA3
 Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
 Debitdedose 1400UM/min 1400UM/min 1400UM/min 1400UM/min
-X1 3.26 2.77 2.76 2.89
-X2 3.02 2.89 2.64 2.89
-Y1 2.5 3 2.75 2.75
-Y2 2.75 3.19 3.5 2.75
-Tailledechamp 6.28x5.25cm² 5.66x6.19cm² 5.4x6.25cm² 5.78x5.5cm²
-Angledubras 179° 0° 179° 0°
-Sensderotationdubras SAH SH SAH SH
-Angled'arrêtdubras 0° 179° 0° 179°
-Rot.collimateur 15° 345° 105° 75°
-Rot.detable 0° 0° 0° 0°
+X1 4.16 3.4 6 5.81
+X2 3.4 2.49 5.4 5.4
+Y1 6 6 4.5 4.5
+Y2 6.5 5.5 4.5 4.5
+Tailledechamp 7.56x12.5cm² 5.89x11.5cm² 11.4x9cm² 11.21x9cm²
+Angledubras 180.1° 179.9° 0° 180.1°
+Sensderotationdubras SH SAH SAH SH
+Angled'arrêtdubras 179.9° 0° 180.1° 0°
+Rot.collimateur 78° 75° 36° 30°
+Rot.detable 0° 45° 315° 270°
 Bolus - - - -
-IsocentreX 9.77cm 9.77cm 9.77cm 9.77cm
-IsocentreY 0.64cm 0.64cm 0.64cm 0.64cm
-IsocentreZ 0.94cm 0.94cm 0.94cm 0.94cm
-DSP 92.7cm 78.7cm 92.7cm 78.7cm
-Ponderation 0.945 0.889 1.018 0.921
-Pointderéférence ITV3ph ITV3ph ITV3ph ITV3ph
+IsocentreX -1.8cm -1.8cm -1.8cm -1.8cm
+IsocentreY 2cm 2cm 2cm 2cm
+IsocentreZ 0cm 0cm 0cm 0cm
+DSP 92.9cm 92.9cm 88.7cm 92.9cm
+Ponderation 0.707 0.548 0.574 0.584
+Pointderéférence HA1 HA1 HA1 HA1
 Filtreencoin - - - -
 Bloc - - - -
 Plaque - - - -
-Doseparfraction 3.004Gy 2.828Gy 3.238Gy 2.929Gy
-UM 1141.8UM 1074.9UM 1230.8UM 1113.4UMRappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
-Plan:STECPoumLIG
-Rapportcrééle:03/06/202409:47:47par:LacazeThierry
-3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
-Plan:STECPoumLIG
-Rapportcrééle:03/06/202409:47:47par:LacazeThierry
-4/6
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
+Doseparfraction 3.513Gy 2.727Gy 2.856Gy 2.904Gy
+UM 848.7UM 658.7UM 689.8UM 701.4UMRappportdeplanificationderadiothérapie(v15.6.05)deRABIER,BERNARD
+Plan:STIC1Locs3_TT
+Rapportcrééle:26/04/202408:36:33par:LanaspezeChristelle
+3/7
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deRABIER,BERNARD
+Plan:STIC1Locs3_TT
+Rapportcrééle:26/04/202408:36:33par:LanaspezeChristelle
+4/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 35347.0 63.2 1.2 61.7 62.6
-Aorte 207.5 24.0 3.1 17.6 22.0
-CanalMed 76.2 7.4 0.9 6.0 7.0
-Coeur 1290.7 9.3 0.7 7.6 8.8
-Grosvaisseaux 339.1 24.0 3.3 17.9 22.0
-IVA 4.3 5.4 1.5 3.1 5.2
-Oesophage 43.4 6.0 1.3 4.5 5.6
-ParoiThoracique 4636.1 62.1 1.8 54.2 59.4
-ParoiThoraciqueD 1247.5 5.8 0.5 4.3 5.4
-ParoiThoraciqueG 3388.7 62.1 2.3 54.2 59.4
-PBT 23.7 16.0 4.1 10.5 14.4
-PoumonDt 1085.0 10.1 1.0 8.1 9.6
-PoumonGche 2105.3 62.8 5.4 61.2 62.4
-Poumons 3190.3 62.8 3.9 61.2 62.4
-Trachee 30.9 1.5 0.4 1.0 1.3
-VCaveInf 40.2 0.2 0.1 0.2 0.2
-VCaveSup 22.2 2.8 1.3 2.1 2.6
-Canal+5 203.3 9.7 1.0 7.6 8.8
-ITV3ph 23.2 63.2 59.1 61.7 62.6
-PTV3ph 55.8 63.2 56.9 61.7 62.6
-ITV6ph 28.7 63.2 58.8 61.7 62.6
-Poumons-PTV 3161.7 57.1 3.4 49.9 53.4
-Poumons-ITV 3186.5 62.8 3.8 59.8 61.1
-CanalMed+5 203.3 9.7 1.0 7.6 8.8
-PTV-ITV 31.7 62.8 55.3 59.8 61.2
-ParoiOpt 554.1 62.1 10.7 54.1 59.2Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
-Plan:STECPoumLIG
-Rapportcrééle:03/06/202409:47:47par:LacazeThierry
-5/6
+BODY 9895.6 37.7 0.4 35.6 37.2
+TroncCerebral 29.5 1.1 0.4 0.7 0.9
+RetineGche 2.0 0.4 0.3 0.3 0.4
+RetineDt 2.1 0.5 0.2 0.2 0.5
+OeilGche 7.7 0.4 0.3 0.3 0.4
+OeilDt 8.3 0.5 0.2 0.3 0.5
+NerfOptiqueGche 0.6 0.4 0.3 0.0 0.4
+NerfOptiqueDt 0.9 0.4 0.2 0.0 0.3
+Hypophyse 0.3 0.3 0.3 0.0 0.3
+CristallinGche 0.1 0.3 0.3 0.0 0.3
+CristallinDt 0.2 0.2 0.2 0.0 0.2
+CochleeGche 0.1 0.8 0.7 0.0 0.7
+CochleeDte 0.1 0.3 0.2 0.0 0.2
+Chiasma 0.6 0.5 0.3 0.0 0.4
+Cerveau 1624.4 37.7 1.5 35.6 37.2
+HippocampeDt 2.0 1.8 0.6 0.6 1.5
+HippocampeGche 2.1 1.4 1.1 1.1 1.3
+GTV1.1 0.4 37.7 36.1 0.0 37.0
+GTV1.2 0.4 37.5 36.1 0.0 36.8
+GTV1.3 0.2 37.4 36.1 0.0 36.8
+PTV1.1 1.3 37.7 34.4 32.6 37.0
+PTV1.2 1.3 37.5 34.3 32.6 36.8
+PTV1.3 0.8 37.4 34.0 0.0 36.9
+GTVs 1.0 37.7 36.1 0.0 37.2
+GTVsHD 1.0 37.7 36.1 0.0 37.2
+Chiasma+2 3.4 0.6 0.3 0.3 0.5
+CristallinDt+5 2.9 0.3 0.2 0.2 0.3
+CristallinGche+5 2.5 0.3 0.2 0.3 0.3
+NerfOptDt+2 3.3 0.4 0.2 0.3 0.4
+NerfOptGche+2 2.7 0.5 0.3 0.3 0.4
+TroncCerebral+2 44.2 1.1 0.4 0.8 1.1Rappportdeplanificationderadiothérapie(v15.6.05)deRABIER,BERNARD
+Plan:STIC1Locs3_TT
+Rapportcrééle:26/04/202408:36:33par:LanaspezeChristelle
+5/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+Cerveau-GTVs 1623.7 37.5 1.5 34.5 36.9Rappportdeplanificationderadiothérapie(v15.6.05)deRABIER,BERNARD
+Plan:STIC1Locs3_TT
+Rapportcrééle:26/04/202408:36:33par:LanaspezeChristelle
+6/7
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2,RA3,RA4
-Décaler: -9.77cm -0.64cm 0.94cm
-Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deMIECRET,PHILIPPE
-Plan:STECPoumLIG
-Rapportcrééle:03/06/202409:47:47par:LacazeThierry
-6/6
+Isocentredeschamps:,HA0,HA45,HA315,HA270
+Décaler: 1.8cm -2cm 0cm
+Direction: Tableversladroiteenregardantlebras Tableverslehaut Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deRABIER,BERNARD
+Plan:STIC1Locs3_TT
+Rapportcrééle:26/04/202408:36:33par:LanaspezeChristelle
+7/7
