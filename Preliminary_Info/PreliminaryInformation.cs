@@ -70,7 +70,7 @@ namespace PlanCheck
         private User_preference _actualUserPreference;
         public int nAriaDocumentExterieur;
         private double myXcenter;
-
+        private int nLoalisationHA;
 
         private Structure isExistAndNotEmpty(String id)
         {
@@ -581,6 +581,25 @@ namespace PlanCheck
                 if (fieldname.Contains("HA"))
                     _HYPERARC = true;
 
+                nLoalisationHA = 1;
+                if(_HYPERARC) // get number of locs
+                {
+                    int index = _ctx.PlanSetup.Id.ToLower().IndexOf("locs");
+                    char result = _ctx.PlanSetup.Id[index + 4];
+                    try
+                    {
+                        nLoalisationHA = (int)Char.GetNumericValue(result);
+
+                       
+                    }
+                    catch
+                    {
+                        nLoalisationHA = 1;
+                        MessageBox.Show("Plancheck n'a pas trouvé le nombre de locs dans le nom du plan: " + _ctx.PlanSetup.Id);
+                    }
+
+                }
+
             }
             else if (_machine.Contains("HALCYON"))
                 _HALCYON = true;
@@ -902,6 +921,10 @@ namespace PlanCheck
         public double theXcenter
         {
             get { return myXcenter; }
+        }
+        public double nLocHA
+        {
+            get { return nLoalisationHA; }
         }
         public string lastUsedCheckProtocol
         {

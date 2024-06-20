@@ -642,7 +642,15 @@ namespace PlanCheck
                         bool isProstateWithoutNodes = isItProstateWithoutNodes();
 
                         if (isProstateWithoutNodes) { mustBeSBRT = true; }
-                        else if (_pinfo.isHyperArc) { mustBeSBRT = false; }
+                        else if (_pinfo.isHyperArc)
+                        {
+                            if(_pinfo.nLocHA == 1)
+                                mustBeSBRT = true;
+                            else
+                                mustBeSBRT = false;
+
+
+                        }
                         else
                         {
                             if (aFieldIsSmall) { mustBeSBRT = true; }
