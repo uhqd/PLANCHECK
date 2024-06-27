@@ -1,113 +1,235 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deLAGARRIGUE,
-ANDREE
-Plan:STECPoumLIG
-Rapportcrééle:20/06/202411:37:54par:CarilloFabienne
-1/6
-PATIENT
-Nom:LAGARRIGUE,ANDREE(202001804) DatedeNaissance:22/01/1955 Sexe:Féminin
-PLAN PRESCRIPTIONDE
-DOSE
-IDplan STECPoumLIG Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: ITV6ph
-IDimage: TDM140624_AVG6 Pointdereferenceprincipal ITV6ph
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 192.5%
-Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (0.35cm,-16.00cm,-32.85cm) Fractionnement:
-Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 66.0Gy(13.20Gy/fraction)
-Nombredefractions: 5
-OPTIONSDECALCUL
-Algorithmephoton: Acuros_15605New
-AutomaticHighDensityMaterial__ Bone
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc 0.125
-DoseReportingMode Dosetomedium
-FieldNormalizationType 100%toisocenter
-HeterogeneityCorrection ON
-MaximumAutomaticHighDensityVolumeInCM3__ 0.50
-PlanDoseCalculation OFF
-UseGPU Yes
-APPROBATIONS
-Plancréé: admin\lacaze(19/06/202411:15:18)
-Appro.plan: MassabeauCarole(jeudi20juin202411:22:39)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deLAGARRIGUE,
-ANDREE
-Plan:STECPoumLIG
-Rapportcrééle:20/06/202411:37:54par:CarilloFabienne
-2/6
-PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
-IDchamp
-ARCSTE ARCSTE1
-IDmachine NOVA5 NOVA5
-Energie 6X-FFF 6X-FFF
-Debitdedose 1400UM/min 1400UM/min
-X1 2.2 1.9
-X2 2 2.2
-Y1 2.3 2.3
-Y2 1.8 1.8
-Tailledechamp 4.2x4.1cm² 4.1x4.1cm²
-Angledubras 340° 90°
-Sensderotationdubras SH SH
-Angled'arrêtdubras 90° 179°
-Rot.collimateur 0° 0°
-Rot.detable 0° 0°
-Bolus - -
-IsocentreX 5.5cm 5.5cm
-IsocentreY -1.97cm -1.97cm
-IsocentreZ 11.17cm 11.17cm
-DSP 90.5cm 87.1cm
-Ponderation 0.88 1.12
-Pointderéférence ITV6ph ITV6ph
-Filtreencoin - -
-Bloc - -
-Plaque - -
-Doseparfraction 5.808Gy 7.392Gy
-UM 828.9UM 1236.0UMRappportdeplanificationderadiothérapie(v15.6.05)deLAGARRIGUE,
-ANDREE
-Plan:STECPoumLIG
-Rapportcrééle:20/06/202411:37:54par:CarilloFabienne
-3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deLAGARRIGUE,
-ANDREE
-Plan:STECPoumLIG
-Rapportcrééle:20/06/202411:37:54par:CarilloFabienne
-4/6
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 19999.4 69.9 1.2 67.9 69.3
-Trachee 27.2 20.5 6.3 15.6 19.4
-ReinGche 93.6 0.0 0.0 0.0 0.0
-Poumons 4307.1 69.9 1.3 67.9 69.3
-PoumonGche 1369.7 69.9 3.1 67.9 69.3
-PoumonDt 2937.4 18.7 0.5 13.9 17.4
-PlexusGche 9.4 34.8 11.5 24.4 31.8
-PlexusDt 9.5 5.0 2.7 4.5 4.9
-PBT 22.4 0.6 0.3 0.5 0.6
-ParoiThoraciqueG 2244.0 67.8 2.0 62.9 67.2
-ParoiThoraciqueD 957.6 11.2 0.4 8.7 10.6
-ParoiThoracique 1938.8 67.8 1.3 62.8 67.2
-Oesophage 51.3 41.8 4.2 28.4 38.8
-Grosvaisseaux 274.7 4.6 0.3 2.1 3.6
-Foie 887.8 0.0 0.0 0.0 0.0
-Estomac 120.0 0.0 0.0 0.0 0.0
-Coeur 610.3 0.2 0.1 0.2 0.2
-CanalMed 85.5 18.1 1.6 14.5 17.5
-PTV6ph 22.0 69.9 61.8 67.9 69.3
-ITV6ph 7.2 69.9 65.7 67.9 69.3
-Canal+5 217.6 22.4 1.7 18.1 21.6
-Vertebre 63.2 27.7 10.2 21.5 25.7
-PlexusBrachial 9.4 34.8 11.5 24.4 31.8
-Poumons-PTV 4289.6 62.1 1.0 56.4 60.0
-Poumons-ITV 4302.7 68.7 1.2 63.8 67.5
-CanalMed+5 218.2 22.4 1.7 NonNumérique NonNumériqueRappportdeplanificationderadiothérapie(v15.6.05)deLAGARRIGUE,
-ANDREE
-Plan:STECPoumLIG
-Rapportcrééle:20/06/202411:37:54par:CarilloFabienne
-5/6
-DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,ARCSTE,ARCSTE1
-Décaler: -5.5cm 1.97cm 11.17cm
-Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deLAGARRIGUE,
-ANDREE
-Plan:STECPoumLIG
-Rapportcrééle:20/06/202411:37:54par:CarilloFabienne
-6/6
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+amygdale
+Standard
+Plan Saved Date: 26 Jun 2024, 3:37:12 PM (hr:min:sec)
+Treatment Machine / Serial No.: 4010012_1000MU 1180 MU/min, rev 
+36 / 4010012
+Prescription: Median of PTV_HDOPT, 70.00 Gy
+Prescribed Dose per Fraction (Gy): 2.00
+Planned Fractions: 35
+Maximum Dose (Gy): 72.57
+Plan Status: Approved
+MU Planned / MU per Fraction: 137193.2 / 3919.8
+Field Width (cm): 2.5, Dynamic
+Pitch: 0.437
+Modulation Factor / Actual: 2.000 / 1.8
+Gantry Period (sec):
+Gantry Rotations:
+12.1
+18.7
+Sinogram Segments: 6.2
+Couch Travel (mm):
+Couch Speed (mm/sec):
+205.4
+0.9
+Red Lasers Offset (IECf, mm): X: -0.84 Y: -36.42 Z: -2.02
+Beam On Time (sec): 226.6
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 1.17 Y: 2.00 Z: 1.17
+Size (IECp, voxel) X: 512 Y: 216 Z: 512
+Reference Dose (Gy): 72.57
+X: -1.8 Y: -310.0 Z: 288.8 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: VOLO Ultra
+Patient Name:
+Medical ID:
+VITAL, GEORGES
+202411054 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 29 Jul 1937
+Gender: Male Patient Key: 410512
+Plan Overview
+Page 1 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)DVH: Absolute Dose
+Warning: Full list of VOIs may not fit in legend.Refer VOI List
+Plan Overview
+Page 2 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+BODY 14348.34 0.20 11.07 72.57 n/a n/a n/a n/a Allowed
+ATMDte 1.81 7.30 25.75 56.64 n/a n/a n/a n/a Allowed
+ATMGche 2.17 4.22 7.06 10.90 n/a n/a n/a n/a Allowed
+Canal Med 59.82 0.33 13.32 37.07 n/a n/a n/a n/a Allowed
+Cav Buc 88.14 13.36 49.14 72.17 n/a n/a n/a n/a Allowed
+Cerveau 1412.12 0.26 2.76 54.04 n/a n/a n/a n/a Allowed
+Chiasma 1.26 1.86 2.27 2.74 n/a n/a n/a n/a Allowed
+Const Pharynx 24.61 14.18 50.49 72.57 n/a n/a n/a n/a Allowed
+CristallinDt 0.20 1.31 1.48 1.69 n/a n/a n/a n/a Allowed
+CristallinGche 0.19 1.17 1.33 1.53 n/a n/a n/a n/a Allowed
+CTV BD 394.34 51.42 62.79 72.57 n/a n/a n/a n/a Allowed
+CTV HD 128.16 65.80 70.18 72.57 n/a n/a n/a n/a Allowed
+CTV ND 174.89 47.25 61.41 72.40 n/a n/a n/a n/a Allowed
+CTV NG 77.12 47.17 56.48 59.87 n/a n/a n/a n/a Allowed
+CTV T 222.45 36.39 67.67 72.57 n/a n/a n/a n/a Allowed
+GTV T 70.58 68.04 69.99 72.17 n/a n/a n/a n/a Allowed
+Larynx 27.53 14.18 28.03 56.60 n/a n/a n/a n/a Allowed
+Levres 17.37 9.79 18.76 34.58 n/a n/a n/a n/a Allowed
+Mandibule 57.71 3.62 34.46 71.58 n/a n/a n/a n/a Allowed
+NerfOptiqueDt 0.53 1.86 2.41 3.04 n/a n/a n/a n/a Allowed
+NerfOptiqueGche 0.58 1.56 1.98 2.29 n/a n/a n/a n/a Allowed
+OeilDt 11.16 1.03 1.88 6.89 n/a n/a n/a n/a Allowed
+OeilGche 11.10 0.94 1.64 6.19 n/a n/a n/a n/a Allowed
+Oesophage 44.05 0.45 11.20 56.96 n/a n/a n/a n/a Allowed
+OreilleIntDte 0.81 24.28 34.71 45.88 n/a n/a n/a n/a Allowed
+OreilleIntGche 0.72 3.88 6.45 9.63 n/a n/a n/a n/a Allowed
+ParoDte 30.87 5.84 40.92 71.91 n/a n/a n/a n/a Allowed
+ParoGche 28.57 2.97 21.40 56.26 n/a n/a n/a n/a Allowed
+PlexusDt 11.93 6.02 45.58 56.48 n/a n/a n/a n/a Allowed
+VOI
+Plan Overview
+Page 3 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3PlexusGche 8.86 23.28 39.05 55.23 n/a n/a n/a n/a Allowed
+PoumonDt 1203.26 0.37 4.98 54.92 n/a n/a n/a n/a Allowed
+PoumonGche 1143.95 0.33 4.46 54.45 n/a n/a n/a n/a Allowed
+Poumons 2347.21 0.33 4.73 54.92 n/a n/a n/a n/a Allowed
+PTV BD 595.63 38.41 60.90 72.57 n/a n/a n/a n/a Allowed
+PTV HD 179.54 62.55 69.79 72.57 n/a n/a n/a n/a Allowed
+SousMaxDte 10.10 55.20 68.86 71.69 n/a n/a n/a n/a Allowed
+SousMaxGche 10.22 27.01 45.88 58.70 n/a n/a n/a n/a Allowed
+Trachee 41.54 1.39 22.92 57.14 n/a n/a n/a n/a Allowed
+Tronc Cerebral 28.33 1.52 8.56 32.91 n/a n/a n/a n/a Allowed
+Artefacts 4.12 14.31 24.46 44.81 n/a n/a n/a n/a Allowed
+CanalMed+3 116.22 0.32 14.02 43.55 n/a n/a n/a n/a Allowed
+CavBuc-PTVs 45.15 13.36 34.47 57.73 n/a n/a n/a n/a Allowed
+Chauffe 1229.67 2.18 18.18 52.18 n/a n/a n/a n/a Allowed
+ConsPharynx-PTVs 14.53 14.18 39.95 62.06 n/a n/a n/a n/a Allowed
+LarynxOPT-PTVs 129.03 1.26 25.77 59.24 n/a n/a n/a n/a Allowed
+Mandibule-PTVs 52.12 3.62 31.15 69.26 n/a n/a n/a n/a Allowed
+OverlapPlexusDt 12.71 51.40 54.36 56.76 0.00 0.00 1.04 0.00 n/a
+OverlapPlexusGch 1.35 53.79 54.87 55.70 0.00 0.00 1.04 0.00 n/a
+ParoDte-PTVs 18.94 5.84 25.90 64.59 n/a n/a n/a n/a Allowed
+ParoGche-PTVs 28.13 2.97 20.92 55.39 n/a n/a n/a n/a Allowed
+PlexusDt+3 37.09 3.17 44.04 56.76 n/a n/a n/a n/a Allowed
+PlexusGche+3 29.36 21.13 38.56 55.70 n/a n/a n/a n/a Allowed
+PTV_BDOPT 578.38 38.41 61.08 72.57 1.00 6.46 1.04 15.49 n/a
+PTV_BD-PTV_HD 399.15 38.41 57.17 70.81 2329.
+64
+2418
+2857.
+68
+1.04 0.01 n/a
+PTV_HDOPT 179.23 62.55 69.80 72.57 1.00 2.00 1.04 49.95 n/a
+PTVBDIsole 285.71 38.41 56.02 60.46 n/a n/a n/a n/a Allowed
+PTVTotal 595.63 38.41 60.90 72.57 n/a n/a n/a n/a Allowed
+RingPTVBD 934.14 7.86 43.58 70.45 n/a n/a n/a n/a Allowed
+SousMaxGche-PTVs 8.60 27.01 43.89 57.42 n/a n/a n/a n/a Allowed
+TroncCerebral+3 48.78 1.37 9.42 43.69 n/a n/a n/a n/a Allowed
+All Target Regions n/a 38.41 60.92 72.57 0.00 0.00 0.00 0.00 n/a
+Plan Overview
+Page 4 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3All Critical Regions n/a 0.20 11.29 72.57 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.10 2.36 47.03 0.00 0.00 0.00 0.00 n/a
+DVH Dose (Gy) Dose (% of 70.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV_HDOPT 67.55 96.5 170.27 95.0 Dose (Gy) >= 66.50 67.55
+PTV_BDOPT 54.24 77.5 549.46 95.0 Dose (Gy) >= 53.20 54.24
+OverlapPlexusDt 53.43 76.3 12.08 95.0 Dose (Gy) >= 53.20 53.43
+OverlapPlexusGch 54.26 77.5 1.29 95.0 Dose (Gy) >= 53.20 54.26
+PTV_HDOPT 71.45 102.1 3.58 2.0 Dose (Gy) <= 74.90 71.45
+Larynx 56.60 80.9 0.00 0.0 Dose (Gy) <= 55.00 56.60
+Cav Buc 72.17 103.1 0.00 0.0 Dose (Gy) <= 55.00 72.17
+CanalMed+3 43.55 62.2 0.00 0.0 Dose (Gy) <= 45.00 43.55
+TroncCerebral+3 43.69 62.4 0.00 0.0 Dose (Gy) <= 55.00, Max: 59.00 43.69
+ATMDte 56.64 80.9 0.00 0.0 Dose (Gy) <= 50.00 56.64
+ATMGche 10.90 15.6 0.00 0.0 Dose (Gy) <= 50.00 10.90
+OreilleIntDte 45.88 65.5 0.00 0.0 Dose (Gy) <= 50.00 45.88
+OreilleIntDte -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 35.00 34.71
+OreilleIntGche 9.63 13.8 0.00 0.0 Dose (Gy) <= 50.00 9.63
+OreilleIntGche -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 35.00 6.45
+Mandibule 71.58 102.3 0.00 0.0 Dose (Gy) <= 70.00 71.58
+Mandibule -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 30.00 34.46
+CristallinDt 1.69 2.4 0.00 0.0 Dose (Gy) <= 10.00, Max: 15.00 1.69
+CristallinGche 1.53 2.2 0.00 0.0 Dose (Gy) <= 10.00, Max: 15.00 1.53
+OeilDt 6.89 9.8 0.00 0.0 Dose (Gy) <= 50.00 6.89
+OeilGche 6.19 8.8 0.00 0.0 Dose (Gy) <= 50.00 6.19
+PlexusDt 56.48 80.7 0.00 0.0 Dose (Gy) <= 60.00 56.48
+PlexusGche 55.23 78.9 0.00 0.0 Dose (Gy) <= 60.00 55.23
+PTV_BD-PTV_HD 56.52 80.7 199.58 50.0
+PTV_BDOPT 57.47 82.1 289.19 50.0
+Dx Vx Values
+Plan Overview
+Page 5 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-1000 * 0.001
+-691 * 0.300
+-509 * 0.490
+-70 * 0.960
+-40 * 0.983
+2 * 1.000
+3 * 1.023
+34 * 1.050
+63 * 1.081
+335 * 1.218
+503 * 1.331
+925 * 1.559
+1561 * 1.924
+8370 * 4.510
+Density
+Density Model: CT130246
+Density Overrides
+Priority VOI Name
+Relative Electron 
+Density
+Mass Density 
+(g/cm³)
+1 Artefacts n/a 1.000
+Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
+Plan Overview
+Page 6 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3Name: PIRAM, Lucie
+26 Jun 2024, 3:37:56 PM (hr:min:sec)
+User ID: piram
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+424928/4
+LACAZE, thierry
+Saved Deliverable by: SIMON, Luc
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Patient Position: HFS Delivery Signature: o26Hy 516IA 
+Plan Overview
+Page 7 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3Report Snapshots
+Plan Overview
+Page 8 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) -299.414 -508.000 575.914
+Size (IECp, voxel) 512 216 512
+Spacing (IECp, mm) 1.17 2.00 1.17
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+19 Jun 2024, 10:42:12 AM (hr:min:sec) 216
+Scanner Model:
+Patient Position:
+SOMATOM go.Open Pro
+HFS
+Series UID/Description Study UID/Description:
+1.3.12.2.1107.5.1.7.130246.30000024061909384344300000322 1.3.51.0.1.1.10.10.13.63.108118348.9733114
+ORL APC iMAR ORL SPC+APC(Adulte)
+Plan Overview
+Page 9 of 9 27 Jun 2024, 8:26:58 AM (hr:min:sec)
+Patient Name: VITAL, GEORGES; Medical ID: 202411054; Plan Name: amygdale; Version: Accuray Precision 3.3.1.3

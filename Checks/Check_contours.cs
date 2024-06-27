@@ -839,13 +839,15 @@ namespace PlanCheck
                 foreach (Structure s in _ctx.StructureSet.Structures)
                 {
                     string structName = s.Id.ToUpper();
-                    if ((!structName.Contains("PLOMB")) && (!structName.Contains("-")) && (!structName.Contains("OVERLA")) && (!structName.ToUpper().Contains("DOSE")) && (!s.IsEmpty)) // do no check marker structures
-                    {
-                        nAnalysedStructures++;
-                        m = getNumberOfMissingSlices(s, _ctx.StructureSet);
-                        if (m > 0)
-                            structureswithAGap.Add(m.ToString() + " contour(s) manquantes pour la structure : " + s.Id);
-                    }
+                    if (!s.IsEmpty) // maybe a list of string would be a good idea
+                        if ((!structName.Contains("PLOMB")) && (!structName.Contains("-")) && (!structName.Contains("OVERLA")) && (!structName.ToUpper().Contains("DOSE"))) // do no check marker structures
+                            if (!structName.Contains("ENCOMP") && (!structName.Contains("ORFIT")))
+                            {
+                                nAnalysedStructures++;
+                                m = getNumberOfMissingSlices(s, _ctx.StructureSet);
+                                if (m > 0)
+                                    structureswithAGap.Add(m.ToString() + " contour(s) manquantes pour la structure : " + s.Id);
+                            }
                 }
                 if (structureswithAGap.Count > 0)
                 {
@@ -887,7 +889,7 @@ namespace PlanCheck
                             double bodyXcenter = sbody.MeshGeometry.Bounds.X + (sbody.MeshGeometry.Bounds.SizeX / 2.0);
                 */
                 double bodyXcenter = _pinfo.theXcenter;
-                    //getXcenter();
+                //getXcenter();
 
                 foreach (Structure s in _ctx.StructureSet.Structures)
                 {

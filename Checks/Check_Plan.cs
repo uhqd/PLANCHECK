@@ -64,7 +64,7 @@ namespace PlanCheck
             if (_pinfo.actualUserPreference.userWantsTheTest("RAdirection"))
             {
                 #region Sens des arcs
-                if (_pinfo.treatmentType == "VMAT")
+                if ((_pinfo.treatmentType == "VMAT")&&(!_pinfo.isHyperArc))
                 {
                     Item_Result RAdirection = new Item_Result();
                     RAdirection.Label = "Sens des arcs";
