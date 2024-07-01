@@ -115,7 +115,7 @@ namespace PlanCheck
                     allisgood = false;
                     ariaDocuments.MeasuredValue += "Fiche de pos., ";
                 }
-                if (!_pinfo.tomoReportIsFound)
+                if (!_pinfo.tomoReportIsFound) //
                 {
                     ariaDocuments.MeasuredValue += "Dosimétrie ";
                     allisgood = false;
