@@ -557,7 +557,7 @@ namespace PlanCheck
                     HUcurve.Infobulle = "La courbe doit être CT130246  sauf si âge patient < 14";
                     HUcurve.ResultStatus = testing.CompareDatas(HUcurve.ExpectedValue, HUcurve.MeasuredValue, HUcurve.Comparator);
                 }
-                else if (_pinfo.tomoReportIsFound) // tomo with a report
+                else if (_pinfo.planReportIsFound) // tomo with a report
                 {
 
                     HUcurve.MeasuredValue = _pinfo.tprd.Trd.HUcurve;
@@ -785,7 +785,7 @@ namespace PlanCheck
                     Item_Result tomoReportCT_date = new Item_Result();
                     tomoReportCT_date.Label = "Date du CT dans le rapport Tomotherapy";
                     tomoReportCT_date.ExpectedValue = "";//XXXXX TO GET        
-                    if (_pinfo.tomoReportIsFound) // tomo with a report
+                    if (_pinfo.planReportIsFound) // tomo with a report
                     {
 
                         tomoReportCT_date.MeasuredValue = _pinfo.tprd.Trd.CTDate;  //format 11 Apr 2023

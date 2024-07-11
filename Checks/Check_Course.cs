@@ -287,7 +287,7 @@ namespace PlanCheck
                     tomoReportApproved.Label = "Approbation du rapport Tomo";
                     tomoReportApproved.ExpectedValue = "";
 
-                    if (_pinfo.tomoReportIsFound)
+                    if (_pinfo.planReportIsFound)
                     {
                         if (_pinfo.tprd.Trd.approvalStatus == "Approved")
                         {

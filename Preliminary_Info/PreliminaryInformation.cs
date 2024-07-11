@@ -19,6 +19,8 @@ using System.Net.Http;
 using VMS.OIS.ARIAExternal.WebServices.Documents.Contracts;
 using VMS.TPS.Common.Model.Types;
 using PlanCheck.xaml_datas;
+using System.Globalization;
+
 
 namespace PlanCheck
 {
@@ -38,7 +40,7 @@ namespace PlanCheck
         private string _treatmentType;
         private int _treatmentFieldNumber;
         private int _setupFieldNumber;
-        //  private string[] _calculoptions;
+       
         private string[] _POoptions;
         private bool _TOMO;
         private bool _NOVA;
@@ -49,21 +51,19 @@ namespace PlanCheck
         private string _machine;
         private string _planIdwithoutFE;
         private bool _findNonFEplan;
-        private TomotherapyPdfReportReader _tprd;
+        private planningPdfReportReader _tprd;
         private bool _dosecheckIsNeeded;
         private List<DateTime> dosimetrie = new List<DateTime>();
         private List<DateTime> dosecheck = new List<DateTime>();
         private List<DateTime> ficheDePosition = new List<DateTime>();
         private List<DateTime> autres = new List<DateTime>();
-        //private string saveFilePath;
-        // private string documentList;
-        //private string tomoReportPath;
+       
         private bool planReportFound;
         private bool doseCheckReportFound;
         private bool positionReportFound;
         private int returnCode;
         private string SEA_planName;
-        //public int _UserMode; // 0 planner  1 physicist  2 physician
+        
         public string _lastUsedCheckProtocol;
         public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
         public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
@@ -71,6 +71,18 @@ namespace PlanCheck
         public int nAriaDocumentExterieur;
         private double myXcenter;
         private int nLoalisationHA;
+        private String eclipseReportMessage;
+
+        private DateTime convertToDateTime(String dateString) // string to Date
+        {
+            DateTime dt;
+
+            var cultureInfo = new CultureInfo("fr-FR");
+            DateTime.TryParseExact(dateString, "dddd d MMMM yyyy HH:mm:ss", cultureInfo, DateTimeStyles.None, out dt);
+
+            return dt;
+
+        }
 
         private Structure isExistAndNotEmpty(String id)
         {
@@ -86,8 +98,7 @@ namespace PlanCheck
             else
                 return null;
 
-        }
-
+        } // check if a sting is a non empty structure
 
         public double getXcenter()
         {
@@ -128,10 +139,9 @@ namespace PlanCheck
 
 
             return xCenter;
-        }
+        }  // get X center of CT, based on central OARs (brain...)
 
-
-        public bool isARecentDocument(DateTime t)
+        public bool isARecentDate(DateTime t) // check if Today - a DateTime  < 30 days
         {
             int recent = 30;   // number of days 
             bool returnBool = false;
@@ -147,21 +157,21 @@ namespace PlanCheck
             return returnBool;
 
         }
-        public int isTheCorrectTomoReport(String s)  // 0 not a tomo report, 1 tomo report not the good one, 2 the good tomo report
+        public int isTheCorrectPlanReport(String response_details)  // 0 not a tomo/eclipse report, 1 tomo report not the good one, 2 the good tomo report, 3 eclipse not good one,4 eclipse good one
         {
 
-            // MessageBox.Show("s " + s + " " );
+            
             String saveFilePathTemp = Directory.GetCurrentDirectory() + @"\__temp__.pdf";
-            int startBinary = s.IndexOf("\"BinaryContent\"") + 17;
-            int endBinary = s.IndexOf("\"Certifier\"") - 2;
-            string binaryContent2 = s.Substring(startBinary, endBinary - startBinary);
+            int startBinary = response_details.IndexOf("\"BinaryContent\"") + 17;
+            int endBinary = response_details.IndexOf("\"Certifier\"") - 2;
+            string binaryContent2 = response_details.Substring(startBinary, endBinary - startBinary);
             binaryContent2 = binaryContent2.Replace("\\", "");  // the \  makes the string a non valid base64 string                       
             File.WriteAllBytes(saveFilePathTemp, Convert.FromBase64String(binaryContent2));
-            TomotherapyPdfReportReader _tempTprd = new TomotherapyPdfReportReader(saveFilePathTemp);
+            planningPdfReportReader _tempTprd = new planningPdfReportReader(saveFilePathTemp);
 
-            if (_tempTprd.itIsATomoReport == false)
+            if ((_tempTprd.itIsATomoReport == false) && (_tempTprd.itIsAEclipsePlanReport == false))
                 returnCode = 0;
-            else
+            else if (_tempTprd.itIsATomoReport == true)
             {
                 _ctx.PlanSetup.DoseValuePresentation = DoseValuePresentation.Absolute; // set dose value to absolute presentation
                 double planDoseMax = _ctx.PlanSetup.Dose.DoseMax3D.Dose;
@@ -175,11 +185,33 @@ namespace PlanCheck
                     returnCode = 1;
 
             }
+            else if (_tempTprd.itIsAEclipsePlanReport == true)
+            {
+                try
+                {
+                    DateTime paDate = convertToDateTime(_ctx.PlanSetup.PlanningApprovalDate);
+                    if (_tempTprd.Erd.approDate == paDate)
+                    {
+
+                        
+                        returnCode = 4;
+                        eclipseReportMessage = "ok";
+                     
+                    }
+                    else
+                    {
+                      
+                        returnCode = 3;
+                        eclipseReportMessage = "Date d'approbation du plan différente de la date d'approbation du plan dans le rapport de Dosi.";
+                    }
+                }
+                catch { returnCode = 3; }
+            }
 
             File.Delete(saveFilePathTemp);
             return returnCode;
         }
-        public String connectToAriaDocuments(ScriptContext ctx)
+        public String connectToAriaDocuments(ScriptContext ctx) // connect to ARIA, return request response
         {
             bool DocumentAriaIsConnected = true;
             DocSettings docSet = DocSettings.ReadSettings();
@@ -206,7 +238,7 @@ namespace PlanCheck
                 return null;
 
         }
-        public void getTheAriaDocuments(String response, ScriptContext ctx)
+        public void parseTheAriaDocuments(String response, ScriptContext ctx) // using the request response, parse the documents
         {
 
             #region declaration of variables and deserialize response
@@ -250,7 +282,7 @@ namespace PlanCheck
             #region loop on documents to select document of interest
             foreach (var document in response_Doc.Documents) // parse documents
             {
-                bool trashDoc = false;
+                bool sendItToTrash = false;
 
                 #region get the general infos of this document , dismiss if date of service <0
                 thePtId = document.PtId;
@@ -275,20 +307,20 @@ namespace PlanCheck
 
                 if (dateservloc <= 0)
                 {
-                    trashDoc = true;
+                    sendItToTrash = true;
 
                 }
                 #endregion
 
                 #region  dismiss if document is marked as error
-                if (!trashDoc)
+                if (!sendItToTrash)
                 {
                     int IsMarkedAsErrorIndex = response_docdetails.IndexOf("IsMarkedAsError"); // TRUE = ERROR   FALSE = OK :-)
                     string isError = response_docdetails.Substring(IsMarkedAsErrorIndex + 17, 4);
 
                     if (isError.ToUpper().Contains("TRU"))
                     {
-                        trashDoc = true;
+                        sendItToTrash = true;
 
                     }
 
@@ -296,25 +328,26 @@ namespace PlanCheck
                 #endregion
 
                 #region dismiss if document is old (> 30days)                
-                if (!trashDoc)
+                if (!sendItToTrash)
                 {
 
                     dtDateTime = dtDateTime.AddSeconds(Convert.ToDouble(response_docdetails.Substring(dateservloc + 23, datesignloc - dateservloc - 34)) / 1000).ToLocalTime();
 
-                    if (!isARecentDocument(dtDateTime))
+                    if (!isARecentDate(dtDateTime))
                     {
-                        trashDoc = true;
+                        sendItToTrash = true;
                     }
 
 
                 }
                 #endregion
+
                 #region dismiss if document has a useless type for plancheck
-                if (!trashDoc)
+                if (!sendItToTrash)
                 {
                     if ((thisDocType != doc1) && (thisDocType != doc2) && (thisDocType != doc3) && (thisDocType != doc4))
                     {
-                        trashDoc = true;
+                        sendItToTrash = true;
                     }
                 }
                 #endregion
@@ -323,35 +356,36 @@ namespace PlanCheck
                 int tomoReportReturnCode = -1; // 0 not a tomo report, 1 tomo report not the good one, 2 the good tomo report
 
 
-                if (!trashDoc)
+                if (!sendItToTrash)
                 {
                     if (thisDocType == doc1)
                     {
+                        // 0 not a tomo/eclipse report, 1 tomo report not the good one, 2 the good tomo report, 3 eclipse not good one,4 eclipse good one
 
+                        tomoReportReturnCode = isTheCorrectPlanReport(response_docdetails); // check that is a plan report and has the same dose max than the plan (tomo) or approval date (eclipse)
 
-                        tomoReportReturnCode = isTheCorrectTomoReport(response_docdetails); // check that is a TOMO report and has the same dose max than the plan
-                                                                                            // fill _tprd
-                                                                                            // MessageBox.Show("two " + tomoReportReturnCode);
                         if (_TOMO)
                         {
                             if (tomoReportReturnCode != 2)
                             {
-                                trashDoc = true;
+                                sendItToTrash = true;
+
                             }
                         }
-                        else
+                        else if (!_TOMO)
                         {
-                            if (tomoReportReturnCode != 0)
+                            if (tomoReportReturnCode != 4)
                             {
-                                trashDoc = true;
+                                sendItToTrash = true;
                             }
+
                         }
                     }
                 }
                 #endregion
 
                 #region store index
-                if (!trashDoc)
+                if (!sendItToTrash)
                 {
                     DateServiceList.Add(dtDateTime);
                     DocTypeList.Add(thisDocType);
@@ -404,8 +438,8 @@ namespace PlanCheck
             documentList += "(" + dosecheck.Count + ") " + doc2 + ":  " + dosecheck.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
             documentList += "(" + ficheDePosition.Count + ") " + doc3 + ":       " + ficheDePosition.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
             documentList += "(" + autres.Count + ") " + doc3 + ":       " + autres.DefaultIfEmpty().Max().ToString("MM/dd/yy").Replace("01/01/01", "") + "\n";
-          
-            
+
+
             MessageBox.Show(documentList);
             */
             #endregion
@@ -582,7 +616,7 @@ namespace PlanCheck
                     _HYPERARC = true;
 
                 nLoalisationHA = 1;
-                if(_HYPERARC) // get number of locs
+                if (_HYPERARC) // get number of locs
                 {
                     int index = _ctx.PlanSetup.Id.ToLower().IndexOf("locs");
                     char result = _ctx.PlanSetup.Id[index + 4];
@@ -590,7 +624,7 @@ namespace PlanCheck
                     {
                         nLoalisationHA = (int)Char.GetNumericValue(result);
 
-                       
+
                     }
                     catch
                     {
@@ -626,11 +660,11 @@ namespace PlanCheck
 
             if (response != null)
             {
-                getTheAriaDocuments(response, ctx); // check if documents exists and get info from tomo report if needed
+                parseTheAriaDocuments(response, ctx); // check if documents exists and get info from tomo report if needed
             }
 
-            if ((isTOMO) && (!tomoReportIsFound))
-                MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents\nPlanChek n'a pas trouvé un document Dosimétrie TOMO ayant la même dose max que le plan DTO");// + isTOMO.ToString() + tomoReportIsFound.ToString());
+            if ((isTOMO) && (!planReportIsFound))
+                MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents\nPlanChek n'a pas trouvé un document Dosimétrie TOMO ayant la même dose max que le plan DTO");// + isTOMO.ToString() + planReportIsFound.ToString());
 
             #endregion
 
@@ -889,11 +923,11 @@ namespace PlanCheck
         {
             get { return _machine; }
         }
-        public TomotherapyPdfReportReader tprd
+        public planningPdfReportReader tprd
         {
             get { return _tprd; }
         }
-        public bool tomoReportIsFound
+        public bool planReportIsFound
         {
             get { return planReportFound; }
         }
@@ -930,6 +964,11 @@ namespace PlanCheck
         {
             get { return _lastUsedCheckProtocol; }
             set { _lastUsedCheckProtocol = value; }
+        }
+        public string EclipseReportMessage
+        {
+            get { return eclipseReportMessage; }
+            set { eclipseReportMessage = value; }
         }
         public string SEAplanName
         {

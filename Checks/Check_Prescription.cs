@@ -104,14 +104,14 @@ namespace PlanCheck
                 }
                 else //is tomo
                 {
-                    if (_pinfo.tomoReportIsFound)
+                    if (_pinfo.planReportIsFound)
                     {
                         myDosePerFraction = _pinfo.tprd.Trd.prescriptionDosePerFraction;
                         nFraction = _pinfo.tprd.Trd.prescriptionNumberOfFraction;
                         fractionation.Infobulle = "Données récupées du rapport Aria Documents Dosimétrie Tomotherapy du plan : " + _pinfo.tprd.Trd.planName;
                     }
                 }
-                if (((_pinfo.isTOMO) && (_pinfo.tomoReportIsFound)) || (!_pinfo.isTOMO))
+                if (((_pinfo.isTOMO) && (_pinfo.planReportIsFound)) || (!_pinfo.isTOMO))
                 {
 
 
@@ -213,7 +213,7 @@ namespace PlanCheck
                 }
                 else // tomo
                 {
-                    if (_pinfo.tomoReportIsFound)
+                    if (_pinfo.planReportIsFound)
                     {
                         normalisation.MeasuredValue = _pinfo.tprd.Trd.prescriptionMode;
                         normalisation.Infobulle = "attendue : Median";

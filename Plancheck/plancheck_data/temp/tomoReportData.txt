@@ -1,95 +1,337 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deONIDI,NICOLE
-Plan:SeinDHypoFE
-Rapportcrééle:28/06/202411:14:49par:CampisiNicolas
-1/6
+Planification de radiothérapie
+Planification de radiothérapie 15.6.05 Institut Claudius Regaud, Toulouse
 PATIENT
-Nom:ONIDI,NICOLE(202411379) DatedeNaissance:18/04/1952 Sexe:Féminin
-PLAN PRESCRIPTIONDE
-DOSE
-IDplan SeinDHypoFE Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTVsein
-IDimage: TDMRTE210624 Pointdereferenceprincipal PTVsein
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.8%
-Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (2.05cm,-20.09cm,-33.00cm) Fractionnement:
-Typedetraitement: IMRTstatique DosePrescrite: 40.0Gy(2.67Gy/fraction)
-Nombredefractions: 15
-OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
+Nom : MARIN, CHRISTINE ID : 202100784 Date de naissance : samedi 15 mars 1947 Sexe : Féminin
+Plan
+ID plan : STEC LIDPRIN
+ID dossier de traitement : C1
+ID image : TDM190221_AVG3pr
+Modalité de l'image : CT
+Système d'imagerie : TDMRT
+Orientation de traitement : Tête devant- Décubitus dorsal
+Origine de l'image : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.00cm, 0.00cm)
+Prescription de dose
+Volume cible : PTV_3ph_princ
+Valeur de normalisation du plan : 100.0 %
+Méthode de normalisation du plan: 100% au point de référence icru3ph_princ
+Point de référence principal : icru3ph_princ
+Point de normalisation du plan : -7.0 cm, -1.0 cm, 5.0 cm
+Pourcentage de dose prescrite : 80.0 %
+Fractionnement : 
+Dose prescrite : 55.000 Gy (11.000 Gy / fraction)
+Dose au point de référence principal : 68.750 Gy (13.750 Gy / fraction)
+Nombre de fractions : 5
+Options de calcul
+Algorithme photon : Acuros_15605New
+AutomaticHighDensityMaterial__ Bone
 CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc 0.125
-FieldNormalizationType 100%toisocenter
+CalculationGridSizeInCMForSRSAndHyperArc0.125
+DoseReportingMode Dose to medium
+FieldNormalizationType 100% to isocenter
 HeterogeneityCorrection ON
-APPROBATIONS
-Plancréé: admin\lanaspeze(26/06/202413:32:37)
-Appro.plan: ChiraCiprian(jeudi27juin202417:01:47)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deONIDI,NICOLE
-Plan:SeinDHypoFE
-Rapportcrééle:28/06/202411:14:49par:CampisiNicolas
-2/6
-PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
-IDchamp
-MAMINTDT MAMINTDT1 MAMINTDT2 MAMEXT MAMEXT1
-IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
-X1 14 14 14 14 14
-X2 14 14 14 14 14
-Y1 14 14 14 14 14
-Y2 14 14 14 14 14
-Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
-Angledubras 57° 64° 50° 232° 225°
-Sensderotationdubras - - - - -
-Angled'arrêtdubras - - - - -
-Rot.collimateur 356.4° 356.4° 356.4° 3.6° 3.6°
-Rot.detable 0° 0° 0° 0° 0°
-Bolus - - - - -
-IsocentreX -12.26cm -12.26cm -12.26cm -12.26cm -12.26cm
-IsocentreY -11.59cm -11.59cm -11.59cm -11.59cm -11.59cm
-IsocentreZ 10.19cm 10.19cm 10.19cm 10.19cm 10.19cm
-DSP 93.3cm 91.9cm 94.4cm 93.4cm 92.9cm
-Ponderation 1 1 1 1 1
-Pointderéférence PTVsein PTVsein PTVsein PTVsein PTVsein
-Filtreencoin - - - - -
-Bloc - - - - -
-Plaque - - - - -
-Doseparfraction 0.533Gy 0.533Gy 0.533Gy 0.533Gy 0.533Gy
-UM 190.1UM 236.2UM 160.1UM 216.0UM 233.4UMRappportdeplanificationderadiothérapie(v15.6.05)deONIDI,NICOLE
-Plan:SeinDHypoFE
-Rapportcrééle:28/06/202411:14:49par:CampisiNicolas
-3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deONIDI,NICOLE
-Plan:SeinDHypoFE
-Rapportcrééle:28/06/202411:14:49par:CampisiNicolas
-4/6
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 30314.9 41.7 2.4 41.4 41.6
-Trachee 25.4 0.9 0.5 0.7 0.8
-Thyroide 3.5 0.4 0.3 0.4 0.4
-TetehumeraleGche 51.7 0.1 0.0 0.0 0.1
-TetehumeraleDte 57.1 5.4 0.9 1.8 4.6
-Seincontro 891.7 3.2 0.2 1.9 2.8
-Poumons 2463.7 37.7 2.4 36.9 37.4
-PoumonGche 1093.4 0.3 0.1 0.3 0.3
-PoumonDt 1370.3 37.7 4.3 36.9 37.4
-PlexusGche 9.7 0.2 0.1 0.1 0.2
-PlexusDt 10.6 9.7 0.9 1.6 5.7
-Oesophage 25.2 0.6 0.4 0.5 0.6
-Larynx 0.6 0.3 0.3 0.0 0.3
-IVA 4.3 0.2 0.1 0.1 0.1
-Foie 1126.5 12.9 0.7 8.9 11.6
-Coeur 571.5 1.7 0.3 1.4 1.6
-CanalMed 74.9 0.6 0.2 0.6 0.6
-CTVsein 706.7 41.7 40.0 41.4 41.6
-PTVsein 863.5 41.7 39.9 41.4 41.6Rappportdeplanificationderadiothérapie(v15.6.05)deONIDI,NICOLE
-Plan:SeinDHypoFE
-Rapportcrééle:28/06/202411:14:49par:CampisiNicolas
-5/6
-DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,MAMINTDT,MAMINTDT1,MAMINTDT2,MAMEXT,MAMEXT1
-Décaler: 12.26cm 11.59cm 10.19cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deONIDI,NICOLE
-Plan:SeinDHypoFE
-Rapportcrééle:28/06/202411:14:49par:CampisiNicolas
-6/6
+MaximumAutomaticHighDensityVolumeInCM3__ 0.50
+PlanDoseCalculation OFF
+UseGPU Yes
+Approbations
+Plan créé : mercredi 24 février 2021 13:42:12 par Carillo Fabienne
+Approbation du plan : jeudi 25 février 2021 12:05:11 par Loo Maxime
+Patient : MARIN, CHRISTINE  (202100784) Imprimé le 25/02/2021 15:01 par admin\carillo
+Dernière modification le jeudi 25 février 2021 12:05:12 par Loo Maxime
+Dossier de traitement : C1
+Plan : STEC LIDPRIN  -  Planification approuvée Page : 1/3Planification de radiothérapie
+Planification de radiothérapie 15.6.05 Institut Claudius Regaud, Toulouse
+Champs
+ID champ
+ID machine
+Énergie
+Débit de dose
+Taille de champ
+X1
+X2
+Y1
+Y2
+Angle du bras
+Sens de rotation du bras
+Angle d'arrêt du bras
+Rot. collimateur
+Rot. de table
+Filtre en coin
+Facteur de filtre
+MLC
+Bloc
+Plaque
+Bolus
+DSP bolus
+Isocentre X
+Isocentre Y
+Isocentre Z
+DSP
+Pondération
+Refdose (Gy)
+Point de référence
+Dose par fraction
+Profondeur physique
+Profondeur effective
+UM
+  ARCSTE  
+  NOVA3  
+6X-FFF 
+1400 UM/min
+4.4 cm x 4.2 cm
+X1: +2.2 cm 
+X2: +2.2 cm 
+Y1: +1.9 cm 
+Y2: +2.3 cm 
+10.0 °
+SAH
+181.0 °
+0.0 °
+0.0 °
+ -
+ -
+0367
+-
+-
+-
+-
+-7.00 cm
+-1.00 cm
+5.00 cm
+90.0 cm
+1.000
+-
+icru3ph_princ
+13.750 Gy
+9.4 cm
+5.9 cm
+1720 UM
+  antsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+0.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.00 cm
+-1.00 cm
+5.00 cm
+90.3 cm
+0.000
+-
+icru3ph_princ
+-
+-
+-
+-
+  latgsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+90.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.00 cm
+-1.00 cm
+5.00 cm
+76.5 cm
+0.000
+-
+icru3ph_princ
+-
+-
+-
+-
+  cbct  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+270.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.00 cm
+-1.00 cm
+5.00 cm
+91.3 cm
+0.000
+-
+icru3ph_princ
+-
+-
+-
+-
+  latdtsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+270.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.00 cm
+-1.00 cm
+5.00 cm
+91.3 cm
+0.000
+-
+icru3ph_princ
+-
+-
+-
+-
+  postsetup  
+  NOVA3  
+6X 
+600 UM/min
+10.0 cm x 10.0 cm
+X1: +5.0 cm 
+X2: +5.0 cm 
+Y1: +5.0 cm 
+Y2: +5.0 cm 
+180.0 °
+-
+-
+0.0 °
+0.0 °
+ -
+ -
+-
+-
+-
+-
+-
+-7.00 cm
+-1.00 cm
+5.00 cm
+90.6 cm
+0.000
+-
+icru3ph_princ
+-
+-
+-
+-
+Patient : MARIN, CHRISTINE  (202100784) Imprimé le 25/02/2021 15:01 par admin\carillo
+Dernière modification le jeudi 25 février 2021 12:05:12 par Loo Maxime
+Dossier de traitement : C1
+Plan : STEC LIDPRIN  -  Planification approuvée Page : 2/3Planification de radiothérapie
+Planification de radiothérapie 15.6.05 Institut Claudius Regaud, Toulouse
+Décalage de la table
+AVERTISSEMENT : VÉRIFIEZ QUE L'ORIGINE UTILISATEUR EST DÉFINIE CORRECTEMENT
+AVANT D'UTILISER LES INFORMATIONS SUR LE DÉCALAGE DE LA TABLE 
+Origine utilisateur : Décalage de l'origine utilisateur p. rapp. à DICOM  = (0.00cm, 0.00cm, 0.00cm)
+Direction de visualisation du décalage de la table : Du pied de la table en regardant vers le bras
+Champs de l'isocentre :  ARCSTE  antsetup  latgsetup  postsetup  latdtsetup  cbct  
+Décalage de la table par rapport à la position de référence :
+Décaler [cm] : 7.00 1.00 5.00
+Direction : Droite Bas Sortie [Out]
+ 
+ 
+Erreurs et avertissements concernant le calcul :
+Patient : MARIN, CHRISTINE  (202100784) Imprimé le 25/02/2021 15:01 par admin\carillo
+Dernière modification le jeudi 25 février 2021 12:05:12 par Loo Maxime
+Dossier de traitement : C1
+Plan : STEC LIDPRIN  -  Planification approuvée Page : 3/3Planification de radiothérapie
+Planification de radiothérapie 15.6.05 Institut Claudius Regaud, Toulouse
+Patient: MARIN, CHRISTINE  
+Patient IDs: 202100784
+Comment:
+Plan Plan Course Plan History
+STEC LIDPRIN C1 Last Modified: jeudi 25 février 2021 12:05:12 by Loo Maxime
+Planification approuvée: jeudi 25 février 2021 12:05:11 by Loo Maxime
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+PTV_3ph_princ Approuvée 100.0 / 99.5 16.4 cm³ 51.6 Gy 69.3 Gy 61.1 Gy 60.0 Gy 60.8 Gy 3.5 Gy
+BODY Approuvée 100.0 / 100.1 16558.9 cm³ 0.0 Gy 69.3 Gy 1.3 Gy 0.0 Gy 0.1 Gy 4.2 Gy
+ITV 3ph_ss pleur Approuvée 100.0 / 99.3 0.6 cm³ 0.3 Gy 0.4 Gy 0.3 Gy 0.3 Gy 0.3 Gy 0.0 Gy
+Patient: MARIN, CHRISTINE    (202100784) Printed jeudi 25 février 2021 15:01:42 by Carillo Fabienne
+Course: C1
+Plan: STEC LIDPRIN  -  Planification approuvée Page: 1/2Planification de radiothérapie
+Planification de radiothérapie 15.6.05 Institut Claudius Regaud, Toulouse
+DVH Structure Structure Status Coverage [%/%] Volume Min Dose Max Dose Mean Dose Modal Dose Median Dose Std Dev
+ITV 6h_ss pleur Approuvée 100.0 / 100.3 1.1 cm³ 0.3 Gy 0.8 Gy 0.4 Gy 0.3 Gy 0.4 Gy 0.1 Gy
+ITV 3ph_princ Approuvée 100.0 / 100.2 4.3 cm³ 58.7 Gy 69.3 Gy 65.4 Gy 67.1 Gy 65.7 Gy 1.9 Gy
+PTV_3ph ss_pleur Approuvée 100.0 / 99.5 4.8 cm³ 0.2 Gy 0.5 Gy 0.3 Gy 0.3 Gy 0.3 Gy 0.1 Gy
+ITV 6ph_princ Approuvée 100.0 / 99.6 5.2 cm³ 36.6 Gy 69.3 Gy 63.7 Gy 67.1 Gy 65.1 Gy 4.5 Gy
+PTV 6ph_ss pleur Approuvée 100.0 / 100.3 7.7 cm³ 0.2 Gy 1.5 Gy 0.4 Gy 0.3 Gy 0.4 Gy 0.2 Gy
+PBT Approuvée 100.0 / 100.0 14.3 cm³ 0.1 Gy 9.3 Gy 0.6 Gy 0.2 Gy 0.3 Gy 1.2 Gy
+PTVplanningprinc Approuvée 100.0 / 99.9 14.7 cm³ 47.3 Gy 69.3 Gy 60.8 Gy 60.5 Gy 60.9 Gy 4.1 Gy
+PTV 6ph_princ Approuvée 100.0 / 99.9 19.5 cm³ 3.2 Gy 69.3 Gy 54.7 Gy 60.5 Gy 59.9 Gy 15.6 Gy
+Trachee Approuvée 100.0 / 100.0 20.2 cm³ 0.0 Gy 0.3 Gy 0.1 Gy 0.1 Gy 0.1 Gy 0.1 Gy
+Ring1 Approuvée 100.0 / 100.0 22.0 cm³ 8.5 Gy 61.6 Gy 46.5 Gy 54.6 Gy 47.9 Gy 8.6 Gy
+Oesophage Approuvée 100.0 / 100.0 26.4 cm³ 0.0 Gy 6.7 Gy 0.7 Gy 0.2 Gy 0.2 Gy 1.4 Gy
+Vertebre Approuvée 100.0 / 99.9 30.9 cm³ 0.2 Gy 0.4 Gy 0.3 Gy 0.3 Gy 0.3 Gy 0.0 Gy
+D2cm1 Approuvée 100.0 / 101.5 31.0 cm³ 0.6 Gy 30.5 Gy 13.0 Gy 0.8 Gy 14.0 Gy 8.3 Gy
+Ring2 Approuvée 100.0 / 100.1 37.1 cm³ 1.7 Gy 52.0 Gy 28.9 Gy 32.2 Gy 31.3 Gy 10.8 Gy
+Canal Med Approuvée 100.0 / 99.9 70.9 cm³ 0.0 Gy 7.8 Gy 0.7 Gy 0.1 Gy 0.1 Gy 1.6 Gy
+Gros vaisseaux Approuvée 100.0 / 100.0 73.1 cm³ 0.1 Gy 0.5 Gy 0.2 Gy 0.2 Gy 0.2 Gy 0.1 Gy
+ParoiOpt Approuvée 100.0 / 100.2 124.3 cm³ 0.2 Gy 21.3 Gy 7.7 Gy 0.4 Gy 8.3 Gy 6.6 Gy
+Canal+5 Approuvée 100.0 / 100.3 184.2 cm³ 0.0 Gy 8.7 Gy 0.8 Gy 0.0 Gy 0.1 Gy 1.7 Gy
+Ring3 Approuvée 100.0 / 100.1 349.5 cm³ 0.5 Gy 41.6 Gy 11.7 Gy 0.6 Gy 11.3 Gy 9.0 Gy
+Estomac Approuvée 100.0 / 100.3 436.2 cm³ 0.0 Gy 0.3 Gy 0.1 Gy 0.0 Gy 0.1 Gy 0.0 Gy
+Coeur Approuvée 100.0 / 100.0 590.0 cm³ 0.1 Gy 16.0 Gy 2.8 Gy 0.3 Gy 2.1 Gy 2.8 Gy
+ParoiThoracique Approuvée 100.0 / 100.0 779.6 cm³ 0.1 Gy 21.6 Gy 3.7 Gy 0.2 Gy 0.4 Gy 5.5 Gy
+PoumonGche Approuvée 100.0 / 100.0 1022.6 cm³ 0.1 Gy 4.8 Gy 0.7 Gy 0.1 Gy 0.3 Gy 0.9 Gy
+PoumonDt Approuvée 100.0 / 100.0 1234.9 cm³ 0.1 Gy 67.8 Gy 7.4 Gy 0.2 Gy 1.3 Gy 11.6 Gy
+Poumons-ITV Approuvée 100.0 / 100.0 2255.3 cm³ 0.1 Gy 66.7 Gy 4.3 Gy 0.1 Gy 0.6 Gy 9.1 Gy
+Poumons Approuvée 100.0 / 100.0 2257.6 cm³ 0.1 Gy 67.8 Gy 4.4 Gy 0.1 Gy 0.6 Gy 9.2 Gy
+Plan prescription
+Plan Sum Plan Total Dose per Number of Planned Treatment Normalization Normalization
+Plan Sum Course Weight Plan Plan Course Dose Fraction Fractions Total Dose Percentage Mode Value
+- - - STEC LIDPRIN C1 55.000 Gy 11.000 Gy 5 68.750 Gy   80.0 % 100% au point de référence icru3ph_princ 100.0 %
+Patient: MARIN, CHRISTINE    (202100784) Printed jeudi 25 février 2021 15:01:42 by Carillo Fabienne
+Course: C1
+Plan: STEC LIDPRIN  -  Planification approuvée Page: 2/2

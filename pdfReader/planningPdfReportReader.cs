@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Navigation;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Text.RegularExpressions;
+using System.Globalization;
 using iText;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
@@ -29,11 +30,13 @@ using iText.Layout.Properties;
 //using iTextSharp;
 namespace PlanCheck
 {
-    public class TomotherapyPdfReportReader
+    public class planningPdfReportReader
     {
 
         private tomoReportData trd;
+        private eclipseReportData erd;
         private bool _itisaTomoReport;
+        private bool _itIsAEclipseFXPlanReport;
         public void displayInfo()
         {
             String s = null;
@@ -97,11 +100,13 @@ namespace PlanCheck
             MessageBox.Show(s);
         }
         public tomoReportData Trd { get => trd; set => trd = value; }
-
-        public TomotherapyPdfReportReader(string pathToPdf)  //Constructor. 
+        public eclipseReportData Erd { get => erd; set => erd = value; }
+        public planningPdfReportReader(string pathToPdf)  //Constructor. 
         {
             _itisaTomoReport = true;
             trd = new tomoReportData();
+            erd = new eclipseReportData();
+
             #region convert pdf 2 text file
             string outpath = Directory.GetCurrentDirectory() + @"\plancheck_data\temp\tomoReportData.txt";
             PdfReader pdfReader = new PdfReader(pathToPdf);
@@ -114,18 +119,19 @@ namespace PlanCheck
 
             }
 
-            //if (pageContent.Contains("Chapter 1"))
-            //  MessageBox.Show("old tomo report");
-            //   if (pageContent.Contains("Accuray") && !pageContent.Contains("PrecisionPlan"))  /// remove old tomo plan that contains char TM 
-            //if (pageContent.Contains("Accuray") && !pageContent.Contains("Chapter 1"))  /// remove old tomo plan that contains the string "chapter 1" 
+            _itIsAEclipseFXPlanReport = false;
             _itisaTomoReport = false;
+
             if (pageContent.Contains("Accuray"))  /// remove old tomo plan
             {
                 if (!pageContent.Contains("Accuray Precision 1.1.1.0"))
                     if (!pageContent.Contains("Accuray Precision 2.0.0.1"))
                         _itisaTomoReport = true;
             }
-
+            else if (pageContent.Contains("appportdeplanificationderadiothérapie")) // FX printer script
+            {
+                _itIsAEclipseFXPlanReport = true;
+            }
 
             File.WriteAllText(outpath, pageContent);
             pdfDoc.Close();
@@ -147,18 +153,7 @@ namespace PlanCheck
                 }
 
                 #endregion
-                /*
-                foreach (char c in lines[0])
-                {
-                    byte[] utf8Bytes = Encoding.UTF8.GetBytes(new[] { c });
-                    MessageBox.Show("Caractère '" + c + "': ");
-                    foreach (byte b in utf8Bytes)
-                    {
-                        MessageBox.Show(("\\x" + b.ToString("X2") + " ");
-                    }
-                   
-                }
-                */
+
 
                 #region Get the infos (see ex. at the end of file)
 
@@ -445,20 +440,82 @@ namespace PlanCheck
                 #endregion
 
             }
+            else if (_itIsAEclipseFXPlanReport)
+            {
+                #region read text file in a list of strings
+                System.IO.StreamReader file = new System.IO.StreamReader(Directory.GetCurrentDirectory() + @"\plancheck_data\temp\tomoReportData.txt");
+                String line = null;
+                List<string> lines = new List<string>();
+
+                while ((line = file.ReadLine()) != null)
+                {
+                    lines.Add(line);
+
+                }
+
+                #endregion
+                for (int i = 0; i < lines.Count; i++)
+                {
+
+                    if ((lines[i].Contains("Appro.plan:"))) // ex. Appro.plan: KellerAudrey(vendredi5juillet202416:57:00)
+                    {
+                        String brutedate = lines[i];
+                        string pattern = @"\(([^)]+)\)";
+                        Match match = Regex.Match(brutedate, pattern);
+
+
+                        if (match.Success)
+                        {
+                            string dateTimeString = match.Groups[1].Value;
+                            // La chaîne extraite ressemble à "vendredi5juillet202416:57:00"
+
+                            // Définir une autre expression régulière pour extraire les parties de la date et de l'heure
+                            //pattern = @"(\w+)(\d+)(\w+)(\d{4})(\d{2}:\d{2}:\d{2})";
+                             pattern = @"(\D+)(\d+)(\D+)(\d{4})(\d{2}:\d{2}:\d{2})";
+                            match = Regex.Match(dateTimeString, pattern);
+                            
+//                            MessageBox.Show("date brute en string " + dateTimeString);
+
+                            if (match.Success)
+                            {
+                                string dayOfWeek = match.Groups[1].Value;
+                                string day = match.Groups[2].Value;
+                                //MessageBox.Show("day is " + day);
+                                
+                                string month = match.Groups[3].Value;
+                                string year = match.Groups[4].Value;
+                                string time = match.Groups[5].Value;
+                                string formattedDateTime = $"{day} {month} {year} {time}";
+                                var cultureInfo = new CultureInfo("fr-FR");
+                                var dateTimeFormat = cultureInfo.DateTimeFormat;
+                                DateTime.TryParseExact(formattedDateTime, "d MMMM yyyy HH:mm:ss", dateTimeFormat, DateTimeStyles.None, out erd.approDate);
+
+                               // MessageBox.Show("Date extraite " + erd.approDate.ToString() + " en string " + formattedDateTime);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
 
+
+
+        public bool itIsAEclipsePlanReport
+        {
+            get { return _itIsAEclipseFXPlanReport; }
+        }
         public bool itIsATomoReport
         {
             get { return _itisaTomoReport; }
         }
     }
-
-
-
-
-
 }
+
+
+
+
+
 
 /*
  
@@ -650,5 +707,112 @@ Plan Overview
 Page 8 of 8 13 Apr 2023, 4:32:47 PM (hr:min:sec)
 Patient Name: TOTO, TITI; Medical ID: 123456789; Plan Name: SeinG+gg; Version: Accuray Precision 
 3.3.1.3
+ 
+ */
+
+
+/*
+ Exemple de fichier eclipse
+Rappportdeplanificationderadiothérapie(v15.6.05)deGxxxx
+Plan:Rectum
+Rapportcrééle:08/07/202408:42:19par:DeborneJustine
+1/6
+PATIENT
+Nom:gxxxx,gxxxx(202406228) DatedeNaissance:04/12/1987 Sexe:Féminin
+PLAN PRESCRIPTIONDE
+DOSE
+IDplan Rectum Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
+IDimage: TDMRTE032724 Pointdereferenceprincipal PTV_HDOPT
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 99.8%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (0.05cm,-17.20cm,-32.80cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 50.0Gy(2.00Gy/fraction)
+Nombredefractions: 25
+OPTIONSDECALCUL
+Algorithmephoton: AAA_15605New
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc 0.125
+FieldNormalizationType 100%toisocenter
+HeterogeneityCorrection ON
+APPROBATIONS
+Plancréé: admin\carillo(05/07/202415:02:49)
+Appro.plan: KellerAudrey(vendredi5juillet202416:57:00)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)degxxxx,gxxxx
+Plan:Rectum
+Rapportcrééle:08/07/202408:42:19par:DeborneJustine
+2/6
+PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
+IDchamp
+RA1 RA2 RA3 RA4
+IDmachine HALCYON6 HALCYON6 HALCYON6 HALCYON6
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14
+X2 14 14 14 14
+Y1 14 14 14 14
+Y2 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 179° 181° 179° 181°
+Sensderotationdubras SAH SH SAH SH
+Angled'arrêtdubras 181° 179° 181° 179°
+Rot.collimateur 315° 45° 315° 45°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX 0.99cm 0.99cm 0.99cm 0.99cm
+IsocentreY 1.54cm 1.54cm 1.54cm 1.54cm
+IsocentreZ -2.17cm -2.17cm -2.17cm -2.17cm
+DSP 93.6cm 93.6cm 93.6cm 93.6cm
+Ponderation 0.906 0.86 0.83 0.841
+Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 0.527Gy 0.500Gy 0.483Gy 0.489Gy
+UM 181.7UM 172.3UM 166.4UM 168.5UMRappportdeplanificationderadiothérapie(v15.6.05)degxxxx,gxxxx
+Plan:Rectum
+Rapportcrééle:08/07/202408:42:19par:DeborneJustine
+3/6
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)degxxxx,gxxxx
+Plan:Rectum
+Rapportcrééle:08/07/202408:42:19par:DeborneJustine
+4/6
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+BODY 18327.1 51.9 8.7 51.2 51.7
+Vessie 158.1 48.9 20.7 46.3 48.4
+TeteFemorGche 120.8 27.7 11.6 25.6 27.3
+TeteFemorDte 120.3 27.1 10.4 23.4 26.2
+Sigmoide 34.9 49.1 43.3 46.8 48.3
+Sacrum 227.7 51.4 31.3 48.8 51.0
+SacroiliaquesG 216.0 46.8 16.8 45.6 46.6
+SacroiliaquesD 213.8 47.0 16.4 45.7 46.7
+ReinGche 30.6 0.4 0.3 0.4 0.4
+ReinDt 133.0 1.0 0.5 0.9 1.0
+Rectum 32.3 51.3 49.7 50.7 51.1
+Rate 3.0 0.4 0.4 0.4 0.4
+QueueDeCheval 19.9 18.9 2.8 13.0 18.1
+Pancreas 18.4 0.5 0.4 0.4 0.5
+Grele 1945.9 46.8 8.2 46.1 46.5
+Foie 143.5 0.5 0.2 0.4 0.5
+Estomac 17.1 0.4 0.3 0.4 0.4
+Duodenum 27.3 1.3 0.5 1.0 1.2
+CanalAnal 4.4 47.3 36.3 45.9 46.8
+CTVBD 401.9 51.8 46.5 51.1 51.6
+CTVHD 69.2 51.8 50.1 51.1 51.5
+GTVT 7.3 51.2 49.9 50.3 50.9
+OGE 111.0 14.2 4.5 12.9 13.9
+PTVBD 687.7 51.9 46.2 51.2 51.7
+PTVHD 134.1 51.9 49.9 51.2 51.7Rappportdeplanificationderadiothérapie(v15.6.05)degxxxx,gxxxx
+Plan:Rectum
+Rapportcrééle:08/07/202408:42:19par:DeborneJustine
+5/6
+DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: -0.99cm -1.54cm -2.17cm
+Direction: Tableverslagaucheenregardantlebras Tableverslehaut Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)degxxxx,gxxxx
+Plan:Rectum
+Rapportcrééle:08/07/202408:42:19par:DeborneJustine
+6/6
  
  */

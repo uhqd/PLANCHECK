@@ -235,7 +235,7 @@ namespace PlanCheck
 
                     isoTomo.Label = "Red laser Tomotherapy";
                     isoTomo.ExpectedValue = "1";
-                    if (_pinfo.tomoReportIsFound)
+                    if (_pinfo.planReportIsFound)
                     {
                         isoTomo.MeasuredValue = _pinfo.tprd.Trd.redLaserXoffset + " " + _pinfo.tprd.Trd.redLaserYoffset + " " + _pinfo.tprd.Trd.redLaserZoffset + " mm";
                         isoTomo.Infobulle = "z < 160 mm";

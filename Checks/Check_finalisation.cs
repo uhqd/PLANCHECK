@@ -91,12 +91,17 @@ namespace PlanCheck
                 #region aria documents
                 Item_Result ariaDocuments = new Item_Result();
                 ariaDocuments.Label = "Documents Aria";
-                ariaDocuments.Infobulle = "Le système vérifie la présence dans Aria Documents de trois documents récents (<30 j) : \n";
-                ariaDocuments.Infobulle += "  -  Dosecheck\n";
-                ariaDocuments.Infobulle += "  -  Fiche de position\n";
-                ariaDocuments.Infobulle += "  -  Rapport de dosimétrie\n\n";
-                ariaDocuments.Infobulle += "Le système peut détecter une absence de ces documents mais ne peut pas vérifier qu'ils sont corrects\n";
-                ariaDocuments.Infobulle += "(sauf la dosimétrie Tomotherapy, pour lequel la dose max du plan est comparée à la dose max indiquée dans le rapport pdf\n";
+                ariaDocuments.Infobulle = "Le système vérifie la présence dans Aria Documents de trois documents récents (< 30 j)  : \n";
+                ariaDocuments.Infobulle += "  -  Dosecheck : un document récent doit être présent\n";
+                ariaDocuments.Infobulle += "  -  Fiche de position : un document récent doit être présent\n";
+
+                if (_pinfo.isTOMO)
+                    ariaDocuments.Infobulle += "  -  Dosimétrie (Tomo) : un document récent doit être présent avec la même dose max que le plan DTO\n\n";
+                else
+                    ariaDocuments.Infobulle += "  -  Dosimétrie : un document récent doit être présent avec la même date d'approbation que le plan\n\n";
+
+                //ariaDocuments.Infobulle += "Le système peut détecter une absence de ces documents mais ne peut pas vérifier qu'ils sont corrects\n";
+                //ariaDocuments.Infobulle += "(sauf la dosimétrie Tomotherapy, pour lequel la dose max du plan est comparée à la dose max indiquée dans le rapport pdf\n";
 
                 bool allisgood = true;
 
@@ -107,31 +112,39 @@ namespace PlanCheck
                     if (_pinfo.doseCheckIsNeeded)
                     {
                         allisgood = false;
-                        ariaDocuments.MeasuredValue += "Dosecheck, ";
+                        ariaDocuments.MeasuredValue += "Absence de Dosecheck, ";
                     }
                 }
                 if (!_pinfo.positionReportIsFound)
                 {
                     allisgood = false;
-                    ariaDocuments.MeasuredValue += "Fiche de pos., ";
+                    ariaDocuments.MeasuredValue += "Absence de Fiche de pos., ";
                 }
-                if (!_pinfo.tomoReportIsFound) //
+                if ((!_pinfo.planReportIsFound))
                 {
-                    ariaDocuments.MeasuredValue += "Dosimétrie ";
+
+                    ariaDocuments.MeasuredValue += "Absence de Dosimétrie ";
+
                     allisgood = false;
                 }
+                else if ((!_pinfo.isTOMO) && (_pinfo.EclipseReportMessage != "ok"))
+                {
+                    ariaDocuments.MeasuredValue += "Absence de Dosimétrie ";
+                    allisgood = false;
 
+
+                }
 
 
                 if (!allisgood)
                 {
-                    ariaDocuments.MeasuredValue += "absent(s) ou > 30 jours";
+                    //ariaDocuments.MeasuredValue += "absent(s) ou > 30 jours";
                     ariaDocuments.setToFALSE();
                 }
                 else
                 {
-                    ariaDocuments.setToINFO();
-                    ariaDocuments.MeasuredValue = "Pas d'absence de documents. Contenu non vérifié";
+                    ariaDocuments.setToTRUE();
+                    ariaDocuments.MeasuredValue = "Présence des documents: ok";
                 }
                 this._result.Add(ariaDocuments);
 

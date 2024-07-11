@@ -126,7 +126,7 @@ namespace PlanCheck
                 }
                 else
                 {
-                    if (_pinfo.tomoReportIsFound)
+                    if (_pinfo.planReportIsFound)
                     {
                         string tomoAlgo = _pinfo.tprd.Trd.algorithm;
                         string planningMethod = _pinfo.tprd.Trd.planningMethod;
@@ -182,7 +182,7 @@ namespace PlanCheck
                     {
                         algo_grid.setToFALSE();
                     }
-                    if (_pinfo.tomoReportIsFound)
+                    if (_pinfo.planReportIsFound)
                     {
                         if (!_pinfo.tprd.Trd.resolutionCalculation.ToLower().Contains("high"))
                             algo_grid.setToFALSE();

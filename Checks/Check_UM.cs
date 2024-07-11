@@ -107,7 +107,7 @@ namespace PlanCheck
             }
             else // tomo
             {
-                if (_pinfo.tomoReportIsFound)
+                if (_pinfo.planReportIsFound)
                 {
                     umPerGray.Label = "Beam On Time";
                     umPerGray.MeasuredValue = "Beam on time: " + _pinfo.tprd.Trd.beamOnTime.ToString() + " s (" + (_pinfo.tprd.Trd.beamOnTime / 60).ToString("0.00") + " min)";

@@ -700,7 +700,7 @@ namespace PlanCheck
             if (_pinfo.actualUserPreference.userWantsTheTest("tomoParamsFieldWidth"))
             {
                 #region TOMO PARAMETERS
-                if ((_pinfo.isTOMO) && (_pinfo.tomoReportIsFound))
+                if ((_pinfo.isTOMO) && (_pinfo.planReportIsFound))
                 {
                     Item_Result tomoParamsFieldWidth = new Item_Result();
                     Item_Result tomoParamsGantryPeriod = new Item_Result();
