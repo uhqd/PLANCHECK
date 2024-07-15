@@ -40,7 +40,7 @@ namespace PlanCheck
         private string _treatmentType;
         private int _treatmentFieldNumber;
         private int _setupFieldNumber;
-       
+        private static bool myPlanReportIsFound;
         private string[] _POoptions;
         private bool _TOMO;
         private bool _NOVA;
@@ -57,13 +57,13 @@ namespace PlanCheck
         private List<DateTime> dosecheck = new List<DateTime>();
         private List<DateTime> ficheDePosition = new List<DateTime>();
         private List<DateTime> autres = new List<DateTime>();
-       
+
         private bool planReportFound;
         private bool doseCheckReportFound;
         private bool positionReportFound;
         private int returnCode;
         private string SEA_planName;
-        
+
         public string _lastUsedCheckProtocol;
         public static List<OARvolume> referenceManOARVolume;//= new List<OARvolume>();
         public static List<OARvolume> referenceWomanOARVolume;//= new List<OARvolume>();
@@ -160,7 +160,7 @@ namespace PlanCheck
         public int isTheCorrectPlanReport(String response_details)  // 0 not a tomo/eclipse report, 1 tomo report not the good one, 2 the good tomo report, 3 eclipse not good one,4 eclipse good one
         {
 
-            
+
             String saveFilePathTemp = Directory.GetCurrentDirectory() + @"\__temp__.pdf";
             int startBinary = response_details.IndexOf("\"BinaryContent\"") + 17;
             int endBinary = response_details.IndexOf("\"Certifier\"") - 2;
@@ -190,17 +190,22 @@ namespace PlanCheck
                 try
                 {
                     DateTime paDate = convertToDateTime(_ctx.PlanSetup.PlanningApprovalDate);
+
+
                     if (_tempTprd.Erd.approDate == paDate)
                     {
+                        // MessageBox.Show("ok  " + _ctx.PlanSetup.PlanningApprovalDate.ToString() + " " + _tempTprd.Erd.approDate.ToString());
 
-                        
+                        myPlanReportIsFound = true;
                         returnCode = 4;
                         eclipseReportMessage = "ok";
-                     
+
                     }
                     else
                     {
-                      
+                        //  MessageBox.Show(" pas ok  " + _ctx.PlanSetup.PlanningApprovalDate.ToString() + " " + _tempTprd.Erd.approDate.ToString());
+
+
                         returnCode = 3;
                         eclipseReportMessage = "Date d'approbation du plan différente de la date d'approbation du plan dans le rapport de Dosi.";
                     }
@@ -358,7 +363,7 @@ namespace PlanCheck
 
                 if (!sendItToTrash)
                 {
-                    if (thisDocType == doc1)
+                    if ((thisDocType == doc1) && (!myPlanReportIsFound))
                     {
                         // 0 not a tomo/eclipse report, 1 tomo report not the good one, 2 the good tomo report, 3 eclipse not good one,4 eclipse good one
 
@@ -552,7 +557,7 @@ namespace PlanCheck
             _ctx = ctx;
 
             _actualUserPreference = new User_preference(_ctx.CurrentUser.Id);
-
+            myPlanReportIsFound = false;
 
             if (_ctx.Patient.Name != null)
                 _patientname = _ctx.Patient.Name;

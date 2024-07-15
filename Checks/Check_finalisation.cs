@@ -120,6 +120,8 @@ namespace PlanCheck
                     allisgood = false;
                     ariaDocuments.MeasuredValue += "Absence de Fiche de pos., ";
                 }
+                //MessageBox.Show("planreportfound " + _pinfo.planReportIsFound + "\n " + _pinfo.isTOMO + " \n" + _pinfo.EclipseReportMessage);
+                
                 if ((!_pinfo.planReportIsFound))
                 {
 

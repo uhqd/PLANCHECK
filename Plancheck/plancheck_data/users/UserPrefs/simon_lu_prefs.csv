@@ -17,7 +17,7 @@ image3Dnaming;no;Nom de image3D
 averageCT;no;Scanner Average composition
 tomoReportCT_date;no;Date du rapport Tomo
 otherSeries;no;Series supplementaires necessaires
-approbationStatus;no;Approbation du groupe de structures
+approbationStatus;yes;Approbation du groupe de structures
 couchStructExist;no;Existence de la table
 correctCouch;no;Table correcte
 clinicalStructuresItem;no;Liste des structures cliniques
