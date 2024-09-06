@@ -644,6 +644,8 @@ namespace PlanCheck
                         if (isProstateWithoutNodes) { mustBeSBRT = true; }
                         else if (_pinfo.isHyperArc)
                         {
+
+                            //MessageBox.Show("n loc HA " + nLocHA);
                             if(_pinfo.nLocHA == 1)
                                 mustBeSBRT = true;
                             else

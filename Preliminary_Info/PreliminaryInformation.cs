@@ -192,6 +192,8 @@ namespace PlanCheck
                     DateTime paDate = convertToDateTime(_ctx.PlanSetup.PlanningApprovalDate);
 
 
+                    
+
                     if (_tempTprd.Erd.approDate == paDate)
                     {
                         // MessageBox.Show("ok  " + _ctx.PlanSetup.PlanningApprovalDate.ToString() + " " + _tempTprd.Erd.approDate.ToString());
@@ -434,6 +436,10 @@ namespace PlanCheck
 
 
 
+           
+
+
+
             #endregion
 
             #region uncomment to display document list 
@@ -628,7 +634,7 @@ namespace PlanCheck
                     try
                     {
                         nLoalisationHA = (int)Char.GetNumericValue(result);
-
+                        //MessageBox.Show(nLoalisationHA.ToString());
 
                     }
                     catch

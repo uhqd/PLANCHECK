@@ -36,8 +36,8 @@ namespace PlanCheck
             nameOfOtherCenters.Add("RODEZ");
             nameOfOtherCenters.Add("BAYONNE");
             nameOfOtherCenters.Add("NICE");
-
-
+            nameOfOtherCenters.Add("ORION");
+            nameOfOtherCenters.Add("PERPI");
             Check();
 
         }

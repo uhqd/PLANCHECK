@@ -462,7 +462,7 @@ namespace PlanCheck
                         String brutedate = lines[i];
                         string pattern = @"\(([^)]+)\)";
                         Match match = Regex.Match(brutedate, pattern);
-
+                       // MessageBox.Show(brutedate);
 
                         if (match.Success)
                         {
@@ -486,11 +486,16 @@ namespace PlanCheck
                                 string year = match.Groups[4].Value;
                                 string time = match.Groups[5].Value;
                                 string formattedDateTime = $"{day} {month} {year} {time}";
+
+                              //  MessageBox.Show("1" + formattedDateTime);
+
+
                                 var cultureInfo = new CultureInfo("fr-FR");
                                 var dateTimeFormat = cultureInfo.DateTimeFormat;
                                 DateTime.TryParseExact(formattedDateTime, "d MMMM yyyy HH:mm:ss", dateTimeFormat, DateTimeStyles.None, out erd.approDate);
+                                //MessageBox.Show("2" + erd.approDate);
 
-                               // MessageBox.Show("Date extraite " + erd.approDate.ToString() + " en string " + formattedDateTime);
+                                // MessageBox.Show("Date extraite " + erd.approDate.ToString() + " en string " + formattedDateTime);
                             }
                         }
                     }

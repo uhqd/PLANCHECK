@@ -396,6 +396,8 @@ namespace PlanCheck
                             if (_pinfo.isHALCYON)
                             {
                                 correctCouch.Infobulle = "Le commentaire de la structure CouchSurface doit être TABLE HALCYON";
+                                correctCouch.Infobulle += "\nNote : la table Exact moyenne et la table Halcyon sont les mêmes...\n";
+
                                 if (testingString.ToUpper().Contains("HALCYON"))
                                     correctCouch.setToTRUE();
                                 else
@@ -406,7 +408,7 @@ namespace PlanCheck
                                 correctCouch.Infobulle = "Le commentaire de la structure CouchSurface doit être TABLE EXACT\n";
                                 correctCouch.Infobulle += "En principe, il faut la table épaisse pour les plans prostate, rectum, etc.,\n";
                                 correctCouch.Infobulle += "la table fine pour la tête...\n";
-
+                                correctCouch.Infobulle += "\nNote : la table Exact moyenne et la table Halcyon sont les mêmes...\n";
                                 if (testingString.ToUpper().Contains("EXACT"))
                                     correctCouch.setToTRUE();
                                 else
