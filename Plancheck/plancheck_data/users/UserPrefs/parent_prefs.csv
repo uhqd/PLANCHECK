@@ -1,0 +1,62 @@
+currentCourseStatus;yes;Statut du course ouvert
+planApprove;yes;Statut du plan ouvert
+coursesStatus;yes;Statut des autres courses
+tomoReportApproved;yes;Approbation du rapport Tomo
+anteriorTraitement;yes;Recherche de traitements anterieurs
+prescriptionVolumes;yes;Liste des cibles dans la prescription
+fractionation;yes;Verification du fractionnement
+percentage;yes;Pourcentage de la prescription
+normalisation;yes;Mode de normalisation
+prescriptionName;yes;Nom de la prescription
+CT_age;yes;Age du CT
+origin;yes;Origine modifiee
+sliceThickness;yes;Epaisseur de coupes
+HUcurve;yes;Courbe HU
+deviceName;yes;Nom du scanner
+image3Dnaming;yes;Nom de image3D
+averageCT;yes;Scanner Average composition
+tomoReportCT_date;yes;Date du rapport Tomo
+otherSeries;yes;Series supplementaires necessaires
+approbationStatus;yes;Approbation du groupe de structures
+couchStructExist;yes;Existence de la table
+correctCouch;yes;Table correcte
+clinicalStructuresItem;yes;Liste des structures cliniques
+optStructuresItem;yes;Liste des structures Optimisation
+fixedHUVolumeList;yes;Liste des structures HU forcees
+anormalVolumeList;yes;Vraissemblance des volumes des stuctures
+shapeAnalyser;yes;Nombre de parties des structures
+missingSlicesItem;yes;Coupes manquantes dans les structures
+laterality;yes;Lateralite correcte des structures G et D
+aPTVforEveryone;yes;Existence de PTV pour chaque CTV
+allFieldsSameIso;yes;Unicite de l'isocentre
+isoAtCenterOfPTV;yes;Isocentre au centre de la cible
+distanceToOrigin;yes;Distance iso origine
+isoTomo;yes;Position iso Tomo
+gating;yes;Gating active
+RAdirection;yes;Direction des arcs
+colli;yes;Collimateur VMAT non nul
+FE_MLC;yes;Modification des champs de FE
+algo_name;yes;Nom algorithme
+algo_grid;yes;Grille de calcul
+algoOptions;yes;Options de l'algorithme
+NTO;yes;parametres NTO
+jawTrack;yes;Jaw tracking
+POoptions;yes;Options PO
+energy;yes;Energie
+doseRate;yes;Debit de dose pour CQ
+lowSteps;yes;Control Points trop lents
+toleranceTable;yes;Table de tolerances des champs
+fieldTooSmall;yes;Champ trop petit
+maxPositionMLCHalcyon;yes;Position max des lames Halcyon
+novaSBRT;yes;Nova SBRT
+tomoParamsFieldWidth;yes;Parametres du plan TOMO
+gantryAnglesForBreast;yes;Variation angles de bras 7 deg.
+umPerGray;yes;UM par Gray
+UMforFE;yes;UM du plan FE
+wedged;yes;Filtres
+less10UM;yes;Champs de 10 UM
+turquoiseIsodose;yes;Isodose Turquoise
+prescribedObjectives;no;Objectifs de dose (PTV)
+doseToOAR;yes;Objectifs de dose (OAR)
+ariaDocuments;yes;Documents ARIA
+preparedQA;yes;Preparation QA

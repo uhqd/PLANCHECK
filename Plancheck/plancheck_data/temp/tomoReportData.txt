@@ -1,101 +1,247 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
-Plan:STEC7eCote
-Rapportcrééle:31/07/202412:49:10par:CavetClemence
-1/6
-PATIENT
-Nom:SEGURA,ELIE(202414853) DatedeNaissance:16/03/1959 Sexe:Masculin
-PLAN PRESCRIPTIONDE
-DOSE
-IDplan STEC7eCote Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: ITV6ph
-IDimage: tdm250724_AVG6 Pointdereferenceprincipal PTV6ph
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 98.0%
-Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (0.00cm,-16.80cm,-33.00cm) Fractionnement:
-Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 36.0Gy(7.20Gy/fraction)
-Nombredefractions: 5
-OPTIONSDECALCUL
-Algorithmephoton: AAA_15605New
-CalculationGridSizeInCM 0.125
-CalculationGridSizeInCMForSRSAndHyperArc 0.125
-FieldNormalizationType 100%toisocenter
-HeterogeneityCorrection ON
-APPROBATIONS
-Plancréé: admin\lanaspeze(30/07/202415:46:06)
-Appro.plan: MassabeauCarole(mercredi31juillet202411:52:38)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
-Plan:STEC7eCote
-Rapportcrééle:31/07/202412:49:10par:CavetClemence
-2/6
-PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
-IDchamp
-ARCSTE
-IDmachine NOVA5
-Energie 6X-FFF
-Debitdedose 1400UM/min
-X1 4.1
-X2 3.7
-Y1 2.8
-Y2 2.9
-Tailledechamp 7.8x5.7cm²
-Angledubras 0°
-Sensderotationdubras SAH
-Angled'arrêtdubras 181°
-Rot.collimateur 0°
-Rot.detable 0°
-Bolus -
-IsocentreX -15.35cm
-IsocentreY -6.19cm
-IsocentreZ -8.51cm
-DSP 96.9cm
-Ponderation 1
-Pointderéférence PTV6ph
-Filtreencoin -
-Bloc -
-Plaque -
-Doseparfraction 7.200Gy
-UM 733.1UMRappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
-Plan:STEC7eCote
-Rapportcrééle:31/07/202412:49:10par:CavetClemence
-3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
-Plan:STEC7eCote
-Rapportcrééle:31/07/202412:49:10par:CavetClemence
-4/6
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-VCaveSup 0.8 0.2 0.2 0.0 0.2
-VCaveInf 37.6 2.9 0.8 2.6 2.8
-Trachee 19.9 0.0 0.0 0.0 0.0
-Thyroide 3.4 0.0 0.0 0.0 0.0
-ReinDt 132.6 0.3 0.1 0.3 0.3
-Poumons 2430.9 34.4 0.5 31.7 34.0
-PoumonDt 2676.0 34.4 0.5 31.7 34.0
-PlexusGche 8.3 0.0 0.0 0.0 0.0
-PlexusDt 7.0 0.0 0.0 0.0 0.0
-Pancreas 69.3 0.9 0.1 0.4 0.8
-Oesophage 55.8 1.7 0.4 1.5 1.6
-Larynx 1.5 0.0 0.0 0.0 0.0
-IVA 0.1 0.7 0.6 0.0 0.6
-Estomac 324.5 1.6 0.5 1.4 1.6
-Duodenum 50.4 0.3 0.1 0.2 0.3
-Coeur 679.9 1.3 0.2 1.2 1.2
-CanalMed 78.8 2.2 0.4 2.0 2.2
-Aorte 39.8 0.2 0.1 0.2 0.2
-BODY 27029.5 37.8 0.5 37.4 37.7
-PTV6ph 51.9 37.8 34.8 37.4 37.7
-ITV6ph 24.6 37.8 36.0 37.4 37.7
-Foie 1647.5 34.3 3.1 33.1 34.1
-CanalMed+5 207.1 2.4 0.4 2.2 2.4
-CanalMed+3 147.4 2.3 0.4 2.1 2.3
-ParoiThoracique 1884.9 37.8 2.0 37.4 37.7Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
-Plan:STEC7eCote
-Rapportcrééle:31/07/202412:49:10par:CavetClemence
-5/6
-DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,ARCSTE
-Décaler: 15.35cm 6.19cm -8.51cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
-Plan:STEC7eCote
-Rapportcrééle:31/07/202412:49:10par:CavetClemence
-6/6
+Accuray Precision® Plan Overview
+Plan Name:
+Plan Type:
+Amygdale_R1
+Standard
+Plan Saved Date: 17 Sep 2024, 3:12:25 PM (hr:min:sec)
+Treatment Machine / Serial No.: 4010012_1000MU 1180 MU/min, rev 
+36 / 4010012
+Prescription: Median of PTV_HDOPT, 70.00 Gy
+Prescribed Dose per Fraction (Gy): 2.00
+Planned Fractions: 35
+Maximum Dose (Gy): 74.77
+Plan Status: Approved
+MU Planned / MU per Fraction: 149841.1 / 4281.2
+Field Width (cm): 2.5, Dynamic
+Pitch: 0.439
+Modulation Factor / Actual: 2.000 / 1.8
+Gantry Period (sec):
+Gantry Rotations:
+12.8
+19.3
+Sinogram Segments: 6.4
+Couch Travel (mm):
+Couch Speed (mm/sec):
+213.2
+0.9
+Red Lasers Offset (IECf, mm): X: 0.00 Y: -39.29 Z: 0.00
+Beam On Time (sec): 247.5
+Plan Delivery Type / Mode: Helical / IMRT
+Dose Calculation Algorithm:
+Dose Calculation Resolution / Type: High / Final
+Convolution-Superposition Spacing (IECp, mm) X: 1.17 Y: 2.00 Z: 1.17
+Size (IECp, voxel) X: 512 Y: 209 Z: 512
+Reference Dose (Gy): 74.77
+X: -6.4 Y: -330.0 Z: 231.4 Reference Point (IECp, mm): Tracking Method: None
+Image Angles (deg):
+Tracking Target VOI:
+Planning Method: VOLO Ultra
+Patient Name:
+Medical ID:
+BOUJU, DIDIER
+202414974 Version: Accuray Precision 3.3.1.3 [2]
+Date Of Birth: 07 Dec 1961
+Gender: Male Patient Key: 410623
+Plan Overview
+Page 1 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)DVH: Absolute Dose
+Warning: Full list of VOIs may not fit in legend.Refer VOI List
+Plan Overview
+Page 2 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3VOI List
+VOI Volume 
+(cm³)
+Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
+%
+Beam Inter.
+BODY 12556.66 0.18 11.71 74.77 n/a n/a n/a n/a Allowed
+ATMDte 4.49 6.73 21.56 54.42 n/a n/a n/a n/a Allowed
+ATMGche 3.91 4.53 10.91 35.32 n/a n/a n/a n/a Allowed
+Canal Med 59.77 0.46 15.70 36.07 n/a n/a n/a n/a Allowed
+Cav Buc 94.05 11.90 59.76 73.92 n/a n/a n/a n/a Allowed
+Cerveau 1607.86 0.23 4.25 57.34 n/a n/a n/a n/a Allowed
+Chiasma 0.99 7.30 23.82 47.45 n/a n/a n/a n/a Allowed
+Const Pharynx 25.49 12.05 58.66 74.49 n/a n/a n/a n/a Allowed
+CristallinDt 0.12 3.63 4.84 6.02 n/a n/a n/a n/a Allowed
+CristallinGche 0.12 2.59 3.35 4.21 n/a n/a n/a n/a Allowed
+CTV BD 397.23 44.22 65.16 74.77 n/a n/a n/a n/a Allowed
+CTV HD 174.73 67.04 70.35 74.77 n/a n/a n/a n/a Allowed
+CTV HD N 20.13 67.85 70.55 73.96 n/a n/a n/a n/a Allowed
+CTV HD T 156.80 67.04 70.33 74.77 n/a n/a n/a n/a Allowed
+CTV N 178.21 49.88 61.52 73.96 n/a n/a n/a n/a Allowed
+CTV T 266.86 44.22 68.31 74.77 n/a n/a n/a n/a Allowed
+Larynx 18.02 10.58 43.33 74.77 n/a n/a n/a n/a Allowed
+Levres 20.22 8.65 22.23 52.25 n/a n/a n/a n/a Allowed
+LobeTemporalDt 100.99 0.98 14.80 57.34 n/a n/a n/a n/a Allowed
+LobeTemporalGche 91.54 0.91 6.64 33.47 n/a n/a n/a n/a Allowed
+Mandibule 55.50 5.12 43.57 73.12 n/a n/a n/a n/a Allowed
+NerfOptiqueDt 0.69 5.76 28.57 52.61 n/a n/a n/a n/a Allowed
+NerfOptiqueGche 0.71 4.41 17.43 26.96 n/a n/a n/a n/a Allowed
+OeilDt 6.78 3.06 6.99 18.16 n/a n/a n/a n/a Allowed
+OeilGche 7.05 2.09 4.06 11.08 n/a n/a n/a n/a Allowed
+Oesophage 13.33 0.48 11.31 31.36 n/a n/a n/a n/a Allowed
+OreilleIntDte 0.78 9.72 19.84 41.12 n/a n/a n/a n/a Allowed
+OreilleIntGche 0.87 3.48 4.78 7.45 n/a n/a n/a n/a Allowed
+ParoDte 13.53 4.58 22.77 71.16 n/a n/a n/a n/a Allowed
+VOI
+Plan Overview
+Page 3 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3ParoGche 8.89 4.22 23.00 72.84 n/a n/a n/a n/a Allowed
+PlexusDt 10.46 2.13 33.47 54.59 n/a n/a n/a n/a Allowed
+PlexusGche 11.35 3.63 34.52 54.51 n/a n/a n/a n/a Allowed
+PoumonDt 656.57 0.42 1.88 38.63 n/a n/a n/a n/a Allowed
+PoumonGche 634.48 0.43 2.01 38.85 n/a n/a n/a n/a Allowed
+Poumons 1291.06 0.42 1.94 38.85 n/a n/a n/a n/a Allowed
+PTV BD 611.72 28.74 62.91 74.77 n/a n/a n/a n/a Allowed
+PTV HD 269.47 54.73 69.70 74.77 n/a n/a n/a n/a Allowed
+SousMaxDte 6.13 68.43 70.29 71.79 n/a n/a n/a n/a Allowed
+SousMaxGche 5.48 54.34 61.12 71.39 n/a n/a n/a n/a Allowed
+Thyroide 27.40 25.10 47.02 58.71 n/a n/a n/a n/a Allowed
+Trachee 35.26 1.06 15.63 41.88 n/a n/a n/a n/a Allowed
+Tronc Cerebral 27.39 2.51 18.25 43.27 n/a n/a n/a n/a Allowed
+CanalMed+3 112.30 0.45 16.31 42.55 n/a n/a n/a n/a Allowed
+CavBuc-PTVs 23.78 11.90 38.21 69.88 n/a n/a n/a n/a Allowed
+Chauffe 658.91 4.88 15.48 36.42 n/a n/a n/a n/a Allowed
+Chiasma+3 4.60 3.82 22.06 52.35 n/a n/a n/a n/a Allowed
+ConsPharynx-PTVs 6.98 12.05 31.56 67.63 n/a n/a n/a n/a Allowed
+CristallinDt+5 2.41 3.12 5.85 10.66 n/a n/a n/a n/a Allowed
+CristallinGche+5 2.40 2.22 4.02 7.79 n/a n/a n/a n/a Allowed
+LarynxOPT-PTVs 45.49 10.58 28.49 44.35 n/a n/a n/a n/a Allowed
+Larynx-PTVs 11.84 10.58 31.76 70.14 n/a n/a n/a n/a Allowed
+Mandibule-PTVs 44.70 5.12 39.05 69.07 n/a n/a n/a n/a Allowed
+NerfOptDt+3 4.12 4.87 28.74 52.84 n/a n/a n/a n/a Allowed
+NerfOptGche+3 4.17 3.46 17.61 31.94 n/a n/a n/a n/a Allowed
+OverlapNerOptD+3 0.08 52.31 52.56 52.84 0.00 0.00 1.07 0.00 n/a
+OverlapPlexusDt 1.87 52.50 54.16 55.57 0.00 0.00 1.07 0.00 n/a
+OverlapPlexusGch 1.96 53.02 54.15 55.19 0.00 0.00 1.07 0.00 n/a
+ParoDte-PTVs 11.76 4.58 18.10 54.28 n/a n/a n/a n/a Allowed
+ParoGche-PTVs 8.53 4.22 21.24 65.64 n/a n/a n/a n/a Allowed
+PlexusDt+3 31.50 1.88 32.45 55.80 n/a n/a n/a n/a Allowed
+PlexusGche+3 32.98 2.28 33.94 55.19 n/a n/a n/a n/a Allowed
+PTV_BDOPT 605.74 28.74 63.00 74.77 1.00 4.50 1.07 22.28 n/a
+Plan Overview
+Page 4 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3PTV_BD-PTV_HD 336.27 28.74 57.63 71.85 702.8
+6
+1229
+317.2
+2
+1.07 0.06 n/a
+PTV_HDOPT 269.47 54.73 69.70 74.77 1.00 2.01 1.07 50.00 n/a
+PTVBDIsole 175.19 29.48 55.60 60.84 n/a n/a n/a n/a Allowed
+PTVTotal 611.72 28.74 62.91 74.77 n/a n/a n/a n/a Allowed
+RingPTVBD 874.80 5.98 44.16 70.26 n/a n/a n/a n/a Allowed
+TroncCerebral+3 48.70 2.08 17.51 48.70 n/a n/a n/a n/a Allowed
+manque hd 62.82 59.20 69.72 72.82 5.09 12.05 1.07 42.24 n/a
+All Target Regions n/a 28.74 62.94 74.77 0.00 0.00 0.00 0.00 n/a
+All Critical Regions n/a 0.18 11.89 74.77 0.00 0.00 0.00 0.00 n/a
+Soft Tissue n/a 0.12 2.36 46.29 0.00 0.00 0.00 0.00 n/a
+Plan Overview
+Page 5 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3DVH Dose (Gy) Dose (% of 70.00 
+Gy Rx Dose)
+Volume (cm³) Volume (%) Criteria Value
+PTV BD 73.50 105.0 0.26 0.0
+PTV HD 73.50 105.0 0.26 0.1
+OverlapPlexusDt 53.49 76.4 1.77 95.0 Dose (Gy) >= 53.20 53.49
+OverlapPlexusGch 53.54 76.5 1.87 95.0 Dose (Gy) >= 53.20 53.54
+PTV_HDOPT 72.06 102.9 5.39 2.0 Dose (Gy) <= 74.90 72.06
+Larynx 74.77 106.8 0.00 0.0 Dose (Gy) <= 55.00 74.77
+Cav Buc 73.92 105.6 0.00 0.0 Dose (Gy) <= 55.00 73.92
+CanalMed+3 42.55 60.8 0.00 0.0 Dose (Gy) <= 45.00 42.55
+TroncCerebral+3 48.70 69.6 0.00 0.0 Dose (Gy) <= 55.00, Max: 59.00 48.70
+ATMDte 54.42 77.7 0.00 0.0 Dose (Gy) <= 50.00 54.42
+ATMGche 35.32 50.5 0.00 0.0 Dose (Gy) <= 50.00 35.32
+OreilleIntDte 41.12 58.7 0.00 0.0 Dose (Gy) <= 50.00 41.12
+OreilleIntDte -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 35.00 19.84
+OreilleIntGche 7.45 10.6 0.00 0.0 Dose (Gy) <= 50.00 7.45
+OreilleIntGche -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 35.00 4.78
+Mandibule 73.12 104.5 0.00 0.0 Dose (Gy) <= 70.00 73.12
+Mandibule -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 30.00 43.57
+CristallinDt 6.02 8.6 0.00 0.0 Dose (Gy) <= 10.00, Max: 15.00 6.02
+CristallinGche 4.21 6.0 0.00 0.0 Dose (Gy) <= 10.00, Max: 15.00 4.21
+Chiasma+3 52.35 74.8 0.00 0.0 Dose (Gy) <= 54.00 52.35
+NerfOptDt+3 52.84 75.5 0.00 0.0 Dose (Gy) <= 54.00 52.84
+NerfOptGche+3 31.94 45.6 0.00 0.0 Dose (Gy) <= 54.00 31.94
+OeilDt 18.16 25.9 0.00 0.0 Dose (Gy) <= 50.00 18.16
+OeilGche 11.08 15.8 0.00 0.0 Dose (Gy) <= 50.00 11.08
+PlexusDt 54.59 78.0 0.00 0.0 Dose (Gy) <= 60.00 54.59
+PlexusGche 54.51 77.9 0.00 0.0 Dose (Gy) <= 60.00 54.51
+PTV_BD-PTV_HD 56.47 80.7 168.13 50.0
+PTV_BDOPT 63.66 90.9 302.87 50.0
+Dx Vx Values
+Plan Overview
+Page 6 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3Planned Fluence Sinogram
+Plan Overview
+Page 7 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
+-1000 * 0.001
+-691 * 0.300
+-509 * 0.490
+-70 * 0.960
+-40 * 0.983
+2 * 1.000
+3 * 1.023
+34 * 1.050
+63 * 1.081
+335 * 1.218
+503 * 1.331
+925 * 1.559
+1561 * 1.924
+8370 * 4.510
+Density
+Density Model: CT130246
+Plan Overview
+Page 8 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3Name: HERNANDEZ, Ludovic
+17 Sep 2024, 3:10:31 PM (hr:min:sec)
+User ID: hernandez_l
+Approval Date:
+Approved by: Specialists
+Radiation Oncologist:
+Surgeon:
+Referring Physician:
+Physicist:
+Treatment Site ICD: IUC-TOULOUSE
+IUC-TOULOUSE Treatment Site:
+Additional Site Codes: IUC-TOULOUSE
+Additional Sites: IUC-TOULOUSE
+Created in Version: Accuray Precision 3.3.1.3 [2]
+Plan Key:
+Last Modified by:
+425708/7
+LACAZE, thierry
+Saved Deliverable by: PASQUIER, Corentin
+Approval and ICD
+Auto Generated Results:
+Not Applicable
+Name Signature Role Date
+Physician
+Physicist
+Patient Position: HFS Delivery Signature: g6Gyv sC/UA 
+Plan Overview
+Page 9 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3Report Snapshots
+Plan Overview
+Page 10 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3Imaging Series
+X Y Z
+Origin (IECp, mm) -299.414 -496.000 524.414
+Size (IECp, voxel) 512 209 512
+Spacing (IECp, mm) 1.17 2.00 1.17
+Primary Series:
+Modality:
+Scan Date: Number of Slices:
+Yes
+CT
+13 Sep 2024, 12:37:01 PM (hr:min:sec) 209
+Scanner Model:
+Patient Position:
+SOMATOM go.Open Pro
+HFS
+Series UID/Description Study UID/Description:
+1.3.12.2.1107.5.1.7.130246.30000024091312172400400000317 1.3.51.0.1.1.10.10.13.63.108300956.9915722
+ORL SPC (optionnel) ORL SPC+APC(Adulte)
+Plan Overview
+Page 11 of 11 17 Sep 2024, 3:30:52 PM (hr:min:sec)
+Patient Name: BOUJU, DIDIER; Medical ID: 202414974; Plan Name: Amygdale_R1; Version: Accuray Precision 3.3.1.3
