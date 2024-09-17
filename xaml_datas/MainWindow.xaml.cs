@@ -316,7 +316,7 @@ d3.ToString("0.##");   //24
 
             var fileDialog = new Microsoft.Win32.OpenFileDialog();
             fileDialog.DefaultExt = "xlsx";
-            fileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\v19";
+            fileDialog.InitialDirectory = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol";
 
             if (!Directory.Exists(fileDialog.InitialDirectory))
             {
