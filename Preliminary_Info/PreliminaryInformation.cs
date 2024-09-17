@@ -48,6 +48,7 @@ namespace PlanCheck
         private bool _HYPERARC;
         private bool _isModulated;
         private bool _isFE;
+        private int _nFraction;
         private string _machine;
         private string _planIdwithoutFE;
         private bool _findNonFEplan;
@@ -587,8 +588,10 @@ namespace PlanCheck
             _currentuser = GetUser("currentuser", iuct_users);
 
             if (ctx.PlanSetup.RTPrescription != null)
+            {
                 _doctor = GetUser("doctor", iuct_users);
-
+                _nFraction = (int)ctx.PlanSetup.RTPrescription.NumberOfFractions;
+            }
 
 
             if (_ctx.PlanSetup.PhotonCalculationModel != null)
@@ -966,6 +969,10 @@ namespace PlanCheck
         public double theXcenter
         {
             get { return myXcenter; }
+        }
+        public int nFractions
+        {
+            get { return _nFraction; }
         }
         public double nLocHA
         {

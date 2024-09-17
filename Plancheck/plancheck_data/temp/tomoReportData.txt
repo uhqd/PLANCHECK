@@ -1,20 +1,19 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deDESCLAUX,
-MONIQUE
-Plan:SarcomCuisseG
-Rapportcrééle:06/09/202408:03:43par:CarilloFabienne
+Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
+Plan:STEC7eCote
+Rapportcrééle:31/07/202412:49:10par:CavetClemence
 1/6
 PATIENT
-Nom:DESCLAUX,MONIQUE(202415983) DatedeNaissance:19/09/1951 Sexe:Féminin
+Nom:SEGURA,ELIE(202414853) DatedeNaissance:16/03/1959 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan SarcomCuisseG Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV
-IDimage: TDMRTE020924 Pointdereferenceprincipal PTV
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.7%
-Orientationdutraitement: Piedsdevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (8.93cm,-15.50cm,23.00cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 50.0Gy(2.00Gy/fraction)
-Nombredefractions: 25
+IDplan STEC7eCote Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: ITV6ph
+IDimage: tdm250724_AVG6 Pointdereferenceprincipal PTV6ph
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 98.0%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (0.00cm,-16.80cm,-33.00cm) Fractionnement:
+Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 36.0Gy(7.20Gy/fraction)
+Nombredefractions: 5
 OPTIONSDECALCUL
 Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -22,69 +21,81 @@ CalculationGridSizeInCMForSRSAndHyperArc 0.125
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
 APPROBATIONS
-Plancréé: admin\recordon(04/09/202410:54:08)
-Appro.plan: RecordonFrederique(mercredi4septembre2024
-12:27:46)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deDESCLAUX,
-MONIQUE
-Plan:SarcomCuisseG
-Rapportcrééle:06/09/202408:03:43par:CarilloFabienne
+Plancréé: admin\lanaspeze(30/07/202415:46:06)
+Appro.plan: MassabeauCarole(mercredi31juillet202411:52:38)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
+Plan:STEC7eCote
+Rapportcrééle:31/07/202412:49:10par:CavetClemence
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-RA1 RA2
-IDmachine HALCYON6 HALCYON6
-Energie 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min
-X1 14 14
-X2 14 14
-Y1 14 14
-Y2 14 14
-Tailledechamp 28x28cm² 28x28cm²
-Angledubras 0° 181°
-Sensderotationdubras SAH SH
-Angled'arrêtdubras 181° 0°
-Rot.collimateur 315° 45°
-Rot.detable 0° 0°
-Bolus - -
-IsocentreX 2.35cm 2.35cm
-IsocentreY -0.86cm -0.86cm
-IsocentreZ -12.54cm -12.54cm
-DSP 96.2cm 94cm
-Ponderation 1.117 1.346
-Pointderéférence PTV PTV
-Filtreencoin - -
-Bloc - -
-Plaque - -
-Doseparfraction 0.907Gy 1.093Gy
-UM 221.8UM 267.4UMRappportdeplanificationderadiothérapie(v15.6.05)deDESCLAUX,
-MONIQUE
-Plan:SarcomCuisseG
-Rapportcrééle:06/09/202408:03:43par:CarilloFabienne
+ARCSTE
+IDmachine NOVA5
+Energie 6X-FFF
+Debitdedose 1400UM/min
+X1 4.1
+X2 3.7
+Y1 2.8
+Y2 2.9
+Tailledechamp 7.8x5.7cm²
+Angledubras 0°
+Sensderotationdubras SAH
+Angled'arrêtdubras 181°
+Rot.collimateur 0°
+Rot.detable 0°
+Bolus -
+IsocentreX -15.35cm
+IsocentreY -6.19cm
+IsocentreZ -8.51cm
+DSP 96.9cm
+Ponderation 1
+Pointderéférence PTV6ph
+Filtreencoin -
+Bloc -
+Plaque -
+Doseparfraction 7.200Gy
+UM 733.1UMRappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
+Plan:STEC7eCote
+Rapportcrééle:31/07/202412:49:10par:CavetClemence
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deDESCLAUX,
-MONIQUE
-Plan:SarcomCuisseG
-Rapportcrééle:06/09/202408:03:43par:CarilloFabienne
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
+Plan:STEC7eCote
+Rapportcrééle:31/07/202412:49:10par:CavetClemence
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-PTV 298.6 53.7 49.9 52.2 53.1
-GTV 23.8 53.0 50.0 51.5 52.5
-CTV 255.8 53.7 48.6 52.1 53.0
-BODY 26224.7 53.7 1.6 52.2 53.1
-FémurG 480.1 50.2 5.7 48.0 49.9
-Articulation1 118.4 1.0 0.5 0.9 0.9
-Protection 1291.6 21.3 5.2 18.2 20.2Rappportdeplanificationderadiothérapie(v15.6.05)deDESCLAUX,
-MONIQUE
-Plan:SarcomCuisseG
-Rapportcrééle:06/09/202408:03:43par:CarilloFabienne
+VCaveSup 0.8 0.2 0.2 0.0 0.2
+VCaveInf 37.6 2.9 0.8 2.6 2.8
+Trachee 19.9 0.0 0.0 0.0 0.0
+Thyroide 3.4 0.0 0.0 0.0 0.0
+ReinDt 132.6 0.3 0.1 0.3 0.3
+Poumons 2430.9 34.4 0.5 31.7 34.0
+PoumonDt 2676.0 34.4 0.5 31.7 34.0
+PlexusGche 8.3 0.0 0.0 0.0 0.0
+PlexusDt 7.0 0.0 0.0 0.0 0.0
+Pancreas 69.3 0.9 0.1 0.4 0.8
+Oesophage 55.8 1.7 0.4 1.5 1.6
+Larynx 1.5 0.0 0.0 0.0 0.0
+IVA 0.1 0.7 0.6 0.0 0.6
+Estomac 324.5 1.6 0.5 1.4 1.6
+Duodenum 50.4 0.3 0.1 0.2 0.3
+Coeur 679.9 1.3 0.2 1.2 1.2
+CanalMed 78.8 2.2 0.4 2.0 2.2
+Aorte 39.8 0.2 0.1 0.2 0.2
+BODY 27029.5 37.8 0.5 37.4 37.7
+PTV6ph 51.9 37.8 34.8 37.4 37.7
+ITV6ph 24.6 37.8 36.0 37.4 37.7
+Foie 1647.5 34.3 3.1 33.1 34.1
+CanalMed+5 207.1 2.4 0.4 2.2 2.4
+CanalMed+3 147.4 2.3 0.4 2.1 2.3
+ParoiThoracique 1884.9 37.8 2.0 37.4 37.7Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
+Plan:STEC7eCote
+Rapportcrééle:31/07/202412:49:10par:CavetClemence
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2
-Décaler: 2.35cm 0.86cm -12.54cm
-Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deDESCLAUX,
-MONIQUE
-Plan:SarcomCuisseG
-Rapportcrééle:06/09/202408:03:43par:CarilloFabienne
+Isocentredeschamps:,ARCSTE
+Décaler: 15.35cm 6.19cm -8.51cm
+Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deSEGURA,ELIE
+Plan:STEC7eCote
+Rapportcrééle:31/07/202412:49:10par:CavetClemence
 6/6
