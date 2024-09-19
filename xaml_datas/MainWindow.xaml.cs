@@ -354,6 +354,19 @@ d3.ToString("0.##");   //24
 
             read_check_protocol rcp = new read_check_protocol(myFullFilename);
 
+            #region User log file
+
+            string filePath = @"\\srv015\SF_COM\SIMON_LU\userLogPlancheck\log.csv";
+
+            using (StreamWriter writer = new StreamWriter(filePath, append: true)) // append: true pour ajouter sans écraser
+            {
+                writer.WriteLine(_pinfo.CurrentUser.UserFamilyName + ";"+DateTime.Today.ToString()+";"+_pcontext.Patient.Id.ToString()+";"+_pcontext.Patient.Name+";"+rcp.protocolName+"\n");
+            }
+
+
+            #endregion
+
+
             #region PERFORM THE CHECK
             myTimer = new timer();
             myTimer.durationSinceLastCall("user click");

@@ -68,7 +68,7 @@ namespace PlanCheck.xaml_datas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PlanCheck_0022_0034.esapi;component/xaml_datas/choosesea.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PlanCheck_0022_0037.esapi;component/xaml_datas/choosesea.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\xaml_datas\chooseSEA.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

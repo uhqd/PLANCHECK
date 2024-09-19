@@ -462,7 +462,15 @@ namespace PlanCheck
                         String brutedate = lines[i];
                         string pattern = @"\(([^)]+)\)";
                         Match match = Regex.Match(brutedate, pattern);
-                       // MessageBox.Show(brutedate);
+                        // MessageBox.Show(brutedate);
+
+                        if (!match.Success) // sometimes date is on two lines
+                        {
+                            brutedate = lines[i] + lines[i + 1];
+                            match = Regex.Match(brutedate, pattern);
+                        }
+
+
 
                         if (match.Success)
                         {
@@ -471,23 +479,23 @@ namespace PlanCheck
 
                             // Définir une autre expression régulière pour extraire les parties de la date et de l'heure
                             //pattern = @"(\w+)(\d+)(\w+)(\d{4})(\d{2}:\d{2}:\d{2})";
-                             pattern = @"(\D+)(\d+)(\D+)(\d{4})(\d{2}:\d{2}:\d{2})";
+                            pattern = @"(\D+)(\d+)(\D+)(\d{4})(\d{2}:\d{2}:\d{2})";
                             match = Regex.Match(dateTimeString, pattern);
-                            
-//                            MessageBox.Show("date brute en string " + dateTimeString);
+
+                            //                            MessageBox.Show("date brute en string " + dateTimeString);
 
                             if (match.Success)
                             {
                                 string dayOfWeek = match.Groups[1].Value;
                                 string day = match.Groups[2].Value;
                                 //MessageBox.Show("day is " + day);
-                                
+
                                 string month = match.Groups[3].Value;
                                 string year = match.Groups[4].Value;
                                 string time = match.Groups[5].Value;
                                 string formattedDateTime = $"{day} {month} {year} {time}";
 
-                              //  MessageBox.Show("1" + formattedDateTime);
+                                //  MessageBox.Show("1" + formattedDateTime);
 
 
                                 var cultureInfo = new CultureInfo("fr-FR");
