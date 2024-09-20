@@ -393,7 +393,7 @@ d3.ToString("0.##");   //24
 
             using (StreamWriter writer = new StreamWriter(filePath, append: true)) // append: true pour ajouter sans écraser
             {
-                writer.WriteLine(_pinfo.CurrentUser.UserFamilyName + ";"+DateTime.Today.ToString()+";"+_pcontext.Patient.Id.ToString()+";"+_pcontext.Patient.Name+";"+rcp.protocolName+"\n");
+                writer.WriteLine(_pinfo.CurrentUser.UserFamilyName + ";"+DateTime.Today.ToString()+";"+_pcontext.Patient.Id.ToString()+";"+_pcontext.Patient.Name+";"+rcp.protocolName);
             }
 
 
@@ -814,7 +814,7 @@ d3.ToString("0.##");   //24
             {
                 fileName = @"\plancheck_data\check_protocol\STIC.xlsx";
             }
-            else if (planName.Contains("STEC"))
+            else if (planName.Contains("STEC")|| planName.Contains("STEREO")|| planName.Contains("SBRT"))
             {
                 if (planName.Contains("FOIE"))
                 {

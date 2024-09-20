@@ -1,230 +1,115 @@
-Accuray Precision® Plan Overview
-Plan Name:
-Plan Type:
-SeinG+gg
-Standard
-Plan Saved Date: 20 Sep 2024, 3:41:47 PM (hr:min:sec)
-Treatment Machine / Serial No.: 0210471 850 MU/min, rev 139 / 
-210471
-Prescription: Median of PTV boost, 63.80 Gy
-Prescribed Dose per Fraction (Gy): 2.20
-Planned Fractions: 29
-Maximum Dose (Gy): 67.13
-Plan Status: Approved
-MU Planned / MU per Fraction: 177154.6 / 6108.8
-Field Width (cm): 5.0, Dynamic
-Pitch: 0.285
-Modulation Factor / Actual: 2.000 / 2.1
-Gantry Period (sec):
-Gantry Rotations:
-22.6
-18.7
-Sinogram Segments: 6.2
-Couch Travel (mm):
-Couch Speed (mm/sec):
-269.1
-0.6
-Red Lasers Offset (IECf, mm): X: -14.78 Y: -86.22 Z: -41.42
-Beam On Time (sec): 422.8
-Plan Delivery Type / Mode: Helical / IMRT
-Dose Calculation Algorithm:
-Dose Calculation Resolution / Type: High / Final
-Convolution-Superposition Spacing (IECp, mm) X: 1.17 Y: 3.00 Z: 1.17
-Size (IECp, voxel) X: 512 Y: 168 Z: 512
-Reference Dose (Gy): 67.13
-X: 36.9 Y: -264.0 Z: 347.6 Reference Point (IECp, mm): Tracking Method: None
-Image Angles (deg):
-Tracking Target VOI:
-Planning Method: VOLO Ultra
-Patient Name:
-Medical ID:
-LENNE, MARIE-CLAUDE
-201606176 Version: Accuray Precision 3.3.1.3 [2]
-Date Of Birth: 11 Sep 1944
-Gender: Female Patient Key: 410716
-Plan Overview
-Page 1 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)DVH: Absolute Dose
-Warning: Full list of VOIs may not fit in legend.Refer VOI List
-Plan Overview
-Page 2 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3VOI List
-VOI Volume 
-(cm³)
-Min (Gy) Mean (Gy) Max (Gy) CI nCI HI Coverage 
-%
-Beam Inter.
-Canal Med 91.12 0.22 2.99 13.62 n/a n/a n/a n/a Allowed
-Coeur 807.38 1.24 6.98 52.66 n/a n/a n/a n/a Allowed
-CTV cmi 4.26 48.25 52.51 57.15 n/a n/a n/a n/a Allowed
-CTV sein 838.44 29.54 53.64 67.13 n/a n/a n/a n/a Allowed
-CTV sus clav 21.74 49.38 52.76 55.67 n/a n/a n/a n/a Allowed
-Foie 1214.93 0.16 2.42 18.06 n/a n/a n/a n/a Allowed
-IVA 6.45 4.89 14.22 35.58 n/a n/a n/a n/a Allowed
-Larynx 1.62 3.17 4.93 9.13 n/a n/a n/a n/a Allowed
-Oesophage 25.59 1.00 8.88 30.68 n/a n/a n/a n/a Allowed
-PlexusDt 14.73 0.77 4.37 7.76 n/a n/a n/a n/a Allowed
-PlexusGche 16.57 1.03 42.81 54.53 n/a n/a n/a n/a Allowed
-PoumonDt 1599.89 0.64 4.55 20.73 n/a n/a n/a n/a Allowed
-PoumonGche 1121.65 0.97 10.53 56.18 n/a n/a n/a n/a Allowed
-Poumons 2721.49 0.64 7.01 56.18 n/a n/a n/a n/a Allowed
-Sac Digestif 2615.73 0.04 0.32 1.65 n/a n/a n/a n/a Allowed
-Sein contro 866.66 1.41 4.00 13.34 n/a n/a n/a n/a Exit Only
-TetehumeraleDte 64.43 0.26 0.91 2.72 n/a n/a n/a n/a Allowed
-TetehumeraleGche 65.42 0.42 5.71 38.69 n/a n/a n/a n/a Allowed
-Thyroide 12.56 1.59 15.95 51.74 n/a n/a n/a n/a Allowed
-Trachee 29.87 3.20 11.02 23.85 n/a n/a n/a n/a Allowed
-BODY 29702.10 0.04 6.43 67.13 n/a n/a n/a n/a Allowed
-Boost lit T 40.61 50.58 63.76 67.12 n/a n/a n/a n/a Allowed
-CTV axillaire 69.02 50.19 52.35 55.49 n/a n/a n/a n/a Allowed
-CTV sous clav 73.56 49.33 52.62 55.53 n/a n/a n/a n/a Allowed
-PTV Axillaire 134.34 41.52 52.07 55.49 0.00 0.00 1.05 0.00 n/a
-PTV boost 66.22 53.82 63.61 67.13 1.04 2.08 1.05 50.02 n/a
-PTV cmi 17.57 44.81 51.96 57.29 0.00 0.00 1.05 0.00 n/a
-PTV sein 858.25 32.61 54.00 67.13 1.01 25.22 1.05 3.99 n/a
-PTV sous clav 154.83 39.81 51.94 55.53 0.00 0.00 1.05 0.00 n/a
-VOI
-Plan Overview
-Page 3 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3PTV sus clav 61.08 41.69 52.03 55.75 0.00 0.00 1.05 0.00 n/a
-TetehumeraleG+10 216.58 0.34 7.24 50.78 n/a n/a n/a n/a Allowed
-CanalMed+5 246.52 0.20 3.13 18.28 n/a n/a n/a n/a Exit Only
-Coeur-PTV+0.5 803.83 1.24 6.84 44.85 n/a n/a n/a n/a Allowed
-Cotecontro 2553.21 0.66 3.30 16.56 n/a n/a n/a n/a Allowed
-Isole1cm 725.70 32.61 52.80 61.20 n/a n/a n/a n/a Allowed
-ManqueSein 159.67 32.61 51.14 57.95 n/a n/a n/a n/a Allowed
-Plombs 0.63 0.66 2.89 7.55 n/a n/a n/a n/a Allowed
-PoumonG-PTV+0.5 1077.35 0.97 9.22 50.66 n/a n/a n/a n/a Allowed
-PTVsein-PTVboost 791.98 32.61 53.19 65.50 31.61 2301
-9.88
-1.05 0.14 n/a
-PTVTotal 1165.10 32.61 53.45 67.13 n/a n/a n/a n/a Allowed
-RingPTVgg 428.99 11.05 41.38 55.79 n/a n/a n/a n/a Allowed
-RingPTVSein 781.94 9.29 37.51 65.43 n/a n/a n/a n/a Allowed
-Seuillage 34.81 0.30 1.70 47.54 n/a n/a n/a n/a Allowed
-CTV sein-5mm 682.86 43.44 54.65 67.13 n/a n/a n/a n/a Allowed
-All Target Regions n/a 32.61 53.45 67.13 0.00 0.00 0.00 0.00 n/a
-All Critical Regions n/a 0.04 6.59 67.13 0.00 0.00 0.00 0.00 n/a
-Soft Tissue n/a 0.05 2.02 45.87 0.00 0.00 0.00 0.00 n/a
-Plan Overview
-Page 4 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3DVH Dose (Gy) Dose (% of 63.80 
-Gy Rx Dose)
-Volume (cm³) Volume (%) Criteria Value
-PTV boost 61.02 95.6 62.91 95.0 Dose (Gy) >= 60.61, Min: 57.42 61.02
-PTV sein 49.70 77.9 815.34 95.0 Dose (Gy) >= 49.59, Min: 46.98 49.70
-PTV sous clav 48.69 76.3 147.09 95.0 Dose (Gy) >= 49.59, Min: 46.98 48.69
-PTV sus clav 48.89 76.6 58.02 95.0 Dose (Gy) >= 49.59, Min: 46.98 48.89
-PTV Axillaire 50.22 78.7 127.63 95.0 Dose (Gy) >= 49.59, Min: 46.98 50.22
-PTV cmi 48.95 76.7 16.69 95.0 Dose (Gy) >= 49.59, Min: 46.98 48.95
-Canal Med 10.00 15.7 4.17 4.6 Volume (%) <= 10.0 4.6
-Coeur 15.00 23.5 63.48 7.9 Volume (%) <= 5.0, Max: 10.0 7.9
-Coeur 25.00 39.2 14.45 1.8 Volume (%) <= 0.0, Max: 5.0 1.8
-PoumonDt 5.00 7.8 551.30 34.5 Volume (%) < 20.0, Max: 30.0 34.5
-PoumonGche 5.00 7.8 623.60 55.6 Volume (%) < 65.0, Max: 70.0 55.6
-PoumonGche 20.00 31.3 190.74 17.0 Volume (%) < 15.0, Max: 18.0 17.0
-Poumons 5.00 7.8 1174.68 43.2 Volume (%) <= 42.0, Max: 50.0 43.2
-Poumons 20.00 31.3 190.79 7.0 Volume (%) <= 10.0, Max: 15.0 7.0
-Sein contro 5.00 7.8 132.13 15.2 Volume (%) <= 15.0, Max: 25.0 15.2
-TetehumeraleGche 38.69 60.6 0.00 0.0 Dose (Gy) < 45.00, Max: 47.50 38.69
-Canal Med 13.62 21.3 0.00 0.0 Dose (Gy) <= 15.00, Max: 18.00 13.62
-CanalMed+5 18.28 28.7 0.00 0.0 Dose (Gy) <= 18.00, Max: 20.00 18.28
-Coeur -0.01 -1.0 0.00 -1.0 Mean Dose (Gy) <= 7.00, Max: 8.00 6.98
-PTV boost 65.85 103.2 1.32 2.0 Dose (Gy) <= 68.26 65.85
-PTV sous clav 53.94 84.5 3.10 2.0 Dose (Gy) <= 55.85 53.94
-PTV sus clav 54.70 85.7 1.22 2.0 Dose (Gy) <= 55.85 54.70
-PTV Axillaire 53.97 84.6 2.69 2.0 Dose (Gy) <= 55.85 53.97
-PTV cmi 55.55 87.1 0.35 2.0 Dose (Gy) <= 55.85 55.55
-Dx Vx Values
-Plan Overview
-Page 5 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3Planned Fluence Sinogram
-Plan Overview
-Page 6 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3HU Relative Electron Density Mass Density (g/cm³)
--1000 * 0.001
--691 * 0.300
--509 * 0.490
--70 * 0.960
--40 * 0.983
-2 * 1.000
-3 * 1.023
-34 * 1.050
-63 * 1.081
-335 * 1.218
-503 * 1.331
-925 * 1.559
-1561 * 1.924
-8370 * 4.510
-Density
-Density Model: CT130246
-Density Overrides
-Priority VOI Name
-Relative Electron 
-Density
-Mass Density 
-(g/cm³)
-1 Plombs n/a 0.900
-Note: Density overrides are listed in priority order with the highest priority listed first. In regions where two VOIs overlap, the higher priority density override has been used.
-Plan Overview
-Page 7 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3Name: KELLER, Audrey
-20 Sep 2024, 3:39:52 PM (hr:min:sec)
-User ID: keller_a
-Approval Date:
-Approved by: Specialists
-Radiation Oncologist:
-Surgeon:
-Referring Physician:
-Physicist:
-Treatment Site ICD: IUC-TOULOUSE
-IUC-TOULOUSE Treatment Site:
-Additional Site Codes: IUC-TOULOUSE
-Additional Sites: IUC-TOULOUSE
-Created in Version: Accuray Precision 3.3.1.3 [2]
-Plan Key:
-Last Modified by:
-425752/3
-LACAZE, thierry
-Saved Deliverable by: KELLER, Audrey
-Approval and ICD
-Auto Generated Results:
-Not Applicable
-Name Signature Role Date
-Physician
-Physicist
-Patient Position: HFS Delivery Signature: wGL3F JA0AA 
-Plan Overview
-Page 8 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3Report Snapshots
-Plan Overview
-Page 9 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3Imaging Series
-X Y Z
-Origin (IECp, mm) -299.414 -498.000 533.914
-Size (IECp, voxel) 512 168 512
-Spacing (IECp, mm) 1.17 3.00 1.17
-Primary Series:
-Modality:
-Scan Date: Number of Slices:
-Yes
-CT
-16 Sep 2024, 05:56:15 PM (hr:min:sec) 168
-Scanner Model:
-Patient Position:
-SOMATOM go.Open Pro
-HFS
-Series UID/Description Study UID/Description:
-1.3.12.2.1107.5.1.7.130246.30000024091617201078200000292 1.3.51.0.1.1.10.10.13.63.108301194.9915960
-SEIN G TOMO iMAR SEIN G TOMO(Adulte)
-Plan Overview
-Page 10 of 10 20 Sep 2024, 4:30:01 PM (hr:min:sec)
-Patient Name: LENNE, MARIE-CLAUDE; Medical ID: 201606176; Plan Name: SeinG+gg; Version: Accuray Precision 
-3.3.1.3
+Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
+Plan:StereoFoie
+Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
+1/7
+PATIENT
+Nom:ARTHOZOUL,DANIEL(202307547) DatedeNaissance:14/04/1956 Sexe:Masculin
+PLAN PRESCRIPTIONDE
+DOSE
+IDplan StereoFoie Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: CTV
+IDimage: TDM100924_AVG3 Pointdereferenceprincipal PTVFOIE
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 95.9%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (-0.15cm,-21.75cm,-33.20cm) Fractionnement:
+Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 60.0Gy(12.00Gy/fraction)
+Nombredefractions: 5
+OPTIONSDECALCUL
+Algorithmephoton: AAA_15605New
+CalculationGridSizeInCM 0.125
+CalculationGridSizeInCMForSRSAndHyperArc 0.125
+FieldNormalizationType 100%toisocenter
+HeterogeneityCorrection ON
+APPROBATIONS
+Plancréé: admin\lanaspeze(16/09/202410:14:41)
+Appro.plan: ModestoAnouchka(vendredi20septembre2024
+14:18:15)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
+Plan:StereoFoie
+Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
+2/7
+PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
+IDchamp
+ARCSTE
+IDmachine NOVA5
+Energie 10X-FFF
+Debitdedose 2400UM/min
+X1 3.7
+X2 3.8
+Y1 3.6
+Y2 3.2
+Tailledechamp 7.5x6.8cm²
+Angledubras 181°
+Sensderotationdubras SH
+Angled'arrêtdubras 0°
+Rot.collimateur 0°
+Rot.detable 0°
+Bolus -
+IsocentreX -7.57cm
+IsocentreY -6.59cm
+IsocentreZ -1.5cm
+DSP 81cm
+Ponderation 1
+Pointderéférence PTVFOIE
+Filtreencoin -
+Bloc -
+Plaque -
+Doseparfraction 12.000Gy
+UM 1643.0UMRappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
+Plan:StereoFoie
+Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
+3/7
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
+Plan:StereoFoie
+Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
+4/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+BODY 27086.3 65.7 2.2 65.2 65.7
+VesiculeBiliaire 45.0 61.0 11.3 55.8 60.1
+ReinGche 174.9 2.2 0.3 1.6 2.1
+ReinDt 198.6 6.4 0.8 5.5 6.2
+Rate 871.6 7.3 1.7 6.7 7.1
+Poumons 1712.5 12.2 0.9 11.3 12.0
+PoumonGche 662.7 5.9 0.4 5.3 5.8
+PoumonDt 1049.7 12.2 1.2 11.3 12.0
+ParoiThoraciqueG 1914.2 5.0 0.9 4.5 4.8
+ParoiThoraciqueD 1868.4 46.5 4.4 38.5 43.2
+Pancreas 72.4 6.6 1.4 5.2 6.3
+Oesophage 21.7 10.9 4.5 10.0 10.7
+Foie 1321.4 65.7 18.4 65.2 65.7
+Estomac 301.3 42.6 6.1 22.2 35.8
+Duodenum 80.1 28.2 1.4 15.8 24.3
+Coeur 632.5 2.1 0.5 1.4 1.9
+CanalMed 62.1 5.3 1.4 5.0 5.2
+Aorte/v.cave 115.0 18.0 4.3 16.2 17.5
+Colon 803.2 6.3 2.0 5.7 6.1
+CTV 57.3 65.7 59.9 65.2 65.7
+Foie-ITV 1294.2 65.7 17.5 65.0 65.7
+Grele 344.8 6.2 1.1 5.6 6.1
+ITV 27.4 65.7 60.9 64.8 65.6
+ParoiThoracique 3784.8 45.8 2.6 38.5 43.0
+PTV 103.1 65.7 58.0 65.2 65.7
+Reins 373.1 6.4 0.5 5.5 6.2
+TIPS 11.4 43.6 20.0 29.6 40.8
+veineporte 5.3 56.7 36.6 48.8 55.3
+Canal+5 159.3 5.6 1.4 5.3 5.5
+CanalMed+5 159.3 5.6 1.4 5.3 5.5Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
+Plan:StereoFoie
+Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
+5/7
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
+Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
+OARcreux_35[Gy] 222.6 65.7 49.9 65.2 65.7
+OARColon_32[Gy] 259.9 65.7 47.5 65.2 65.7
+EstomacAcc 301.3 42.6 6.1 22.2 35.8Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
+Plan:StereoFoie
+Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
+6/7
+DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
+Isocentredeschamps:,ARCSTE
+Décaler: -7.57cm 6.59cm -1.5cm
+Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
+Plan:StereoFoie
+Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
+7/7

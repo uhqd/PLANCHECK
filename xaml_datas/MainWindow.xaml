@@ -113,20 +113,17 @@
 
                             <!--StackPanel Grid.Row="0" Grid.Column ="0" Width="730" Height="33" HorizontalAlignment="Right" Background="White"-->
 
-                            <TextBlock Style="{x:Null}" x:Name="defaultProtocol" Grid.Row="0" Grid.Column ="0" FontSize="16"  Background="White"  Foreground="DarkBlue" FontWeight="Bold" ToolTip="Check-protocol proposé" VerticalAlignment="Center" Text="{Binding theProtocol}" HorizontalAlignment="Center"></TextBlock>
+                            <!-- TextBlock Style="{x:Null}" x:Name="defaultProtocol" Grid.Row="0" Grid.Column ="0" FontSize="16"  Background="White"  Foreground="DarkBlue" FontWeight="Bold" ToolTip="Check-protocol proposé" VerticalAlignment="Center" Text="{Binding theProtocol}" HorizontalAlignment="Center"></TextBlock -->
 
                             <!--Button Style="{x:Null}" Grid.Row="0" Grid.Column ="1" x:Name="Verif_button" Content="Modifier..." Width="110" Height="32" Click="Choose_file_button_Click" ToolTip="Choisir un autre check-protocol" RenderTransformOrigin="-0.734,0.136" /-->
-                            <ComboBox Style="{x:Null}"  x:Name="comboCP" Width="500" SelectionChanged="comboCP_SelectionChanged"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip="Choisir un autre check-protocol">
-
-
-
+                            <ComboBox Style="{x:Null}"  x:Name="comboCP" Width="500" SelectionChanged="comboCP_SelectionChanged"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip="Choisir un check-protocol">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding}"
                                         FontFamily="Arial"
                                         FontSize="16"
                                         FontWeight="Bold"                              
-                                        Foreground="Blue"/>
+                                        Foreground="DarkBlue"/>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
