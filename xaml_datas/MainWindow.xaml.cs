@@ -62,8 +62,8 @@ namespace PlanCheck
         public System.Windows.Media.Color UserColor { get; set; }
         public string theMachine { get; set; }
         public string theFields { get; set; }
-        public string theProtocol { get; set; }
-        public string myFullFilename { get; set; }
+        //public string theProtocol { get; set; }
+       // public string myFullFilename { get; set; }
         public string PhotonModel { get; set; }
         public IEnumerable<string> CalculationOptions { get; set; }
         public string OptimizationModel { get; set; }
@@ -81,24 +81,47 @@ namespace PlanCheck
             _pcontext = pcontext;
             // myTimer = new timer();
 
-            // an intelligent default protocol is chosen
-            myFullFilename = getIntelligentDefaultProtocol();
 
-            theProtocol = setProtocolDisplay(myFullFilename);//
+           
+
+
+
+            // an intelligent default protocol is chosen
+            //myFullFilename = getIntelligentDefaultProtocol();
+
+           // theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
                                //  myTimer.durationSinceLastCall("fill header");
 
-            _pinfo.lastUsedCheckProtocol = theProtocol;
+          //  _pinfo.lastUsedCheckProtocol = theProtocol;
 
             InitializeComponent(); // read the xaml
                                    //  myTimer.durationSinceLastCall("Initialize component");
-            /*
-              // fill combo box for user mode
-              UserMode.Items.Add("Dosimétriste");
-              UserMode.Items.Add("Physicien");
-              UserMode.Items.Add("Médical");
-              UserMode.SelectedIndex = 1;
-            */
+
+            #region Fill combox with CP names, get default value as selected default value
+            string folderPath = Directory.GetCurrentDirectory() + @".\plancheck_data\check_protocol";
+            if (!Directory.Exists(folderPath))
+            {
+                MessageBox.Show(folderPath + " n'existe pas.");                
+            }           
+            string[] csvFiles = Directory.GetFiles(folderPath, "*.xlsx");
+            foreach (string filePath in csvFiles)
+            {
+                String  fileName = Path.GetFileNameWithoutExtension(filePath);
+                comboCP.Items.Add(fileName);
+            }
+            String mydefaultPath = getIntelligentDefaultProtocol();
+            foreach (var item in comboCP.Items)
+            {                               
+                if (mydefaultPath.Contains(item.ToString()))
+                {
+                    comboCP.SelectedItem = item;
+                    break;
+                }
+            }
+            #endregion
+
+
         }
         public void FillHeaderInfos()
         {
@@ -310,6 +333,8 @@ d3.ToString("0.##");   //24
             CheckList.ItemsSource = new List<UserControl>();
             CheckList.ItemsSource = ListChecks;
         }
+
+        /*
         private void Choose_file_button_Click(object sender, RoutedEventArgs e)
         {
             OK_button.IsEnabled = true;
@@ -342,8 +367,9 @@ d3.ToString("0.##");   //24
             }
             theProtocol = setProtocolDisplay(myFullFilename);
             defaultProtocol.Text = theProtocol; // refresh display of default value
-            _pinfo.lastUsedCheckProtocol = theProtocol;
+            //_pinfo.lastUsedCheckProtocol = theProtocol;
         }
+        */
         private void OK_button_click(object sender, RoutedEventArgs e)
         {
             this.cleanList();
@@ -351,9 +377,16 @@ d3.ToString("0.##");   //24
 
 
 
+            String absolutePathToCP = Directory.GetCurrentDirectory() + @".\plancheck_data\check_protocol\" + comboCP.SelectedItem.ToString() + ".xlsx";
+            if (!File.Exists(absolutePathToCP))
+                MessageBox.Show(absolutePathToCP + " n'existe pas");
 
-            read_check_protocol rcp = new read_check_protocol(myFullFilename);
-
+            //            read_check_protocol rcp = new read_check_protocol(myFullFilename);
+            read_check_protocol rcp = new read_check_protocol(absolutePathToCP);
+           
+            _pinfo.lastUsedCheckProtocol = rcp.protocolName;
+            
+            
             #region User log file
 
             string filePath = @"\\srv015\SF_COM\SIMON_LU\userLogPlancheck\log.csv";
@@ -840,10 +873,13 @@ d3.ToString("0.##");   //24
             return fullname;
         }
 
-
-
-
-
+        private void comboCP_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+            _pinfo.planIdwithoutFE = cbListPlan.SelectedValue.ToString();
+            _pinfo.fondNonFEPlan = true;
+            this.Close();*/
+        }
     }// end class
 
 

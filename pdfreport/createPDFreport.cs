@@ -195,7 +195,7 @@ namespace PlanCheck.pdfreport
 
             string pdfFile = @"\\srv015\sf_com\simon_lu\temp\";
             pdfFile += "PlanCheck_" + _ctx.Patient.Id + "_" + _ctx.Patient.LastName + "_" + _ctx.Patient.FirstName;
-            pdfFile += Path.GetFileNameWithoutExtension(_mw.myFullFilename) + "_" + DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".pdf";
+            pdfFile += Path.GetFileNameWithoutExtension(_mw.comboCP.SelectedItem.ToString().ToUpper()) + "_" + DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".pdf";
             pdfRenderer.Document = migraDoc;
             pdfRenderer.RenderDocument();
           //  MessageBox.Show("Rapport PDF sauvegardé :\n" + pdfFile);
