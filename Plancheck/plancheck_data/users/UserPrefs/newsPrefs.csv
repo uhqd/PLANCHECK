@@ -54,7 +54,7 @@ gantryAnglesForBreast;no;Variation angles de bras 7 deg.
 umPerGray;yes;UM par Gray
 UMforFE;yes;UM du plan FE
 wedged;no;Filtres
-less10UM;no;Champs de 10 UM
+numberOfMU;yes;Min max UMs
 turquoiseIsodose;no;Isodose Turquoise
 prescribedObjectives;no;Objectifs de dose (PTV)
 doseToOAR;yes;Objectifs de dose (OAR)

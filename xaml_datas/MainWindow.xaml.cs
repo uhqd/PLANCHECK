@@ -864,7 +864,7 @@ d3.ToString("0.##");   //24
             String fullname = Directory.GetCurrentDirectory() + fileName;
             if (!File.Exists(fullname))
             {
-                MessageBox.Show("Le check-protcol est introuvable :\n" + fullname + "\nUtilisation du fichier par défaut : prostate");
+                MessageBox.Show("Le check-protcol est introuvable :\n" + fullname + "\nUtilisation du fichier par défaut");
                 fullname = Directory.GetCurrentDirectory() + @"\plancheck_data\check_protocol\prostate.xlsx";
             }
             if (!File.Exists(fullname))

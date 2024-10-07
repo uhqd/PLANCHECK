@@ -81,6 +81,7 @@ namespace PlanCheck.pdfreport
             cell = row.Cells[1];
             cell.AddParagraph(mw.theMachine);
 
+
             row = table.AddRow();
             cell = row.Cells[0];
             cell.AddParagraph("Technique :");

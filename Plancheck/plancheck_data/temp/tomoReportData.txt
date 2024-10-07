@@ -1,19 +1,20 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
-Plan:StereoFoie
-Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
-1/7
+Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
+JEANLUC
+Plan:ProstateLoge
+Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+1/6
 PATIENT
-Nom:ARTHOZOUL,DANIEL(202307547) DatedeNaissance:14/04/1956 Sexe:Masculin
+Nom:FICATANDRIEU,JEANLUC(202009191) DatedeNaissance:28/01/1959 Sexe:Masculin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan StereoFoie Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: CTV
-IDimage: TDM100924_AVG3 Pointdereferenceprincipal PTVFOIE
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 95.9%
+IDplan ProstateLoge Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
+IDimage: TDMRTE240924 Pointdereferenceprincipal PTV_HDOPT
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.7%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-0.15cm,-21.75cm,-33.20cm) Fractionnement:
-Typedetraitement: ArcThérapieDynamique(DCA) DosePrescrite: 60.0Gy(12.00Gy/fraction)
-Nombredefractions: 5
+Décalagedel'origine/àDICOM: (0.00cm,-17.31cm,-32.80cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 66.0Gy(2.00Gy/fraction)
+Nombredefractions: 33
 OPTIONSDECALCUL
 Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -21,95 +22,77 @@ CalculationGridSizeInCMForSRSAndHyperArc 0.125
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
 APPROBATIONS
-Plancréé: admin\lanaspeze(16/09/202410:14:41)
-Appro.plan: ModestoAnouchka(vendredi20septembre2024
-14:18:15)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
-Plan:StereoFoie
-Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
-2/7
+Plancréé: admin\lacaze(03/10/202409:17:41)
+Appro.plan: KhalifaJonathan(vendredi4octobre202400:11:02)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
+JEANLUC
+Plan:ProstateLoge
+Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-ARCSTE
-IDmachine NOVA5
-Energie 10X-FFF
-Debitdedose 2400UM/min
-X1 3.7
-X2 3.8
-Y1 3.6
-Y2 3.2
-Tailledechamp 7.5x6.8cm²
-Angledubras 181°
-Sensderotationdubras SH
-Angled'arrêtdubras 0°
-Rot.collimateur 0°
-Rot.detable 0°
-Bolus -
-IsocentreX -7.57cm
-IsocentreY -6.59cm
-IsocentreZ -1.5cm
-DSP 81cm
-Ponderation 1
-Pointderéférence PTVFOIE
-Filtreencoin -
-Bloc -
-Plaque -
-Doseparfraction 12.000Gy
-UM 1643.0UMRappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
-Plan:StereoFoie
-Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
-3/7
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
-Plan:StereoFoie
-Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
-4/7
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/2)
+RA1 RA2 RA3 RA4
+IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14
+X2 14 14 14 14
+Y1 14 14 14 14
+Y2 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 179° 181° 179° 181°
+Sensderotationdubras SAH SH SAH SH
+Angled'arrêtdubras 181° 179° 181° 179°
+Rot.collimateur 315° 45° 315° 45°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX -0.65cm -0.65cm -0.65cm -0.65cm
+IsocentreY -2.93cm -2.93cm -2.93cm -2.93cm
+IsocentreZ -1.25cm -1.25cm -1.25cm -1.25cm
+DSP 89.2cm 89.2cm 89.2cm 89.2cm
+Ponderation 1.169 1.082 1.075 1.207
+Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 0.516Gy 0.477Gy 0.474Gy 0.533Gy
+UM 232.2UM 215.0UM 213.5UM 239.9UMRappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
+JEANLUC
+Plan:ProstateLoge
+Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+3/6
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
+JEANLUC
+Plan:ProstateLoge
+Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+4/6
+STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-BODY 27086.3 65.7 2.2 65.2 65.7
-VesiculeBiliaire 45.0 61.0 11.3 55.8 60.1
-ReinGche 174.9 2.2 0.3 1.6 2.1
-ReinDt 198.6 6.4 0.8 5.5 6.2
-Rate 871.6 7.3 1.7 6.7 7.1
-Poumons 1712.5 12.2 0.9 11.3 12.0
-PoumonGche 662.7 5.9 0.4 5.3 5.8
-PoumonDt 1049.7 12.2 1.2 11.3 12.0
-ParoiThoraciqueG 1914.2 5.0 0.9 4.5 4.8
-ParoiThoraciqueD 1868.4 46.5 4.4 38.5 43.2
-Pancreas 72.4 6.6 1.4 5.2 6.3
-Oesophage 21.7 10.9 4.5 10.0 10.7
-Foie 1321.4 65.7 18.4 65.2 65.7
-Estomac 301.3 42.6 6.1 22.2 35.8
-Duodenum 80.1 28.2 1.4 15.8 24.3
-Coeur 632.5 2.1 0.5 1.4 1.9
-CanalMed 62.1 5.3 1.4 5.0 5.2
-Aorte/v.cave 115.0 18.0 4.3 16.2 17.5
-Colon 803.2 6.3 2.0 5.7 6.1
-CTV 57.3 65.7 59.9 65.2 65.7
-Foie-ITV 1294.2 65.7 17.5 65.0 65.7
-Grele 344.8 6.2 1.1 5.6 6.1
-ITV 27.4 65.7 60.9 64.8 65.6
-ParoiThoracique 3784.8 45.8 2.6 38.5 43.0
-PTV 103.1 65.7 58.0 65.2 65.7
-Reins 373.1 6.4 0.5 5.5 6.2
-TIPS 11.4 43.6 20.0 29.6 40.8
-veineporte 5.3 56.7 36.6 48.8 55.3
-Canal+5 159.3 5.6 1.4 5.3 5.5
-CanalMed+5 159.3 5.6 1.4 5.3 5.5Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
-Plan:StereoFoie
-Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
-5/7
-STATISTIQUESHISTOGRAMMEDOSE-VOLUME(2/2)
-Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-OARcreux_35[Gy] 222.6 65.7 49.9 65.2 65.7
-OARColon_32[Gy] 259.9 65.7 47.5 65.2 65.7
-EstomacAcc 301.3 42.6 6.1 22.2 35.8Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
-Plan:StereoFoie
-Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
-6/7
+Vessie 407.4 68.1 40.4 66.8 67.6
+TeteFemorGche 159.0 42.2 17.3 37.9 41.1
+BODY 40010.4 71.1 8.5 68.5 70.3
+TeteFemorDte 156.2 39.6 17.1 35.5 38.8
+Sigmoide 59.5 60.2 44.4 58.5 59.7
+Rectum 74.9 68.3 38.2 66.2 67.2
+QueueDeCheval 19.9 45.5 14.7 36.3 44.2
+Grele 765.7 57.6 21.1 56.1 57.0
+CTVGG 432.9 68.7 56.8 67.4 68.2
+BulbePenien 4.4 67.3 24.8 40.9 66.0
+Sacroiliaques 346.2 59.3 38.1 57.8 58.8
+PTVHD 282.6 71.1 66.0 68.5 70.3
+PTVBD 806.0 68.8 56.6 67.7 68.4
+CTVloge 103.3 68.4 65.9 67.4 68.1
+PTV_HDOPT 269.7 71.1 66.0 68.5 70.3
+PTV_BD-PTV_HD 757.1 67.5 56.1 65.4 66.8Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
+JEANLUC
+Plan:ProstateLoge
+Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,ARCSTE
-Décaler: -7.57cm 6.59cm -1.5cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deARTHOZOUL,DANIEL
-Plan:StereoFoie
-Rapportcrééle:20/09/202416:49:19par:RecordonFrederique
-7/7
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: -0.65cm 2.93cm -1.25cm
+Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
+JEANLUC
+Plan:ProstateLoge
+Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+6/6

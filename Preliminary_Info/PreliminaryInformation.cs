@@ -45,6 +45,7 @@ namespace PlanCheck
         private bool _TOMO;
         private bool _NOVA;
         private bool _HALCYON;
+        private bool _SRS;
         private bool _HYPERARC;
         private bool _isModulated;
         private bool _isFE;
@@ -619,15 +620,23 @@ namespace PlanCheck
             #region machine
             _machine = ctx.PlanSetup.Beams.First().TreatmentUnit.Id.ToUpper();
             _NOVA = false;
+            _SRS = false;
             _TOMO = false;
             _HALCYON = false;
             _HYPERARC = false;
             if (_machine.Contains("NOVA"))
             {
+
+
                 _NOVA = true;
                 String fieldname = ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false).Id;
                 if (fieldname.Contains("HA"))
                     _HYPERARC = true;
+
+                Beam b1 = ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
+
+                if (b1.Technique.Id.ToLower().Contains("srs"))
+                    _SRS = true;
 
                 nLoalisationHA = 1;
                 if (_HYPERARC) // get number of locs
@@ -920,6 +929,10 @@ namespace PlanCheck
         public bool isNOVA
         {
             get { return _NOVA; }
+        }
+        public bool isSRS
+        {
+            get { return _SRS; }
         }
         public bool isHALCYON
         {

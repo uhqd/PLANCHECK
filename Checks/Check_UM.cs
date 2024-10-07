@@ -35,6 +35,29 @@ namespace PlanCheck
 
             int uncorrFieldWithaWedge = 0;
             int FieldWithLessThan10UM = 0;
+            int fieldWithTooMuchMU = 0;
+
+            double limitMU_ForThisPlan = 0;
+
+
+            #region FIND MU LIMIT PER FIELD
+
+            if (_pinfo.isNOVA)
+            {
+                if (_pinfo.isSRS)
+                {
+                    limitMU_ForThisPlan = 6000;
+                }
+                else
+                    limitMU_ForThisPlan = 999.0;
+
+            }
+            else if (_pinfo.isHALCYON)
+            {
+                limitMU_ForThisPlan = 1500;
+            }
+            #endregion
+
 
             #region UM per Gray : do it anyway even if the user does not choose it. 
             Item_Result umPerGray = new Item_Result();
@@ -59,6 +82,12 @@ namespace PlanCheck
                             FieldWithLessThan10UM++;
                             //MessageBox.Show(b.Id + b.Meterset.Value.ToString());
                         }
+
+                        if (b.Meterset.Value > limitMU_ForThisPlan)
+                            fieldWithTooMuchMU++;
+
+
+
                         myMLCType = b.MLCPlanType.ToString();
                         n_um = n_um + Math.Round(b.Meterset.Value, 1);
                     }
@@ -239,35 +268,43 @@ namespace PlanCheck
                 }
                 #endregion
             }
-            if (_pinfo.actualUserPreference.userWantsTheTest("less10UM"))
+
+            MessageBox.Show("user want um " + _pinfo.actualUserPreference.userWantsTheTest("numberOfMU"));
+            if (_pinfo.actualUserPreference.userWantsTheTest("numberOfMU"))
             {
-                #region Champs < 10 UM ?
+                #region Champs < 10 UM  TOTAL > MAX UM?
                 if (!_pinfo.isTOMO)
                 {
-                    Item_Result less10UM = new Item_Result();
-                    less10UM.Label = "Champs < 10 UM";
-                    less10UM.ExpectedValue = "EN COURS";
+                    Item_Result numberOfUM = new Item_Result();
+                    numberOfUM.Label = "Nombre UM";
+                    numberOfUM.ExpectedValue = "EN COURS";
 
                     if (FieldWithLessThan10UM != 0)
                     {
-                        less10UM.MeasuredValue = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
-                        less10UM.setToFALSE();
-                        less10UM.Infobulle = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
+                        numberOfUM.MeasuredValue = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
+                        numberOfUM.setToFALSE();
+                        numberOfUM.Infobulle = FieldWithLessThan10UM.ToString() + " champs avec < 10 UM";
 
+                    }
+                    else if(fieldWithTooMuchMU != 0)
+                    {
+                        numberOfUM.MeasuredValue = fieldWithTooMuchMU.ToString() + " champs avec plus que UM max (" + limitMU_ForThisPlan + ")";
+                        numberOfUM.setToFALSE();
+                        numberOfUM.Infobulle = fieldWithTooMuchMU.ToString() + " champs avec plus que UM max (" + limitMU_ForThisPlan + ")";
                     }
                     else
                     {
-                        less10UM.MeasuredValue = "OK";
-                        less10UM.setToTRUE();
-                        less10UM.Infobulle = "Pas de champs < 10 UM";
+                        numberOfUM.MeasuredValue = "OK";
+                        numberOfUM.setToTRUE();
+                        numberOfUM.Infobulle = "Pas de champs < 10 UM";
 
                     }
                     if (_pinfo.machine.Contains("TOM"))
                     {
-                        less10UM.setToINFO();
-                        less10UM.MeasuredValue = "TOMO : non vérifié";
+                        numberOfUM.setToINFO();
+                        numberOfUM.MeasuredValue = "TOMO : non vérifié";
                     }
-                    this._result.Add(less10UM);
+                    this._result.Add(numberOfUM);
                 }
                 #endregion
             }
