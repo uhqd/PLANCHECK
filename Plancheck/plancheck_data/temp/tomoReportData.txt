@@ -1,20 +1,19 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
-JEANLUC
-Plan:ProstateLoge
-Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+Rappportdeplanificationderadiothérapie(v15.6.05)deAYRAL,JACQUELINE
+Plan:SeinGDIBHFE
+Rapportcrééle:28/08/202409:30:02par:DeborneJustine
 1/6
 PATIENT
-Nom:FICATANDRIEU,JEANLUC(202009191) DatedeNaissance:28/01/1959 Sexe:Masculin
+Nom:AYRAL,JACQUELINE(202412568) DatedeNaissance:29/10/1956 Sexe:Féminin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan ProstateLoge Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
-IDimage: TDMRTE240924 Pointdereferenceprincipal PTV_HDOPT
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.7%
+IDplan SeinGDIBHFE Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTVsein
+IDimage: tdm230824DIBH Pointdereferenceprincipal PTVsein
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 101.0%
 Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (0.00cm,-17.31cm,-32.80cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 66.0Gy(2.00Gy/fraction)
-Nombredefractions: 33
+Décalagedel'origine/àDICOM: (-2.52cm,-19.16cm,-33.30cm) Fractionnement:
+Typedetraitement: IMRTstatique DosePrescrite: 50.0Gy(2.00Gy/fraction)
+Nombredefractions: 25
 OPTIONSDECALCUL
 Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -22,77 +21,76 @@ CalculationGridSizeInCMForSRSAndHyperArc 0.125
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
 APPROBATIONS
-Plancréé: admin\lacaze(03/10/202409:17:41)
-Appro.plan: KhalifaJonathan(vendredi4octobre202400:11:02)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
-JEANLUC
-Plan:ProstateLoge
-Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+Plancréé: admin\recordon(27/08/202416:45:11)
+Appro.plan: HernandezLudovic(mardi27août202416:58:15)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deAYRAL,JACQUELINE
+Plan:SeinGDIBHFE
+Rapportcrééle:28/08/202409:30:02par:DeborneJustine
 2/6
 PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-RA1 RA2 RA3 RA4
-IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min
-X1 14 14 14 14
-X2 14 14 14 14
-Y1 14 14 14 14
-Y2 14 14 14 14
-Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm²
-Angledubras 179° 181° 179° 181°
-Sensderotationdubras SAH SH SAH SH
-Angled'arrêtdubras 181° 179° 181° 179°
-Rot.collimateur 315° 45° 315° 45°
-Rot.detable 0° 0° 0° 0°
-Bolus - - - -
-IsocentreX -0.65cm -0.65cm -0.65cm -0.65cm
-IsocentreY -2.93cm -2.93cm -2.93cm -2.93cm
-IsocentreZ -1.25cm -1.25cm -1.25cm -1.25cm
-DSP 89.2cm 89.2cm 89.2cm 89.2cm
-Ponderation 1.169 1.082 1.075 1.207
-Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
-Filtreencoin - - - -
-Bloc - - - -
-Plaque - - - -
-Doseparfraction 0.516Gy 0.477Gy 0.474Gy 0.533Gy
-UM 232.2UM 215.0UM 213.5UM 239.9UMRappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
-JEANLUC
-Plan:ProstateLoge
-Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+MAMINTGH MAMINTGH1 MAMINTGH2 MAMEXTGH MAMEXTGH1
+IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14 14
+X2 14 14 14 14 14
+Y1 14 14 14 14 14
+Y2 14 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 300° 293° 307° 125° 132°
+Sensderotationdubras - - - - -
+Angled'arrêtdubras - - - - -
+Rot.collimateur 1° 1° 1° 359° 359°
+Rot.detable 0° 0° 0° 0° 0°
+Bolus - - - - -
+IsocentreX 9.95cm 9.95cm 9.95cm 9.95cm 9.95cm
+IsocentreY -12.24cm -12.24cm -12.24cm -12.24cm -12.24cm
+IsocentreZ 9.35cm 9.35cm 9.35cm 9.35cm 9.35cm
+DSP 96cm 95.2cm 96.6cm 95.9cm 95.5cm
+Ponderation 1 1 1 1 1
+Pointderéférence PTVsein PTVsein PTVsein PTVsein PTVsein
+Filtreencoin - - - - -
+Bloc - - - - -
+Plaque - - - - -
+Doseparfraction 0.400Gy 0.400Gy 0.400Gy 0.400Gy 0.400Gy
+UM 92.4UM 110.7UM 92.5UM 91.1UM 106.3UMRappportdeplanificationderadiothérapie(v15.6.05)deAYRAL,JACQUELINE
+Plan:SeinGDIBHFE
+Rapportcrééle:28/08/202409:30:02par:DeborneJustine
 3/6
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
-JEANLUC
-Plan:ProstateLoge
-Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deAYRAL,JACQUELINE
+Plan:SeinGDIBHFE
+Rapportcrééle:28/08/202409:30:02par:DeborneJustine
 4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-Vessie 407.4 68.1 40.4 66.8 67.6
-TeteFemorGche 159.0 42.2 17.3 37.9 41.1
-BODY 40010.4 71.1 8.5 68.5 70.3
-TeteFemorDte 156.2 39.6 17.1 35.5 38.8
-Sigmoide 59.5 60.2 44.4 58.5 59.7
-Rectum 74.9 68.3 38.2 66.2 67.2
-QueueDeCheval 19.9 45.5 14.7 36.3 44.2
-Grele 765.7 57.6 21.1 56.1 57.0
-CTVGG 432.9 68.7 56.8 67.4 68.2
-BulbePenien 4.4 67.3 24.8 40.9 66.0
-Sacroiliaques 346.2 59.3 38.1 57.8 58.8
-PTVHD 282.6 71.1 66.0 68.5 70.3
-PTVBD 806.0 68.8 56.6 67.7 68.4
-CTVloge 103.3 68.4 65.9 67.4 68.1
-PTV_HDOPT 269.7 71.1 66.0 68.5 70.3
-PTV_BD-PTV_HD 757.1 67.5 56.1 65.4 66.8Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
-JEANLUC
-Plan:ProstateLoge
-Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+Oesophage 20.5 0.6 0.3 0.5 0.5
+Larynx 9.8 0.3 0.2 0.2 0.2
+IVA 4.4 5.4 1.7 2.3 4.6
+body_RL 19356.3 51.6 1.3 51.1 51.3
+BODY 22946.4 51.6 1.7 51.2 51.4
+Foie 1297.8 0.7 0.1 0.5 0.7
+CTVsein 255.3 51.6 47.8 51.1 51.4
+Coeur 470.3 5.8 0.6 3.6 5.2
+CanalMed 94.3 0.4 0.1 0.3 0.4
+PlexusDt 9.3 0.1 0.1 0.1 0.1
+PlexusGche 11.7 2.0 0.6 1.1 1.5
+PoumonDt 2800.2 0.6 0.1 0.4 0.6
+PoumonGche 2545.3 47.2 3.9 45.9 46.8
+Poumons 5345.5 47.2 1.9 45.9 46.8
+Seincontro 275.6 1.4 0.3 1.3 1.4
+TetehumeraleDte 62.9 0.1 0.0 0.1 0.1
+TetehumeraleGche 69.4 1.1 0.4 0.8 1.0
+Thyroide 9.3 0.3 0.2 0.3 0.3
+Trachee 27.5 0.5 0.3 0.4 0.4
+PTVsein 255.2 51.6 49.9 51.2 51.4Rappportdeplanificationderadiothérapie(v15.6.05)deAYRAL,JACQUELINE
+Plan:SeinGDIBHFE
+Rapportcrééle:28/08/202409:30:02par:DeborneJustine
 5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA1,RA2,RA3,RA4
-Décaler: -0.65cm 2.93cm -1.25cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deFICATANDRIEU,
-JEANLUC
-Plan:ProstateLoge
-Rapportcrééle:04/10/202415:44:34par:LacazeThierry
+Isocentredeschamps:,MAMINTGH,MAMINTGH1,MAMINTGH2,MAMEXTGH,MAMEXTGH1
+Décaler: -9.95cm 12.24cm 9.35cm
+Direction: Tableverslagaucheenregardantlebras Tableverslebas Tableensortie(out)Rappportdeplanificationderadiothérapie(v15.6.05)deAYRAL,JACQUELINE
+Plan:SeinGDIBHFE
+Rapportcrééle:28/08/202409:30:02par:DeborneJustine
 6/6

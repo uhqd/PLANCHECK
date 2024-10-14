@@ -269,7 +269,7 @@ namespace PlanCheck
                 #endregion
             }
 
-            MessageBox.Show("user want um " + _pinfo.actualUserPreference.userWantsTheTest("numberOfMU"));
+            
             if (_pinfo.actualUserPreference.userWantsTheTest("numberOfMU"))
             {
                 #region Champs < 10 UM  TOTAL > MAX UM?
@@ -296,7 +296,7 @@ namespace PlanCheck
                     {
                         numberOfUM.MeasuredValue = "OK";
                         numberOfUM.setToTRUE();
-                        numberOfUM.Infobulle = "Pas de champs < 10 UM";
+                        numberOfUM.Infobulle = "Toutes les valeurs UM ok (10 < UM < Max)";
 
                     }
                     if (_pinfo.machine.Contains("TOM"))
