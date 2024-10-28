@@ -11,4 +11,5 @@ Work in progress (inspired from the brazilian [workshop](https://github.com/joec
 Recommanded .NET version > 6.2
 
 
-Please find user guide (excuse my french) [here](https://github.com/uhqd/PLANCHECK/tree/main/Plancheck/plancheck_data/doc/plancheckhelp.pdf).
+Please find user guide (excuse my french) [here](https://docs.google.com/document/d/1sodN7FYE_qv9Nzt-748lM1gyuZKTbbYrVAPcCfwL2tI/edit?tab=t.0).
+
