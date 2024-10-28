@@ -108,52 +108,55 @@ namespace PlanCheck.Users
                     string fileName = "myTemp.csv";
                     string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
 
-                    /*string msg = String.Empty;
-                    for (int t = 0; t < NewsLines.Length; t++)
-                        msg += NewsLines[t];
-                    MessageBox.Show("NewsLines\n" + msg);
-                    msg = String.Empty;
-                    for (int t = 0; t < UserLines.Length; t++)
-                        msg += UserLines[t];
-                    MessageBox.Show("UserLines\n" + msg);
-                    */
+
 
                     //
                     // the following part allows to add new check and remove deprecated check that  are not in the news file anymore
                     //
-                    using (StreamWriter writer = new StreamWriter(filePath))
+                    if (NewsLines.Length < UserLines.Length)
                     {
-                        int i = 0;
-                        int j = 0;
-                        for (i = 0; i < NewsLines.Length; i++)
+                        using (StreamWriter writer = new StreamWriter(filePath))
                         {
-                            //MessageBox.Show("starting to search from news : " + NewsLines[i]);
-                            bool thisCheckExistinUserfile = false;
-                            for (j = 0; j < UserLines.Length; j++)
-                            {
-                               // MessageBox.Show(NewsLines[i] + "\nvs\n" + UserLines[j]);  
-                                if (isTheSameCheck(NewsLines[i], UserLines[j]))
-                                {
-                                    thisCheckExistinUserfile = true;
-                                //    MessageBox.Show("Find and break");
-                                    break;
-                                }
-                            }
-                            if (thisCheckExistinUserfile)
-                            {
-                                writer.WriteLine(UserLines[j]);
-                                //MessageBox.Show("writing from user : " + UserLines[j]);
-                            
-                            }
-                            else
+                            int i = 0;
+                            for (i = 0; i < NewsLines.Length; i++)
                             {
                                 writer.WriteLine(NewsLines[i]);
-                                //MessageBox.Show("writing from news : " + NewsLines[i]);
-                                fileChanged = true;
                             }
+                            fileChanged = true;
+                        }
+                    }
+                    else
+                    {
+                        using (StreamWriter writer = new StreamWriter(filePath))
+                        {
+                            int i = 0;
+                            int j = 0;
+                            for (i = 0; i < NewsLines.Length; i++)
+                            {
+
+                                bool thisCheckExistinUserfile = false;
+                                for (j = 0; j < UserLines.Length; j++)
+                                {
+                                    if (isTheSameCheck(NewsLines[i], UserLines[j]))
+                                    {
+                                        thisCheckExistinUserfile = true;
+                                        break;
+                                    }
+                                }
+                                if (thisCheckExistinUserfile)
+                                {
+                                    writer.WriteLine(UserLines[j]);
+
+                                }
+                                else
+                                {
+                                    writer.WriteLine(NewsLines[i]);
+                                    fileChanged = true;
+                                }
 
 
 
+                            }
                         }
                     }
                     if (fileChanged)

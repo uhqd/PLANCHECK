@@ -351,6 +351,27 @@ namespace PlanCheck
                 }
                 #endregion
             }
+            /*
+            if (_pinfo.actualUserPreference.userWantsTheTest("testNew"))
+            {
+                #region CECI EST UN NOUVEAU TEST 
+                Item_Result leNouveauTest = new Item_Result();
+                leNouveauTest.Label = "Titre du test";
+                leNouveauTest.ExpectedValue = "1";
+                leNouveauTest.MeasuredValue = "2";
+                leNouveauTest.Infobulle = "ceci permet de vérifier blabla ";
+
+                if (leNouveauTest.ExpectedValue == leNouveauTest.MeasuredValue)
+                    leNouveauTest.setToTRUE();
+                else
+                    leNouveauTest.setToWARNING();
+
+              
+                this._result.Add(leNouveauTest);
+
+                #endregion
+            }
+            */
         }
 
 

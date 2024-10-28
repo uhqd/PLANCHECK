@@ -195,7 +195,7 @@ namespace PlanCheck.pdfreport
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfSharp.Pdf.PdfFontEmbedding.None);
 
             string pdfFile = @"\\srv015\sf_com\simon_lu\temp\";
-            pdfFile += "PlanCheck_" + _ctx.Patient.Id + "_" + _ctx.Patient.LastName + "_" + _ctx.Patient.FirstName;
+            pdfFile += "PlanCheck_" + _ctx.Patient.Id + "_" + _ctx.Patient.LastName + "_" + _ctx.Patient.FirstName+"_";
             pdfFile += Path.GetFileNameWithoutExtension(_mw.comboCP.SelectedItem.ToString().ToUpper()) + "_" + DateTime.Now.ToString("MM.dd.yyyy_H.mm.ss") + ".pdf";
             pdfRenderer.Document = migraDoc;
             pdfRenderer.RenderDocument();

@@ -27,6 +27,7 @@ namespace PlanCheck
     public class PreliminaryInformation
     {
         private ScriptContext _ctx;
+        private bool _aplanisloaded;
         private string _patientname;
         private string _patientdob;
         private DateTime _patientdob_dt;
@@ -194,7 +195,7 @@ namespace PlanCheck
                     DateTime paDate = convertToDateTime(_ctx.PlanSetup.PlanningApprovalDate);
 
 
-                    
+
 
                     if (_tempTprd.Erd.approDate == paDate)
                     {
@@ -438,7 +439,7 @@ namespace PlanCheck
 
 
 
-           
+
 
 
 
@@ -463,19 +464,23 @@ namespace PlanCheck
             string tocheck;
 
 
-
-            switch (searchtype)
+            if (_aplanisloaded)
             {
-                case "doctor":
-                    tocheck = _ctx.PlanSetup.RTPrescription.HistoryUserName;
-                    break;
-                case "creator":
-                    tocheck = _ctx.PlanSetup.CreationUserName;
-                    break;
-                default:
-                    tocheck = _ctx.CurrentUser.Name;
-                    break;
+                switch (searchtype)
+                {
+                    case "doctor":
+                        tocheck = _ctx.PlanSetup.RTPrescription.HistoryUserName;
+                        break;
+                    case "creator":
+                        tocheck = _ctx.PlanSetup.CreationUserName;
+                        break;
+                    default:
+                        tocheck = _ctx.CurrentUser.Name;
+                        break;
+                }
             }
+            else
+                tocheck = _ctx.CurrentUser.Name;
 
 
             //Generate Users list
@@ -557,13 +562,13 @@ namespace PlanCheck
 
         // -------------------------------------------------------------------------------------------------------------------------------
 
-        public PreliminaryInformation(ScriptContext ctx)  //Constructor
+        public PreliminaryInformation(ScriptContext ctx, bool aPlanIsLoaded)  //Constructor
         {
 
 
             #region general info
             _ctx = ctx;
-
+            _aplanisloaded = aPlanIsLoaded;
             _actualUserPreference = new User_preference(_ctx.CurrentUser.Id);
             myPlanReportIsFound = false;
 
@@ -583,32 +588,46 @@ namespace PlanCheck
 
             IUCT_Users iuct_users = new IUCT_Users();
 
-            _coursename = ctx.Course.Id;
-            _planname = ctx.PlanSetup.Id;
+            if (aPlanIsLoaded)
+            {
+                _coursename = ctx.Course.Id;
+                _planname = ctx.PlanSetup.Id;
+            }
+            else
+            {
+                _coursename = "Pas de course chargé";
+                _planname = "Pas de plan chargé";
+            }
             _plancreator = GetUser("creator", iuct_users);
             _currentuser = GetUser("currentuser", iuct_users);
 
-            if (ctx.PlanSetup.RTPrescription != null)
+            if (aPlanIsLoaded)
+                if (ctx.PlanSetup.RTPrescription != null)
+                {
+                    _doctor = GetUser("doctor", iuct_users);
+                    _nFraction = (int)ctx.PlanSetup.RTPrescription.NumberOfFractions;
+                }
+
+
+            if (aPlanIsLoaded)
             {
-                _doctor = GetUser("doctor", iuct_users);
-                _nFraction = (int)ctx.PlanSetup.RTPrescription.NumberOfFractions;
+                if (_ctx.PlanSetup.PhotonCalculationModel != null)
+                    _algoname = ctx.PlanSetup.PhotonCalculationModel;
+                else
+                    _algoname = "no photon calculation model";
+                _mlctype = Check_mlc_type(ctx.PlanSetup);
+                int n = ctx.PlanSetup.GetCalculationOptions("PO_15605New").Values.Count;
+                _POoptions = new string[n];
+                _POoptions = ctx.PlanSetup.GetCalculationOptions("PO_15605New").Values.ToArray();
+
+            }
+            else
+            {
+                _algoname = "no algo";
+                _mlctype = "no MLC";
+                _POoptions = null;
             }
 
-
-            if (_ctx.PlanSetup.PhotonCalculationModel != null)
-                _algoname = ctx.PlanSetup.PhotonCalculationModel;
-            else
-                _algoname = "no photon calculation model";
-
-            _mlctype = Check_mlc_type(ctx.PlanSetup);
-            /*
-            _calculoptions = new string[ctx.PlanSetup.GetCalculationOptions(ctx.PlanSetup.PhotonCalculationModel).Values.Count];
-            _calculoptions = ctx.PlanSetup.GetCalculationOptions(ctx.PlanSetup.PhotonCalculationModel).Values.ToArray();
-            */
-
-            int n = ctx.PlanSetup.GetCalculationOptions("PO_15605New").Values.Count;
-            _POoptions = new string[n];
-            _POoptions = ctx.PlanSetup.GetCalculationOptions("PO_15605New").Values.ToArray();
 
 
             getOARreferenceVolumes();
@@ -618,57 +637,60 @@ namespace PlanCheck
 
 
             #region machine
-            _machine = ctx.PlanSetup.Beams.First().TreatmentUnit.Id.ToUpper();
-            _NOVA = false;
-            _SRS = false;
-            _TOMO = false;
-            _HALCYON = false;
-            _HYPERARC = false;
-            if (_machine.Contains("NOVA"))
+            if (aPlanIsLoaded)
             {
-
-
-                _NOVA = true;
-                String fieldname = ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false).Id;
-                if (fieldname.Contains("HA"))
-                    _HYPERARC = true;
-
-                Beam b1 = ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
-
-                if (b1.Technique.Id.ToLower().Contains("srs"))
-                    _SRS = true;
-
-                nLoalisationHA = 1;
-                if (_HYPERARC) // get number of locs
+                _machine = ctx.PlanSetup.Beams.First().TreatmentUnit.Id.ToUpper();
+                _NOVA = false;
+                _SRS = false;
+                _TOMO = false;
+                _HALCYON = false;
+                _HYPERARC = false;
+                if (_machine.Contains("NOVA"))
                 {
-                    int index = _ctx.PlanSetup.Id.ToLower().IndexOf("locs");
-                    char result = _ctx.PlanSetup.Id[index + 4];
-                    try
-                    {
-                        nLoalisationHA = (int)Char.GetNumericValue(result);
-                        //MessageBox.Show(nLoalisationHA.ToString());
 
-                    }
-                    catch
+
+                    _NOVA = true;
+                    String fieldname = ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false).Id;
+                    if (fieldname.Contains("HA"))
+                        _HYPERARC = true;
+
+                    Beam b1 = ctx.PlanSetup.Beams.FirstOrDefault(x => x.IsSetupField == false);
+
+                    if (b1.Technique.Id.ToLower().Contains("srs"))
+                        _SRS = true;
+
+                    nLoalisationHA = 1;
+                    if (_HYPERARC) // get number of locs
                     {
-                        nLoalisationHA = 1;
-                        MessageBox.Show("Plancheck n'a pas trouvé le nombre de locs dans le nom du plan: " + _ctx.PlanSetup.Id);
+                        int index = _ctx.PlanSetup.Id.ToLower().IndexOf("locs");
+                        char result = _ctx.PlanSetup.Id[index + 4];
+                        try
+                        {
+                            nLoalisationHA = (int)Char.GetNumericValue(result);
+                            //MessageBox.Show(nLoalisationHA.ToString());
+
+                        }
+                        catch
+                        {
+                            nLoalisationHA = 1;
+                            MessageBox.Show("Plancheck n'a pas trouvé le nombre de locs dans le nom du plan: " + _ctx.PlanSetup.Id);
+                        }
+
                     }
 
                 }
-
-            }
-            else if (_machine.Contains("HALCYON"))
-                _HALCYON = true;
-            else if (_machine.Contains("TOM"))
-            {
-                _TOMO = true;
-                foreach (PlanSetup p in ctx.Course.PlanSetups)
+                else if (_machine.Contains("HALCYON"))
+                    _HALCYON = true;
+                else if (_machine.Contains("TOM"))
                 {
-                    if (p.Id.Contains("SEA"))
+                    _TOMO = true;
+                    foreach (PlanSetup p in ctx.Course.PlanSetups)
                     {
-                        _machine = p.Beams.First().TreatmentUnit.Id;
-                        _machine = _machine.Replace(" SEANCE", "");
+                        if (p.Id.Contains("SEA"))
+                        {
+                            _machine = p.Beams.First().TreatmentUnit.Id;
+                            _machine = _machine.Replace(" SEANCE", "");
+                        }
                     }
                 }
             }
@@ -678,17 +700,18 @@ namespace PlanCheck
 
             #region get ARIA documents infos
 
-
-            String response = connectToAriaDocuments(ctx);
-
-            if (response != null)
+            if (aPlanIsLoaded)
             {
-                parseTheAriaDocuments(response, ctx); // check if documents exists and get info from tomo report if needed
+                String response = connectToAriaDocuments(ctx);
+
+                if (response != null)
+                {
+                    parseTheAriaDocuments(response, ctx); // check if documents exists and get info from tomo report if needed
+                }
+
+                if ((isTOMO) && (!planReportIsFound))
+                    MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents\nPlanChek n'a pas trouvé un document Dosimétrie TOMO ayant la même dose max que le plan DTO");// + isTOMO.ToString() + planReportIsFound.ToString());
             }
-
-            if ((isTOMO) && (!planReportIsFound))
-                MessageBox.Show("Pas de rapport de plan Tomotherapy dans Aria Documents\nPlanChek n'a pas trouvé un document Dosimétrie TOMO ayant la même dose max que le plan DTO");// + isTOMO.ToString() + planReportIsFound.ToString());
-
             #endregion
 
 
@@ -696,101 +719,111 @@ namespace PlanCheck
 
             myXcenter = getXcenter();
 
-            foreach (Beam bn in ctx.PlanSetup.Beams)
+            if (aPlanIsLoaded)
             {
-
-                if (bn.IsSetupField)  // count set up
+                foreach (Beam bn in ctx.PlanSetup.Beams)
                 {
-                    _setupFieldNumber++;
-                }
-                else
-                {
-                    _treatmentFieldNumber++;
-                    //machineName = b.TreatmentUnit.Id;
-                }
-            }
 
-            _isModulated = false;
-            Beam b = ctx.PlanSetup.Beams.First(x => x.IsSetupField == false);
-
-            if (b.MLCPlanType.ToString() == "VMAT")
-            {
-                _treatmentType = "VMAT";
-                _isModulated = true;
-            }
-            else if (b.MLCPlanType.ToString() == "ArcDynamic")
-                _treatmentType = "DCA";
-            else if (b.MLCPlanType.ToString() == "DoseDynamic")
-            {
-                _treatmentType = "IMRT";
-                _isModulated = true;
-            }
-            else if (b.MLCPlanType.ToString() == "Static")
-                _treatmentType = "RTC (MLC)";
-            else if (b.MLCPlanType.ToString() == "NotDefined")
-            {
-                if (b.Technique.Id == "STATIC")  // can be TOMO, Electrons or 3DCRT without MLC
-                {
-                    if (_machine.Contains("TOM"))
+                    if (bn.IsSetupField)  // count set up
                     {
-                        _treatmentType = "Tomotherapy";
-                        _isModulated = true;
-
+                        _setupFieldNumber++;
                     }
-                    else if (b.EnergyModeDisplayName.Contains("E"))
-                        _treatmentType = "Electrons";
                     else
-                        _treatmentType = "RTC (sans MLC)";
+                    {
+                        _treatmentFieldNumber++;
+                        //machineName = b.TreatmentUnit.Id;
+                    }
                 }
-                else
-                    _treatmentType = "Technique non statique inconnue : pas de MLC !";
+            }
+            _isModulated = false;
+
+            if (aPlanIsLoaded)
+            {
+                Beam b = ctx.PlanSetup.Beams.First(x => x.IsSetupField == false);
+
+                if (b.MLCPlanType.ToString() == "VMAT")
+                {
+                    _treatmentType = "VMAT";
+                    _isModulated = true;
+                }
+                else if (b.MLCPlanType.ToString() == "ArcDynamic")
+                    _treatmentType = "DCA";
+                else if (b.MLCPlanType.ToString() == "DoseDynamic")
+                {
+                    _treatmentType = "IMRT";
+                    _isModulated = true;
+                }
+                else if (b.MLCPlanType.ToString() == "Static")
+                    _treatmentType = "RTC (MLC)";
+                else if (b.MLCPlanType.ToString() == "NotDefined")
+                {
+                    if (b.Technique.Id == "STATIC")  // can be TOMO, Electrons or 3DCRT without MLC
+                    {
+                        if (_machine.Contains("TOM"))
+                        {
+                            _treatmentType = "Tomotherapy";
+                            _isModulated = true;
+
+                        }
+                        else if (b.EnergyModeDisplayName.Contains("E"))
+                            _treatmentType = "Electrons";
+                        else
+                            _treatmentType = "RTC (sans MLC)";
+                    }
+                    else
+                        _treatmentType = "Technique non statique inconnue : pas de MLC !";
+                }
             }
 
             #region extended fluence
-            if (_ctx.PlanSetup.Id.Contains("FE"))
-                if (!_ctx.PlanSetup.Id.ToUpper().Contains("FEMU")) // not femur
-                {
-                    _isFE = true;
-                    _planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
-                    _findNonFEplan = false;
-                    foreach (PlanSetup p in _ctx.Course.PlanSetups)
+            if (aPlanIsLoaded)
+            {
+                if (_ctx.PlanSetup.Id.Contains("FE"))
+                    if (!_ctx.PlanSetup.Id.ToUpper().Contains("FEMU")) // not femur
                     {
-                        if (p.Id == _planIdwithoutFE)
+                        _isFE = true;
+                        _planIdwithoutFE = _ctx.PlanSetup.Id.Split('F')[0];
+                        _findNonFEplan = false;
+                        foreach (PlanSetup p in _ctx.Course.PlanSetups)
                         {
-                            _findNonFEplan = true;
+                            if (p.Id == _planIdwithoutFE)
+                            {
+                                _findNonFEplan = true;
+                            }
+
+                        }
+                        if (!_findNonFEplan)
+                        {
+                            // wip : open  a window to select the plan manually
+                            var myChoiceWindow = new chooseNonFEplanWindow(_ctx, this); // create window
+                            myChoiceWindow.ShowDialog(); // display window,
                         }
 
                     }
-                    if (!_findNonFEplan)
-                    {
-                        // wip : open  a window to select the plan manually
-                        var myChoiceWindow = new chooseNonFEplanWindow(_ctx, this); // create window
-                        myChoiceWindow.ShowDialog(); // display window,
-                    }
-
-                }
+            }
             #endregion
 
 
             #region dosecheck is needed ?
-            _dosecheckIsNeeded = true;
-            if (isHyperArc)
-                _dosecheckIsNeeded = false;
-            if (isTOMO && _ctx.Image.ImagingOrientation.ToString() == "Feet first")
-                _dosecheckIsNeeded = false;
-            string energy = "";
-            foreach (Beam be in ctx.PlanSetup.Beams)
+            if (aPlanIsLoaded)
             {
-                if (!be.IsSetupField)
+                _dosecheckIsNeeded = true;
+                if (isHyperArc)
+                    _dosecheckIsNeeded = false;
+                if (isTOMO && _ctx.Image.ImagingOrientation.ToString() == "Feet first")
+                    _dosecheckIsNeeded = false;
+                string energy = "";
+                foreach (Beam be in ctx.PlanSetup.Beams)
                 {
-                    energy = be.EnergyModeDisplayName;
+                    if (!be.IsSetupField)
+                    {
+                        energy = be.EnergyModeDisplayName;
+                    }
                 }
+
+                if (isNOVA && isModulated && energy.Contains("FFF"))
+                    _dosecheckIsNeeded = false;
             }
-
-            if (isNOVA && isModulated && energy.Contains("FFF"))
-                _dosecheckIsNeeded = false;
-
-            //            MessageBox.Show("Is needeed " + _dosecheckIsNeeded.ToString() + " isnova " + isNOVA.ToString() + " ismodul " + isModulated.ToString() + " FFF " + energy);
 
 
             #endregion
@@ -798,31 +831,31 @@ namespace PlanCheck
 
 
             #region SEA plan name
-            //  = null if no SEA plan
-            // = SEA plan ID if only one plan contains the string SEA
-            // else ask user
-
-            SEA_planName = "null";
-            List<string> listSEA = new List<string>();
-            if (_TOMO)
+            if (aPlanIsLoaded)
             {
-                foreach (PlanSetup p in _ctx.Course.PlanSetups)
-                {
 
-                    if (p.Id.Contains("SEA"))
+                SEA_planName = "null";
+                List<string> listSEA = new List<string>();
+                if (_TOMO)
+                {
+                    foreach (PlanSetup p in _ctx.Course.PlanSetups)
                     {
-                        SEA_planName = p.Id;
-                        listSEA.Add(SEA_planName);
 
+                        if (p.Id.Contains("SEA"))
+                        {
+                            SEA_planName = p.Id;
+                            listSEA.Add(SEA_planName);
+
+                        }
                     }
-                }
-                if (listSEA.Count > 1)
-                {
-                    var myChoiceWindow = new chooseSEA(_ctx, this); // create window
-                    myChoiceWindow.ShowDialog(); // display window, 
-                }
+                    if (listSEA.Count > 1)
+                    {
+                        var myChoiceWindow = new chooseSEA(_ctx, this); // create window
+                        myChoiceWindow.ShowDialog(); // display window, 
+                    }
 
 
+                }
             }
 
             #endregion

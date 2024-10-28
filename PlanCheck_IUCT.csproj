@@ -7,7 +7,7 @@
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlanCheck</RootNamespace>
-    <AssemblyName>PlanCheck_0023_0004.esapi</AssemblyName>
+    <AssemblyName>PlanCheck_24_0023.esapi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -181,11 +181,19 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
       <Private>True</Private>
     </Reference>
-    <Reference Include="VMS.TPS.Common.Model.API">
-      <HintPath>references\VMS.TPS.Common.Model.API.dll</HintPath>
+    <Reference Include="VMS.TPS.Common.Model.API, Version=1.0.600.194, Culture=neutral, PublicKeyToken=305b81e210ec4b89, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\000_Fichiers varian Scripts\000000_esapiDLL\VMS.TPS.Common.Model.API.dll</HintPath>
     </Reference>
-    <Reference Include="VMS.TPS.Common.Model.Types">
-      <HintPath>references\VMS.TPS.Common.Model.Types.dll</HintPath>
+    <Reference Include="VMS.TPS.Common.Model.Interface">
+      <HintPath>..\..\000_Fichiers varian Scripts\000000_esapiDLL\VMS.TPS.Common.Model.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.TPS.Common.Model.Types, Version=1.0.600.194, Culture=neutral, PublicKeyToken=305b81e210ec4b89, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\000_Fichiers varian Scripts\000000_esapiDLL\VMS.TPS.Common.Model.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.TPS.PlanningModelLibrary.Interface">
+      <HintPath>..\..\000_Fichiers varian Scripts\000000_esapiDLL\VMS.TPS.PlanningModelLibrary.Interface.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase">
       <Private>True</Private>

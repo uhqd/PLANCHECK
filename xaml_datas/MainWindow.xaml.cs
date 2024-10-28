@@ -63,37 +63,38 @@ namespace PlanCheck
         public string theMachine { get; set; }
         public string theFields { get; set; }
         //public string theProtocol { get; set; }
-       // public string myFullFilename { get; set; }
+        // public string myFullFilename { get; set; }
         public string PhotonModel { get; set; }
         public IEnumerable<string> CalculationOptions { get; set; }
         public string OptimizationModel { get; set; }
         public List<UserControl> ListChecks { get; set; }
-
+        private bool _AplanIsloaded;
         #endregion
 
-        public MainWindow(PreliminaryInformation pinfo, ScriptContext pcontext) //Constructeur
+        public MainWindow(PreliminaryInformation pinfo, ScriptContext pcontext, bool planIsloaded) //Constructeur
         {
-
+            _AplanIsloaded = planIsloaded;
             DataContext = this;
             //            _actualUserPreference = actualUserPreference;
             _pinfo = pinfo;
-            _plan = pcontext.PlanSetup;
+            if (_AplanIsloaded)
+                _plan = pcontext.PlanSetup;
             _pcontext = pcontext;
             // myTimer = new timer();
 
 
-           
+
 
 
 
             // an intelligent default protocol is chosen
             //myFullFilename = getIntelligentDefaultProtocol();
 
-           // theProtocol = setProtocolDisplay(myFullFilename);//
+            // theProtocol = setProtocolDisplay(myFullFilename);//
             FillHeaderInfos(); //Filling datas binded to xaml
                                //  myTimer.durationSinceLastCall("fill header");
 
-          //  _pinfo.lastUsedCheckProtocol = theProtocol;
+            //  _pinfo.lastUsedCheckProtocol = theProtocol;
 
             InitializeComponent(); // read the xaml
                                    //  myTimer.durationSinceLastCall("Initialize component");
@@ -102,17 +103,18 @@ namespace PlanCheck
             string folderPath = Directory.GetCurrentDirectory() + @".\plancheck_data\check_protocol";
             if (!Directory.Exists(folderPath))
             {
-                MessageBox.Show(folderPath + " n'existe pas.");                
-            }           
+                MessageBox.Show(folderPath + " n'existe pas.");
+            }
             string[] csvFiles = Directory.GetFiles(folderPath, "*.xlsx");
             foreach (string filePath in csvFiles)
             {
-                String  fileName = Path.GetFileNameWithoutExtension(filePath);
+                String fileName = Path.GetFileNameWithoutExtension(filePath);
                 comboCP.Items.Add(fileName);
             }
-            String mydefaultPath = getIntelligentDefaultProtocol();
+
+            String mydefaultPath = getIntelligentDefaultProtocol(_AplanIsloaded);
             foreach (var item in comboCP.Items)
-            {                               
+            {
                 if (mydefaultPath.Contains(item.ToString()))
                 {
                     comboCP.SelectedItem = item;
@@ -171,58 +173,58 @@ namespace PlanCheck
             #endregion
 
             #region doctor in the prescription
-            if (_pcontext.PlanSetup.RTPrescription != null)
-            {
-                DoctorName = "    " + "Dr " + _pinfo.Doctor.UserFamilyName + "    ";
-                DoctorBackgroundColor = _pinfo.Doctor.UserBackgroundColor; //System.Windows.Media.Brushes.DeepPink; // _pinfo.Doctor.DoctorBackgroundColor;
-                DoctorForegroundColor = _pinfo.Doctor.UserForeGroundColor;// System.Windows.Media.Brushes.Wheat; // _pinfo.Doctor.DoctorForeGroundColor;
+            if (_AplanIsloaded)
+                if (_pcontext.PlanSetup.RTPrescription != null)
+                {
+                    DoctorName = "    " + "Dr " + _pinfo.Doctor.UserFamilyName + "    ";
+                    DoctorBackgroundColor = _pinfo.Doctor.UserBackgroundColor; //System.Windows.Media.Brushes.DeepPink; // _pinfo.Doctor.DoctorBackgroundColor;
+                    DoctorForegroundColor = _pinfo.Doctor.UserForeGroundColor;// System.Windows.Media.Brushes.Wheat; // _pinfo.Doctor.DoctorForeGroundColor;
 
-            }
+                }
+                else DoctorName = "    " + "Pas de prescripteur";
             else DoctorName = "    " + "Pas de prescripteur";
+
             #endregion
 
             #region prescription comment
-            if (_pcontext.PlanSetup.RTPrescription != null)
-            {
-                //prescriptionComment = _pcontext.PlanSetup.RTPrescription.Name;
-                // prescriptionComment += " (R" + _pcontext.PlanSetup.RTPrescription.RevisionNumber + "): ";
-
-                int nFractions = 0;
-                List<double> nDosePerFraction = new List<double>();
-                foreach (var target in _pcontext.PlanSetup.RTPrescription.Targets) //boucle sur les différents niveaux de dose de la prescription
+            if (_AplanIsloaded)
+                if (_pcontext.PlanSetup.RTPrescription != null)
                 {
-                    nFractions = target.NumberOfFractions;
-                    nDosePerFraction.Add(target.DosePerFraction.Dose);
-                }
-                string listOfDoses = nFractions.ToString() + " x " + nDosePerFraction[0].ToString("0.##");
-                for (int i = 1; i < nDosePerFraction.Count(); i++)
-                    if (nDosePerFraction[i] != nDosePerFraction[i - 1])
+                    //prescriptionComment = _pcontext.PlanSetup.RTPrescription.Name;
+                    // prescriptionComment += " (R" + _pcontext.PlanSetup.RTPrescription.RevisionNumber + "): ";
+
+                    int nFractions = 0;
+                    List<double> nDosePerFraction = new List<double>();
+                    foreach (var target in _pcontext.PlanSetup.RTPrescription.Targets) //boucle sur les différents niveaux de dose de la prescription
                     {
-                        //MessageBox.Show(nDosePerFraction[i].ToString("0.##"));
-                        listOfDoses += "/" + nDosePerFraction[i].ToString("0.##");
+                        nFractions = target.NumberOfFractions;
+                        nDosePerFraction.Add(target.DosePerFraction.Dose);
                     }
-                /*
-                 
-d0.ToString("0.##");   //24.15
-d1.ToString("0.##");   //24.16 (rounded up)
-d2.ToString("0.##");   //24.1  
-d3.ToString("0.##");   //24
-                 */
-                listOfDoses += " Gy (";
-                prescriptionComment = listOfDoses;
+                    string listOfDoses = nFractions.ToString() + " x " + nDosePerFraction[0].ToString("0.##");
+                    for (int i = 1; i < nDosePerFraction.Count(); i++)
+                        if (nDosePerFraction[i] != nDosePerFraction[i - 1])
+                        {
+                            //MessageBox.Show(nDosePerFraction[i].ToString("0.##"));
+                            listOfDoses += "/" + nDosePerFraction[i].ToString("0.##");
+                        }
 
-                if (_pcontext.PlanSetup.RTPrescription.Notes.Length == 0)
-                    prescriptionComment += "Pas de commentaire dans la prescription)";
-                else
-                {
-                    string noEndline = _pcontext.PlanSetup.RTPrescription.Notes.Replace("\n", "").Replace("\r", " - "); // replace newline by -
-                    prescriptionComment += noEndline + ")";
+                    listOfDoses += " Gy (";
+                    prescriptionComment = listOfDoses;
 
-                    // Just in case but revision name and number are not useful
-                    //+ _pcontext.PlanSetup.RTPrescription.RevisionNumber + ": " + ": " + _pcontext.PlanSetup.RTPrescription.Id + ": " + _pcontext.PlanSetup.RTPrescription.Notes;
-                    //prescriptionComment = "Commentaire de la presciption : " + _pcontext.PlanSetup.RTPrescription.Notes;
+                    if (_pcontext.PlanSetup.RTPrescription.Notes.Length == 0)
+                        prescriptionComment += "Pas de commentaire dans la prescription)";
+                    else
+                    {
+                        string noEndline = _pcontext.PlanSetup.RTPrescription.Notes.Replace("\n", "").Replace("\r", " - "); // replace newline by -
+                        prescriptionComment += noEndline + ")";
+
+                        // Just in case but revision name and number are not useful
+                        //+ _pcontext.PlanSetup.RTPrescription.RevisionNumber + ": " + ": " + _pcontext.PlanSetup.RTPrescription.Id + ": " + _pcontext.PlanSetup.RTPrescription.Notes;
+                        //prescriptionComment = "Commentaire de la presciption : " + _pcontext.PlanSetup.RTPrescription.Notes;
+                    }
                 }
-            }
+                else
+                    prescriptionComment = "pas de prescription";
             else
                 prescriptionComment = "pas de prescription";
             #endregion
@@ -233,16 +235,24 @@ d3.ToString("0.##");   //24
             // int setupFieldNumber = 0;
             //int TreatmentFieldNumber = 0;
 
-
-            theMachine = "    " + _pinfo.machine;// machineName;
-
-
-            if (!_pinfo.machine.Contains("TOM"))
+            if (_AplanIsloaded)
             {
-                theFields = _pinfo.treatmentType + " : " + _pinfo.treatmentFieldNumber + " champ(s) + " + _pinfo.setupFieldNumber + " set-up";
+                theMachine = "    " + _pinfo.machine;// machineName;
+                if (!_pinfo.machine.Contains("TOM"))
+                {
+                    theFields = _pinfo.treatmentType + " : " + _pinfo.treatmentFieldNumber + " champ(s) + " + _pinfo.setupFieldNumber + " set-up";
+                }
+                else
+                    theFields = "Tomotherapy";
+
             }
             else
-                theFields = "Tomotherapy";
+            {
+                theMachine = "   no machine";
+                theFields = "   no machine";
+            }
+
+           
 
             #region color the machines first theme
 
@@ -315,10 +325,15 @@ d3.ToString("0.##");   //24
 
             #region other infos
             //Plans infos
-            CalculationOptions = _plan.PhotonCalculationOptions.Select(e => e.Key + " : " + e.Value);
-            PhotonModel = _plan.PhotonCalculationModel;
-            OptimizationModel = _plan.GetCalculationModel(CalculationType.PhotonVMATOptimization);
-            OptimizationModel = _plan.GetCalculationModel(CalculationType.PhotonVMATOptimization);
+            if (_AplanIsloaded)
+            {
+                CalculationOptions = _plan.PhotonCalculationOptions.Select(e => e.Key + " : " + e.Value);
+                PhotonModel = _plan.PhotonCalculationModel;
+                OptimizationModel = _plan.GetCalculationModel(CalculationType.PhotonVMATOptimization);
+                OptimizationModel = _plan.GetCalculationModel(CalculationType.PhotonVMATOptimization);
+               
+
+            }
             ListChecks = new List<UserControl>();
             #endregion
 
@@ -373,7 +388,7 @@ d3.ToString("0.##");   //24
         private void OK_button_click(object sender, RoutedEventArgs e)
         {
             this.cleanList();
-            OK_button.IsEnabled = false;// Visibility.Collapsed;
+            // OK_button.IsEnabled = false;// Visibility.Collapsed;
 
 
 
@@ -383,17 +398,17 @@ d3.ToString("0.##");   //24
 
             //            read_check_protocol rcp = new read_check_protocol(myFullFilename);
             read_check_protocol rcp = new read_check_protocol(absolutePathToCP);
-           
+
             _pinfo.lastUsedCheckProtocol = rcp.protocolName;
-            
-            
+
+
             #region User log file
 
             string filePath = @"\\srv015\SF_COM\SIMON_LU\userLogPlancheck\log.csv";
 
             using (StreamWriter writer = new StreamWriter(filePath, append: true)) // append: true pour ajouter sans écraser
             {
-                writer.WriteLine(_pinfo.CurrentUser.UserFamilyName + ";"+DateTime.Today.ToString()+";"+_pcontext.Patient.Id.ToString()+";"+_pcontext.Patient.Name+";"+rcp.protocolName);
+                writer.WriteLine(_pinfo.CurrentUser.UserFamilyName + ";" + DateTime.Today.ToString() + ";" + _pcontext.Patient.Id.ToString() + ";" + _pcontext.Patient.Name + ";" + rcp.protocolName);
             }
 
 
@@ -405,45 +420,51 @@ d3.ToString("0.##");   //24
             myTimer.durationSinceLastCall("user click");
 
             #region c_course
-
-            Check_Course c_course = new Check_Course(_pinfo, _pcontext);
-            if (c_course.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_course = new CheckScreen_Global(c_course.Title, c_course.Result);
-                this.AddCheck(check_point_course);
+                Check_Course c_course = new Check_Course(_pinfo, _pcontext);
+                if (c_course.Result.Count > 0)
+                {
+                    var check_point_course = new CheckScreen_Global(c_course.Title, c_course.Result);
+                    this.AddCheck(check_point_course);
+                }
             }
             myTimer.durationSinceLastCall("Check course");
 
             #endregion
 
             #region Check_previous_Treatment
-
-            Check_previous_Treatment c_previous_traitements = new Check_previous_Treatment(_pinfo, _pcontext);
-            if (c_previous_traitements.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_prevTTT = new CheckScreen_Global(c_previous_traitements.Title, c_previous_traitements.Result);
-                this.AddCheck(check_point_prevTTT);
+                Check_previous_Treatment c_previous_traitements = new Check_previous_Treatment(_pinfo, _pcontext);
+                if (c_previous_traitements.Result.Count > 0)
+                {
+                    var check_point_prevTTT = new CheckScreen_Global(c_previous_traitements.Title, c_previous_traitements.Result);
+                    this.AddCheck(check_point_prevTTT);
+                }
             }
             myTimer.durationSinceLastCall("Previous treatments");
 
             #endregion
 
             #region Check_Prescription
-
-            if (_pcontext.PlanSetup.RTPrescription != null) // faire ce check seulement si il y a une prescription
+            if (_AplanIsloaded)
             {
-                Check_Prescription c_prescri = new Check_Prescription(_pinfo, _pcontext, rcp);
-                if (c_prescri.Result.Count > 0)
+                if (_pcontext.PlanSetup.RTPrescription != null) // faire ce check seulement si il y a une prescription
                 {
-                    var check_point_prescription = new CheckScreen_Global(c_prescri.Title, c_prescri.Result);
-                    this.AddCheck(check_point_prescription);
+                    Check_Prescription c_prescri = new Check_Prescription(_pinfo, _pcontext, rcp);
+                    if (c_prescri.Result.Count > 0)
+                    {
+                        var check_point_prescription = new CheckScreen_Global(c_prescri.Title, c_prescri.Result);
+                        this.AddCheck(check_point_prescription);
+                    }
                 }
             }
             myTimer.durationSinceLastCall("prescription");
             #endregion
 
             #region c_CT
-            Check_CT c_CT = new Check_CT(_pinfo, _pcontext, rcp);
+            Check_CT c_CT = new Check_CT(_pinfo, _pcontext, rcp, _AplanIsloaded);
             if (c_CT.Result.Count > 0)
             {
                 var check_point_ct = new CheckScreen_Global(c_CT.Title, c_CT.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
@@ -466,97 +487,113 @@ d3.ToString("0.##");   //24
             #endregion
 
             #region Check_Isocenter
-
-            Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext, rcp);
-            if (c_Isocenter.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                this.AddCheck(check_point_iso);
+                Check_Isocenter c_Isocenter = new Check_Isocenter(_pinfo, _pcontext, rcp);
+                if (c_Isocenter.Result.Count > 0)
+                {
+                    var check_point_iso = new CheckScreen_Global(c_Isocenter.Title, c_Isocenter.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    this.AddCheck(check_point_iso);
+                }
             }
             myTimer.durationSinceLastCall("isocenter");
 
             #endregion
 
             #region c_Plan
-
-            Check_Plan c_Plan = new Check_Plan(_pinfo, _pcontext, rcp);
-            if (c_Plan.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_plan = new CheckScreen_Global(c_Plan.Title, c_Plan.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                this.AddCheck(check_point_plan);
+                Check_Plan c_Plan = new Check_Plan(_pinfo, _pcontext, rcp);
+                if (c_Plan.Result.Count > 0)
+                {
+                    var check_point_plan = new CheckScreen_Global(c_Plan.Title, c_Plan.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    this.AddCheck(check_point_plan);
+                }
             }
             myTimer.durationSinceLastCall("plan");
 
             #endregion
 
             #region c_algo
-
-            Check_Model c_algo = new Check_Model(_pinfo, _pcontext, rcp);
-            if (c_algo.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_model = new CheckScreen_Global(c_algo.Title, c_algo.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                this.AddCheck(check_point_model);
+                Check_Model c_algo = new Check_Model(_pinfo, _pcontext, rcp);
+                if (c_algo.Result.Count > 0)
+                {
+                    var check_point_model = new CheckScreen_Global(c_algo.Title, c_algo.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    this.AddCheck(check_point_model);
+                }
             }
             myTimer.durationSinceLastCall("model");
 
             #endregion
 
             #region c_Beams
-
-            Check_beams c_Beams = new Check_beams(_pinfo, _pcontext, rcp);
-            if (c_Beams.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_beams = new CheckScreen_Global(c_Beams.Title, c_Beams.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                this.AddCheck(check_point_beams);
+                Check_beams c_Beams = new Check_beams(_pinfo, _pcontext, rcp); //
+                if (c_Beams.Result.Count > 0)
+                {
+                    var check_point_beams = new CheckScreen_Global(c_Beams.Title, c_Beams.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    this.AddCheck(check_point_beams);
+                }
             }
             myTimer.durationSinceLastCall("beams");
 
             #endregion
 
             #region c_UM
-
-            Check_UM c_UM = new Check_UM(_pinfo, _pcontext, rcp);
-            if (c_UM.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                this.AddCheck(check_point_um);
+                Check_UM c_UM = new Check_UM(_pinfo, _pcontext, rcp);
+                if (c_UM.Result.Count > 0)
+                {
+                    var check_point_um = new CheckScreen_Global(c_UM.Title, c_UM.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    this.AddCheck(check_point_um);
+                }
             }
             myTimer.durationSinceLastCall("UM");
 
             #endregion
 
             #region Check_doseDistribution
-
-            Check_doseDistribution c_doseDistribution = new Check_doseDistribution(_pinfo, _pcontext, rcp);
-            if (c_doseDistribution.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_dose_distribution = new CheckScreen_Global(c_doseDistribution.Title, c_doseDistribution.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                this.AddCheck(check_point_dose_distribution);
+                Check_doseDistribution c_doseDistribution = new Check_doseDistribution(_pinfo, _pcontext, rcp);
+                if (c_doseDistribution.Result.Count > 0)
+                {
+                    var check_point_dose_distribution = new CheckScreen_Global(c_doseDistribution.Title, c_doseDistribution.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    this.AddCheck(check_point_dose_distribution);
+                }
+
             }
             myTimer.durationSinceLastCall("dose distribution");
-
             #endregion
 
             #region Check_finalisation
-
-            Check_finalisation c_Finalisation = new Check_finalisation(_pinfo, _pcontext, rcp);
-            if (c_Finalisation.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                this.AddCheck(check_point_finalisation);
+                Check_finalisation c_Finalisation = new Check_finalisation(_pinfo, _pcontext, rcp);
+                if (c_Finalisation.Result.Count > 0)
+                {
+                    var check_point_finalisation = new CheckScreen_Global(c_Finalisation.Title, c_Finalisation.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    this.AddCheck(check_point_finalisation);
+                }
             }
             myTimer.durationSinceLastCall("finalisation");
 
             #endregion
 
             #region Check_Uncheck_Test
-
-            Check_Uncheck_Test c_Uncheck = new Check_Uncheck_Test(_pinfo, _pcontext, rcp);
-            if (c_Uncheck.Result.Count > 0)
+            if (_AplanIsloaded)
             {
-                var check_point_uncheck = new CheckScreen_Global(c_Uncheck.Title, c_Uncheck.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
-                check_point_uncheck.Visibility = Visibility.Collapsed;
-                this.AddCheck(check_point_uncheck);
+                Check_Uncheck_Test c_Uncheck = new Check_Uncheck_Test(_pinfo, _pcontext, rcp);
+                if (c_Uncheck.Result.Count > 0)
+                {
+                    var check_point_uncheck = new CheckScreen_Global(c_Uncheck.Title, c_Uncheck.Result); // faire le Add check item direct pour mettre les bonnes couleurs de suite
+                    check_point_uncheck.Visibility = Visibility.Collapsed;
+                    this.AddCheck(check_point_uncheck);
+                }
             }
             myTimer.durationSinceLastCall("uncheck");
 
@@ -737,130 +774,135 @@ d3.ToString("0.##");   //24
 
             return protocol;
         }
-        private String getIntelligentDefaultProtocol()
+        private String getIntelligentDefaultProtocol(bool AplanIsLoaded)
         {
 
             String fileName = @"\plancheck_data\check_protocol\defaut.xlsx";
-            String planName = _pcontext.PlanSetup.Id.ToUpper();
-            String nFractions = _pcontext.PlanSetup.NumberOfFractions.ToString();
-            bool isORL = false;
-            bool isCranial = false;
-            String courseName = _pinfo.CourseName.ToUpper();
-            if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE") || planName.Contains("BUC"))
-                isORL = true;
 
-            if (planName.Contains("ASTRO") || planName.Contains("GLI"))
-                isCranial = true;
-
-
-            if (planName.Contains("SEIN"))
+            if (AplanIsLoaded)
             {
-                bool gg = false;
-                //  bool hypo = false;
-                if (planName.Contains("GG"))
-                    gg = true;
-                //if (_pcontext.PlanSetup.NumberOfFractions == 15)
-                //  hypo = true;
-                if (planName.Contains("DV"))
+                String planName = _pcontext.PlanSetup.Id.ToUpper();
+                String nFractions = _pcontext.PlanSetup.NumberOfFractions.ToString();
+                bool isORL = false;
+                bool isCranial = false;
+                String courseName = _pinfo.CourseName.ToUpper();
+                if (planName.Contains("CAVUM") || planName.Contains("ORL") || planName.Contains("PHARYNX") || planName.Contains("PAROTIDE") || planName.Contains("BUC"))
+                    isORL = true;
+
+                if (planName.Contains("ASTRO") || planName.Contains("GLI"))
+                    isCranial = true;
+
+
+                if (planName.Contains("SEIN"))
                 {
-                    fileName = @"\plancheck_data\check_protocol\seinDV.xlsx";
-                }
-                else if (gg)
-                {
-                    //if (hypo)
-                    //  fileName = @"\plancheck_data\check_protocol\sein ganglions hypo.xlsx";
-                    // else
-                    fileName = @"\plancheck_data\check_protocol\sein ganglions.xlsx";
-                }
-                else if (planName.ToUpper().Contains("DIBH"))
-                {
-                    fileName = @"\plancheck_data\check_protocol\sein DIBH.xlsx";
-                }
-                else
-                {
-                    //if (hypo)
-                    //  fileName = @"\check_protocol\sein hypo.xlsx";
-                    //else
-                    fileName = @"\plancheck_data\check_protocol\sein.xlsx";
-                }
-
-
-            }
-            else if (isORL)
-            {
-                fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
-            }
-            else if ((planName.Contains("POUMON")) && (!planName.Contains("STEC")))
-            {
-                fileName = @"\plancheck_data\check_protocol\poumon.xlsx";
-            }
-            else if (planName.Contains("VAGIN") || planName.Contains("VULVE") || planName.Contains("COL"))
-            {
-                fileName = @"\plancheck_data\check_protocol\gynecologie.xlsx";
-
-            }
-            else if (planName.Contains("PAROI"))
-            {
-
-                fileName = @"\plancheck_data\check_protocol\paroi ganglions.xlsx";
-            }
-            else if (planName.Contains("LOGE") || planName.Contains("PROST"))
-            {
-                fileName = @"\plancheck_data\check_protocol\prostate.xlsx";
-            }
-            else if (_pinfo.isHyperArc)
-            { fileName = @"\plancheck_data\check_protocol\hyperarc.xlsx"; }
-            else if (planName.Contains("STIC"))
-            {
-                fileName = @"\plancheck_data\check_protocol\STIC.xlsx";
-            }
-            else if (planName.Contains("STEC")|| planName.Contains("STEREO")|| planName.Contains("SBRT"))
-            {
-                if (planName.Contains("FOIE"))
-                {
-                    //fileName = @"\plancheck_data\check_protocol\STEC foie" + nFractions + "F.xlsx";
-                    if (_pinfo.treatmentType == "VMAT")
-                        fileName = @"\plancheck_data\check_protocol\STEC foie RA.xlsx";
+                    bool gg = false;
+                    //  bool hypo = false;
+                    if (planName.Contains("GG"))
+                        gg = true;
+                    //if (_pcontext.PlanSetup.NumberOfFractions == 15)
+                    //  hypo = true;
+                    if (planName.Contains("DV"))
+                    {
+                        fileName = @"\plancheck_data\check_protocol\seinDV.xlsx";
+                    }
+                    else if (gg)
+                    {
+                        //if (hypo)
+                        //  fileName = @"\plancheck_data\check_protocol\sein ganglions hypo.xlsx";
+                        // else
+                        fileName = @"\plancheck_data\check_protocol\sein ganglions.xlsx";
+                    }
+                    else if (planName.ToUpper().Contains("DIBH"))
+                    {
+                        fileName = @"\plancheck_data\check_protocol\sein DIBH.xlsx";
+                    }
                     else
-                        fileName = @"\plancheck_data\check_protocol\STEC foie DCA.xlsx";
+                    {
+                        //if (hypo)
+                        //  fileName = @"\check_protocol\sein hypo.xlsx";
+                        //else
+                        fileName = @"\plancheck_data\check_protocol\sein.xlsx";
+                    }
+
+
                 }
-                if (planName.Contains("POUM"))
+                else if (isORL)
                 {
-                    //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
-                    if (_pinfo.treatmentType == "VMAT")
-                        fileName = @"\plancheck_data\check_protocol\STEC poumon RA.xlsx";
-                    else
-                        fileName = @"\plancheck_data\check_protocol\STEC poumon DCA.xlsx";
+                    fileName = @"\plancheck_data\check_protocol\ORL.xlsx";
                 }
-                if (planName.Contains("COTE")|| planName.Contains("OS"))
+                else if ((planName.Contains("POUMON")) && (!planName.Contains("STEC")))
                 {
-                    //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
-                    if (_pinfo.nFractions == 3)
-                        fileName = @"\plancheck_data\check_protocol\STEC Os 3F.xlsx";
-                    else if (_pinfo.nFractions == 5)
-                        fileName = @"\plancheck_data\check_protocol\STEC Os 5F.xlsx";
+                    fileName = @"\plancheck_data\check_protocol\poumon.xlsx";
                 }
-                if (planName.Contains("REIN"))
+                else if (planName.Contains("VAGIN") || planName.Contains("VULVE") || planName.Contains("COL"))
                 {
-                    //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
-                    if (_pinfo.nFractions == 3)
-                        fileName = @"\plancheck_data\check_protocol\STEC rein 3F.xlsx";
-                    else if (_pinfo.nFractions == 5)
-                        fileName = @"\plancheck_data\check_protocol\STEC rein 5F.xlsx";
+                    fileName = @"\plancheck_data\check_protocol\gynecologie.xlsx";
+
                 }
+                else if (planName.Contains("PAROI"))
+                {
+
+                    fileName = @"\plancheck_data\check_protocol\paroi ganglions.xlsx";
+                }
+                else if (planName.Contains("LOGE") || planName.Contains("PROST"))
+                {
+                    fileName = @"\plancheck_data\check_protocol\prostate.xlsx";
+                }
+                else if (_pinfo.isHyperArc)
+                { fileName = @"\plancheck_data\check_protocol\hyperarc.xlsx"; }
+                else if (planName.Contains("STIC"))
+                {
+                    fileName = @"\plancheck_data\check_protocol\STIC.xlsx";
+                }
+                else if (planName.Contains("STEC") || planName.Contains("STEREO") || planName.Contains("SBRT"))
+                {
+                    if (planName.Contains("FOIE"))
+                    {
+                        //fileName = @"\plancheck_data\check_protocol\STEC foie" + nFractions + "F.xlsx";
+                        if (_pinfo.treatmentType == "VMAT")
+                            fileName = @"\plancheck_data\check_protocol\STEC foie RA.xlsx";
+                        else
+                            fileName = @"\plancheck_data\check_protocol\STEC foie DCA.xlsx";
+                    }
+                    if (planName.Contains("POUM"))
+                    {
+                        //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
+                        if (_pinfo.treatmentType == "VMAT")
+                            fileName = @"\plancheck_data\check_protocol\STEC poumon RA.xlsx";
+                        else
+                            fileName = @"\plancheck_data\check_protocol\STEC poumon DCA.xlsx";
+                    }
+                    if (planName.Contains("COTE") || planName.Contains("OS"))
+                    {
+                        //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
+                        if (_pinfo.nFractions == 3)
+                            fileName = @"\plancheck_data\check_protocol\STEC Os 3F.xlsx";
+                        else if (_pinfo.nFractions == 5)
+                            fileName = @"\plancheck_data\check_protocol\STEC Os 5F.xlsx";
+                    }
+                    if (planName.Contains("REIN"))
+                    {
+                        //fileName = @"\check_protocol\STEC poumon" + nFractions + "F.xlsx";
+                        if (_pinfo.nFractions == 3)
+                            fileName = @"\plancheck_data\check_protocol\STEC rein 3F.xlsx";
+                        else if (_pinfo.nFractions == 5)
+                            fileName = @"\plancheck_data\check_protocol\STEC rein 5F.xlsx";
+                    }
+
+
+                }
+                else if (_pinfo.treatmentType.Contains("RTC"))
+                {
+                    fileName = @"\plancheck_data\check_protocol\defaut RTC.xlsx";
+                }
+                else if (isCranial)
+                {
+                    fileName = @"\plancheck_data\check_protocol\intracranien-non-stereo.xlsx";
+                }
+
 
 
             }
-            else if (_pinfo.treatmentType.Contains("RTC"))
-            {
-                fileName = @"\plancheck_data\check_protocol\defaut RTC.xlsx";
-            }
-            else if (isCranial)
-            {
-                fileName = @"\plancheck_data\check_protocol\intracranien-non-stereo.xlsx";
-            }
-
-
             String fullname = Directory.GetCurrentDirectory() + fileName;
             if (!File.Exists(fullname))
             {
@@ -869,7 +911,6 @@ d3.ToString("0.##");   //24
             }
             if (!File.Exists(fullname))
                 MessageBox.Show(fullname + "\nFichiers check-protocol introuvables");
-
             return fullname;
         }
 

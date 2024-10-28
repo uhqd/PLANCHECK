@@ -76,7 +76,7 @@ namespace PlanCheck.xaml_datas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PlanCheck_0023_0004.esapi;component/xaml_datas/selectptwwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PlanCheck_24_0023.esapi;component/xaml_datas/selectptwwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\xaml_datas\selectPTWWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

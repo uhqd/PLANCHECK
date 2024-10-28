@@ -20,12 +20,13 @@ namespace PlanCheck
 {
     internal class Check_CT
     {
-        public Check_CT(PreliminaryInformation pinfo, ScriptContext ctx, read_check_protocol rcp)  //Constructor
+        public Check_CT(PreliminaryInformation pinfo, ScriptContext ctx, read_check_protocol rcp,bool aPlanIsLoaded)  //Constructor
         {
 
             _rcp = rcp;
             _context = ctx;
             _pinfo = pinfo;
+            _AplanIsloaded = aPlanIsLoaded;
             Check();
         }
 
@@ -36,6 +37,7 @@ namespace PlanCheck
         private read_check_protocol _rcp;
         private string CheckAVEMessage;
         private string _title = "CT";
+        private bool _AplanIsloaded;
         //test
 
 
@@ -123,13 +125,13 @@ namespace PlanCheck
             int zSizeAverage = ctx.Image.ZSize;
             int xSizeAverage = ctx.Image.XSize;
             int ySizeAverage = ctx.Image.YSize;
-            int centralImageIndex = zSizeAverage / 2;
+            int centralImageIndex = (zSizeAverage / 2);
             int[,] myPlane = new int[xSizeAverage, ySizeAverage];
             ctx.Image.GetVoxels(centralImageIndex, myPlane); // get voxel to myplane
             int i1 = xSizeAverage / 2;
             int j1 = ySizeAverage / 2;
 
-
+          //  MessageBox.Show("Index x y z for " + ctx.Image.Id + " " + i1 + " " + j1 + " " + centralImageIndex);
             double checkSumAvergageSerie = ctx.Image.VoxelToDisplayValue(myPlane[i1, j1]);
             double checkSumAvergageSerieB = ctx.Image.VoxelToDisplayValue(myPlane[i1 + 4, j1 + 4]);
 
@@ -303,6 +305,7 @@ namespace PlanCheck
                     yPhaseSize = im16.YSize;
                     k = xPhaseSize / 2;
                     m = yPhaseSize / 2;
+                   // MessageBox.Show("Index x y z for " + im16.Id + " " + k + " " + m + " " + centralImageIndex);
                     checkSumSerie16 = im16.VoxelToDisplayValue(myPlane16[k, m]);
                     checkSumSerie16B = im16.VoxelToDisplayValue(myPlane16[k + 4, m + 4]);
                     CheckAVEMessage += im16.Id + " A: " + checkSumSerie16.ToString("F2") + "\tB:" + checkSumSerie16B.ToString("F2") + "\n";
@@ -414,7 +417,7 @@ namespace PlanCheck
 
         }
 
-        private bool checAVEcomposition(String comment, int expectedPhase) // General Electrics 4dct
+        private bool checAVEcompositionGeneralElectrics4D(String comment, int expectedPhase) // General Electrics 4dct
         {
             // if exepected phase is 3, comment must contains these values and only these values : 33% 50% 66%
             // if exepected phase is 6, comment must contains these values  : 0% 16% 33% 50% 66% 83%
@@ -488,7 +491,7 @@ namespace PlanCheck
                 #endregion
             }
 
-            if (_pinfo.actualUserPreference.userWantsTheTest("origin"))
+            if (_pinfo.actualUserPreference.userWantsTheTest("origin") && _AplanIsloaded)
             {
                 #region Origine placée
                 if ((!_pinfo.isTOMO))
@@ -499,7 +502,7 @@ namespace PlanCheck
                     var image = _context.PlanSetup.StructureSet.Image;
                     if (!image.HasUserOrigin)
                     {
-                        origin.setToWARNING();
+                        origin.setToFALSE();
                         origin.MeasuredValue = "Origine non modifiée";
                         origin.Infobulle = "L'origine est confondue avec l'origine DICOM. Ce qui signifie que l'origine n'a pas été placée. A vérifier.";
                     }
@@ -514,6 +517,7 @@ namespace PlanCheck
                 }
                 #endregion
             }
+         
             if (_pinfo.actualUserPreference.userWantsTheTest("sliceThickness"))
             {
                 #region Epaisseur de coupes
@@ -534,7 +538,8 @@ namespace PlanCheck
 
                 #endregion
             }
-            if (_pinfo.actualUserPreference.userWantsTheTest("HUcurve"))
+           
+            if (_pinfo.actualUserPreference.userWantsTheTest("HUcurve") && _AplanIsloaded)
             {
                 #region courbe HU
                 Item_Result HUcurve = new Item_Result();
@@ -579,6 +584,7 @@ namespace PlanCheck
                 this._result.Add(HUcurve);
                 #endregion
             }
+            
             if (_pinfo.actualUserPreference.userWantsTheTest("deviceName"))
             {
                 #region CT series number
@@ -590,7 +596,17 @@ namespace PlanCheck
 
 
                 deviceName.Label = "CT series number";
-                deviceName.ExpectedValue = "Siemens Healthineers SOMATOM go.Open Pro130246";// GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
+
+                if (_context.Image.Series.ImagingDeviceId.ToUpper().Contains("100KV"))
+                {
+                    deviceName.ExpectedValue = "Siemens Healthineers SOMATOM go.Open Pro";// GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
+                }
+                else
+                {
+                    deviceName.ExpectedValue = "Siemens Healthineers SOMATOM go.Open Pro130246";// GE MEDICAL SYSTEMS Optima CT580";//XXXXX TO GET         
+                }
+
+                
                 deviceName.MeasuredValue = CT;
                 deviceName.Comparator = "=";
                 deviceName.Infobulle = "Vérification du modèle et du numéro de série du CT";
@@ -599,6 +615,7 @@ namespace PlanCheck
 
                 #endregion
             }
+          
             if (_pinfo.actualUserPreference.userWantsTheTest("image3Dnaming"))
             {
                 #region date dans le nom imaged 3d
@@ -668,7 +685,7 @@ namespace PlanCheck
                         if (_context.Image.Series.Comment.ToUpper().Contains("3"))
                         {
 
-                            //    checkComposition = checAVEcomposition(_context.Image.Series.Comment, 3);  // GE
+                            //    checkComposition = checAVEcompositionGeneralElectrics4D(_context.Image.Series.Comment, 3);  // GE
 
                             checkComposition = checkAVEcompositionSiemensCT(_context, 3); // SIEMENS
 
@@ -678,7 +695,7 @@ namespace PlanCheck
                         else if (_context.Image.Series.Comment.ToUpper().Contains("6"))
                         {
 
-                            //  checkComposition = checAVEcomposition(_context.Image.Series.Comment, 6); // GE
+                            //  checkComposition = checAVEcompositionGeneralElectrics4D(_context.Image.Series.Comment, 6); // GE
                             checkComposition = checkAVEcompositionSiemensCT(_context, 6); // SIEMENS
 
                         }
@@ -777,7 +794,7 @@ namespace PlanCheck
 
                 #endregion
             }
-            if (_pinfo.actualUserPreference.userWantsTheTest("tomoReportCT_date"))
+            if (_pinfo.actualUserPreference.userWantsTheTest("tomoReportCT_date") && _AplanIsloaded)
             {
                 #region CT used for tomo : Check date
                 if (_pinfo.isTOMO)
@@ -807,7 +824,7 @@ namespace PlanCheck
                 }
                 #endregion
             }
-            if (_pinfo.actualUserPreference.userWantsTheTest("otherSeries"))
+            if (_pinfo.actualUserPreference.userWantsTheTest("otherSeries") && _AplanIsloaded)
             {
                 #region other required series
                 if (_rcp.needeSupplImages.Count > 0)

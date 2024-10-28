@@ -19,7 +19,7 @@ using System.Windows.Navigation;
 using Excel = Microsoft.Office.Interop.Excel;
 // Do "Add reference" in reference manager --> COM tab --> Microsoft Excel 16 object...
 
-[assembly: AssemblyVersion("1.0.23.04")]
+[assembly: AssemblyVersion("1.0.24.00")]
 namespace VMS.TPS
 {
     public class Script
@@ -31,10 +31,10 @@ namespace VMS.TPS
         [MethodImpl(MethodImplOptions.NoInlining)]
         public void Execute(ScriptContext context)
         {
-         
-            #region check if a plan with dose is loaded, no verification plan allowed
-    
 
+            #region check if a plan with dose is loaded, no verification plan allowed
+
+            bool aPlanIsLoaded = true;
 
             if (context == null)
             {
@@ -44,37 +44,39 @@ namespace VMS.TPS
 
             if (context.PlanSetup == null)
             {
-                MessageBox.Show("Merci de charger un plan");
-                return;
+                MessageBox.Show("Aucun plan chargé, les tests de plans et de dose ne seront pas effectués");
+                aPlanIsLoaded = false;
             }
-            if (context.PlanSetup.PlanIntent == "VERIFICATION")
+            if (aPlanIsLoaded)
             {
-                MessageBox.Show("Merci de charger un plan qui ne soit pas un plan de vérification");
-                return;
-            }
-            if (!context.PlanSetup.IsDoseValid)
-            {
-                MessageBox.Show("Merci de charger un plan avec une dose");
-                return;
+                if (context.PlanSetup.PlanIntent == "VERIFICATION")
+                {
+                    MessageBox.Show("Aucun plan de traitement chargé, les tests de plans et de dose ne seront pas effectués");
+                    aPlanIsLoaded = false;
+                }
+                if (!context.PlanSetup.IsDoseValid)
+                {
+                    MessageBox.Show("Aucune dose dans le plan, les tests de plans et de dose ne seront pas effectués");
+                    aPlanIsLoaded = false;
+                }
             }
 
-            
             #endregion
-            
+
             string fullPath = Assembly.GetExecutingAssembly().Location; //get the full location of the assembly          
             string theDirectory = Path.GetDirectoryName(fullPath);//get the folder that's in                                                                  
             Directory.SetCurrentDirectory(theDirectory);// set current directory as the .dll directory
 
-            Perform(context);
+            Perform(context,aPlanIsLoaded);
         }
 
 
-        public static void Perform(ScriptContext context)
+        public static void Perform(ScriptContext context,bool planIsLoaded)
         {
             
-            PreliminaryInformation pinfo = new PreliminaryInformation(context);    //Get Plan information...      
+            PreliminaryInformation pinfo = new PreliminaryInformation(context,planIsLoaded);    //Get Plan information...      
 
-            var window = new MainWindow(pinfo, context); // create window
+            var window = new MainWindow(pinfo, context,planIsLoaded); // create window
             
             window.ShowDialog(); // display window, next lines not executed until it is closed
             
