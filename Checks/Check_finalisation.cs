@@ -263,7 +263,7 @@ namespace PlanCheck
                                                 found = true;
                                                 if (p.ApprovalStatus.ToString() != "PlanningApproved")
                                                     unapprovedQAplans.Add(p.Id);
-                                                bool calibrationFieldisOK = isCalibrationFieldOK("Octa", p.Course);
+                                                bool calibrationFieldisOK = true;// no more needed calib plan // isCalibrationFieldOK("Octa", p.Course);
                                                 if (!calibrationFieldisOK)
                                                     wrongCalibrationQAplans.Add(p.Id);
                                                 break;

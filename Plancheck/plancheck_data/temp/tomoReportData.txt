@@ -1,20 +1,19 @@
-Rappportdeplanificationderadiothérapie(v15.6.05)deBONNEVIALLE,
-LUCIEN
-Plan:CuisseDHFS
-Rapportcrééle:28/10/202408:16:45par:CavetClemence
-1/7
+Rappportdeplanificationderadiothérapie(v15.6.05)deLOUBET,ANNIE
+Plan:Rectum
+Rapportcrééle:29/10/202415:03:11par:CarilloFabienne
+1/6
 PATIENT
-Nom:BONNEVIALLE,LUCIEN(202206358) DatedeNaissance:09/12/1942 Sexe:Masculin
+Nom:LOUBET,ANNIE(202412695) DatedeNaissance:27/05/1947 Sexe:Féminin
 PLAN PRESCRIPTIONDE
 DOSE
-IDplan CuisseDHFS Méthodenormalisation 100.00%couvre50.00%duvolumecible
-IDdossierdetraitement: C1 Volumecible: PTV
-IDimage: TDMRTE231024HFS Pointdereferenceprincipal PTVCuisseD
-Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.0%
-Orientationdutraitement: Piedsdevant-DD Pourcentagededoseprescrite 100.0%
-Décalagedel'origine/àDICOM: (-10.78cm,-17.16cm,63.00cm) Fractionnement:
-Typedetraitement: VMAT(RA) DosePrescrite: 50.0Gy(3.33Gy/fraction)
-Nombredefractions: 15
+IDplan Rectum Méthodenormalisation 100.00%couvre50.00%duvolumecible
+IDdossierdetraitement: C1 Volumecible: PTV_HDOPT
+IDimage: TDMRTE231024 Pointdereferenceprincipal PTV_HDOPT
+Systèmed'imagerie: CT130246 Valeurdenormalisation: 100.8%
+Orientationdutraitement: Tetedevant-DD Pourcentagededoseprescrite 100.0%
+Décalagedel'origine/àDICOM: (0.55cm,-19.15cm,-32.80cm) Fractionnement:
+Typedetraitement: VMAT(RA) DosePrescrite: 50.0Gy(2.00Gy/fraction)
+Nombredefractions: 25
 OPTIONSDECALCUL
 Algorithmephoton: AAA_15605New
 CalculationGridSizeInCM 0.125
@@ -22,106 +21,79 @@ CalculationGridSizeInCMForSRSAndHyperArc 0.125
 FieldNormalizationType 100%toisocenter
 HeterogeneityCorrection ON
 APPROBATIONS
-Plancréé: admin\recordon(25/10/202412:02:40)
-Appro.plan: HernandezLudovic(vendredi25octobre202417:28:17)
-Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deBONNEVIALLE,
-LUCIEN
-Plan:CuisseDHFS
-Rapportcrééle:28/10/202408:16:45par:CavetClemence
-2/7
-PARAMETRESDESFAISCEAUXDETRAITEMENT(1/2)
+Plancréé: admin\lanaspeze(28/10/202417:44:34)
+Appro.plan: PasquierCorentin(mardi29octobre202411:57:24)
+Appro.traitement: -Rappportdeplanificationderadiothérapie(v15.6.05)deLOUBET,ANNIE
+Plan:Rectum
+Rapportcrééle:29/10/202415:03:11par:CarilloFabienne
+2/6
+PARAMETRESDESFAISCEAUXDETRAITEMENT(1/1)
 IDchamp
-RA8 RA7 RA6 RA5 RA4 RA3
-IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8 HALCYON8
-Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min 740UM/min
-X1 14 14 14 14 14 14
-X2 14 14 14 14 14 14
-Y1 14 14 14 14 14 14
-Y2 14 14 14 14 14 14
-Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm² 28x28cm²
-Angledubras 181° 0° 181° 0° 181° 0°
-Sensderotationdubras SH SAH SH SAH SH SAH
-Angled'arrêtdubras 0° 181° 0° 181° 0° 181°
-Rot.collimateur 45° 315° 45° 315° 45° 315°
-Rot.detable 0° 0° 0° 0° 0° 0°
-Bolus - - - - - -
-IsocentreX -6.64cm -6.64cm -6.64cm -6.64cm -6.64cm -6.64cm
-IsocentreY -0.24cm -0.24cm -0.24cm -0.24cm -0.24cm -0.24cm
-IsocentreZ -10.5cm -10.5cm -10.5cm -10.5cm -2.5cm -2.5cm
-DSP 93.9cm 91.2cm 93.9cm 91.2cm 93.3cm 90.6cm
-Ponderation 0.411 0.521 0.417 0.497 0.566 0.455
-Pointderéférence PTVCuisseD PTVCuisseD PTVCuisseD PTVCuisseD PTVCuisseD PTVCuisseD
-Filtreencoin - - - - - -
-Bloc - - - - - -
-Plaque - - - - - -
-Doseparfraction 0.354Gy 0.448Gy 0.358Gy 0.427Gy 0.487Gy 0.391Gy
-UM 137.1UM 173.5UM 138.9UM 165.5UM 188.6UM 151.5UMRappportdeplanificationderadiothérapie(v15.6.05)deBONNEVIALLE,
-LUCIEN
-Plan:CuisseDHFS
-Rapportcrééle:28/10/202408:16:45par:CavetClemence
-3/7
-PARAMETRESDESFAISCEAUXDETRAITEMENT(2/2)
-IDchamp
-RA2 RA1
-IDmachine HALCYON8 HALCYON8
-Energie 6X-FFF 6X-FFF
-Debitdedose 740UM/min 740UM/min
-X1 14 14
-X2 14 14
-Y1 14 14
-Y2 14 14
-Tailledechamp 28x28cm² 28x28cm²
-Angledubras 181° 0°
-Sensderotationdubras SH SAH
-Angled'arrêtdubras 0° 181°
-Rot.collimateur 45° 315°
-Rot.detable 0° 0°
-Bolus - -
-IsocentreX -6.64cm -6.64cm
-IsocentreY -0.24cm -0.24cm
-IsocentreZ -2.5cm -2.5cm
-DSP 93.3cm 90.6cm
-Ponderation 0.533 0.476
-Pointderéférence PTVCuisseD PTVCuisseD
-Filtreencoin - -
-Bloc - -
-Plaque - -
-Doseparfraction 0.459Gy 0.409Gy
-UM 177.7UM 158.6UMRappportdeplanificationderadiothérapie(v15.6.05)deBONNEVIALLE,
-LUCIEN
-Plan:CuisseDHFS
-Rapportcrééle:28/10/202408:16:45par:CavetClemence
-4/7
-HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deBONNEVIALLE,
-LUCIEN
-Plan:CuisseDHFS
-Rapportcrééle:28/10/202408:16:45par:CavetClemence
-5/7
+RA1 RA2 RA3 RA4
+IDmachine HALCYON8 HALCYON8 HALCYON8 HALCYON8
+Energie 6X-FFF 6X-FFF 6X-FFF 6X-FFF
+Debitdedose 740UM/min 740UM/min 740UM/min 740UM/min
+X1 14 14 14 14
+X2 14 14 14 14
+Y1 14 14 14 14
+Y2 14 14 14 14
+Tailledechamp 28x28cm² 28x28cm² 28x28cm² 28x28cm²
+Angledubras 179° 181° 179° 181°
+Sensderotationdubras SAH SH SAH SH
+Angled'arrêtdubras 181° 179° 181° 179°
+Rot.collimateur 315° 45° 315° 45°
+Rot.detable 0° 0° 0° 0°
+Bolus - - - -
+IsocentreX -1.52cm -1.52cm -1.52cm -1.52cm
+IsocentreY -0.63cm -0.63cm -0.63cm -0.63cm
+IsocentreZ -3.88cm -3.88cm -3.88cm -3.88cm
+DSP 89.6cm 89.6cm 89.6cm 89.6cm
+Ponderation 1.005 1.081 0.977 1.023
+Pointderéférence PTV_HDOPT PTV_HDOPT PTV_HDOPT PTV_HDOPT
+Filtreencoin - - - -
+Bloc - - - -
+Plaque - - - -
+Doseparfraction 0.492Gy 0.529Gy 0.478Gy 0.501Gy
+UM 199.3UM 214.3UM 193.8UM 202.9UMRappportdeplanificationderadiothérapie(v15.6.05)deLOUBET,ANNIE
+Plan:Rectum
+Rapportcrééle:29/10/202415:03:11par:CarilloFabienne
+3/6
+HISTOGRAMMEDOSEVOLUMERappportdeplanificationderadiothérapie(v15.6.05)deLOUBET,ANNIE
+Plan:Rectum
+Rapportcrééle:29/10/202415:03:11par:CarilloFabienne
+4/6
 STATISTIQUESHISTOGRAMMEDOSE-VOLUME(1/1)
 Structure Volume(cc) DoseMax(Gy) DoseMoyenne(Gy) Dose1cc(Gy) Dose0.035cc(Gy)
-PTVCuisseDr 1693.5 53.7 50.0 52.9 53.4
-CTVCuisseDr 1217.6 53.7 50.3 52.9 53.4
-Grele 2954.8 2.4 0.2 2.0 2.3
-QueueDeCheval 8.7 0.3 0.1 0.2 0.2
-Rectum 108.9 6.3 4.2 5.8 6.2
-ReinGche 0.4 0.0 0.0 NonNumérique NonNumérique
-TeteFemorDte 255.3 48.7 19.9 45.5 47.5
-BODY 38074.9 53.7 6.1 52.9 53.4
-TeteFemorGche 264.5 1.9 1.2 1.8 1.9
-Vessie 232.4 4.8 2.0 4.4 4.7Rappportdeplanificationderadiothérapie(v15.6.05)deBONNEVIALLE,
-LUCIEN
-Plan:CuisseDHFS
-Rapportcrééle:28/10/202408:16:45par:CavetClemence
-6/7
+BODY 42825.6 51.9 8.2 51.3 51.8
+Vessie 65.5 43.1 19.5 34.3 38.0
+TeteFemorGche 125.6 39.7 18.9 35.6 39.0
+TeteFemorDte 120.0 39.7 18.5 34.4 38.3
+Sigmoide 40.1 46.0 31.5 45.2 45.9
+Rectum 43.6 51.9 47.6 50.7 51.4
+QueueDeCheval 18.4 26.2 3.3 11.0 23.6
+Grele 4150.1 46.9 4.0 45.5 46.4
+Foie 258.0 0.2 0.0 0.2 0.2
+Duodenum 47.6 0.7 0.4 0.7 0.7
+Canalmed 28.8 0.8 0.4 0.7 0.8
+GTVT 19.4 51.4 50.1 50.7 51.1
+CanalMed+5 79.1 0.9 0.4 NonNumérique NonNumérique
+CTVHD 68.2 51.9 50.2 51.2 51.7
+PTVHD 127.1 51.9 49.9 51.3 51.8
+PTVBD 1249.7 51.9 45.2 51.3 51.8
+CTVBD 782.6 51.9 45.6 51.3 51.8
+Sacroiliaques 246.3 46.8 28.3 45.7 46.4
+OGE 96.1 25.8 9.7 20.6 23.5
+QueueDeCheval+5 59.2 33.8 4.3 25.9 32.6
+PTV_HDOPT 126.9 51.9 49.9 51.3 51.8
+PTV_BD-PTV_HD 1119.6 50.0 44.6 48.7 49.3
+PTV_BDOPT 1248.1 51.9 45.2 51.3 51.8Rappportdeplanificationderadiothérapie(v15.6.05)deLOUBET,ANNIE
+Plan:Rectum
+Rapportcrééle:29/10/202415:03:11par:CarilloFabienne
+5/6
 DECALAGESDELATABLEPARRAPPORTALAPOSITIONDEREFERENCE
-Isocentredeschamps:,RA8,RA7,RA6,RA5
-Décaler: -6.64cm 0.24cm -10.5cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)
-Isocentredeschamps:,RA4,RA3,RA2,RA1
-Décaler: -6.64cm 0.24cm -2.5cm
-Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deBONNEVIALLE,
-LUCIEN
-Plan:CuisseDHFS
-Rapportcrééle:28/10/202408:16:45par:CavetClemence
-7/7
+Isocentredeschamps:,RA1,RA2,RA3,RA4
+Décaler: -1.52cm 0.63cm -3.88cm
+Direction: Tableversladroiteenregardantlebras Tableverslebas Tableenlongverslebras(in)Rappportdeplanificationderadiothérapie(v15.6.05)deLOUBET,ANNIE
+Plan:Rectum
+Rapportcrééle:29/10/202415:03:11par:CarilloFabienne
+6/6

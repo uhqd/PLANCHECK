@@ -120,7 +120,7 @@ namespace PlanCheck
                     algo_name.MeasuredValue = _pinfo.AlgoName;
                     algo_name.Comparator = "=";
                     algo_name.Infobulle = "Algorithme attendu pour le check-protocol " + _rcp.protocolName + " : " + algo_name.ExpectedValue;
-                    algo_name.Infobulle += "\nLes algoOptions de calcul ne sont pas vérifiées si l'algorithme n'est pas celui attendu";
+                    algo_name.Infobulle += "\nLes options de calcul ne sont pas vérifiées si l'algorithme n'est pas celui attendu";
                     algo_name.ResultStatus = testing.CompareDatas(algo_name.ExpectedValue, algo_name.MeasuredValue, algo_name.Comparator);
 
                 }
@@ -258,7 +258,7 @@ namespace PlanCheck
                         {
                             algoOptions.setToTRUE();
                             algoOptions.MeasuredValue = "OK";
-                            algoOptions.Infobulle = "Les " + myOpt + " algoOptions du modèle calcul sont en accord avec le check-protocol: " + _rcp.protocolName + "\n";
+                            algoOptions.Infobulle = "Les " + myOpt + " options du modèle calcul sont en accord avec le check-protocol: " + _rcp.protocolName + "\n";
                             foreach (KeyValuePair<String, String> kvp in map)
                                 algoOptions.Infobulle += " - " + kvp.Key + " : " + kvp.Value + "\n";
 
